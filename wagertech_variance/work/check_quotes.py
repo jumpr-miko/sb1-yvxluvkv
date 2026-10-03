@@ -25,7 +25,9 @@ for ef in sorted(glob.glob(f"{B}/extracts/*.json")+glob.glob(f"{B}/extracts/tier
         tot+=1
         parts=[p for p in re.split(r"\s+/\s+|\s*(?:\.\.\.|\u2026)\s*|\s*\[\.\.\.\]\s*",q) if p.strip() and len(p.strip())>3] or [q]
         # strip a leading "Speaker Name:" prefix (extractors often prefix mid-paragraph excerpts with the speaker)
+        parts=[p.strip(" /") for p in parts]
         parts=[re.sub(r"^[A-Z][A-Za-z.'\-]+(?: [A-Z][A-Za-z.'\-]+){0,3}:\s*","",p).strip() or p for p in parts]
+        parts=[p for p in parts if len(p)>3] or parts
         # accept if full normalized quote is a substring, or if every ' / '-separated part is a substring
         full=norm(q) in text
         partial=all(norm(p) in text for p in parts) if parts else False
