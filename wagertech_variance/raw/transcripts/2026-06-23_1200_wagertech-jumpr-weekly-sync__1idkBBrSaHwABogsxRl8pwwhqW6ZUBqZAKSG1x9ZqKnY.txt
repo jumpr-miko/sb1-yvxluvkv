@@ -1,0 +1,1033 @@
+📝 Notes
+Jun 23, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited Marc Cabantog Miko Sumagang lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi strah@wagertech.bet
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+Discussion of data architecture strategy and Salesforce storage optimization and cost analysis for long-term project planning.
+
+Data Storage Strategy
+External operator data storage will utilize a Postgres instance to optimize costs over Snowflake. This architecture effectively handles the estimated 5 to 10 gigabytes of annual data requirements.
+
+Signup Process Optimization
+Replacing the Lead object with person accounts and dedicated signup records streamlines user tracking. Identity matching logic prioritizes email verification, using manual review for edge cases to ensure accuracy.
+
+Infrastructure Cost Evaluation
+Transitioning storage from Dropbox to Google Cloud Platform aligns with existing ecosystem goals to reduce expenditures. Salesforce storage pricing is under review to leverage potential partner-level discounts.
+
+
+Decisions
+Needs Further Discussion
+* Duplicate click handling strategy pending The team is evaluating whether to create a new signup record for every click or use a staging object to handle duplicate click entries, with a final decision pending a follow-up document review.
+
+
+Aligned
+* PostgreSQL selected for operator data storage The team decided to use a PostgreSQL instance to store external operator data to ensure scalability and ease of integration with Salesforce and reporting tools.
+* Signup records replacing lead object The team committed to replacing the Salesforce Lead object with a custom Signup record to simplify the user tracking process and avoid unnecessary conversion workflows.
+* Secondary email field included for signups A secondary email field is added to the signup process to improve customer identification accuracy.
+* Review cue established for unmatched signups Unmatched signups will be directed to a review cue for manual verification instead of relying on error-prone name-based matching.
+* Google Cloud Platform selected for storage Google Cloud Platform is selected for file storage to align with the company's existing Google Workspace ecosystem.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Write User Stories: Create documentation for objects needing creation or updates. Include all field names, API names, and display labels.
+* [Joyce Kiddell] Update PRD: Make necessary modifications to the Product Requirements Document.
+* [Waleed Alasadi, Kobi Kunasekaran] Review DataBox Agreement: Confirm agreement terms with DataBox to assess capabilities for reporting and data integration.
+* [Kobi Kunasekaran] Document Signup Process: Draft a document outlining the proposed signup record model in Salesforce for team review.
+* [Joyce Kiddell] Provide Storage Usage: Determine the current total Dropbox storage usage and report the updated data to the team.
+* [Kobi Kunasekaran] Outline Storage Interface: Develop a proposal for building a Google Cloud Storage interface to serve as a cost effective replacement for Dropbox.
+
+
+
+Details
+* World Cup and Travel Discussion: Emily Vandenberg and Waleed Alasadi engaged in a brief conversation regarding the World Cup and the significant impact of international events on travel and accommodation in London (00:00:04).
+* Meeting Objectives and Scope: Emily Vandenberg, Kobi Kunasekaran, and Strahinja Vladetic agreed to focus the meeting on data requirements and database architecture decisions, rather than conducting a deep dive into the Entity Relationship Diagram (ERD) at this time (00:01:47).
+* External Data Storage Strategy: Strahinja Vladetic reviewed options for storing external operator data, noting that the estimated data volume is 5 to 10 gigabytes per year. The team considered Snowflake, which has strong Salesforce integrations, but decided it was potentially too expensive for the current data volume; instead, they agreed to use a Postgres instance that can scale to zero when not in use (00:04:39).
+* Data Flow and Reporting Goals: The participants clarified that the primary objective is to pull data out of Salesforce to combine it with operator data for reporting, rather than feeding all data into Salesforce (00:07:46). Lina Ceniccola emphasized the need for a seamless method to report on affiliate and sales data to assess performance and identify potential data erosion (00:09:39).
+* Reporting and Visualization Tools: The team discussed the reporting layer, noting that they currently underutilize the tool DataBox (00:17:00). Kobi Kunasekaran explained that if direct reporting tools cannot handle the necessary integration, the team could employ third-party middleware to move data between Salesforce and Postgres (00:13:22) (00:18:07).
+* Project Timeline and Collaboration: Strahinja Vladetic estimated that the operator data would be ready in Postgres before the Salesforce object model is finalized (00:20:11). Waleed Alasadi noted the importance of incorporating markets, deals, and operators into the structure to ensure the data model supports these relationships (00:24:03).
+* Documentation and Deviations: Kobi Kunasekaran committed to preparing user stories that include API names and field details to maintain transparency (00:30:39). Strahinja Vladetic requested to be notified of any deviations from the proposed model to ensure the two systems remain aligned (00:27:49).
+* Weekly Project Status Update: Kobi Kunasekaran reported that two discovery sessions were completed, and the team is currently reviewing documentation and drafting user stories, with a goal to provide a demo by next week or the following week (00:33:39). Joyce Kiddell committed to updating the Product Requirements Document (PRD) by the end of day tomorrow, focusing on later project phases (00:34:48).
+* Signup Process Re-evaluation: Kobi Kunasekaran proposed avoiding the "Lead" object in Salesforce, describing it as "overkill" given the intention to use person accounts (00:36:45). Instead, the group discussed creating specific "signup records" to track user actions, which would be directly linked to player contacts (00:37:57).
+* Survey Completion Tracking: Joyce Kiddell clarified that the primary requirement for survey tracking is a boolean status indicating whether a survey was completed and a corresponding timestamp, rather than analyzing the specific survey contents within Salesforce (00:40:02). Kobi Kunasekaran suggested using a lightweight custom object for this to maintain efficient API interactions (00:39:00) (00:41:58).
+* Signup Flow Logic: Kobi Kunasekaran described the plan for handling new signups, where a signup record is created regardless of whether a player already exists in the system, followed by a automated flow to match it to an existing player or create a new player record if necessary (00:42:52).
+* Handling Click Events and Duplicates: Joyce Kiddell raised concerns about handling multiple clicks from the same user, noting that current systems might incorrectly flag these as duplicates (00:44:41). Kobi Kunasekaran and the team discussed the trade-off between recording every click versus updating a single record, ultimately leaning toward using a staging object or a dedicated signup record to preserve an audit trail of clicks without creating excessive noise in the system (00:48:42) (00:53:56).
+* Player Identity Matching: The team discussed the complexity of identity matching, as players may use different email addresses. Joyce Kiddell suggested that the system should utilize multiple identifiers, such as first and last name or phone number, in addition to email to improve matching accuracy (00:55:39).
+* Player Signup Matching Process: Lina Ceniccola identifies a challenge where customers fail to follow instructions for providing an e-transfer email, suggesting the addition of a secondary email field to improve data collection accuracy. Waleed Alasadi argues against using names for matching due to the risk of incorrect spelling and potential security concerns, while Kobi Kunasekaran notes that phone numbers are prone to formatting inconsistencies (00:57:45). Waleed Alasadi proposes a middle-ground solution where the system attempts to match based on email first, and if that fails, it creates a review cue for a representative to handle manually rather than automatically creating a player profile. Kobi Kunasekaran and Lina Ceniccola agree with this approach, confirming that it maximizes automatic processing while ensuring accuracy for edge cases (00:58:54).
+* Salesforce Storage Pricing Analysis: Miko Sumagang reviews the Salesforce storage capacity and cost figures presented by Kobi Kunasekaran, questioning the initial estimates (01:00:53). Miko Sumagang clarifies that Salesforce differentiates between file storage and data storage, and that file storage is generally more cost-effective. Kobi Kunasekaran cites a price of $300 per month for one terabyte of file storage (01:01:45) (01:03:36). Miko Sumagang notes that as Salesforce partners, the team may have access to better pricing, including a 60% promo code, and suggests that list prices are often negotiable (01:02:32). Kobi Kunasekaran agrees to verify these figures and proceed with negotiation if necessary (01:03:36).
+* Dropbox Usage and Future Storage Strategy: Kobi Kunasekaran points out that the current Dropbox expenditure, approximately $3,200, is significantly higher than alternative options. Joyce Kiddell reports that current usage is 396.3 GB, which is entirely comprised of proofs, including large 4K video files (01:04:22) (01:08:46). Kobi Kunasekaran explains that while Google Cloud Platform or AWS would be the most cost-effective long-term solution, they would require the development of a custom user interface to replicate existing Dropbox functionality (01:06:52). Joyce Kiddell expresses a preference for Google Cloud Platform to align with the company's existing Google Workspace ecosystem. Kobi Kunasekaran plans to investigate if the 72 GB of storage currently included in the Salesforce native approach is sufficient for the immediate term while simultaneously scoping the build for a Google Cloud Platform integration to ensure a long-term solution is ready (01:04:22) (01:07:50).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jun 23, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:04
+
+Emily Vandenberg: Hi,
+Waleed Alasadi: Emily,
+Emily Vandenberg: how are you?
+Waleed Alasadi: very well. How are you?
+Emily Vandenberg: Good. Thank you.
+Waleed Alasadi: Did Did I ask you this? Do you do you watch the World Cup at all or do you care?
+Emily Vandenberg: I wish I cared more. I'm aware,
+Waleed Alasadi: Okay.
+Emily Vandenberg: but I have been watching.
+Waleed Alasadi: What about like Canada playing? No.
+Emily Vandenberg: Not really.
+Waleed Alasadi: Okay. Well, tomorrow at 3:00 it's a big game. It's they're likely going to like reach the next stage for the first time ever.
+Emily Vandenberg: Oh my gosh, that's really exciting.
+Waleed Alasadi: Mhm. Mhm.
+Emily Vandenberg: I must watch them.
+Waleed Alasadi: Yeah. Or like just like watch see are they going to win?
+Emily Vandenberg: Yeah.
+Waleed Alasadi: Did they win?
+Emily Vandenberg: Yeah.
+Waleed Alasadi: I tell this. Sorry. Go ahead.
+Emily Vandenberg: Have you guys gone to any games?
+Waleed Alasadi: No, I haven't. Um I don't think Kobe or me because No,
+
+
+00:00:47
+
+Emily Vandenberg: No.
+Waleed Alasadi: it's happening so close. So on game days, it's like nice like there is a game today. Um, but it's later so I actually don't see a lot of people today. But when Canada played their first game here, it was it was
+Emily Vandenberg: Yeah, I can imagine.
+Waleed Alasadi: insane.
+Emily Vandenberg: Um, I was like working I've only been with uh Wager Tech since April, but prior to that I was working for a marketing agency and we did like a huge pitch for like um taking kind of like the overflow traffic for tourism London like promoting kind of like London for for it. Um so I put a lot of cycles into kind of like you know understanding the impact and how much travel was anticipated. It was pretty crazy.
+Waleed Alasadi: like and it's a lot of travel that's going to be
+Emily Vandenberg: Yeah, people that were coming in like what they were expecting and like Toronto not being able to kind of house like everything and so London
+Waleed Alasadi: required.
+Emily Vandenberg: was like a bit of like a trying to capture that spillover if you
+
+
+00:01:47
+
+Waleed Alasadi: Oh, cool.
+Emily Vandenberg: will.
+Waleed Alasadi: All
+Emily Vandenberg: So, let me see.
+Waleed Alasadi: right.
+Emily Vandenberg: It looks like it's my team. So, let me Yes.
+Waleed Alasadi: Well, we're your team as well.
+Emily Vandenberg: I had said to Kobe, but I think we and maybe you already chatted internally, but we'll we'll do the kind of erd and like straw questions first and then he can jump off and then we can kind of carry forward with the Yeah, the kind of standing.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Let me see. Unless he is that him. Who do we have? No. Lena said one and then I mostly trying to catch straw here.
+Kobi Kunasekaran: I think we initially had this for 12 and then we moved it to 12:30, right?
+Emily Vandenberg: Uh half an hour.
+Kobi Kunasekaran: Like the just a half an hour and then we pulled it up.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Yeah. Okay.
+Emily Vandenberg: There he is. Hey Straw,
+Strahinja Vladetic: Hey guys,
+Emily Vandenberg: how's it going?
+Strahinja Vladetic: not too bad.
+
+
+00:03:38
+
+Strahinja Vladetic: How's
+Kobi Kunasekaran: All
+Emily Vandenberg: Good.
+Waleed Alasadi: Doing good.
+Strahinja Vladetic: everybody?
+Kobi Kunasekaran: right.
+Emily Vandenberg: I was just saying straw. We're going to kick it off with just kind of like k getting kind of through. I think you know Kobe you said like the ERD we don't need to go super deep on so I don't think we need to go deep level review more just around the kind of data requirements and then like the decision that we are kind of making around setting up our database to make sure kind of straw has everything unblocked or kind of any questions he has we can book a time like later to go a bit deeper if needed does that make sense
+Kobi Kunasekaran: That works. I'm also curious. Sorry.
+Strahinja Vladetic: Uh yeah. Yeah, I don't think we need to go too deep into the er. We'll probably do that as as the as we get more stuff into Salesforce. Um but yeah, I would like your guys opinion on on what we're doing with the data.
+
+
+00:04:39
+
+Emily Vandenberg: Yeah, I think in the interest of time and knowing you know we got a lot to get through um why don't we just
+Strahinja Vladetic: Sure.
+Emily Vandenberg: start strong Joyce and Lena are coming. Um, and then we can we can kind of get your questions cleared and then let you
+Strahinja Vladetic: Yeah. So there's a there's a bunch of external data from the operators and other places
+Emily Vandenberg: free
+Strahinja Vladetic: um that we basically just want to pull into a central data source or data store and we want to make sure that that works well enough with Salesforce in case we want to marry the two data sources for reporting. Um
+Kobi Kunasekaran: What is the like where are you planning on storing all this
+Strahinja Vladetic: uh so I've just done some sort
+Kobi Kunasekaran: information?
+Strahinja Vladetic: of pre preliminary research just to figure out the approximate volume of the data and it doesn't seem too um too large. I think we landed on like a high estimate would be something like 5 to 10 gigs a year. Um, so originally they were looking at Snowflake because that's owned by Salesforce and it seems to have the best integrations with it.
+
+
+00:05:48
+
+Strahinja Vladetic: Uh, but I don't have uh much experience with Snowflake at all,
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: but uh I have worked with BigQuery and other data warehouse like solutions and it seems to be solving that problem more than a data sources.
+Kobi Kunasekaran: Heat.
+Strahinja Vladetic: So it just seems like they don't have enough of a volume for of data to warrant that kind of solution and it's very expensive. So my sort of happy middle ground was just spinning up a Postgress instance um hosted somewhere where they can scale to zero basically because really the only use case right now is reporting. So anytime that they're not using it, they should be paying next to nothing for it. Um and I just wanted to make sure that that sounded okay with you guys. From the bit of research I've done, it seems like anything outside of Snowflake is about as easy to hook up to Salesforce. Um,
+Kobi Kunasekaran: Yeah, I think it just depends on like how much of that information we want to pull into Salesforce.
+Strahinja Vladetic: yeah.
+Kobi Kunasekaran: uh how much Salesforce information you need to pull into Postgress.
+
+
+00:06:50
+
+Kobi Kunasekaran: Um like there are like third party tools that I've used in the past to make that connection happen on either either end like either pulling data out of Snowflake or not Snowflake Postgress or uh pushing data to it. Um it yeah I don't think you don't necessarily need to go with Snowflake obviously Snowflake like Salesforce offers like some out of the box connectors but they also come with drawbacks. So I think Postgress makes sense especially cuz like still early on you're still discovering what the data is going to look like and
+Waleed Alasadi: Can I can I ask the intention of like uh like how do you foresee
+Kobi Kunasekaran: everything.
+Waleed Alasadi: Salesforce working with your like own database? Are you looking for a full copy to come back? Is it about like specific information going at certain times? I don't know. just maybe where are you kind of what are you trying to do end stage with the database and Salesforce
+Strahinja Vladetic: So I'm not exactly sure what the what what information would be going into Salesforce.
+Waleed Alasadi: together.
+
+
+00:07:46
+
+Strahinja Vladetic: Um I'm assuming anything that they they need to enable the specific reporting that they have in mind. My the use case on the other side is we have all this operator data that needs to be in one place and we could pull out Salesfor this is this was I think my ideal solution.
+Waleed Alasadi: Sure.
+Strahinja Vladetic: We could pull out the data from Salesforce and then run reports on it independent of Salesforce without having to like worry about creating new workflows or or developing in
+Waleed Alasadi: So essentially like one of the problems
+Strahinja Vladetic: Salesforce.
+Waleed Alasadi: that gatekeeper uh sorry wager tech you guys shared with us was like and Joyce said this a lot was that the like operator data is messy and we're not going to include it in scope now. So maybe what I'm what I'm understanding right now is that you want to organize the operator data then you want to feed Salesforce player information user reps and whatnot and be able to match it against the operator data that you have. So if you want to look at a complete picture then you're not looking in Salesforce.
+
+
+00:08:47
+
+Waleed Alasadi: Salesforce is just a source to the complete picture. Did I get that correct?
+Strahinja Vladetic: Yeah, that sounds exactly exactly
+Waleed Alasadi: Okay.
+Strahinja Vladetic: right.
+Waleed Alasadi: Yeah. Yeah. So, it's like I it seems to me more about like obviously using like I saw Kobe your questions, right? Like it's a lot about like just ID matching and like ID requirements, but also um yeah, it's just more of like data flowing out of Salesforce versus into
+Strahinja Vladetic: Yeah,
+Waleed Alasadi: Salesforce.
+Strahinja Vladetic: my understanding is that 90% of the use case would be us just grabbing that data there so we can connect it to whatever we need to generate the reports that they want.
+Waleed Alasadi: Okay.
+Strahinja Vladetic: Does that make sense? Obviously stop the opposite for going off the
+Emily Vandenberg: Yeah, that's that's aligned with me.
+Strahinja Vladetic: rails.
+Emily Vandenberg: Lena, I know you kind of jumped in, but you didn't you didn't miss much. Does that make sense to you as
+Lina Ceniccola: Yeah,
+Strahinja Vladetic: Okay, so
+Lina Ceniccola: at the end of the day we we're just trying to
+
+
+00:09:39
+
+Emily Vandenberg: well?
+Lina Ceniccola: match what Salesforce is taking in from our sales data
+Strahinja Vladetic: that
+Lina Ceniccola: to everything that's going on in the affiliate world out here and bring it together and make an insight like are we on track? Are we not on track? Are we eroding? Are we not eroding? like but to be able to pull these reports together in a way that's seamless. It's like kind of what Straw is describing where we want it to come in to a place that can report against everything coming into Salesforce.
+Emily Vandenberg: And I think there's an element where we're like trying kind of like pushing to like evolve and get more sophisticated is like what's happening on the website and those insights and how they kind kind of marry back to some of the operator data in absence of like onetoone tracking. So, we're making some kind of work progress there,
+Lina Ceniccola: Cuz
+Emily Vandenberg: but that will all be handled by straw within the within that setup.
+Lina Ceniccola: yeah, sometimes it's like not necessarily easy to report on these things cuz like you have to you have to spend some time like drawing insights from the affiliate data to like create a story from the sales data where because it's not five on our
+
+
+00:11:04
+
+Kobi Kunasekaran: f***.
+Lina Ceniccola: side. So you're like constantly, okay, well then if this date says this, but they're missing this date on this date, then these things move down here as in things I mean CPA is like, okay, but they registered actually on that date. So maybe these two pieces of data line up like you're just from our end how we've dealt with the like matching I guess there it's not just onetoone so we do need to become more sophisticated cuz like as we just like grow and get more deals like that just becomes something you can't manage I mean it could be like that could take up a bunch of people's like full-time job just doing that. So, yeah. I hope that helps or makes
+Waleed Alasadi: Okay. It it does I it opens a few few more questions um here.
+Lina Ceniccola: sense.
+Waleed Alasadi: Uh I want to start with like what do you have you decided what the reporting layer is going to look like? So when you do want to pull those reports and like the insights what where are you going to do that?
+
+
+00:12:21
+
+Emily Vandenberg: Oh, like what what tool data visual?
+Waleed Alasadi: Yeah, for
+Emily Vandenberg: Um, we haven't got so far as to define like the you know the how and what we'll be able
+Waleed Alasadi: example.
+Emily Vandenberg: to use. I know there'll be some things we'll be able to pull specifically out of Salesforce and we will leverage you know some of those configurations. Um, girl, I don't think you've put much more thought into tool kind of how we visualize with this data at this
+Strahinja Vladetic: No, the the goal right now is just to get it get it pulled in,
+Emily Vandenberg: point.
+Waleed Alasadi: the the reason for the question is um so when you when you start
+Strahinja Vladetic: get all
+Waleed Alasadi: put like connecting tools to Salesforce databases or otherwise um like Kobe mentioned an out of the box Salesfor Snowflake connector so that's cool because then like it gives you the ability to connect data if you do want to do it without a connector you're going to have to either have buy a tool that does it like what are they called Kobe the the the tools that are in between like uh
+
+
+00:13:22
+
+Kobi Kunasekaran: uh ETL
+Waleed Alasadi: um sure like the integration tools
+Kobi Kunasekaran: tools
+Waleed Alasadi: that we why am I forgetting all of them now
+Strahinja Vladetic: like a plugin
+Waleed Alasadi: um yes
+Miko Sumagang: battery is
+Kobi Kunasekaran: like like segment and the like those ones right there.
+Strahinja Vladetic: or
+Waleed Alasadi: like thank you so anyway you you'll need a tool in between the
+Kobi Kunasekaran: Oh, I forgot the
+Miko Sumagang: zapier.
+Waleed Alasadi: databases to send kind of the information uh from one to the other or you can build your own custom APIs to
+Kobi Kunasekaran: name.
+Waleed Alasadi: to kind of do that. So, but then if you do know where you're going to be reporting, let's say that you decided to do like all the analysis in a PowerBI or like a analysis tool, then those tools themselves,
+Emily Vandenberg: Yeah.
+Waleed Alasadi: they don't need you to have all of the information in a single database. You can have them across multiple databases.
+Strahinja Vladetic: Oops.
+Waleed Alasadi: So then the job doesn't become about loading information from Salesforce into the database that you you start that you're putting together.
+
+
+00:14:13
+
+Waleed Alasadi: It's just about only matching the IDs so that when you join the tables in the BI tool, they match up and you're able to do your analysis there. So the question is really more about saving that step of integration if we don't need it. Um it depends on again how we going to use the data.
+Strahinja Vladetic: Yeah, that makes sense. If if we can avoid doing it, by all means, and and they can save some time and effort on that. That that sounds sounds good to me. Um, I just wanted to make sure that that possibility was there and that you guys were comfortable that it wasn't some that that picking Postgress wasn't just like out of the realm of possibility to to make the connection between the two if it needed to happen. when we get the reporting if if we can hook both Salesforce and the database up together and get whatever the tooling is to to do the joins. It seems
+Emily Vandenberg: Yeah,
+Waleed Alasadi: Yeah.
+Strahinja Vladetic: good.
+Waleed Alasadi: So I guess yeah,
+
+
+00:15:07
+
+Emily Vandenberg: that makes
+Waleed Alasadi: it's really about just like then it's about the structures and being able to like joint tables essentially when it comes to this conversation. It's about the the that
+Joyce Kiddell: Sorry guys, I I joined super late. I had another meeting run long. Um, is there anything I need to know high level or take away on my end so
+Emily Vandenberg: No, I think you're good, Joyce. We were just kind of validating,
+Joyce Kiddell: far?
+Emily Vandenberg: you know, Postgress and and Straw's kind of like, you know, thinking there around what we're going to be doing and the push and pull within Salesforce data, but also kind of layering in the idea of like whatever we use from a visualization tool, we might actually be able to direct um data directly there versus like kind of funneling into Postgress.
+Joyce Kiddell: Okay. So, it it's like we would use um Salesforce as the visualization interface as
+Waleed Alasadi: No, no,
+Joyce Kiddell: well.
+Waleed Alasadi: no. Salesforce reporting by the way is not that great and it will only be done on your like objects within Salesforce.
+
+
+00:16:10
+
+Emily Vandenberg: Yeah.
+Waleed Alasadi: Like you'll get what you want out of it. It's just you won't be able to join other data sources.
+Joyce Kiddell: Oh, okay. Okay.
+Waleed Alasadi: What I was saying is that Salesforce could be a data source in your visualization tool similar to how Postgress
+Joyce Kiddell: That's
+Waleed Alasadi: is going to be. So there's no need to push data from Salesforce into Postgress to report is if the intention is reporting and
+Joyce Kiddell: Oh,
+Waleed Alasadi: analysis in a BI tool.
+Joyce Kiddell: got it. Got it. Got it. Okay.
+Waleed Alasadi: Yeah.
+Joyce Kiddell: So,
+Emily Vandenberg: So
+Joyce Kiddell: we could use or something like that.
+Waleed Alasadi: If you're going to be Yeah.
+Joyce Kiddell: Okay. Yeah. Yep.
+Waleed Alasadi: If you are going to be transforming data though like match like based on the dollar amount like the 39s
+Emily Vandenberg: just
+Waleed Alasadi: have to go to 39s and stuff then that's a different story maybe. Uh, but if it's just simply about like here's the player data, here's the operator data that's cleaned up and let's report on them together, then I don't see a need to push to connect the the the two
+
+
+00:17:00
+
+Joyce Kiddell: I think we will probably need to join data
+Waleed Alasadi: sources.
+Joyce Kiddell: straw. So I think having it go into the database actually does make the most sense then.
+Strahinja Vladetic: Well, yeah. Um, I think William was just saying that whatever visualization tool you're using might just offer that out of the box. So, you might be able to connect Salesforce, connect Postgress, and do the joining there.
+Waleed Alasadi: And our job is to make sure like the IDs joist across like both systems that like are logical for them
+Joyce Kiddell: Okay.
+Waleed Alasadi: to be joined
+Joyce Kiddell: Okay. Just for context for all of you,
+Waleed Alasadi: essentially.
+Joyce Kiddell: we do already pay for the tool data box um which is a visualization tool um that we're under utilizing right now. it is pretty powerful for like someone like myself to just go in and like build a report as long as the sources are hooked up correctly. Um, but I do know that they don't do joining well. Like I tried that even myself and worked with their team and they're like no no I recommend like sorting that out at a database level and then like we can visualize it in a way that allows you to like pivot filter do all the the fun stuff.
+
+
+00:18:07
+
+Emily Vandenberg: Okay. What was that called again?
+Joyce Kiddell: Data box.
+Waleed Alasadi: There
+Emily Vandenberg: Okay, that's
+Joyce Kiddell: Yeah, if we if we don't like that as like a end solution,
+Waleed Alasadi: works.
+Joyce Kiddell: I'm happy to revisit it. It's just like I don't I need to check what kind of agreement we have sign with them, too.
+Waleed Alasadi: Okay,
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: Okay.
+Waleed Alasadi: we should take a look Kobe and see like can do this too.
+Joyce Kiddell: Mm.
+Emily Vandenberg: But I think um we kind of hear heard in a line that like our path forward with Postgress is not a blocker kind of foreseen um limitation as we get down the road here.
+Kobi Kunasekaran: Yeah. I think worst case scenario like if if your if data box or whatever BI tool can't just uh help you visualize the data direct straight from Salesforce then there are a dozen or more uh middleware that'll uh move that data from Salesforce into Postgress for you and then you can do all the joins and everything in Postgress and then uh visualize in a data block.
+
+
+00:19:04
+
+Kobi Kunasekaran: So that should be fine. I don't think this is going to block anything. If anything like you as long as you have like a data prep layer whether it's in Postgress or whatever other tool um you can always uh connect the data together there. So I don't think this is going to make any difference in terms of the build or anything that we do on the Salesforce end as of now.
+Emily Vandenberg: That's great. think that straw.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Was there anything um else you wanted to kind of go deeper on with the
+Strahinja Vladetic: Um, no, that's pretty much it.
+Emily Vandenberg: team?
+Strahinja Vladetic: I just wanted to make sure that we're on the same page for that side of things so that you guys were cool with that existing there and potential integration coming down the line, whatever that looks like once you guys finish with this work.
+Kobi Kunasekaran: Nothing.
+Strahinja Vladetic: That sounds like we are. So, that's that's all I that's all I'm here for.
+Waleed Alasadi: Can I ask can I ask about your timeline straw as to uh like specifically in relation to to Salesforce is Salesforce like object model going to be done first or are you going to be done first and I'm asking just to see who should like monitor who to stay in in
+
+
+00:20:11
+
+Strahinja Vladetic: Uh my gut feeling is that I'll likely have the bulk of the data in Postgress before you guys finish if that's what you're asking.
+Kobi Kunasekaran: This is going to be like the vendor data though,
+Strahinja Vladetic: Yeah.
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: right? Like not necessarily buyer data operating
+Strahinja Vladetic: Yeah. It'll be the operator data that that we can later connect to Salesforce.
+Waleed Alasadi: So, would you have any objects created for like the player side of it,
+Kobi Kunasekaran: site.
+Waleed Alasadi: the sales side?
+Strahinja Vladetic: Uh, no. I think we would want that to come in from Salesforce.
+Waleed Alasadi: Okay. Sweet. Okay. Okay. I see. I see how that makes sense.
+Strahinja Vladetic: Um,
+Emily Vandenberg: So
+Strahinja Vladetic: or there might be some obviously we we might have to work together when that integration point comes up.
+Emily Vandenberg: then
+Joyce Kiddell: question.
+Waleed Alasadi: Oh, 100%.
+Strahinja Vladetic: Um, or if I see stuff in the data where it looks like, okay,
+Waleed Alasadi: Yeah.
+Strahinja Vladetic: we actually need to know what the IDs are ahead of time before even pulling this data in or some some weird scenario like that,
+
+
+00:20:51
+
+Emily Vandenberg: heat.
+Strahinja Vladetic: then we can talk through it. But for now, I think it would just be pulling all that in, cleaning it up, putting it to Postgress, and then waiting for the or the user
+Emily Vandenberg: Thank
+Strahinja Vladetic: enter data to come in.
+Emily Vandenberg: God.
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: So something related I want to ask uh based on what I saw from the API documents and stuff that you shared Emily um play.ca CA. Um, so every time like somebody clicks and sign ups through, uh, sorry, signs up through the agency website or clicks on those like study links, um, right now those are getting sent as leads into Salesforce, but it seems like you're also storing that on like somewhere in play.ca, right? Like it they were showing interface what looked like tables, uh, all of those records. Um, what what is that like a database as well? are using that to keep track of all of the for all of the signups and clicks. Um, and how does that play into like either the OCR side of things or Salesforce side of
+
+
+00:21:57
+
+Emily Vandenberg: definitely using it for the signups in a bit of a different
+Kobi Kunasekaran: things?
+Emily Vandenberg: capacity um and survey completions. Um, I know it's being stored there and it's relatively new from like a lead capture, but Joyce, I don't think we're utilizing it for anything else. Are
+Joyce Kiddell: you. Yeah,
+Emily Vandenberg: we
+Joyce Kiddell: like I think the database you're probably referencing is just like the one that's connected to all of our agency sites, right?
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: So, we do have a sense of like our own like player database from there and then um it flows
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: into Salesforce. Some of the the data flow issues we've been seeing though is that um due to however issue is set up either in the front end like event tracking or like something to do with the backend d I don't know exactly what it is but basically um the the the lead isn't registering on our end at all even though like our manual process is reflecting that it is happening. Um, so like if we don't see it in our player database, it it never hits Salesforce because it just doesn't exist, right?
+
+
+00:23:11
+
+Joyce Kiddell: So that's part of what we're having to unpack right now. And when I say manual process, I mean like the reps like going in and like tracking it like Yeah.
+Kobi Kunasekaran: the
+Joyce Kiddell: Um and sorry one quick note before we move off of uh Postgress
+Kobi Kunasekaran: likes.
+Joyce Kiddell: is um when it comes to uploading the historical data like all of our previous signups and stuff um do we just do that directly in Salesforce or do we do that into Postgress and then it speaks to Salesforce you know what I mean like that's the option
+Waleed Alasadi: can do it in Salesforce probably.
+Kobi Kunasekaran: Yeah, CSC inputs are probably the
+Waleed Alasadi: Yeah.
+Joyce Kiddell: Three.
+Waleed Alasadi: Um sorry,
+Kobi Kunasekaran: best.
+Waleed Alasadi: I also don't want to close the loop. I did think of one thing. It's more of a statement I think to our team too. Like when we think about the collaboration because they're doing vendor,
+Joyce Kiddell: Shoot.
+Waleed Alasadi: you operator. The other one that we got to consider is the market.
+
+
+00:24:03
+
+Waleed Alasadi: Um, so I think we got to talk discuss with straw how we decide the like on the market object and the market tracking because that may be like a value but we may have it as an object. So it's really operator and market.
+Kobi Kunasekaran: I think
+Waleed Alasadi: Yeah, those are the two to start with. And then the oh sorry and then the deals. The deals too because the deals is like that's a trifecta of them. So you'll need those straw because that's when you're going to match like the the data against the deals.
+Strahinja Vladetic: Yeah.
+Waleed Alasadi: Yeah.
+Strahinja Vladetic: Yeah.
+Waleed Alasadi: Yeah. So market deals and sorry go ahead
+Emily Vandenberg: any I was just going to say market deals and operator
+Strahinja Vladetic: Yeah.
+Waleed Alasadi: just
+Emily Vandenberg: like when you're when we're ready to kind of build those there'll be some stronger collaboration needed to make sure. Yeah.
+Waleed Alasadi: yes because those are like essentially would be like where the ven diagram is happening strong the
+Emily Vandenberg: Well,
+Kobi Kunasekaran: Yeah.
+
+
+00:24:53
+
+Emily Vandenberg: note
+Waleed Alasadi: player data will come to like to postgress so it's just going to feed it. So whatever structure we decide on I think will work but those three um will have to like work together very well.
+Kobi Kunasekaran: I think like this is where like I think it might make sense to pull the data into Postgress because then you could transform it in Postgress and so it's
+Waleed Alasadi: I knew I knew you didn't like that, but
+Kobi Kunasekaran: it's pretty easy to do once it's in Postgress.
+Waleed Alasadi: yeah.
+Kobi Kunasekaran: So that's I'm not too worried like whatever we do in Salesforce we just need to make sure that um we're providing all of those like objects and relationships and then it's it's very easy to set up a like a view or a table in Postgress with all that data and there was
+Waleed Alasadi: Okay. All right.
+Kobi Kunasekaran: that tool like remember the one that we used at road I can't remember the name of it but I will find it for you because it was free for like some thousands of rows and then it cost us like $20 a month for the rest of the rest of the rows to pull like all the Salesforce information into post stress.
+
+
+00:25:58
+
+Kobi Kunasekaran: So it costs pennies uh for that uh for that loading into postress. So that's uh that's a cheap way to bring all that data in and not have to worry too much about the structure on both
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: systems.
+Strahinja Vladetic: Cool. Yeah. And that'll be like further down the line, I imagine. Like I said, I think I can we can both work independently for for the first little bit. If you guys obviously do need if if you get to the point where you're working with the deals in the markets and um have questions or or myself, we'll we'll get into contact pretty easily hopefully. So, and I'll be in Slack. I'm not sure if you guys have access to Slack, but yeah, I'll I'll be here for when those things need to be
+Emily Vandenberg: Yeah,
+Strahinja Vladetic: resolved.
+Emily Vandenberg: we can add straw channel as well and then like he can just pay attention to kind of his pings.
+Kobi Kunasekaran: That's ready.
+Emily Vandenberg: But then at least he has context.
+Kobi Kunasekaran: Yeah, that
+
+
+00:26:54
+
+Strahinja Vladetic: Um,
+Emily Vandenberg: I just added
+Strahinja Vladetic: just for the sake of time,
+Kobi Kunasekaran: works.
+Emily Vandenberg: him.
+Strahinja Vladetic: did you guys want to go through the the RDA at all or do you need I know you were saying you probably didn't want me here for the entire meeting.
+Kobi Kunasekaran: I think I'm okay like given that like this is like we don't need to necessarily follow the model that's here. I'm good with proceeding with the build on the Salforce side. Um, and we'll share what what the final data model looks like from there and then maybe we can connect again if there are any uh anything that you think is concerning from your end when you need to like tie that data back to uh the operator data and then we can go from there. But like I I did go through the objects like it's pretty straightforward. Um, but the leads, we we'll talk about it today. Um, I I don't think we're going to use a lead object. Um, unless there are like specific needs for it.
+
+
+00:27:49
+
+Kobi Kunasekaran: Um, but I like that you've already made this like lead/s signup record because this is what I'm thinking as well on the Salesforce side. It's just going to be a single record. Um, but yeah, everything else like seems pretty straightforward. So um as long as like we don't have to stick with the exact model here and we have the option to transform it later when you need to join the data from operator to salesforce data we should be
+Strahinja Vladetic: uh yeah, that should be okay. Ideally,
+Kobi Kunasekaran: fine.
+Strahinja Vladetic: if you guys could let me know as you're working what deviations from all of this just so I know what's coming down the pipe. This is sort of meant to be like a a a reference point for both of us to to keep up to date ideally so we
+Emily Vandenberg: Is
+Strahinja Vladetic: stay on the same page,
+Joyce Kiddell: Yeah, ideally we don't deviate too much.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: So if there's stuff Kobe that you would recommend just like changing on the fundamental data model
+
+
+00:28:33
+
+Strahinja Vladetic: but
+Joyce Kiddell: side like what what uh straws put together like we're open to that feedback like we don't have to like transform everything. Um unless there's like a valid you know use case for it. Um, one thing I want to make sure stays consistent is naming conventions. So like this example like if if it is going to be called like signup record not lead record going forward like let's make sure that we just pick one. Um, and then stuff like we had you know rep ID I think in the purity and like even in this previously but like we went through an exercise of cleaning that up so it's not like BA ID for example. So um just making sure we call things the same um will help us to not get confused later on I think.
+Strahinja Vladetic: Yeah. And I I know that the implementation Salesforce is going to be different or the way that it's structured is going to be different just by virtue of it being in Salesforce because you guys have to like mount it on top of whatever exists there.
+
+
+00:29:34
+
+Strahinja Vladetic: Um, but just if we can call out those changes, that would be ideal.
+Emily Vandenberg: How do you want them called out? Like is it in
+Strahinja Vladetic: So, uh,
+Emily Vandenberg: or
+Strahinja Vladetic: you shouldn't be going in here and editing. I mean, you can edit this document or this this like edit in place in the website, but, um, I have, uh, I have it set up as just a small project. It's all in text sort of similar to uh SQL like the SQL query language the way that you construct tables but it's in a slightly different format. So you could go and edit it there or I could I've seen in Salesforce that I can just explore the diagram there. So if anything if you guys know that there's a change coming um you guys can just point me to the diagram and I can make the updates.
+Kobi Kunasekaran: Okay. Like next steps for for my end is to write up the user stories for like the objects that we need to create or update. So I can share those and that like I'll usually include like the field names, API names and the display names and things like that.
+
+
+00:30:39
+
+Kobi Kunasekaran: So um I think that might be a good way to like just take a take a quick peek um see if there's anything like glaring. Um otherwise we'll we'll proceed and like make those updates on Salesforce. Um and then like Salesforce has specific naming conventions as well. So we won't be able to do it exactly like this. Um because as you might know like they always have like a trailing_c on every custom field. Um, and that's like they have an API name and like a label as well. Um, so what looks uh what the name is for the user might not be what's uh what's the API name that you're going to use in terms of like integrations and things. So uh I'll include those in the user stories and I think that's a good place to start and then uh by all means yes you can always go to Salesforce in the object definition. You can always look at the fields that are there too. that we can keep keep uh keep the system updated uh with what's uh what's ultimately done in Salesforce because generally we end up creating a lot of fields in Salesforce to support reporting to support uh viewing certain things and checks and things like that.
+
+
+00:31:43
+
+Kobi Kunasekaran: So, we're going to likely have a lot more than what's here or what's defined um by the end of this project. Um so, up to you if you want to bring all of that in or only like the key fields and like things like formula fields that we're using for display purposes, maybe they don't necessarily need to be here. Um I'll leave that up to you.
+Emily Vandenberg: I think it probably makes sense like after you kind of get a bit of the way through that Kobe then like we just kind of
+Strahinja Vladetic: Who's
+Emily Vandenberg: pause we pull in straw we kind of run through and then you can make some of those decisions that might be needed how we go.
+Kobi Kunasekaran: Yeah. Yeah,
+Emily Vandenberg: So,
+Kobi Kunasekaran: that works.
+Emily Vandenberg: why don't we just like kind of pull that into the plan?
+Kobi Kunasekaran: That
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: works.
+Emily Vandenberg: Yeah. Then I think I heard we don't need to go kind of too deep. We'll regroup on this. You understand kind of what we're working off of.
+
+
+00:32:34
+
+Emily Vandenberg: We will kind of adjust to the deviation and the level of detail and regroup once you guys have made it a bit of the way through.
+Kobi Kunasekaran: What's
+Emily Vandenberg: Any other questions?
+Kobi Kunasekaran: me?
+Emily Vandenberg: straw on your end.
+Strahinja Vladetic: Uh, no. I think I'm good.
+Emily Vandenberg: Cool. You're probably good to hop off then.
+Strahinja Vladetic: Okay. Thanks. I'll see you guys soon,
+Emily Vandenberg: Thanks.
+Kobi Kunasekaran: Thanks,
+Strahinja Vladetic: probably.
+Kobi Kunasekaran: Ron.
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: I
+Emily Vandenberg: Thanks.
+Kobi Kunasekaran: All right, going into the weekly sync. Um, I'll just quickly go through the completed and in progress. I mean, there's not much. It's only been like a week since he kicked off. Uh, but we did wrap up like the two discovery sessions. One on the day of the kickoff and then one yesterday. Uh, both have both have been very informative. Um, I had just to run through the our options for storage as well. That was one of the decisions that we have to make on how we want to move forward, whether we want to keep uh Dropbox or uh switch to something else.
+
+
+00:33:39
+
+Kobi Kunasekaran: Um so I'll talk about that when we get to the discussion points. Um and in progress on our end, um we're reviewing all the documents, um putting together the follow-up questions, um and putting together together the user stories. I'm aiming to have those done for you by like uh mid to end of this week so that we can we have a chance to review um and then we should be able to start building and uh and yeah like get started. So we we'll have something to uh show you and uh demo probably as early as like maybe next week or the week after uh depending on how quickly we can get through these things.
+Emily Vandenberg: Perfect. And is there anything outstanding based on everything that we sent over from shared documents
+Kobi Kunasekaran: Um,
+Emily Vandenberg: and recordings that like you identified you needed and we haven't provided yet?
+Kobi Kunasekaran: uh, I think the only thing off the top of my head was the updates to the PRD that uh, Jose, you were going to make. I don't know if it's like if it's going to break anything or if it's like material, but that was the only thing off the top of my head.
+
+
+00:34:48
+
+Kobi Kunasekaran: But I think we have everything else for now.
+Joyce Kiddell: I am sorry. Uh, end of day tomorrow.
+Kobi Kunasekaran: Sorry.
+Joyce Kiddell: End of day tomorrow.
+Kobi Kunasekaran: Sure. Yeah. Yeah, that's fine. Again, like I I I don't know how much changes there are.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: So, if it's if it's like or later phases, then it's probably fine. There's no
+Joyce Kiddell: Yeah, I think it's mostly for later phases.
+Kobi Kunasekaran: rush.
+Joyce Kiddell: The only things that might change materially would be like the payout stuff, but we're not even getting there yet. Yeah. So, yeah, should have done,
+Kobi Kunasekaran: Awesome.
+Joyce Kiddell: but either way,
+Miko Sumagang: Actually,
+Joyce Kiddell: it'll be done tomorrow.
+Kobi Kunasekaran: Do you have a
+Miko Sumagang: I was like going to comment,
+Kobi Kunasekaran: question?
+Miko Sumagang: but then I looked through your discussion points and it seems that you already like have it was like more regarding like the API like as well. We were chatting yesterday on how it was like particularly built and who like maintains it, but I'll I'll skip ahead because uh it seems like you already got it.
+
+
+00:35:44
+
+Miko Sumagang: Never mind.
+Kobi Kunasekaran: Yes. Okay. So, can we talk about that first and then like uh we have time because we we want to go through the Salesforce uh Salesforce build as well and like you were going to provide uh like your feedback on things that you liked um and things that you didn't like. Uh but we could either do that first and then go into the discussion points or do that after. Any preference?
+Emily Vandenberg: whatever you think.
+Kobi Kunasekaran: Um, okay. How about let's go into the signup process because I think this is going to be a decision point for us. Um, so I don't want to run out of time. So with the sign up process, as I understand it right now, you have your agency websites. Uh, people people are signing up on those forms or players are signing up on the forms. Um, and then there are a couple of screens and then they get to the studies that are available uh within that page uh that's associated to a rep.
+
+
+00:36:45
+
+Kobi Kunasekaran: And when they click on those study links, that's when a lead record is created in Salesforce today. Um, and I believe there's also uh there are survey links on the agency websites as well. when they complete a survey, then those lead records get updated and the ser it there's a checkbox that it says survey has been completed. Um, all of the calls to Salesforce appear to be happening on your back end and playan.ca. Um, one of the biggest things that I'm I want to propose in the current model is right now you're using lead object and lead objects are great if you're planning on nurturing leads um for capturing information about people that you don't have enough information to create a contact or account or you want to commit to having them in your like contact and account database. But as we're likely going to use person accounts um and your leads are literally just like a holding pen until they uh they do those deposits and then the intention was to convert them into accounts and contacts. It's going to be overkill.
+
+
+00:37:57
+
+Kobi Kunasekaran: The conversion process adds like an additional step for your apps to have to do to convert them from leads to contacts and all of that. So what I'm thinking is we don't use the lead object. um we create uh so every time they click on a link for the uh study links we can keep the same pattern although like I would want to like explore if if we even need to go to that level but uh I think it's fine for now so every time they click on those uh links we could instead of creating lead objects we could create just the signup records directly and the signup record would have the same information that your lead object had right like the name email address um the the rep information because that also comes from that link and it is tied to a specific rep. Uh all the information that's available we can store it on the signup record and then the signup record would be related to your contact who would be your players. So every time they click on those links there would be a new signup record uh and each of those signup records would be related to your single player and they'll be matched.
+
+
+00:39:00
+
+Kobi Kunasekaran: I'm I'm thinking it's probably just going to be email address unless there's a need to do other things to match them up. Um, and surveys don't necessarily need to be uh updating the signup records because I think the surveys from what I understand is at the player level. So, they just have to complete the survey at least once. So, we can either uh pull those in as a as a custom object just to keep track of like if people are submitting multiple surveys if that's something you want. Um, otherwise we could just have that directly update the player record as well. Um, I don't know the specifics around that. I'm leaning towards a custom object. It's super lightweight and it it'll actually be better from my API perspective to handle it. So, if there are errors, timeouts, we can manage that easier instead of updating the player record directly. Uh, but that's kind of where my head is at. And I want to ask if there are any specific requirements or needs around using the leads object.
+
+
+00:40:02
+
+Joyce Kiddell: Um, I don't think we're married to using the lead objects. like we would probably be deferring to your recommendation here. Um there are a couple points you made around um tracking like survey
+Kobi Kunasekaran: All
+Joyce Kiddell: completion. So just want to make sure we're talking about like surveys um where like did they fill out the survey like the actual form and not like studies,
+Emily Vandenberg: See?
+Joyce Kiddell: right? Like the clicking of like affiliate link. Okay. Um, so in terms of like survey completion,
+Kobi Kunasekaran: right.
+Joyce Kiddell: Emily and Lena, correct me if I'm wrong, but from my perspective, it's more just like did they complete it or did they not? So it's almost like a boolean, but um also having a sense of time stamp like when did they complete it? When and if in my mind is all that we would need. Um, and I don't see a use case where they complete multiple surveys unless they like it gets refreshed and they have to redo it. But like the we would like deprecate the old version of the survey and they just have to like retake that same one.
+
+
+00:41:00
+
+Joyce Kiddell: Um, but I don't
+Kobi Kunasekaran: You don't need to talk any of the survey information or anything at all.
+Joyce Kiddell: Lena Lena
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: is that right?
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Okay.
+Waleed Alasadi: So,
+Kobi Kunasekaran: Hello
+Waleed Alasadi: so the sales reps don't need to see the contents of the survey.
+Kobi Kunasekaran: and
+Joyce Kiddell: like that.
+Waleed Alasadi: Okay.
+Joyce Kiddell: Yeah, we we should be keeping the survey data somewhere else and like doing more with it than we are, but like I don't know that like for the purpose of Salesforce we need to like remotely bring it into the the
+Waleed Alasadi: Okay.
+Joyce Kiddell: scope.
+Waleed Alasadi: Yeah. The question comes from if it's it's a usability for the sales rep.
+Emily Vandenberg: Yeah.
+Waleed Alasadi: If they're looking for that information, then ideally we keep it in the same place so they not click the screens.
+Joyce Kiddell: No,
+Waleed Alasadi: That's all.
+Joyce Kiddell: they just need to make sure that the the player actually completes it
+Lina Ceniccola: Yeah, it's just like a compliance thing at this point. We don't have any
+
+
+00:41:58
+
+Joyce Kiddell: yet.
+Lina Ceniccola: use.
+Joyce Kiddell: I want to monetize that data, but that's a separate conversation.
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: I think
+Kobi Kunasekaran: that that's when we'll want to talk about like building out that object. Again, super lightweight, right? It doesn't it's not going to add that much scope. It you're already doing the API call.
+Joyce Kiddell: Oops.
+Kobi Kunasekaran: It's going to be the same thing as a side and we just link it. But yeah, if you want to, I mean, we can we can put it in for like a later phase and we can always come back to
+Emily Vandenberg: And I think just like kind of one thing to say and like asking like leave versus kind of like um what
+Kobi Kunasekaran: it.
+Emily Vandenberg: was it the signup record like the decisions that were made like kind of the biggest thing that we found within the build was like was it meant to kind of think through those like bigger model design questions which is like kind of why we are where we are on that end and then now um the yeah I'm sure there's going to be many instances where you're questioning the why and I don't think we have like a sound reason
+
+
+00:42:52
+
+Joyce Kiddell: Um it you did mention the flow in terms of like we're going to have the player contact and then the
+Emily Vandenberg: So,
+Joyce Kiddell: signup records will just like update against that player. Um, in terms of sequencing, does the player get created? Um, like if there's no player in Salesforce already, like it gets created first, right? If like they come in with like a net new account registration and a new lead associated with that player, like player gets created and then, you know what I mean?
+Kobi Kunasekaran: So,
+Joyce Kiddell: What's the flow for new sign up or net new players?
+Kobi Kunasekaran: so anytime we're working with like external APIs, we we want to make sure that those API calls can complete without any blockage. That means we are going to create a signup record anytime an API call is made out from your back end to create a signup record whether there's a player or not. But the moment that's created, then we we have a flow that tries to match that sign up with the email address to an existing player.
+
+
+00:43:51
+
+Kobi Kunasekaran: And if one doesn't exist, then create that player and then associate that sign up with the player. That way, we're not blocking any of the calls from coming in. So you're not actually losing out on any potential uh like signups that are coming through because like a validation rule failed on the Salesforce end or it couldn't match up a user or it took too long to uh match up user so couldn't like uh send the return back to say that it was successful. So we don't necessarily need to follow that path of like we have to create the player first and then create the signup record. We can create the signup record. it's going to be there and then we'll just make sure to call out another flow to create the record if it doesn't exist. Um, and then obviously this is where duplication comes in too, right? Because a person can click on the same link multiple times. And I think I don't remember what where we landed. I don't know if I I think we still treat that as a single signup.
+
+
+00:44:41
+
+Kobi Kunasekaran: We don't want to treat those as multiple signups. They click on the same link from the same rep's website. So, uh, we we'll come back to that. uh unless you have an answer. But um either case, like we can handle both, right? Whether it needs to be dduped, so it just updates or upserts into the existing record or creates a new signup and then we link we just link every single sign up to the to the existing player or create a new player and then link it to them.
+Joyce Kiddell: So I if I can just walk you through an issue that like was reent relevant as of this past week. Um, when I was looking in the database, there was like one player who uh clicked on a specific operator link weeks ago and registered, but then we like logged them as a confirmed signup this
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: week. Um, and we have no way of tracking our system today on if they clicked that affiliate link again because the system is treating that as a ddupe or as a duplicate.
+
+
+00:45:48
+
+Joyce Kiddell: You know what I mean? And so like if they went back and clicked into the link this week, like it would just wouldn't register within Salesforce because it's considered a duplicate because it's the same permutation of like um you know the link and the player and the rep and all that stuff. So,
+Kobi Kunasekaran: So in that instance,
+Joyce Kiddell: um
+Kobi Kunasekaran: would you want two signup records reflected in Salesforce or a single one?
+Joyce Kiddell: I would say both just because we don't know when the player is going to end up actually
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: converting,
+Kobi Kunasekaran: Yeah, I agree with you.
+Waleed Alasadi: But we can have matching IDs too though Joyce because like for that same link you're still getting the
+Joyce Kiddell: right?
+Kobi Kunasekaran: So,
+Waleed Alasadi: same player the same operator or same deal right like so the three like identifiers are the same so if we have that signup record Kobe why not just update that signup record when it comes in
+Kobi Kunasekaran: I think the point is like we don't necessarily want to treat them as the same signup because it's happening at different
+
+
+00:46:37
+
+Waleed Alasadi: again.
+Kobi Kunasekaran: times, right?
+Joyce Kiddell: No, like you can't sign up more than once with the same book, but like the first time he clicked doesn't mean that he actually went through the full process on the the operator side. So, like if there's a concept of resurfacing that same signup record the second time it's clicked where it's just
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: like based off of like timestamp or whatever and like it's just um rep
+Waleed Alasadi: Heat.
+Joyce Kiddell: prioritize in view of the rep so that they know that it was clicked again but it doesn't necessarily have to create two
+Kobi Kunasekaran: Heat.
+Joyce Kiddell: separate items or rows if you follow what I'm saying then I think that's probably the preferred method so we don't have to like stiff through a bunch of duplicate entries and archive them. Is that Lena and Emily? Am I making sense?
+Emily Vandenberg: I think so. My only question is is like Yeah. Can you are you track can you track the time stamps?
+Joyce Kiddell: Based on the click event, you would be able to
+
+
+00:47:42
+
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: Were you saying just like storing that,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Yeah. Where it's like, let's say I'm a rep. I'm looking at my queue of leads, right?
+Emily Vandenberg: Joyce?
+Joyce Kiddell: And um the first one came through. It's at the bottom. I'm like, "Okay, I see that like they clicked, but like I know based off of waiting on the proof, they didn't actually convert yet, right?" So now they're like ready to do the actual sign up. The player goes back in, clicks the link again, and then converts. That same record would just move from the bottom of a queue hypothetically to like the top. And they know that they have to like move forward with it at that point.
+Kobi Kunasekaran: Cool.
+Emily Vandenberg: because it's like sorted by the date which would have updated to the most recent and then in the back end you would still have like a lot a trail of the different clicks associated to that.
+Joyce Kiddell: Yeah. Yeah. Like if we can have a concept in one sign of record for that individual player and then like a an audit trail like I'm I'm only sad.
+
+
+00:48:42
+
+Joyce Kiddell: I don't know. That's that's my thought, but like definitely not sure.
+Lina Ceniccola: I do think the time stamp um is a good idea
+Kobi Kunasekaran: I think I think based on what I'm hearing, I am leaning towards creating a signup record for every single click.
+Lina Ceniccola: There.
+Kobi Kunasekaran: Um because based on your like you want to know the ones that clicked on the link but also didn't follow through, right? And didn't convert at that time like if if this was like last month versus this month. So you do want to you do want that paper trail.
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: So we can we can create that signup record and I believe there's like a what was it like three four days before you write them off as like not not converting right so we do we will have that process to effectively like mark these uh signups that don't complete the process as not converted and then the next time they click on the link and this time if they actually go through um they like they will have all the information that signup will be completed but then when you look at the player record which is like a completely separate record.
+
+
+00:49:42
+
+Kobi Kunasekaran: will see the full history of the signups and the ones that converted uh and the ones that didn't convert. Um and I think that way like it's every click is a signup record but as they get like not converted they move away from the rep's
+Joyce Kiddell: But how do you reconcile the the in the end like when I go
+Kobi Kunasekaran: queue.
+Joyce Kiddell: to report on Kobe as a rep and I want to see like how many pending or like expired leads or signups do you have the first click signup record that's generated and wouldn't that still be
+Waleed Alasadi: Okay.
+Joyce Kiddell: under the bucket of like didn't convert? So like I'm even though it did, right? But like just later on. So like I don't want to hold you accountable for something that didn't
+Waleed Alasadi: Yes. Yeah. I agree with Joyce completely on that one.
+Joyce Kiddell: convert.
+Waleed Alasadi: Like a signup has a life cycle, right? that I think that like there's certain items that we can define as like a signup being completed.
+
+
+00:50:41
+
+Waleed Alasadi: I'm not sure what they are, but like once you click on the link, you have to in order to be completed, you have to go through these things. So, our signup record tracks these activities if we can if they come through the API and it gets completed and then converted um or or maybe not completely converted, but essentially it is the same one Kobe because it is unique. It's player operator and uh D or like whatever book
+Lina Ceniccola: But also we will always have more registrations than deposits. Like people people have access to these sales reps links and they will just like send them welcome emails and not necessarily complete the process or they'll just like click it just to click it. People click things. So, I don't want it to be like clickbased because they can't necessarily control that and sometimes like they have a specific amount of volume. They send out, you know, a request to their network to sign up, but then they'll they have 40 people to fill and you might have an extra 10 people that just signed up on their own trying to get in. They never actually go through it, but that's on the rep to like know their pipeline.
+
+
+00:51:58
+
+Lina Ceniccola: So, how do we I don't know if that comes into this right now, but um every click what I'm saying is like every click can't be a sign up because people will click it
+Joyce Kiddell: Yeah, there has to be an action of like taking the click and then making it more official like through the process
+Waleed Alasadi: Yeah.
+Lina Ceniccola: without
+Joyce Kiddell: of the rep like claiming that as like a lead, you know what I mean?
+Waleed Alasadi: Yeah. I mean, there's two layers to what you're saying, right? And maybe I'm missing on the first one, but if I've sent a mass email or communication, I said, "Here's my links." and 10 people click that I didn't know about. Do don't you want to keep those as like potential future leads? Hey, you've known about us. I want to come back to you. So, we do want to track those that never converted and like so it's now a two-layer life cycle, right? Like so when you talk about leads, the reason why you'd want to do leads generally in Salesforce is because you want to do like nurture campaigns and like get them into like early stage to get them to to your sales process.
+
+
+00:52:58
+
+Waleed Alasadi: given your model, given the API, I think we can achieve the same thing with like a contact life cycle status versus a lead life cycle status. So you can again a signup comes in for the first time that is going to create a contact for you. Now the first signup completes maybe you can change the contact life cycle to now like customer or player maybe officially player but before that they're like a potential player. Um, and I agree like the same signup gets tracked and updated until it reaches the conclusion stage to be able to convert that that contact from a pre-player into a player and then additional signups are just not going to touch that that list because that's a player. Additional signups coming in from different books and all of that for that same player. Yeah.
+Joyce Kiddell: super aligned bully and I think that's what I was hinting at in the PRD in terms of like converting from like a lead to a a signup and that it's more of a status thing versus like me
+Kobi Kunasekaran: That's better.
+
+
+00:53:56
+
+Joyce Kiddell: recommending using the lead object. Um, but I think that's how we did have it set up from the previous developer. But yeah, I think having it shift from like different stages makes the most sense for
+Waleed Alasadi: Yeah. And like Kobe, we can maybe we don't need to see this,
+Joyce Kiddell: sure.
+Waleed Alasadi: but maybe we can have a staging object for every click. And then if like you're doing a double matching first thing is you're matching to the signup to see if there's an existing signup for the same parameters that you update and then
+Kobi Kunasekaran: Yeah, that's what I was thinking as a fallback too.
+Waleed Alasadi: Right.
+Kobi Kunasekaran: Yeah,
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: especially because like it's every click, right?
+Waleed Alasadi: Because you're right like yeah he like you're absolutely right like updates you're going to get
+Kobi Kunasekaran: Like they can click multiple times.
+Waleed Alasadi: data like loss and totally fine then you can like purge those later on if you don't want to keep that
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: many records. So yeah.
+
+
+00:54:42
+
+Kobi Kunasekaran: Yeah, I mean effectively like we're using the signup object as a lead object, right? We're just not doing this means we're not subscribing to all of the bulk that comes with the lead object and we can do all the relationships and everything that we want and auto related to the contacts and or players. So that it's going to be a lot lighter in terms of process for the end user. It's going to be a lot more seamless. Um but yeah I think in terms of like capturing every single click if we don't want every single click to be represented as a signup because it is going to add noise then the staging object is another approach like we we still capture every single click in Salesforce so there's no data loss but then we link it to the same signup by whatever combination that considers it a signup and then so you can still see the history from the signup but it's still available u and it's only like one record for all the times that they've tried. I think that could work.
+
+
+00:55:39
+
+Kobi Kunasekaran: I'll put together like a document of like what this looks like. So, by no means is this like a final decision. Uh I'll put together a document. We can go through it again and confirm that we like the plan before we start uh setting that object
+Emily Vandenberg: Okay. The only other thing I wanted to comment on the player,
+Kobi Kunasekaran: up
+Emily Vandenberg: you said like using the email as the identifier for the player. Joyce,
+Kobi Kunasekaran: potentially.
+Emily Vandenberg: do we want to have like email plus name plus something else or just email? I feel like
+Joyce Kiddell: Yeah. No, you're that's a really good call out. Um the issue with using just email is that we have a lot of players that um for whatever reason sign up with like different email addresses. It's like they use one for e transfers and then they use like a different one for like signing up for a platform. Um, and we've had multiple iterations like there was like the Bet Lab hub unified one agency site or not hub bet um and then we had six like we split off into like the six different brands.
+
+
+00:56:40
+
+Joyce Kiddell: So, um I think email is like a great um starting qualifier and then if you can uh potentially have fallback options or it goes like email first and last name, phone number or like phone number and then first and last, you know what I mean? Like try to join based off of different fields too.
+Lina Ceniccola: Also,
+Waleed Alasadi: Can we
+Lina Ceniccola: another way of stop fraud, people who are using the same email but might put in a different name.
+Waleed Alasadi: have
+Lina Ceniccola: We've seen that before. They're just not smart enough to make a full new profile. So, um, that's that's another reason why like we probably want to have to two matching indicators,
+Kobi Kunasekaran: But in the case of like multiple emails,
+Lina Ceniccola: but
+Kobi Kunasekaran: like are we talking about like a finite number of like emails that they might be using like two or three versus like a dozen? Because we could create multiple fields on the player record to note like the uh the email transfer, email address versus like their player email. And then we could use those to like match them
+
+
+00:57:45
+
+Lina Ceniccola: We Yeah, we should have a spot for two.
+Kobi Kunasekaran: up.
+Lina Ceniccola: Like we we've already tried to like create a process where they're collecting the e transfer email when they sign up for the account. But do I trust that they'll do that every time or the customer will actually follow the instruction every time? No. So we should just have a an option that there is a secondary email address um just in case they don't follow the first instruction
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: which is to use their effort
+Waleed Alasadi: name seems too scary to be honest. Like I don't think this is Yeah.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Now
+Waleed Alasadi: I I mean what I was going to suggest if we do like just really want to use name that we pass your data set through like AI analysis to see how many times they would have caught name versus like didn't. Um yeah, name is not a good
+Kobi Kunasekaran: I I think your phone number is probably the best next one,
+Waleed Alasadi: one.
+Kobi Kunasekaran: but even that like depending on the format that they enter the phone number, it might not match.
+
+
+00:58:54
+
+Kobi Kunasekaran: So, email is relatively safe, but if there are multiple emails, we could address that use case through like additional fields. It does mean like the first time you encounter this player, you might have to match it manually, like add in the second email. Um, so that any future signups, it'll be able to allocate it to that player automatically based on the additional email entered.
+Waleed Alasadi: Now, Kobe, we could possibly look into like a in the middle of the ground situation. So, it it it um what's it called? It matches on email and if it matches, all good. And then if it doesn't match, it does look for first name and last name. doesn't create the player or it doesn't match the player,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: but it creates a like a review cue because we know who the rep is.
+Kobi Kunasekaran: Yeah. I like that.
+Waleed Alasadi: So, it be like, "Hey, rep,
+Kobi Kunasekaran: Yeah,
+Waleed Alasadi: there's these signups that we don't can't match and here's likely who they are." Okay.
+Kobi Kunasekaran: that's a good idea.
+
+
+00:59:49
+
+Lina Ceniccola: I like that idea.
+Waleed Alasadi: Yeah.
+Lina Ceniccola: Some people also like sign up with fake names.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Right.
+Kobi Kunasekaran: That's why you don't want to use the names cuz like between like incorrect spelling, there's a there's a thousand like John's. It's you're going to invariably like end up matching wrong people
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: uh and wrong signups. So, you don't want to use a name. Email and numbers are relatively accurate. Number is just a formatting issue. That's why like email works best because it's it's universal, right? There's only one format. But I like the review cue. I think that's something we can do. Um so that we do as much as we can auto automatically and then we flag it for the reps to deal with for everything else. Okay, we are at time. Um I wanted to talk about the storage but we could pin this for later. I'll also share this document going to go through we looked at some options and uh some paths forward um and take a
+
+
+01:00:53
+
+Joyce Kiddell: Does everyone have a hard
+Kobi Kunasekaran: look or yeah like you guys can go over for a little bit
+Joyce Kiddell: or
+Emily Vandenberg: We do.
+Kobi Kunasekaran: more.
+Emily Vandenberg: Lena and I have a meeting right
+Lina Ceniccola: Yeah,
+Emily Vandenberg: now.
+Lina Ceniccola: but if Joyce, you want to talk through the storage and loop back with
+Joyce Kiddell: Sure.
+Lina Ceniccola: us?
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Yeah, let's do it. I'm just making my lunch so I'm listening and I'll just be off
+Lina Ceniccola: Wait a second.
+Joyce Kiddell: camera.
+Waleed Alasadi: I'm sorry.
+Lina Ceniccola: Okay.
+Waleed Alasadi: I have to I have to drop as well.
+Joyce Kiddell: Okay. See
+Kobi Kunasekaran: All right. Thanks. Thanks
+Emily Vandenberg: Hello.
+Waleed Alasadi: Right.
+Joyce Kiddell: you.
+Kobi Kunasekaran: everyone.
+Miko Sumagang: Uh I have to drop two but Kobe uh I was just like looking at the amounts in like the storage for the data from Salesforce. I don't think that is particularly correct unless like it's 1 GB instead of like one terabyte. Uh I'm very sure that like it's like much more expensive than this.
+
+
+01:01:45
+
+Miko Sumagang: Um so just like wanted to like call that out. Um
+Kobi Kunasekaran: We we looked at their like uh you know the portal and that's where I got the numbers from unless I'm reading it wrong and this
+Miko Sumagang: yeah yeah yeah
+Kobi Kunasekaran: is like per user. Um but it was 300 per month for one
+Miko Sumagang: there there's two types there's two types of like storage one is like file storage
+Kobi Kunasekaran: terabyte.
+Miko Sumagang: and the other one is like data storage um so like as long as it gets to verify because like as far as like previous like setups it it has been like more like
+Kobi Kunasekaran: Okay.
+Miko Sumagang: expensive but like AWS and Google Cloud definitely is still like magnitudes of um prices like cheaper yeah it's
+Kobi Kunasekaran: This is going to be file storage, right? Like when we're talking about like attachments in in a record. So,
+Miko Sumagang: like exactly okay uh just like some
+Kobi Kunasekaran: yeah. So,
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: we'll we'll double check the numbers. Yeah.
+
+
+01:02:32
+
+Miko Sumagang: people perfect and like file storage is typically a lot more like cheaper
+Kobi Kunasekaran: Okay.
+Miko Sumagang: just wanted to call that out okay so you
+Joyce Kiddell: Okay. Do you have to kind of like revisit this a
+Kobi Kunasekaran: Yes.
+Miko Sumagang: Um I think it should be like fine.
+Joyce Kiddell: bit?
+Miko Sumagang: Um directionally it should be like correct. We do have some like uh special like pricing because like we are like Salesforce like partners. Um so and a lot of like the list prices within Salesforce is like very much expected to get like negotiated. It's like SalesCloud is typically like $170 like list price, but like people actually like end up like paying closer to like$1 to $120 on typical like scenarios. Um, so it should be it should be like good to go. I'm just like looking at like right now like Yeah.
+Joyce Kiddell: Okay.
+Miko Sumagang: So data storage uh oh this is like data that's like $1,000 a month for 10 GB or 125 for 500. But file storage is likely what we're going to end up like looking for.
+
+
+01:03:36
+
+Miko Sumagang: And I don't think it's even like quoted in the products like page in in Salesforce. Yeah. Oh yeah. File storage one TBTE 120. Okay. I stand corrected. My bad. There is like 60% off like promo that's like being set up like over there uh for that like
+Kobi Kunasekaran: Yeah.
+Miko Sumagang: $300 uh uh for one terabyte. So just like a heads up, you may have to like do a little bit of like negotiation with their Salesforce like should that be the case.
+Joyce Kiddell: Okay.
+Miko Sumagang: It's like a a very
+Kobi Kunasekaran: The 60% is a coupon code. Actually, we checked with your like you know when you lo you can log in and you can purchase products.
+Miko Sumagang: large.
+Kobi Kunasekaran: So that's where I I got these numbers. So that's a coupon code. So that one you can get it for that much for sure. But if you want to get it lower then that's where the negotiation happens with the sales CE.
+Joyce Kiddell: Okay.
+
+
+01:04:22
+
+Joyce Kiddell: Um,
+Miko Sumagang: Yeah.
+Joyce Kiddell: so basically you just need to know how much storage we actually have or
+Kobi Kunasekaran: Uh yeah,
+Joyce Kiddell: need.
+Kobi Kunasekaran: I'm I'm curious like uh in the PR it says like uh you're spending about 3,200 for Dropbox and I'm curious how much uh how much that actually includes and what how much you're using today and if we need to start with like if we need to start looking at better options today uh or can we go with the Salesforce native approach which currently includes like 72 GB already if that's sufficient for like the next little bit We can go with that and then we can consider like upgrading or switching out to something else
+Joyce Kiddell: So, we have a rough uh breakdown of Dropbox
+Kobi Kunasekaran: later.
+Joyce Kiddell: usage somewhere. Um, where did I put it? like the current payment for Dropbox is more based off of um accounts versus like the usage amount. Uh so we have used 396.3 GB of 126 terabyte pool allocation.
+Kobi Kunasekaran: 196 196 terabytes and you're using 396 megabytes.
+
+
+01:05:54
+
+Kobi Kunasekaran: And is this just for like the proofs or does it also include like other company files and
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: stuff?
+Joyce Kiddell: just proofs.
+Kobi Kunasekaran: Just proofs. Okay.
+Joyce Kiddell: Is that a lot? I don't even
+Kobi Kunasekaran: Uh that's quite a bit. Yeah. But like there there are videos and people are probably sending you like 4K videos.
+Joyce Kiddell: know.
+Kobi Kunasekaran: So even though it's like 5 10 seconds, they're going to be like almost like a couple gigs each. So I'm not surprised.
+Joyce Kiddell: Yeah. Okay. I just sent you the exact amount um and how many licenses and stuff we have.
+Kobi Kunasekaran: Um
+Joyce Kiddell: So, we know we want to get that down. um to like nothing if possible. Um, so like are you able to come up with like a very specific pricing recommendation now that you know how much we're using on
+Kobi Kunasekaran: Well,
+Joyce Kiddell: average?
+Kobi Kunasekaran: the cheapest method is going to be like either Google Cloud or AWS. Um, they are a lot cheaper per terabyte.
+
+
+01:06:52
+
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: But the only issue with this is um like we we'll need to build some sort of custom UI to make it seamless for the upload similar to like what you actually already have. uh what what you've built for the Dropbox API where you click on a link uh or you click on the button for the upload and it calls the API to actually upload it to Dropbox and send a link. We would have to do something like that because there's no like native integration uh within Salesforce for uh any of these cloud platforms where like a user can just go to a record and like click on like upload and it just gives them an interface to upload it directly. So that build is like we might be able to leverage whatever is already built with uh Dropbox. Obviously it's going to be like a new API uh for AWS or Google Cloud. Uh but we can probably like reuse some of the concepts and uh and build that out.
+Joyce Kiddell: Sure.
+Kobi Kunasekaran: That is going to be in the long term the cheapest option.
+
+
+01:07:50
+
+Kobi Kunasekaran: Um Salesforce is going to be the easiest one.
+Joyce Kiddell: I think we probably Sorry,
+Kobi Kunasekaran: Oh, sorry.
+Joyce Kiddell: I was I was just going to say we probably would prefer GCP just because we have like Google Workspace and like we're very much like in that ecosystem. So, if we can scope it with that kind of in mind and then um if you're able to get
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: us per terabyte, we're under a terabyte, right?
+Kobi Kunasekaran: You're under a terabyte. Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: And I'm assuming this is like like to date,
+Joyce Kiddell: All right.
+Kobi Kunasekaran: right? Like all time 396.
+Joyce Kiddell: Yeah, I think so. I just don't know like from when did we sign up for Dropbox and if we were doing any sort of
+Kobi Kunasekaran: Right.
+Joyce Kiddell: like file storage before that.
+Kobi Kunasekaran: Okay. So, you're you're at 396 today. Uh maybe let's check again in like a couple weeks. Um and let me know what the usage is and that might be like we might be able to extrapolate how much you're going to end up using over time.
+
+
+01:08:46
+
+Joyce Kiddell: Okay. Yeah,
+Kobi Kunasekaran: Uh but
+Joyce Kiddell: that actually was a snapshot from not even like the most recent like I think it might have been May. So, let me get a sense exactly of what those numbers are.
+Kobi Kunasekaran: okay.
+Joyce Kiddell: Um, I'll just ping Emily because she was looking into this. Oh, is this like I don't Yeah, I don't know if this is like per month or not, but um usage was previously an old And then
+Kobi Kunasekaran: a monthly cost of like a,000 or like almost 1,200 is insane. Again, the Salesforce option is going to be like like $120 extra a month is going to be nothing compared to that.
+Joyce Kiddell: Uh,
+Kobi Kunasekaran: uh and then we can phase in the build for Google Cloud. But if that's a preference, I think it makes sense like let let's just do it now. Let's just make sure it's part of the initial signup process and we don't have to change things
+Joyce Kiddell: okay.
+Kobi Kunasekaran: later.
+Joyce Kiddell: Sounds good. All right. Anything else you needed on us from us like related to storage?
+Kobi Kunasekaran: Uh nope. Nope. That was it. So, uh I will let you know what this looks like in terms of like if we want to build a Google cloud uh
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: interface um uh and then we'll go from there and then when we have the additional usage I think that'll help us figure out what the cost is going to be for Google Cloud.
+Joyce Kiddell: Perfect. Okay.
+Kobi Kunasekaran: Awesome.
+Joyce Kiddell: Thank you.
+Kobi Kunasekaran: All right. Thanks, Joyce.
+Joyce Kiddell: Take care.
+Kobi Kunasekaran: Thank you.
+Joyce Kiddell: Bye-bye.
+Kobi Kunasekaran: I'll talk to you later. Bye.
+
+
+Transcription ended after 01:12:50
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

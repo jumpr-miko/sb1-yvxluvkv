@@ -1,0 +1,340 @@
+{
+  "id": "10156",
+  "key": "WAGR-52",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-05T16:27:56.615-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:47.950-0400",
+    "status": {
+      "description": "",
+      "name": "Ready",
+      "id": "10059",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "When a user lands on an object tab, Salesforce defaults to the \"Recently Viewed\" list view, whose columns come from the object's Search Layout (\"Search Results\") — NOT from any list view definition. Today those columns are near-empty, so Recently Viewed shows almost no useful data.\n\nUpdate the Search Layouts so Recently Viewed shows the same key fields as the curated Console list views.\n\nObjects (one subtask each):\n\n* Sign_Up__c\n\n* Deal_Rep_Assignment__c\n\n* Deal__c\n\n* Account (Player / Referrer / Operator / Partner record types)\n\n* Study_Link_Click__c\n\nBuild notes:\n\n* Align each column set with the standard column set already agreed in BUILD-17 / BUILD-48 rather than inventing a second convention.\n\n* Search Layouts can be profile-specific — set the Rep-facing set separately from Ops/Admin where the field sets differ (see BUILD-42 rep-facing field cleanup, BUILD-88 no rep access to SLC).\n\n* Do NOT expose Partner on any rep-facing layout (BUILD-21) or Payout/margin-adjacent fields beyond what BUILD-42 allows.\n\n* Also review \"Search Filter Fields\" and the list-view/lookup dialog layouts on the same screen while in there.\n\nRelated: this is the closest we can get to \"defaulting a list view for reps\" — Salesforce cannot set a default list view per profile. See BUILD-115 for the Home Page approach to the same problem.\n\nEffort: \\~4-6h across the 5 objects incl. rep-profile verification.\n\nSource: Kobi, 2026-08-05.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-112 — Search Layouts: key fields on Recently Viewed for all Console objects",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [
+      {
+        "id": "10157",
+        "key": "WAGR-53",
+        "fields": {
+          "summary": "Sign_Up__c — Search Layout key fields",
+          "status": {
+            "description": "The issue is open and ready for the assignee to start work on it.",
+            "name": "Open",
+            "id": "1",
+            "statusCategory": {
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "To Do"
+            }
+          },
+          "issuetype": {
+            "id": "10010",
+            "description": "The sub-task of the issue",
+            "name": "Sub-task",
+            "subtask": true,
+            "hierarchyLevel": -1
+          }
+        }
+      },
+      {
+        "id": "10158",
+        "key": "WAGR-54",
+        "fields": {
+          "summary": "Deal__c — Search Layout key fields",
+          "status": {
+            "description": "The issue is open and ready for the assignee to start work on it.",
+            "name": "Open",
+            "id": "1",
+            "statusCategory": {
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "To Do"
+            }
+          },
+          "issuetype": {
+            "id": "10010",
+            "description": "The sub-task of the issue",
+            "name": "Sub-task",
+            "subtask": true,
+            "hierarchyLevel": -1
+          }
+        }
+      },
+      {
+        "id": "10159",
+        "key": "WAGR-56",
+        "fields": {
+          "summary": "Deal_Rep_Assignment__c — Search Layout key fields",
+          "status": {
+            "description": "The issue is open and ready for the assignee to start work on it.",
+            "name": "Open",
+            "id": "1",
+            "statusCategory": {
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "To Do"
+            }
+          },
+          "issuetype": {
+            "id": "10010",
+            "description": "The sub-task of the issue",
+            "name": "Sub-task",
+            "subtask": true,
+            "hierarchyLevel": -1
+          }
+        }
+      },
+      {
+        "id": "10160",
+        "key": "WAGR-58",
+        "fields": {
+          "summary": "Verify as a Rep user + Ops user in the sandbox",
+          "status": {
+            "description": "The issue is open and ready for the assignee to start work on it.",
+            "name": "Open",
+            "id": "1",
+            "statusCategory": {
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "To Do"
+            }
+          },
+          "issuetype": {
+            "id": "10010",
+            "description": "The sub-task of the issue",
+            "name": "Sub-task",
+            "subtask": true,
+            "hierarchyLevel": -1
+          }
+        }
+      },
+      {
+        "id": "10185",
+        "key": "WAGR-55",
+        "fields": {
+          "summary": "Account — Search Layout key fields (Player / Referrer / Operator / Partner RTs)",
+          "status": {
+            "description": "The issue is open and ready for the assignee to start work on it.",
+            "name": "Open",
+            "id": "1",
+            "statusCategory": {
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "To Do"
+            }
+          },
+          "issuetype": {
+            "id": "10010",
+            "description": "The sub-task of the issue",
+            "name": "Sub-task",
+            "subtask": true,
+            "hierarchyLevel": -1
+          }
+        }
+      },
+      {
+        "id": "10294",
+        "key": "WAGR-57",
+        "fields": {
+          "summary": "Study_Link_Click__c — Search Layout key fields",
+          "status": {
+            "description": "The issue is open and ready for the assignee to start work on it.",
+            "name": "Open",
+            "id": "1",
+            "statusCategory": {
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "To Do"
+            }
+          },
+          "issuetype": {
+            "id": "10010",
+            "description": "The sub-task of the issue",
+            "name": "Sub-task",
+            "subtask": true,
+            "hierarchyLevel": -1
+          }
+        }
+      }
+    ],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-222"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Org Setup & Security",
+          "id": "10070"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217205286824122"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000l3:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217205286824122"
+      }
+    }
+  }
+}

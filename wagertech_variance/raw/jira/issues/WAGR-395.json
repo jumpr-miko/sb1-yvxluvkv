@@ -1,0 +1,152 @@
+{
+  "id": "10532",
+  "key": "WAGR-395",
+  "fields": {
+    "statuscategorychangedate": "2026-09-15T11:44:35.444-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-15T10:43:42.852-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.689-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nBUILD-202 (BA-1, WAGR-176) added Primary Market and Secondary Markets fields to the BA object but left the field type and value list open — \"not yet settled.\" Emily's feedback settles it: Primary Market and Secondary Market picklist values should be Ontario, Alberta, USA.\n\n## Current state\n\nPrimary Market (single-select) and Secondary Markets (multi-select, per BUILD-202) exist on the BA object with no confirmed value list. It's also not yet confirmed whether these should be new fields or reuse an existing value set — BUILD-202 notes \"not confirmed these fields exist on the User object today — may need to be created.\"\n\n## Proposed solution\n\n1. Set the Primary Market and Secondary Market(s) picklist values to Ontario, Alberta, USA.\n2. Check whether the existing WT_Market global value set (built in POC-05, WAGR-302) already contains these three values in a usable form, and reuse it rather than creating a second, separate value list if so.\n3. Confirm field placement (BA object vs. User object) per the open question carried from BUILD-202.\n\n## Acceptance criteria\n\n1. Primary Market on BA offers exactly Ontario, Alberta, USA as selectable values.\n2. Secondary Market(s) on BA offers the same three values, multi-select.\n3. No duplicate/separate value set is created if the existing WT_Market set can be reused.\n\n## Dependencies\n\nDepends on BUILD-202 — Brand Ambassador: Object + Core Status (WAGR-176).\n\n## Source\n\nWagertech Notes / Questions (Emily Vandenberg), reviewed Sep 2026: \"Primary market and secondary market picklist values = Ontario, Alberta, USA.\" https://docs.google.com/document/d/1ShxHdE6kxblGnih7VQzXbBx1eL0sC6XAD-fk8H6V9yw/edit?tab=t.0",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BA: Set Primary/Secondary Market Picklist Values (Ontario, Alberta, USA)",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vh:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "11440",
+  "key": "WAGR-459",
+  "fields": {
+    "statuscategorychangedate": "2026-09-25T09:26:21.304-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-25T09:26:20.897-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-10-02T09:20:14.914-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## v0.13.1 Link lifecycle staging amendment\n\nAdd these Deal-driven Link scenarios:\n\n* Deal Pause: only currently Active Links become inactive; pre-existing inactive Links stay inactive.\n* Paused → Active: only Links that were Active immediately before Pause are restored.\n* Deal Inactive: no Link state changes.\n* Deal Close: Active Links become inactive; Closed → Active leaves them inactive.\n* Deal Archive: Active Links become inactive until/unless a Link-level Archived state is later adopted.\n* No Pause/Close/Archive action changes DRAs from Salesforce.\n\nA Link-level Archived status is a separate follow-up and should be added to this staging plan only after that decision is made.\n\n## Source of truth\n\n<custom data-type=\"smartlink\" data-id=\"id-0\">https://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition</custom>\n\n## Outcome\n\nOnce CMS staging processes Links, prove Link storage, identity, payload fields, request coalescing, publication markers and safe exclusion/deletion against the real CMS.\n\n## Required scenarios\n\n* WAGR-499 authoritative Tracking URL stores/sends >255 characters without truncation up to approved limit.\n* Link Code respects the final approved length policy; overlength values are not silently truncated.\n* add/edit/deactivate eligible Link.\n* payload includes both `sf_link_id` and `link_external_id`.\n* inactive Link sent as `active:false`.\n* complete CMS-eligible Link snapshot.\n* one Deal with roughly **70 Links** (\\~2× current Airtable maximum).\n* same Link Code/URL on different Deals creates separate Link records/identities.\n* re-parent attempt blocked through UI/API.\n* multiple Link updates for one Deal create one logical parent Deal request.\n* API/Data Loader bulk changes collapse requests by Deal.\n* Assignment Cap semantics.\n* Test/Exclude-from-CMS eligibility.\n* CMS rejection such as `link_owned_by_other`.\n\n## Publication / deletion scenarios\n\n* Never-published Link may follow controlled delete path.\n* Queueing a sync does not stamp publication success.\n* Successful parent send containing Link stamps/updates publication markers.\n* Published Active Link cannot be excluded/deleted.\n* Link set Inactive but not yet confirmed by CMS remains blocked.\n* After successful payload containing `active:false`, last-published state is Inactive and delete eligibility can proceed only under confirmed omission contract.\n* Standard record/list/related-list/API delete paths cannot bypass backend guard.\n* Unrelated Link edit does not restamp First/Last Published.\n\n## Contract-dependent scenario\n\nBefore production deletion/exclusion is enabled, Strah must confirm whether omission of a previously-known Link retains its last-known CMS state. Test that explicitly if adopted. If not supported, stop and revise rather than silently treating omission as delete.\n\n## Field-level verification\n\nCompare every mapped Link field with the CMS staging row using approved read-only access.\n\n## Done when\n\nEvery applicable Link scenario passes with evidence and Strah confirms Link state/omission semantics.",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [],
+    "summary": "CMS Sync — Staging verification: Affiliate Links and Link lifecycle",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0088n:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

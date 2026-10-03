@@ -1,0 +1,210 @@
+{
+  "id": "11562",
+  "key": "WAGR-485",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T17:41:05.310-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-29T17:41:04.679-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10092",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11583",
+          "key": "WAGR-506",
+          "fields": {
+            "summary": "Deal — Final Deal Status value set (Draft, Active, Paused, Inactive, Closed, Archived)",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-10-02T10:17:29.041-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nNormal users see Deal Status as read-only and change lifecycle state through controlled actions/automation.\n\n## Status baseline\n\nDraft, Active, Paused, Inactive, Closed, Archived.\n\n* Review Required is removed.\n* Archived is terminal.\n* WAGR-506 owns the picklist value set/default.\n\n## Status UI / access\n\n* Do not expose the real Status field as writable on page layouts, Lightning record pages, inline edit or guided edit surfaces.\n* Where Status is displayed on the Deal UI, use the read-only Status display/formula field.\n* Use ordinary FLS / Permission Set access to keep the underlying Status field non-editable to normal users.\n* Do not add duplicate Custom Permission checks inside every Flow unless a concrete bypass path requires one.\n* Lifecycle actions may use Permission Set-controlled visibility for access distribution.\n\n## Controlled actions\n\n* Activate — WAGR-450.\n* Pause — this story.\n* Reactivate — this story for Paused/Inactive; Closed has additional behavior in its dedicated story.\n* Close — dedicated Closed behavior story.\n* Archive — WAGR-447.\n\n### Pause\n\nOn confirmation:\n\n* Status → Paused.\n* Mark all currently Active Affiliate Links inactive.\n* Preserve enough state to know exactly which Links were Active immediately before Pause.\n* Do not alter DRAs.\n* Queue CMS sync through the common mechanism.\n\n**Confirmation copy:**\n\n> Pausing this Deal will mark all currently active Affiliate Links inactive in Salesforce and queue the changes to sync to the CMS. Links that were already inactive will stay inactive. When this Deal is reactivated, only Links that were active before the pause will be restored.\n\n### Reactivate from Paused\n\n* Status → Active.\n* Clear Effective End Date through shared Active-entry logic.\n* Restore only the Affiliate Links that were Active immediately before Pause.\n* Links that were already inactive before Pause remain inactive.\n* Do not alter DRAs.\n* Queue CMS sync.\n\n### Inactive\n\n* Inactive is automated/informational only.\n* Reactivation may occur automatically from qualifying activity.\n* Inactive itself does not deactivate Links or alter DRAs.\n\n## Acceptance criteria\n\n1. Normal users cannot directly edit source Deal Status on supported user surfaces.\n2. Status shown on Deal UI uses the read-only display/formula field.\n3. Pause deactivates only currently Active Links and preserves pre-pause active state.\n4. Paused → Active restores only the preserved active Link set.\n5. Pause/reactivate do not change DRAs.\n6. Inactive has no Link/DRA side effects.\n7. Archived never appears in normal Reactivate.\n8. Shared lifecycle tracking and CMS sync remain centralized.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Deal — Lifecycle status controls and controlled actions",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i008y7:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "id": "10541",
+  "key": "WAGR-404",
+  "fields": {
+    "statuscategorychangedate": "2026-09-17T13:06:21.144-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-15T10:55:51.009-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10032",
+        "type": {
+          "id": "10007",
+          "name": "migration_parent",
+          "inward": "is a parent of",
+          "outward": "is a child of"
+        },
+        "inwardIssue": {
+          "id": "10220",
+          "key": "WAGR-160",
+          "fields": {
+            "summary": "BUILD-173 — Player: Core Details fields",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "10033",
+        "type": {
+          "id": "10007",
+          "name": "migration_parent",
+          "inward": "is a parent of",
+          "outward": "is a child of"
+        },
+        "inwardIssue": {
+          "id": "11360",
+          "key": "WAGR-413",
+          "fields": {
+            "summary": "Player: Investigate All Players Defaulting to CAD Signup Currency",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.437-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nWagertech's notes confirm Signup Currency should default to the currency of the Player's country. This intent is already documented against the field, but the automation itself hasn't been built or ticketed.\n\n## Current state\n\nBUILD-173 (PL-1, WAGR-160) defines Signup Currency as a picklist — \"not Salesforce multi-currency — payouts are fixed matrix values, no FX conversion\" — and notes \"Signup Currency defaults from the player's first Sign Up, inferred by country\" as the intended behavior. No automation implementing that default has been built or ticketed separately.\n\n## Proposed solution\n\n1. Build automation that sets Signup Currency on a Player's first Sign-Up (or on Player creation, whichever fires first per the existing Player creation flow), inferred from Country.\n2. Define the Country-to-currency mapping needed for this — likely aligned to the WT_Market value set (Ontario, Alberta → CAD; USA → USD, pending confirmation of exact values).\n3. Confirm whether this can change on later sign-ups or is set-once, matching the same pattern as Agency Sign-Up Date (BUILD-30).\n\n## Acceptance criteria\n\n1. A new Player's Signup Currency is set automatically based on Country.\n2. The mapping used is documented on this ticket.\n3. Behavior on subsequent Sign-Ups (set-once vs. re-evaluated) is defined and matches the acceptance criteria above.\n\n## Dependencies\n\nDepends on BUILD-173 — Player: Core Details fields (WAGR-160).\n\n## Source\n\nWagertech Notes / Questions (Wagertech Notes section), Player record doc, reviewed Sep 2026: \"Signup Currency = default to the currency of the PLAYER COUNTRY.\" https://docs.google.com/document/d/1mp3b1qpJkzKNDztEQpdnv-BYCgUgDdXe5jLuJi-ix1U/edit?tab=t.0",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Player: Default Signup Currency Automation by Player Country",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11275",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Created a new formula field for Signup Currency pointing to CurrencyIsoCode",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-18T15:42:07.239-0400",
+          "updated": "2026-09-18T15:42:07.239-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vi:zy"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "id": "10295",
+  "key": "WAGR-68",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:38:08.843-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-29T17:48:02.904-0400",
+    "status": {
+      "description": "",
+      "name": "Ready",
+      "id": "10059",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "Deal Version was scrapped. What Joyce actually wanted was an edit log — enable field history tracking on Deal.\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Enable field history tracking on Deal. Add the History related list to the layout.\n\n* Kobi, Aug 11: 'we can enable something called field history tracking. They'll track whatever fields that we enable. You'll be able to see a list of the changes. But it doesn't necessarily drive up a version code.' Joyce's requirement: 'as long as we have the edit log for who makes updates and stuff.'\n\n* Per the Aug 17 call with Marc, also enable history tracking on status fields generally: 'let's make sure those fields have history tracking enabled so that they can see the progressions.'\n\n=== OPEN QUESTIONS ===\n\n* Which fields get tracked was never specified, and Salesforce caps it at 20 per object. Starting proposal: Deal Status, Effective Start, Effective End, CPA Amount, Monthly Cap, Payout Model, Priority Tier, Operator, Partner, Vertical, Market Country, Market State. Confirm or trim.\n\n=== NOTES ===\n\n* This is the load-bearing half of removing Deal Version — BUILD-164 deletes the field, this delivers what it stood in for. Don't close BUILD-164 without this.\n\n=== SOURCE ===\n\n* Aug 11 call — Joyce/Kobi 53:20-54:07\n\n* Aug 17 Marc call — history on status fields\n\nDependencies: BUILD-164 (Remove Deal Version)\n\nOwner (proposed): TBD\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-157 — Deal: enable field history tracking (the replacement for Deal Version)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-290"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563696908477"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001fz:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563696908477"
+      }
+    }
+  }
+}

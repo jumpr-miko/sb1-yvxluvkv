@@ -1,0 +1,246 @@
+{
+  "id": "10315",
+  "key": "WAGR-106",
+  "fields": {
+    "statuscategorychangedate": "2026-09-14T15:40:48.865-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-11T13:41:16.298-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-30T00:20:41.770-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "_Confirm with WagerTech (Emily/Lina) which Deal fields must be snapshotted onto a Sign-Up at completion, and which Deal fields can change over a Deal's lifecycle and need dated history. Feeds directly into DECISION-07 and the Commercial Terms history object design._\n\n## Why this matters\n\n* Sign-Up payout reporting must reflect the commercial terms in effect when the Sign-Up completed, not the Deal's current values\n\n* Not yet a fixed field list — needs WagerTech confirmation\n\n* Design for the Deal / Commercial Terms history object is blocked on this list\n\n* Flagged as the priority blocker for that design work\n\n## What needs confirming with WagerTech\n\n* Which Deal fields must be captured as a snapshot on the Sign-Up record at completion\n* Which Deal fields can change during a Deal's lifecycle and need dated history (versioned Deal vs. related Commercial Terms object)\n* Whether backdating a changed term needs to recompute already-completed Sign-Ups\n\n* A real example already occurred: a CPA change was backdated 10 days into the month\n\n## Field list to validate (updated from live Deal page, 2026-09-11)\n\n* Payout Model — how commission is calculated (e.g. CPA vs. Rev Share)\n\n* Commercial Terms section\n\n* Currency\n\n* Commercial Terms section — currency changes are handled as a new Deal, not tracked on this one\n\n* Monthly Cap\n\n* Commercial Terms section\n\n* Deposit Range Min / Deposit Range Max / Deposit Range\n\n* Commercial Terms section — three separate fields on the page, unclear if Deposit Range duplicates Min/Max or is distinct\n\n* Avg Deposit Target\n\n* Commercial Terms section\n\n* Qualifying Action\n\n* Commercial Terms section\n\n* Redeposit Required\n\n* Redeposit Details section\n\n* Effective Start Date / Effective End Date\n\n* Additional Details section\n\n* CPA Amount\n\n## Open gap — CPA\n\n* CPA / commission rate is not a visible field anywhere in the Commercial Terms section on the live Deal page (confirmed via screenshot of ON-HARDROCK-C-CASINO-WT, 2026-09-11)\n\n* Need to confirm with WagerTech whether it lives on the Admin tab, is derived from Payout Model, or is tracked at the Deal Rep Assignment level instead\n* This must be resolved before the field list goes final — CPA is the term referenced most in the commercial-terms discussion\n\n## Notes\n\n* Blocks DECISION-07 and the Commercial Terms history object design.\n\n## Source\n\n* [Wagertech Weekly Sync doc — Sep 11, 2026 entry, \"Commercial terms capturing\" action items](https://docs.google.com/document/d/1K1r0RugHIbFMuEO6ISWMXF7-SUOg1Vi7KNhWWE_idGI/edit?tab=t.0#heading=h.d9ppac9j5lqh)\n* [Sep 11, 2026 Weekly Sync transcript — Emily Vandenberg & Joyce Kiddell discuss which fields could change (CPA, caps, deposit range, average deposit, payout model), \\~20:31](https://docs.google.com/document/d/1nTJh6ZZT4bAu8E6I6QFypOcrIn1cpg9S2mVd6ayZsrk/edit?tab=t.72ttakve44h3)\n* Live Deal record screenshot (ON-HARDROCK-C-CASINO-WT), reviewed 2026-09-11 — source of the corrected field list above\n* Owner: Taryn Reithofer\n* Created 2026-09-11 from Sep 11 Weekly Sync review, per Kobi Kunasekaran's directive. Updated same day against the live Deal layout.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "DECISION-08 — Deal: Commercial Terms fields to confirm for Sign-Up snapshot & lifecycle tracking",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11279",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "We’ve made the decision that this will be a custom object. We’re still waiting on getting an official thumbs up on the presentation Kobi had made. Kobi will double confirm on the call tomorrow.",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-21T10:37:05.991-0400",
+          "updated": "2026-09-21T10:37:05.991-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-425"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Needs More Info",
+          "id": "10029"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Decision",
+          "id": "10050"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218410241774349"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Decision",
+          "id": "10072"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002jp:9"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218410241774349"
+      }
+    }
+  }
+}

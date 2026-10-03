@@ -1,0 +1,447 @@
+{
+  "id": "10301",
+  "key": "WAGR-75",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T10:07:38.784-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 2,
+      "isWatching": false
+    },
+    "created": "2026-08-20T13:37:16.461-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-10-01T11:17:57.578-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h3 data-local-id=\"3981279f63ae\">Summary</h3><p data-local-id=\"1df488707412\">Signups can already name a Paused or Banned referrer without being blocked — Kobi confirmed this at the 9/24 sync, so the original &quot;flag-don&#039;t-block&quot; automation this ticket was built around isn&#039;t needed. </p><p data-local-id=\"9f56d6ad896b\"><strong>The ticket is rescoped to just surfacing a report or notification for Ops when a signup names a banned/paused referrer, since Emily noted this is a useful signal for investigating referrer networks.</strong></p><h3 data-local-id=\"d8e1cff54038\">Requirements</h3><ul data-local-id=\"0e4fa22d2842\"><li data-local-id=\"576f884d6830\"><p data-local-id=\"ff6e9350474d\">A report or notification surfacing signups where the named referrer&#039;s status is Paused or Banned.</p></li></ul><h3 data-local-id=\"2cf5ff3a78cb\">Constraints</h3><ul data-local-id=\"a6deb3bbc541\"><li data-local-id=\"f91af170e71a\"><p data-local-id=\"47ab11de3c77\">No changes to signup completion behavior — referrer selection and signup completion must continue working exactly as they do now (unblocked).</p></li></ul><h3 data-local-id=\"df59286ca7d3\">Acceptance Criteria</h3><ol data-local-id=\"5147c2301bb3\"><li data-local-id=\"cb6eec4d9388\"><p data-local-id=\"144baacbbdec\">Ops has a way to view signups whose named referrer is currently Paused or Banned.</p></li><li data-local-id=\"18284fcdd3f2\"><p data-local-id=\"022d6612a43c\">Signup completion is unaffected — selecting a paused/banned referrer does not block or alter the signup flow.</p></li></ol><h3 data-local-id=\"877248db685e\">Assumptions</h3><ul data-local-id=\"810d1321938b\"><li data-local-id=\"088b6ae812ee\"><p data-local-id=\"e15e9fd08720\">Referrer status (Paused/Banned) is already a queryable field on the Sign-Up or Referrer record, since no new status logic is in scope here.</p></li></ul><h3 data-local-id=\"f26f112e46aa\">Open Questions</h3><ul data-local-id=\"a25227f8d736\"><li data-local-id=\"88507e72a219\"><p data-local-id=\"2b4c9647f10c\">Reporting mechanism not yet decided — list view, dashboard component, or an alert/notification are all still on the table.</p></li></ul><h3 data-local-id=\"7dcc8a214f1a\">Dependencies</h3><ul data-local-id=\"8589069873a8\"><li data-local-id=\"aeccb489e5c1\"><p data-local-id=\"92fb7f80cd2f\">Referrer status field/model — originally tied to BUILD-185 (Referrer: Object + Core Status).</p></li></ul><h3 data-local-id=\"cc764981cedb\">Out of Scope</h3><ul data-local-id=\"b75a910225e0\"><li data-local-id=\"552cde22f8ba\"><p data-local-id=\"236292560b5b\">The original flag-don&#039;t-block automation (mirrored from PL-9) — descoped, since blocking was never actually happening and no new signup-flow logic is required.</p></li></ul><h3 data-local-id=\"b0272f3e43b3\">References</h3><ul data-local-id=\"b55608b6e13a\"><li data-local-id=\"2a10c4e263a9\"><p data-local-id=\"7bc83cef0ca9\">Wagertech Internal Sync, Sep 24, 2026 (~01:02:29–01:03:48)</p></li><li data-local-id=\"d68221107075\"><p data-local-id=\"1a6f5c1e6a4e\">Original ticket source: RF-11 — Referrer Record User Stories doc</p></li><li data-local-id=\"17744ac0c581\"><p data-local-id=\"716c5ef9e874\">Aug 18 Weekly Sync — Emily Vandenberg, &quot;flag, don&#039;t block&quot; (<a href=\"https://fathom.video/calls/787411922?timestamp=5599\">Fathom, 1:33:19</a>)</p></li></ul>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10410",
+        "filename": "Screenshot 2026-09-30 at 4.32.35 PM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-30T16:38:00.232-0400",
+        "size": 103546,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10410",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10410"
+      },
+      {
+        "id": "10411",
+        "filename": "Screenshot 2026-09-30 at 4.32.47 PM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-30T16:38:00.591-0400",
+        "size": 41662,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10411",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10411"
+      },
+      {
+        "id": "10414",
+        "filename": "Screenshot 2026-10-01 at 11.17.05 AM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-10-01T11:17:28.547-0400",
+        "size": 100791,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10414",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10414"
+      }
+    ],
+    "summary": "Referrer: Report on Signups with Banned or Paused Referrer",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10352",
+          "body": "<p>Need clarification on the screen flow for the banned button modal, needs to be scoped as a separate ticket and reach out to see if its still necessary</p>",
+          "created": "2026-08-24T10:54:59.042-0400",
+          "updated": "2026-08-24T10:54:59.042-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10353",
+          "body": "<p>Pause too (review state)</p>",
+          "created": "2026-08-24T10:55:33.362-0400",
+          "updated": "2026-08-24T10:55:33.362-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11299",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"5c7dfa131f3d\">Ticket is a little misleading, it should be surface a way for them to see sign ups agains banned referrers in a report, or notification. Rework this ticket.</p>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-24T11:07:17.905-0400",
+          "updated": "2026-09-24T11:07:17.905-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11572",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"37c8c498fc4a\">just create a report of signups with a fileter referrer status equals banned or paused, they can subscribe to! phase 2 enhancement can be the bigger notification build</p>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-29T10:22:13.473-0400",
+          "updated": "2026-09-29T10:22:13.473-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11598",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p>Built the MVP for this ticket: a report that lists signups whose named referrer is Paused or Banned.</p><p><strong>What&#039;s built</strong></p><ul><li><p>Report: &quot;Sign-Ups with Paused or Banned Referrer&quot; (standard &quot;Sign Ups with Referrer&quot; report type).</p></li><li><p>Filter: Referrer Status equals Paused or Banned.</p></li><li><p>Columns: Sign Up ID, Player, Referrer, Referrer Status, Created Date.</p></li><li><p>No automation and no change to the signup flow, so signup completion is unaffected (AC2).</p></li></ul><p><strong>Pending client decisions</strong></p><ul><li><p>Subscription: the report can email a snapshot to chosen users. Client to confirm who receives it, how often (daily or weekly), and whether it sends only when there are matching records (recommended).</p></li><li><p>Recipients must be WagerTech users who already have access to this data, and need Viewer access to the report folder.</p></li></ul><p><strong>Not yet verified</strong></p><ul><li><p>The report shows 0 rows today. Real data is TBD, so the Paused and Banned filter is not yet tested with live records. Testing needs a safe test referrer or a sandbox.</p></li></ul><p><strong>Notes</strong></p><ul><li><p>The report uses the referrer&#039;s current status, not their status at signup time. A status snapshot on the signup would be a separate build.</p></li><li><p>Subscription emails are scheduled, not real time. Instant alerts would be a separate build.</p></li><li><p>One referrer name appears with both Active and Inactive statuses across signups, which may mean duplicate referrer Accounts. Worth a data check.</p></li></ul>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-30T16:36:24.558-0400",
+          "updated": "2026-09-30T16:36:24.558-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11599",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<figure data-local-id=\"5b18fa347aed\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"346\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"94448f12-b678-401f-bf6d-0899e3ae7af1\" data-alt=\"Screenshot 2026-09-30 at 4.32.35 PM.png\" data-width=\"869\" data-height=\"1145\"></div></figure><figure data-local-id=\"46f5517222a6\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"346\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"061a4ff8-6182-47d8-925a-c625fc39edce\" data-alt=\"Screenshot 2026-09-30 at 4.32.47 PM.png\" data-width=\"520\" data-height=\"455\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-30T16:38:00.972-0400",
+          "updated": "2026-09-30T16:38:00.972-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11600",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"7271ff480651\">Questions to ask WT:<br></p><ul data-local-id=\"6a78be112ae8\"><li data-local-id=\"de00783aecb8\"><p data-local-id=\"108fc8b30410\">Who should get the email? (WagerTech users who already have access to signup data)</p></li><li data-local-id=\"04f574e8459f\"><p data-local-id=\"c68f12700d96\">How often: daily or weekly?</p></li><li data-local-id=\"ba7ed6138ef4\"><p data-local-id=\"e31dc06279b6\">Should it send only when there are matching signups, or every time?</p></li></ul>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-30T16:41:08.827-0400",
+          "updated": "2026-09-30T16:41:08.827-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11601",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"b921e7525eda\"><span data-local-id=\"2a37cee4db73\" data-type=\"mention\" data-user-id=\"712020:e303283b-a074-400e-9470-8d704ea7427d\">@Taryn Reithofer</span> No need to set up the subscriptions or now (unless WT wants to try one out), but let’s add a Confluence page to keep key reports like this + short description on what it’s for and when to use it and we can set up the subscriptions in prod. </p>",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-10-01T09:57:36.283-0400",
+          "updated": "2026-10-01T09:59:44.090-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11603",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<figure data-local-id=\"3f99f3176f2c\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"479\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"f73e6dae-7776-43f0-8767-0cad820ba056\" data-alt=\"Screenshot 2026-10-01 at 11.17.05 AM.png\" data-width=\"1321\" data-height=\"177\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-10-01T11:17:28.801-0400",
+          "updated": "2026-10-01T11:17:28.801-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 9,
+      "total": 9,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-312"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Needs More Info",
+          "id": "10029"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Development",
+          "id": "10055"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217693312294794"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|hzzzzr:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217693312294794"
+      }
+    }
+  }
+}

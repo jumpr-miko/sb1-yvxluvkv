@@ -1,0 +1,232 @@
+{
+  "id": "10233",
+  "key": "WAGR-207",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:33:38.912-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:30.456-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Show the Operator-level Billing and Agreement fields only when Billing Relationship = Direct, so Direct operators carry their own terms and Via-Partner operators inherit the Partner's.\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Mechanism: Lightning App Builder -> select the field -> Set Field Visibility -> add filter -> Billing Relationship equals Direct. Kobi: 'I recommend driving it off of the billing relationship field. So let's just make it explicit for now and then if we need to change it to something else we can change it later.'\n\n* Field-level, not section-level — deliberately. Kobi: 'sometimes it's easier to do an entire section versus individual fields. In this case, because they still want to see the billing relationship and billing notes regardless, that's not going to work.'\n\n* Always visible: Billing Relationship, Billing Notes. Direct-only: Billing Entity, Payment Terms, Billing Contact, Invoicing Cadence, Billing Email, Invoicing Currency, Payment Method, Tax/GST/VAT ID, Billing Address, PO Required, Remittance Reference — plus the whole Agreement block from BUILD-128.\n\n* Requiredness is NOT enforced by visibility. Nothing is marked required on the layout, and no validation rules are being built yet — decided 2026-08-17.\n\n* Kobi: 'anything else that's tied to the billing relationship field, you want to do the same logic.'\n\n=== ACCEPTANCE CRITERIA ===\n\n* Setting Billing Relationship = Via Partner hides all Direct-only fields; Billing Relationship and Billing Notes stay visible.\n\n* Setting it back to Direct reveals them without a page refresh.\n\n* The related Partner shown in the Via Partner state is clickable through to the Partner record.\n\n=== NOTES ===\n\n* PARTIALLY BUILT. Billing Contact is done — configured and saved live on Aug 17. Every other Direct-only field is outstanding, and it is on Taryn's own list. Split what is done from what is outstanding when triaging, rather than closing the whole card.\n\n* Joyce described the Via-Partner Partner display as 'not clickable' — she was reading the static mockup. Seconds later she asked for the opposite: 'So these details would all have to be clickable from the operators, right?' Build it clickable.\n\n* Mockup gotcha that cost time already: the billing block looks partner-only until Direct is toggled. Kobi to Taryn: 'it's there but it's for the direct. You have to click on the direct for the billing relationship in the mockup.'\n\n=== SOURCE ===\n\n* Taryn doc OP-4 logic\n\n* Aug 13 call — Kobi's spec\n\n* Slack Kobi Aug 12 15:51\n\n* Aug 17 call — mechanism + Billing Contact done\n\nDependencies: BUILD-128, BUILD-129\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-130 — Operator: conditional field visibility driven by Billing Relationship",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10484",
+          "body": "Partially built, per this ticket's own notes: Billing Contact visibility was configured and saved live on Aug 17, but every other Direct-only field is still outstanding. Full spec calls for field-level visibility (Lightning App Builder > Set Field Visibility, filtered on Billing Relationship = Direct) on Billing Entity, Payment Terms, Billing Contact, Invoicing Cadence, Billing Email, Invoicing Currency, Payment Method, Tax/GST/VAT ID, Billing Address, PO Required, Remittance Reference, and the Agreement block from BUILD-128 — with Billing Relationship and Billing Notes always visible.",
+          "created": "2026-08-24T17:19:53.523-0400",
+          "updated": "2026-08-24T17:19:53.523-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-261"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563695490574"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i00127:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563695490574"
+      }
+    }
+  }
+}

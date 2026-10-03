@@ -1,0 +1,479 @@
+{
+  "id": "10333",
+  "key": "WAGR-137",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10298",
+      "key": "WAGR-72",
+      "fields": {
+        "summary": "BUILD-178 — Player: Player Status Automation",
+        "status": {
+          "description": "",
+          "name": "Jumpr Review",
+          "id": "10062",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-31T15:29:54.312-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10085",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11564",
+          "key": "WAGR-487",
+          "fields": {
+            "summary": "Deal — Formula-qualified scheduled Active → Inactive at 90 days",
+            "status": {
+              "description": "",
+              "name": "Requirements",
+              "id": "10058",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-29T18:48:43.626-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Summary\n\nWhen an Active Player has no completed sign-ups (or other qualifying activity) in the last 90 days, set their Status to Inactive.\n\n## Context\n\nWithout an aging rule, players stay Active forever and reporting overstates the active base. The client set the threshold at **90 days without qualifying activity**. Qualifying activity is measured by Account.Last_Activity_Date__c.\n\n## Current state\n\nNo scheduled automation exists on Account. Player_Status_Reason\\__c already includes the value Inactivity. Field history tracking on Player_Statusc is off. In Partial today no Player is Active and no Last_Activity_Date_\\_c is set, so first activation is safe by definition.\n\n## Proposed solution\n\n1. NEW schedule-triggered flow Player_Scheduled_Set_Inactive, daily 02:00 ET, on Account. Selects Players (Player record type) that are **Active** with a Last Activity Date **more than 90 days in the past**. Players at Pending, Banned, or Inactive, or with a blank Last Activity Date, are never touched. How eligibility is filtered (entry criteria vs. in-flow decision) is the developer's call — the boundary behavior is defined in the acceptance criteria.\n2. Per eligible record: set Inactive and Player_Status_Reason__c = Inactivity. (Audit stamping via BUILD-251; the stamped updater will read \"Automated Process\" — expected.)\n3. The 90-day threshold must be defined in **exactly one place** in the flow, named and documented so it's easy to find and change. Upgrade to a custom setting only if the client asks to tune it.\n4. Enable field history tracking on Player_Status__c (audit trail for all status changes).\n\nTesting note: feel free to adjust the inactivity threshold to 2–3 days or shorter to confirm the scheduled flow runs as expected, or manually set the Completed Dates/Activity Dates to simulate older completions.\n\n## Acceptance criteria\n\n1. An Active Player 91+ days stale flips to Inactive with Reason = Inactivity on the next run; exactly 90 days stays Active (boundary).\n2. Must NOT evaluate: blank Last_Activity_Date__c, Pending, Banned, or players reactivated since their last activity.\n3. A reactivated player is only re-flipped after a fresh 90-day lapse.\n4. Bulk-safe at 200+ eligible records.\n\n## Output\n\nScheduled flow deployed + activated in Partial SB; history tracking enabled; API names + first-run record count recorded on this ticket; requirements doc updated.",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10134",
+        "filename": "Screenshot 2026-09-10 at 11.15.47 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-10T11:19:02.662-0400",
+        "size": 167477,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10134",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10134"
+      },
+      {
+        "id": "10135",
+        "filename": "Screenshot 2026-09-10 at 11.17.09 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-10T11:19:05.801-0400",
+        "size": 135277,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10135",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10135"
+      },
+      {
+        "id": "10131",
+        "filename": "Screenshot 2026-09-10 at 11.17.24 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-10T11:19:08.700-0400",
+        "size": 180085,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10131",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10131"
+      },
+      {
+        "id": "10123",
+        "filename": "Screenshot 2026-09-10 at 12.57.15 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T13:26:15.563-0400",
+        "size": 187730,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10123",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10123"
+      },
+      {
+        "id": "10122",
+        "filename": "Screenshot 2026-09-10 at 12.57.32 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T13:27:04.821-0400",
+        "size": 182994,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10122",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10122"
+      },
+      {
+        "id": "10116",
+        "filename": "Screenshot 2026-09-10 at 12.57.43 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T13:27:08.050-0400",
+        "size": 247806,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10116",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10116"
+      },
+      {
+        "id": "10114",
+        "filename": "Screenshot 2026-09-10 at 12.57.51 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T13:27:11.382-0400",
+        "size": 237877,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10114",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10114"
+      },
+      {
+        "id": "10113",
+        "filename": "Screenshot 2026-09-10 at 12.58.03 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T13:27:13.976-0400",
+        "size": 131212,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10113",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10113"
+      },
+      {
+        "id": "10121",
+        "filename": "Screenshot 2026-09-10 at 12.58.18 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T13:27:17.508-0400",
+        "size": 127927,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10121",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10121"
+      },
+      {
+        "id": "10118",
+        "filename": "Screenshot 2026-09-10 at 12.58.29 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T13:27:30.111-0400",
+        "size": 148879,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10118",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10118"
+      }
+    ],
+    "summary": "BUILD-254 — Player Status: Scheduled Active → Inactive at 90 Days",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10362",
+          "body": "**Changes made:** \n\n| **Metadata Name** | **Metadata Type** | **Action** | **Notes** |\n| --- | --- | --- | --- |\n| Account_Scheduled_Player_Set_Inactive | Flow | New Component |\n\n| Account | CustomObject | Update Component | Enable Account Field History |\n| --- | --- | --- | --- |\n| Account.Player_Status__c | CustomField | Update Component | Enable Field History |\n\n**Testing:** Validated in sandbox via flow debug. To simulate the 90-day inactivity scenario within the test data's timeframe, the inactivity threshold on Account_Scheduled_Player_Set_Inactive was temporarily changed to 1 day. Debug run confirms Active Players with a Last Activity Date older than the threshold correctly flip to Inactive with Player_Status_Reason__c = Inactivity. Threshold to be reverted to 90 days before this is considered final.\n\n**Scenario 2:** Activated the scheduled flow with `InactivityThresholdDays` set to 2 days. ",
+          "created": "2026-09-09T13:54:51.359-0400",
+          "updated": "2026-09-09T13:54:51.359-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Cedrick Infantado"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-379"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218032158419144"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001of:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-72"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218032158419144"
+      }
+    }
+  }
+}

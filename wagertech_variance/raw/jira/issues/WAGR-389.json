@@ -1,0 +1,176 @@
+{
+  "id": "10526",
+  "key": "WAGR-389",
+  "fields": {
+    "statuscategorychangedate": "2026-09-14T13:56:36.129-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-14T13:43:16.813-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.512-0400",
+    "status": {
+      "description": "",
+      "name": "Solution Review",
+      "id": "10061",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2>Outcome and context</h2><p>Users looking at the Operator or Partner record page see a count in the Highlights Panel — Associated Partners and Associated Sources on Operator, Associated Operators and Associated Sources on Partner — with nothing explaining what is being counted. Kobi raised this while reviewing the rollups with Taryn on 2026-09-11: the fields need help text in the highlights panel so a user can tell what they represent without asking.</p><h2>Current state</h2><ul><li><p>Operator: <code>Associated_Partners__c</code> (Number, Formula) and <code>Operator_Associated_Sources__c</code> (Number, Formula), both built in BUILD-272, sit on the Operator Dynamic Highlights Panel with no Field Description or Help Text set.</p></li><li><p>Partner: <code>Associated_Operators__c</code> and <code>Associated_Sources__c</code> (Number, Formula), both built in BUILD-265, sit on the Partner Dynamic Highlights Panel with the same gap.</p></li><li><p>All four are read-only, DLRS-backed distinct counts of related Deal records — Operator&#039;s two fields count distinct Partners and distinct Sources across its Deals; Partner&#039;s two fields count distinct Operators and distinct Sources across its Deals.</p></li></ul><h2>Proposed solution</h2><ol><li><p>Add a Field Description and Help Text to each of the four fields, so the text a user sees on hover in the Highlights Panel explains what is being counted.</p></li><li><p>Field Description and Help Text (ready to paste):</p></li></ol><blockquote><p><strong>Associated_Partners__c (Operator) — Description:</strong> Count of distinct Partners across this Operator&#039;s related Deals. Maintained by DLRS — do not edit directly.\n<strong>Help Text:</strong> Number of different partners this operator has deals with.</p></blockquote><blockquote><p><strong>Operator_Associated_Sources__c (Operator) — Description:</strong> Count of distinct Sources across this Operator&#039;s related Deals. Maintained by DLRS — do not edit directly.\n<strong>Help Text:</strong> Number of different deal sources tied to this operator.</p></blockquote><blockquote><p><strong>Associated_Operators__c (Partner) — Description:</strong> Count of distinct Operators across this Partner&#039;s related Deals. Maintained by DLRS — do not edit directly.\n<strong>Help Text:</strong> Number of different operators this partner has deals with.</p></blockquote><blockquote><p><strong>Associated_Sources__c (Partner) — Description:</strong> Count of distinct Sources across this Partner&#039;s related Deals. Maintained by DLRS — do not edit directly.\n<strong>Help Text:</strong> Number of different deal sources tied to this partner.</p></blockquote><ol start=\"3\"><li><p>No change to the underlying DLRS rules, the helper list fields, or the count formulas — this ticket only touches Description and Help Text on the four visible fields.</p></li></ol><h2>Acceptance criteria</h2><ol><li><p>Hovering the info icon on Associated Partners and Associated Sources in the Operator Highlights Panel shows the help text above.</p></li><li><p>Hovering the info icon on Associated Operators and Associated Sources in the Partner Highlights Panel shows the help text above.</p></li><li><p>No other field, layout, DLRS rule, or formula is changed.</p></li></ol><h2>Out of scope</h2><p>Resolving the open questions carried on BUILD-272 / BUILD-265 — whether the Deal scope is all Deals or Active-only, and how a blank Source is counted. Both stay open on their original tickets; the wording above is deliberately scope-agnostic so it does not need revisiting once those are answered.</p><h2>Source</h2><p>Wagertech Internal Sync, Sep 11, 2026 — Kobi asked Taryn whether help text could be added to the Highlights Panel for the associated sources and associated partners rollups; Taryn confirmed it was possible. Restated as a next step in the Sep 14, 2026 sync notes.</p>",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Add help text to the Associated Partners and Associated Sources rollup fields",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10548",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"70f7c08c4194\"><span data-local-id=\"0bcd65f6-cd98-4759-a661-3a65faf03a46\" data-type=\"mention\" data-user-id=\"712020:61966a85-61f2-42ce-8382-85568cc7e090\">@Kobi Kunasekaran</span> Confirmed in sandbox that help text doesn’t show on fieldsthat are within the dynamic highlights panel, however I did go back into the fields and added descriptions and help text anyways</p>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-14T13:56:24.175-0400",
+          "updated": "2026-09-14T13:56:24.175-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vb:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

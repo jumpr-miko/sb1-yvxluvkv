@@ -1,0 +1,1238 @@
+📝 Notes
+Jul 15, 2026
+Wagertech <> Jumpr - Weekly Sync
+Invited Kobi Kunasekaran joyce@wagertech.bet emily@wagertech.bet lina@wagertech.bet Marc Cabantog Miko Sumagang Waleed Alasadi
+Attachments Wagertech <> Jumpr - Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+The team aligned on project architecture, established critical Salesforce field logic, and agreed on future meeting structures.
+
+System Infrastructure and Logic
+The team confirmed the project build phase while finalizing logic for Cost Per Acquisition targets and referral bonus calculations. These configurations will utilize specific currency fields and manual data entry to minimize complexity.
+
+Permissions and Workflow Design
+Operations teams will maintain exclusive control over fraud flagging and status updates to prevent unauthorized modifications. The group prioritized simplified user interfaces to ensure staff only interact with relevant deal data.
+
+Development Approach and Governance
+The team adopted a crawl, walk, run development philosophy to prioritize essential functionality like signup tracking and deal assignments. They agreed to move complex solutioning discussions into dedicated sessions outside of all-hands updates.
+
+
+Decisions
+Needs Further Discussion
+* Google Cloud Storage implementation pause The team is pausing the decision to implement Google Cloud Storage to further evaluate internal tool development timelines and requirements.
+
+
+Aligned
+* Sandbox user license allocation The sandbox user license allocation will be modified by removing Ryan to reallocate access to Lena for initial testing.
+* Deal ID data exclusion The PlayCan API integration will not include a Deal ID, and will instead map records to deals using existing operator, partner, and market data fields.
+* Manual proof link storage fields Salesforce will incorporate three URL fields to allow manual pasting of proof links, serving as a bridge until an automated storage solution is finalized.
+* Signup status process change The signup workflow will replace existing statuses with a "Flagged for Review" status, which locks the record and requires operational team intervention to unlock.
+* CPA target type field logic A "CPA target type" field will be implemented to dynamically control whether the CPA target field accepts numeric inputs or is set to unlimited.
+* Dedicated solutioning meetings established The team will separate complex solutioning and large project topics from standard status updates by conducting dedicated working sessions.
+* Referral information section structure adopted The team will consolidate referral-specific fields into a distinct "Referral Information" section within the signup record UI.
+* Fixed exchange rate strategy confirmed The team will utilize a manually updated, static exchange rate configuration in Salesforce for reporting rather than implementing real-time market rates.
+* Referral-to-player linking process adopted The team will implement a screen flow to allow users to search for and link existing players as referrers, moving away from manual, separate record creation.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Provide Sandbox Access: Grant Lina Ceniccola access to the sandbox environment. This involves performing system updates first, then updating the user permissions.
+* [Emily Vandenberg] Watch Training Video: Review the instructions video for the new system to learn how to navigate the console and list views correctly.
+* [Kobi Kunasekaran] Confirm Status Changes: Draft and send a document to confirm the planned status consolidation changes for signups before implementation.
+* [Kobi Kunasekaran] Document Fraud Tracking: Create and share a draft document explaining the proposed fraud tracking processes, including handling related player statuses.
+* [The group] Decide Storage Solution: Finalize the decision on whether to use Google Cloud Storage or build an alternative solution for proof document uploads and communicate this to the team by next week.
+* [Joyce Kiddell, Emily Vandenberg] Share Data Access: Provide Kobi Kunasekaran with read access to the signup logging spreadsheet and Airtable records to assist with data mapping and historical migration.
+* [Joyce Kiddell] Share API Specs: Forward the API specifications document to Straw for review.
+* [Kobi Kunasekaran] Scope Flagged Status: Scope out the logic for the flagged for review status and prepare to present it during the next meeting.
+* [Kobi Kunasekaran] Add URL Fields: Add three URL fields to the signup records in Salesforce to serve as a bridge for pasting links from the current Google Sheets process.
+* [Kobi Kunasekaran] Create Import Spreadsheets: Compile data into spreadsheets for historical imports once all fields and objects are finalized.
+* [The group] Review Salesforce Fields: Evaluate fields, statuses, and data formats within player, operator, and partner accounts to ensure accuracy. Submit feedback regarding required changes or visibility settings.
+* [The group] Define Persona Access: Create a list of view requirements and access permissions categorized by user persona. Use screenshots to designate read or write permissions for each field.
+* [Kobi Kunasekaran] Create Assignment Mockup: Develop a simplified design or proof of concept for the deal rep assignment process to replace manual creation.
+* [Kobi Kunasekaran] Create Fraud Document: Write a document outlining procedures for flagged fraud signups and subsequent player record updates.
+* [Lina Ceniccola] Post Payment Matrix: Share the payment matrix including referral bonus options in the team Slack channel.
+* [Kobi Kunasekaran] Add Referral Field: Include a new referral bonus field and specific section in the signup record to accommodate referral details.
+* [Kobi Kunasekaran] Update Requirements: Document the payout and currency requirements in the summary write-up for review.
+* [Kobi Kunasekaran] Scope Automation: Draft a technical plan for the referral and player linkage automation to support future project phases.
+* [Kobi Kunasekaran] Grant Access: Provide system permissions to Lina Ceniccola by the end of the day.
+* [Lina Ceniccola] Review Loom Video: Watch the provided screen recording to familiarize yourself with the organization setup.
+* [Emily Vandenberg] Compile Feedback: Create a central document to track functional feedback on signups, study links, and deal assignments.
+* [Kobi Kunasekaran] Transfer Feedback to Asana: Move consolidated feedback items into project management cards once they are ready for review.
+
+
+
+Details
+* Meeting Opening and Team Update: Miko Sumagang shared that severe wildfire conditions in Northern Ontario have resulted in orange, foggy skies in the Toronto area (00:00:03). The team also discussed a recent business retreat to Kawartha Lakes where they engaged in activities like boating and fishing (00:02:59). Emily Vandenberg and Lina Ceniccola noted that the trip was a valuable opportunity for the team to meet in person (00:04:10).
+* Project Build and Sandbox Access: Kobi Kunasekaran confirmed the project build is complete and that test data demos were successful. While sandbox access was provided to Emily Vandenberg via Salesforce, Kobi Kunasekaran noted some license management issues for other team members and offered to swap licenses from placeholder accounts to active users to facilitate testing (00:05:10). Kobi Kunasekaran provided instructions for users to adjust their list views to correctly display data upon initial login (00:08:18).
+* System Enhancements and Fraud Tracking: Kobi Kunasekaran is scoping build-phase user stories, including user roles and permissions (00:08:18). Plans are underway to consolidate sign-up statuses and develop automations for fraud tracking. Kobi Kunasekaran requested input on how to handle sign-ups flagged as fraud, specifically regarding the status of the related player and required operational responses (00:09:16).
+* CMS Rebuild and Deal ID Integration: Emily Vandenberg reported that the Content Management System (CMS) is undergoing a rebuild, with a demo expected early next week (00:11:14). Kobi Kunasekaran emphasized the need to link Salesforce deal records with CMS data, noting that while no formal "Deal ID" currently exists in the legacy system, the team will need to use existing operator, partner, and market fields to establish these associations (00:12:07).
+* Proof Storage Strategy: The team is pausing the implementation of Google Cloud Platform (GCP) for file storage while internal teams scope a new fraud detection tool (00:15:33). To bridge the gap, Kobi Kunasekaran will create URL fields and checkboxes in Salesforce to allow users to manually input proof links, maintaining consistency with their current Google Sheets workflow (00:16:46) (00:20:06).
+* Automated Fraud Flagging and Status Workflows: Emily Vandenberg and Lina Ceniccola discussed a proposed workflow where automated detection triggers a "flagged for review" status (00:23:08). It was proposed that only the operations team would have the permissions to clear or "unflag" these records in Salesforce, ensuring that sales representatives cannot bypass the flag (00:24:27) (00:26:54).
+* Historical Data Migration: Kobi Kunasekaran requested read access to current Google Sheets and Airtable records to analyze existing mapping structures for deals and assignments. This access is necessary to facilitate a clean historical migration of players and sign-ups into the new system (00:29:20).
+* API Connectivity and Data Synchronization: Joyce Kiddell and Kobi Kunasekaran discussed the necessity of a two-way API connection between the CMS and Salesforce (00:35:38). This connectivity ensures that data, such as signup records, remains synchronized across both platforms, regardless of the storage solution eventually chosen for proof files (00:34:39).
+* Historical Import Strategy: The team evaluated the approach for importing historical player data, sign-ups, and deal assignments (00:39:58) (00:44:04). Kobi Kunasekaran noted that while importing historical data involves complex data mapping to ensure records relate to the correct deals, it is essential for accurate reporting and to avoid duplicate player creation during the system cutover (00:43:11).
+* System Testing and Feedback: Kobi Kunasekaran instructed the team to begin testing in the sandbox environment immediately, specifically reviewing player accounts, operator data, and partner fields to ensure they align with the original requirements (00:46:06) (00:48:18). Users are to verify that the current data formats, such as free-form text versus picklists, are appropriate for their needs, noting that the development team can adjust these fields based on feedback (00:47:17).
+* Data Visibility and Rollup Automations: The team discussed the need for visibility into specific deal-level data, such as Cost Per Acquisition (CPA) targets, when viewing higher-level records like operators (00:51:14). Kobi Kunasekaran confirmed that they can implement rollup automations to bubble up this data from child records, such as individual deals, to parent records like operators (00:52:06).
+* CPA Target Field Logic: The group reached a consensus on managing Cost Per Acquisition (CPA) targets by adding a "CPA target type" field. This field will allow for either numeric input or an "unlimited" designation, with the system logic dynamically adjusting the editability of the target field based on the type selected (00:53:08).
+* Sales Representative Persona Visibility: Miko Sumagang and Lina Ceniccola emphasized the importance of tailoring the user interface to different personas to prevent sales representatives from being overwhelmed by technical data. It was decided that representatives should have a simplified view that only displays relevant information, such as specific deal targets assigned to them, rather than the full, verbose system details visible to operations staff (00:54:27).
+* Salesforce Access and Permissions: Kobi Kunasekaran explains that Sales Reps will have access to their signups and can upload proofs, but they will not be able to edit BL operator or partner information. To set up appropriate page views, Kobi Kunasekaran suggests the team take screenshots of objects and use color-coding or descriptive labels to define access levels for reps, managers, ops, and admins. Kobi Kunasekaran notes that the current groupings are customizable and can be simplified or rearranged as needed (00:57:48).
+* Signup Process Review: Lina Ceniccola suggests that the first step in the current phase is to determine the specific fields a representative needs to view. Kobi Kunasekaran confirms that implemented fields are limited to those necessary for the current phase, as outlined in the PRD, to avoid over-complicating automations. The team agrees to prioritize reviewing the signup, login, completion, and fraud fields to identify any missing critical information (00:58:59).
+* Deal Assignment Logic: Miko Sumagang advises the team to perform a walkthrough of the user journey, specifically regarding deal assignments, to avoid over-complicating the process. Emily Vandenberg proposes booking a working session with Joyce Kiddell to "theory craft" the entry method, such as how to handle splitting large groups of records among representatives (01:00:02).
+* CPA Target Tracking: Emily Vandenberg expresses concerns about tracking CPA targets, noting that while targets are set at the deal level, they must be assigned and tracked at the rep level within specific date ranges (01:01:10). Kobi Kunasekaran clarifies that the current architecture is limited to the deal level, and tracking caps or targets at the rep level would require further scoping, potentially involving child objects or automations (01:02:31).
+* Reporting and Data Visualization: Miko Sumagang suggests that Emily Vandenberg visualize reporting needs to ensure that existing data objects, such as signups and deal assignments, can support the necessary insights. Kobi Kunasekaran confirms that while the core data is present, the team can work backward from the reporting requirements to identify if any additional information is needed (01:06:08).
+* Current Development Status: Kobi Kunasekaran provides an update on workstreams, noting progress on sharing rules, permission roles, the Deal Rep Assignment UI, and fraud tracking documentation (01:07:07). Kobi Kunasekaran highlights that the storage solution is a potential risk if not finalized quickly, but otherwise, the team is not blocked on other tasks (01:08:08).
+* Meeting Structure Strategy: Joyce Kiddell proposes shifting away from using all-hands meetings for complex solutioning and instead reserving them for project roadmaps and status updates (01:08:08). The group agrees to hold dedicated sessions for "big bodies of work," such as fraud tracking (01:08:57). Kobi Kunasekaran and Joyce Kiddell plan to coordinate a separate meeting for Friday to discuss API study link logic and fraud tracking documentation (01:09:40).
+* Referral Bonus Fields and Logic: Lina Ceniccola requests adding a "referral bonus amount" field to the signup record. The team discusses automating this based on a payment matrix—differentiating between Canadian/US currency and cash/bet credit—though Kobi Kunasekaran notes they can start with manual entry if needed (01:10:38). Lina Ceniccola agrees to provide the payment matrix to clarify the logic (01:12:14).
+* Referral Object Organization: Kobi Kunasekaran proposes creating a specific "referral information" section on the signup record to house referral details, including the currency, bonus amounts, and secondary referrers (01:14:42). Lina Ceniccola emphasizes the importance of tracking secondary referrals, where a referrer receives payment after hitting a threshold of 10 signups (01:15:49).
+* Referral Currency Conversion: Kobi Kunasekaran explains that currency number fields in Salesforce use static exchange rates configured in the system. Lina Ceniccola confirms that a fixed rate is preferred for reporting, as a US signup might involve a Canadian referral payout. The system will use the "referral currency" field to determine the correct payout format (01:17:05) (01:19:38).
+* Survey Completion Tracking: Lina Ceniccola identifies a missing field for survey completion, which Kobi Kunasekaran notes currently resides at the player level. Kobi Kunasekaran explains that tracking survey completion relies on study click links; because those links do not inherently confirm survey completion, a backend update from the team would be required to trigger the status update (01:21:05).
+* Referrer Management and Linking: The team discusses the process for adding referrers, noting that not all referrers are existing players. Kobi Kunasekaran explains the current Salesforce setup differentiates between player and referrer record types (01:24:26). To reduce manual effort, the team explores creating a screen flow that allows reps to search for existing players and automatically link them as referrers, rather than creating separate records (01:28:31).
+* Development Philosophy: Kobi Kunasekaran advocates for a "crawl, walk, run" approach, starting with manual processes to identify necessary fields before implementing complex automations (01:31:00). This strategy minimizes the risk of having to rework automations if requirements change after testing (01:31:57).
+* Feedback Prioritization and Wrap-up: Emily Vandenberg asks for a prioritization of feedback for the upcoming week. Kobi Kunasekaran identifies the core functional areas—signups, study click links, and deal assignments—as the highest priorities for feedback, as these have the greatest impact on system automations (01:33:33).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 15, 2026
+Wagertech <> Jumpr - Weekly Sync - Transcript
+00:00:03
+
+Emily Vandenberg: Hello. How are
+Miko Sumagang: Good, good,
+Emily Vandenberg: you?
+Miko Sumagang: good. View, have you seen the outside yet? Yes.
+Emily Vandenberg: Today I No.
+Miko Sumagang: Have you seen the sky?
+Emily Vandenberg: Is it really hot
+Miko Sumagang: No, it's like really bad like out here. Um,
+Emily Vandenberg: out?
+Miko Sumagang: it's like the the whole uh what do you call this? Uh the whole outside is like orange. It's like very like yellowish.
+Kobi Kunasekaran: It's
+Miko Sumagang: Uh like my th my my father-in-law,
+Kobi Kunasekaran: scary.
+Miko Sumagang: he's at like Thunder Bay like right now. Uh and apparently it's like closer to like red even because of all the fire uh uh what's it called? Like fire like uh wildfires. There's the word I was like looking for. So I guess you guys aren't getting it.
+Emily Vandenberg: and and I haven't looked outside,
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: but uh it was clear this morning. Are is it northern fire or
+Miko Sumagang: Yeah,
+Emily Vandenberg: is
+
+
+00:00:59
+
+Miko Sumagang: like it just like landed around like the the Toronto area just now or like this
+Emily Vandenberg: um wild?
+Miko Sumagang: morning.
+Emily Vandenberg: No, I'm living under a rock.
+Miko Sumagang: Sorry, you were saying something.
+Lina Ceniccola: What
+Emily Vandenberg: Hey,
+Miko Sumagang: Uh, we have wildfires right now in Northern Ontario.
+Lina Ceniccola: happened?
+Miko Sumagang: Uh, so it's been happening for like a couple of days now, but I think like it just like started like landing here in Toronto. Uh,
+Lina Ceniccola: What?
+Miko Sumagang: so like it's like orange outside.
+Lina Ceniccola: Really?
+Emily Vandenberg: Can you show us?
+Miko Sumagang: Uh,
+Emily Vandenberg: Can Does it I I'm shocked because like I'm f we're I believe fine.
+Miko Sumagang: yeah.
+Emily Vandenberg: I'm gonna have to
+Miko Sumagang: Uh,
+Emily Vandenberg: go
+Miko Sumagang: see if I could uh just like show youall one second. How do I remove
+Emily Vandenberg: the blur.
+Miko Sumagang: filter background? All right. If you look outside, I don't know if it's like miserable, but it's orange.
+Kobi Kunasekaran: I can't really see
+Miko Sumagang: You can see it.
+
+
+00:02:02
+
+Kobi Kunasekaran: it.
+Miko Sumagang: It's like orange right now.
+Lina Ceniccola: Oh, I think it's hard to see cuz your screen,
+Miko Sumagang: Oh.
+Emily Vandenberg: Yeah.
+Lina Ceniccola: but you can see it looks pretty foggy.
+Emily Vandenberg: Yeah.
+Miko Sumagang: Are you all able to see like my kids uh background?
+Lina Ceniccola: Yeah.
+Emily Vandenberg: That's funny. Yeah, you're posted up.
+Miko Sumagang: This is uh where I'm currently like working for
+Lina Ceniccola: Yeah.
+Miko Sumagang: today.
+Emily Vandenberg: No, I'll have to go check it out, though. But we were just in like Niagara area and I didn't notice anything. Um, but maybe I wasn't like paying attention.
+Kobi Kunasekaran: All
+Emily Vandenberg: I don't know. I'm second guessing. We can probably Joyce I think just said she's gonna be a couple minutes. Let me see. Are we waiting for the lead?
+Kobi Kunasekaran: right.
+Miko Sumagang: Uh I don't think is going to be joining us for today but uh the next meeting like he will be well I think like the solution is going to be like swapped out like already so like me and him are going to be like swapping out
+
+
+00:02:59
+
+Kobi Kunasekaran: Next.
+Miko Sumagang: but
+Emily Vandenberg: Got it.
+Miko Sumagang: yeah
+Emily Vandenberg: How was your um you guys took a little retreat, little business retreat, right? How was it?
+Miko Sumagang: very good we got to uh kayak and stuff we rented out like a boat we went to Kawartha Lakes and we spent like the first day like going through locks. I've never been, so it's like really like cool. Um there's this like what what was it like Kobe? Like uh like the first lock that's like a kind of like this like spoon.
+Kobi Kunasekaran: The lift the left fog and lift the whole boat
+Miko Sumagang: Um yeah, it was very intense. So,
+Kobi Kunasekaran: up.
+Miko Sumagang: like you literally just like park right in front of like the this like small little channel and then they make you like tie your boats to like like the side and then like there's almost this scoop that like raises you up like 20 ft up with all like the water like around you and then you get to like cross like the channel uh from there.
+
+
+00:04:10
+
+Emily Vandenberg: That's
+Miko Sumagang: And there there was like four channels that's like that.
+Emily Vandenberg: cool.
+Miko Sumagang: And then we just um attempted to like fish around like the lakes but um unsuccessfully.
+Kobi Kunasekaran: unsuccessful.
+Emily Vandenberg: Nice. Oh, that's cool. Good. Good little
+Miko Sumagang: Yeah.
+Emily Vandenberg: recharge.
+Kobi Kunasekaran: How's your rest of uh the Toronto trip?
+Emily Vandenberg: It was good. Eventual as you could imagine.
+Lina Ceniccola: exhausting but fun. It was very fun
+Kobi Kunasekaran: Nice. Do you all come down very often or is like a once in a while
+Miko Sumagang: Get
+Kobi Kunasekaran: thing?
+Lina Ceniccola: once in a while. Not too often.
+Emily Vandenberg: I'm fairly new. So that was the first time in person I'd met Lena or Jess.
+Kobi Kunasekaran: Oh, no
+Emily Vandenberg: Yeah. Yeah.
+Kobi Kunasekaran: way.
+Emily Vandenberg: So that was really it was a really great trip for for me for that sake as well.
+Kobi Kunasekaran: Nice.
+Emily Vandenberg: Yeah. I think we get started. Um we'll catch up.
+
+
+00:05:10
+
+Emily Vandenberg: Obviously,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: we have fireflies and I think we should be able to speak to most things
+Kobi Kunasekaran: Okay. Um yeah.
+Emily Vandenberg: here.
+Kobi Kunasekaran: So from our end um not too many updates since our on-site um the PC is already built. Um we tested uh some data and we ran you through all the demos. So I marked all of those things as complete. Um I did um add access uh for you Emily like you should have got an email from Salesforce um to get access. I know straw reached out uh because he was struggling to log in and we were able to get that resolved. Not sure if Joyce was able to log in yet. Um, and then for Lena, um, there's no more licenses on the sandbox, but I can always like move around one of the sales reps if you want to log in and uh they're on as well. So, let me know if you'd like access and uh I can just switch those licenses around so you can log in
+
+
+00:06:09
+
+Emily Vandenberg: There should be a new license available.
+Kobi Kunasekaran: too.
+Emily Vandenberg: We made a change. We removed um a user earlier this week.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: So I don't I think you did that on like Friday. Uh, so I think should be access,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: but at this point I would say of the reps that you have in there, is it Ally, Naomi, or who who do you have in
+Kobi Kunasekaran: There are a lot of people in there and I think they're like added as placeholders to be honest.
+Emily Vandenberg: there?
+Kobi Kunasekaran: Like I'm I'm just looking at sandbox. So if you made any changes in production it wouldn't be active here. Um but we can always do the syncing and uh get the sandbox users updated. Um, but we have all of these sales reps that they look like they were set up as like placeholder accounts. Um, like obviously when we go live, um, whoever needs will be allocate, but for now this is sandbox. So if they're not going to be in there testing, uh, we can move around those licenses to anybody that wants to test out.
+
+
+00:07:15
+
+Emily Vandenberg: Yeah, Ryan. You can take Ryan off of the sandbox and then for sure um underneath Ally. Keep going up up up. There you go. Remove him at Lena.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: A lot of those won't need to be used for kind of initial testing, but as long as we get Lena access,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: then
+Kobi Kunasekaran: Okay. I will get you added after the call then can't have to. Okay. have to make some updates to the system first. Yeah, we'll get that updated and uh get you access.
+Emily Vandenberg: I was in the sandbox just logged in and I saw no like data. Is that to be expected for like my
+Kobi Kunasekaran: Uh no, you have system admin,
+Emily Vandenberg: permissions?
+Kobi Kunasekaran: so you should be able to see more or less what we see. Um, but it could be that you know if uh when you're logging in for the first time like the default uh list view goes to recently viewed and you won't have anything in there because you haven't clicked anything.
+
+
+00:08:18
+
+Kobi Kunasekaran: So um so then like if you click
+Emily Vandenberg: I see. Okay.
+Kobi Kunasekaran: on the list view or the recently viewed wherever you see it and uh you click on one of the other lists you should be able to see some data.
+Emily Vandenberg: Oh, okay. Yeah, it was that's was not clear to me.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: Yeah. Yeah. Check out the video that I put together.
+Emily Vandenberg: cool.
+Kobi Kunasekaran: Like I um there are some like common things that happens when it's like the first time you're logging in. Uh like even this list view, like the console view, you might see you might not see the whole thing. You might just see like a table view like this. So um I I go through like instructions on how to flip uh flip those things. So, you get to test it out like what we showed you uh in the PLC demo.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Um, okay. So, aside from access, um, we started working on the other build phase user stories like the, uh, user roles and permissions.
+
+
+00:09:16
+
+Kobi Kunasekaran: Not much to demo right now. Um, it the system is still largely more or less the same as what you saw on Wednesday. Um, I know we talked about like consolidating some of the statuses for signups. um and things like that. So, I'm I'm scoping those out and uh I'll send over uh like a quick write up just to confirm uh before we make the changes. Um same thing with like fraud tracking. I have a few questions on how we want to roll up like if if a signup is uh flagged as fraud, what happens to the related player um that the signup is under and like what happens for each like if they're in like a different status uh how do we handle each of those scenarios? So just uh polishing up that uh the draft document. I'll send that over and then we can talk through those uh before we add in those automations. Um yeah,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: I think those are the main things. So we did talk about like uh a reporting feed into Google Sheets.
+
+
+00:10:16
+
+Kobi Kunasekaran: Um so I'll I'll scope this out. This probably not going to be for this week. Maybe next week. Um I'll I'll work on this. I think right now we're trying to finalize the actual build itself. Um but for that we have like two main things still open that we need like input. Uh one is the API. I think Jo message this morning. Um I sent over like a a document that runs through Oh, did I not pass past the right one? Nope. Didn't paste the right one here. But I did share it with Joyce earlier. that put together like a spec talk that talks through uh what the process looks like or what the new process looks like uh of signups getting uh created from the study click clings. Um I think you should be able to send this over to whoever works on the on the API side and it should give them all the information they need. Um but also happy to like set up some call to walk through it if needed.
+
+
+00:11:14
+
+Emily Vandenberg: Okay, just an update on our end. Um, so kind of some um a bit of change happening on the CMS. We're doing a bit of a of a rebuild. Um, so that this is why Joyce was asking as well. So handing it over to the developer to ensure we're kind of like being able to pass all this off. Friday is when we're looking to demo. Uh so I think by early next week we can kind of start um you guys might even want to quick sync like you said and we can kind of start testing. Um but as long as the spec is accurate, he'll build to it and then we should be good to go.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Like I'm going to say start of next week is the update I have.
+Kobi Kunasekaran: Okay. Awesome.
+Emily Vandenberg: Yeah. So, let's just um kind of hold tight until Friday, Monday,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: and then we should be able to reconvene on this.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: But I'll make sure voice had like sends this over and you put this in the slack channel as
+
+
+00:12:07
+
+Kobi Kunasekaran: Um
+Emily Vandenberg: well.
+Kobi Kunasekaran: yeah. Um I will say like some of these fields like these are what we came up with from like the PRD and what was in
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: your like current version of play can right. So this adds up like we can like it's not set in stone. we can we can figure out the right balance of like data that's available on the uh on the play can side and what can actually be sent to Salesforce. So uh just keep that in mind. One one that I do want to call out specifically is a deal ID. Um this is I don't know if there is any type of deal ID in play can right now. Uh previously you had like the operator, the partner, the market information all broken up into like separate data points. So, if that's all that's going to be available from playen, then like that that's still fine. We we'll just have to make sure to uh use those fields to find the correct deal in Salesforce and associated with the deal.
+
+
+00:13:09
+
+Kobi Kunasekaran: Uh but if you have anything that's already like somewhat resolved like a deal ID, then obviously that'll make it easier on the Salesforce side.
+Emily Vandenberg: Okay. I don't think we in the old version I don't think we had this. Um potentially it it's straw who's like doing the migration. So potentially he is the potentially yeah solutioning for this but if not we'll
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: we'll manage it.
+Kobi Kunasekaran: Okay. No
+Emily Vandenberg: We don't we're not sending you a deal ID.
+Kobi Kunasekaran: worries.
+Emily Vandenberg: Are you creating one when once you receive all of the individual
+Kobi Kunasekaran: So, right now we're assuming deals are created first in Salesforce.
+Emily Vandenberg: information
+Kobi Kunasekaran: Um and then as the study click links are clicked, we will look up the information that comes in from that study click link payload uh payload and then map it to uh map it to the rep, the player um and like the operator partner vertical to find the deal and deal assignment and associate that sign up to that deal assignment. So we're not right now we're not we didn't scope creating the deal from these study click links.
+
+
+00:14:17
+
+Kobi Kunasekaran: think you're going to want to do that manually because presumably those deals are already configured. you have like a deal rep assignment already configured and then you're going to CMS to uh add those links to the respective reps uh website
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: and if that's the case we could generate the deal ID on Salesforce and if you have a like you just need a field in play cam to hold that ID and we can actually do the mapping that way
+Emily Vandenberg: Okay, I'll have we'll have to take that away, but let us get Yeah,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: let's kind of um hold that and I'll bring Bring that
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: in.
+Kobi Kunasekaran: Um, next one I want to talk to is a is a storage option. So, I know like we we're going back and forth. We have the whole like backlinks uh sorry, not backlinks um the the back routing uh idea. Yeah, like still uh scoping but we don't have anything finalized yet.
+Emily Vandenberg: Rowdy.
+Kobi Kunasekaran: Um, so are we are we good to proceed with GCP or do we still need to make a
+
+
+00:15:33
+
+Emily Vandenberg: We were chatting this morning because there's also kind of a new product um tool that we're looking to
+Kobi Kunasekaran: decision?
+Emily Vandenberg: develop for kind of fraud detection. Obviously there's rowdy but then this kind of like extra layer um in which we want to change the process for which the reps um push through these um documents and that is still a bit uh in a bit of scoping exercise. We're wondering if we can hold on this like in the given state or just to
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: kind of be able to scope it out, get a bit of timeline, make a kind of firm internal decision and then get back to you. Um I know that you've kind of been asking, but I don't we don't want to overbuild this.
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: Um not necessary in an ideal state. I think like if we were to build this tool, we would then just like send you uh we'd send Salesforce kind of like confirmation of the completion statuses for each versus you doing the Salesforce doing the heavy lifting on storage and um upload.
+
+
+00:16:46
+
+Kobi Kunasekaran: Um, yeah, I think I think we can. So, if I mean that's fine because we have like what two full weeks left before we're supposed to be like UAT done. So if we're not going GCP within Salesforce, um what we already have is are these check boxes on the signups, right? So whether these checkboxes are checked manually by the reps or through the API
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: from whatever tool that's doing the processing. Um that works for us. Um then we don't need to build anything on top of this and we can we'll just assume that this is all that's going to happen in Salesforce. Um, and by extension, I'm also assuming we're not like required to have the list of those like proof files within Salesforce either at this time.
+Emily Vandenberg: at this time.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: No, at this time we we just like want to kind of just like pause on solutioning for what we want to do
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: with this other than being able to accept information.
+Kobi Kunasekaran: Okay.
+
+
+00:17:48
+
+Emily Vandenberg: We will get back to you kind of as soon. Again, there's like just a few moving pieces and we don't want to like sequence it in the wrong order and then like spend money, you know,
+Kobi Kunasekaran: Yep.
+Emily Vandenberg: that's not needed to develop up here when it's going to be kind of handled elsewhere. So, we understand like timeline and sequencing of these things. Um, so let us get back to you by next week. We'll have a couple of these kind of like bigger things locked in.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Anything else to add there, Lena?
+Lina Ceniccola: Um, no, sorry, I'm just dealing with a bit of an urgent payroll thing, but I'm I was half listening. I think you're just commenting on how we're kind of developing a bit of a system around this, so we don't want to do the same thing.
+Emily Vandenberg: Yeah, I'm just pausing them for any like activity and then we'll get back to them with our internal decision um on how we're going to handle these like proof upload storage etc. leaning towards sending them information through the API versus them having to build for it.
+
+
+00:18:49
+
+Lina Ceniccola: Yeah.
+Emily Vandenberg: But understanding two timelines and that there's only two weeks left within this build like this phase build. So um us delaying it will have impact if we do decide to go down the route of building for the Google Cloud Storage.
+Lina Ceniccola: Yeah, and we'll definitely try to get an answer on that as soon as possible. I know that affects you guys. So, we're trying to solution for that this week and get timelines and stuff in order because again, we don't exactly know how long the other thing will take. So, but hopefully we can get the answers to you ASAP.
+Miko Sumagang: Yeah. And I think like um just to be I guess like overly like verbose could be like the the largest like impact like to this is basically like uh manual entry by people, right? they'll have to like go into Salesforce and basically tag that it was the signup proof,
+Kobi Kunasekaran: Correct.
+Miko Sumagang: it was the decision uh deposit proof uh and then the wager pro um yeah the wager proof included. Um so it just like basically means that it'll be like a more of like a manual step, but it's not like it's not going to be functional.
+
+
+00:20:06
+
+Kobi Kunasekaran: Yeah, it's not it's not very far from like what you're doing today, right? It is pretty much on par with what like they're putting in those links in Google Sheets right now. Um if if it'll help, we can create like three fields uh for them to paste in the links exactly as you would in Google Sheets in addition to these checkboxes. Um and that will bridge the gap in like your old process and new process until you have this uh this automated way. Uh because even if you make a decision by next week, uh like I don't know if it's going to be ready for any type of integration with Salesforce by the time we go live, right? So, we want to make sure that at least like everything works well with your current Google sheet process. Um, we can just do that for now.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: You don't need to upload anything into Salesforce. They continue with the way they they've been uploading everything into uh Dropbox and just paste the links in Salesforce.
+Lina Ceniccola: Yeah, I think that would be a good um bridge if it's not a huge lift just to have that
+
+
+00:21:03
+
+Kobi Kunasekaran: No.
+Lina Ceniccola: option cuz then it's it's what they do.
+Kobi Kunasekaran: Yeah. Like
+Emily Vandenberg: Yeah.
+Lina Ceniccola: They already upload those those links to a sheet. It would just be uploading those links to Salesforce.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: So, it's the same action and kind of protects us if something on our end takes a bit longer or
+Emily Vandenberg: If we get if we have a decision by kind of Tuesday next week,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: then you'll have time to kind of implement the URL field if needed, right?
+Kobi Kunasekaran: The URL fill like adding the fields it's very quick. It's not going to take us like I can do that like after this call. Um it's if we have to add any automation like the point uh the hard part about GCP is we have to like build a custom UI set up all the API callouts and everything that's a lot of work and that's specialized work that um we have like like tester we have like a handful of people on our team that can do that kind of work.
+
+
+00:22:02
+
+Kobi Kunasekaran: So they're also on other projects. So I want to make sure that uh we're able to use them as uh as early as possible if that's the work that's needed. But if it's just fields um and like you know the field is being fed by uh through Salesforce API from an external system um and we we're just checking off the respective proof attached uh check boxes those were simple enough that we can do uh even in the last week if if needed.
+Emily Vandenberg: Okay. Not
+Kobi Kunasekaran: Okay. So for proof then uh we'll leave it as is.
+Emily Vandenberg: dead.
+Kobi Kunasekaran: Um we'll leave it as these three check boxes for now and then next week we'll come back uh we'll talk about like if we have a different direction uh if we need to build GP uh GCP or anything else or if we're going to uh bring those info in from an external API and then uh finalize that
+Lina Ceniccola: What?
+Kobi Kunasekaran: portion there. Okay. Um so you were talking about like you want to automate some of the fraud flagging.
+
+
+00:23:08
+
+Kobi Kunasekaran: Is there uh are there any implications to how reps would manage the signups with that new process?
+Emily Vandenberg: say that um how they would manage
+Kobi Kunasekaran: But right now like the uh the current process is as they're reviewing the welcome emails,
+Emily Vandenberg: what
+Kobi Kunasekaran: the proof uh screenshots, videos, um and if they flag something as fraud, like they they would update that in the sheets, right? Um, is that going to change with this new process you're
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: exploring?
+Emily Vandenberg: there would be like an automate it again to be confirmed, but it would be like an a detected like an automation that detects it and then like there would have to be a trigger almost um that sends it for kind of Review. Uh, and then there would probably be like a flagged status that would kind of live in like flagged for review or kind of like
+Lina Ceniccola: I think it would be again this isn't fully confirmed but I would
+Emily Vandenberg: once
+Lina Ceniccola: like for it to if it goes to flagged operations has to be the one to like unfl flag it.
+
+
+00:24:27
+
+Lina Ceniccola: So it for example it would be like grayed out for the BA like they would see it's flagged they could see what it is but to surpass that someone from the ops team is managing that queue at all times and like would have to unfl
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: flag or whatever that would be in Salesforce.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: So it would have to it an API probably solution as well,
+Kobi Kunasekaran: Okay. Yeah.
+Emily Vandenberg: right?
+Kobi Kunasekaran: My my concern with the with the actual system talking to Salesforce is is it going to be able to map the proof or like whatever it's doing to process the those proofs to a signup record in Salesforce or do we need to like resolve it the same way we're doing the study click links where the API calls comes in we're look we're looking at all the fields that are available and then finding the you know the respective deal the respective player based on like the email address things like that if if whether we need to do something like that because we need to do something like that it's going to require work on the Salesforce side but if uh your system already has like all the list of the signups uh by some sort of identifier um and it's able to make that API call out to Salesforce to update like let's say like these these check boxes as an example it just flips those off if it's able to do that then I don't see too much of a problem
+
+
+00:25:56
+
+Kobi Kunasekaran: uh on this But in order for that system to have all that information like you would have you would need that system to have like all the list of the signups, your statuses, all of that in there, right? Which you might not because we're the concept of signup right now is going to be kind of built in
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Salesforce.
+Emily Vandenberg: Okay. It's a very good point. Um let us kind of take that back to Joyce as she's kind of scoping the other um Tula as well because what you're saying is essentially if it's not premapped then
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: the mapping has to take place like as the information is coming in which is a big bit of a a lift. Okay.
+Kobi Kunasekaran: Yeah. Not the end of the world. Like we can still do it. It just depends how much information is available in that API payload and if we're able to map it as needed on the Salesforce side. Not impossible. It's just a little bit of work.
+
+
+00:26:54
+
+Kobi Kunasekaran: Just work flagging cuz yeah, two and a half weeks left. My be tight um if we need to do some major build there.
+Emily Vandenberg: Yeah, that makes
+Kobi Kunasekaran: Yeah. But to your point, Lena,
+Emily Vandenberg: sense.
+Kobi Kunasekaran: like what you asked about like you know um we talked about like updated statuses last week, right? We said like right now we have u like new, in progress, completed and then won't do and flag. But we said uh we're going to remove these two and um we're going to have a flag for review status. So that's it's going to be set to that pending status if uh it could be you know the the rep flagging something as potential fraud, maybe incomplete information, whatever it is like it will have like a flag for review with the reason code. Um, and then we could lock that record uh for the reps so that only ops go uh can go through and uh update that status to either um in progress or basically clear out that flat review status and then that could open it up for the apps to um add in the other information and complete the signup.
+
+
+00:28:05
+
+Kobi Kunasekaran: So we can definitely do that once we uh once we have like the scope of uh what that looks like.
+Lina Ceniccola: Yeah, I'd probably go from flagged and then they could just move it back to in
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: progress and then that leaves the rep to whether because like say they have it all completed, they should still be the ones to say like mark is complete.
+Kobi Kunasekaran: I
+Lina Ceniccola: So if we ever if we ever like yeah unfl flag it'll just go back
+Kobi Kunasekaran: guess.
+Lina Ceniccola: into the progress status and they can
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: confirm
+Kobi Kunasekaran: Okay, that works. Um, I'll scope that out and we can show you probably like next next call what that looks like. Um okay, next item I had. Um so we we're talking about like consolidating or not consolidating but um having a way to have the signups added into the existing Google sheets. Um so we might actually need access to those spreadsheets like the signup logging spreadsheet. Not every single one but just one as an example we can use to see what the data looks like.
+
+
+00:29:20
+
+Kobi Kunasekaran: um what we'll need to bring in um and what are the columns um and then same for air table because air tableable is what's doing the or what the BMS showed us like how they're doing the mapping right now of the deals to the reps. So read access there would also help to uh finalize those columns and fields that are available. Okay. Um
+Emily Vandenberg: Sorry, just going back to that.
+Kobi Kunasekaran: and
+Emily Vandenberg: That's for historical migration.
+Kobi Kunasekaran: uh historical migration, setting up the players, operators, um records like we we did some sample records right for operators and players based on some of the data that uh uh Joyce shared but we'll want to make sure that it can map to some actual real world data as well like what reps are actually doing in air table how the mapping works you have some IDs there that's where I got the idea of like the external ids for uh for use to map against a deal between like play and salesforce so If some of those ids still are relevant, we might be able to just use those for the mapping from air table.
+
+
+00:30:35
+
+Emily Vandenberg: Where did you get the IDs from?
+Kobi Kunasekaran: Like air tableable like all the uh there was like that master assignment
+Emily Vandenberg: Sorry.
+Kobi Kunasekaran: list uh that had like a column for what looked like unique IDs. I wasn't sure if those were unique IDs for deals or the deal rep assignments. Um, but either or like those are things that that can help us like figure out how the mapping is going to work. I have some screenshots. Let me see if I can find the
+Emily Vandenberg: I was just I'm just looking to because I don't see the unique You
+Kobi Kunasekaran: screenshots.
+Emily Vandenberg: got this.
+Kobi Kunasekaran: So maskers and I think this might Yeah, this is like one of the screenshots from our like discovery session um of the table. It's a bit blurry because that's apparently the recordings don't capture the full quality. But this first field uh looks like the like ids for each of these uh deals. I I believe these are no these are the deal rep assignments. So we have the the program which is I believe maps to the operator plus partner combo and then you have the sales rep that's assigned to that program and then you have the region which should technically map to like market country market state
+
+
+00:32:10
+
+Emily Vandenberg: Okay.
+Joyce Kiddell: Hey guys, sorry had to deal with some urgent stuff with Jess. But what did I miss? Anything important?
+Lina Ceniccola: Can we just briefly touch on the um our portal?
+Emily Vandenberg: Um,
+Lina Ceniccola: and how it maps in his hills for us. That whole
+Joyce Kiddell: Okay.
+Emily Vandenberg: yeah,
+Lina Ceniccola: thing
+Emily Vandenberg: we were talking through like Joyce kind of one of the things we we were just pausing on like telling Kobe that we were going to be back to him next week based on the storage and how we want to move forward with like Salesforce um for proof storage because of the tool right that we're we're scoping and where we're taking that. The one point that be raised which is good is like how the mapping between whatever we however we solution versus being able to get that information passed back at a signup level to um to Salesforce.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: I think like you know that ticket I don't know if you've responded Kobe about like the ticket for like what you need from the API like we would make sure that um I mean I guess that wouldn't include the the data fields for if proof has been submitted right so if you add that we can ensure that
+
+
+00:33:35
+
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: that's part of the um the the database structure that we're revising for the
+Kobi Kunasekaran: So,
+Joyce Kiddell: CMS.
+Kobi Kunasekaran: um the the issue that we were kind kind of trying to uh talk through is the way we've scoped this out is anytime somebody clicks a study click link um we're assuming all of the player information and information about like the book uh the deal uh the rep assignment all of that will get sent through that study click link payload um because that's already available this is like actually from like taking that data sheet that you all shared
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: I pull that information there so all of that is available and we can send that over but what we're doing in Salesforce is we're processing those study click links and either creating or mapping those uh those records that are coming in those payloads to a new signup or an existing existing signup if all of the information match and you know
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: maybe some the user just clicked it uh two or three times by accident or whatever.
+
+
+00:34:39
+
+Kobi Kunasekaran: It's not going to create a new signup every time.
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: So those signup records live in Salesforce and right now we haven't scoped out any way for that that to pass back to CMS. So if you're handling proofs and things like that then um you might not be able to by default um send it straight to a particular signup record. Um, so
+Joyce Kiddell: if there's a sign up like yeah it would have to be a two-way connection right where it's like if you pass back the um signup ID with like the player ID and everything that we already have on
+Kobi Kunasekaran: yeah,
+Joyce Kiddell: our side like we I feel like it's easy enough to match it
+Kobi Kunasekaran: I think it might be it might we might be able to match it. Yeah, like we'll have to see uh what your data uh data model looks like for the
+Joyce Kiddell: Oh,
+Kobi Kunasekaran: CMS. Um, and we might like if you send enough information for the matching, yes, we can match it. Um, sending back the signup might not be as straightforward because it it doesn't like we won't have that information the moment the payload comes in because like we're staging the click purch right click comes in
+
+
+00:35:38
+
+Joyce Kiddell: heat.
+Kobi Kunasekaran: staging it and then it's it's getting processed via flow and then it's either creating or adding it to a signup. So by then the API call from play can to Salesforce is already done. like it it did it once and then it's over. So, if we need to send that back, we probably can. We'll need to like you'll have to have like an endpoint on the CMS side for us to talk to like a REST API that we can talk to to be like, hey, this this signup that we matched uh by this like unique study click link uh created this signup or something like that. We can we'll have to scope that out and add that in if we want that like talk
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: back.
+Joyce Kiddell: I I think regardless of even if we do this portal approach, I think it's a good idea to have a two-way connection because there could be
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: things in the future that we just we want to make sure that um whatever we see on the CMS side is reflected in Salesforce and vice versa,
+
+
+00:36:40
+
+Kobi Kunasekaran: Yeah. Uh yeah,
+Joyce Kiddell: right?
+Kobi Kunasekaran: I would I agree like especi especially like players the rep mapping like you want to like I'm assuming there's going to be like external ids that we can upload into Salesforce to kind of jo connect them together
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: but in the absence of that if you have Salesforce ID IDs
+Joyce Kiddell: Yeah. It'll follow the data the erd that you saw like the structure is going to be reflected as much as we can right and that like players will have their own ids um and uh other object I forget sorry but yeah that that uh should align for
+Kobi Kunasekaran: Okay. Okay.
+Joyce Kiddell: there.
+Kobi Kunasekaran: Let me think about that. I'll I'll get back to you like if we need to add some additional stories to cover the sending the information back. Um, but I did share uh share a document with you that runs through like everything that we
+Joyce Kiddell: Okay,
+Kobi Kunasekaran: kind of need from the API in one place instead of the five places I sent you first.
+
+
+00:37:36
+
+Kobi Kunasekaran: So,
+Joyce Kiddell: perfect.
+Kobi Kunasekaran: uh maybe we'll use this as a starting point and we can work off of this document like keep everything updated that works for
+Joyce Kiddell: I'm like, can you make sure that uh straw sees that?
+Kobi Kunasekaran: you.
+Emily Vandenberg: Yep. Yeah, that's what we were saying.
+Joyce Kiddell: Okay.
+Emily Vandenberg: The um and then we were just saying we'll like loop back and probably start testing early next week.
+Joyce Kiddell: Okay.
+Emily Vandenberg: the um what we were chatting about Joyce when you kind of jumped in there was um Kobe
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: was mentioning that there was assignment ids like in air table. So we were just taking a quick look there that he was thinking he might be able to pull in as like the exercise for pulling um player operator book data into the system. Um,
+Joyce Kiddell: That makes sense.
+Emily Vandenberg: yeah. So, I I don't know and I haven't spent much time actually looking at that, Kobe, but let us know if you have questions like as you're kind of like flowing through and trying to build that
+
+
+00:38:45
+
+Kobi Kunasekaran: Yeah, I think like if if we can get access to the air table uh tables that they're using like the assignments and the
+Emily Vandenberg: out.
+Kobi Kunasekaran: links um we can go through and we can start putting together. Uh what the initial import of the data would be for like your existing deals and operators and partners. Um, we can start with that. Um, I mean I I won't import anything in. I'll put together like spreadsheets. We can confirm that data model still maps to where you're moving towards. Um, and then uh and then we can go from there. I think already I know like based on our conversation on f on last week um this program where it's like betmd this we want to split those into two fields already in your existing system. So how is that going to work for that in between period where the team's using both Salesforce and your old uh like your spreadsheets and uh air table and how are they going to manage both? Uh we we'll kind of have to talk through that so that you know it's not too much work for them.
+
+
+00:39:58
+
+Emily Vandenberg: And then like when you think of when we think of player um import and for launch first like are we going historical like would we launch with historical all historical data imported from the signup perspective Kobe?
+Kobi Kunasekaran: Um,
+Emily Vandenberg: Is that what your hope
+Kobi Kunasekaran: I think for players,
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: you're going to want your player information. At least as far back as is relevant, uh, to avoid duplicates and, uh, you know, new like reps taking somebody else's player. Like I don't know if you have like a shelf life or like ownership time period where somebody can own a player for a certain duration after which like they're open for any other anybody else to like refer to. Um but we're going to want to go as far back as that at least so that uh you know with with the correct rep assignment. who's that who who is that player uh related to uh in terms of rep refer all of that so that as new signups come we already have the existing player record to map those signups to if we don't import that um those players to be treated as net new um and if we don't have the assignments defined in Salesforce already then but you have like a BA could be stealing somebody else's player essentially, right?
+
+
+00:41:27
+
+Emily Vandenberg: I think that's like less of a concern as like the stealing because like they kind of know who they're in and network and then they follow through the case like the case study um by the website kind of like directs in um cuz they're handle handling that fairly manually.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I think it's more around like um the friendliness like out of the gate with our reps. Like if there's a player that's already like well established within their system and there's no record of it, right?
+Kobi Kunasekaran: Right.
+Emily Vandenberg: like probably be a bit more of confusion um if we don't have a certain especially especially when they're just like adding a book or thinking through like the next phase of redeposits but Joyce like what are your thoughts there Nina
+Lina Ceniccola: I don't have any real concern with stealing players.
+Emily Vandenberg: Yeah.
+Lina Ceniccola: They'll they get paid for it. So like No one would like take someone's player.
+Emily Vandenberg: Yeah. I'm like thinking more of like there's going to be when we cut over there's going to be instances where like things might have been started within the spreadsheet right and then it would be seen as like net new because there'd be no record of it uh in some cases within Salesforce or where they're adding a book to a player that would have already existed and now that player is like no longer found here and so I think that's more of the cut over we need to plan
+
+
+00:43:11
+
+Kobi Kunasekaran: I think there there are like a few different uh few different things to think about actually.
+Emily Vandenberg: for
+Kobi Kunasekaran: So for the player um like uploading your list of like spreadsheets of players, it's pretty easy, right? Like as long as we have all the whatever information which presumably you already have in your database, whether it's in play can or in your spreadsheets, you you have all this information already. So, it's just a like a spreadsheet exercise to put this together. And I mean, Claude can help uh do this in a matter of like minutes rather than the hours we usually spend on something like this. Um, and then next is the signup history like all of their signups that they've had in the past. This is going to be the bigger one because this is not going to map one to one to your your spreadsheets today because we have a lot more information, a lot more lookups. Um so for this obviously anything new moving forward um is going to be captured through Salesforce once once it goes live.
+
+
+00:44:04
+
+Kobi Kunasekaran: Um but for the ones that are kind of halfway through you know they might have started the signup already um but they haven't finished it those things we might just have to have like a manual path for the rep to like create the signup manually because it's not going to be triggered through play can anymore. There's no study click links coming in for those players. So either manually or if you know there's already like a list of players that we can just import uh and then they can fill in the rest as they go through, we can also do that. For deals and deal assignments, that's another one. So deals, the historical data for the signups that we import for players, we we we want those to be related to the deals. Uh otherwise, you won't have the reporting that you need for those historicals. Um, so this might need a little bit of uh spreadsheet gymnastics as well to get the mapping once we import all of the deals that you Um same for the rep assignments like if there are some deals that are you know the assignments that have been here for some time uh we'll have to do some quite sheet gymnastics to upload those in so that that history is there.
+
+
+00:45:11
+
+Kobi Kunasekaran: I don't think any of this is impossible to be honest. Like you have all the data. Yeah, you have like lots of spreadsheets. Uh play can it has all the data. We just have to figure out how the mapping works and uh any of these like lookup relationships. Um it's it's like a multi- a multi-step import process into Salesforce. Um where we import the first object first, it'll give us the Salesforce IDs. Uh we match those up in the data set to import the next set of data. um I can I can help through all of those when we get to that phase. So uh I I think you have all the data you need. So I I think we should try to import as much as as far back as possible uh as you have data that's relevant for your reporting. Like probably don't need anything that's like no more than five six years if you don't really care about those uh old data.
+Emily Vandenberg: That makes
+Kobi Kunasekaran: Nico, any like red flags on any of the import that you could think
+
+
+00:46:06
+
+Emily Vandenberg: sense.
+Kobi Kunasekaran: of?
+Joyce Kiddell: Is that the next step? Is like we're doing a big like historical
+Miko Sumagang: Um,
+Kobi Kunasekaran: Uh, no, not yet.
+Joyce Kiddell: import.
+Kobi Kunasekaran: I think we we need to finalize the fields uh the object and how the signup, click links, all of that comes in first and then once we have all of that, then I can put together the spreadsheets for the imports for you.
+Joyce Kiddell: Do you um do you need us to start testing? Like what are kind of the more immediate next steps?
+Kobi Kunasekaran: Uh yes. Okay. So immediate next steps uh for you once once you're in Salesforce um which you should all have access uh by now. Um go into the accounts and uh and the different lists like we have the players. Um if you click into a player, this is a player account. um go through the fields um go through the statuses, confirm like these are still these still make sense. Uh they line up with what you're setting up and what you have available on the play can side.
+
+
+00:47:17
+
+Joyce Kiddell: um the different fields are they set up in the way that are like I know they're not automated so they're not like connected
+Kobi Kunasekaran: Um
+Joyce Kiddell: together but are they set up as like the the output format that is more finalized so like if we're picking province for example is it in the format of a pick list right now or is it like a different type of data selection, you know what I
+Kobi Kunasekaran: Uh it depends on the field.
+Joyce Kiddell: mean?
+Kobi Kunasekaran: Um these fields for the country and province are free form text fields because this data is for the player is coming from your back end. Um adding setting these up as pick list could cause the mapping to
+Joyce Kiddell: Yeah. No, no,
+Kobi Kunasekaran: fail on the static click links.
+Joyce Kiddell: sorry. me. I've A more accurate question would be like are these the final formats of each like field? Like if we give you feedback like we want this field to be a picklist and not like free form like is do we need to be looking at stuff like that or like do we know that these things are going to change?
+
+
+00:48:18
+
+Joyce Kiddell: Is my question making sense?
+Kobi Kunasekaran: Yeah, yeah, yeah, yeah. Um, I I would I would treat all of these as changeable, but changeable from your end, not from our end. I'm not going to make a change to the state and country pick list unless you tell me that you need something different.
+Joyce Kiddell: Okay. So,
+Kobi Kunasekaran: If if that helps.
+Joyce Kiddell: it's it's not like there's still work to be done that you know of that like like Okay.
+Kobi Kunasekaran: All
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: right.
+Emily Vandenberg: So you're just Yeah.
+Joyce Kiddell: Okay.
+Emily Vandenberg: Okay. We can change but um at this point you're kind of like waiting for feedback to make any
+Joyce Kiddell: Okay. So,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: you just want us to go through each screen essentially and give you feedback.
+Emily Vandenberg: change.
+Kobi Kunasekaran: Yeah. Go through the players. Go through the operators, partners. I think for it was the partners. I think we talked about all those like extra default fields.
+
+
+00:49:01
+
+Kobi Kunasekaran: Was it not the partners with the operators? Maybe we removed it already. There were some like extra like default value. I think we removed it already, but um yeah, just check these against your PRD because we're also not mapping the one to one to the PRD, right? So, there's anything that's missing that has a function as part of the signup logging process,
+Joyce Kiddell: And then how do we know what is going to be like inherited versus like
+Kobi Kunasekaran: let us know.
+Joyce Kiddell: manually inputed versus like automated? You know what I mean?
+Kobi Kunasekaran: Um, so you're all you all have admin access. So anything that has a pencil next to it usually means it's going it's editable directly on the record. Um, as opposed to if I go to I don't know if we have like a formula
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: field like player ID for example doesn't have a pencil in it. That means it's a formula field. Um, so this is coming uh this is going to be like determined uh either automatically or through like a formula like I think signups are a good example of this.
+
+
+00:49:59
+
+Kobi Kunasekaran: Uh where's my signup example? Yeah. So in signup like we have this proof completion status which you can't edit which means it's it's automatically driven. That's not to say that these the fields that are editable can't be autodriven. It just means it's not a formula field. So, somebody is editing it
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: somewhere.
+Joyce Kiddell: And by inherited I I meant like you know how we talked about like on the operator screen there are certain things that are get going to get inputed at a deal level but are still visible for operators or to on the operator screen. Um, is that going to be like how do we know if that's going to happen, you know?
+Kobi Kunasekaran: Are you talking about like the the CPA the ranges and things like that?
+Joyce Kiddell: Yeah, I guess like Sorry, I'm just I got to open up my screen again. But if we could you go to operator for
+Kobi Kunasekaran: I thought we said we weren't going to do that from operators.
+Joyce Kiddell: example um so to see okay so in my specific example I think what we'll give you feedback as would be like you have the deals underneath right but a column that I'd want to see like very like
+
+
+00:51:14
+
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: a quick view of no go back is like a column to the right of this that says like CPA per deal Right.
+Kobi Kunasekaran: um CPA for each deal. Okay. So if I go into the deal,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: you want to see like the CPA target or the CPA value from the deal.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah. Yeah.
+Joyce Kiddell: I'm just saying there's certain things that are kind of like living at like the lower level of of
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: you know record type or whatever,
+Kobi Kunasekaran: Gotcha.
+Joyce Kiddell: but like we'll want to bubble it up to like the operator view for example.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: But knowing that structured we we can you know um organize the feedback in that way it's
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: fine.
+Kobi Kunasekaran: Okay. Yeah. I thought you meant like uh remember last week like we had like the default CPA,
+Joyce Kiddell: No not in an operator.
+Kobi Kunasekaran: those things you want to pass down.
+Joyce Kiddell: No no no just still at a deal level.
+
+
+00:52:06
+
+Kobi Kunasekaran: Okay. Okay. Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Like anything that's in the child record.
+Joyce Kiddell: Child record.
+Kobi Kunasekaran: U Yeah.
+Joyce Kiddell: Okay. Yeah.
+Kobi Kunasekaran: Like anything that's like related like these are these are related lists and we call these child records, right? So anything that's in the child record um if we're adding it as a column in the in the related list view um that's easy enough. if you want these CPAs to roll up. Um, so like if I look at the operator and we want to see like total number of deals, uh, total number of like casino deals, things like that, those will we'll need to scope out and set up those rollup uh rollup automations.
+Emily Vandenberg: Can you remind me where we landed?
+Joyce Kiddell: Okay.
+Emily Vandenberg: We were chatting through like the concept of um target like CPA targets. I I'm kind of drawing a bit of a blank and we are talking about how it could be like a numeric or like an unlimited. Did we have to get back to you on something there or was that something you needed to take
+
+
+00:53:08
+
+Lina Ceniccola: Thank you. Going to add a unlimited
+Miko Sumagang: Yeah,
+Emily Vandenberg: away?
+Miko Sumagang: like a type I think like what is what we landed on from like before whether or not it's like numeric or just
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: option.
+Kobi Kunasekaran: Yeah.
+Miko Sumagang: like unlimited
+Kobi Kunasekaran: Yeah. What we'll do is like we'll have another field here that's like CPA target type and then depending on um like if it's numeric or if it's going to be unlimited, we'll just grade this field out. Um if it's numeric then this field will be editable. Um and then if we're doing any type of calculation that will we'll factor
+Emily Vandenberg: Hey. Okay.
+Kobi Kunasekaran: in both the type field and the target field uh for those
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: formulas.
+Miko Sumagang: Would it be too much to like ask to actually like have the wager attack team? Like I know like we're going through like each of like the their um the pages. um to maybe just like give us like a list of like how you guys like want the views to more or less like work and almost like by persona like even un unless like you guys like want to like have that as like a separate you know like a into like a separate phase cuz I just like also like remember during the discussion when you guys went to the office that it might be a bit overwhelming for reps to basically see like all
+
+
+00:54:27
+
+Miko Sumagang: these like tech data um and just like for the purposes of like Kobe's like update it might be good to um as like we're starting to look at all the collection of like the fields maybe like separate which ones are going to be sales reps only versus like internal operations. So you get to like see the more verbose actions like on
+Lina Ceniccola: Yeah, I think reps should only have visibility to if they have a
+Miko Sumagang: it.
+Lina Ceniccola: specific deal target. That's the only thing they would need to know regarding a deal. So like if they signed a deal target maybe they they see
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: that on a deal dashboard and it would just say like they're you know MGM you have 50 and then a completed rate you know like 20 out of 50 done but in terms of like the CPA or even really anything else like they that info isn't relevant to
+Miko Sumagang: Do we even want to like do it on like um do they want do we want them to see
+Lina Ceniccola: Um,
+
+
+00:55:37
+
+Miko Sumagang: details from like the deal level or like the deal assignment, right? Because like from like the deal we're assigning uh a target to each like rep like afterwards. So if I'm like a rep, would I need to like see like the overarching deal information or just like the ones are like specifically like assigned like over to me?
+Lina Ceniccola: just what is specifically assigned to you. So really they yeah it would just be like a very simple page view of like okay you were assigned by Proline you were assigned 10 MGM and they could see like which deal it was cuz they that's how it would be
+Miko Sumagang: Yeah.
+Lina Ceniccola: logged anyway like the MGM CTM or GD whatever it is
+Miko Sumagang: Yeah.
+Lina Ceniccola: but anything past that they don't need to
+Kobi Kunasekaran: I I I think the like the default like two main areas that
+Lina Ceniccola: Now
+Kobi Kunasekaran: reps would work off of is the signup uh tab and the deal rep assign.
+Miko Sumagang: sign
+Kobi Kunasekaran: assignment.
+Miko Sumagang: up.
+Kobi Kunasekaran: The dealer assignment will show them um like if I go into the list view and then we could set up a filter so it only shows the ones where they're assigned as a rep and it'll show them the uh the deal.
+
+
+00:56:57
+
+Kobi Kunasekaran: We can obviously bring in like information about the like who the operator, partner, everything is. They'll just see a list of what they're assigned to right now and if it's still active, all of that. This would be like their deal rep assignment,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: like what they're assigned to. And then their signups, uh, signup list will show them all of the signups that are maybe new, uh, open, pending, and then we can have different lists for the completed. So then I think those are the two like main screens that reps would need to go through. Um, and we can limit like even on the sign up like this is a lot of fields. They probably don't need to see all these fields uh when they're completing a signup. Um, so you all as admins, you're going to be able to see all the fields,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: but we could create a uh so if you remember our uh design document, there are two there are four uh levels of permissions that we're setting up.
+
+
+00:57:48
+
+Kobi Kunasekaran: One is the rep level um where they generally will have access to like all of their signups um upload proofs like what everything they need to do from a signup logging per uh permission but they can't edit any of the BL operator partner information. They can maybe view that information um to whatever you want to allow but they won't be able to edit any of those. Um, so as you're going through the objects, um, if what what works really well for us is like just take a screenshot of this and then for each of these fields, you can put like a a color or like a description to say repon, manager, uh, ops, admin, uh, and then read, write. And we can take that and set up the different page views for each of those permissions accordingly.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: And even these groupings like again everything is customizable in Salesforce. So don't assume like it's all set in stone. We could move around like we've we've categorized it based on what we thought would be helpful but these could be changed around simplified moved around as needed as well.
+
+
+00:58:59
+
+Lina Ceniccola: So I think for us when we go in here the first step would be
+Emily Vandenberg: Okay.
+Lina Ceniccola: determine what the rep should see from all of these details. Let you
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: guys
+Kobi Kunasekaran: And I confirmed like the fields that are necessary are in here as well, right? Again, we I know like the PRD had a lot of fields and we've only implemented the ones that we're going to use as part of this phase. And I think that should be the process. Only add things that we're actually going to use and not just the entire list and then figure out the automations later. So uh if we're missing anything that is critical to the signup process uh signup login completion proofs fraud then let us know so we can get those captured as
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: well.
+Emily Vandenberg: we'll prioritize like doing that review and feedback. Um,
+Miko Sumagang: If it's if it's not like too much like ask Um, it would also, I think,
+Emily Vandenberg: oh,
+Miko Sumagang: be very prudent to almost like walk through as if like you're like a nice of
+
+
+01:00:02
+
+Kobi Kunasekaran: Heat. Heat.
+Miko Sumagang: um like the end user like for example um Emily like last week I believe like you've mentioned oh I'm performing like deal like assignments like actually like thinking about like how am I going to perform like the deal assignment right like there's a mass record of like a thousand being split into like five different like reps are they always going to be like even is it going to be like a split? How does that um you know like how does that entry method um should theoretically like work like in in like honestly like your your like magic like one. Now obviously we don't want to like over complicate things with like too many like rules but with the current like setup it is going to be a bit tedious cuz if you are going to a deal into five different like assignments then you're creating five records under that deal right um so maybe kind of like just like theory crafting on like what that could like more or less like look like. Um and then like we could uh kind of like craft um a starting
+
+
+01:01:10
+
+Emily Vandenberg: Mhm.
+Miko Sumagang: prototype
+Emily Vandenberg: Yeah, we can kind of take that away. We can book Joyce and we can book a working session and kind of go through them. start with, you know, one and then get your feedback and move on.
+Joyce Kiddell: Yeah, I'm done for that like even tomorrow
+Emily Vandenberg: I think so.
+Joyce Kiddell: maybe.
+Emily Vandenberg: Yeah, it's obviously timing is kind of like key here. Um the one thing I'm just thinking through like as we were looking at the CPA target and this can come through the feedback but like the at where we can assign like targets with like a date range like this target applies like within this date range usually it's monthly um I know we were saying like at the deal like top of the deal level there's no like start end date but then when we get the targets have we solutioned for that being like it it kind of tracking the history and then like obviously within that date range you're like being going to be able to report on the roll up of um how they've progressed against the target
+
+
+01:02:31
+
+Kobi Kunasekaran: I think the same deal could have different uh CPA targets over time.
+Emily Vandenberg: at a like assigning it down to like the
+Kobi Kunasekaran: Um,
+Emily Vandenberg: So you have like your top level where like might be like you might have a cap that you need to
+Kobi Kunasekaran: yeah.
+Emily Vandenberg: monitor and that's like at the deal end that probably isn't a start end date unless something changes. and we just track the history. But like then each month you're taking that and like splicing it at a rep level. Um so it's like you got to hit 250 and then you break that out into targets against you know five or six different reps. But it's like okay for the month of July you're going to deploy these people. You're going to set this target and then have to roll up performance against it for reporting. Have we solutioned for the rep level or only at like ideal
+Kobi Kunasekaran: Um, right now it's only at the deal level.
+Emily Vandenberg: level?
+Kobi Kunasekaran: The only thing that we brought in from like a dealer rep assignment perspective from like a later phase was the ability to actually do the assignments as well in addition to just configuring configuring the deals.
+
+
+01:03:50
+
+Kobi Kunasekaran: So deal rep assignment right now it's pretty bare bones. Um when we set this up we thought like you you'll create a deal rep assignment every time gets assigned to the deal and it could be like multiple deal rep assignments for that rep. uh if for example in April they were assigned in May they got uh it got reassigned to somebody else and then in July it got reassigned back to them they would have technically two deal rep assignments under that same rep and then one for the person that took it in the middle but what we talked about on last week was this will be one record per do rep combination so uh you as Emily you'll only have a single do assignment for this particular ular deal. Um, and then we would have a child object underneath this to track every every time you were assigned to that deal. Uh, sorry, every time the status for this deal assignment goes from like active to pause to whatever it is. So then we can also track the history. Um, if we want to start tracking like the caps um, and targets, we could do it I think we'll need to scope it out like we could do it at the deal rep assignment level.
+
+
+01:05:03
+
+Kobi Kunasekaran: So I could say like you know a cap of like two 250 signups uh for this particular dealer up assignment. Um and we could set up automations to measure against that if needed. Um and then you know once the 250 cap is met um we could update the status automatically to be like ended or target reached or something like that so they don't continue to uh bring in more signups. Um, or we could put those caps on the child object that we would create and then that way it'll be like time bound as well as opposed to being overarching. Or we could do both too. It just like I think we'll have to scope this out on how you want to track this.
+Emily Vandenberg: Okay. But essentially we're saying not phase one,
+Kobi Kunasekaran: It's not in it right now,
+Emily Vandenberg: but we can
+Kobi Kunasekaran: but we could add it in. We still have two weeks and depending on how complex uh and granular this needs to be, we might be able to sneak it
+Miko Sumagang: I think you know like as long as like we capture like the transactional like data we should be able to like st up stitch up the the info.
+
+
+01:06:08
+
+Miko Sumagang: So like maybe like Emily the best way to properly like know whether or not like do we have like the right like info is like maybe like help us like visualize like what you're thinking about like the reporting because if it's just like hey how are we like progressing for like the signups for this deal assignment like over time then you know like we do have like the signup information we do have like your deal like assignment that has like like the targets and then it's a matter of like building out like kind of like that overtime aspect of it. uh which we do have like the time stamps for it, but like if you do need like some sort of like more info like slices and dicers that's like around it, then uh we could just like work backwards from our current data object model to kind of like figure out like what kind of other information do we need to like add in, right? Like I think like the the bare bones info should more or less like already like have it, but I feel that I want to just double check
+
+
+01:07:07
+
+Joyce Kiddell: Hey guys, sorry I have to balance in a few minutes here. Um, but I did just want to kind of understand, you know, we we are going to be working on getting you guys feedback on what's been built so far. So, um, in parallel to that,
+Kobi Kunasekaran: Yeah.
+Miko Sumagang: Mhm.
+Joyce Kiddell: like what are you going to be working on to help kind of progress everything else forward or are you blocked?
+Kobi Kunasekaran: Uh, no, I have a few things uh we're working through. We have the uh like we're finalizing the permission uh the sharing rules, the permission stats roles, all of that. Um, we're going to create the deal rep assignment UI that we talked about last week. I can actually put together like a mockup or proof of concept or like a simplified design to start us off with instead of the manual creation. So, that's what I was thinking we we'll be doing this week as well. Um, and then for fraud tracking, um, I'm working on a doc to like work through what we're going to do when a signup is flagged as fraud, how that updates the player record and things like that.
+
+
+01:08:08
+
+Kobi Kunasekaran: So we have we have a few things to work through before the end of the week. So we're not blocked.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: But the main thing is like if we like storage is the one that I flagged is like if we don't get that done ASAP or if we don't have
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: a decision and we still need to do GCP that one becomes at risk for this month. Everything else we should be
+Joyce Kiddell: Okay. Because yeah,
+Kobi Kunasekaran: okay.
+Joyce Kiddell: I think like going back to what we were saying in person about like meeting more often and having dedicated kind of like solutioning meetings.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um what I'd like to propose is like can we keep this meeting to more like um you know discussions of like uh where are we at in the build like maybe visualize the road map and kind of point to that. um you know speak to any updates on both of our sides like where are you blocked like maybe like light solutioning but I would almost like want to have dedicated meetings meetings for like big bodies of work where
+
+
+01:08:57
+
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: it's like, okay, if you need to understand like how we want to handle fraud, let's have like an an entire hour kind of dedicated to that because I, you know what I mean?
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Like I just feel like it's hard to like kind of mentally shift between like let's understand where the project's
+Kobi Kunasekaran: Get through.
+Joyce Kiddell: at, like project versus product type conversations. I don't know if I'm the only one thinking that,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: but um that's I think it'd be helpful for my end.
+Kobi Kunasekaran: No, I'm with you. That That works for me, too. Um, we usually like just use the whatever time we have left in these meetings to tackle through those. But I totally get it. It is like we talk through a lot of things. So things do get lost uh in the meeting.
+Joyce Kiddell: Yeah, like I'm I'm happy to be available to you like Friday probably.
+Kobi Kunasekaran: So I'm with you.
+Joyce Kiddell: Like if there's like a big block that you want to like work through a couple things.
+
+
+01:09:40
+
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um I think let's try to get that on the calendar and then um that way it's like we're solutioning ahead of like the next sprint kind of thing, right?
+Kobi Kunasekaran: Yeah. Okay. Yeah. So then maybe Friday like can we talk through uh I I don't know if you'll have the information like for the API the study click links like um if if we're able to get some answers for those um I'm happy to meet on Friday for that. Um for the fraud tracking um I'll send over a document ahead of time and then um if if it's worth uh scheduling a meeting we can do that on Friday as
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: well.
+Joyce Kiddell: that's here.
+Lina Ceniccola: Do you mind?
+Joyce Kiddell: Sorry.
+Lina Ceniccola: I was just wondering if you could go back to the signup record. There was something that I wanted to flag.
+Joyce Kiddell: Okay, I gotta go,
+Lina Ceniccola: Okay.
+Joyce Kiddell: guys. So,
+Lina Ceniccola: Yeah.
+Joyce Kiddell: just touch me up after.
+Kobi Kunasekaran: Yeah,
+
+
+01:10:38
+
+Joyce Kiddell: Thank you. Bye.
+Lina Ceniccola: Okay. So,
+Kobi Kunasekaran: thanks.
+Emily Vandenberg: Thanks.
+Lina Ceniccola: you do have the refer cash. Do you have where you're putting the referral amount?
+Kobi Kunasekaran: No, I don't think we have that as a field right
+Lina Ceniccola: Can you add that as referral bonus
+Kobi Kunasekaran: now.
+Lina Ceniccola: amount? cuz and then there'll only be like a set amount of options for that.
+Kobi Kunasekaran: How does that get populated?
+Lina Ceniccola: So, we could automate this um because like it's kind of a if if the referral is US and they choose cash then bonus would be X or we can have it that they choose the amount themselves. um if they happen to go back from like okay there's two referral types they either get referral bonus so redeposit or cash back credit right and
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: then the options ends. further than um diminish. So then you're like, okay, if for example, if you are Canadian referral, you choose cash, then it could only be 20 $25 Canadian cash.
+
+
+01:12:14
+
+Lina Ceniccola: If they choose bet credit, then it could only be $40 bet credit. If they are a US signup and they choose cash, then it could only be $50 US cash. If they again are US and they choose bet credit, it could only be $80 US bet credit. Now, I could send you the payment matrix, I guess, of like the different options. Um, but they would need to they would need to have a somewhere to document like the referral type and the amount of money that they were sent and then when that was paid. So I know that like the we the referral part of this like referral
+Kobi Kunasekaran: Hey.
+Lina Ceniccola: tracking is at a different phase. if I'm
+Kobi Kunasekaran: Yeah, we have the object,
+Lina Ceniccola: correct.
+Kobi Kunasekaran: but right now we're not doing a lot of automations on the referrals or referrals like we can will we can import the referrals manually. Um, but this this signup is populated with the referral because this was in our like API payload um that we sent.
+
+
+01:13:40
+
+Kobi Kunasekaran: Um so we're assuming that play can have that information to send over here and if we do then we can map it to the refer um do the assignment. Um but the the referral type the bonus amounts those things it's not added in yet but I could uh write up the user story. We can flush it out and then we can add that in.
+Lina Ceniccola: Yeah, I mean automating it I think could come later for sure, but as long as the option for them to just input the amount,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: that's they're used to that.
+Kobi Kunasekaran: Yeah,
+Lina Ceniccola: It's fine if that's a free text thing that they're doing. Um, or at least just a drop down of like the five different dollar amount
+Kobi Kunasekaran: I can drop down.
+Lina Ceniccola: options
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: just
+Kobi Kunasekaran: And does that change or is that consistent for all signups, all books?
+Lina Ceniccola: consistent.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: I can send you the matrix.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: I'm just trying to think just so that you have it and um I can have this is at the
+
+
+01:14:42
+
+Kobi Kunasekaran: And this is at the signup level, right? Not at the player level.
+Lina Ceniccola: signup level.
+Kobi Kunasekaran: Sign up. Okay. Yeah, that should be fine.
+Lina Ceniccola: Yeah, each signup is tied to a specific referral
+Kobi Kunasekaran: I can add that in.
+Lina Ceniccola: bonus and that that also gets calcul calcated like for the total acquisition cost too for that
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: fun.
+Kobi Kunasekaran: The referral is not mandatory though, right? For every single sign up because I
+Lina Ceniccola: No, if it's direct like if I if I'm the BA and I just sign you up,
+Kobi Kunasekaran: got real
+Lina Ceniccola: there's no referral payment because I did it um helped me get that sign up.
+Kobi Kunasekaran: crap. Yeah.
+Lina Ceniccola: So like the referral section could be blank and then the bonus would be blank. But we need to make sure that we include
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: um the referral bonus
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: amount.
+Kobi Kunasekaran: I think what I what I'm thinking is like we can create a se section similar to like the activity where it's like referral information and then we can move these fields over.
+
+
+01:15:49
+
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: We also have like the referral currency, we can move that down and then uh the p like the drop down for the amounts uh we can create that and move that down
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: and then anything that's like referral specific, we'll put it in that section. Um and then I'll drop the story for like what how that works and then you let me know if that makes sense and uh we'll we'll get that out of there.
+Lina Ceniccola: Yeah. And then um sometimes there's a secondary referral. So that would go in the referral section. And when the secondary referer hits 10 signups, 10 referring signups, they get paid either $100 cash or $200 in back credit. That's for the Canadian side. So I do think it's important definitely to like where it says details it would be like sign up details referred referral details because they do it's like separate information but all same thing um
+Kobi Kunasekaran: Yeah,
+Lina Ceniccola: I will send payment matrix I'll just post it in our Slack
+Kobi Kunasekaran: that's live channel.
+
+
+01:17:05
+
+Lina Ceniccola: channel.
+Kobi Kunasekaran: Yeah, that works.
+Lina Ceniccola: I'm just trying to I sent it recently but I forget to I'll send it today though. Um yeah, refer referral type,
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: referral currency would you have referral bonus, secondary refer and then on the op side, we just want to make sure that like when we report on it is I I think this somewhere in the PRD,
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: but like it auto calculates the FX to Canadian.
+Kobi Kunasekaran: Um yes, we can set it up that way. So actually that was one of the questions I had in the design document. Uh there's this concept of like currency fields for every record uh like custom object. Um there's a referral currency as well here. Um and then there's a default currency field. This default currency field governs how any currency number fields uh are calculated for reporting purposes. So there's two types of number fields like one is a regular like standard number and then there's a currency number. currency number means if I put like $100 and the currency on the record is USD, that currency number field is $100 USD.
+
+
+01:18:31
+
+Kobi Kunasekaran: So if you're reporting and you're standardizing everything into CAD, it will convert the uh USD into CAD based on the exchange rate that's configured in uh in Salesforce. That rate that's configured in Salesforce though is is a static number. It doesn't change based on real market.
+Lina Ceniccola: Yeah, that's what we Yeah,
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: we want fixed rate that we
+Kobi Kunasekaran: So,
+Lina Ceniccola: decide.
+Kobi Kunasekaran: okay.
+Emily Vandenberg: then updated,
+Kobi Kunasekaran: And I think
+Emily Vandenberg: right? Manually updated.
+Kobi Kunasekaran: Sorry.
+Lina Ceniccola: H
+Emily Vandenberg: So like there's a big swift switch in FX and we just changed it on the back
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: yeah, we don't
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Um, so yeah, like there there are some fields we've already created as like currency fields. Um, some of the other ones that seemed like like this referral bonus for example, I don't know if I would like the amount bonus amount. Uh, that's probably just going to be a pick list field that updates like another currency field to the respective amount.
+
+
+01:19:38
+
+Kobi Kunasekaran: So, uh, I'll I'll flag that in the in the write up before I send that over to you so you kind of know how it works.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: noted on like the requirements that like you want the amount to be rolled out up
+Lina Ceniccola: And I have Yeah. And I have my payout logic here.
+Kobi Kunasekaran: top.
+Lina Ceniccola: And then it is um there's one other thing I wanted to point out. Yeah, like a US This is I just want to preface this. A US sign up could have a Canadian referral. So like the it could it has to say US currency on the deposit.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Then the referral payout could be a Canadian amount. Just throwing that out there. and vice
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: versa.
+Kobi Kunasekaran: Yeah. I think that so we we'll we'll set set up all the referral related fields as just regular like standard number field and then we we will use like the referral currency to determine if it's if it should be USD or Canadian.
+
+
+01:21:05
+
+Kobi Kunasekaran: While this base currency field on the signup will govern the actual signup information. Um so like if there's like a like for bet amount this will likely be a currency
+Lina Ceniccola: Mhm.
+Kobi Kunasekaran: field and it'll be tied to the base currency field for the signup
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: itself.
+Emily Vandenberg: That's based on the market, right? Defaulted by
+Kobi Kunasekaran: Uh yes or like you could like when you're creating the deals you could
+Emily Vandenberg: market
+Kobi Kunasekaran: configure this as well actually sorry yeah because of the signup this will be based on the either the currency we get from the API or we can derive it from the state country uh that comes from the API.
+Lina Ceniccola: And then The other thing I didn't see here was a survey completion
+Emily Vandenberg: Okay.
+Lina Ceniccola: box
+Kobi Kunasekaran: Um so survey completion is at the player level.
+Lina Ceniccola: high level. Okay.
+Kobi Kunasekaran: Um yeah but we we don't have scoped is right now we don't have like a separate call out
+Lina Ceniccola: Got it.
+Kobi Kunasekaran: scoped from your back end to inform that the player has completed the survey.
+
+
+01:22:14
+
+Kobi Kunasekaran: We are handling it on the sign up like study click link. But if they click on the study click link first and then they complete the survey, Salesforce won't know that they completed the survey until another study click link comes from that same person as of right now. So as you're building out the back end, we could add another like payload process to handle your backend updating the respective player record to say that the survey is completed. it I I scope this as like an optional story just in case we don't like we run out of time for phase one uh because we can still handle it from the study click link and that's a bare minimum that we need uh to like create the players and everything. Um yeah here like if marked as optional we don't necessarily need to do it but all of this work is mostly on your back end not necessarily on our
+Emily Vandenberg: Okay, we can take a look.
+Kobi Kunasekaran: end.
+Emily Vandenberg: But that like the study the like we'll have to send you something separate for the survey completion because study click doesn't correlate to survey completion.
+
+
+01:23:20
+
+Kobi Kunasekaran: All right. Yeah.
+Emily Vandenberg: Okay. Sorry, I thought using survey.
+Kobi Kunasekaran: So
+Emily Vandenberg: I thought you were using study logic to update that.
+Kobi Kunasekaran: right now I am uh because we're only handling the study study click links
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: but the work to send the survey completed is less on our end and more on the back end. Um but that's assuming like you know you have the player ids and stuff to send that information to.
+Emily Vandenberg: Okay. And then I just want to go back to the refer. You said that the refer was coming in from the payload like the
+Kobi Kunasekaran: for the for the examples that we uploaded. We put some like referrals as examples.
+Emily Vandenberg: API.
+Kobi Kunasekaran: Um because like we we set it up as it coming from the back end. But if that's not available, um, how this gets populated, like if if the rep is going to fill this in, that's fine, too. Like just be blank if it doesn't come from the
+
+
+01:24:26
+
+Emily Vandenberg: it it wouldn't come from the payload.
+Kobi Kunasekaran: payload.
+Emily Vandenberg: Um, right, Lena? Like there's nothing that would transfer that. But I would like to see that it's not free form that it's like because there would be a player record for the refer that they could start typing to select.
+Lina Ceniccola: there. Not all referrals will be in the system.
+Emily Vandenberg: What's that,
+Kobi Kunasekaran: Gotcha.
+Emily Vandenberg: Lena?
+Lina Ceniccola: Not all referrals would be in the system per
+Emily Vandenberg: as a player.
+Lina Ceniccola: se.
+Emily Vandenberg: Oh, really? They like might refer but never be a player for us.
+Lina Ceniccola: That could happen. It's like probably not as common,
+Emily Vandenberg: Okay.
+Lina Ceniccola: but someone could have no books and still want to refer and then get cash.
+Emily Vandenberg: Uh
+Kobi Kunasekaran: So the way we set this up though is we have players and we have referers as two separate record
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: types. Um, so there are two like you could have the same person be both, but even in that case you will have a player record for them and a referral record for them and then you could have just refer in the case of like what you're talking about Lena where they're never a player.
+
+
+01:25:30
+
+Kobi Kunasekaran: Somebody will still need to create the referer initially and then um in the
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: lookup it is like you said like it is going to search through all of the record types and then here you can search for whoever uh like do just Sarah that's an example here it'll show up the person that's there. So, it is a lookup. It's not a free form field. Um, they do need to pick a refer to link it
+Emily Vandenberg: Okay. But like you're saying, I know we're in a different view though.
+Kobi Kunasekaran: to.
+Emily Vandenberg: If like when going to put refer if they're like they have the option in that screen to add account in which the screen would open up to
+Lina Ceniccola: It says new account.
+Kobi Kunasekaran: Yeah. Like the account like because we're using personal accounts.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Technically all of these are accounts but uh player and refer are called person accounts whereas operator and partner are like the classic account. So in this case uh we would click on the refer.
+
+
+01:26:29
+
+Kobi Kunasekaran: I think we might be able to restrict this from the interface as well. I'll look into that. So they don't like the rep doesn't have to make this choice. But in this case they'll they'll pick refer if there's if the person isn't already in the system and then fill in the information for the for the refer like first name, last name, email, whatever it is. Save. And this will link this referral to that
+Lina Ceniccola: Yeah,
+Kobi Kunasekaran: signup.
+Lina Ceniccola: it'd be cool if it could just say like add refer
+Kobi Kunasekaran: Yeah, I we'll we'll see. I think we might be able to restrict this to just show refers. I think we can. Um and then if not worst case like we can create a button that guides them through that process as well. It's always our fall
+Emily Vandenberg: Okay. But like there is not it's not like a shared um and maybe
+Kobi Kunasekaran: back.
+Emily Vandenberg: this is wrong Lena but like you're within the like refer kind of like lookup you're not also referencing players right like you have to always create them as two records.
+
+
+01:27:31
+
+Kobi Kunasekaran: Yes. And that's a restriction we put in like from the PRD though,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: right? It doesn't necessarily have to be that way, but it's it's good to have it that way so that you can roll up the right information to the right records. Like Emily, if you're both a player play player and a referer, like you're going to be related to different objects as uh like on the signup, you could be a referer for the signup. Um but you're not the actual player, right? Player is going to be somebody else. And so then we can pull all of the signups where you are the referer and do like rollups of like how many how many signups were created, where you were the referer. And that that level of aggregation would live potentially inside this like referral information which would be different from your player record uh which has like completely different set of fields and statuses and requirements.
+Emily Vandenberg: Yeah, I totally agree that they need to be separate,
+Kobi Kunasekaran: Yeah.
+
+
+01:28:31
+
+Emily Vandenberg: but the reality is that there's I think Lena there's a lot of cases in which refers are just um like player.
+Kobi Kunasekaran: players.
+Emily Vandenberg: So it's like where so to like have to kind of go and manual every time you get
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: a refer you have to go and create a new refer even though they be perceived as in the system already then like you could
+Kobi Kunasekaran: So, we could simplify that though, right? Like like I said,
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: we could create a screen flow um that give them the option like create new refer or pick pick an existing player and um give them the ability to like search for an existing player. Uh and if they they click next and in the background we can create the referral record from the player record uh do the linkages and then that referral record could be tied to the signup. That's something we can't do in the back end to like reduce the manual steps for the reps.
+Lina Ceniccola: Yeah, let's let's go with the reduced and manual steps for sure cuz like thing
+
+
+01:29:31
+
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: is the the player can be a referral and then they like
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: have their own books that they manage their redeposits on or their referral payments on. And they like they're they're doing a lot of different things. at
+Emily Vandenberg: Yeah, I like the linkage and then that also makes sure that like that name if you like that
+Lina Ceniccola: once.
+Emily Vandenberg: there's not like error for kind of misspelling within the different records and like you can you can link them very neatly. So, I think that that we obviously are going to go through more detailed feedback,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: but let's just move on that because you
+Kobi Kunasekaran: Well, I I'll scope it out, but I don't want to put in the automation yet until we finalize the fields.
+Emily Vandenberg: know,
+Kobi Kunasekaran: Um, just because then the rework is expensive on those flows. So um if we can finalize like what are the fields for the referers and the players
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: and what information kind of translate then we can create it and like obviously adding information is pretty easy but if like you know if these existing fields that we created have to change uh after your review then going back and updating the automation is just going to add like unnecessary time but I'll scope it out.
+
+
+01:31:00
+
+Kobi Kunasekaran: I'll create like the write up for it and then once we finalize the fields u it's a quick ad for us on our end. So we'll we'll we'll make sure that it's in for V1 but uh it won't be in for when you're doing the
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: testing but assume that we can build something like that. And I'm going to say this like same thing for a lot of the other things like there have a lot of things manual.
+Emily Vandenberg: Heat.
+Kobi Kunasekaran: We looked at manually uh intentionally because you do want to know uh what what information is needed for each of the stages. You want to be able to do it manually first and then we can start taking away the steps as we polish up the required fields the the timing of when uh when those fields need to be filled in and kind of like that journey on as we polish those up. We can always remove a lot of those manual steps through the automations that are available. Uh but as you do go through it like keep tagging it like like you are right now like it's going to be too many steps.
+
+
+01:31:57
+
+Kobi Kunasekaran: We need a faster way. Just include that in the feedback and we can uh we can incorporate those in. The last thing we want to do is like build everything like build all the automations and then we realize like we're missing a field or the way that we're bringing a field value in from the sign up into the refer is wrong and we have to redesign the whole thing. That gets expensive. That's kind of like I I feel like what might have happened in the last version of the build where like the UI was the primary focus and then the backend uh design and architecture wasn't and then you spend a lot of time on the automation and then you have to keep reworking it. But we do it the other way around. Crawl, walk, run, right? Like we have the ability to do it manually and then we can set up automations to start uh automating it um as we approve the the data, the reporting requirements and all of that. Cool.
+Emily Vandenberg: Okay, that makes sense.
+
+
+01:32:48
+
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Okay, awesome. Okay, I know we're like way over time. Um, I actually do have to jump into another meeting, but I I'll leave this with you, Lena. I'll make sure you get access to it before the end of the day. Um, soon as I'm done the meetings, I'll I'll get that access and then play around with it. Take a look at that Loom video I shared. It does go through like some of the common things that you'll want to do the first time you're in in the org to see the same things that I'm showing you. Um, and then in terms of feedback, uh, Emily, I don't know what what's going to be best. Um you can create cards directly in triage in the sauna or put together like a Google doc or spreadsheet and we can use that as a staging ground to review in our meetings and then we can move I can create the cards to move them into asa later whatever is going to be easy for you
+
+
+01:33:33
+
+Emily Vandenberg: Is there like a priority if you had to say like the if we could only like review three or
+Kobi Kunasekaran: all.
+Emily Vandenberg: four things this week? Like what do you want the feedback
+Kobi Kunasekaran: Uh yeah, the core things are like the sign up,
+Emily Vandenberg: on?
+Kobi Kunasekaran: the study click links um and the deal assignment. I think those are the main things, right? Um because those those are have implications on the automations or all of the other ones like if we're talking about fields that are like dimensions of a of a record like you know the name of the player uh the type of player things like that that don't have any ties to automations. Lower priority not not not too important if it's not there right now. Um but anything that's going to be functional you want to make sure that those are solid before we move forward with the automations.
+Emily Vandenberg: Okay.
+Lina Ceniccola: Okay, I also have to jump.
+Kobi Kunasekaran: Yeah,
+Lina Ceniccola: Um, thank you though. This was very helpful.
+Kobi Kunasekaran: no worries. Thanks for the feedback. This is great. I know we went way over, but good conversations.
+Lina Ceniccola: Yeah, agreed. Hopefully that gets us a step further. Um,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: okay. Well, thank you.
+Kobi Kunasekaran: Awesome.
+Emily Vandenberg: Thanks.
+Kobi Kunasekaran: Thanks everyone.
+Lina Ceniccola: Bye.
+Kobi Kunasekaran: Talk to you later.
+Emily Vandenberg: Bye.
+Kobi Kunasekaran: Bye.
+
+
+Transcription ended after 01:45:17
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

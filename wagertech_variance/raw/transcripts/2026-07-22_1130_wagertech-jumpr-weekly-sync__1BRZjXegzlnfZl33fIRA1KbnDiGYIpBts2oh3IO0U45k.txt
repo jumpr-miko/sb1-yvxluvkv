@@ -1,0 +1,1347 @@
+📝 Notes
+Jul 22, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited Marc Cabantog Miko Sumagang lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+Meeting discussions focused on Salesforce interface architecture, workflow status definitions, and technical integration strategies for automation.
+
+Salesforce Interface and Design
+The team prioritized standard interface elements to preserve timelines and maintenance costs. They decided to implement a read-only banner for signups and display specific data in the header.
+
+Workflow and Status Logic
+Participants aligned on a status path of New, In Progress, and Completed. They agreed to split the Flagged category into Fraud and Archived to ensure accurate tracking.
+
+Integration and Optimization
+Salesforce will serve as the primary management system for CMS data integration. The team also agreed to adopt the Salesforce mobile application for native accessibility.
+
+
+Decisions
+Aligned
+* Click history moved to separate tab The click history section will be moved to a separate tab, and the attribution and player information will be placed in the details section to optimize the layout.
+* Read-only banner added to UI A banner will be added to the top of the UI to clearly indicate when fields are read-only for users.
+* Emoji usage for status representation Emojis will be implemented for displaying visual status representations, such as country flags or status indicators, rather than relying solely on text.
+* Phase one UI customization limitations The team will prioritize out-of-the-box Salesforce functionality over extensive LWC customization for Phase 1 to manage maintenance costs and project timelines.
+* List view renamed to In Progress The "Q" list view will be renamed to "In Progress" to better align with the signup status.
+* Signup page field display adjustments The "Brand Ambassador" field will be removed from the UI, and the "Operator" and "Partner" information will be consolidated or displayed simply as "Operator" to simplify the interface.
+* Header section field placement Vertical and market information will be moved to the header/highlight section of the interface for improved visibility.
+* Re-introduction of linear status path The linear path displaying "New," "In Progress," and "Completed" statuses will be re-introduced to the user interface.
+* Fraud and completion status handling Fraud detection and flagged statuses will be tracked via a separate field or sub-status rather than being part of the primary linear status path, allowing for completion status to remain intact while flagged.
+* Inclusion of archived status "Archived" will be implemented as a status to allow for the removal of stagnant or inactive signups from the active "In Progress" queue.
+* Archiving and Fraud status structure The system will implement separate 'Archived' and 'Fraud' statuses, removing the 'Flagged' category and providing unique reason lists for each.
+* UI cleanup via information layering The UI cleanup strategy will involve moving non-essential fields into 'More Info' sections rather than removing them from the system, to maintain data availability while simplifying the interface.
+* Operator and Partner display logic The Q list view for representatives will display only the Operator, while the Ops view will continue to display both the Operator and the Partner.
+* Deal assignment status visual indicators The deal assignment screen will include visual status indicators, such as colors and emojis, to denote states like active or paused assignments.
+* Salesforce to CMS integration direction Salesforce will serve as the source of truth for deal assignments, pushing relevant data to the CMS via an API endpoint.
+* User input date format simplification Time components will be removed from all user-inputted Date fields, while system-generated timestamps will retain time accuracy.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [The group] Schedule API Meeting: Schedule the API review meeting for Friday.
+* [Kobi] Implement Banner: Add a banner at the top of the interface indicating that the fields are read-only.
+* [Kobi] Implement Emojis: Implement an emoji status system using formula fields to display flags and status indicators.
+* [Lina Ceniccola] Share Emojis: Provide specific emoji recommendations in the chat for status indicators.
+* [Kobi] Research Button Styles: Investigate potential styling improvements for UI buttons.
+* [Emily Vandenberg] Share Feedback: Share the updated feedback tracker with the team.
+* [Kobi] Add Tracking Field: Create a field to track whether signup movement was manual or automated.
+* [Kobi] Update Layout: Modify the record layout to include operator information at the top and remove the brand ambassador field.
+* [Kobi] Reorganize Tabs: Restructure the record view by moving attribution and player info into columns and creating a separate history tab.
+* [Kobi Kunasekaran] Create Demo Video: Record a video demonstrating the dashboard and list view functionality to avoid waiting until the next meeting.
+* [The group] Provide Field Feedback: Identify and document which fields in the current layout are necessary versus those that should be hidden or moved to a more info tab.
+* [The group] Define Reason Codes: Compile and share the specific reason codes for fraud and archived signup statuses.
+* [Kobi Kunasekaran] Update Screen Layout: Clean up the deal assignment interface and incorporate status columns with visual indicators like emojis.
+* [The group] Identify API Fields: Capture screenshots of required fields from the deal assignment object to assist with API mapping.
+* [Joyce] Provide API Requirements: Provide API endpoint details and payload requirements for the Durup assignments integration.
+* [Joyce] Download Salesforce App: Install the Salesforce application to evaluate the mobile layout and usability.
+* [Emily] Provide Screen Feedback: Deliver additional feedback on the remaining interface screens.
+* [Emily] Assist Status Codes: Provide necessary assistance regarding project status codes.
+* [The group] Confirm Signup Fields: Verify the required information fields for the signup completion percentage calculation.
+* [The group] Confirm Date Requirements: Review and confirm the specific requirements for the date field to ensure time stamps are excluded from user input.
+* [Kobi] Implement Date Formatting: Configure the user interface to ensure that date fields omit time values for inputs provided by users.
+
+
+
+Details
+* API Setup and Testing: Emily Vandenberg confirmed that API credentials were received late the previous day. The team is aiming to schedule a connection on Friday to conduct end-to-end testing (00:00:00).
+* Meeting Agenda: The participants outlined the agenda for the meeting, which included a UI/UX review, API progress, storage scope updates due to GCP changes, referral logic, and discussion regarding the fraud detection approach for welcome emails (00:02:23).
+* Fraud Detection Planning: Regarding the fraud detection requirements for welcome emails, Joyce Kiddell noted that a discussion with the A3S team is required before a plan can be established, pushing this topic to the following week (00:03:21).
+* Signup Logging Process Demo: Kobi Kunasekaran performed a demo of the signup logging process in Salesforce, explaining that the workflow is built to operate within the platform's constraints while restricting access to specific fields (00:03:21) (00:10:29).
+* Salesforce Layout Limitations: Kobi Kunasekaran highlighted that native Salesforce interface limits prevent a specific split-view layout for attribution and player information. The team agreed to explore using a separate tab for click history to ensure the primary view remains readable and efficient (00:05:38).
+* Read-Only Data Indicators: To prevent user error, the team decided to implement a text banner or clear indicator at the top of the interface to designate the signup information as read-only (00:09:37).
+* Workflow Automation: Kobi Kunasekaran demonstrated the "Log Signup" action, which updates the record status to "In Progress" and triggers relevant input fields. The team confirmed that subsequent screen flows will be prepopulated with data where possible (00:10:29).
+* Button Styling and Development: Kobi Kunasekaran clarified that while standard Salesforce button colors are not easily changed, the team could potentially utilize Lightning Web Component (LWC) customization if necessary. However, the team agreed to prioritize standard interface elements for the initial phase to control maintenance costs (00:12:08) (00:14:08).
+* Visual Indicators and Emojis: Lina Ceniccola suggested utilizing emojis, such as flags or logos, to present information like countries or verticals visually. Kobi Kunasekaran confirmed that this is achievable via formula fields and will integrate these as a visual improvement (00:13:06) (00:18:08).
+* Development Strategy and Timeline: Kobi Kunasekaran advised against extensive LWC customization for the first phase, citing the high maintenance costs and the potential to jeopardize the August go-live timeline. The team concurred, focusing on functional requirements before pursuing UI overhauls (00:15:23).
+* Queue Terminology: Kobi Kunasekaran proposed renaming the "New" list to "In Progress" to better align with the status workflow. The participants confirmed that clicking the "Log Signup" button acts as the trigger for moving a lead into the "In Progress" queue (00:19:13).
+* Automated vs. Manual Signups: Joyce Kiddell requested that a label be added to differentiate between signups logged manually and those processed through automation, which will assist in troubleshooting potential errors (00:21:20).
+* Operator and Partner Display: The team discussed field displays, agreeing to hide the partner name for brand ambassadors to ensure privacy, while retaining operator information. They decided to display the operator as a primary field, with full data remaining available for operational review (00:23:13) (00:27:22).
+* Header Bar Information: The participants decided to move critical data points—including the status indicator, operator, market, and vertical—to the header bar for improved visibility. Personal contact details will be grouped together below as "Player Info" (00:30:29).
+* Queue Sorting and Searching: The group discussed the challenges of navigating a large queue. Kobi Kunasekaran explained that while the console has limitations, the team can enable search functionality within list views and utilize reports and dashboards to help reps locate specific records (00:35:07).
+* UI Mockup Review: Lina Ceniccola shared a mockup for the interface layout. The team reached a consensus on the visual presentation and agreed to include color-coded statuses on the left-hand side of the queue (00:43:55).
+* Status Workflow Path: The participants aligned on a primary status path consisting of New, In Progress, and Completed. They determined that Archived and Flagged statuses would be managed as distinct categories rather than integrated into the linear progress path (00:45:04) (00:52:35).
+* Fraud and Archive Status Management: The team concluded that fraud-flagged records should remain "Completed" but feature a sub-status for operational review. They also agreed to implement an "Archived" status for cases where a signup is abandoned, allowing these records to be moved out of the active rep queue (00:47:16) (00:54:54).
+* Archiving and Status Workflow: Lina Ceniccola initiates a discussion on ensuring that once a record is archived, it cannot be unarchived by unauthorized users, to which Kobi Kunasekaran responds that access can be restricted to operations staff. Regarding the status field, the group decides against using a "Closed" status to avoid confusion, agreeing instead to a button-triggered "Archived" status that includes a required reason input box (00:58:25).
+* Flagging and Fraud Categories: Kobi Kunasekaran proposes splitting the existing "Flagged" status into distinct "Fraud" and "Archived" categories to differentiate general exclusions, such as a player being unavailable or missing a deadline, from specific fraud-related reasons (00:59:30). The group agrees to rename "Flag" to "Fraud," and Emily Vandenberg commits to providing the specific reason codes for both new categories (01:00:46).
+* Queue Search Functionality: Joyce Kiddell brings up the implementation of search functionality within the queue. Marc Cabantog clarifies that while the feature is technically possible, it is currently limited to "Jake" due to field mapping constraints, though it will be expanded for broader use (01:00:46).
+* Bulk Deal Rep Assignment: Kobi Kunasekaran demos a new screen flow that allows for bulk deal rep assignments, enabling users to select multiple reps and set assignment statuses and effective start dates simultaneously. This updates the previous, less efficient one-by-one process (01:01:44). Kobi Kunasekaran notes that the layout requires further cleanup and will notify the team when it is ready for review (01:02:43).
+* UI/UX Optimization and Field Visibility: Emily Vandenberg asks about the strategy for cleaning up the UI/UX across remaining screens, and Kobi Kunasekaran requests that the team use the feedback document to identify fields that are no longer relevant or required per the original product requirements (01:03:36). Joyce Kiddell suggests moving redundant fields to a "More Info" section rather than deleting them entirely to ensure the user view remains clean while retaining data for deep dives (01:04:29).
+* Operator and Partner Field Visibility: Kobi Kunasekaran suggests simplifying the interface by showing only the "Operator" in the queue list, removing the combined "Operator/Partner" view (01:05:02). Emily Vandenberg and Lina Ceniccola confirm that while reps only need the operator visible, the operations team requires access to both "Operator" and "Partner" fields when performing detailed investigations, which Kobi Kunasekaran confirms can be accommodated within the sign-up details (01:05:57).
+* Deal Assignment Status Indicators: Lina Ceniccola requests that the deal sheet incorporate visual status columns, such as green indicators for "Active" and a pause icon for "Paused" statuses, to mirror the design of other flows (01:06:43). Kobi Kunasekaran confirms that these visual status indicators can be implemented (01:07:45).
+* CMS and Salesforce API Integration: Emily Vandenberg initiates a conversation regarding the potential for automating deal assignments between the CMS and Salesforce (01:07:45). The group determines that Salesforce should act as the primary management system, pushing data to the CMS (01:08:44). Kobi Kunasekaran explains that the team needs to identify the required data points for the API endpoint on the CMS side so that Salesforce data can be mapped appropriately to support this integration (01:10:05).
+* Salesforce Mobile Application Utility: Waleed Alasadi suggests the team utilize the Salesforce mobile app, noting that the layout translates well to mobile without the need for custom development. Kobi Kunasekaran supports this, noting that utilizing the platform's native features rather than building custom Lightning Web Components makes mobile accessibility significantly easier to achieve (01:13:09). Joyce Kiddell and the group agree to download and test the application (01:14:07).
+* Signup Completion and Date Formatting: Kobi Kunasekaran requests confirmation on the specific fields required to calculate a "signup completion" percentage (01:14:52). Additionally, Kobi Kunasekaran proposes removing "time" from user-input date fields to simplify the interface, while retaining time stamps for system-inherited data. The group agrees to this approach (01:15:48).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 22, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:00
+
+Lina Ceniccola: Well, we can try after
+Emily Vandenberg: Yeah, no worries. Hey,
+Lina Ceniccola: though.
+Kobi Kunasekaran: Hello. How are you all
+Emily Vandenberg: how are you?
+Kobi Kunasekaran: doing?
+Emily Vandenberg: It's going to um do we I'll ping choice.
+Kobi Kunasekaran: Got lots to talk about today. I think maybe I don't
+Emily Vandenberg: Mhm.
+Kobi Kunasekaran: know.
+Emily Vandenberg: I did not get a chance to look at your list of
+Kobi Kunasekaran: No worries. We can we can talk through it today.
+Emily Vandenberg: questions.
+Kobi Kunasekaran: Um it's it's not it's not a lot but uh I think I'll have more as as we go through uh update make more updates. that uh these are just like some top of- mind things that we should resolve as um how's the API
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: work going by the way? any uh any issues with like using the the credentials and stuff sent
+Emily Vandenberg: Um, well, we just got them later yesterday.
+Kobi Kunasekaran: over.
+Emily Vandenberg: Uh, I think I I don't know if you saw my note, they're going to be working on it and we're we're hoping to like book a connect on Friday.
+
+
+00:01:19
+
+Kobi Kunasekaran: That
+Emily Vandenberg: Um, and do some end toend testing. So, that's kind of our goal.
+Kobi Kunasekaran: works.
+Emily Vandenberg: Um, I don't have any positive or negative comment on if the credentials work, but I'll find
+Kobi Kunasekaran: Okay. I assume like because you've had um like the previous version you did have records going into
+Emily Vandenberg: out.
+Kobi Kunasekaran: Salesforce and stuff. So I assume like you have like the uh the infrastructure already there and you just need the new credentials for the sandbox. But um like a lot of this is like custom objects and everything too. I'm I think we did we made sure like all made sure all the permissions are accurate but just in case just in case he has any trouble like creating records or anything just yeah shoot us a message we'll jump on
+Emily Vandenberg: Yeah. And and he will there's a lot's changing on our back end so I think he just has to familiarize. Hey,
+Kobi Kunasekaran: choice.
+Joyce Kiddell: Good morning, afternoon, whatever time.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: are we waiting on anyone else in your end?
+
+
+00:02:23
+
+Emily Vandenberg: Kobe.
+Kobi Kunasekaran: Uh I don't think so. I think Well, he's going to join a little bit later. He's in another meeting. Uh let's see if Nico Miko might join or he's like in the middle of his like house move so he might also be tied up. Uh but we can get started. Um we'll go through the demo first and then we'll go through the open questions. Uh we kind of already talked about the API so not much to talk about there and then uh is there anything else uh that you all want to talk about today?
+Emily Vandenberg: Yeah. What should I have on my list? Um, so yeah, UIUX review the API. just like let's get that that meeting booked for Friday. Um storage scope, I know you were taking that away um just with the GCP update. So just an update there. Um referral logic, we have a bit of an addition I would say there. So we can kind of talk through that.
+
+
+00:03:21
+
+Emily Vandenberg: Um and then Joyce, is there anything you want to kind of talk through with the kind of changing requirements around um like our fraud detection approach with the welcome email? At this stage,
+Joyce Kiddell: Um, I think it's I should probably talk to the A3S guys this afternoon first before we like bring in a plan because, you know, I I'm just not sure if it's like going to happen in the right order yet. So, maybe next week.
+Emily Vandenberg: Okay. Yeah. Um, yeah. I think that's it.
+Kobi Kunasekaran: Okay. Um, okay. Let me go I'll start off with a demo of like what we were able to do since our meeting on uh Friday and Monday, I guess. Um, let me share my screen. Just going to refresh all of this. So, I was able to get pretty close to the mockup that you put together, Joyce, for the signup logging process. Not exact um you know, working around Salesforce platform limits and what it allows us to do, but we're able to get pretty close.
+
+
+00:04:34
+
+Kobi Kunasekaran: Um so, what you're seeing now is like the rep like I'm logged in as Jared. Um so, in all of the previous demos like we just logged in as us or like if you're logging in an account, you're logging in as admin. So you kind of have like right access to pretty much everything. Uh but this one is a bit more restricted. They only have read uh right access for the things that we allow them to. Um so going through what a typical workflow would look like. Um we start with uh the widget tech console or under the signups and in the signups um we would generally start with the new list. Um the new list is essentially the uh the lead tab that you had Joyce in the uh in the mockup. So let me actually pull that up here too. Look at both side by side. So new uh it's basically any any new signups that have come in. So the all the clicks and everything it's been processed. It's been linked to a player, a deal, um the market, all of that all of that good stuff.
+
+
+00:05:38
+
+Kobi Kunasekaran: Um so when they click on a lead um they have uh just very very few fields that are showing up. Um these are more or less the fields that you add here um from the attribution and clear information. And then for the history I couldn't do like a tab where it switches the whole thing around. So um this is a tab view. You'll see when we log the sign up uh you'll see the more details and stuff but uh the attribution information uh and the player information is below. All of this is read only. Um
+Joyce Kiddell: the um sorry the click history to the
+Kobi Kunasekaran: uh I'm not able to like the this uh split view of the player info and
+Joyce Kiddell: bottom.
+Kobi Kunasekaran: attribution info. Uh the layout restricts us to having like the full width at the top as opposed to the bottom.
+Joyce Kiddell: What?
+Kobi Kunasekaran: Yeah, it's it's annoying.
+Joyce Kiddell: What? So like would that mean the click history has to be also half width
+Kobi Kunasekaran: Um so the options are let me go to
+
+
+00:06:39
+
+Joyce Kiddell: if
+Kobi Kunasekaran: another one so we can see the full one. So if we do full width like this I can do two columns but the two columns won't have a heading like a something that's like proof information. Um so and it's only two columns. So, um, this is this is like, yeah, this is like the full width. If I I could roll all of this up together into a single tab and then history can be a separate tab. Um, but I can't have this section where, you know, we have a section of uh the layout with the two columns. Um, and that being two within the detail
+Joyce Kiddell: Oh yeah.
+Kobi Kunasekaran: section.
+Joyce Kiddell: How come it looks like you were able to move clicks to history under this view and you can't do that for
+Kobi Kunasekaran: Yes.
+Joyce Kiddell: leads?
+Emily Vandenberg: Like I
+Kobi Kunasekaran: Uh so the reason why it shows up at the top is because the attribution information is still at the bottom here, right? Um we don't have a details.
+
+
+00:07:44
+
+Kobi Kunasekaran: So I could I could do it the other way around. So here if I
+Joyce Kiddell: like the stuff at the bottom could be details and then you have like still the history tab like
+Kobi Kunasekaran: do
+Joyce Kiddell: the clicks on the side like exactly how you have it here but with attribution information and stuff like the too. But and if those have to be like full width, then that's
+Kobi Kunasekaran: Okay. Yeah, we I can do that. So,
+Joyce Kiddell: fine.
+Kobi Kunasekaran: I could do it so that instead of like these two sections in the lead view, they can just be two columns uh of fields in the detail section. Yeah, I can do that.
+Joyce Kiddell: I think you would move clicks to a separate tab like called history, right?
+Kobi Kunasekaran: Yeah. Yeah,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: do that.
+Emily Vandenberg: you have to have like um single table at the top or can you not just like keep it as is just move the the click history to its separate tab? I think it's just like that click history is not going to be used often.
+
+
+00:08:39
+
+Emily Vandenberg: So, it's like don't if they need it, they'll find it. If they um if they don't, then we don't want to have to it the first thing they see.
+Kobi Kunasekaran: Um, so yeah, like the top view it's it's restricted to like the white section here. So that's why like these um like you you see it as separate. Here's what I'll I think I think what I'll do is create the details tab just like we have in the other one and then move the attribution info and player info into into like the into columns. So you might not see like it might not specifically say attribution information or player information in the details sub but uh that way the first thing they see is similar to like if I go here similar to this the signup information it'll be the exact same like what one side will be the attribution info and then the other side will be the player info. You could do that and then the history will be the se second tab.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Um yeah that that that that I can do.
+
+
+00:09:37
+
+Kobi Kunasekaran: I'm just not able to like move these like these are like specific sections.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: I can't re reorganize them platform limits.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Okay. So moving past that. So um again all of these field they're read only. Um, first up that the
+Joyce Kiddell: Can we add like a little Is there a way to add like a text bar or like something kind of subtle above this?
+Kobi Kunasekaran: rep
+Joyce Kiddell: It says like this is read only.
+Kobi Kunasekaran: we can Yeah, I can do like a banner at the top generally like do do you think it's necessary
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: considering like they can't actually do anything to edit these fields?
+Joyce Kiddell: Yes. Sorry,
+Kobi Kunasekaran: Okay,
+Joyce Kiddell: I always just air on the side of people being very dumb and you have to kind of like hand them throughout like a
+Kobi Kunasekaran: that's fair.
+Joyce Kiddell: UIUX flow, but I
+Kobi Kunasekaran: Okay, no worries. Don't worry. We can do that. Uh okay.
+Joyce Kiddell: know
+
+
+00:10:29
+
+Kobi Kunasekaran: And then from here um what they do with the lead um they log the sign up. I you had like sign up and archive. I called it log signup. Um I can also call it signup. Um or if there's like a better terminology um that we can come up with, let me know. Um but when I click on it, there are like the three fields that we need to fill out. They've not updated. I know in the feedback we said like we don't need the first bet date or first bet amount. So we'll get this cleaned up. just to show an example of like what the process looks like. So, I'm going to click on lock sign up. Fill in the information if if I have it. If not, I'll just click next. And this is going to update the record to in progress. So, status in progress means uh they've accepted the lead and they're uh they're filling in this information. So, now you can see that the information below here uh has changed.
+
+
+00:11:18
+
+Kobi Kunasekaran: So, the pencil basically means it's editable. That's what I was talking about like you know when it's when there's no pencil it means it's a read only field.
+Joyce Kiddell: So for the the screen flow uh that you just showed us with like the the proof
+Kobi Kunasekaran: Um
+Joyce Kiddell: like fields. Um, can we just have it essentially reflect everything that we want them to fill out at the bottom like including the referral information?
+Kobi Kunasekaran: yes yes plan.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: That's the plan. This is just like a placeholder just to click through the process.
+Joyce Kiddell: Okay. They'll they'll fill out that screen flow with all these fields and then when they hit this screen, the goal is that all of this is already prepopulated. Okay. Okay.
+Kobi Kunasekaran: Yeah. And if they don't have like any like some some information, that's also okay, right? They can keep clicking like clicking on lock sign up to complete the test uh as much as they need
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: to.
+Joyce Kiddell: Or or they go down to the fields at the bottom and then just hit it with a pencil.
+
+
+00:12:08
+
+Kobi Kunasekaran: Exactly. Exactly. Yeah.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: I removed the edit button entirely because I I it felt redundant having that and then also having the path because with the edit button like the out of the out of the box interface we're not able to control the field that they uh that are like read only or uh editable. So this is a bit more guided.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Um
+Joyce Kiddell: Anything we can do like just in terms of like the flag button for example? Um, anything we can do to like kind of change the styles of the buttons like that flag button?
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: I think like if we can make it stand out more or like complete, you know, like a red and green. I don't
+Lina Ceniccola: Come
+Kobi Kunasekaran: I don't know if we're able to.
+Joyce Kiddell: know.
+Kobi Kunasekaran: I don't think we can change the colors.
+Lina Ceniccola: on.
+Kobi Kunasekaran: I'll check. I'll check. Maybe there's a there's not might be able to do like LWC way to do it, but out of the box I don't think we have the ability
+
+
+00:13:06
+
+Joyce Kiddell: Okay.
+Lina Ceniccola: Is it possible where um locations are listed like country?
+Kobi Kunasekaran: to
+Lina Ceniccola: Could it be like a Canada flag or a US flag?
+Kobi Kunasekaran: give me one second.
+Lina Ceniccola: I just I want to utilize other ways to present information besides text. Like similar to what Joyce was saying, if we can take away
+Kobi Kunasekaran: We can do that. Yeah, we can use like uh we can use emojis essentially like the standard emoji set that's available um and drive it through formula fields. Um so you would have the main field that is actually editable um would be the text version but then the display version that reps would see we could append the respective uh flag or something like that so that it's more visual.
+Lina Ceniccola: Yeah, let's let's try to do that where they don't have to input it And I think that visually makes
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: more
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yeah. And just making it clear that all of the sign up information also is read only like with a little bit of text above
+
+
+00:14:08
+
+Lina Ceniccola: sense.
+Joyce Kiddell: it. Um, and then yeah, like I think like to Lena's point and just generally like if there's stuff that we need to do that isn't out of the box on the Salesforce side, like are we able like we know it'll cost more because it's more effort, but like are we able to do a bit of like custom like layout or design
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: work or does that like really over complicate things?
+Kobi Kunasekaran: Um I would say for phase one I would not prioritize that because any changes that we have to do is very expensive for those. So um if we finalize the fields and we know like what information we're trying to get and we we're good with all the flows uh all the automations and everything then we can add on the layer of the LWC customization where needed like the emojis and stuff that's pretty simple. Like that's another like formula field. But like if you want to do like a complete UI overhaul for this um the the difference in cost is adding a field, moving fields around um changing uh changing like the types and stuff.
+
+
+00:15:23
+
+Kobi Kunasekaran: They're like maybe 15 minutes, half an hour work, right, for uh between like us having the conversation and you being able to see it live in Salesforce. The moment we're talking about LWC, that same addition of a field in an existing LWC component now becomes three to four hours for each field because it's not we're not we can't just edit the layout itself. We have to update the code in sandbox uh add some test classes and then uh do a whole deployment to be able to see that in production. So it does add a lot of maintenance cost. That's why like we shy away from it as much as we can at least at this stage because we we're still finalizing the field. We're still finalizing the behavior, the interactions, and everything. Once we're good with that, then I I would say like it makes sense to spend the time and money to actually flush out the uh flush out the UI.
+Joyce Kiddell: Okay, I think that works.
+Kobi Kunasekaran: Yeah. Otherwise, like I we're not going to hit the our our timeline of August.
+
+
+00:16:19
+
+Kobi Kunasekaran: Um if we start with LWC first and try to work backwards, it's going to get like this back and forth. Like I wouldn't have been able to do all of this in LA in in the last two hours if we were working with
+Joyce Kiddell: Yeah, that's fair.
+Kobi Kunasekaran: LWC.
+Joyce Kiddell: I think um if we can just make sure that we have that kind of like polish applied um sparingly like it doesn't have to be everywhere but um just where we think it's necessary before we do the
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: full roll out right like I think in terms of testing and getting everything like finalized um in terms of
+Kobi Kunasekaran: All
+Joyce Kiddell: like what data is visible and what we're tracking then um taking this approach is totally fine in my mind. I don't know if Lena you guys have any other
+Emily Vandenberg: When you say full roll out,
+Joyce Kiddell: thoughts
+Emily Vandenberg: do you mean a phase one roll out?
+Joyce Kiddell: before we present it to all of the BAS on our inerson day whenever that's
+Kobi Kunasekaran: right.
+
+
+00:17:11
+
+Emily Vandenberg: Okay.
+Joyce Kiddell: happening.
+Emily Vandenberg: Okay. Yeah, I think that that it'll it's probably a time trade-off. So I think we have to just understand that a bit more. So like depending on where it lands and then what enhancement is like is it possible and what's the cost? Because I think we're like 60% of budget right now and I'm not sure.
+Joyce Kiddell: Got it.
+Kobi Kunasekaran: Yeah, it's it's budget. It's also like the time it's going to take for us to like go through the feedback cycles,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: too. That's that's what I'm worried about because that's going to extend our go live date. And that's fine with me.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: like it just means like that that's a trade-off that we'd have to make if we want to do that up front.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Okay. So, yeah, for the buttons, I'll get back to you what we can do um if there's any like quick quick wins there. Um if not like this is Um this is the typical like uh quick actions um that we're able to do.
+
+
+00:18:08
+
+Kobi Kunasekaran: Uh that's like pretty standard. Um obviously the field fields and stuff that you see here like this the log signup and even the complete screen um these are just placeholders. U but to your point like it is going to be anything that they have essentially added access to in the rest of the page we'll make sure is in those uh screen flows.
+Lina Ceniccola: Can I link something in the chat here just um on the topic of UI and emojis and to get Joyce and Emily's opinion,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: but when it comes to like a status, I guess, could we use
+Joyce Kiddell: Yeah.
+Lina Ceniccola: this?
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah. Emojis. We can use emojis.
+Joyce Kiddell: Yeah. And even the same with like the signup status at the top.
+Lina Ceniccola: Yeah, that's what I mean. that specific.
+Joyce Kiddell: Okay.
+Lina Ceniccola: But then in every like everywhere that that could
+Joyce Kiddell: Yeah.
+Lina Ceniccola: exist, use these um like this color way and
+Joyce Kiddell: Yeah.
+Lina Ceniccola: definition. It's amazing color way.
+
+
+00:19:13
+
+Lina Ceniccola: never been seen before. But
+Joyce Kiddell: It's a good call.
+Lina Ceniccola: um
+Kobi Kunasekaran: for the status. I think we uh we have we have like new in progress, completed, archived and flagged. So like in progress we can probably leave it like yellow uh completed green um archived uh maybe gray flagged um I did the red triangle there um and then for new I don't think I put any anything in particular that if I I can like put some emojis for now and then you can let me know like if you want change them. It's pretty pretty straightforward enough to update. Yeah.
+Lina Ceniccola: I'll throw some in the I'll throw some in the
+Kobi Kunasekaran: So, sorry.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Okay. Um, okay.
+Lina Ceniccola: chat.
+Kobi Kunasekaran: So, we've we've gone as far as like getting the new leads to go into a signup. So, I'm I'll switch over to the list. Um, I called it Q just to mimic like what we had here, but I'm thinking maybe we need to call this like in progress so it's a bit more in line with the the status.
+
+
+00:20:34
+
+Kobi Kunasekaran: Um, let me know or if Q is
+Joyce Kiddell: Yep, that makes sense. So,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: enough.
+Joyce Kiddell: this is for ones that um are good to start or like they've they're in the middle of logging it,
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: but they haven't finished it.
+Kobi Kunasekaran: exactly. Yeah.
+Joyce Kiddell: Yeah. Yeah, that
+Kobi Kunasekaran: Anything that's in progress that hasn't been archived um or flagged.
+Joyce Kiddell: makes
+Kobi Kunasekaran: So this will be their running list right like that's open and then
+Emily Vandenberg: Sorry. What is the trigger or automation used to push like for new I guess like status in progress? But like if what is the kind of like bare minimum that will push it to the new queue?
+Joyce Kiddell: They have to log sign up,
+Kobi Kunasekaran: Yeah, they have to click log sign up. They don't have to put anything in,
+Joyce Kiddell: right?
+Kobi Kunasekaran: but they have to click log sign
+Emily Vandenberg: They just so if they click log sign up it automatically becomes in
+Kobi Kunasekaran: up.
+
+
+00:21:20
+
+Emily Vandenberg: progress. And now in an example of us sending you information against a click study click. So Joyce, I'm thinking of the example where we're sending um a validation from the fraud in the welcome email or a welcome email received.
+Lina Ceniccola: Mhm.
+Emily Vandenberg: If you're receiving information against a um new, would it just automatically push it to in progress?
+Kobi Kunasekaran: Uh right now, no. But we we can set up automations like that like once you have the source
+Emily Vandenberg: Okay. No, no. I just wanted to make sure that like right because it's like how we train the reps,
+Kobi Kunasekaran: information.
+Emily Vandenberg: too. I just like want to make sure we're kind of thinking that through. But it like sits in new until they physically do something with
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Exactly.
+Joyce Kiddell: And then when we have the automated way of pulling in the proof that she's
+Emily Vandenberg: it.
+Joyce Kiddell: describing, um I it'd be good to have the label somewhere just to track like was this uh
+Kobi Kunasekaran: Mhm.
+
+
+00:22:17
+
+Joyce Kiddell: lead converted into a sign up manually or automatically or automatedly. I don't know what the word is but um just some sort of kind of indicator
+Kobi Kunasekaran: Okay. Yeah.
+Joyce Kiddell: um because then we can troubleshoot if it's like being incorrectly updated.
+Kobi Kunasekaran: What's the timeline for for that automation on your end?
+Joyce Kiddell: I don't know
+Kobi Kunasekaran: I'm just trying to get a sense of like urgency.
+Joyce Kiddell: yet.
+Kobi Kunasekaran: But we can do that like it's easy enough like we'll create we'll add a a field to track if they're explicitly moving it through click in the log signup. That's easy enough. And then we can fill in like once we have the automation figured out,
+Joyce Kiddell: Okay,
+Kobi Kunasekaran: we can set that path up later.
+Joyce Kiddell: cool. Yeah,
+Emily Vandenberg: Okay,
+Joyce Kiddell: I mean it's looking a lot better for sure.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: let me if you go back to new I guess it's kind of the same.
+Kobi Kunasekaran: Oh, sorry.
+Emily Vandenberg: Sample OG is sample equal what does sample equal?
+
+
+00:23:13
+
+Kobi Kunasekaran: Um, so this is the operator right now. This is just an example operator from our like sample operator list that we uploaded. U not your actual true operator. This is one of the open questions I actually have because everywhere in your like air table spreadsheets you have like the operator uh partner combination but in the new world a deal has both of them as separate fields. So do we want to combine them into a single field similar to this um for display purposes on lists like this or do we just display the operator?
+Joyce Kiddell: Can you operate or can you display both but like still keep them as separate entities?
+Kobi Kunasekaran: We can.
+Joyce Kiddell: Right.
+Kobi Kunasekaran: Yeah. Yeah,
+Joyce Kiddell: Like yeah that I I would just
+Kobi Kunasekaran: we can. Okay.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: And then what else as a quick view Lena like um do they need to know um casino or vertical Find Like is that something with like a quick so they when they open it up they just like or when they're looking here Chloe
+
+
+00:24:13
+
+Joyce Kiddell: So, this is the lead that they're going to convert.
+Emily Vandenberg: Whitefield
+Lina Ceniccola: This is the lead.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Um,
+Emily Vandenberg: and think of like what they're seeing on the like left because all the information is going to kind of like live well no we can talk about the attribute
+Lina Ceniccola: so this is they've clicked the sign up. The click lands here. It's not in progress. Um,
+Joyce Kiddell: Yeah.
+Lina Ceniccola: I would say we need to make the sign up specific info like more um visible like apparent.
+Kobi Kunasekaran: like this info that's down
+Lina Ceniccola: Yeah. like the book, the vertical,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: the country.
+Joyce Kiddell: So maybe we move the stuff that's um in attribution information to like I know you can add stuff in the gray underneath the name.
+Kobi Kunasekaran: I can uh header bar like this.
+Joyce Kiddell: Yeah.
+Lina Ceniccola: Yes. Yeah. I think even for this, I would argue moving up the operator and um like I think the first thing they see it should be the name then the
+
+
+00:25:19
+
+Emily Vandenberg: Yeah.
+Lina Ceniccola: book almost
+Emily Vandenberg: Yeah. Kobe, did you look at the feedback tracker as well in parallel to the like the working sessions we
+Lina Ceniccola: like
+Kobi Kunasekaran: I did. Yeah.
+Emily Vandenberg: did?
+Kobi Kunasekaran: But I treated this as like the latest feedback though.
+Joyce Kiddell: Yeah, I I didn't update that part because we were like,
+Kobi Kunasekaran: So,
+Joyce Kiddell: oh, we want to keep e transfer email and we want to keep
+Emily Vandenberg: Oh,
+Joyce Kiddell: phone,
+Kobi Kunasekaran: okay.
+Emily Vandenberg: because I kind of had it within Yeah, I had it within that. Um,
+Joyce Kiddell: right?
+Emily Vandenberg: but it's it's like I'll just reping you, but we had outlined it.
+Joyce Kiddell: Do you want to keep all of the player information up there too? Um, my only kind of push back would be like if we're adding everything from the sign up information,
+Emily Vandenberg: Oh,
+Joyce Kiddell: which I think is actually more important than like phone number and email, like can we move that stuff below then under like player info?
+Kobi Kunasekaran: You
+
+
+00:26:17
+
+Lina Ceniccola: Mhm.
+Emily Vandenberg: the reason Okay, I'll just kind of go back to the reason we had prioritized it before and we wanted the copy functionality was because like
+Kobi Kunasekaran: transfer
+Emily Vandenberg: they're then they have to send the money, right?
+Joyce Kiddell: But could they not copy it like further down the page?
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Like does it have to be at the top is my
+Lina Ceniccola: I think I think visually it makes one definitely move the brand ambassador
+Joyce Kiddell: question.
+Emily Vandenberg: Yeah.
+Lina Ceniccola: away.
+Kobi Kunasekaran: Oh,
+Lina Ceniccola: Um yeah, I don't even think it's it's needed.
+Kobi Kunasekaran: where?
+Emily Vandenberg: doesn't
+Lina Ceniccola: Like you don't need to see that.
+Joyce Kiddell: I guess cuz you're in your own queue. Yeah, that makes sense.
+Lina Ceniccola: Um so yeah, remove that. You could keep I think we keep phone number below as like player info. I think like blocking together like a person's personal information makes sense. Like your eye would kind of already like it would say player phone, player email, whatever. Like you kind of know that that's that's their personal info.
+
+
+00:27:22
+
+Lina Ceniccola: But to move up to the um I don't know what to call under the name
+Joyce Kiddell: Yeah.
+Lina Ceniccola: that bar it would be Operator,
+Joyce Kiddell: partner.
+Kobi Kunasekaran: like we can just do like that combined field with both, right? The operator partner combo.
+Lina Ceniccola: partner
+Kobi Kunasekaran: Would that be more useful than just like operator by
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: itself?
+Joyce Kiddell: I think so.
+Emily Vandenberg: What we had said was
+Lina Ceniccola: like you're saying it would say because it says sample OG.
+Joyce Kiddell: It would be like direct ology or like kina
+Kobi Kunasekaran: Yeah. As a single field like I I could do two fields.
+Joyce Kiddell: Apology.
+Kobi Kunasekaran: Uh so this is called a highlight section and we can do up to 12 fields here and it just like moves around based on like it's more it's responsive to the browser size, right? So it'll just move around based on uh browser size. Um, so but if it's display purposes, I think I could just combine them together. It might be more uh
+
+
+00:28:28
+
+Lina Ceniccola: But for the display of a rep,
+Kobi Kunasekaran: easier.
+Lina Ceniccola: they actually don't need to know what partner as long
+Kobi Kunasekaran: Oh, I see.
+Lina Ceniccola: as it's available.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: Like for example, if I were to download the data for this player and when I download it,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: I can see the partner that's the important part or like the operations view, they see everything, but from the brand ambassador perspective, they don't need to see the partner. So it could just say OOLG or DraftKings or whatever. But so if it was operator and then the emoji status get
+Joyce Kiddell: They're not going to be care but like won't a rep car like because you would normally be like oh like bet MGM
+Lina Ceniccola: the
+Joyce Kiddell: CT or whatever and the CT represents the partner. So if we don't have the CT in here are they going to not know if
+Lina Ceniccola: only because they have to log it.
+Joyce Kiddell: Okay, that's the only
+Lina Ceniccola: So because on their agency site they just see DraftKings but we have to tell them verbally which deal
+
+
+00:29:38
+
+Emily Vandenberg: Yeah.
+Lina Ceniccola: you're on so that they can log on their sheet what partner we're logging. So it's essentially like because we're we're giving them we have all this
+Kobi Kunasekaran: Uh,
+Lina Ceniccola: information linked to the rep when we download it to like um report
+Joyce Kiddell: Thank We'll know and that's all that matters.
+Lina Ceniccola: We'll know.
+Joyce Kiddell: Okay.
+Lina Ceniccola: As long as we know and we don't lose that info, the rep doesn't need to know. And I actually think it's better off the rep doesn't know.
+Joyce Kiddell: Yeah, that's
+Lina Ceniccola: Like just from a privacy perspective,
+Joyce Kiddell: cleaner.
+Lina Ceniccola: like they they don't need to know who we have the deals with and
+Emily Vandenberg: And
+Kobi Kunasekaran: We'll
+Joyce Kiddell: So,
+Lina Ceniccola: whatnot.
+Joyce Kiddell: ignore what I said about having the partner on the left, too. It'll just be operator
+Kobi Kunasekaran: just be operator. Okay.
+Joyce Kiddell: operator.
+Kobi Kunasekaran: So assume like sample OG is just OLG.
+Emily Vandenberg: heat.
+Kobi Kunasekaran: Like sample is just because of we imported the sample set.
+
+
+00:30:29
+
+Kobi Kunasekaran: Uh but it'll just say OG. So here we'll start off with operator. We'll remove the brand ambassador and then sorry Lena you want to keep going with the rest of the fields.
+Lina Ceniccola: Yeah. So, operator
+Emily Vandenberg: had said in our last round of feedback is that we would bring vertical and market up and up top too.
+Lina Ceniccola: Yeah, I think the what book they're signing up for where casino sports. We could probably turn that into an emoji, too. Like little casino. I don't know if you have that, but in your emoji list. Um,
+Emily Vandenberg: Yeah, update logos.
+Lina Ceniccola: but Because you could
+Emily Vandenberg: That'd be sweet. Make emojis with
+Joyce Kiddell: Yeah.
+Emily Vandenberg: logos.
+Lina Ceniccola: do the little casino or the sports. It could be like
+Kobi Kunasekaran: We could I I think we could do uh fields that show logos like we could do image fields. We we'll we'll need like image set and set up like mapping. But I believe we can do that if if that would be helpful instead of just
+
+
+00:31:37
+
+Lina Ceniccola: Yeah, I think it'd be Yeah.
+Joyce Kiddell: operators for
+Kobi Kunasekaran: smojis.
+Joyce Kiddell: sure.
+Lina Ceniccola: And we could That's easy to gather,
+Emily Vandenberg: Yeah.
+Lina Ceniccola: too. So like the images
+Joyce Kiddell: And then would you want e transfer email and status still up there?
+Lina Ceniccola: um
+Joyce Kiddell: I would say status for sure. I'm not sure about email.
+Lina Ceniccola: status.
+Emily Vandenberg: Heat.
+Lina Ceniccola: Yes. And then all of that personal contact info into like a little contact box. I think that would be better.
+Emily Vandenberg: Lena, when you her over Chloe, if you hover over Chloe,
+Joyce Kiddell: So,
+Emily Vandenberg: uh, Kobe, like in the Yeah.
+Kobi Kunasekaran: Oh s***.
+Emily Vandenberg: So like it pops up, but you want it like within like without having to hover. Could we like put it in line with the with the name?
+Lina Ceniccola: Yeah.
+Emily Vandenberg: Like is that possible? No.
+Joyce Kiddell: What if we just like because signup information a lot of that's going to be kind of moving up now, right?
+
+
+00:32:31
+
+Joyce Kiddell: So like we could just replace that as like player information.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Um and then move signup completion percentage up. Um and then that's the only thing that we would have to kind of like still migrate over. Does that make sense?
+Lina Ceniccola: So you'd have the sign up completion percentage and then the status color the top and then
+Joyce Kiddell: Mhm.
+Lina Ceniccola: your operator, your market, and your vertical. Yeah. And then below player
+Joyce Kiddell: Yep.
+Lina Ceniccola: info.
+Joyce Kiddell: Yeah. Like phone, e transfer, email. Um, it could actually be helpful to understand like their origin, state, and province, like what they signed up for. So you can quickly see like does it conflict with like their sign up. Does that make sense? Their market or always be the same
+Lina Ceniccola: Yeah.
+Joyce Kiddell: data,
+Lina Ceniccola: Um I mean some people could go to the states and sign up for a book and like go
+Joyce Kiddell: right?
+Lina Ceniccola: back.
+Joyce Kiddell: But if they do it enough times, I'm like, "Oh, maybe that's a fraud indicator."
+
+
+00:33:50
+
+Lina Ceniccola: Yeah, we haven't seen that yet,
+Joyce Kiddell: like
+Lina Ceniccola: but I mean anything can happen. So prepare for anything.
+Joyce Kiddell: I will
+Lina Ceniccola: Um,
+Joyce Kiddell: eat.
+Emily Vandenberg: The
+Waleed Alasadi: Hi everybody.
+Lina Ceniccola: and then I think I'd like the proof info to be before
+Emily Vandenberg: other
+Lina Ceniccola: the referral info.
+Kobi Kunasekaran: like in this. Okay.
+Lina Ceniccola: Yeah,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: like flip them.
+Joyce Kiddell: Huh?
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Um, so you have sign up, then you have your proof, and then your referral.
+Joyce Kiddell: Kobe,
+Lina Ceniccola: Um,
+Joyce Kiddell: what about um grouping the signups with players? We talked about that last time and we understood that it would be like more of a custom requirement, but didn't know if you were able to look into that like on
+Kobi Kunasekaran: um on for the bar.
+Joyce Kiddell: Yeah. Yeah.
+Kobi Kunasekaran: Uh yeah, I had a quick combo with Guster about it and it's going to be a
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: very big build as of now. So I would recommend against it for now and we can come back and uh we can try to build out a PLC to see what that looks like.
+
+
+00:35:07
+
+Joyce Kiddell: Can you still sort by player name though?
+Kobi Kunasekaran: Right now the um I believe I have this default sorted by potentially the created date. So when you see the I think it's in the new that you'll start to see uh it was created like five minutes ago or 10 minutes ago instead of the dates. So I had it sorted by that but uh we could have it sorted by the player
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: name.
+Joyce Kiddell: Just to give them the option to sort by player name. Like I think having it still default um by like most recent makes sense,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: but yeah.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: And then in that like queue if they so if they search it'll like change that queue.
+Kobi Kunasekaran: Uh, no, I don't think there's a way to do a search within the queue here. It's like it's the the list is already filtered based on the status and everything. Um, so from the console, I don't believe you in search. Uh even here you won't be able to like they could go into the filter but this is like a lot of clicks to narrow
+
+
+00:36:13
+
+Emily Vandenberg: Now, would that be hard? cuz I there that queue could get big.
+Kobi Kunasekaran: down.
+Joyce Kiddell: long.
+Emily Vandenberg: Um so like thinking just of usability is
+Joyce Kiddell: Yeah.
+Lina Ceniccola: There could be 500 signups in that
+Emily Vandenberg: that
+Lina Ceniccola: queue.
+Emily Vandenberg: and because you have to remember too the Q is like anything from a click perspective, right? gonna be dead clicks in there.
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: And
+Kobi Kunasekaran: So the alternative alternate way to work on it when you're dealing with large number of records,
+Emily Vandenberg: so
+Kobi Kunasekaran: I would I don't know if like obviously this is always going to be there. Um but if you need to process a large number of records, I would actually set up a report um where they can go through I don't know if we have anything created. Um
+Joyce Kiddell: from the report. Can they actually do
+Kobi Kunasekaran: they can yeah they can uh they can do inline field edits.
+Joyce Kiddell: anything?
+Kobi Kunasekaran: Um don't think you can do any actions. Um
+
+
+00:37:15
+
+Joyce Kiddell: Like if I wanted to treat it the same way that I would a Q and then like convert something into a
+Kobi Kunasekaran: this
+Joyce Kiddell: signup, can I do that using a report?
+Kobi Kunasekaran: so let me show you what we are able to do. Wait.
+Emily Vandenberg: I don't know if we will get them like multi kind of like you know what I mean switching for the
+Lina Ceniccola: No,
+Emily Vandenberg: queue.
+Lina Ceniccola: they won't do that.
+Joyce Kiddell: Yeah,
+Emily Vandenberg: Well,
+Joyce Kiddell: we'll have one like we'll only be able to get them to check one view.
+Emily Vandenberg: we have
+Joyce Kiddell: Kobe, I appreciate you, but it's not like they won't they won't adopt us.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: like we we'd have to kind of make do with the current Yeah.
+Kobi Kunasekaran: So in a list view you can you can you can search for people um you can enable inline editing so they can actually edit certain fields directly in here. So when you're dealing with like bulk records, the console might be uh might not be the best way to go about it anyways, right?
+
+
+00:38:15
+
+Kobi Kunasekaran: Like you you in the console you do have to go through one by one uh process it and that's fine I think for day-to-day u but if they want to like do like look at specific users uh or groups of users uh having a report that's already built that they can click into might be a good way to for them to like screen through what what they have available. I was going to build a dashboard actually with um with the signups so that that's one place. It's like a dashboard of all of uh everything that's like kind of in in the reps queue without have them having to click through each one. So why don't I do that? I'll I'll show you um I'll create a video to show you so we don't have to wait until next week. Um and that might kind of bridge the gap between the two.
+Joyce Kiddell: Can you search in a Wait.
+Kobi Kunasekaran: in a report you can search. Yeah, I can search for like Jordan. I mean, you can always do like control F as well, but um it'll let you
+
+
+00:39:13
+
+Joyce Kiddell: And and are all are all dashboards just like a table view like this
+Kobi Kunasekaran: search. We can do like so this is just a report and a dashboard is made up of reports and visualizations. So, we could have graphs, we could have uh charts and stuff alongside the tables if needed. It doesn't have buttons or anything though, but um like but they can use it to click in and go into the record itself to do the actions. So like if they're looking for like a specific person um and like the interface is different here, but pretend like we'll when I click on that person or when I click on like the sign up for that person, I'll go into the into this typical thing that they see in the console view where they have access to the buttons. Wonder. Yeah, there's no hover, so like they still have to do the click to go there. But this is a good way to like action things uh while being able to see like all 500 in one place.
+
+
+00:40:16
+
+Joyce Kiddell: So they can't edit those cells on the table.
+Waleed Alasadi: So
+Joyce Kiddell: Sorry.
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: um yeah,
+Joyce Kiddell: Believe
+Waleed Alasadi: sorry. The idea is that they they you want them to like search by name for a specific um signup and are you like let's let's take like Ava for example like this skew that we're looking at um it's not a filter skew. It just seems like a Sorry, I'm not sure what the purpose is here, but like if they want to look for Ava, is it okay for them to just go and like type in Ava in the search box up top?
+Joyce Kiddell: Is is that going to filter for like what's on the F
+Emily Vandenberg: He said, "Yeah, I thought it was a no.
+Joyce Kiddell: there.
+Waleed Alasadi: No. So like it it will not know
+Kobi Kunasekaran: Yeah, like if you search for AA like it takes you to the player record, right? Not necessarily the sign up for AA um which is like
+Joyce Kiddell: So, basically the flow would be like I'm a rep.
+
+
+00:41:18
+
+Kobi Kunasekaran: restriction.
+Joyce Kiddell: I have a bunch of clicks coming through my portal. Um, but a bunch of them, they're not actually completing the signup flow on the affiliate side yet, right? But then Ava sends me um some proof and she's like, "Oh, I did the sign up." So, like now I'm like, "Okay, I'm ready to actually like log the sign up." But then I have to go onto the queue on the left and like scroll and scroll and scroll. And Eva's not a great example because that'll be at the very top probably, but um, you know what I mean? And that like the queue on the left could be like 500 plus kind of records.
+Waleed Alasadi: Yeah.
+Joyce Kiddell: So, it's like being able to narrow down where that lives is what we're trying to get at.
+Waleed Alasadi: Heat.
+Kobi Kunasekaran: Okay, then maybe like based on what you said. So, oh, we have the skew and then uh somebody specifically reaches out and they want they they're sending the proof maybe like what police suggested could still work.
+
+
+00:42:09
+
+Kobi Kunasekaran: So, I I'll use Ryan as an example. So, I'll open Ryan uh Kowalsski here from the queue. Uh I'll open the person record. Um again, this is like the base layout, so we can change this to make it a bit easier. But within the person record, I do have the signups and I can go into the signup and then log it there. So, you don't necessarily have to navigate the queue here. um you search for the person uh click on the signup record that they have. If it's only one, there's only going to be one. If there's multiple, you know, we can clean up the list view so they see the relevant
+Lina Ceniccola: I a mockup just based on what we've talked
+Kobi Kunasekaran: information.
+Waleed Alasadi: Yeah,
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: we let's let's take that back because I think we can also do more with the search. So like when they type in Ava,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: they see like the signups,
+Lina Ceniccola: Huh?
+Waleed Alasadi: not just the players's name and like this like the status of the signup as well.
+
+
+00:42:57
+
+Kobi Kunasekaran: Yeah. Like here, right? We can just hover over and like kind of navigate to it directly without having a given
+Joyce Kiddell: either
+Waleed Alasadi: Um but just to confirm the preference is just for them to search the list on the left hand
+Kobi Kunasekaran: click.
+Waleed Alasadi: side.
+Lina Ceniccola: I don't
+Joyce Kiddell: on the left hand side or like whatever you think is the easiest flow.
+Waleed Alasadi: Okay.
+Joyce Kiddell: Like if if we go the route of like starting with like what he just did by going to like the actual player record, then like being like we have to be very clear to the rep on how we get from like the player to his signups and kind of remove any noise that doesn't need to be on the player record. You know what I mean? Like I I feel like there's two kind of entry points. Um and we just need to understand like what is best for our workflow.
+Waleed Alasadi: Okay. Um Okay.
+Joyce Kiddell: So you guys will work through some
+Kobi Kunasekaran: Yeah.
+
+
+00:43:55
+
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: options.
+Lina Ceniccola: Do you mind if I share my screen?
+Joyce Kiddell: Mhm.
+Lina Ceniccola: I just Unless I can send a photo.
+Kobi Kunasekaran: I think sharing the screen is probably
+Lina Ceniccola: It just won't let Yeah.
+Kobi Kunasekaran: easier.
+Lina Ceniccola: Give me one second here.
+Joyce Kiddell: Sorry, I'm laughing at Chess's comment.
+Lina Ceniccola: Oh god. What now?
+Joyce Kiddell: He called me cruel and punitive.
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: Oh, never mind. Okay, Jester actually already updated the list view so we can reset it up so that we can search.
+Waleed Alasadi: search. Yeah.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: I I didn't know you were doing it just there. I was like, well, it's turned on. What do you mean you can't do it then? Okay. So, that's what's happening.
+Marc Cabantog: Yeah,
+Joyce Kiddell: So you can't
+Marc Cabantog: but K I we need to update the other fields like we need to make the
+Kobi Kunasekaran: Hey.
+Marc Cabantog: other field switchable. So there's the search box there,
+
+
+00:45:04
+
+Kobi Kunasekaran: Got
+Marc Cabantog: but we just need to map which fields are searchable.
+Kobi Kunasekaran: it.
+Marc Cabantog: So, it's not fully working, but there's the search
+Lina Ceniccola: You can see my screen.
+Waleed Alasadi: Yes.
+Lina Ceniccola: So I think it should look like
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: this.
+Joyce Kiddell: Yeah, I think we even had colorcoded statuses on the left. Um, in the other prototype we sent through in progress. Completed and the proofs. Okay, cool. Yeah.
+Lina Ceniccola: Can we do this or you know close to this?
+Kobi Kunasekaran: Yeah. Do we do we want the path like we like Joyce, you wanted us to remove the path like the see the new in progress completed. Uh do we want to add that one back in?
+Joyce Kiddell: I think if we have a more simplified version like this, like we just had like a bunch of statuses like flagged and like to me that's not a very like it's not part of the linear path. Um, but if we're just doing new in progress completed,
+Kobi Kunasekaran: Mhm.
+
+
+00:46:12
+
+Joyce Kiddell: I I think we can introduce it again.
+Lina Ceniccola: I agree with Joyce in that I think if it's flagged because there was like the the other decision makers within status.
+Kobi Kunasekaran: Yes.
+Lina Ceniccola: So like if it's flagged, it just like whoop, go somewhere else. But if it's a sign up that's like an active sign up,
+Kobi Kunasekaran: So,
+Lina Ceniccola: technically these are the three
+Kobi Kunasekaran: so those are the three steps,
+Lina Ceniccola: steps
+Kobi Kunasekaran: but flagged is also a status though, right? like you can't have a record or a signup that's in progress and uh be flagged at the same time or or do you want that to be the case?
+Lina Ceniccola: I
+Kobi Kunasekaran: Right now we have it as like a separate step. So if it goes through flag like we it you could assume that it's also in progress
+Joyce Kiddell: Yeah.
+Lina Ceniccola: mean,
+Kobi Kunasekaran: until the flag status is confirmed. But um it is just like one of those steps like those uh the five that you posted, right? like the new infog completed archive flag.
+
+
+00:47:16
+
+Kobi Kunasekaran: So those would be the the steps that you would see in the path because those are like the statuses or stages of the sign
+Joyce Kiddell: To me,
+Kobi Kunasekaran: up.
+Joyce Kiddell: flagged is almost the equivalent of completed more so than in progress because it's like if you flag something you're like as a rep I'm like I'm done. Like there's nothing else I can really do. Um and then you know what I mean?
+Kobi Kunasekaran: I
+Joyce Kiddell: Um,
+Kobi Kunasekaran: see
+Joyce Kiddell: so is there a way even though like I think it's still good to have it as a separate status, can we just hide it from like the the chevron or progress bar, whatever it's
+Kobi Kunasekaran: we can but if we do that like it won't show anything here right uh if something is
+Joyce Kiddell: called.
+Kobi Kunasekaran: flagged it won't it won't be like both in progress and flagged at the same
+Waleed Alasadi: It's almost like you got to do it. You'll have one status is completed and then you have to have another field called completion status and then the options would be either like accepted or fraud.
+
+
+00:48:10
+
+Waleed Alasadi: So it would be a two-layer um
+Kobi Kunasekaran: Yeah, I
+Waleed Alasadi: communication
+Kobi Kunasekaran: think
+Joyce Kiddell: We could introduce fraud status because there's going to be like sorry but
+Waleed Alasadi: and that's but that's what we have today,
+Joyce Kiddell: steps
+Waleed Alasadi: right? Because the status the fraud fraud is like the it's one of the status the pick lists like a sign up. Um, yeah, like that's that's it could be either completed or can be a status fraud.
+Kobi Kunasekaran: We have like another one like a drop down for fraud review status that's separate. So the idea was that the the rep would flag it for uh for fraud um pick a reason um and then this goes to officer review and offs would work off of the fraud review status and um set it to like confirmed or dismissed. If it's confirmed, then we turn this like fraud flag on. The whole record becomes flagged. Um, reps can't do anything on this record. So, actually, I'll I'll show you what that looks like. So, I'm just going to pick like any reason.
+
+
+00:49:21
+
+Kobi Kunasekaran: Done. And then let's refresh. So, now this is flagged as fraud, but it's still under review. So, it hasn't like been completed yet. So, this is going to like the status is sus suspected. So then like Lea, let's say like this goes to you and you confirm that it is actually fraud. Um and you update the respective status. Now this is flagged as fraud. Um they have these two buttons but we can hide the buttons as well.
+Joyce Kiddell: So if right that's
+Kobi Kunasekaran: So they can't do anything to this record afterwards.
+Lina Ceniccola: I think problem here though is that you will have a
+Joyce Kiddell: Yeah.
+Waleed Alasadi: What's
+Lina Ceniccola: case where the fraud is with our new system. the fraud will be in progress, but then the fraud is actually already completed.
+Waleed Alasadi: up?
+Lina Ceniccola: So sometimes it's an after the-act thing that like the signup went new, in progress, completed, and then it's flagged, you know, what it could be a week later. Oh yeah,
+
+
+00:50:19
+
+Kobi Kunasekaran: Right.
+Lina Ceniccola: that was actually fraud. Like we don't really know in the new state like what um different fraud flags might look like,
+Kobi Kunasekaran: So, and
+Joyce Kiddell: So what if we just have the trigger for like um flag like if they click flag
+Lina Ceniccola: but
+Joyce Kiddell: for fraud that automatically changes the fraud review status to suspected um but then doesn't do anything to like the core
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: status which is the or completed
+Kobi Kunasekaran: So the core status still remains in progress.
+Joyce Kiddell: said, "Yeah, often times
+Waleed Alasadi: I I like that because I think Joyce like looking at this right now like even if like there's nothing else to do. This the signup is going to always forever stay in a flagged status and flagged is like well what happened with the flag. Um so can maybe what your earlier idea is like just in progress completed and then
+Lina Ceniccola: Mhm.
+Waleed Alasadi: um like track the fraud separately and then Lena this way it addresses what you mentioned about the new system. So if it comes in after the fact it just kind of is triggered after the fact and then you can make decisions.
+
+
+00:51:28
+
+Waleed Alasadi: Um if fraud is identified when status is completed then do one thing versus if it's in progress do something
+Lina Ceniccola: It's like not we won't take it's not like the fraud would we would want to remove it from the system
+Joyce Kiddell: Yeah.
+Lina Ceniccola: like when we download the data and the signup was complete that is still a real signup that happened like that's an event that we have to trigger on our P&L still so we don't want to like we want to treat it as real,
+Joyce Kiddell: Okay.
+Lina Ceniccola: but it's fake. Does that make sense?
+Waleed Alasadi: Yeah. I mean, the money came out of your bank account,
+Lina Ceniccola: Yeah. So,
+Waleed Alasadi: right?
+Lina Ceniccola: it's like tech from the rep's perspective, it's real, but from our perspective, it's fake.
+Waleed Alasadi: Just look it right up. Makes
+Lina Ceniccola: Yeah. So, then that would count as a write-off. But with the new system that we're building to detect like welcome emails and
+Waleed Alasadi: sense.
+Lina Ceniccola: and fraud detection, whatnot, we'll we'll have a queue someone dedicated to like reviewing incoming fraud to catch it in the in progress step, which we haven't had before.
+
+
+00:52:35
+
+Lina Ceniccola: All fraud is basically post um money sent, logged, whatnot, end of month. Oh, those were fake. So there'll be a bit of like a new world here.
+Emily Vandenberg: And in the world where it's like it would still like give a signal within that new queue just so the rep knew and then it would push it out kind of thing like
+Lina Ceniccola: Yeah. Like the rep the rep should see what's under prod.
+Emily Vandenberg: Okay.
+Lina Ceniccola: they can't action it until ops is like puts the status back to in progress in their queue. Um or then it moves no it's um either like a write off or yeah it's like permanent fraud. Does that make sense?
+Kobi Kunasekaran: Yeah. So like regurgitated it back. Basically, the main the main status for a signup is new, in progress, and completed.
+Lina Ceniccola: I
+Kobi Kunasekaran: So, that's those are going to be the states. So, when you pull a report, you're going to get a report of like everything that's completed.
+Lina Ceniccola: hear.
+Kobi Kunasekaran: Um, but within the completed, we'll have a sub status uh for or like a some way to identify anything that's flagged as fraud.
+
+
+00:53:53
+
+Kobi Kunasekaran: So, let's say even like just like simple checkbox if it's um it'll be another column on your report for anything that's completed but also marked as fraud.
+Lina Ceniccola: Mhm.
+Kobi Kunasekaran: Um and then that's how you excluded from your uh from the reporting from the math uh to like write it out as fraudulent signups. Uh but as far as the systems concerned the signup record is it's completed like there's no more action that a rep can do until that fraud flag is lifted which will be done by somebody in ops and when they lift the fraud flag then the signup can go back to
+Lina Ceniccola: Yeah,
+Kobi Kunasekaran: in progress and then rep can work on it.
+Lina Ceniccola: perfect.
+Kobi Kunasekaran: Okay. What about archive? Do we want to treat like archived as a separate status then or do we put that as like a sub status under completed or it wouldn't be completed I guess right? It's not a cuz that's it's almost like a close lo
+Joyce Kiddell: Yeah, we can call too. It doesn't have to be
+
+
+00:54:54
+
+Lina Ceniccola: Um,
+Joyce Kiddell: archive.
+Lina Ceniccola: so it would be it's almost like the sign up doesn't move from in progress to completed like the customer falls off the journey in the in progress part, but then it's it's on the rep.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Could there be like a sub status there where you're like cuz if they just never completed the sign up, they never got the money. That's like an archived sign up. So they just want to remove
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: it.
+Kobi Kunasekaran: Like we basically don't want to keep it in in progress, right? Otherwise, the queue for the reps is going to keep growing with all these like dead signups. So,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: we could put a reason and uh set set some sort of status or sub status to remove from the list. So, they're only working on the ones that are actually engaged.
+Lina Ceniccola: Could it be sign up like at the top where Yeah. log sign up archive and then
+Joyce Kiddell: flag, but this is already one that's flagged.
+
+
+00:56:15
+
+Lina Ceniccola: archive
+Kobi Kunasekaran: Yeah. Sorry. Like I'll
+Joyce Kiddell: So,
+Kobi Kunasekaran: do.
+Emily Vandenberg: it and then it would just push it to a different queue, right? Like it would fall out of the journey like the signup journey, but it would be stored Q like that.
+Joyce Kiddell: yeah. And we we can get you some
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: That's not um impossible,
+Joyce Kiddell: reasons.
+Emily Vandenberg: right?
+Kobi Kunasekaran: Yeah. So like right now I updated Ryan Kolski status to archive. So now the page layout like nothing's editable, right? I mean it's editable here because this is still for ops. But um as far as reps are concerned, they can still find the sign up. They can click on it, but they won't be able to do anything. Um, but you as ops,
+Joyce Kiddell: Cool.
+Kobi Kunasekaran: you can still go in and you can move the status to in progress if we decided that, you know, maybe they accidentally moved it archived. And then once it goes back to in progress, then all of the other fields are unlocked for the
+
+
+00:57:14
+
+Waleed Alasadi: So you do want a status of archived.
+Kobi Kunasekaran: app.
+Waleed Alasadi: So it'll be in progress completed and archived.
+Joyce Kiddell: Mhm.
+Waleed Alasadi: Okay. And you still want to show the path in that
+Joyce Kiddell: Well, archive wouldn't be linear,
+Waleed Alasadi: case.
+Joyce Kiddell: right? like it it's kind of like a flag for fraud in that it's like we just weren't able to finish the sign up but for non-fraud reasons
+Lina Ceniccola: and I'll I'll give you an example of
+Waleed Alasadi: Um,
+Lina Ceniccola: like I I'll talk this out and then we can decide what to do. So customer signs up for horseshoe. They are in progress. Customer goes to jail. They can't complete their sign up anymore. They get out of jail. And by the time they come back, horseshoe is done. We don't have volume there anymore. So, like we don't really want the rep to control when they put that customer that was active at one time back active again cuz like they could be ineligible now.
+
+
+00:58:25
+
+Lina Ceniccola: if it's like if it's part of the I just want to make sure that once they archive it they can't unarchchive
+Kobi Kunasekaran: Yeah, like we can restrict that. So only like ops can unarchive something. Like it it sounds like we almost need like like opportunity like a close status and then like close win or close loss. That's what we're trying to get to. But I don't know if we can do that with just like a single field. Um
+Waleed Alasadi: like I I do I don't see the archive the same as fraud specifically because fraud could
+Kobi Kunasekaran: yeah.
+Waleed Alasadi: be completed. Um, so it's not really the same and I understand like the nonlinearity um of like of archives. Um, but I do think it belongs in the status like I I think if we create like completed and then or closed then it just changes the language so much um internally because completed signup is just a completed
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: signup um or it's not it's not a completed signup and in that case it's either in progress or it's
+
+
+00:59:30
+
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: archived. So I think that like if if you think that that's going to be confusing because it's presented linearly in the
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: path then maybe we just don't show the path and just keep the status like field as is. Um the process is straightforward that like your reps know that it's new and progress and complete like that's it.
+Lina Ceniccola: Yeah. So, would it just be like a a button to click archived and then it goes away? Yeah. Yeah,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: I like that.
+Joyce Kiddell: That makes
+Lina Ceniccola: And then um maybe when they click archive,
+Joyce Kiddell: sense.
+Lina Ceniccola: could a box come up for just reason. Perfect. Yeah,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: I think that's good.
+Emily Vandenberg: So, we're clear on that
+Kobi Kunasekaran: Yeah. So remove flagged from the status will keep archived.
+Emily Vandenberg: then.
+Kobi Kunasekaran: Um this was I think this is where uh Emily like in the open question we wanted to split the like in the PRD we've com uh the fraud and invalid reasons are both together and based on this new process we're kind of splitting them up right.
+
+
+01:00:46
+
+Kobi Kunasekaran: So archived is going to be things like a player unavailable, missed deadline, all of those things. And then fraud is specific reasons. So um if you could get us like what those reasons are, we'll split the fields up. So when they do flag, it's going to be just specifically the fraud reasons that the players would do. And then for archive, we'll have a list of the reasons. Um and then we can have notes for both so that they can enter in like any additional information.
+Lina Ceniccola: Can we change that um the name from flag to fraud?
+Kobi Kunasekaran: Yeah. Yeah.
+Joyce Kiddell: Um, and I see that you guys added the search within the queue. So that's fully possible to
+Lina Ceniccola: Oh,
+Kobi Kunasekaran: Yes. Yes. That's throwable added. It's not like fully functional yet,
+Joyce Kiddell: go.
+Lina Ceniccola: that's very Who's doing that right
+Kobi Kunasekaran: but yes.
+Lina Ceniccola: now?
+Marc Cabantog: Um, only Jake is searchable for now because it's we there's a field
+Lina Ceniccola: Who's
+
+
+01:01:44
+
+Marc Cabantog: called Oh,
+Joyce Kiddell: Okay.
+Marc Cabantog: yeah.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: There we go.
+Marc Cabantog: So, only Jake has the field.
+Joyce Kiddell: You can do it.
+Kobi Kunasekaran: Yeah.
+Marc Cabantog: So,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: You'll be able to make it happen is the point though.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay. Awesome.
+Emily Vandenberg: But yes,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Z.
+Emily Vandenberg: we will get you those um reason codes for flag fraud and um archived.
+Joyce Kiddell: Okay. I got a halt. But um was there anything else that you wanted to demo?
+Kobi Kunasekaran: Um one more thing, one more big one and uh it's going to be very quick. Um we did find a way to do the uh deal assignment is in mass as well.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: So remember the previous process for creating dealup assignment is you have to create a one by one. Um what we were able to do is introduce a screen flow where we we have a list of all the reps. So you can choose whatever reps um and then set their assignment status and this will create the records and um if we set the effective start date um it'll it'll set that behind the scenes.
+
+
+01:02:43
+
+Kobi Kunasekaran: Um and then so we will have the deal rep assignments created based off of that. And then if we go back and go to manage like we can see which ones are already active as part of the deal. uh what their effective two is and if we want to like deactivate them or stop them from being
+Joyce Kiddell: Cool.
+Kobi Kunasekaran: assigned um we can update the status and this will go and update it in bulk.
+Emily Vandenberg: I like
+Kobi Kunasekaran: Haven't cleaned up this layout yet um that's still on my to-do list but um I want to just show this quickly because
+Emily Vandenberg: that.
+Kobi Kunasekaran: this is I think this was one of the biggest issues with the new rep assignment process that we had previously.
+Joyce Kiddell: So, can you just ping us when you have a chance to clean up this screen? Um, and then I think we can kind of review the deal flow like all in one, you know, like this screen plus the assignment process.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: And then I guess um the like player I don't
+
+
+01:03:36
+
+Joyce Kiddell: Um,
+Emily Vandenberg: know I know we didn't look at everything else but are you just going to kind of apply similar logic Kobe with like cleaning up the UIUX across all the other screens as well or do you need us to go in and kind of provide specific feedback? back
+Kobi Kunasekaran: Uh I I like what you did in the in the feedback document where uh where you had you
+Emily Vandenberg: anymore.
+Kobi Kunasekaran: know called out like we didn't need the first uh first bet amount and things like that. If you could do that that would be great because all those fields and everything that you see here we got from like the PRD and erd and it sounds like we are kind of straying away from both uh through our conversation. So if there are things that are here that are not required or no longer relevant from what was in the PRD um calling those out specifically will be helpful and then we can just quickly go through and remove them.
+Joyce Kiddell: to be clear. I think there there's definitely fields that we still want.
+
+
+01:04:29
+
+Joyce Kiddell: We just don't want it to be visible,
+Emily Vandenberg: Okay.
+Joyce Kiddell: right? So, like if there's a way to hide them when it comes to like the the end users view, but then I like what you did on the sign screen. I think it was where you had like more more details or more info or whatever. And that's where you can go like deeper. I think that's the approach that we take for most of the
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: screens.
+Kobi Kunasekaran: I think that's fine too. But even in that case, like I still need to know what to show for the rep,
+Joyce Kiddell: Yeah. Yeah.
+Kobi Kunasekaran: right?
+Joyce Kiddell: We'll still do that part.
+Kobi Kunasekaran: Yes.
+Joyce Kiddell: It's just um I don't like I want to like I don't want to delete stuff if
+Kobi Kunasekaran: Yeah. Yeah. Yeah. Like that makes sense. That's like we can move a lot of this into like a more info and then uh maybe like maybe that's that's the approach we take
+
+
+01:05:02
+
+Joyce Kiddell: possible.
+Kobi Kunasekaran: like if there is a simplified set of fields that you want to show for the rep um if you can like flag those um and then we'll split them up into like tabs and then we'll have all of the additional information and the more info for the off
+Joyce Kiddell: Okay. And if there's fields that show up kind of in multiple spots on the screen,
+Kobi Kunasekaran: team.
+Joyce Kiddell: like that's when I think we can just like remove it from the view. You know what I mean? But like if there's one time instances and that's fine.
+Kobi Kunasekaran: Yeah. Okay. Okay. So, we said we're going to move away from we're not going to do the operator deal combo anymore. We're just going to keep it to operator. Um, and that's what's going to show up everywhere.
+Emily Vandenberg: Uh, is that on the front end for the reps?
+Kobi Kunasekaran: Um,
+Emily Vandenberg: But we still want the com like on from an ops view. You would still need to see the it broken
+
+
+01:05:57
+
+Kobi Kunasekaran: no, no, sorry. Like it we said uh we're going to keep it separate even in here.
+Emily Vandenberg: out.
+Kobi Kunasekaran: So, in the list view in in your mockup, you had like OOLG, Cina, right? But, um, Lena said that we're just we they like reps only need to see the operator. They don't need to see the partner. So, we're going to just show the operator in all of these
+Joyce Kiddell: for
+Lina Ceniccola: But when like an ops team member logs in,
+Kobi Kunasekaran: places.
+Joyce Kiddell: that.
+Lina Ceniccola: they could see operator
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: Like they they can see it in the field list.
+Joyce Kiddell: All right.
+Lina Ceniccola: partner
+Kobi Kunasekaran: Do you want to be able to see it in the Q list as well?
+Emily Vandenberg: it doesn't have to be in the Q list. It just has to be for like ops because if they're like deep diving or like going in,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: they're going to be searching and then they're going to need to kind of see everything.
+
+
+01:06:43
+
+Kobi Kunasekaran: Yeah. Yeah. That absolutely we can do. Yes. Yes. We can bring any any of those fields like vertical is brought in from the deal operator brought in from the deal. I can add in like the partner underneath as well. So you can you can see it from within the signup for ops.
+Lina Ceniccola: go back to that deal sheet for a second.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: And then when you create the deal,
+Kobi Kunasekaran: Uh go to deals and create new deal. This is still I think all the all the fields. Yeah.
+Lina Ceniccola: okay. And then there's like a little popup window. A bulk deal.
+Kobi Kunasekaran: Are you talking about the deal rep assignments?
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: this one.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: So this is how sign the deal
+Lina Ceniccola: And so just because like to mirror what
+Kobi Kunasekaran: interrupts.
+Lina Ceniccola: we're trying to do with the other flow, we also make sure we add in the same sort of status columns or emojis and whatnot.
+
+
+01:07:45
+
+Lina Ceniccola: Like assignment status would follow, you know, like active with green and stuff like
+Kobi Kunasekaran: Oh,
+Emily Vandenberg: Could
+Kobi Kunasekaran: right. All right.
+Lina Ceniccola: that.
+Kobi Kunasekaran: Uh yeah, yeah, we can do that.
+Lina Ceniccola: Pause with the little that little pause emoji. things like
+Emily Vandenberg: you speak?
+Lina Ceniccola: that.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Could this be information that's like updated if it was sent to you from the
+Waleed Alasadi: Okay.
+Emily Vandenberg: CMS? Could we make a to a connection and like cuz the API is going to send you the sign up
+Kobi Kunasekaran: In theory, yes. So we'll have to work out what what that integration is going to look like.
+Emily Vandenberg: information.
+Kobi Kunasekaran: What's that API call going to be? What information is it going to have? How are we going to process it and like relate it to the uh the records that we have in Salesforce and then create the record uh create the deal rep assignments. But in theory, yes, we we can do it. We just have to cope it up.
+
+
+01:08:44
+
+Emily Vandenberg: Am I um thinking too far ahead here, Joyce?
+Joyce Kiddell: No,
+Emily Vandenberg: because I think that that's like what we would need that is a conversation we would want to have, right?
+Joyce Kiddell: in terms of automating the assignment on the CMS side,
+Emily Vandenberg: Well, if a CMS like either way I guess like are we going to send the information from the CMS into Salesforce? We're going to do it from Salesforce into the CMS that we're
+Joyce Kiddell: Salesforce into the CMS I would say to start that's where everything will
+Emily Vandenberg: okay.
+Joyce Kiddell: get changed or managed
+Lina Ceniccola: I agree with
+Emily Vandenberg: Salesforce to CMS.
+Lina Ceniccola: that.
+Emily Vandenberg: So CMS will only receive the information and do the action.
+Joyce Kiddell: Okay.
+Emily Vandenberg: No. And then like nobody can actually turn on and off from the CMS is the claim that we'll make, right? Cuz it's just going to run into the same problem we have with Air
+Joyce Kiddell: Yeah. Like I think 2A would be ideal.
+Emily Vandenberg: Table.
+Joyce Kiddell: I just need to understand like is it a lot more effort that way like what data is available through the CMS to kind of manage like I don't know I just feel like there's a lot of discussion we need to have around this I I don't have a confident
+
+
+01:10:05
+
+Emily Vandenberg: Okay. Well, let's just nail that down. Yeah, maybe maybe it's with
+Joyce Kiddell: Sir,
+Kobi Kunasekaran: Yeah, for us to like be able to send this information to your CMS,
+Emily Vandenberg: Owen.
+Kobi Kunasekaran: we would essentially need like an API endpoint with like what are the fields that you need and then we can we can set up the payloads and try uh we can try build a PLC to test it out.
+Joyce Kiddell: yeah, I think in our last convo, Kobe, we discussed briefly the idea of um you like adding to the API documentation around like which fields you would want for deals or something. Do you remember
+Kobi Kunasekaran: Um, no,
+Joyce Kiddell: this
+Kobi Kunasekaran: I think for the for the deals to be able to from the study click links determine what the deal is. I think those are the fields. I believe those were already in the document that I shared.
+Joyce Kiddell: link click? Yeah.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: I meant more for like um like what Emily is describing like being able to update on our end like what are the fields that you're going to be passing us and how like you know what I mean like we need a bit of I think documentation from you in order to ensure we can map it to the related fields on our end.
+
+
+01:11:18
+
+Joyce Kiddell: Is that right?
+Kobi Kunasekaran: um for when like for the deor assignments um
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: for the deor assignments I would actually do it the other way around because like you're you're building the endpoint on your end right so you need to tell us like what fields you need on the CMS side um so as in like what are the data points that you need there and then we can work backwards to make sure that it's available in Salesforce.
+Waleed Alasadi: I think it's all the you can collect any of the fields on the direct assignment object. um at ruin API.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay. Yeah. So,
+Kobi Kunasekaran: See
+Joyce Kiddell: we'll just like take screenshots. And like in terms of like when you have an API endpoint exposing the fields that we can see,
+Kobi Kunasekaran: this
+Joyce Kiddell: like do we need to know what those fields are called? I guess in the API like we can see what it's called on the UI All
+Kobi Kunasekaran: so the on the Salesforce side there's uh it's not necessarily an API endpoint that like the
+
+
+01:12:04
+
+Joyce Kiddell: right.
+Kobi Kunasekaran: CMS is going to call out to get the Durup assignment. I I would like it would be the other way around, right? So as we're creating the Dorup assignments, we would make an API call out to your CMS. So that's why I'm saying like the CMS needs to have the API endpoint set up and like what information um do you need uh sent in with that payload to activate the you know the respective uh study links uh to the player
+Joyce Kiddell: Okay. All right.
+Kobi Kunasekaran: stages.
+Joyce Kiddell: I get it. I think we just need to understand that from straw.
+Kobi Kunasekaran: Yeah. like if you tell me what what are the fields and like what that API endp point like similar like on the Salesforce side anything you're sending in the
+Joyce Kiddell: I'm
+Kobi Kunasekaran: Salesforce we're just using like Salesforce uh REST API right so anything that's available uh not just in the UI but even like uh any fields that we create that's uh behind the scenes there's nothing special we have to do for that to be available if what you're doing is uh querying Salesforce through the rest API to get the
+
+
+01:13:09
+
+Joyce Kiddell: Got it. Okay, makes sense.
+Waleed Alasadi: Um, very quickly,
+Kobi Kunasekaran: information.
+Waleed Alasadi: have you guys downloaded the Salesforce app yet and like tried to do this through your cell phone? It's the Kobe and I did it yesterday.
+Joyce Kiddell: No.
+Waleed Alasadi: It's pretty fun. like it's the the layouts like now that they've fixed them um are looking pretty good. The action buttons are looking pretty good. So that's without like any like I was going to say that that I need special attention but that's not true.
+Joyce Kiddell: Heat.
+Kobi Kunasekaran: He
+Emily Vandenberg: Oh,
+Waleed Alasadi: Like I think Kobe was like checking on the the the layout but without building specific something for for mobile. Um it's worth looking at.
+Joyce Kiddell: Okay.
+Waleed Alasadi: Yeah.
+Lina Ceniccola: Yeah, that mobile's
+Emily Vandenberg: yeah. Would be a big game changer for them if they could do this like on the fly.
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: Yeah,
+Waleed Alasadi: Yeah. Six.
+Kobi Kunasekaran: try like if you get the app and like download it like all of these sections and this is why like again going with the platform instead of LWC is it translates very easily.
+
+
+01:14:07
+
+Kobi Kunasekaran: We're not building anything custom that we have to then also specifically make sure it works for mobile.
+Joyce Kiddell: Yeah. Yeah. I think from a layout perspective, like I wouldn't want to like f*** with like what's out of the box. It's more just like, you know, making colors like a different or making buttons different colors or like just subtle things to kind of bring your
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: eye somewhere, you know? But um yeah, we'll definitely download the app. I didn't really think to do that.
+Waleed Alasadi: Salesforce one.
+Joyce Kiddell: Sales source one.
+Waleed Alasadi: Is that Yeah. Is that what it's called still?
+Joyce Kiddell: Is that what it's called?
+Waleed Alasadi: Yeah. Yes.
+Joyce Kiddell: Okay. All right. Are we all
+Emily Vandenberg: Okay.
+Waleed Alasadi: Salesforce.
+Kobi Kunasekaran: Okay.
+Waleed Alasadi: Sorry.
+Emily Vandenberg: And then Kobe believe,
+Waleed Alasadi: Just Salesforce.
+Joyce Kiddell: good?
+Kobi Kunasekaran: Oops.
+Emily Vandenberg: do you guys have like stuff you're continuing to work on with updating the UI kind of like matching everything up?
+
+
+01:14:52
+
+Emily Vandenberg: Um, we did we will connect with the API on Friday. So I think then that will be a big step forward. Is there anything else you need from us at this time? We will get you the kind of like some of these some more feedback on some of the other screens and then those status codes I have to help as well.
+Kobi Kunasekaran: Um, no, I think we kind of went through the main ones.
+Emily Vandenberg: But
+Kobi Kunasekaran: Um, take a look at the open questions. There's like one more about like what's uh like last time we talked about whether we want to autocomplete signups. Um, and I I know that was like a decision point. Um, we're trying to we didn't know, but even if we're not autocompleting the signup for us to uh put together like a signup completion percentage, we need to know what are all the required information for that. So, I I put them in the uh in the open question. So, if you can just confirm what those are, um, that would be great.
+
+
+01:15:48
+
+Kobi Kunasekaran: And then the other one is the date field.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: So, they have date time a lot in like for a lot of fields. And I don't know if the time is actually relevant or even necessary. Like I don't anticipate reps putting in like a sign up date and time. So if we can drop the time it it'll make the interface a lot cleaner. So that's another like question that I I put up here. So if you take look through the
+Lina Ceniccola: Can we drop the time for the reps but keep it for
+Kobi Kunasekaran: UI
+Lina Ceniccola: ops?
+Kobi Kunasekaran: um yeah
+Joyce Kiddell: like for anything that a user has to input, I wouldn't put a time. But if there's like inherited fields like the the time stamp that comes with a click,
+Kobi Kunasekaran: okay
+Joyce Kiddell: for example, I would include the time
+Kobi Kunasekaran: yeah okay I can follow that process and make it so that anything that
+Lina Ceniccola: Mhm.
+Joyce Kiddell: Cool.
+Kobi Kunasekaran: users input there's no time okay that works Awesome.
+Joyce Kiddell: All right. Thanks everybody.
+Kobi Kunasekaran: All right.
+Joyce Kiddell: Okay.
+Lina Ceniccola: Thank you.
+Joyce Kiddell: Bye.
+Kobi Kunasekaran: Thanks everyone.
+Emily Vandenberg: Kobe.
+Waleed Alasadi: Hey.
+Emily Vandenberg: Bye.
+
+
+Transcription ended after 01:17:18
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

@@ -1,0 +1,194 @@
+{
+  "id": "11396",
+  "key": "WAGR-447",
+  "fields": {
+    "statuscategorychangedate": "2026-09-24T10:01:43.978-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-24T10:01:43.348-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10093",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11583",
+          "key": "WAGR-506",
+          "fields": {
+            "summary": "Deal — Final Deal Status value set (Draft, Active, Paused, Inactive, Closed, Archived)",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-10-02T09:15:32.984-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nArchive a Deal without changing its historical business identity, release the raw makeup key for a corrected/new Deal, preserve the optional successor relationship, and leave the Deal permanently non-reactivatable.\n\n## Requirements\n\n* Use **Archived** as the terminal lifecycle status.\n* Enter Archived only through a controlled Archive Deal action.\n* Show explicit confirmation.\n* Historical makeup source fields and External Deal ID remain unchanged.\n* Rewrite only the automation-managed Makeup Key.\n* If this Archive implementation has not yet been deployed, use the preferred suffix:\n  `{raw makeup key}-A-{18-character CASESAFEID}`\n\n    * If an existing deployed dependency already relies on `-R-`, retaining it is functionally safe; do not change deployed integration identity merely for cosmetic consistency.\n    \n* Stamp Archived Date through shared lifecycle tracking only on the actual transition.\n* Stamp Effective End Date using shared lifecycle logic. Any later transition to Active would clear Effective End Date, but Archived is not eligible for normal reactivation.\n* Mark any currently **Active Affiliate Links inactive** in Salesforce and queue the resulting Deal snapshot to CMS.\n* Do **not** change DRAs from Salesforce.\n* Queue the normal CMS sync and send `deal_status = Archived`.\n* Archived is terminal for standard users and excluded from Reactivate.\n* Archived business fields are read-only; system/integration/audit fields may still update.\n* Archiving does not require a successor.\n* If a new Deal replaces the old one, maintain the canonical old Deal `Superseded_By__c` relationship.\n\n## Successor activation sequencing\n\n* A successor may be created in **Draft** after the predecessor is Archived even while its latest CMS sync is Pending/Failed.\n* The successor cannot Activate until the predecessor's latest Archived + successor-link state is confirmed **Synced**.\n* Do not rely on send/batch order alone.\n\n## Acceptance criteria\n\n1. Archive sets Status = Archived, stamps Archived Date once, preserves historical makeup + External Deal ID, and releases only the Makeup Key.\n2. Currently Active Affiliate Links become inactive; already inactive Links stay inactive.\n3. Archive does not modify DRAs.\n4. CMS receives Archived and the resulting Link state.\n5. Archived cannot use normal Reactivate.\n6. A new Deal can use the released raw Makeup Key.\n7. A successor cannot Activate while predecessor Archived/successor state has a newer Pending/Failed CMS sync.\n8. Later unrelated edits do not restamp Archived Date or regenerate identity.\n\n## Out of scope\n\n* Moving Sign-Ups, DRAs or Affiliate Links to a successor.\n* Link-level Archived status. That is a separate follow-up pending WagerTech confirmation.\n\n",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [],
+    "summary": "Deal — Archive & Replace: Archived status, makeup release and successor relationship",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0085z:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

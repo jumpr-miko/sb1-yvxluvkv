@@ -1,0 +1,213 @@
+{
+  "id": "11384",
+  "key": "WAGR-435",
+  "fields": {
+    "statuscategorychangedate": "2026-09-23T14:48:06.493-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "11367",
+      "key": "WAGR-420",
+      "fields": {
+        "summary": "VIP Sign Up &amp; Player Workflow",
+        "status": {
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "Normal",
+          "id": "3"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 2,
+      "isWatching": false
+    },
+    "created": "2026-09-23T14:48:06.109-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10079",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11568",
+          "key": "WAGR-491",
+          "fields": {
+            "summary": "Affiliate Link — Exclude from CMS, publication markers and safe deletion",
+            "status": {
+              "description": "",
+              "name": "Requirements",
+              "id": "10058",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-09-29T17:52:29.695-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "**Context**\nCertain links need to be reserved exclusively for VIP use, and those links should not flow through to the CMS the way standard affiliate links do.\n\n**Requirements**\n\n* Add a VIP flag/attribute on Affiliate Link records so ops can mark a specific link as VIP-exclusive.\n* VIP-flagged links must be excluded from the data sent to the CMS integration (the CMS does not need VIP links).\n* For VIP links, ops will continue sending the link directly to the user manually (not surfaced through the website) — same usage pattern as today, just flagged.\n\n**Constraints / Dependencies**\nHow VIP links get formally linked to specific sign-ups/players is still open and was explicitly deferred to a future discovery session — this ticket covers only the VIP flag and the CMS-feed exclusion, not the link-to-signup association workflow.\n\n**Source**\nFathom — WagerTech <> Jumpr Weekly Sync, 09/23/2026 (https://fathom.video/calls/831090060) — Joyce Kiddell \\~1:04:39–1:06:05, Kobi Kunasekaran \\~1:05:20–1:06:05. (Not separately captured in Taryn's handwritten notes — sourced from transcript only.)",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Affiliate Link: Add VIP flag + exclude from CMS feed (VIP)",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11594",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "CMS integration behavior is now generalized in WAGR-491 via Affiliate Link `Exclude from CMS` plus deactivate-before-delete/safe exclusion rules. Keep this ticket focused on the VIP business process/flag; VIP can reuse the generic exclusion mechanism rather than hard-coding VIP semantics into the CMS integration.",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-29T17:52:29.643-0400",
+          "updated": "2026-09-29T17:52:29.643-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0083b:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-420"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

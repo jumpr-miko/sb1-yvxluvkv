@@ -1,0 +1,294 @@
+{
+  "id": "10216",
+  "key": "WAGR-154",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10298",
+      "key": "WAGR-72",
+      "fields": {
+        "summary": "BUILD-178 — Player: Player Status Automation",
+        "status": {
+          "description": "",
+          "name": "Jumpr Review",
+          "id": "10062",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-31T15:29:54.213-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:28.721-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Summary\n\nOps bans a Player through a button that requires a reason and sets Status to Banned. Unbanning is a manual status edit restricted to Ops/Admins — reps can't edit Player Status at all.\n\n## Context\n\nBanned is the one manual Player status — the automation in this epic (BUILD-178) never sets or clears it. The client asked for a controlled path: a **Ban button** on the Player that captures the reason, and unbanning restricted to Ops/Admins so reps can't flip statuses by hand.\n\n## Current state\n\nAccount.Ban_Reason\\__c and Account.Ban_Notesc exist, unused by any UI. Player_Status_\\_c is editable by anyone with the field on-layout — no restriction. A Referrer_Ban_Button screen flow already exists for the Referrer ban path — mirror its structure, naming, and UX (warning text, required reason, notes) for consistency.\n\n## Proposed solution\n\n1. NEW screen flow + quick action Ban Player on Account (Player record type): requires Ban_Reason\\__c (optional Ban_Notesc), sets Player_Status_\\_c = Banned. (Audit stamping via BUILD-251.)\n2. Unban = manually editing Player_Status__c on the record. Restrict field edit access to Ops/Admin profiles/permission sets — align with the WT permission set group model (confirm which PSG at grooming).\n3. Rep-facing layouts: Player_Status__c read-only.\n4. At grooming, confirm who can run the Ban action and the flow's run context: with rep edit access removed at field level, either restrict the quick action's visibility to Ops/Admin, or run the flow in system context if reps should be able to ban.\n\n## Acceptance criteria\n\n1. Ban action requires a reason, sets Banned, audit fields stamped (via BUILD-251).\n2. Banned Players are ignored by the BUILD-253 and BUILD-254 automations (their ACs cover it; regression-check here).\n3. Rep users cannot edit Player_Status__c; Ops/Admin users can (unban path) — and a manual unban still stamps the audit fields (via BUILD-251).\n4. Ban action on an already-Banned Player is a no-op or blocked with a clear message.\n\n## Output\n\nScreen flow, quick action, and permission changes deployed in Partial SB; PSG used recorded on this ticket; requirements doc updated.",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10182",
+        "filename": "Screenshot 2026-09-03 at 2.25.04 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-03T14:25:14.409-0400",
+        "size": 125083,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10182",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10182"
+      }
+    ],
+    "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10446",
+          "body": "Player - Reactivate Button - V1\n\n[https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011HGCYYA4](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011HGCYYA4)",
+          "created": "2026-09-03T14:25:43.704-0400",
+          "updated": "2026-09-03T14:25:43.704-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10447",
+          "body": "**Confirmed against the Aug 18 sync (fathom.video/calls/787411922?timestamp=5280):**\n\n* No Ban Reason/Notes modal for Player — explicitly cut (\"we don't need those restriction detail fields,\" reasoning inferred from flagged Sign Ups instead, just a banner).\n\n* No automated Sign Up/Redeposit/Payout/Referral holds either — explicitly declined at timestamp=5193 (\"we don't necessarily need to automate... based off of the player status, at least at this point\").\n\nSince theres no reason or notes fields, the reactivate button is simply to flip the status back to active",
+          "created": "2026-09-03T14:26:59.341-0400",
+          "updated": "2026-09-03T14:26:59.341-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-376"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218032018320459"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000yf:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-72"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218032018320459"
+      }
+    }
+  }
+}

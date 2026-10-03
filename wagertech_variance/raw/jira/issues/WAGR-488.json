@@ -1,0 +1,150 @@
+{
+  "id": "11565",
+  "key": "WAGR-488",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T17:41:14.077-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-29T17:41:13.732-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-10-02T09:17:17.270-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nOps can report first-click activity occurring while a Deal is currently in a non-live lifecycle state without adding durable event snapshots in V1.\n\n## States to flag\n\nAt minimum:\n\n* Draft;\n* Paused;\n* Closed;\n* Archived.\n\nInactive normally auto-reactivates. If qualifying activity exists after Inactive Date while the Deal remains Inactive, surface that as an automation exception.\n\n## Rules\n\n* Compare Sign-Up First Click Date to the Date the parent Deal entered its current lifecycle state.\n* Same-date activity remains reviewable because lifecycle fields intentionally use Date, not DateTime.\n* Do not block Sign-Up creation solely because parent Deal is Draft/Paused/Closed/Archived.\n* Review Required and Retired are not part of the current lifecycle.\n\n## Acceptance criteria\n\n1. First Click on/after Archived Date is reportable while parent Deal remains Archived.\n2. Same behavior for Draft, Paused and Closed using matching lifecycle Dates.\n3. Qualifying activity left on Inactive can be flagged as an automation exception.\n4. No durable status-at-arrival snapshot is required for V1.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Deal — Report Sign-Ups/click activity against non-live Deal states",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i008yv:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

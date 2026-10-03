@@ -1,0 +1,429 @@
+{
+  "id": "10167",
+  "key": "WAGR-100",
+  "fields": {
+    "statuscategorychangedate": "2026-09-14T12:56:01.891-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-08T18:29:05.066-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10019",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "10519",
+          "key": "WAGR-382",
+          "fields": {
+            "summary": "Operator and Partner relationships, and direct billing",
+            "status": {
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10000",
+              "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+              "name": "Epic",
+              "subtask": false,
+              "hierarchyLevel": 1
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:28.705-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2>Summary</h2><p><code>Operator_External_ID__c</code> and <code>Partner_External_ID__c</code> are unique keys the CMS matches accounts on, and they are also embedded verbatim in every Deal External Deal ID — but nothing in Salesforce generates them. The current 63 values were typed into a spreadsheet during the initial import, so the format holds only by hand: one <code>OP-FORTUNE WHEELZ</code> would put a space into a key the CMS spec says is letters and digits, and it would surface as a rejected deal rather than a bad account.</p><p>This stamps both IDs in a before-save flow on Account, when the field is blank, from the same kind of derivation the Deal ID already uses. Operator = <code>OP-</code> + the account Name with punctuation and spaces removed, uppercased. Partner = <code>PT-</code> + <code>Partner_Code__c</code>, normalised the same way — Partner IDs are <strong>not</strong> name-derived, so the code remains the input, and the flow normalises that field too since it is hand-entered and also feeds the Deal key. If the derivation would produce an empty key, the save is blocked with a Custom Error rather than stamping a stub.</p><p>Fixing it at the source is what lets every downstream key trust these values, so the Account validation-rule guard originally drafted on BUILD-272 is cut rather than built.</p><h2>Current state</h2><ul><li><p><code>Operator_External_ID__c</code> and <code>Partner_External_ID__c</code>: both Text(80), unique, case-insensitive, external id. No automation writes either — populated entirely by the import.</p></li><li><p>Record type spread: 58 Operator, 5 Partner, 311 Player, 7 Referrer, 9 with no record type. Every Operator has an Operator ID; every Partner has a Partner ID; the other 327 accounts have neither and must not get one.</p></li><li><p><strong>The derivation reproduces all 63 existing values exactly, verified record by record.</strong> Operators follow <code>OP-</code> + Name with spaces and punctuation stripped, uppercased — <code>Fortune Wheelz</code> to <code>OP-FORTUNEWHEELZ</code>, <code>No Limit Coins</code> to <code>OP-NOLIMITCOINS</code>, and <code>Bally&#039;s</code> to <code>OP-BALLYS</code>, which is the one case proving apostrophes are stripped too, not just spaces.</p></li><li><p><strong>Partner IDs are not derivable from the name:</strong> <code>Catena</code> to <code>PT-CTM</code>, <code>Cipher</code> to <code>PT-C</code>, <code>GDC</code> to <code>PT-GD</code>, <code>Dietz</code> to <code>PT-D</code>, <code>Direct</code> to <code>PT-DIRECT</code>. These are the Airtable partner codes, so <code>Partner_Code__c</code> is the only valid input.</p></li><li><p><code>Partner_Code__c</code> is Text(40), <strong>not unique</strong>, hand-entered, and its description still frames it as a reporting convenience — it is now part of two CMS-facing keys.</p></li><li><p><code>Account.Name</code> <strong>is already required</strong> for business accounts, so a truly blank Operator name is unreachable on every path. What <em>is</em> reachable is a name that <strong>normalises to empty</strong> — whitespace-only, or punctuation-only like <code>---</code> — which would derive the stub <code>OP-</code>. That, not blankness, is the case the guard has to catch.</p></li><li><p><strong>A blank</strong> <code>Partner_Code__c</code> <strong>is fully reachable</strong> — the field is optional, so a Partner can be created without one via UI, API or data loader.</p></li></ul><h2>Proposed solution</h2><p><strong>1. New flow</strong> <code>Account_Before_Save_Set_External_Ids</code> — before-save, create and update, no entry filter on the ID fields (the blank check is a Decision, matching the Deal pattern so a manual clear regenerates).</p><p>Gate on record type by <code>RecordType.DeveloperName</code><strong>, never a hardcoded RecordTypeId</strong> — Ids differ between sandbox and production and would break the deployment.</p><p>Element order: Start → Decision <code>Record_Type?</code> → Operator branch / Partner branch / (neither) End.</p><p><strong>2. Operator branch</strong> — when <code>RecordType.DeveloperName = &#039;Operator&#039;</code>:</p><ul><li><p>Leave <code>Name</code> itself alone (it is the user&#039;s to control).</p></li><li><p><strong>Guard:</strong> if <code>LEN({!fxCleanName}) = 0</code> → <strong>Custom Error</strong> targeted at the <code>Name</code> field: <em>&quot;Operator name must contain at least one letter or number — it is used to generate the Operator External ID that the WagerTech CMS matches this account on.&quot;</em></p></li><li><p>When <code>ISBLANK({!$Record.Operator_External_ID__c})</code> → assign <code>{!fxOperatorExtId</code>}:</p></li></ul><pre><code>&quot;OP-&quot; &amp; UPPER(</code></pre><pre><code>SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(</code></pre><pre><code>SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(</code></pre><pre><code>TRIM({!$Record.Name}),</code></pre><pre><code>&quot; &quot;, &quot;&quot;), &quot;&#039;&quot;, &quot;&quot;), &quot;’&quot;, &quot;&quot;), &quot;-&quot;, &quot;&quot;), &quot;.&quot;, &quot;&quot;),</code></pre><pre><code>&quot;,&quot;, &quot;&quot;), &quot;&amp;&quot;, &quot;&quot;), &quot;/&quot;, &quot;&quot;), &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;)</code></pre><pre><code>)</code></pre><p>Salesforce formulas have no regex replace, so the strip is an explicit <code>SUBSTITUTE</code> chain. The curly apostrophe is in the list deliberately — it arrives via copy-paste and is invisible in a page layout.</p><p><strong>3. Partner branch</strong> — when <code>RecordType.DeveloperName = &#039;Partner&#039;</code>:</p><ul><li><p><strong>Always</strong> assign <code>Partner_Code__c</code> = <code>{!fxCleanCode</code>} (the same chain applied to <code>Partner_Code__c</code> instead of <code>Name</code>). Normalising rather than blocking keeps data loads and updates unblocked, and the field is a code, so uppercasing it silently is safe.</p></li><li><p><strong>Guard:</strong> if <code>LEN({!fxCleanCode}) = 0</code> → <strong>Custom Error</strong> targeted at the <code>Partner_Code__c</code> field: <em>&quot;Partner Code is required and must contain at least one letter or number — it generates the Partner External ID and is built into every Deal ID sent to the WagerTech CMS.&quot;</em></p></li><li><p>When <code>ISBLANK({!$Record.Partner_External_ID__c})</code> → assign <code>&quot;PT-&quot; &amp; {!fxCleanCode</code>}.</p></li></ul><p><strong>3a. Why the guard lives in the flow and not in a validation rule</strong></p><p>The guard is not a failsafe — the flow needs it to be correct. Without it a blank code stamps the stub <code>PT-</code>, which the unique index then owns, so the <em>next</em> blank-code Partner fails with a raw <code>DUPLICATE_VALUE</code> pointing at a record that has nothing to do with it. One malformed save poisons every later one.</p><p>That inverts the usual ordering: the flow is the primary control and a validation rule would be the redundant copy. Before-save flows run <em>before</em> validation rules, both cover every path (UI, API, data loader, Apex), and a Custom Error can target a specific field so it renders inline exactly like a validation rule would. Building both means the same rule in two places that can drift. <strong>Decided: flow only, no validation rule.</strong></p><p><strong>3b. Make Partner Code mandatory in the UI — part of this ticket</strong></p><p>The flow is the hard control; this is the prompt that keeps users from meeting it. Follow the BUILD-249 pattern rather than field-level required:</p><ul><li><p>Mark the <code>Partner_Code__c</code> component <strong>required in Dynamic Forms</strong> on the Partner record page. Not field-level required, no validation rule — UI creation demands it while API, flow and data-load paths stay open (the flow guard covers those).</p></li><li><p>Verify the <strong>New Partner</strong> path honours it. If that modal still renders the classic layout, mark the field required there too.</p></li><li><p>Place it near Partner Name / Partner Type, not buried in a later section.</p></li></ul><blockquote><p>Raise with WagerTech before or alongside the build. Partner Code is NOT in Emily&#039;s mandatory-field list on BUILD-269 (Name, Logo, Partner Portal, Primary Contact) — this is a Jumpr addition driven by the External ID depending on it. Tell her that, rather than letting a rep discover a new required field. There are only 5 Partners and all already have codes, so nothing existing is blocked.</p></blockquote><p>Convention note: layout-required is a deliberate exception to the Aug 17 rule that nothing is marked required on layouts — the same exception already granted for Source on Deal (BUILD-249), and for the same reason: a validation rule would also block updates to legacy records.</p><p><strong>4. Duplicate handling — loud, no counter.</strong> Both ID fields are already unique, so two accounts normalising to the same value fail on the index. Add a Custom Error naming the existing account so the message is actionable:</p><blockquote><p>&quot;An account with this External ID already exists: {existing account Name}. External IDs are generated from the account name (Operator) or Partner Code (Partner), so two records cannot share one. Check whether this account is a duplicate, or adjust the name/code.&quot;</p></blockquote><p>No <code>-002</code> counter, deliberately: the CMS maps accounts by external id, so a counter-suffixed account would be a second identity for the same real-world operator.</p><p><strong>5.</strong> <code>Partner_Code__c</code> <strong>description</strong> — replace the current text:</p><blockquote><p><strong>Field Description</strong> (paste as-is): Short uppercase code identifying this partner (e.g. CTM for Catena, GD for GDC). Set by the user, then normalised on save by flow Account - Before Save - Set External Ids: spaces and punctuation removed, forced uppercase. This value is embedded in Partner_External_ID__c AND in every Deal External Deal ID sent to the WagerTech CMS, so changing it on an existing partner does not retro-update those keys — treat it as fixed once deals exist against the partner.</p></blockquote><blockquote><p><strong>Help Text</strong> (paste as-is): Short uppercase code for this partner, letters and digits only (e.g. CTM, GD). Used in the Partner External ID and in Deal IDs sent to the CMS — set it once and leave it.</p></blockquote><p><strong>6. No backfill.</strong> All 63 existing IDs already match what the flow would generate, so there is nothing to correct. Verify by spot-checking rather than by rewriting: no existing ID should change value when its account is re-saved. All 5 Partners already have codes, so the new guard blocks nothing that exists today.</p><h2>Acceptance criteria</h2><ol><li><p>A new Operator saved with a blank ID gets <code>OP-</code> + its uppercased, stripped name. Verify with a multi-word name and one containing an apostrophe.</p></li><li><p>A new Partner with a Partner Code gets <code>PT-</code> + the cleaned code.</p></li><li><p>Partner Code is normalised on every save — {{ctm }} becomes <code>CTM</code> — while the Partner External ID stays frozen.</p></li><li><p><strong>Empty derivations are blocked, not stamped.</strong> A Partner saved with a blank or punctuation-only Partner Code is blocked with the error on that field; an Operator whose name normalises to nothing is blocked with the error on Name. In neither case is a stub <code>PT-</code> or <code>OP-</code> written.</p></li><li><p>The blank-code block holds on <strong>every</strong> path — UI, API and data loader — and no <code>PT-</code> value exists in the org afterwards to poison later saves.</p></li><li><p><strong>Existing IDs never change.</strong> Re-saving all 58 Operators and 5 Partners, including after a rename, leaves every <code>Operator_External_ID__c</code> and <code>Partner_External_ID__c</code> byte-identical.</p></li><li><p>Clearing an ID and saving regenerates it from the current name or code.</p></li><li><p>Player, Referrer and no-record-type accounts are untouched — no ID stamped, no Partner Code written.</p></li><li><p>A second account normalising to an existing ID is blocked with the Custom Error naming the existing account; no <code>-002</code> value is ever produced.</p></li><li><p>The flow references <code>RecordType.DeveloperName</code>, not a hardcoded RecordTypeId, and deploys to a second org without edits.</p></li><li><p><strong>Partner Code is required in the UI</strong> — a new Partner cannot be saved from the record page or the New modal without it, while API, flow and data-load paths remain open.</p></li><li><p>No validation rule is created on Account.</p></li></ol><h2>Out of scope</h2><ul><li><p>Retro-updating IDs after a rename, and any drift flag for it — the CMS matches accounts on the stored ID and does not re-derive it, so a rename is harmless.</p></li><li><p>Getting WagerTech to map a newly created account on the CMS side; until they do, deals on it are rejected as <code>unknown_operator</code> / <code>unknown_partner</code>. Operational, not a build step.</p></li><li><p>Making <code>Partner_Code__c</code> unique — worth considering separately, but it would need a duplicate cleanup first.</p></li><li><p>Partner-name duplicate rules — those stay in BUILD-08.</p></li></ul><h2>Output</h2><p>One flow deployed in Partial SB, metadata retrieved and committed; <code>Partner_Code__c</code> description, help text and Dynamic-Forms-required setting applied; the Partner Code requirement raised with WagerTech; spot-check results recorded on this ticket.</p>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10195",
+        "filename": "Screenshot 2026-09-15 at 12.45.05 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:55.410-0400",
+        "size": 175953,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10195",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10195"
+      },
+      {
+        "id": "10190",
+        "filename": "Screenshot 2026-09-15 at 12.45.14 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:53.952-0400",
+        "size": 193906,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10190",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10190"
+      },
+      {
+        "id": "10193",
+        "filename": "Screenshot 2026-09-15 at 12.45.57 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:54.812-0400",
+        "size": 183631,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10193",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10193"
+      },
+      {
+        "id": "10192",
+        "filename": "Screenshot 2026-09-15 at 12.47.22 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:54.534-0400",
+        "size": 166633,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10192",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10192"
+      },
+      {
+        "id": "10194",
+        "filename": "Screenshot 2026-09-15 at 12.47.24 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:55.122-0400",
+        "size": 129241,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10194",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10194"
+      },
+      {
+        "id": "10191",
+        "filename": "Screenshot 2026-09-15 at 12.47.34 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:54.219-0400",
+        "size": 143644,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10191",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10191"
+      },
+      {
+        "id": "10188",
+        "filename": "Screenshot 2026-09-15 at 12.47.55 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:53.386-0400",
+        "size": 159122,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10188",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10188"
+      },
+      {
+        "id": "10189",
+        "filename": "Screenshot 2026-09-15 at 12.53.58 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T12:55:53.683-0400",
+        "size": 123081,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10189",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10189"
+      }
+    ],
+    "summary": "BUILD-274 — Account: Auto-generate Operator and Partner External IDs",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10546",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"044cc30679e5\"><strong>Changes made:</strong></p><table data-local-id=\"5159f826-7ca1-4cd3-a61c-2a52a0ff6b66\"><tbody><tr><td data-local-id=\"de187deb09a5\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"16e72031136b\">Metadata Name</p></td><td data-local-id=\"ed271b642cc2\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"f5488528f72f\">Metadata Type</p></td><td data-local-id=\"05297b20d5e6\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"147097a0a013\">Action</p></td><td data-local-id=\"c602306f095d\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"a98804d2abda\">Notes</p></td></tr><tr><td data-local-id=\"c0a963928938\"><p data-local-id=\"9fe2e8b3a87e\">Account.Partner_Code__c</p></td><td data-local-id=\"324ebf6babde\"><p data-local-id=\"dcac90cfdbd2\">CustomField</p></td><td data-local-id=\"16a53f3a4f08\"><p data-local-id=\"afb6a74edf4f\">Update Component</p></td><td data-local-id=\"e8589823566b\"><p data-local-id=\"4089bf0e99f2\">Edited description, added help text</p></td></tr><tr><td data-local-id=\"264bf018c08c\"><p data-local-id=\"f176136525a7\">Account_Before_Save_Set_External_Ids</p></td><td data-local-id=\"025e1250b720\"><p data-local-id=\"87a10402eb35\">Flow</p></td><td data-local-id=\"ca52783543fa\"><p data-local-id=\"1fbb9fb65954\">New Component</p></td><td data-local-id=\"212caa2850f5\"><p data-local-id=\"f849ed164385\"></p></td></tr></tbody></table><figure data-local-id=\"4de4e5d45c13\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"22c3d5e1-b071-4a93-ae59-6d346bb00fa6\" data-alt=\"Screenshot 2026-09-15 at 12.53.58 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><p data-local-id=\"0c90bb97ae6a\"></p><p data-local-id=\"765fda85454a\"><strong>Testing:</strong> Validated in sandbox. Working as expected.</p><figure data-local-id=\"61c4f2d3c12a\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"98442f91-22b1-42bb-8882-c4cde1ffb03c\" data-alt=\"Screenshot 2026-09-15 at 12.45.05 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"51c95c308fb3\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"3d6953f6-e5a2-4eab-8936-d70be29c46ce\" data-alt=\"Screenshot 2026-09-15 at 12.45.14 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"ce456c398f75\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"80508ad3-5384-4dfc-bfb1-d7a9a706f615\" data-alt=\"Screenshot 2026-09-15 at 12.45.57 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"618284ac95f9\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"15008c42-b1f4-4c5e-8c62-ebaa01dac559\" data-alt=\"Screenshot 2026-09-15 at 12.47.22 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"8b1544b6139f\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"cef96336-bd1c-4c4c-9251-5918dd3a2c07\" data-alt=\"Screenshot 2026-09-15 at 12.47.24 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"3cec3c05147e\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"be96809b-8fa7-437f-85d0-b514eb770587\" data-alt=\"Screenshot 2026-09-15 at 12.47.34 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"8d94241a6573\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"495\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"ad424a53-2afa-4bc8-a648-8537706b6140\" data-alt=\"Screenshot 2026-09-15 at 12.47.55 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><p data-local-id=\"101696c65d12\"><br></p>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-14T12:55:55.764-0400",
+          "updated": "2026-09-14T12:55:55.764-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Cedrick Infantado"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-414"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218294343924521"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000or:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218294343924521"
+      }
+    }
+  }
+}

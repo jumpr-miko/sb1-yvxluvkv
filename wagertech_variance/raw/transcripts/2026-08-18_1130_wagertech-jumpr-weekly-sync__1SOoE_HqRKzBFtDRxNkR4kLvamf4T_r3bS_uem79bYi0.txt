@@ -1,0 +1,1822 @@
+📝 Notes
+Aug 18, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited Marc Cabantog lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi Taryn Reithofer strah@wagertech.bet strahinja.vladetic@gmail.com Miko Sumagang
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+The team defined integration protocols, structured brand ambassador records, and established standardized player and referrer statuses.
+
+System Integration and Testing
+Testing utilizes live data to prioritize volume analysis while shifting deduplication logic to a person account model. The group decided to implement API keys and IP whitelisting for integration security.
+
+Ambassador Data Model Design
+Reporting structures depend on standard manager fields, and unnecessary data fields like verticals are removed to streamline records. Standardized ambassador statuses facilitate consistent operational reviews.
+
+Status and Referral Definitions
+Player and referrer statuses trigger internal flagging after 90 days of inactivity. Referral records reside exclusively within the sales platform to maintain data integrity.
+
+
+Decisions
+Aligned
+* Sandbox data designated as throwaway The team designates all data pushed to the sandbox environment as throwaway data for the duration of the API testing phase.
+* Salesforce deduplication logic disabled The Salesforce integration will refrain from implementing internal deduplication logic, relying instead on the source system to send clean, deduplicated data for processing.
+* Test deals effective start date All test deals are effectively activated as of today's date for the purpose of integration testing.
+* Unconfigured agent data handling Incoming data for agents not yet configured in the system will be flagged for review rather than creating signup records.
+* API integration launch target The go-live target for initial API integration testing is scheduled for Thursday.
+* Slack-based error notification implementation A Slack connector will be implemented to provide real-time visibility into errors surfacing from the queue.
+* CMS-side API endpoint architecture Integration architecture is set to build an API endpoint on the CMS side for Salesforce to call, rather than establishing a Salesforce-initiated connection.
+* API endpoint security configuration The API endpoint security strategy is finalized as IP whitelisting combined with API keys.
+* Manual Salesforce rep administration Rep account creation and permission management will be conducted as a manual administrative task in Salesforce rather than via automated CMS integration.
+* Brand Ambassador status definitions Brand Ambassador status definitions are set to: active, paused, inactive, and terminated.
+* Standard Salesforce hierarchy adoption The standard Salesforce out-of-the-box manager field and user hierarchy will be utilized for managing Brand Ambassador and Manager relationships.
+* Secondary market tracking method Secondary market tracking will utilize multi-select picklists to accommodate multiple market assignments per Brand Ambassador.
+* Automation added for termination tracking The system will include an automation to track the termination date for users.
+* Unnecessary BA fields removed The 'payment method', 'preferred contact method', and 'payment frequency' fields will be removed from the Brand Ambassador records.
+* Login and contact email fields separated Separate fields will be created for the login username, primary email, and transfer email to ensure distinct data storage.
+* Verticals field removed The 'verticals' field will be removed from the Brand Ambassador record.
+* Landing page field renamed The 'landing page' field will be renamed to 'agency site' and retained alongside slug and external ID fields.
+* Copy functionality excluded from launch Custom copy-paste functionality will not be implemented for launch, relying on standard text selection instead.
+* Player currency defaulting logic established Player record currency will default to the currency of the first associated signup.
+* Manual VIP toggle implemented A manual VIP toggle restricted to authorized users will be implemented for player records.
+* BA attribution mismatch flagging implemented Signups and Clicks (SLC) where the assigned BA does not match the player's BA will be flagged for manual Ops review.
+* Survey completion field removed The 'survey completion' field will be removed from the record.
+* Player inactive status threshold set Player inactive status will trigger automatically after 90 days of inactivity.
+* Banned player status visual indicator Banned player status will be indicated via a top-level banner rather than specific restriction fields.
+* Referrer inactive status threshold set Referrer inactive status will trigger automatically after 6 months of inactivity.
+* Flagging strategy for restricted referrers Signups from paused or banned referrers will not be blocked, but flagged for Ops review.
+* Payout preference moved to notes The 'payout preference' field will be moved to a general notes section at the bottom of the record.
+* Email-based referrer deduplication Email-based deduplication will be implemented for referrers, blocking the creation of duplicate records.
+
+
+Shelved
+* Storage proofs development shelved The development of storage proofs is deprioritized and shelved in favor of focusing on deal configuration tasks.
+* Prevel status field removed The 'Prevel status' field will not be included in the current development scope.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Setup Salesforce Deals: Configure all deal and deal assignment records within the Salesforce environment.
+* [Kobi Kunasekaran] Share Deal IDs: Provide the generated identifiers for deals and assignments to the technical team for ingestion.
+* [Strahinja Vladetic] Build API Endpoint: Create a communication endpoint on the CMS to receive data transfers from Salesforce.
+* [Joyce Kiddell] Update Slack Notifications: Add the relevant team member to the existing error reporting channel to ensure visibility.
+* [Strahinja Vladetic] Enhance API Logging: Review and improve the current logging mechanisms to ensure error tracking is robust.
+* [Emily Vandenberg] Validate Live Data: Monitor the signup data flows following the production release to ensure accuracy.
+* [The group] Update Workflow Spec: Modify the specification documentation for the workflow between account creation in Salesforce and the Content Management System.
+* [Strahinja Vladetic] Set Up Endpoint: Establish the API endpoint and provide necessary details for record creation based on the shared specifications.
+* [Kobi Kunasekaran] Update Integration Documentation: Refine the main Content Management System integration document with updated payload information once configured.
+* [Kobi Kunasekaran] Update API Docs: Amend the initial API documentation using the latest design specifications and data requirements.
+* [Kobi Kunasekaran] Evaluate Record Customization: Determine the feasibility of using out of the box Salesforce user records versus custom objects to track Brand Ambassador information.
+* [Kobi Kunasekaran] Verify Copy Functionality: Investigate the implementation complexity for adding a copy to clipboard feature for specific fields on player records.
+* [Emily, Joyce] Clarify VIP Process: Determine the specific workflow and requirements for the VIP stream to ensure correct implementation.
+* [Kobi] Review BA Customization: Assess the customization capabilities for the Brand Ambassador page and provide an update on the findings.
+* [Kobi] Update Screen Layouts: Configure the fields, placement, and layouts for all specified Salesforce screens by next Monday.
+* [Joyce] Review Salesforce Screens: Review the updated screen layouts and provide feedback on the configurations.
+* [The group] Screen Review Meeting: Conduct a comprehensive end to end review of every Salesforce screen next Monday.
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Sandbox and API Testing: Emily Vandenberg and Kobi Kunasekaran confirmed that all data pushed into the sandbox environment for API testing regarding study link clicks should be treated as throwaway data (00:00:56). The team agreed to proceed with testing using live data to observe volume and identify potential errors, with the option to preserve specific records if necessary for production migration later (00:03:36).
+* Player and Person Account Deduplication Logic: The team discussed shifting from using player IDs—which effectively functioned as account IDs—to a "person account" logic to resolve issues with duplicated data across agency sites (00:02:41). Strahinja Vladetic noted that while they will attempt to deduplicate records into a single "person" account on their side before sending data, the API will continue to support matching by email address as a fallback if the ID is unavailable (00:05:30). The team agreed to avoid implementing separate deduplication logic on the Salesforce side to prevent conflicts (00:07:25).
+* Historical Data Migration and Updates: Strahinja Vladetic explained the plan to perform an initial migration of historical data to roll up current duplicates into single person records, after which new logic in agency sites will prevent future duplication (00:06:24). Kobi Kunasekaran noted that while email address changes might be required in the future, the team will address this as needed, utilizing the existing API endpoint used for survey completion updates (00:07:25).
+* Technical Alignment and Integration Details: Emily Vandenberg and Strahinja Vladetic discussed the integration of operator and partner IDs into the CMS. Strahinja Vladetic confirmed that the provided Google Sheet contained the necessary IDs for Salesforce, and the team established a timeline to enable testing by the end of the next day (00:09:20).
+* Active Deal Setup: The team agreed to set the start date for active deals to the current date for testing purposes (00:11:23). Kobi Kunasekaran will configure the deals and deal assignments in Salesforce using external IDs, and Emily Vandenberg noted that future deals involving different agents will be handled by unlocking features at the slug level (00:12:23).
+* Sign-up Attribution and Rep Assignments: Kobi Kunasekaran explained that clicks will be mapped against specific deal IDs and deal rep assignments to allocate signups correctly (00:13:22). If rep assignments change or new reps are added, these updates will be made in Salesforce to ensure continued accurate attribution (00:14:32).
+* Testing and Monitoring Strategy: The team set a goal to go live with testing by Thursday. Kobi Kunasekaran and Emily Vandenberg will monitor the data flow, comparing CMS records against Salesforce to identify any errors (00:16:39). To ensure real-time visibility, the team discussed setting up a Slack connector to surface errors from the PubSub queue, which Strahinja Vladetic will implement (00:17:40).
+* Communication Link Between Salesforce and CMS: The participants discussed the need for a two-way communication link between Salesforce and the CMS (00:20:49). Kobi Kunasekaran confirmed that an endpoint on the CMS side would be the standard approach, where Salesforce would push data or receive confirmation once deals are created or updated (00:22:05).
+* API Authentication and Security: Regarding the security of the API endpoint, the team agreed to utilize API keys and IP whitelisting as a secure and practical solution for their internal integration (00:26:19). Strahinja Vladetic will maintain the endpoint as public for the initial testing phase and introduce authentication layers afterward (00:29:09).
+* Future Integration Phases: The team decided to prioritize the current deal and rep assignment testing over storage proofs, which will be addressed in a future phase (00:29:09). Kobi Kunasekaran confirmed that Cedric will shift focus to the current work instead of storage proofs for the time being (00:31:12).
+* Rep Management Workflow: The team clarified that adding new reps requires an administrative task in Salesforce to create user records and assign permissions, which cannot be fully automated through the CMS (00:33:24). Once a rep is created in Salesforce, the CMS will send the unique ID to match them, and any rep creation workflow will be documented and updated in the main integration specification (00:34:29).
+* Deal and Link Object Mockups: Joyce Kiddell presented mockups for deal and link objects, confirming that links will be objects appearing under deal details (00:41:39). The team agreed that link codes do not need to be unique for now, and discussed an "assignment cap" feature to prevent over-allocation of reps to specific links (00:42:54).
+
+
+* Brand Ambassador Statuses: The team reviewed status options for brand ambassadors, agreeing to use "Active," "Paused," "Inactive," and "Terminated" (00:47:53). Lina Ceniccola confirmed that the "Review" status is redundant if "Paused" is used, and "Terminated" will involve deactivating the user in Salesforce (00:49:11).
+
+
+* Brand Ambassador Record Structure: Kobi Kunasekaran advised that because Salesforce user records have limited customization for visual layouts, they will likely create a separate custom object linked to the user record to display rollups and related lists (00:51:28). If this proves too complex, the team agreed that using reports to surface data based on ownership is an acceptable alternative (00:52:27).
+* Hierarchy and Market Reporting: The team agreed to use the standard "manager" field in Salesforce to handle hierarchies, allowing managers to see signups for their subordinates (00:54:07). Joyce Kiddell and Kobi Kunasekaran discussed tracking primary and secondary markets for brand ambassadors, with the team planning to utilize multi-picklists for reporting purposes (00:57:24).
+* Reporting Data Grouping: Kobi Kunasekaran recommended avoiding multi-lists in reports because grouping by secondary markets can cause issues, such as creating separate entries for the same user; the group agreed to remove this for current reporting purposes (00:58:46).
+* User Record Fields: Joyce Kiddell and Kobi Kunasekaran discussed tracking start dates, with Kobi Kunasekaran suggesting the addition of an automation to track termination dates automatically (00:58:46). They agreed to keep primary email and e-transfer email fields separate (00:59:51).
+* Contact and Payment Methods: The team decided to update the contact method dropdown to include WhatsApp, email, text, and phone call while removing Slack (00:59:51). They further agreed to remove "check" as a payment option and concluded that payment frequency and specific contact methods could be managed within payroll or removed from the record to avoid unnecessary data entry (01:00:51).
+* System Field Strategy: Emily Vandenberg and Kobi Kunasekaran agreed to avoid flooding the system with unnecessary fields, opting to defer the addition of specific payout-related inputs until they are needed for the payout module scope (01:02:16).
+* Currency and Login Credentials: Lina Ceniccola and Joyce Kiddell agreed to keep the currency field, while Kobi Kunasekaran noted that if a login email differs from a primary email, they would create distinct fields for both (01:03:08).
+* Brand Ambassador Verticals: Joyce Kiddell, Lina Ceniccola, and Emily Vandenberg discussed the "verticals" field under brand ambassador details and decided to remove it as it was a roll-up and not required for specific assignments (01:04:26).
+* CMS Data Details: The group agreed to include an external ID, a slug, and a landing page field, with the latter renamed to "agency site" to improve clarity (01:05:35).
+* Copy Functionality: Joyce Kiddell and Emily Vandenberg explored adding a copy feature for BA details, but Kobi Kunasekaran explained that an out-of-the-box solution does not exist. Lina Ceniccola decided to keep the interface simple and rely on standard text selection for now rather than building a custom component (01:06:34).
+* Player Signup Currency: Kobi Kunasekaran clarified that while the system requires a currency value for every record, it can be defaulted based on the country or the first signup; the team confirmed that automated referral record creation is not currently planned (01:09:40).
+* VIP Identification: The team discussed how to mark players as VIPs, deciding on a manual toggle for the time being. Lina Ceniccola noted that approximately 30 manual records are processed per month, confirming this is a manageable volume for manual entry (01:11:47) (01:15:25).
+
+
+* Attribution and Fraud Review: Joyce Kiddell and Kobi Kunasekaran discussed reassigning BAs or players. Kobi Kunasekaran proposed that if an assigned BA does not match the record, the system should flag the signup for an operations review, allowing the team to correct errors or mark them as fraud without blocking the process (01:16:40).
+* Referral Documentation and Surveys: Joyce Kiddell clarified that referral information is added after a signup is logged, and the group agreed to remove the survey completion tracking object from the current scope (01:20:53).
+* Player Status Definitions: The team defined player statuses as pending, active, inactive, and banned, agreeing that an "inactive" status would be triggered by 90 days of no activity (01:23:07).
+* Banned Player Management: The group confirmed that the banned status is set manually and serves as a signal for internal review rather than a hard block on signups. This allows representatives to see if a banned player is attempting to sign up, facilitating fraud detection (01:26:54).
+* Referrer Statuses: The team defined referrer statuses as active, inactive (after six months), paused, and banned. They agreed that paused or banned statuses should serve as signals for operational review rather than system-wide restrictions on the referrer (01:29:13) (01:33:32).
+* Referrer Cleanup and Details: Joyce Kiddell and the team agreed to remove the referral "RO" field, keep country/state/province information, and rename the secondary contact field to "transfer email" (01:36:29) (01:38:46). They confirmed that referrer records will live entirely within Salesforce and will not sync with the CMS (01:40:02).
+* Access and Deduplication: Kobi Kunasekaran confirmed that BAs should only see their own referrers unless they are a manager. They also discussed implementing email-based deduplication to prevent duplicate entries and explored creating a button to convert existing players into referrers via a screen flow (01:40:02).
+* Project Timeline: Kobi Kunasekaran estimated that page layouts and field updates would be completed by next Monday, and the team planned to perform an end-to-end review of all screens at that time (01:45:43) (01:47:25).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 18, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:56
+
+Taryn Reithofer: Hey,
+Kobi Kunasekaran: Hello everyone.
+Taryn Reithofer: just me.
+Kobi Kunasekaran: Oh, I thought I saw in here too. Oh no, it's this is
+Taryn Reithofer: I'm so glad to take care.
+Kobi Kunasekaran: not
+Taryn Reithofer: Hi, Emily.
+Emily Vandenberg: Hi. How's it going?
+Taryn Reithofer: This
+Kobi Kunasekaran: good. How are you?
+Taryn Reithofer: guys
+Emily Vandenberg: Good.
+Kobi Kunasekaran: Well, I've been busy the last couple days.
+Emily Vandenberg: Yeah. Just the last couple
+Kobi Kunasekaran: I mean, there was so many messages coming through.
+Emily Vandenberg: feels.
+Kobi Kunasekaran: It was
+Taryn Reithofer: listen.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: awesome.
+Emily Vandenberg: Yeah. There's it's momentum, right? Some good good positive momentum.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: Check
+Emily Vandenberg: Just make sure check in.
+Strahinja Vladetic: this.
+Emily Vandenberg: not miss and you know what we'll give them a minute but Strahinja we're just on a call and I have a couple questions for you um Kobe like a quick one off the top here uh around kind of like the sandbox we were kind of get prepping and like talking through like what's needed for the um the API testing like the for the study link clicks is everything that we push into um the sandbox throwaway data.
+
+
+00:02:41
+
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: Okay. So, we'll treat that all as throwaway. And in that like we were just having a conversation around we need to make an update on our kind of like end around like our our person um ID if you will. I know we were kind of saying player, but like we went through our data and like how people have kind of like flowed through our
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: agency sites. Um, we have a lot of duplication that we have to kind of like create logic around layering them up into a
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: person account. So currently we're kind of like sending you like the way that the player ID has been configed is like it's like
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: an account ID if you will, but in order for us to like merge without like deleting and creating kind of like extra complexity, we're going to layer up the logic for a person for a person um account and that's what we need to send you. We have not built that,
+Kobi Kunasekaran: Okay.
+
+
+00:03:36
+
+Emily Vandenberg: but anything kind of like net new and in terms of check testing the API, we can assume that the the ID we're sending you will work and then once we're ready, we'll swap it out. We just didn't want to like proceed with that testing if that was going to be data you were keeping. But if you're throwing it away, I think we can get started and then when straw makes the change at at that
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: um person level, then we'll resend and we should be
+Kobi Kunasekaran: Okay. Yeah. Like everything is still in sandbox, right?
+Emily Vandenberg: good.
+Kobi Kunasekaran: And we're still building. So, um the goal with the testing is to test with live data and see how it flows. um see the volume um see if we get any errors and things like that. So um like I I'm not expecting us to keep any of this data. If you want to set it up so that we maintain some of this so that we can copy it over into production, let me know.
+
+
+00:04:32
+
+Kobi Kunasekaran: So we'll have to set up for that. But otherwise, yeah, perfectly fine. And the am I understanding this correctly? So you um it sounds like you have a bunch of player accounts and or player records that you're trying to roll up into like a a single account that you want to send instead. Okay.
+Strahinja Vladetic: Yeah,
+Emily Vandenberg: Yes.
+Strahinja Vladetic: there a bunch of
+Kobi Kunasekaran: Do they all have the same email address?
+Strahinja Vladetic: no that's another
+Kobi Kunasekaran: No. Okay. Because if they do like Sorry.
+Strahinja Vladetic: decision. Sorry.
+Kobi Kunasekaran: Go
+Strahinja Vladetic: Go ahead.
+Kobi Kunasekaran: ahead.
+Strahinja Vladetic: I would say that they they they don't um we might have to make a decision of which one they we send to you or maybe all of them.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: I don't
+Kobi Kunasekaran: Wait. Like initially when we talked about like uh the scoping before we started introducing
+Strahinja Vladetic: know.
+Kobi Kunasekaran: ids, we talked about like uh matching the player with their like primary email and then e transfer email.
+
+
+00:05:30
+
+Kobi Kunasekaran: Um, so if it finds any existing record that matches the email address, then it'll just, you know, it's not going to create a new one, it's going to associate the signups against that. So if that's what you're doing, like we could fall back to that logic and not have to worry about the IDs. That'll be easier. Obviously, the ID is going to be more accurate because it's going to be one to one with your database, too, and it's going to like the data is going to line up correctly everywhere. But if that's not available, the flow that we have to process the clicks are set up to handle matching by email address as
+Strahinja Vladetic: Yeah, it sounds like we'll be doing that on on our side.
+Kobi Kunasekaran: well.
+Strahinja Vladetic: So before the data even gets there, hopefully it'll be it'll be duplicated into one what we consider a person and then they may have multiple accounts, but we won't that'll be heading from you guys. basically the ID you see will be like will be considered the player and
+Kobi Kunasekaran: Okay.
+
+
+00:06:24
+
+Strahinja Vladetic: and their main account.
+Kobi Kunasekaran: Do do we then need to add like ways for you to update the player record in the future?
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: Like if the email address changes or anything like that? I don't know if that
+Strahinja Vladetic: I don't Yeah.
+Kobi Kunasekaran: happens.
+Strahinja Vladetic: So I think the idea is to do this um initial migration for the existing historical data so that any duplicates that are present right now are rolled up into like a a
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: person. And then once that's done,
+Emily Vandenberg: Okay.
+Strahinja Vladetic: we'll introduce logic in the agency sites going forward so that when new players sign up, we prevent that duplication from happening in the same way that we did the duplication to begin with.
+Kobi Kunasekaran: got it.
+Strahinja Vladetic: Um once that's in place going forward there shouldn't be any more the person and the account should be a one to
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: one. There would just be like historical accounts that have duplicates.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: So, we shouldn't need to a person shouldn't need to change their email, I guess, is what
+
+
+00:07:25
+
+Kobi Kunasekaran: Got it. Okay. I mean, I think it's it's safe to assume like people might want to change your email addresses in the future.
+Strahinja Vladetic: I'm
+Kobi Kunasekaran: Um, but I think like we can cross that bridge when we get there. It's it's not that complicated.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Like you're already you're already doing the upserts for the survey completion or not upsert, but like the update on the player record for survey completion. It would be the same API endpoint for you to, you know, look up a player ID or player optional ID and update the email address. So,
+Strahinja Vladetic: saw that.
+Kobi Kunasekaran: I don't think Yeah.
+Strahinja Vladetic: Okay.
+Kobi Kunasekaran: Uh I think we just need to make sure that we don't add any dduplication logic on our side. Um so that we're not like we're not stepping on each other's feet. Initially we were going to handle the dduplication, but this is better. Um since you're you're going to have like a cleaner database on your side, too. So we'll make sure there's no ddup logic on our end.
+
+
+00:08:10
+
+Kobi Kunasekaran: So we're just going to match whatever you're sending to the API.
+Emily Vandenberg: Yeah. Okay.
+Strahinja Vladetic: three.
+Emily Vandenberg: Can you hear me?
+Strahinja Vladetic: Uh,
+Emily Vandenberg: Sorry,
+Strahinja Vladetic: we can hear
+Emily Vandenberg: you can hear me. Okay, cool. My I froze. Um, all right. That was good. Um, there was a few other things, but we'll we will get into them um through your agenda, Kobe, but that was just kind of fresh out of a meeting Sean I just had.
+Kobi Kunasekaran: Okay. Um yeah, in terms of agenda, I mean, I think um we'll we'll skip like the usual updates like I did put together a list of all of the things that we've done so far, but um it's not like fully polished. There's still I know there's like additional feedback and stuff to incorporate. So, as we complete the sections, I'll just record a video and share um throughout the week so that you know you can take a look at it um on your own time um and and then you know, if you have any feedback, just shoot a message over uh Slack.
+
+
+00:09:20
+
+Kobi Kunasekaran: Um, but for today's call, I think it's a lot of just going through the mockups, um, the integration and, uh, I know you added the architecture technical alignment. Were there any specifics, uh, for this, Emily? I mean, and I I guess like we might as well just get started with
+Emily Vandenberg: Um that was mostly so there was a couple things.
+Kobi Kunasekaran: that.
+Emily Vandenberg: the the person ID and just kind of like that. And then the other thing I just kind of like pulled straw's attention to it before, but straw any issues with the operator partner IDs that Kobe sent over or clarity that you need to be able to ingest that into the into the CMS.
+Strahinja Vladetic: the G sheet that you link to me just now. Um, no, I don't think so.
+Emily Vandenberg: Okay. So that um and you need the those like ids being passed through within the API call Kobe like you'll want the yeah the click.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: So we'll need I think we'll probably need until tomorrow to like turn on testing.
+
+
+00:10:27
+
+Kobi Kunasekaran: Yeah,
+Strahinja Vladetic: Sure.
+Emily Vandenberg: There's a few IDs.
+Kobi Kunasekaran: that's fine.
+Emily Vandenberg: Um, but straw like getting that in. They're updating the API. If you have any questions, just like ping Kobe, but it should be pretty
+Strahinja Vladetic: Okay. So,
+Emily Vandenberg: straight.
+Strahinja Vladetic: you guys have already set these up inside of Salesforce and these are the IDs that you want me to reference them by when I send
+Kobi Kunasekaran: Yes.
+Strahinja Vladetic: you the data. Okay.
+Emily Vandenberg: Yeah. And then like when we get into number two,
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: we're going to talk about like the future. Like this is just to kind of get the initial
+Kobi Kunasekaran: Yeah. This is all sandbox data. So again, all of this can be changed. Um it doesn't necessarily need to be like the final uh data set that we move forward with.
+Emily Vandenberg: ingest.
+Kobi Kunasekaran: So I'm sure as we set up the rest of the integration, things might change. You might send different information. So um we figured like at least we have a starting point to work off
+
+
+00:11:23
+
+Strahinja Vladetic: Yeah,
+Kobi Kunasekaran: of.
+Strahinja Vladetic: that's that's
+Emily Vandenberg: Okay. And then yes, Sh and I were just working through the kind of like active deal.
+Strahinja Vladetic: perfect.
+Emily Vandenberg: So we got everything inputed into the sheet outside of the start date. And I think you might have replied to me, but I didn't see it. Um, like can we just use today as the start date and then like
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: let
+Kobi Kunasekaran: that's that that's what I propose like it doesn't need to be like uh the most accurate information because again testing data and we can assume that all of these deals are active and effective as of today. Um, so any new signups will get captured and allocated
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: correctly.
+Emily Vandenberg: So, does this give you Kobe what you need? And I think we're just gonna start with Alex and
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: Andy. So
+Kobi Kunasekaran: Um, okay. Are there going to be any other agents that are going to get clicks through the
+Emily Vandenberg: if
+
+
+00:12:23
+
+Kobi Kunasekaran: same site that uh is going to be like hooked up to Salesforce?
+Emily Vandenberg: straw is able to unlock the feature at like a slug level,
+Kobi Kunasekaran: Okay. Okay
+Emily Vandenberg: right,
+Kobi Kunasekaran: then.
+Emily Vandenberg: Straw?
+Strahinja Vladetic: Oh
+Emily Vandenberg: So this is like we'll just like point this data to you.
+Strahinja Vladetic: yeah.
+Kobi Kunasekaran: Okay. Okay. Yeah, that works. um if if there are other agent data that comes in, it's just going to like be flagged for review. So, it's not the end of the world. Um it just won't get created the signup records, right? Um because there's nothing to match it up against. Um but yeah, I think I can set these two up. Uh we'll use the external ID. Uh and I might need the email address as well. Um so, we'll just get the user info updated. The rest I think it's okay. Um, I'll get back to you like I I'll try I'll set these set the deals and deal assignments up on my end and then I owe you the IDs for both so you can send that along with the clicks.
+
+
+00:13:22
+
+Kobi Kunasekaran: Um, and then yeah, if anything missing or if we uh if we need anything else, I'll let you
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: know.
+Emily Vandenberg: straw will seed in the like seed the IDs you send back in the database and then we'll just like push them through um until we figure out the two-way communication for the deals. Um, yeah, let me know if there's anything else you need. And then I'm assuming you just need to know like if anything that new gets added, like anytime there's a change to either of these two um, BA's book activity. So like turning on and off,
+Kobi Kunasekaran: Correct.
+Emily Vandenberg: you just need a log of it.
+Kobi Kunasekaran: Correct. Yeah.
+Emily Vandenberg: So I'll
+Kobi Kunasekaran: like essentially like we'll we'll set up the deals for uh for all of these, right? And I'm assuming like the unique combination of like the operator partner market vertical will be a deal. Um and then within that deal, if both Alex and Andy are part of the same deals and they'll have deal rep assignments for both um and as the clicks come in, we'll match those clicks against the deal IDs.
+
+
+00:14:32
+
+Kobi Kunasekaran: um to allocate those signups to the respective deal and deal rep assignment. So yeah, if the if the rep assignment changes,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: if you're adding new reps or um if these reps are getting removed from any of these active deals, then yeah, we'll want to update that in Salesforce. Otherwise, I mean, again, not the end of the world. still test data, but it just means they they'll will keep getting attributed to our signups if uh clicks come
+Emily Vandenberg: Okay, perfect. Yeah. So, we'll hand this over to you now.
+Kobi Kunasekaran: in.
+Emily Vandenberg: Um, straw, we don't have a concept of the BA email, do we? In the CMS right now.
+Strahinja Vladetic: Um, let me just double check.
+Emily Vandenberg: you. I know you mentioned you might need it, Kobe, but
+Joyce Kiddell: I think there was a field for it in the new CMS.
+Kobi Kunasekaran: It's okay if it's not there. Like the external ID is fine and we can just use um like we still need email for the user account,
+
+
+00:15:27
+
+Joyce Kiddell: No.
+Emily Vandenberg: okay.
+Kobi Kunasekaran: but I think there they have they might have user accounts created already with like placeholder emails. So that's all okay.
+Strahinja Vladetic: There is. Yeah. Um, looks like it's set to default at petlab.ca for most of them right
+Joyce Kiddell: We should definitely change
+Strahinja Vladetic: now.
+Emily Vandenberg: Okay.
+Joyce Kiddell: that.
+Emily Vandenberg: Okay. Anyways, see what if you need it, Toby, let us know.
+Strahinja Vladetic: Hold
+Kobi Kunasekaran: Sure.
+Emily Vandenberg: Um and then once you send over the ID, ST will um push those through on our end and then we'll be
+Strahinja Vladetic: on.
+Emily Vandenberg: unlocked and we'll be able to turn on. It won't take much to be able to turn it up. He just has to make a few other small tweaks with the CMS and then we'll be good.
+Joyce Kiddell: So, when are we aiming to go live with this?
+Emily Vandenberg: I would say I mean I'm assuming Kobe it won't take too much for you to set up and get those IDs.
+Kobi Kunasekaran: probably about like tomorrow, latest end of day tomorrow if not
+
+
+00:16:39
+
+Emily Vandenberg: Okay. And then so then straw has to do a few things just like updating the API joist.
+Kobi Kunasekaran: earlier.
+Emily Vandenberg: So, I would say Thursday. What day is it?
+Kobi Kunasekaran: You
+Emily Vandenberg: Tuesday.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: see,
+Joyce Kiddell: So, we launch Thursday and then the goal is just to like ensure that data is flowing properly.
+Emily Vandenberg: Yeah. So,
+Kobi Kunasekaran: all
+Emily Vandenberg: I'll like kind of monitor directly against the signup sheet and like validate the
+Kobi Kunasekaran: right.
+Emily Vandenberg: preopulation of all of
+Kobi Kunasekaran: And then like you'll want to like check the data that's coming in Salesforce against what you have from CMS in terms of clicks and everything. make sure there's nothing missing. Um, we'll look out for errors whether you know on the API side sending data into Salesforce or errors on Salesforce side trying to map uh these to reps and uh existing deals things like that. I think it's it's going to be like good uh good way to just make sure everything's flowing with a subset of data before we turn it on for everyone.
+
+
+00:17:40
+
+Joyce Kiddell: Do we have logging in place on both sides?
+Kobi Kunasekaran: Um, on the Salesforce side, uh, if the clicks run into any errors trying to map to a signup, it just gets flagged for review and we'll have like a report that we can review and close Out.
+Joyce Kiddell: Oh.
+Kobi Kunasekaran: Um but on the API side I think that's uh Charles that's on your side like if there are any failures like Salesforce won't know about them right but once it gets to Salesforce we are able to see what's going
+Strahinja Vladetic: Yeah,
+Kobi Kunasekaran: on
+Strahinja Vladetic: on our side we'll be posting the messages to pubsub and then sending them that way. Um, so we'll have like a durable queue in front so we'll know if something fails and it'll go into a dead letter that we can inspect
+Kobi Kunasekaran: I
+Strahinja Vladetic: after the fact.
+Joyce Kiddell: What's hub sub?
+Strahinja Vladetic: It's just a Q just the Q um service in Google
+Joyce Kiddell: Okay. Um, so when we did our last test like this,
+Strahinja Vladetic: Cloud.
+Joyce Kiddell: we had a Slack uh channel that like surfaced all of the errors coming through.
+
+
+00:18:45
+
+Joyce Kiddell: Um, is that a quick thing you could set up or if it isn't then don't worry about it. It would just be good for us to have like kind of real time
+Strahinja Vladetic: Uh yeah, that's not a bad idea.
+Joyce Kiddell: visibility.
+Strahinja Vladetic: It's it be good to get a Slack connector on there regardless. Um, so yeah, if something fails, you guys just want a notification like something didn't get through the
+Joyce Kiddell: Yeah. Yeah.
+Strahinja Vladetic: queue.
+Joyce Kiddell: I can add you to the existing one.
+Emily Vandenberg: I was going to say I can add Yeah,
+Joyce Kiddell: Are you doing that?
+Emily Vandenberg: I do that.
+Joyce Kiddell: Sorry, I'm just eating.
+Strahinja Vladetic: And uh we do have some logging in place,
+Emily Vandenberg: Um,
+Strahinja Vladetic: but I'll review it again just to make it a little more a little more robust.
+Joyce Kiddell: Yeah. And it's just specific to this endpoint,
+Strahinja Vladetic: So yeah,
+Joyce Kiddell: right? Like Yeah. Okay.
+Strahinja Vladetic: so we can track issues if they happen.
+Joyce Kiddell: Mhm.
+
+
+00:19:34
+
+Joyce Kiddell: Mhm. Oh,
+Kobi Kunasekaran: It's a big milestone. Looking forward to it.
+Joyce Kiddell: exciting.
+Emily Vandenberg: Yeah, this will be good. Um, the only thing I'll say is like I'm off Thursday, so maybe we end up pushing it to Friday. Let's see how it all kind of like shakes out. Um, but I think like this week we will be we will be pushing this data live. And Kobe like on our end, I know we talked about it last week, these are smaller. Alex is a little bit I would say maybe more medium. Um, but volume the next step then after will be like to to push through like a a larger volume rep and then we'll test that and then we'll have some kind of like dual dual logging practices testing. Okay. Um, Strahinja, was there anything else that we were chatting about prior that we needed to bring into Kobi?
+Strahinja Vladetic: um just the connection from Salesforce to uh the CMS. But it sounds like you guys don't want to address that right now.
+
+
+00:20:49
+
+Strahinja Vladetic: That'll probably be part of the next phase like um
+Joyce Kiddell: I uh I just shot a message over Slack. It's like the a clawed export basically of cuz like I've scoped a bunch of like the data fields and stuff that we want um for the Salesforce screens and it also has a context around like what kind of lives in the CMS today. Um so I just asked it to like spit out like what are the fields we need to kind of pass back and forth. So I don't know if you guys can review that and let me know if it makes sense.
+Strahinja Vladetic: Yeah. So, it's basically describing that the Salesforce lets the CMS know about a deal.
+Joyce Kiddell: Yep.
+Strahinja Vladetic: The CMS lets the Salesforce know when we add a new rep,
+Joyce Kiddell: And and assign a deal to a like a link.
+Strahinja Vladetic: right? Okay.
+Kobi Kunasekaran: Mhm.
+Strahinja Vladetic: Yeah. So we the communication to Salesforce is set up. Um it's just a matter of um Kobi making that available in in the tables or however that's being built over there.
+
+
+00:22:05
+
+Strahinja Vladetic: Uh but we still don't have a connection from this from Salesforce to the CMS that communication link isn't there. H have you guys thought about how you want to or how does that normally uh get
+Kobi Kunasekaran: I assumed it was going to be like an endpoint that we you would have on the CMS side that we would build around.
+Strahinja Vladetic: built?
+Kobi Kunasekaran: Um that's generally how integrations work with Salesforce.
+Strahinja Vladetic: Okay.
+Kobi Kunasekaran: Um so and and you know with with the endpoint whatever uh the fields the the payload that you would need um you can share those and we can we can structure the data uh we have a lot like it's a lot a lot of this is going to be like Apex and like uh code base so we can structure the data quite a bit uh to whatever is needed on the API endpoint. So I assumed there was going to be some sort of endpoint that we could hit on the CMS side for uh for the actions that we'll need to carry out. Um and yeah and whatever you need in terms of fields and data uh data points from the deals and links and everything um just let us know.
+
+
+00:23:11
+
+Kobi Kunasekaran: We can set that up on our end.
+Strahinja Vladetic: Okay, that that makes it easy. Um, I guess the only other question I had, we were talking about a scenario where when I post the data, for example, in the case that I post a surveill you guys can't respond to that API request,
+Kobi Kunasekaran: Mhm.
+Strahinja Vladetic: right? You can't respond with the deal ID. You would do it like asynchronously. So once that once you've created the deal or consolidated the deal on your side, then you would post back
+Kobi Kunasekaran: So, I think it depends on the on the records or the object that you're saving or sending or updating. Um, so for example, like if you're creating like a player record, which I I know we're not doing right now, but if you create a player record, it will send back the ID of the record that's created. Um, but so far in the whole signup login experience. Uh all you're doing is creating a signup record or the sorry not even a signup record you're creating like a SLC sign up or study link click record.
+
+
+00:24:10
+
+Kobi Kunasekaran: Um so it does send that information back but that SLC doesn't get processed until after it's created. So it won't actually know the deal ids or anything that the the resulting signup record is associated to until much later.
+Strahinja Vladetic: Okay. And at that point when you guys discover that then you would post back to the CMS API to let us know that this deal was created right in the future once we have this sales
+Kobi Kunasekaran: So for deals, I believe the way it's going to work is um deals are going to be created separate from the clicks,
+Strahinja Vladetic: promise.
+Kobi Kunasekaran: right? Deals are going to create created first. Um we'll create the deals with the links and all that information and that would get sent to the CMS through whatever endpoint it is. So that's when I could send you the the IDs, um the link ids, um whatever information is needed from a from a deal perspective on the CMS side. Uh when the deal is configured in Salesforce, we'll send that over and then I believe the rep assignment, correct me if I'm wrong, we're still doing the rep assignment on the CMS side.
+
+
+00:25:12
+
+Kobi Kunasekaran: So that would be sent back to Salesforce uh using the deal ID that we had just previously sent. Um and then so that's that in terms of deal and deal rep configuration. Um and then when the signups start coming in those would be you're setting those uh sorry you're creating those SLC clicks with the respective deal ID and DRA ids and then we just map it uh map those SLC clicks against those uh Salesforce deal IDs and DRA ids and creating the signup records based off of that.
+Strahinja Vladetic: Okay, that makes
+Kobi Kunasekaran: Um, so yeah,
+Strahinja Vladetic: sense.
+Kobi Kunasekaran: for for deals, I think like it's the ultimately what information you need from Salesforce, uh, you just have to let us know and like either ways we're going to have to like build it out. But we need to know what that API endpoint is, what are the requirements, like what are the fields, what's the structure for the payload. Um, so we can set that up.
+Joyce Kiddell: I think that's what's in the first paragraph there.
+Kobi Kunasekaran: Yeah.
+
+
+00:26:19
+
+Kobi Kunasekaran: And and again, this is like this is fun, but I think you need to set that up on the API endpoint first, right?
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: And then like once you've like confirmed that,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: just send send us the details and uh we can uh we'll start building out the API calls from our end. We'll probably test it with like you know postpin and stuff first, make sure it works. Uh we're able to structure properly and then move it to Apex.
+Strahinja Vladetic: U one other thing I guess what about securing that endpoint?
+Kobi Kunasekaran: uh authentication. Uh I it depends like we can use um yeah
+Strahinja Vladetic: So you guys can do that through Apex like if I added authentication on top
+Kobi Kunasekaran: absolutely absolutely it's either like um I can get back to you on the details like there there are different options that we can do. set up like named credentials. Um, and it could be like API keys. Uh, I don't know if it does oath. Um, I don't know.
+
+
+00:27:14
+
+Kobi Kunasekaran: I don't imagine we'll probably use oath. I think it's usually going to be like API key and secrets and uh things like that because it's going to be
+Strahinja Vladetic: Yes.
+Kobi Kunasekaran: persistent, right? Not going to be like user login. So, uh, I can send a bit more information about that. We can set that up.
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Claude recommended IP white list plus API key. I don't know if that's the right way to do it.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: That seems good.
+Kobi Kunasekaran: IP white list on the CMS side.
+Strahinja Vladetic: Generally,
+Joyce Kiddell: What?
+Kobi Kunasekaran: Uh IP white list on the CMS side or uh Salesforce side.
+Joyce Kiddell: Probably on the CMS side.
+Kobi Kunasekaran: We can also do whitel list on the Salesforce side. I mean right now it's pretty open. So you know you do need the API keys to be able to send data to Salesforce. So if you want additional security, we could set up like restricted uh access to integration
+
+
+00:28:10
+
+Joyce Kiddell: straw. Is that a good thing?
+Kobi Kunasekaran: user.
+Joyce Kiddell: You want to do that?
+Strahinja Vladetic: I I think we're okay for now. We've got to set it through the Yeah, through the API key. That should be enough. Um, if you guys want added security, we could talk about that, but this is like an internal thing that we both own. So, there's not really much risk.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: I just wanted to make sure that the MON our side was similarly secured.
+Emily Vandenberg: So Strahinja then that sounds like the next step. I think there's like a few things to be kind of discussed on CMS but like you taking this um and kind of building that out and the requirements documenting kind of requirements servicing endpoint surfacing the endpoint and then Kobi taking it from there.
+Strahinja Vladetic: Uh yeah.
+Emily Vandenberg: Is that
+Strahinja Vladetic: Yeah, I I could open up an endpoint with this specification. Just make sure it aligns with database, the one that Joyce is laid out here.
+Emily Vandenberg: right?
+
+
+00:29:09
+
+Strahinja Vladetic: And then um yeah, I'll just keep it public for now just so we can test and then we can introduce the
+Kobi Kunasekaran: credential. Doctor
+Strahinja Vladetic: Yeah.
+Emily Vandenberg: Okay. And we'd like to right Kobe like you're pretty you're getting close on your end. So like as the next kind of being able to test this in short order. So if we can prioritize
+Strahinja Vladetic: So this isn't required for the initial test you guys want to do on Thursday, right?
+Emily Vandenberg: no
+Strahinja Vladetic: Okay.
+Kobi Kunasekaran: I think this between this and like storage proofs. One of those two is probably the next natural milestone that we want to hit after the initial testing. Um I mean we can all we can have additional MTOS. in between like I'm I'm sure like once we have the signup links coming in it's it's actually a good idea to get like one or two reps to come in and actually work through that signup blogging experience as well. It's a good opportunity to get some early feedback.
+
+
+00:30:12
+
+Kobi Kunasekaran: Um so that could be the next milestone.
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: Um and then we can work towards building this out as the next like next phase of the integration.
+Joyce Kiddell: Yeah,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: but like I think until we have that kind of fully understood, let's just focus on the deal stuff. That's okay.
+Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. Um are are we good with like for the time being like if we start pressing the like a setup workflow with reps that the expectation is you just base links for the different proofs in Salesforce.
+Joyce Kiddell: Mhm. Mhm.
+Kobi Kunasekaran: Okay. Okay. All right. So I I did have Cedric like start onboarding on this but he wasn't going to be ready until like Thursday to uh start building anything.
+
+
+00:31:12
+
+Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead for uh setting up the the page next call and
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: everything. Yeah, I'll I'll read through this in in a bit more detail as well, Josh, and I'll let you know if uh like just quickly going through this. I don't see any issues. That makes
+Joyce Kiddell: The only thing that I saw and corrected in the sock message is that it said return a value of null for direct
+Kobi Kunasekaran: sense.
+Joyce Kiddell: deals. And I think like we should probably still have um direct at passed as a value,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: right?
+Kobi Kunasekaran: Right now we've built it so that direct is like there's a partner for direct and that's the partner
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: that gets added for all the direct deals.
+Joyce Kiddell: Yeah. Yeah. So I I think we should keep it as is true and like change the null to just send a value of partner.
+Kobi Kunasekaran: Yeah.
+
+
+00:32:24
+
+Kobi Kunasekaran: Yeah. I think the rest the rest looks pretty good. Um and the field list like as as it evolves, I know there are some mockups that we're going to go through. Um so as it evolves, we can always change them. I don't think it's like nothing's really set in stone or blocking at this
+Joyce Kiddell: There was a question in there straw for what's the trigger for passing rep information to the
+Kobi Kunasekaran: point.
+Joyce Kiddell: CMS. And um from my perspective, it's just like there's a button. I forgot exactly what it says, but when you go to create a new wrap in the the CMS, you just fill out all the fields. And then there's a button that says like make or create or whatever it is and just use that as the event that then pushes the rep information to Salesforce.
+Strahinja Vladetic: Yeah, that makes sense. Whenever it's created on our side, we just push it to them.
+Joyce Kiddell: Yeah. Yeah. Hey.
+Kobi Kunasekaran: When you say rep information, you're talking about like the deal rep assignment, right?
+
+
+00:33:24
+
+Kobi Kunasekaran: creating net new reps in Philforce.
+Emily Vandenberg: CMS. She's saying creating it on the CMS and sending the ID through
+Kobi Kunasekaran: Okay. Like for the deal rep relationship, not like brand new reps that are being introduced to the systems.
+Joyce Kiddell: I was thinking both, but is that not what you want?
+Kobi Kunasekaran: Um, so for reps like they need to be Salesforce users. So generally you would set like that would be part of like an admin task on Salesforce with somebody to go in and
+Emily Vandenberg: Oops.
+Kobi Kunasekaran: add the user as a record, add the permissions and everything.
+Joyce Kiddell: Uh,
+Kobi Kunasekaran: So that would be like a prerequisite and then yes like you can have uh CMS send any additional information but I don't think we can get away from the admin task of uh setting up the user account in
+Strahinja Vladetic: Would
+Joyce Kiddell: right. That's a really good point.
+Kobi Kunasekaran: Salesforce.
+Joyce Kiddell: Okay.
+Strahinja Vladetic: we do we trigger that programmatically? Like there's or that would be way more
+Kobi Kunasekaran: I I I think we can,
+
+
+00:34:29
+
+Strahinja Vladetic: complicated.
+Kobi Kunasekaran: but I personally I think it adds a lot of overhead because the the the user configuration changes and evolves over time and you're going to like there's going to be new permission sets added and everything that um from an admin perspective like you'll just have a checklist to go through. Um, making sure that your system is updated every time those things change might be a lot. Uh, for something that's going to happen, like, you know, like how how often do you hire new reps, right? Uh, it's so infrequent that it's probably best to leave it for an event to
+Strahinja Vladetic: That makes sense.
+Kobi Kunasekaran: do.
+Strahinja Vladetic: So there might need to be some sort of manual workload then choice where they go into the CMS and update it with the rep ID from Salesforce or vice versa.
+Joyce Kiddell: Uh yeah. So I don't know if that step for passing rep information is needed anymore or if it's like just to support the deal rep assignment piece like you guys you guys tell me.
+Strahinja Vladetic: It could still work potentially if the rep's already been set up in Salesforce and we can notify them and we agree that like the rep's using a
+
+
+00:35:47
+
+Kobi Kunasekaran: Mhm.
+Strahinja Vladetic: unique email or something and then they can like make that link. Um, we just have to know that that's if that's the workflow, we can leave this in there. But if they don't follow their workflow, we try to send them one that's not been set up in Salesforce, then we can.
+Kobi Kunasekaran: I mean, it's not the end of the world. It's going to flag it in Salesforce anyways to say like there's no rep found, fix the rep,
+Strahinja Vladetic: Yes.
+Kobi Kunasekaran: and then uh reprocess the SLC. Um, but yeah, like I think the process is like create the rep record or the user record in Salesforce and then
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: if as long as the email match, we could have the CMS set the external ID once that's created in CMS.
+Strahinja Vladetic: That seems good. Yeah. Yeah. Yeah. And if it fails on the CMS side, we can also notify the user and be like, "Go set it up in Salesforce." Fight.
+Kobi Kunasekaran: Yeah, I think it's safe to assume like we're going to go with go forward with like all the existing reps, right?
+
+
+00:36:39
+
+Kobi Kunasekaran: So, we shouldn't run into this problem. Um, and then it's just going to be like as you onboard new people. So, uh, not too worried about that right
+Strahinja Vladetic: Uh Jose, are you going to update the spec or do you want us just to
+Kobi Kunasekaran: now.
+Strahinja Vladetic: make just make notes about that or we'll just tack it up later?
+Emily Vandenberg: We'll we'll update it.
+Kobi Kunasekaran: Okay. Um, so anything else for the integration piece that we need to
+Joyce Kiddell: Sorry, what are what are we updating?
+Kobi Kunasekaran: discuss?
+Joyce Kiddell: I had to go get Kleenex.
+Emily Vandenberg: just the kind of like man the workflow between um rep creation I guess so like Salesforce first we create the account there um and then once the rep's created on the CMS set it'll send the unique ID to match Match them by
+Joyce Kiddell: Okay. Do I need to update anything or can you guys take it from
+Emily Vandenberg: email.
+Joyce Kiddell: here?
+Kobi Kunasekaran: I think we can. I think like once um so I I had put this Oh, no.
+
+
+00:38:02
+
+Kobi Kunasekaran: This is not this one. This one together that we reviewed, right? And it sounds like we're going to change quite a bit of this. So I could fold it into the updates for this later. um like once we figure out what's happening with the endpoint and um once we have like those payloads and everything configured SH like if you let me know um I'll update everything on the on the main doc that we created for the CMS integration but we don't lose
+Joyce Kiddell: Okay, perfect. Because yeah, the main thing um I think you were waiting on us for was like what what data to pass
+Kobi Kunasekaran: anything.
+Joyce Kiddell: and I at least got you that I think right in that first paragraph. Good.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Cool.
+Kobi Kunasekaran: Okay. Um, yeah. Okay. So for CMS and just to make sure we're aligned on the next steps, um just probably you're going to take away the uh the spec that go shared in terms of the field and everything and set up an endpoint and provide us the details on how to uh how to essentially like create records uh I guess of endpoints and then once we have that we'll start setting setting up the API calls on our end um and then we can add the O layer afterwards uh once we have some data passing through and we're good with the payloads
+
+
+00:39:20
+
+Kobi Kunasekaran: uh and then same like once I have that information I'll also update the initial API docs that we started creating waiting for this design with the updated information.
+Strahinja Vladetic: Uh, perfect.
+Emily Vandenberg: Good.
+Strahinja Vladetic: Yeah.
+Emily Vandenberg: And then Strahinja if any questions like kind of come up throughout just like ping Kobe in the Slack
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: channel.
+Strahinja Vladetic: Okay.
+Kobi Kunasekaran: Um, okay. So, next one item I have here is the deal object schema and the partner. I think we already talked about this though, right? Uh, were there any other questions on the deal and deal ID uh structure or anything that we needed for the signup logging?
+Emily Vandenberg: Um, no, we were able Strong and I were able to align before and then you kind of close that out. Um,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: above. So,
+Kobi Kunasekaran: Perfect. Okay. So,
+Strahinja Vladetic: just for the sake of time. Do you guys need me going forward? It seems like we're I can stick around if you want.
+
+
+00:40:31
+
+Emily Vandenberg: I think no I think those were the main things unless Joyce as we go
+Strahinja Vladetic: I'm just
+Emily Vandenberg: into some of the mockups that you sent through you want to have straw there.
+Joyce Kiddell: Nope, we're
+Strahinja Vladetic: Cool.
+Joyce Kiddell: good.
+Strahinja Vladetic: Okay. Thanks, guys.
+Emily Vandenberg: All right. Thanks
+Kobi Kunasekaran: Thanks, T.
+Joyce Kiddell: Okay. Um, am I good to jump into this?
+Kobi Kunasekaran: Yes, let's do it. Stop preventing
+Joyce Kiddell: So let's start with the deal and link
+Kobi Kunasekaran: me.
+Joyce Kiddell: scope. So deal was more or less done I think on our end. Um but I wanted to like tie it together to the link object and there were a couple of fields I think based off of our past few meetings on the deal level that weren't there originally. So I just tried to update it. um including like the the link to the pitch, right? Like we discussed that being a file that we could link to.
+Kobi Kunasekaran: for the pitch link like uh do we decide it's going to be like one link for the deal or
+
+
+00:41:39
+
+Joyce Kiddell: Um
+Kobi Kunasekaran: would you have multiple uh Thanks.
+Joyce Kiddell: it would just be one just Yep.
+Kobi Kunasekaran: Just one. Okay.
+Joyce Kiddell: Yep. Yep. Yep. Um, I think the rest of this we talked about. Um, but I wanted to show you kind of like how I see Oh, this is weird. That's not Yeah, all the columns are kind of messed up. Um, but the idea would be that like links are objects that appear underneath the deal details. Is that still correct? Okay. Um, and then when you go to edit a link,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: um, I know this is not a true Salesforce UI, but just bear with me. Um, and that like the ID I would think just follows like some sort of numerical like like an automatic um, naming convention like some sort of sequence and then code would be, you know, what the team is using today like usually tied to like some sort of campaign.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um, but I think if we just keep it, you know, open-ended, that's probably fine.
+
+
+00:42:54
+
+Joyce Kiddell: Um,
+Kobi Kunasekaran: Does it need to be unique or are we good to leave it open?
+Joyce Kiddell: well, that's a good question. Um, because I know today they're using the same code across multiple links. So,
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: I think if we can just keep it to not unique for now. Um, but I think eventually we'd want to move towards like a a business process internally where it is unique,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: but I think for right now, let's not rock the boat or make it harder.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um, and Emily, correct me if I'm wrong, but
+Emily Vandenberg: Yeah, I know. I agree.
+Joyce Kiddell: okay.
+Emily Vandenberg: I'm just looking.
+Joyce Kiddell: And then you would add a URL like whatever the link is and then a cap.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: So this is the idea of like sometimes we shouldn't have like let's say more than um two people like these are just random numbers but like a cap would be like if you know sometimes the links are shared but we shouldn't have more than two people on that link and then you would make like two and then that would be like a rule set that gets passed
+
+
+00:44:00
+
+Emily Vandenberg: I don't know.
+Joyce Kiddell: the CMS so that when we do the actual link assignment there's like some sort of validation that tells you like you're over your cap. That make
+Kobi Kunasekaran: Yeah. So,
+Joyce Kiddell: sense
+Kobi Kunasekaran: we don't need to do any validation on our end. We just need to like pass the information that's here to CMS and it'll make sure.
+Joyce Kiddell: to configure it. Yeah.
+Kobi Kunasekaran: Okay. Yeah, that's fine.
+Joyce Kiddell: And if there is no cap, then it's just like zero and unlimited to like however many you need on one
+Kobi Kunasekaran: Zero.
+Joyce Kiddell: link. Excuse me. And then just active or not active. And then you should be able to quickly add a link here, too.
+Emily Vandenberg: Uh, okay. Sorry, I just got to think through this for one sec. So, active meaning like when it pushes to the CMS, it would um be available within the dropdown versus like not.
+Joyce Kiddell: Yes. Yeah. Yeah.
+Emily Vandenberg: Okay.
+
+
+00:44:54
+
+Joyce Kiddell: Exactly. So these three would not be available in the CMS but these two would be.
+Emily Vandenberg: cuz technically okay they're all like Yeah. Okay. We might just want to like update cap because that threw me just like in terms of like what it's actually doing. I was thinking you were capping the number of like signups to that link.
+Kobi Kunasekaran: That's what I thought.
+Joyce Kiddell: Okay. Yeah, we can call this whatever like assignment cap
+Emily Vandenberg: So let's Yeah.
+Joyce Kiddell: or Okay.
+Emily Vandenberg: shared. Yeah.
+Joyce Kiddell: assignment cap it is
+Kobi Kunasekaran: S
+Emily Vandenberg: and then active.
+Joyce Kiddell: underneath and then
+Emily Vandenberg: Okay. So
+Joyce Kiddell: ideally like oh I even call it assignment cap here.
+Emily Vandenberg: then
+Joyce Kiddell: I don't know why it's um shorter here, but yes, assignment cap. Um and then like these columns are very much mismatched, but it' be like number total of active assignments and that means like how many reps have that link. Um and then the active should sit above the toggle, yes, no.
+
+
+00:45:55
+
+Joyce Kiddell: So it's like a quick ability to edit it if you need to. Um, I don't know if it's easy to like allow them to edit here, but then also edit here
+Kobi Kunasekaran: the toggle, the inline toggle might be tricky. Um, but I'll let you know what like worst case there might be like a edit button that lets them edit just that
+Joyce Kiddell: like this.
+Kobi Kunasekaran: record. Yeah, something like that. That's always possible. Uh,
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: but we'll see what we can do. Some sometimes we are able to like play around with the button placement on the rel
+Joyce Kiddell: Okay. Okay. And I don't know why it's like a check mark here,
+Kobi Kunasekaran: list.
+Joyce Kiddell: but then it's toggle everywhere else. But you see what I mean? And that like I don't like I think there is a mockup for like a actual record page. Or maybe there's not.
+Kobi Kunasekaran: Yeah, there there's another one
+Joyce Kiddell: Um yeah.
+Kobi Kunasekaran: yet.
+
+
+00:46:42
+
+Joyce Kiddell: So like this is fine but like I think that the actual like usage will be either like in this table view for like a quick glance individual like modals or like the ability to mass edit like this.
+Kobi Kunasekaran: Yeah. Yeah, that's we should be able to do
+Joyce Kiddell: Okay,
+Kobi Kunasekaran: it.
+Joyce Kiddell: great. Yeah, it looks normal here now. active send me active. I don't know. I don't know, man. Just the the deal prototype that was messed up. But you see what I'm trying to
+Kobi Kunasekaran: Yeah. Yeah, we'll use this one.
+Joyce Kiddell: get.
+Kobi Kunasekaran: I think this is the actual like final version that God put together for the actual link. So,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: use
+Joyce Kiddell: Yeah. Perfect. Okay.
+Kobi Kunasekaran: this
+Joyce Kiddell: Um, so, uh, that was the link one and then I think I sent through one for, um, the people this one. Yeah. Okay. So, let's start with maybe a brand ambassador.
+
+
+00:47:53
+
+Joyce Kiddell: That's kind of easier. Um, these are the statuses on the right here. So a BA can be active. active, paused, under review, inactive, or terminated. Um, Emily, this aligns with like the feedback you and Lena had, right?
+Emily Vandenberg: I don't know if we commented on the status, but what would review mean?
+Joyce Kiddell: Like ops is actively taking a review. Like maybe we just take out review and then pause is kind of implied that they're under
+Emily Vandenberg: Yeah.
+Joyce Kiddell: review. Okay, sorry. Um Kobi live, we're going to remove review. Okay, so it's active, paused, inactive, and terminated. And the logic for inactive could be like they haven't pushed sales for like I don't know, this is like more of a Lena question, but like 30 days. Emily
+Emily Vandenberg: Uh, I'm sorry. I'm thinking that through. Um, let's say 45, but maybe Oh, there. Speaking of Lena, that's perfect timing. We
+Lina Ceniccola: Sorry I got caught up in some craziness, but I'm
+
+
+00:49:11
+
+Emily Vandenberg: Oh,
+Joyce Kiddell: Oh, good. We had our first um question that's kind of relevant to you anyways that just came up.
+Lina Ceniccola: here.
+Emily Vandenberg: good.
+Joyce Kiddell: Um, not to say that you would provide a ton of value for the rest of the meeting, too, but this one you're uniquely qualified to respond to. So, um, we're just reviewing the mockups for brand ambassadors, like the the record page for statuses.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: We're thinking, and I think this is is based off of your meeting with Emily, but active paused. We're going to take out review because if they're paused, that means that like we're reviewing them. Right. So, it feels redundant.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: And then inactive and terminated. Um, if they're inactive, is there like a certain date thresholds like 30 days, 45 days that we would want to wait until we consider them inactive? And that means like they're just not pushing sales.
+Lina Ceniccola: if it's I think it's really only active, paused, or terminated cuz like they don't
+Joyce Kiddell: Okay, no problem.
+
+
+00:50:24
+
+Lina Ceniccola: just they don't just like stop pushing and then we're like,
+Joyce Kiddell: Ghost.
+Lina Ceniccola: "Hey, are you pushing?" It's like we'll we just terminate you.
+Joyce Kiddell: Okay. If they're in that in between period, that's probably paused anyways.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Okay.
+Lina Ceniccola: If it's a matter of like we're investigating and then terminating them, there's there's only those
+Joyce Kiddell: Got
+Lina Ceniccola: three.
+Kobi Kunasekaran: We terminating like are we talking about like deactivating the user from Salesforce as well?
+Joyce Kiddell: it.
+Kobi Kunasekaran: All right.
+Joyce Kiddell: Yes.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Okay. Okay. Yeah. Like so in terms of like the brand ambassador record like essentially the user record itself,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: the one that's like for uh like ownership assignments and everything in Salesforce. That one we can't really customize a lot uh a lot of information like we can't do rollups or anything like that. Um but it is necessary for you know reps that need to own records like own signups and for like sharing and privacy and everything for them to have their own user record.
+
+
+00:51:28
+
+Kobi Kunasekaran: Um and for Brad and positive what I'm thinking like we'll create a custom object and it'll be linked to the user record. We'll pull whatever information like the email address, phone and everything from the user record. Uh as well as like sync the statuses. So if the user record is deactivated um then we can mark this as terminated or like show it as a separate status. Um and then that way in the custom object uh for the brand ambassador we can roll up all the information about the signups and everything uh to you know have like a record page like this.
+Joyce Kiddell: is it just rollups that you would use that like custom record for
+Kobi Kunasekaran: uh pretty much like everything like we we we can't really customize that user user record page uh
+Joyce Kiddell: like at all?
+Kobi Kunasekaran: that is meant for like no like we can add fields but not like to the level of this like there's no lightning page or anything like that that I'm aware of like I can check and confirm but 99% of the time if you need to see like a contact level information it should be a separate object
+
+
+00:52:27
+
+Joyce Kiddell: Yeah. Okay. Cuz if it's just um the roll up like total signups like I think
+Lina Ceniccola: Okay.
+Joyce Kiddell: it's okay and like Emily and Lena you weigh in but we can always create a
+Lina Ceniccola: Bye.
+Joyce Kiddell: report to get to this number.
+Kobi Kunasekaran: breath.
+Joyce Kiddell: So like I don't I don't think we need to make a a completely different object type to support a
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: roll up if it's going to be more effort, you
+Kobi Kunasekaran: it's a rollups like you have like blist below um of like the assigned deals,
+Joyce Kiddell: know,
+Kobi Kunasekaran: the players, things like that. I don't know if we can do and again I'll double check and confirm, but you can pull that information together in reports like you said because it's based on ownership, right? So we always have like those user lookup fields. Um but visually I don't think we can vent it the same way as we can for any other
+Joyce Kiddell: That's fine. I mean,
+Kobi Kunasekaran: records.
+Joyce Kiddell: if it's if it's easy enough to just like surface reports based off of owner and it's more less time to do that than it is to create a custom object,
+
+
+00:53:25
+
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: I think we're probably more on the report side.
+Kobi Kunasekaran: You good with that? Okay. Okay.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Okay. I I'll take that away. I'll get back to you. I'll confirm like what how much how close we can get to this with just what's uh what's out of the box to the user record and then if we need to do anything else beyond this.
+Joyce Kiddell: Okie dokie. Because a lot of this stuff is pretty static like when you get down here.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Uh I don't know why restriction detail shouldn't be there.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: I don't know why. the
+Kobi Kunasekaran: like generally feels like custom fields we can we can create but it was the the related lookups uh sorry
+Joyce Kiddell: act.
+Kobi Kunasekaran: the related lists that I saw down below uh and things like that that I assumed like you
+Joyce Kiddell: Yep. Yep.
+Kobi Kunasekaran: you want like a separate view similar to like players so you can see all the signups that they brought in uh but if you
+
+
+00:54:07
+
+Lina Ceniccola: I'm
+Joyce Kiddell: That's Yep.
+Kobi Kunasekaran: don't do that then we can use the out of the
+Joyce Kiddell: Okay. Um so active uh paused and terminated are the
+Kobi Kunasekaran: fun.
+Joyce Kiddell: three statuses. Um brand manager cannot be easily added as like a
+Kobi Kunasekaran: Yeah, there is a out of the box manager field that comes with uh like sharing
+Joyce Kiddell: lookup.
+Kobi Kunasekaran: controls. So, how it works is you have a you have a user and then the user can have a manager. Um and uh I believe we talked about like uh users not having access to see other people's signups.
+Lina Ceniccola: Ready?
+Kobi Kunasekaran: So when we set up those restrictions um if we use the out of the box manager field uh then the manager can see everybody's uh signups so they won't be restricted uh at the user level. So I I would recommend trying to like see if we can set it up that way first and then if we need uh anything outside of that we can uh we can talk about it and add custom
+
+
+00:55:09
+
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: fields
+Joyce Kiddell: Hey
+Kobi Kunasekaran: and assuming it's like one to one right like a BA is only going to have a single manager right yeah okay I think we can we can work with the manager
+Joyce Kiddell: Yes. Yeah, I think that should be fine.
+Kobi Kunasekaran: field.
+Joyce Kiddell: Um, would a brand manager see the their BA's like sign up
+Lina Ceniccola: Okay.
+Joyce Kiddell: records or would they just see a roll up of the number of signups?
+Kobi Kunasekaran: Uh, they could see both. Is that a problem?
+Joyce Kiddell: I don't know, Lena, Emily.
+Lina Ceniccola: Do you can you repeat
+Joyce Kiddell: So, if we use the manager fields in Salesforce and managers would be able to
+Lina Ceniccola: that?
+Joyce Kiddell: see the actual like sign up names like all the the actual sign up details for their brand ambassadors.
+Lina Ceniccola: Yeah, that's fine.
+Joyce Kiddell: Okay.
+Lina Ceniccola: We want that.
+Emily Vandenberg: just theirs though,
+Joyce Kiddell: Okay.
+Emily Vandenberg: right? And like anything like if there's a hierarchy go
+Kobi Kunasekaran: It would be that hierarchy.
+
+
+00:56:24
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: down.
+Kobi Kunasekaran: So like brand managers like everybody's a user, right? Even brand managers would be technically users.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: So you could have like you know hops above the back as managers for the brand manager and the hierarchy works in that like the further up you go the you can see everybody's records that are below you but then like you
+Emily Vandenberg: That's fine. Right.
+Kobi Kunasekaran: know BMS uh or sorry BAS won't necessarily be able to see other people's signups um or you know deal assignments or anything like that. Um, and BMS. I think we can also set it up if you want them to only see the deals uh that are like allocated to the BMS or the VAS that they that report to them. Uh or if they're good to see everybody's deals, then I think we can set it up that way too.
+Emily Vandenberg: Yeah,
+Joyce Kiddell: Okay.
+Emily Vandenberg: it would just be based on who the manager
+Kobi Kunasekaran: It's a manager. Okay. Okay.
+Joyce Kiddell: Yeah, I think we can use out of the box manager.
+
+
+00:57:24
+
+Emily Vandenberg: hierarchy
+Joyce Kiddell: That's fine. Um, and then I don't know how critical this is,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: but we have a concept of kind of like who who's at uh BA's like uh primary market versus secondary markets. So a BA could like have most of their network in Ontario, but we just like opened up business in Alberta, right? Um, so from a reporting perspective, it'd be good to see kind of like um how they're performing against their primary versus secondary markets, but I wouldn't say it's like a showstopper.
+Kobi Kunasekaran: Well,
+Joyce Kiddell: So
+Kobi Kunasekaran: this like I'm assuming the primary market would would be like a single pick list and then secondary markets would be multi-pick list.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: like Yeah.
+Lina Ceniccola: Uh, I guess you could just do pick list for both.
+Kobi Kunasekaran: But then they would only have like one and they can only do like one secondary market. Is that okay?
+Emily Vandenberg: No, you would want um
+Kobi Kunasekaran: You want multiple, right?
+Emily Vandenberg: Mhm.
+Kobi Kunasekaran: I think in this case like we can we can start with the multiplic multiplicist are great for
+
+
+00:58:46
+
+Lina Ceniccola: I'll be
+Kobi Kunasekaran: reporting sometimes because the way it groups uh based on the secondary
+Lina Ceniccola: back.
+Kobi Kunasekaran: market you know if if somebody has like Alberta Ontario and then somebody has Alberta Ontario BC like you're going to see those as two separate entries in reports it's usually like one of the reasons why we avoid the multi list but I think for this purpose I don't know we want to get away from Man, I think that that' be sufficient.
+Joyce Kiddell: Okay, I'll leave that with you. But yeah, you understand the data we're trying to get at. So, um, total signups, we would remove this based off of what you just said.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um, start date is important. You know, it's like when they officially started working with us. Um, you had, I think, end date previously. Um, or maybe Claude just came up with it initially, but like I don't I think it's one of those things where the end date would just be based off of when they're terminated.
+Kobi Kunasekaran: Okay. I think we should add an automation to track that.
+
+
+00:59:51
+
+Kobi Kunasekaran: I don't think it does that automatically.
+Joyce Kiddell: Yep. Okay, perfect.
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: I think we No.
+Joyce Kiddell: Um uh sorry am
+Emily Vandenberg: Oh yeah, we had chat about that before, but
+Joyce Kiddell: Yep. Okay. Um, and in terms of um, contact information,
+Emily Vandenberg: yes.
+Joyce Kiddell: so all this should be pretty static. I would move these things closer together, but it's like primary email and then e transfer email. Um, often that could end up being the same, but we just want to make sure that we're saving that separately.
+Kobi Kunasekaran: That's
+Joyce Kiddell: Um, preferred contact method. Oh, I didn't realize this is a drop down. Um, email, text message, phone call. I think instead of Slack, it would be like WhatsApp, email, text, phone call. Um, and maybe make this into a multi-pick list because we're not probably using this for any sort of reporting purposes. It's more like how do we get get a sorry, how do we get a hold of that person?
+
+
+01:00:51
+
+Kobi Kunasekaran: information.
+Joyce Kiddell: Yeah. payment method in transfer dark deposit check wire check.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Who the f*** would pick check?
+Emily Vandenberg: Does that matter payment
+Joyce Kiddell: Um,
+Emily Vandenberg: method? They don't get options that we just
+Joyce Kiddell: maybe not.
+Lina Ceniccola: Yeah, I would say take it
+Emily Vandenberg: like and do we
+Joyce Kiddell: Okay. Yep. No
+Lina Ceniccola: out.
+Joyce Kiddell: problem.
+Emily Vandenberg: need do we care about preferred contact
+Lina Ceniccola: I don't think we really care.
+Emily Vandenberg: method
+Joyce Kiddell: Okay. So take out those three. And then payment frequency, I guess, is like they're just on our schedule. So it's always bi-weekly.
+Lina Ceniccola: Um, actually it's weekly,
+Joyce Kiddell: All
+Lina Ceniccola: but so I would take out all three of them.
+Joyce Kiddell: right.
+Lina Ceniccola: So, preferred contact, payment method, payment frequency, cuz like we'll track the that
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: What's
+Lina Ceniccola: stuff in our payroll anyway.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: up?
+Emily Vandenberg: The the only thing I'll just kind of like pause on is will the I know we haven't got their payout logic be dependent and I know it's always kind of going to be weekly but kind of like based on that input and if we ever change it like you know I mean if we wanted to change down the road to like bi-weekly or some markets, you know what I mean?
+
+
+01:02:16
+
+Emily Vandenberg: We we differentiate like would you need that input for the payout modules at a rep level? I don't
+Kobi Kunasekaran: As for me,
+Emily Vandenberg: know.
+Kobi Kunasekaran: like I would say we can scope that in when we scope out the payout module and if we need to add the field in, we'll add it in at that point.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: we don't like it's pretty easy to add the field and you're going to have like a what like a dozen refs to update.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: It's not a big big change.
+Emily Vandenberg: Yeah, I agree.
+Kobi Kunasekaran: And same goes for like any any other like data point that you don't necessarily need from like aformational perspective. Like if you do need it down the line for payouts,
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: B deposits and things like that. I would rather scope it as part of that and make sure we build out the behaviors and everything so that it's intentional rather than just flooding it flooding the system with fields we're not going to
+
+
+01:03:08
+
+Emily Vandenberg: I like that.
+Joyce Kiddell: Okay. So,
+Kobi Kunasekaran: use.
+Joyce Kiddell: do we need currency here too,
+Emily Vandenberg: Yep.
+Joyce Kiddell: um, Lina, or do you want to save that for QuickBooks?
+Lina Ceniccola: You you leave it. I would say leave that one.
+Joyce Kiddell: Okay. So, it's the two emails, phone number, and currency that'll stay. And then this can be just like general notes, not payment notes. It's just like give them an option to kind of like add context if you need to.
+Kobi Kunasekaran: Sorry for the email before we move on. Um,
+Lina Ceniccola: Mhm.
+Kobi Kunasekaran: so because we're talking about user records, there's going to be a login email. Um, would there be a case where the primary email was different from their login email? Right.
+Joyce Kiddell: shouldn't.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Like if yes,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: then we I would create like two additional fields like one for like the login username email would be whatever they log into Salesforce with and then they can have a separate primary email and separate transfer email if you need.
+
+
+01:04:26
+
+Joyce Kiddell: Okay. Um, and then verticals. I I think I started this before you and I talked about like this stuff happen to be down here too. So, um, their verticals should definitely be under like brand ambassador details.
+Lina Ceniccola: Do we need verticals?
+Joyce Kiddell: I guess.
+Lina Ceniccola: I don't we don't need
+Emily Vandenberg: I don't think it's just a roll up,
+Joyce Kiddell: Yeah.
+Emily Vandenberg: right,
+Lina Ceniccola: no
+Emily Vandenberg: of like whatever is assigned to them and active because we don't like not give people certain verticals, right?
+Joyce Kiddell: Yeah. We don't have like a you're our sweeps guy or you're our DFS guy. Okay. Yeah. Yeah. Yeah, I'd say we just remove it then.
+Kobi Kunasekaran: I
+Joyce Kiddell: Yep,
+Lina Ceniccola: No.
+Kobi Kunasekaran: remove.
+Joyce Kiddell: that's fine. Um, and then I just had a quick uh view here. I didn't know if like we have to surface this in Salesforce at all, but it's like their related CMS details.
+Kobi Kunasekaran: I think the external ID for sure we're going to need, right?
+
+
+01:05:35
+
+Kobi Kunasekaran: We're planning on using that for the mapping. Um,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: but the rest is optional. If you don't need it for anything, then we don't need to have it in the record.
+Joyce Kiddell: Should we have their slug and landing page here, Emily and Lena?
+Lina Ceniccola: Yeah,
+Emily Vandenberg: I think so.
+Joyce Kiddell: Yeah.
+Lina Ceniccola: it's Cut. directly from the CMS, right?
+Joyce Kiddell: Yep.
+Lina Ceniccola: So, yeah, easy or
+Emily Vandenberg: the landing page.
+Joyce Kiddell: Okay.
+Emily Vandenberg: Is that like their primary?
+Joyce Kiddell: Their private one.
+Lina Ceniccola: page.
+Emily Vandenberg: Because I know they their slug usually. Yeah.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: Okay.
+Joyce Kiddell: It' be like whatever they push to their
+Kobi Kunasekaran: Let's
+Joyce Kiddell: network.
+Lina Ceniccola: Can we change it from landing page to agency page,
+Emily Vandenberg: Okay.
+Lina Ceniccola: agency site?
+Joyce Kiddell: Yep.
+Lina Ceniccola: Because it's probably Yeah, I think that would make sense.
+Joyce Kiddell: Yeah. like primary agency site or something.
+Kobi Kunasekaran: see.
+Joyce Kiddell: Yeah. Okay. All right.
+
+
+01:06:34
+
+Joyce Kiddell: So, I think that's it for the BA. Um, and you'll do what you can to just update the user records with this information. Okay. Um,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: and then the player. So, um this is a roll up of their total signups. That should be possible, right? Because this is like not a typical user.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay. Um their BA uh prim primary email and phone number. So, something that we were hoping is possible is to actually like include like this like copy functionality.
+Lina Ceniccola: I like
+Kobi Kunasekaran: So we did look into this.
+Lina Ceniccola: that.
+Kobi Kunasekaran: There's no out of the box like way to add it in the same field.
+Joyce Kiddell: Um,
+Kobi Kunasekaran: Uh what we can do is build like a lightning component that sits like below uh somewhere on the side or just above the field section or something just for whatever fields that you need to be copied.
+Joyce Kiddell: okay. I think it's like probably name, email, and then do we need phone number too or just email?
+
+
+01:07:46
+
+Lina Ceniccola: phone
+Joyce Kiddell: Yeah. Okay.
+Emily Vandenberg: I know Kobi,
+Lina Ceniccola: too.
+Emily Vandenberg: like you said it was it was custom. Did you end up scoping like how big of a lift it was or like getting any sense of that?
+Kobi Kunasekaran: Um,
+Lina Ceniccola: He
+Kobi Kunasekaran: no, but I can have uh either Jester or Cedric like take a look and confirm. I don't think it's like anything heavy, but it is like it's not going to be seamless like you see the other fields. It is going to be like a separate component uh that's going to sit somewhere uh just for those fields with that copy link.
+Emily Vandenberg: Is it
+Kobi Kunasekaran: take a good time like we can try it with one.
+Emily Vandenberg: like
+Kobi Kunasekaran: Um I I I think it's probably like a few hours at most. I don't I don't think it's anything crazy.
+Emily Vandenberg: do you want it for launch, Lena?
+Lina Ceniccola: No, let's just uh make it as simple as we can right now.
+Kobi Kunasekaran: Okay. Well,
+Emily Vandenberg: As long can easily be copied with like you know dragging
+
+
+01:08:40
+
+Kobi Kunasekaran: we
+Emily Vandenberg: over.
+Joyce Kiddell: Yeah, like that.
+Kobi Kunasekaran: Yeah, that's usually always an
+Emily Vandenberg: As long as you can easily do that then yeah.
+Kobi Kunasekaran: option.
+Joyce Kiddell: I double click. Yeah.
+Emily Vandenberg: Okay.
+Joyce Kiddell: Okay. Um, and then player information. This is all pretty straightforward. Uh we have a sense of primary and secondary email because of you know what we discussed with straw and that we're trying to like join uh users at like a player
+Kobi Kunasekaran: Huh?
+Joyce Kiddell: level and then they might have multiple accounts under them. Our thought was to surface like uh if they have, you know, an old account or whatever that has a different email address associated with it and we were able to join them, then it would get surfaced
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: here.
+Kobi Kunasekaran: But like the primary and secondary email like uh based on what we just chatted like it's all going to be sent from the CMS, right?
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: Like we're not trying to do any dduplication or managing players on the send.
+
+
+01:09:40
+
+Joyce Kiddell: No, no, no, no. Yeah.
+Kobi Kunasekaran: Okay, that's perfect.
+Joyce Kiddell: Signup currency. I think we can take that out. I don't know why. Do we need signup currency?
+Kobi Kunasekaran: So generally every record needs a currency value. So whether you use it or not, there's going to be something there. So it I mean it doesn't necessarily have to be signup currency,
+Joyce Kiddell: Oh.
+Kobi Kunasekaran: but there needs to be like a like a standard out of the box fields that are like almost required for every record like owner and currency.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: So uh we're going to have them anyways and we can repurpose it. So if we have any like any number fields which I don't think we're going to have on the player record but if you have any number fields like for like CPA amount for example those will be governed by the currency field for that record.
+Joyce Kiddell: Okay. Can we just infer where they
+Kobi Kunasekaran: So what we can do for now like yeah like we could just uh default it to
+
+
+01:10:31
+
+Joyce Kiddell: up?
+Kobi Kunasekaran: whatever the first signup that comes in whatever currency it is we can just set it to that one.
+Emily Vandenberg: Cuz
+Joyce Kiddell: based off of their country.
+Kobi Kunasekaran: Um, we should be able to. Yeah, we should be able
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: to
+Emily Vandenberg: is that what's going to trigger the like referral currency etc.
+Joyce Kiddell: Okay.
+Emily Vandenberg: Is that like what we or no?
+Kobi Kunasekaran: right now as per the design they're they need to be created manually. We're not automatically creating any referral records. We're only creating player records.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: And for players, we should be able to like drive the currency based on if it's Canada or US, that should be easy enough.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Uh but then for referral, yeah, like whoever sets up the referrals,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: uh referral records, they can specify the correct currency there.
+Joyce Kiddell: Okay. Prevel status. So, this is just based off of like percentage complete like this. But again, I feel like this is more of a nice to have.
+
+
+01:11:47
+
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: I can probably punt it.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: Um,
+Kobi Kunasekaran: this one will will want to know like what fields are in.
+Joyce Kiddell: yeah, f*** it. I just No,
+Kobi Kunasekaran: So,
+Joyce Kiddell: let's move that to later.
+Kobi Kunasekaran: I'll
+Joyce Kiddell: Here's my Um, and then VIP. So, this is something that we're going to want is like being able to indicate if this player is a VIP or not. Um, and I think it just has to be like manually set within Salesforce for right now. Emily, do you agree with
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: that?
+Emily Vandenberg: Um yeah, I think yeah, we'll have to build process and like make sure we
+Joyce Kiddell: Yeah.
+Emily Vandenberg: maintain
+Joyce Kiddell: But it'll be up to like Owen and Jay basically to find the player and turn this
+Emily Vandenberg: is there Lena? Is there logic that applies that if a signup comes through Owen and
+Joyce Kiddell: on.
+Emily Vandenberg: J, if you will, or like you know how they have like a specific kind of VIP workflow that like we could identify um auto VIP automatically versus it being manual.
+
+
+01:12:58
+
+Joyce Kiddell: They come through the Play Canada website,
+Lina Ceniccola: Um
+Joyce Kiddell: right?
+Lina Ceniccola: they don't always come through the same site. They will circulate through links. But um we can leave it as
+Kobi Kunasekaran: It's
+Lina Ceniccola: they can tag it
+Kobi Kunasekaran: not
+Emily Vandenberg: I guess like they follow the workflow enough that like they'll the player
+Lina Ceniccola: manually.
+Emily Vandenberg: will come in to Salesforce, right? They follow an agency flow which is how we push a record in.
+Lina Ceniccola: Let me let me just confirm.
+Emily Vandenberg: Might have to come back on this one, Joyce. I think we might just need to like confirm on the back end that like there isn't more to that
+Lina Ceniccola: Are we able to um add a manual record for a
+Emily Vandenberg: stream.
+Lina Ceniccola: player? Like can we give that access to just a select number of people?
+Kobi Kunasekaran: So instead of player records only being created through signups, we we can like that's always possible.
+Lina Ceniccola: If we can just open that option up,
+Joyce Kiddell: Would
+
+
+01:14:19
+
+Lina Ceniccola: I think especially for launch,
+Kobi Kunasekaran: Oh,
+Lina Ceniccola: I would be more comfortable with that and having the access only. Um, again, like truly myself, Jay and Owen, th those are the only people that would need to add manually. And you know, Emily
+Joyce Kiddell: they need to manually add
+Lina Ceniccola: too.
+Kobi Kunasekaran: heat.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: signups.
+Emily Vandenberg: If they're not flowing through
+Kobi Kunasekaran: Yeah, they're not coming through the uh the clicks.
+Joyce Kiddell: Yeah. Sorry. Kobe, there's like a whole different stream for like our VIP program that we haven't really talked to you
+Emily Vandenberg: We might need to take it offline and just kind of like flush out exactly what's happening there,
+Joyce Kiddell: about.
+Emily Vandenberg: Joyce. I to make sure the kind of like solution in the right way and then loop back. But right now, an identifier that's manual at
+Joyce Kiddell: Yeah.
+Emily Vandenberg: minimum and then maybe Yeah,
+Joyce Kiddell: Let's like keep the the toggle on off.
+Kobi Kunasekaran: I'll keep the field.
+Joyce Kiddell: Yeah.
+
+
+01:15:25
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: maybe it's auto.
+Lina Ceniccola: I asked our VIP guys and they said manual would be preferred.
+Joyce Kiddell: manual signups and and players, I guess, like
+Lina Ceniccola: Yeah, it would have to be. Yeah,
+Joyce Kiddell: both
+Lina Ceniccola: anything for that record would be manual. Um,
+Kobi Kunasekaran: Is that a like what's a volume of records are we creating like a weekly basis, daily basis?
+Lina Ceniccola: let me see.
+Kobi Kunasekaran: It's not a problem, but I I just want to know like if we need to like streamline that and make it easier for them.
+Lina Ceniccola: 30 per month on average.
+Kobi Kunasekaran: 30 per month.
+Lina Ceniccola: 30 per month on average.
+Kobi Kunasekaran: Okay, that's not too
+Lina Ceniccola: Yeah, it's not it's not a lot of volume.
+Kobi Kunasekaran: bad.
+Lina Ceniccola: So, you know, that's like less than 10 a week,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: but we can if we can start with the manual option and then kind of like surface an automation afterwards.
+Kobi Kunasekaran: Yeah. Yeah, we can do that.
+Lina Ceniccola: That one's just a little bit
+
+
+01:16:40
+
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: tricky.
+Joyce Kiddell: Okay. Um, and then attribution details. It's like knowing who the BA was. Um, and like we do want the ability to shift the attribution of a BA or of a player from one BA to another, right? Like if that BA leaves, feel like we talked about this a while ago.
+Kobi Kunasekaran: would this come from like the initial assignment is that coming from the CMS or do we just derive it from like the first signup that gets created or completed?
+Joyce Kiddell: the first sign
+Kobi Kunasekaran: I guess it's okay. And then if there are additional signups and the BA for those additional
+Joyce Kiddell: up.
+Kobi Kunasekaran: signups don't match the BA that's assigned to the player record at the time. Uh how do you want to handle
+Joyce Kiddell: That's a really good question,
+Kobi Kunasekaran: that?
+Joyce Kiddell: Lena. Does that actually happen?
+Lina Ceniccola: What?
+Joyce Kiddell: um players coming in like if they sign up initially under Eric, would they then Go sign up under Ali for different books.
+
+
+01:18:08
+
+Lina Ceniccola: I mean, they shouldn't, but if they say like we fired Eric and then we passed off that player, for example, to another BA, then he could sign up under Ally.
+Joyce Kiddell: Mhm.
+Lina Ceniccola: It's a possibility, but you also don't want like that could be a sign of fraud of someone trying to like double
+Emily Vandenberg: Thanks.
+Kobi Kunasekaran: Yeah,
+Lina Ceniccola: BA.
+Kobi Kunasekaran: those
+Lina Ceniccola: So I think maybe is there any possible way to then know like player signed up with previous BA and then it has
+Kobi Kunasekaran: Yeah, like we can Sorry,
+Lina Ceniccola: to and then it has to be approved to
+Kobi Kunasekaran: go ahead. Yeah, like we can we can flag it at the SLC level. So when an SLC comes in or a click comes in, um we right now we're not checking for to make sure that the BA that comes in with the click matches the player, but we can add add some logic around it. So if it the assigned BA doesn't match the one that came in from that clip, uh we could flag that click for review by ops and then you could either correct it like if it's a legitimate, you know, somebody got let go and it's a new BA, you would go to the player record and update the assigned BA and then reprocess that SLC and it'll, you know, associate it to the signup and everything.
+
+
+01:19:40
+
+Kobi Kunasekaran: Um or you could mark it as fraud straight from the SLC instead of it creating a signup record.
+Emily Vandenberg: I think the manual review like the ops review to start like
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I don't exactly unless there's like market crossover where it can happen but like then at least we identify and then we can solution for it.
+Kobi Kunasekaran: Okay. Yeah. Why don't we start with that and then if we start to see like a large volume then we can come back and figure out a way to uh automate it. So uh you know you don't have to process all these
+Emily Vandenberg: Do you guys agree with that, Joyce? Okay.
+Kobi Kunasekaran: manually.
+Emily Vandenberg: And then because then Yeah. as and then as long as we hold that we can manually change like a rep and I think it
+Joyce Kiddell: Uh-huh.
+Emily Vandenberg: you know a little bit matters less for signups but it'll be like a bigger um function that's needed for redeposits as we get into it because it's like then you want to be able to transfer players for the um process thereafter sign up
+
+
+01:20:53
+
+Kobi Kunasekaran: Mhm. Okay. And the referral information here is this going to come from this is not coming from the clicks right like somebody's going to update this on the signup record in
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: Salesforce.
+Joyce Kiddell: it's like this would get added when the that that actual signup is done being
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: logged.
+Kobi Kunasekaran: And same question here, I guess, like could this like could you have different referralers across
+Joyce Kiddell: No,
+Kobi Kunasekaran: signups?
+Joyce Kiddell: I don't think
+Kobi Kunasekaran: Okay. So what what we could do is like on the you know the first time they process a signup record we'll use that to set the assign BA primary refer secondary refer on the player record if they're blank and then if it's not blank we could maybe like create a notification or something or uh flag that record for you to review um still allow to you know complete the sign up and stuff um so it doesn't block people but uh that way we we we can have some visibility into if it actually happens then figure out how to address it later.
+
+
+01:22:11
+
+Joyce Kiddell: Okay, that sounds good. Um, sign up date.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: So, this would be the date of signing up for the agency. So, maybe we change that to like agency sign up date. Um,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: and then this is like what you had before where it's like if they are a refer as well, then you would click this.
+Kobi Kunasekaran: Right.
+Joyce Kiddell: And then just notes. Uh, yeah, I would just call it like notes in general, not referral notes. Um, and then I think Claude just made this into like child objects, but that's probably not how you're seeing it. Just in terms of like survey being completed, I think we just need like a yes, no,
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: and then like it was
+Kobi Kunasekaran: that's what we have set up right now.
+Joyce Kiddell: okay.
+Kobi Kunasekaran: I think we talked about potentially need doing that uh object later if we ever need to track the different survey completions, but that's not in scope right
+Joyce Kiddell: Yeah, for now just like take that out for sure.
+
+
+01:23:07
+
+Kobi Kunasekaran: now.
+Joyce Kiddell: Then you can see signups and then all the other things down the line, but right now it's just me signups.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay. Um and then statuses for players would be pending, active, inactive, banned.
+Kobi Kunasekaran: These statuses are going to be set manually.
+Emily Vandenberg: what's pending just if it doesn't have a sign up associated with it. Like it wouldn't even come into the system if it didn't have um a SLC, right?
+Joyce Kiddell: Yeah, like I my thought was like it would be associated with a click, but there's no actual like completed signup log against them.
+Emily Vandenberg: Right. um after like Yeah. Okay. Because typically I thought like if it came in Okay. Yeah. So you'd come in as pending versus active and then like the trigger of like adding in a sign up would trigger you active. Okay.
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: I think when the first lineup is completed uh that's related to the player, we can move them to active
+Joyce Kiddell: Correct.
+
+
+01:24:27
+
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: status.
+Emily Vandenberg: And then inactive would be like because this is actually I like this concept. Um no activity within like 90 days or something. Oh 6 months. Six months.
+Joyce Kiddell: Oh, we can make it 90 days. I don't
+Emily Vandenberg: I think I think that's a Lina question.
+Joyce Kiddell: know.
+Emily Vandenberg: Um yeah for
+Lina Ceniccola: No activity.
+Emily Vandenberg: inactive like cuz I will want to run reports on I think we'll want to run in reports on
+Lina Ceniccola: Okay.
+Emily Vandenberg: inactive quite regularly.
+Joyce Kiddell: Yes, for sure. Do you want it to be 90 days, 30 days, 6
+Emily Vandenberg: Um,
+Joyce Kiddell: months?
+Lina Ceniccola: They can go to inactive status. Let's say two months.
+Joyce Kiddell: So 60 days.
+Lina Ceniccola: 50 days
+Joyce Kiddell: Okay.
+Emily Vandenberg: how far back do we usually read up? like what's the farthest back that
+Lina Ceniccola: or actually can you change it to 90 days?
+Emily Vandenberg: we'll
+Lina Ceniccola: It's usually 60 but
+Joyce Kiddell: Yep.
+Emily Vandenberg: and then it'll Yeah, it'll be a true kind of in a Yeah,
+
+
+01:25:33
+
+Lina Ceniccola: like
+Emily Vandenberg: I like
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Do you want to be able to override the default at a player
+Emily Vandenberg: that.
+Joyce Kiddell: So,
+Kobi Kunasekaran: level?
+Joyce Kiddell: no.
+Kobi Kunasekaran: Like for VIPs for example, like do they get more of a pass?
+Joyce Kiddell: No, because this doesn't really do anything besides surface and reporting, right? Like it doesn't necessarily impact downream
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: processes.
+Kobi Kunasekaran: Yeah. It just didn't change the status. Uh so
+Joyce Kiddell: Yeah, I think that's fine.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um because band will be like more of a manual thing. Um, and this is like based off of uh fraud investigations. I have there's a restriction detail below here, but like I don't Oh, okay. This is based off of the fraud flex. Okay.
+Kobi Kunasekaran: So,
+Joyce Kiddell: It doesn't have to
+Kobi Kunasekaran: do we want to like capture this when somebody is scanning a record like are these input fields that they should put
+Joyce Kiddell: look.
+Kobi Kunasekaran: in?
+Joyce Kiddell: No, I think the goal was that it would be like inferred from the um signups that were flagged for fraud.
+
+
+01:26:54
+
+Joyce Kiddell: But like I don't think we need a separate section. I think it just says like band and then Like there could be like, you know, some banner that says like see uh signups for more details or something cuz like we would have flagged it at a signup level as
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: well.
+Kobi Kunasekaran: Okay. So, the band status on the player is going to be manually done by somebody. Um,
+Joyce Kiddell: Is that
+Kobi Kunasekaran: but signups can still come in, right?
+Joyce Kiddell: right?
+Emily Vandenberg: I mean, a band player could still receive like a um study link click, but they wouldn't be able to complete if they're banned at a banned player.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Like wouldn't be a we wouldn't allow that to um actually complete,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: but they can click on the website. Like we not going to ban their
+Kobi Kunasekaran: Okay. Yeah.
+Emily Vandenberg: account.
+Kobi Kunasekaran: Okay. So I I mean we do have the player status on the signup record. So I'm assuming whoever is processing the signup record, they're just marking as fraud.
+
+
+01:28:01
+
+Kobi Kunasekaran: So we don't necessarily need to automate anything between the two.
+Emily Vandenberg: Say that again, Kobi.
+Kobi Kunasekaran: So uh when so if a player is banned um we do on the signup record
+Emily Vandenberg: Sorry.
+Kobi Kunasekaran: have the player status. So when they see the signup record uh that's created for whatever clicks um it'll show that the player is banned. So at that point the rep could just flag it for review or fraud and then uh and then that's it. Like we don't necessarily need to automate or restrict creation of the signup or anything based off of the player status at least at this point.
+Emily Vandenberg: Yeah, I don't think so. And it would be it would almost be
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: like interesting for the rep to see if like a band player is like actively trying to I don't foresee happening a ton like you know what I
+Kobi Kunasekaran: keep signing up.
+Emily Vandenberg: mean?
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Okay, we're good on
+Kobi Kunasekaran: Well,
+Joyce Kiddell: this.
+Kobi Kunasekaran: sorry.
+
+
+01:29:13
+
+Kobi Kunasekaran: So those fields uh are we saying like we don't need those like restriction detail fields for
+Joyce Kiddell: No,
+Kobi Kunasekaran: now? No.
+Joyce Kiddell: correct. it.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: We should have some sort of like banner at the top though. Maybe ignore this part like the ban reasonable but like yeah just so
+Kobi Kunasekaran: Just the red part. Yeah.
+Joyce Kiddell: it's very clear like do not do anything with this player.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay. And the last one is refer. Um, so this would be a roll up of their primary referrals and secondary who their BA is. Um. status I think would be like would we have the same list of statuses that we do players I guess like active inactive pause band I
+Emily Vandenberg: I don't know if pause is
+Joyce Kiddell: guess do
+Lina Ceniccola: for the over the
+Joyce Kiddell: pause yeah is
+Emily Vandenberg: need
+Lina Ceniccola: refer.
+Joyce Kiddell: refer it's not the same as players use different statuses
+Lina Ceniccola: Can we have the same statuses as player?
+
+
+01:30:32
+
+Lina Ceniccola: What's
+Kobi Kunasekaran: ending.
+Lina Ceniccola: different?
+Kobi Kunasekaran: And they can set a
+Lina Ceniccola: We can just open and compare
+Kobi Kunasekaran: pause.
+Joyce Kiddell: pending active and active band because you can't pause the
+Lina Ceniccola: it.
+Joyce Kiddell: player but refer would have active and active pause and
+Lina Ceniccola: Active. Inactive would be after how much
+Joyce Kiddell: however much time you
+Lina Ceniccola: time
+Joyce Kiddell: want.
+Emily Vandenberg: I think we could go bit longer.
+Lina Ceniccola: I mean
+Emily Vandenberg: We could probably go a little bit
+Lina Ceniccola: pardon?
+Emily Vandenberg: longer.
+Lina Ceniccola: Yeah, like six months, let's say.
+Emily Vandenberg: Yeah.
+Lina Ceniccola: I'd rather give more um than less to start. Okay. Active. Inactive. Pause. Bam. That no
+Joyce Kiddell: Okay.
+Lina Ceniccola: issues.
+Emily Vandenberg: We don't typically like if we're going to pause. Okay.
+Kobi Kunasekaran: So
+Emily Vandenberg: Typically I've seen like we ban the refer right like it they end up showing more on the kind of fraudulent. We would we ever really pause a refer.
+
+
+01:31:52
+
+Lina Ceniccola: Um, yes, if they're if they're under
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: heat.
+Emily Vandenberg: Okay.
+Lina Ceniccola: investigation.
+Emily Vandenberg: And so therefore like nothing that they send through like they can't be used for a new sign up.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: We'd still allow like would be need to like pause the sign up in that same sense. So if it came through that referral network like is there like a an alert
+Lina Ceniccola: Um, the problem is we don't always know if it came. You're saying like if Chris Chris's friend came in, we I guess we wouldn't really know. They would just have to create a new referral profile. But they're they're not going to tie it to Chris.
+Emily Vandenberg: We wouldn't Okay. We wouldn't need the system to block the sign up in any way or like flag it.
+Lina Ceniccola: if it came from Chris, but it's up to the rep to input it as Chris. Like there's no automation for the refer. So, I would say like if they were to put in Chris's name again, it would we can have that flag, but if they ban Chris, then they're they're probably just going to like use someone else.
+
+
+01:33:32
+
+Lina Ceniccola: But it's still good because like they could try to bring them back like a year later or something and we miss it.
+Emily Vandenberg: Okay.
+Lina Ceniccola: So if they if the ban refer someone tries to action that person again, we can get a flag, right? That's what you're saying.
+Emily Vandenberg: Yeah. In the pause or band kind of status like it
+Lina Ceniccola: Yeah. Some some way to surface that.
+Emily Vandenberg: would
+Lina Ceniccola: I agree.
+Kobi Kunasekaran: and we can remove the like if they try to add somebody that's banned or pause like we can remove them from the list, you know, like in the when they try to look up the person to add it add them to the signup. Uh we just remove them based off of the status so they wouldn't be able to find that person or we could allow them to add it and then when they add that person we could flag that sign up for ops to review or something either or
+Emily Vandenberg: Yeah, I think it depends on the type of like how we want it to work for us like on the cuz if you just hide it then they'll just be like pick somebody else you know what I mean and it won't really do anything versus like if you let them and a s like you know what I mean it like creates a signal Then
+
+
+01:34:45
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: we can investigate what's going on in that network.
+Kobi Kunasekaran: Okay. So, are we saying that for paused and banned, we're not going to restrict signups from being uh or reps from being uh adding referers or signups, even if they're banned or paused. Um, and then we just want to surface any signups that are related to banned or paused referrals. So you can review and you can decide if you want to flag it for fraud or anything like that.
+Emily Vandenberg: I think Selena like I could see Jay like you know what I mean like it being a signal and he can then you know unpause it if it's not relative like relevant anymore or like reach out to the
+Lina Ceniccola: Yeah, that works.
+Joyce Kiddell: Okay, we're good. Okay. Um, and then everything to do with the details. Um, active status. We already talked about referral ro. Um, I think we would take out referral ro. Sorry, I don't know how that ended up here. Um, because like they're only secondary referers like on specific signups, but the rest of this is applicable.
+
+
+01:36:29
+
+Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. Um payout preference. I think this was something that came from your guys's meeting. I could be wrong,
+Lina Ceniccola: I'm trying to pay out
+Joyce Kiddell: Emily.
+Lina Ceniccola: preference. I mean, you can leave
+Emily Vandenberg: Yeah. Yeah.
+Kobi Kunasekaran: That's an old
+Lina Ceniccola: it.
+Emily Vandenberg: Um sometimes it's paid to like a sib like somebody else within the network.
+Kobi Kunasekaran: tail.
+Emily Vandenberg: Yeah. It is like um it's just a notes, right?
+Lina Ceniccola: Oh, yeah. I see what you're saying.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: I was trying to think, but yeah, there was like there's some unique examples of
+Lina Ceniccola: some referral will place that's on someone another refer account because it's a priority
+Emily Vandenberg: notes.
+Joyce Kiddell: Yeah.
+Lina Ceniccola: account.
+Joyce Kiddell: Yeah.
+Lina Ceniccola: So, we'll just take
+Joyce Kiddell: Make that a note. move at the bottom. Um, and then country,
+Lina Ceniccola: note
+Joyce Kiddell: state, province, and then currency.
+
+
+01:37:33
+
+Joyce Kiddell: Um, so this is all like something you program when you add a referral. But then if you remember like I called the default because at a signup level, you can override I think the currency at the very least and the payout type.
+Kobi Kunasekaran: Uh I see. Okay. Right now we are driving the payout type and currency from the related record. Uh but yeah, we can we can make it so that the signups you can override them. Should be
+Joyce Kiddell: Okay. Yeah, I think that was one of the original requirements.
+Kobi Kunasekaran: fine.
+Joyce Kiddell: Um, and then I think it's just refer country and refer state, province. You don't have to override these two things. Okay. and contact email secondary phone. You can probably take a preferred contact method because we don't have that for BAS anymore.
+Lina Ceniccola: Mhm.
+Joyce Kiddell: And then player records. So same like on the flip side of what we saw. Um remove active operators. This is just and secondary.
+
+
+01:38:46
+
+Joyce Kiddell: Yeah, remove these two things. Um, and then the player status, you you could keep that as like just a lookup to say like yeah,
+Kobi Kunasekaran: Good formula.
+Joyce Kiddell: like how active or what's the status of their player record. And then notes.
+Emily Vandenberg: Oh yeah,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: that makes sense. Sorry, in that um for primary and secondary we were c at the BA level or at the
+Joyce Kiddell: Um
+Emily Vandenberg: player level we're doing e transfer email. Should secondary just be em
+Joyce Kiddell: Oh, yeah. Yeah.
+Emily Vandenberg: transfer.
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: Just rename the secondary to transfer
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: email.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Okay. And then it would be not signups, just referrals, I think, and payouts eventually.
+Kobi Kunasekaran: Okay. Yeah, I think you'll have two referral lists, right? like one for primary referrals and one for secondary referrals because they're linked to records separately.
+Joyce Kiddell: Yes. Yeah. Yeah.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay. And that's it, I think.
+
+
+01:40:02
+
+Kobi Kunasekaran: And the referer information, we're not syncing this to the CMS, right?
+Joyce Kiddell: No,
+Kobi Kunasekaran: It's just 100% lives in Salesforce right now.
+Joyce Kiddell: correct.
+Emily Vandenberg: But like yeah,
+Joyce Kiddell: Excuse me.
+Emily Vandenberg: it's like the the them as a player, right, lives there, but not as a
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: referer.
+Kobi Kunasekaran: Okay, that should be fine. And the referer records, should BAS be able to see them? I guess they would need to, right, to be able to associate them to sign offs.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay. Is there any information on the referral page that they should not see?
+Joyce Kiddell: No.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: But it's only for their own referers, right? Like a BA can't see another BA's referers.
+Kobi Kunasekaran: Yeah, like okay. Yeah, that that I guess that's what I was asking. Oh, like can they see everybody? So, as long as the BA is assigned to the referral,
+Lina Ceniccola: Unless unless they're a manager of the
+Kobi Kunasekaran: they can see it.
+
+
+01:41:17
+
+Lina Ceniccola: BA, then they can
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: The only potential problem with hiding the refers is um we'll need to make sure we set up dduplication on the sal side.
+Lina Ceniccola: Heat.
+Kobi Kunasekaran: So that you know if like Emily tries to create a referral that already exists in the system with the same email that mean that's going to it's going to be flagged and by virtue of it being flagged they'll know that you know a referral already exists for that person.
+Emily Vandenberg: Yeah, cuz like when we were doing that like it was like search like you search and then it gives you the player list and the ability to convert.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Burn. Um, yeah, you'll we'll definitely need to and potentially, yeah, some logic just around the email, right? Like looking at both email inputs.
+Kobi Kunasekaran: Okay. Yeah, we we can start with like uh dduplication based on email.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: So if it if it somebody tries to create a refer uh or with the same email address as one that already exists, then they'll just be blocked from doing that.
+
+
+01:42:45
+
+Kobi Kunasekaran: Um, and then at that point,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: like they'll have to reach out to like somebody with all access to confirm and whether it needs to be reassigned to a different BA or uh use a different email address. I think that'll be like the next step.
+Joyce Kiddell: This is probably like a down the line request, but is it easy to like press a button and be like, I'm going to convert this player into a refer?
+Kobi Kunasekaran: Um,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: if a lot of the information is the same, uh, we could set up a screen flow that essentially prefills those fields from the player record. U, so like let's say like you open up the player record, we could have a button that says like, you know, create refer or something like that and it'll just prefill whatever fields that we specify and map. Um, and then like the referral information like the payout type and stuff obviously that'll be like uh they'll
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: have to put that in. Uh but we could yeah we could do that so that it it speeds up then to manually copy
+
+
+01:43:49
+
+Joyce Kiddell: I like that.
+Emily Vandenberg: I thought yeah I thought we had already aligned on that through the like list and then just like the
+Kobi Kunasekaran: everything.
+Emily Vandenberg: module that pops up with the key referral inputs referral inputs.
+Kobi Kunasekaran: Uh I don't know if we can do it from the like the lookup field directly. It it would need to be like a separate button like you're talking about like when they search for a player like it'll show whoever is existing and then there's a link or option to create a new one, right?
+Emily Vandenberg: when they're completing the sign up and putting the refer in and the lookup was going to like
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: pull from the player. I thought we talked about that. Anyway,
+Kobi Kunasekaran: It doesn't it it doesn't pull from the player.
+Emily Vandenberg: I agree with
+Kobi Kunasekaran: It actually pulls from the referral list. So, we have it restricted based on the record type. So, it'll pull from like existing referrals. Um, but if you want to be able to like convert an existing player and link it, I don't know if we can do it all in that one lookup.
+
+
+01:44:53
+
+Kobi Kunasekaran: Think it might have to be like a separate
+Emily Vandenberg: Okay.
+Joyce Kiddell: Well,
+Emily Vandenberg: Okay.
+Joyce Kiddell: we still have the ability to add New refer at that stop, right?
+Kobi Kunasekaran: Correct. Correct.
+Joyce Kiddell: Okay,
+Kobi Kunasekaran: But it'll just be like from scratch,
+Joyce Kiddell: that's fine.
+Kobi Kunasekaran: right? Like whatever. Yeah.
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: Like I could open it up for players too, but then um it's not going to know to link it to
+Joyce Kiddell: No, no, no, no, no, no, no,
+Kobi Kunasekaran: the referral record.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Like you're going to see multiple and I think that's going to be messy.
+Joyce Kiddell: no. Yeah,
+Emily Vandenberg: Mhm.
+Joyce Kiddell: you're right.
+Kobi Kunasekaran: Okay, I think all this seems pretty straightforward. I don't see anything uh crazy. I think the brand ambassador page, that's the only one that uh let I I'll get back to you on like how much we can customize that one. Um the rest of this should be
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: straightforward.
+
+
+01:45:43
+
+Joyce Kiddell: Do you know when you're going to be able to send them back for review?
+Kobi Kunasekaran: Um we're going to need a couple days. So, I'd say like end of this week or like Monday,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: it's uh it's going to be a lot of fields and updates to
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: make.
+Joyce Kiddell: If we can aim to get all the screens kind of like good to go by end of next week, that would be amazing. At least like the not with all the automations obviously,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: but like the
+Kobi Kunasekaran: Yeah, exactly.
+Joyce Kiddell: fields.
+Kobi Kunasekaran: I think we can get like all the the fields, the placement, the layouts and everything ready. Some of the automation that we talked about might need a little bit more time, but uh the page layout should be good for I'm going to say latest by like uh next Monday should be okay.
+Joyce Kiddell: Okay. And then y'll get you feedback ASAP. So like
+Emily Vandenberg: And that's everything now.
+Kobi Kunasekaran: Okay.
+
+
+01:46:33
+
+Emily Vandenberg: We've reviewed everything with you,
+Joyce Kiddell: midweek
+Kobi Kunasekaran: Yes,
+Emily Vandenberg: right?
+Kobi Kunasekaran: unless you have like any additional feedback on the signup blogging experience from what we talked about. Um, but yeah, I think this covers all of the all of the
+Emily Vandenberg: Yeah. We need to like go back in.
+Kobi Kunasekaran: pages.
+Emily Vandenberg: And in terms of priority, like are you tackling it in a certain order of
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Um, so we're just about done with the deal operator and partner.
+Emily Vandenberg: priority.
+Kobi Kunasekaran: I think there are a couple of like automations and couple of fields related to those automations that we'll have to set up. Um, so we'll try to wrap that up. Um, and we'll get started on these ones next.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Um, and then obviously like whatever Strahinja needs for the API testing, that's going to be like that's going to be my main priority, but I think Taryn can take care of a lot of these page layouts. So, uh, we should be able to move in
+
+
+01:47:25
+
+Emily Vandenberg: Okay, that makes
+Kobi Kunasekaran: parallel.
+Emily Vandenberg: sense.
+Kobi Kunasekaran: And then for actually there's the one the SLC records. Um we haven't really done a lot of work for those but I'm going into the assumption that it's going to be mostly behind the scenes like reps are never going to really look at it. Um, so it in my opinion it should be as close to like the API call data points as possible to make it easy for troubleshooting and everything. But you let me know if you need a slimmer interface. for that is
+Joyce Kiddell: I think that was part of the initial batch of mockups I sent, right?
+Kobi Kunasekaran: it
+Joyce Kiddell: Like the the read only kind of
+Kobi Kunasekaran: uh that was for the like the signup record. Yes.
+Joyce Kiddell: vibes.
+Kobi Kunasekaran: But for the SLC like the fields and stuff um we've changed quite a bit of fields and I think we're going to keep changing them and adding more fields as we work out the API. Um but I don't I don't think like it's it's not going to be rep. I don't know if we need to like prioritize too much of it. and it's going to be read only for them and honestly they're probably never going to like click into it unless like you're troubleshooting it.
+Joyce Kiddell: Yeah, I
+Kobi Kunasekaran: Yeah, I think otherwise and I think these are all the like all the main pages that everyone's going to uh work
+Joyce Kiddell: can. Okay.
+Kobi Kunasekaran: with.
+Joyce Kiddell: And then we could just do like an end to end like go through every single screen on Monday after you're done with like all the other updates so that I can do them all at once.
+Kobi Kunasekaran: Yeah. Yeah,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: that
+Emily Vandenberg: Yeah, maybe unless like something kind of major comes in,
+Kobi Kunasekaran: works.
+Emily Vandenberg: maybe that's how we use our time next
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: week.
+Kobi Kunasekaran: that works.
+Joyce Kiddell: Okay, cool. Thanks everybody.
+Kobi Kunasekaran: Awesome.
+Lina Ceniccola: Thank you.
+Kobi Kunasekaran: Thanks everyone.
+Emily Vandenberg: Thanks,
+Joyce Kiddell: Bye.
+Emily Vandenberg: B.
+Kobi Kunasekaran: Talk to you later.
+
+
+Transcription ended after 01:49:33
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

@@ -1,0 +1,228 @@
+{
+  "id": "10376",
+  "key": "WAGR-223",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-10T22:36:16.294-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:34.055-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Source: Kobi, 2026-08-11. Supports BUILD-118 (Market display field).\n\n=== OBJECTIVE ===\n\nAdd two read-only formula fields on Deal__c that derive short codes from the existing Market Country / Market State picklists (which hold full names). These are the reusable building blocks for the Market display field, list views, reporting groupings and any outbound CMS payload that needs a code rather than a full name.\n\nReps continue to maintain Market_Country\\__c and Market_State_\\_c only. Neither new field is editable.\n\n=== WHY FORMULA, NOT A MAPPING TABLE ===\n\nCustom Metadata Types were evaluated and rejected: formula fields can only reference $CustomMetadata with a STATIC record name, so there is no dynamic lookup from a field value. A CMT approach would require Flow or Apex, which is over-engineered for a display/derivation string. Hardcoded CASE is the correct pattern here.\n\nNote for future reference: renaming the picklist API values to codes (label stays the full name) would remove the need for the state CASE entirely, since TEXT() returns the API value. Rejected for now because the CMS integration and data migration mappings write the full names, and changing API values pre-go-live would ripple into those. Revisit if the codes are ever needed in more places.\n\n=== FIELD 1: Market Country Code ===\n\nAPI Name: Market_Country_Code__c\n\nLabel: Market Country Code\n\nType: Formula (Text)\n\nBlank handling: Treat blank fields as Blanks\n\nHelp text: Auto-derived from Market Country. US, CA, or 'US & CA'.\n\nRequirements:\n\n* Market Country = United States -> US\n\n* Market Country = Canada -> CA\n\n* Market Country = United States & Canada -> US & CA\n\n* Market Country = blank -> blank\n\nFormula:\n\nCASE(TEXT(Market_Country__c),\n\n\"United States\", \"US\",\n\n\"Canada\", \"CA\",\n\n\"United States & Canada\", \"US & CA\",\n\n\"\")\n\n=== FIELD 2: Market State Code ===\n\nAPI Name: Market_State_Code__c\n\nLabel: Market State Code\n\nType: Formula (Text)\n\nBlank handling: Treat blank fields as Blanks\n\nHelp text: Auto-derived from Market State. Shows 'Multi-state' when no single state is selected.\n\nRequirements:\n\n* Market State has a value -> 2-letter USPS / Canada Post subdivision code\n\n* Market State blank AND Market Country has a value -> \"Multi-state\"\n\n* Market State blank AND Market Country blank -> blank\n\nCoverage is intentionally the FULL US + Canada set (69 branches), not only the values currently in the picklist value set:\n\n* 50 US states + District of Columbia = 51\n\n* US territories (PR, VI, GU, AS, MP) = 5 (dormant until added to the picklist)\n\n* Canada: 10 provinces + 3 territories = 13\n\nThis means no formula edit is needed when a market opens up.\n\nFormula size: 1,584 of 3,900 characters.\n\nFormula:\n\nIF(ISPICKVAL(Market_State__c, \"\"),\n\nIF(ISPICKVAL(Market_Country__c, \"\"), \"\", \"Multi-state\"),\n\nCASE(TEXT(Market_State__c),\n\n/\\* US states + DC (51) \\*/\n\n\"Alabama\", \"AL\",\n\n\"Alaska\", \"AK\",\n\n\"Arizona\", \"AZ\",\n\n\"Arkansas\", \"AR\",\n\n\"California\", \"CA\",\n\n\"Colorado\", \"CO\",\n\n\"Connecticut\", \"CT\",\n\n\"Delaware\", \"DE\",\n\n\"District of Columbia\", \"DC\",\n\n\"Florida\", \"FL\",\n\n\"Georgia\", \"GA\",\n\n\"Hawaii\", \"HI\",\n\n\"Idaho\", \"ID\",\n\n\"Illinois\", \"IL\",\n\n\"Indiana\", \"IN\",\n\n\"Iowa\", \"IA\",\n\n\"Kansas\", \"KS\",\n\n\"Kentucky\", \"KY\",\n\n\"Louisiana\", \"LA\",\n\n\"Maine\", \"ME\",\n\n\"Maryland\", \"MD\",\n\n\"Massachusetts\", \"MA\",\n\n\"Michigan\", \"MI\",\n\n\"Minnesota\", \"MN\",\n\n\"Mississippi\", \"MS\",\n\n\"Missouri\", \"MO\",\n\n\"Montana\", \"MT\",\n\n\"Nebraska\", \"NE\",\n\n\"Nevada\", \"NV\",\n\n\"New Hampshire\", \"NH\",\n\n\"New Jersey\", \"NJ\",\n\n\"New Mexico\", \"NM\",\n\n\"New York\", \"NY\",\n\n\"North Carolina\", \"NC\",\n\n\"North Dakota\", \"ND\",\n\n\"Ohio\", \"OH\",\n\n\"Oklahoma\", \"OK\",\n\n\"Oregon\", \"OR\",\n\n\"Pennsylvania\", \"PA\",\n\n\"Rhode Island\", \"RI\",\n\n\"South Carolina\", \"SC\",\n\n\"South Dakota\", \"SD\",\n\n\"Tennessee\", \"TN\",\n\n\"Texas\", \"TX\",\n\n\"Utah\", \"UT\",\n\n\"Vermont\", \"VT\",\n\n\"Virginia\", \"VA\",\n\n\"Washington\", \"WA\",\n\n\"West Virginia\", \"WV\",\n\n\"Wisconsin\", \"WI\",\n\n\"Wyoming\", \"WY\",\n\n/\\* US territories (5) \\*/\n\n\"Puerto Rico\", \"PR\",\n\n\"U.S. Virgin Islands\", \"VI\",\n\n\"Guam\", \"GU\",\n\n\"American Samoa\", \"AS\",\n\n\"Northern Mariana Islands\", \"MP\",\n\n/\\* Canada - provinces + territories (13) \\*/\n\n\"Alberta\", \"AB\",\n\n\"British Columbia\", \"BC\",\n\n\"Manitoba\", \"MB\",\n\n\"New Brunswick\", \"NB\",\n\n\"Newfoundland and Labrador\", \"NL\",\n\n\"Northwest Territories\", \"NT\",\n\n\"Nova Scotia\", \"NS\",\n\n\"Nunavut\", \"NU\",\n\n\"Ontario\", \"ON\",\n\n\"Prince Edward Island\", \"PE\",\n\n\"Quebec\", \"QC\",\n\n\"Saskatchewan\", \"SK\",\n\n\"Yukon\", \"YT\",\n\n\"\"\n\n))\n\n=== EXPECTED RESULTS ===\n\nMarket Country | Market State | Country Code | State Code\n\nCanada | Ontario | CA | ON\n\nCanada | Alberta | CA | AB\n\nUnited States | Ohio | US | OH\n\nUnited States | (blank) | US | Multi-state\n\nCanada | (blank) | CA | Multi-state\n\nUnited States & Canada | (blank) | US & CA | Multi-state\n\n(blank) | (blank) | (blank) | (blank)\n\n=== ACCEPTANCE CRITERIA ===\n\n1\\. Both fields exist on Deal__c as Formula (Text), blank handling = Blanks, and pass Check Syntax.\n\n2\\. Every value currently in the Market_State__c value set returns a non-blank 2-letter code (no value falls through to the empty else branch).\n\n3\\. Market Country set with Market State blank returns \"Multi-state\" on the state code field.\n\n4\\. Both fields blank when Market Country is blank.\n\n5\\. FLS: readable = true on WT_Deal_Read and WT_Deal_Edit. Both fields are formula (read-only), so no editable permission is granted anywhere.\n\n6\\. Fields added to the Deal layout / Deal record page per BUILD-120, and available for report and list view grouping.\n\n=== NOTES / RISKS ===\n\n* \"US & CA\" contains a space-ampersand-space. Fine for display, but it is a delimiter risk if this field is ever consumed by an outbound CMS payload, BI grouping or the Airtable import. If the value leaves Salesforce, consider US+CA or US/CA instead.\n\n* Market_State_Code__c returns \"Multi-state\" rather than a 2-character code. Intentional and useful for report grouping, but it means the field is not a clean 2-char code column for integrations expecting strict codes.\n\n* Edge case not yet decided: Market Country = United States & Canada WITH a single state selected. The dependent picklist allows this (every state lists United States & Canada as a controlling value), and the codes would read e.g. ON / US & CA. Confirm with Joyce whether that combination is real before hardening it.\n\n* Dependency direction: BUILD-118 (Market display field) consumes both of these fields and should not be built first.\n\n=== METADATA LOCATION ===\n\nforce-app/main/default/objects/Deal\\__c/fields/Market_Country_Code_\\_c.field-meta.xml\n\nforce-app/main/default/objects/Deal\\__c/fields/Market_State_Code_\\_c.field-meta.xml\n\n(Wagertech_Partial repo, partial sandbox)",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-124 — Market Country Code + Market State Code formula fields on Deal",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-246"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217353081830372"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001xz:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XXS (1-2 Hours)",
+          "id": "10043"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217353081830372"
+      }
+    }
+  }
+}

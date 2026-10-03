@@ -1,0 +1,636 @@
+📝 Notes
+May 27, 2026
+Jumpr <> WagerTech: Salesforce PRD Review
+Invited Miko Sumagang lina@wagertech.bet joyce@wagertech.bet emily@wagertech.bet Waleed Alasadi
+Attachments Jumpr <> WagerTech: Salesforce PRD Review
+Meeting records Transcript Recording
+
+
+Summary
+Meeting discussions focused on Salesforce architecture configuration, data storage strategies, and project timeline alignment for client needs.
+
+Salesforce Architecture Discovery
+Participants agreed to conduct a discovery process to observe user workflows. They confirmed access to Salesforce Sales Cloud Enterprise Edition for system configuration evaluation.
+
+Data Modeling Decisions
+Consultants recommended using native Salesforce objects instead of custom builds to ensure system maintainability. They advised utilizing external storage solutions to mitigate high Salesforce data costs.
+
+Reporting and Timeline Alignment
+The team aligned on structuring data for reporting to support Cost Per Acquisition tracking. A decision was made to prioritize standard functionality over custom designs.
+
+Rate this Summary: Helpful or Not Helpful
+
+
+Decisions
+ALIGNED
+* Standard Salesforce objects prioritized Standard Salesforce objects are prioritized over custom objects for the new implementation, defaulting to native features whenever possible.
+* Partners and Operators as Accounts Partners and Operators are to be implemented as standard Salesforce Account objects to enable effective contact relationship tracking.
+* Opportunity object excluded for Deals The Salesforce Opportunity object is excluded for tracking Deals to prevent incorrect forecasting and ensure accurate record representation.
+* Lead object constraint removed The requirement to use the Lead object for signups is removed, allowing the consulting team to select the most appropriate object type for the business model.
+* External file linking strategy adopted The file storage strategy will prioritize saving links to external files (e.g., Dropbox, Drive) instead of uploading raw files to Salesforce to optimize storage costs.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Emily Vandenberg, Lina Ceniccola] Schedule Discovery Call: Coordinate the business process review meeting for tomorrow with the team. Determine attendees and finalize the session time.
+* [Emily Vandenberg, Lina Ceniccola] Grant Salesforce Access: Provide admin access to the Salesforce instance for the consulting team at consulting+wt@jumper.io.
+* [Joyce Kiddell] Send Signup Mockup: Share the AI generated mockup for the new signup logging flow with the consultants for feedback. Obtain professional advice on the implementability of the revised user experience.
+* [Miko Sumagang] Verify Snowflake Storage: Research current capabilities of Snowflake regarding image and video file storage. Report back findings on whether it is a suitable alternative to Dropbox for media storage.
+* [Waleed Alasadi] Provide Timeline Estimate: Determine feasibility of July launch based on requirements and deliver feedback by the end of the week.
+* [Waleed Alasadi] Share Cost Estimates: Calculate and share cost ranges for requested Salesforce components.
+* [Waleed Alasadi] Finalize System Design: Analyze discovery results and requirements to establish system architecture. Present design proposal early next week.
+* [Waleed Alasadi] Send Meeting Hold: Issue calendar invitation for the upcoming session.
+* [Lina Ceniccola] Coordinate Tomorrow Meeting: Organize and confirm schedule for tomorrows meeting.
+
+
+
+Details
+* Discovery and Process Review: Waleed Alasadi and Miko Sumagang emphasized the necessity of a thorough discovery process to validate the proposed solution against the client's Product Requirements Document. The goal is for the consultants to observe end-user workflows, specifically how data flows from signups into Salesforce, to confirm the appropriate technical components (00:00:00) (00:02:15). They suggested a business process review lasting one to one and a half hours, with a commitment to provide next steps within two to three days following the review (00:03:14). The team agreed to coordinate scheduling for this walkthrough, considering whether to record a session or hold a live call, to ensure full visibility into the process (00:04:14).
+* Salesforce Access and Instance Configuration: The consultants requested access to the client's Salesforce instance to evaluate the current implementation, which was built with the assistance of an artificial intelligence tool called Claude (00:06:32). The client team agreed to provide access and confirmed that they are using Salesforce Sales Cloud Enterprise Edition (00:09:08). The access requests should be directed to the consulting team at consulting+wt@jumper.io (00:10:58).
+* Market Tracking and Reporting Requirements: Joyce Kiddell explained that the "Market" entity is critical for reporting and for configuring deal-specific Cost Per Acquisition rates based on location and vertical, such as sportsbook, casino, or sweeps (00:14:29). Waleed Alasadi noted that using multi-select picklists for this in Salesforce would complicate reporting due to how the system handles comma-separated data, suggesting the need for a more structured data approach to support the client's requirements (00:13:21).
+* Deal Attribution and Financial Logic: Regarding financial attribution, the team discussed that while Cost Per Acquisition rates vary by region and vertical, the attribution must be tied back to the deal (00:15:30). Joyce Kiddell and Lina Ceniccola confirmed that because deal origination occurs in a single location, the team does not need to split amounts by percentage at the signup level, but they must track location-based data accurately to manage redeposits and retention budgets (00:17:48).
+* Terminology and Data Pipeline: The team clarified that internal terminology like "Bet Lab" refers to a legacy agency brand rather than a user-facing system (00:19:55). Joyce Kiddell explained that data from various agency websites flows into a common backend API before reaching Salesforce (00:21:04). There are currently ongoing efforts to troubleshoot discrepancies between website data submissions and the Salesforce records (00:21:52).
+* Native Objects Versus Customization: The consultants advocated for utilizing native Salesforce objects over custom builds to ensure long-term maintainability (00:22:43) (00:27:01). They specifically recommended against using the "Opportunities" object for deals because it is designed for forecasting rather than tracking static agreements (00:25:40). The consultants also determined that "Partners" and "Operators" should be treated as Accounts to facilitate relationships with multiple contacts, while "Players" will be evaluated to determine if they are best suited as Person Accounts or custom objects (00:23:28).
+* User Experience and Interface Design: Miko Sumagang questioned the requirement for custom table and card views for signup entries, noting the potential for over-engineering. Joyce Kiddell clarified that the signup flow is being rethought to move away from the current Google Sheets-based process and agreed to share a mockup for feedback before attaching requirements (00:28:01) (00:30:01). The consultants emphasized that while they are open to custom solutions, they prefer standard, out-of-the-box Salesforce components unless a custom build provides clear, ongoing value (00:29:00).
+* Data Volume and Storage Costs: Miko Sumagang raised concerns regarding potential data storage volume and the high costs associated with Salesforce storage compared to their current Dropbox solution (00:30:45). The consultants advised against uploading files directly to Salesforce due to these costs and suggested using links to external storage providers like Google Drive, Dropbox, or Amazon Web Services (00:31:38). Miko Sumagang also addressed the possibility of using Salesforce’s data warehouse, noting that storing media as blobs is not recommended for easy accessibility (00:32:36).
+* Scheduling and Next Steps: The team agreed to schedule a follow-up walkthrough call for the following day, aiming for a window between 3:00 PM and 4:30 PM. The participants will coordinate offline to finalize the attendee list and confirm the meeting details (00:35:17).
+* Timeline and Project Phases: Joyce Kiddell expressed a desire to go live with phase one by mid-July, though Waleed Alasadi noted that a standard Sales Cloud implementation typically requires two to three months (00:36:44) (00:39:00). The core project scope focuses on establishing the foundation, followed by signups, redeposits, and referrals (00:37:40). The consultants committed to providing an assessment of the design, timeline feasibility, and cost ranges early the following week (00:39:00).
+* Consultant Backgrounds: Waleed Alasadi and Miko Sumagang introduced their professional backgrounds, highlighting their expertise in Revenue Operations and architecture (00:41:10). They explained that Jumper prioritizes hiring consultants with direct operational experience rather than those with purely consulting backgrounds to ensure the team deeply understands business processes and can effectively align them with system requirements (00:42:03).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+May 27, 2026
+Jumpr <> WagerTech: Salesforce PRD Review - Transcript
+00:00:00
+
+Waleed Alasadi: No, no worries. I mean,
+Emily Vandenberg: So,
+Waleed Alasadi: I think that the the the summary of it all is first of all, thanks for it's very evident how much you've thought about your business. You've thought about the processes and like decided to like really call out like the different components of the process and what everything is kind of doing. Um while we do have comments and we would like to kind of maybe talk to you about the different components within there, I think the ultimate um feeling or that Miko and I have is that we still would like want to do more discovery with either yourselves or with your teams to get the business context of what is actually happening, the type of data that is being used. um just to kind of help validate the solution that you have kind of put in front of us. Um not to talk about details but like there's sometimes you're showing like line item screens versus showing like different ways of like users are in inputting values. So just being able to understand the process helps us really to validate whether these are the right components to use or not.
+00:01:12
+
+Waleed Alasadi: Um, additionally, there's questions around like your partners, your um, players and so on that will help us like how would you intend to interact with these I think you call them entities in your document but like really like um, for for us in Salesforce it's objects. How would you like to interact with those um, will help us understand. We can answer some of those questions today but I just want to get a sense of if that makes sense or is aligned with what you're looking for.
+Joyce Kiddell: Yeah, like I I think um you know getting more clarity on your end obviously around our business and how you know things operate and what we plan on migrating as Salesforce is would definitely be needed because it's such a unique um business model. So,
+Lina Ceniccola: One second.
+Joyce Kiddell: we're not expecting you to like understand it all just based off the PRD by any means. Um what does your discovery process typically look like? And is there like an estimated time frame for how long that would
+Waleed Alasadi: Perfect.
+00:02:15
+
+Waleed Alasadi: Um so generally our our discoveries process would look to produce a a document
+Joyce Kiddell: take?
+Waleed Alasadi: um much shorter but very similar to yours in concept just so that we can agree with the customer on the design because you've done that. So like right now I think we will only focus on the components where your end users are demoing the process to us on how they do that today. So ideally we would like to see um how like the data is coming in for new players for new signups um how you getting into that that in for um and I'm sorry I'm still learning the all the different uh terminology but like the how like yeah all just basically all how is the data produced um and related within your Google Sheets today. So we'd want to maybe run it like run an entire deal from your end users like showing us that on screen share. We'll ask questions around that. Um then we will go back and validate some of our understanding from what we got from the discovery against your PRD.
+00:03:14
+
+Waleed Alasadi: Um that we could do that. I mean you tell me but I think we could use an hour or an hour and a half to do a business process review with your teams. Um and then like shortly after it will take us like two to three days after to be come back with like our next steps. Um but you know your process so sorry to interrupt but if it's like an hour if it's an hour and a half is not import is not enough or if you have multiple people that would be like would want to join in because it's different parts of the process we may look at scheduling like maybe two calls for different
+Joyce Kiddell: Yeah,
+Waleed Alasadi: people.
+Joyce Kiddell: it's just funny because we had a a session yesterday that covered this exact like walk through so I feel like we should have recorded
+Miko Sumagang: Oh,
+Joyce Kiddell: it.
+Miko Sumagang: I was just about to say was recorded.
+Joyce Kiddell: Um we did take pretty detailed notes. Uh, I just wonder like um if there's stuff we can get them in the interim without them needing to like sit down with too many
+00:04:14
+
+Lina Ceniccola: I'm wondering if we could also just uh we could have Jay,
+Joyce Kiddell: people.
+Lina Ceniccola: for example, run through a signup this.
+Emily Vandenberg: just like record it.
+Joyce Kiddell: Yeah. And I I think it like to his point though it has to start from like the play can like uh initial link
+Lina Ceniccola: Yeah.
+Joyce Kiddell: generation like what happens when a deal comes in and how does that flow through from like the affiliate link tracking process to then attributing that to a rep and then what the user sees in the rep flow and then all the way down to like how it gets kicked in Salesforce. So would Jay understand like the operations part of that like the early steps or is that more
+Lina Ceniccola: Um, I think I mean both of them together could probably
+Joyce Kiddell: Andy?
+Lina Ceniccola: collectively do it, but um, yeah, we can talk more about it off the call.
+Emily Vandenberg: And I don't think like when I think of yes we can pull it together whether we record book a session whatever
+Waleed Alasadi: Okay.
+Emily Vandenberg: I think an hour would be more than enough time like it's not a hefty
+00:05:25
+
+Lina Ceniccola: We
+Emily Vandenberg: process and it's quite simple in nature.
+Lina Ceniccola: have
+Waleed Alasadi: Okay. And we sense that it was simpler than the PRD kind of shown which again we understand why it had to have the level of detail and that's why I think the business context will help just ground it for us. Okay. Um, so then we can like just sync offline, Lena, with you to arrange for for the call either. I mean, we even have availability tomorrow because it's it seems to me that you're eager to kind of move forward. Yeah.
+Lina Ceniccola: Yes.
+Waleed Alasadi: Yeah.
+Joyce Kiddell: Mhm.
+Lina Ceniccola: Very eager.
+Waleed Alasadi: So, we have some time tomorrow to even like actually book that call and hopefully like by early next week, we're able to give you like our position then based on that.
+Emily Vandenberg: And is there like anything? So of course like seeing kind of like hands on the keyboard of the people actually doing it is going to be most helpful.
+Joyce Kiddell: Okay.
+Emily Vandenberg: But is there anything just knowing we have some time right now that are like kind of you know higher level questions that we could even answer or things that we could just kind of hammer through in the
+00:06:32
+
+Waleed Alasadi: Yes.
+Emily Vandenberg: next 20 or so
+Waleed Alasadi: Yeah. Absolutely.
+Emily Vandenberg: minutes?
+Waleed Alasadi: Like we would love to go through it like Miko and I both have different questions like I have I want to understand the the market tracking that you have like for example Miko does other things. So yes I would love to open the the document and walk through it. Um if there was nothing else I I did want to ask just about your Salesforce instance a little bit. Um if that's okay first.
+Joyce Kiddell: Do you have access?
+Waleed Alasadi: No.
+Joyce Kiddell: Oh,
+Emily Vandenberg: Oh, okay.
+Waleed Alasadi: Oh.
+Emily Vandenberg: I thought you were gonna have like good questions and I was
+Joyce Kiddell: okay.
+Waleed Alasadi: Oh.
+Emily Vandenberg: like
+Waleed Alasadi: But like do you mind telling me the smile? What's the reason behind
+Miko Sumagang: Okay.
+Joyce Kiddell: Emily
+Waleed Alasadi: it?
+Emily Vandenberg: Uh we were just it's just a bit we're we're we had um a junior employee go heavy with Claude on the implementation. Is that fair to say?
+00:07:27
+
+Emily Vandenberg: So we're intrigued like without being able to validate it technically ourselves. were kind of intrigued as what like expert are at sea. Um, a lot of good custom build like custom building that like kind of was able to do a few things fast but we know that it's not
+Waleed Alasadi: Okay.
+Emily Vandenberg: scalable.
+Waleed Alasadi: Um, so are you expecting us to start fresh or to continue the work that has been built already?
+Joyce Kiddell: I think it's really dependent on your recommendation. Like if you review it and see some like nuggets worth like continuing with, then we're open to that. But if you would rather just start from scratch, like I don't think that's a
+Waleed Alasadi: Okay.
+Joyce Kiddell: problem.
+Waleed Alasadi: Would we be able to get access to Salesforce?
+Joyce Kiddell: Yes,
+Waleed Alasadi: Yes. Okay.
+Emily Vandenberg: Yeah,
+Joyce Kiddell: I think
+Emily Vandenberg: we might be up against like a bit of a licensing thing from the perspective of like admin,
+Waleed Alasadi: So,
+Emily Vandenberg: but I'm sure we can work something
+Waleed Alasadi: okay.
+00:08:22
+
+Waleed Alasadi: Yeah, that would that would be really helpful because it will like will help us validate. Um, again, like we love your PRD. I think that it works very well for your for your for your company. So, we're not going to come with something that's different because the entities it's really for us and I'll tell you why that would be different. Um, so I don't know if you've heard of the concept of person accounts for example in Salesforce.
+Joyce Kiddell: No. And just a disclaimer, like we wrote the purity knowing that it's more like,
+Waleed Alasadi: Yeah.
+Joyce Kiddell: okay, what do we want? But it's not the how by any means. So like we'd be looking to you guys to like build out the how. So feel free to speak liberally about it. Like don't think you're gonna like offend anyone.
+Waleed Alasadi: Yeah. No, no, not at all. I just again I I love I we we love the document. It has all the entities. Now we want to figure out the how and that's what I was saying things like person accounts versus regular
+00:09:08
+
+Joyce Kiddell: Okay. Okay. Okay.
+Waleed Alasadi: accounts. Um so it depends on what we decide to use. Everybody has an advantage. Um we'll have to Yeah. So I don't know what what was built already is what is what I'm
+Joyce Kiddell: Yep.
+Lina Ceniccola: We can defin I don't think we have an issue with getting them access either in terms of
+Waleed Alasadi: saying
+Emily Vandenberg: You would you need like developer like
+Lina Ceniccola: licensing.
+Emily Vandenberg: admin?
+Waleed Alasadi: it with Salesforce it would all be the same license type was yeah so it wouldn't matter but
+Emily Vandenberg: Okay.
+Waleed Alasadi: yes we would need
+Emily Vandenberg: Okay. Lena, we can work with it offline.
+Waleed Alasadi: admin
+Emily Vandenberg: I think we might be at capacity. We'll just kick someone
+Lina Ceniccola: Yeah.
+Emily Vandenberg: off.
+Waleed Alasadi: okay and if we're like us or any consultant is going to work with you they're going to need a minimum of one license like always. Okay.
+Emily Vandenberg: Yeah,
+Waleed Alasadi: Um do you know what edition of Salesforce you're on?
+00:09:58
+
+Waleed Alasadi: Is it SalesCloud first of all?
+Emily Vandenberg: I believe so.
+Waleed Alasadi: Okay.
+Emily Vandenberg: Yes.
+Waleed Alasadi: And would it be enterprise? Do you
+Emily Vandenberg: Lena,
+Waleed Alasadi: remember?
+Emily Vandenberg: do you know
+Lina Ceniccola: I'm pretty sure it's I've seen Salesforce Cloud Enterprise
+Waleed Alasadi: Okay.
+Lina Ceniccola: before. I can
+Miko Sumagang: Yeah, if you log into Salesforce, it's like usually like at the very top like the name of like the tab.
+Lina Ceniccola: confirm.
+Miko Sumagang: If it says says like enterprise edition, typically you're you're good to go.
+Waleed Alasadi: and if we get access we'll validate um as well but yeah anything under
+Miko Sumagang: Um
+Waleed Alasadi: the enterprise um we were going to tell you right away that like I think your design will not be supported because a lot of the automations will be scaled back so as long as you have enterprise that would be that would be
+Lina Ceniccola: I'm sorry my internet for some reason on my computer it's just not working but I'm I'm almost
+Miko Sumagang: yeah.
+Lina Ceniccola: sure it is enterprise so let's just assume that it is going forward
+00:10:58
+
+Waleed Alasadi: Okay. Yeah,
+Lina Ceniccola: all
+Waleed Alasadi: we'll we'll double check um as well once we get access. Okay.
+Emily Vandenberg: Who wants the access?
+Waleed Alasadi: Um um so it would
+Lina Ceniccola: Yeah.
+Emily Vandenberg: What email are we sending it to?
+Waleed Alasadi: be let me type it in in here. Do do you have a short like abbreviation for your company? Is it WT for example?
+Miko Sumagang: Awesome.
+Lina Ceniccola: Oh,
+Waleed Alasadi: Yeah.
+Lina Ceniccola: I can confirm we have SalesCloud Enterprise Edition.
+Waleed Alasadi: Perfect. So our email address would be consulting and I'm writing down consulting plus um wt at jumper.io here. Um okay is can we go into the document now? Perfect.
+Emily Vandenberg: Yes.
+Waleed Alasadi: Um, and by the way, like we we love Claude, so like it's all the power to whoever like use Claude to kind of help configure and do that. We think AI has a big place in in all of this. Uh, but obviously like knowing Salesforce is going to help too.
+00:12:17
+
+Waleed Alasadi: So just heads up. Okay, Mo, stop me if you want to go through somewhere. I want to go to the I want to go to the um to the market fa first.
+Miko Sumagang: Yep.
+Waleed Alasadi: Okay. So I wanted to understand with your markets like again I understand Joyce that you said this is what you want and this is what not what to build but this is clearly like here says um does not necessarily need to be built as a complex standalone object in phase one and what I'm trying to understand is like is the smallest entity here like a state or a province and then like you're going in and if somebody selects Ontario only then it looks at the system looks at the selection and determines that this becomes Ontario only or or do they have to select Canada national or Ontario only or otherwise they can choose the provinces and
+Joyce Kiddell: Uh it's more the second thing you said where those options are selectable where like you know ideally
+Waleed Alasadi: states
+Joyce Kiddell: there's a field for country or applicable countries, right?
+00:13:21
+
+Joyce Kiddell: Because you'd be able to pick both Canada and US and then applicable states and provinces. Um, but I was just giving like a list of like different like possibilities and that like some of our deals are nationwide in Canada, some of them are like potentially in like one or two states in the US. Um, so there's a lots of like variability there. And then the note around like it doesn't need to be a standalone object is because I wasn't sure if like in the Salesforce world where there's like objects as entities, do we need to have a sense of market as its own thing or is it just attached to deals for example?
+Waleed Alasadi: Yeah. Um, yeah. I mean the the answer is like very straightforward here. It's like with Salesforce you the only thing if it's not a custom object for this particular thing it will be a multi- select pick list um where they're going in and choosing the states and the
+Joyce Kiddell: Okay.
+Waleed Alasadi: um the provinces either or the problem with multi-state pick list is it won't give you the pivoting that you're looking for when it comes to reporting because it essentially all renders as as a single text like separated by commas is when you select those selections.
+00:14:29
+
+Waleed Alasadi: So say,
+Joyce Kiddell: Okay.
+Waleed Alasadi: "Show me my Ontario." Then you won't be able to do that.
+Joyce Kiddell: Got it.
+Waleed Alasadi: Um, go
+Joyce Kiddell: And sorry, something important to call out is um the reason why market is so important um or one of the reasons is like it's
+Waleed Alasadi: ahead.
+Joyce Kiddell: not just for reporting but it's for configuration around um deal specific CPA rates.
+Waleed Alasadi: Okay.
+Joyce Kiddell: So say we bring on um Caesars and you know they're active in New Jersey and Michigan. Um each of those states could have unique uh rates that we get paid by the operator. for uh different uh like player types as well.
+Miko Sumagang: right?
+Joyce Kiddell: So that could be like uh sportsbook users, casino, sweeps, uh social casino I think was the fourth one. Um so there's a lot of like factors that go into how we get paid. So I just want to make sure that it's clear that those things have downstream
+Waleed Alasadi: Okay.
+Joyce Kiddell: effects.
+Waleed Alasadi: Yeah, it's it is clear that there is like inner inner inner relationships between the objects and there's dance between effects for sure.
+00:15:30
+
+Joyce Kiddell: Okay. And Lena,
+Waleed Alasadi: Um
+Joyce Kiddell: correct me if I'm wrong. A like in terms of uh the rate structure, but I know it's not like every agreement that we have is structured like that, but I want to account for it in the event that it does come
+Lina Ceniccola: Yeah,
+Joyce Kiddell: up.
+Lina Ceniccola: I think we should always account for in the event the CPA changes, it'll always be based on location first and then which vertical, whether that's sports, casino, or sweeps.
+Joyce Kiddell: vertical, that's a better way to put it because I've just been calling it operator type, I think, throughout the per. So, I like vertical as a label.
+Waleed Alasadi: Okay. Um maybe this is the wrong question, but again we're still learning. Is there like let's say when it comes to um signups the the amount specifically um re what does it call it um redeposits.
+Joyce Kiddell: Red deposits.
+Waleed Alasadi: Thank you. So would the so those in a case like somebody like said that this deal combination is for like you said the two states that you mentioned like you I don't know what you said but like New Jersey and and Pennsylvania would you ever be a would you ever be a need to attribute the deposit according to a percentage to one of the states
+00:16:53
+
+Joyce Kiddell: her redeposit
+Waleed Alasadi: honestly any amounts where market is shown.
+Joyce Kiddell: specifically.
+Waleed Alasadi: Are we showing it as a single amount for both or for all the regions that are selected within that market for that deal or does it have to be um attributed right like weighted?
+Joyce Kiddell: I think as long as we attributed back to the deal, which would have those variables built baked into it,
+Waleed Alasadi: Yes.
+Joyce Kiddell: then that's okay. Um, so we wouldn't have to like specify different amounts per location, per redeposit, or per sign up, if that's what you're saying. Like it doesn't change at that level. It only changes at the deal
+Waleed Alasadi: like I'm
+Joyce Kiddell: level,
+Lina Ceniccola: But it would change on the market level.
+Waleed Alasadi: getting
+Lina Ceniccola: So the
+Joyce Kiddell: right? But within the deal,
+Lina Ceniccola: country
+Joyce Kiddell: right? Like it's all part of how we get paid, but it would vary by region or market.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Yeah.
+Waleed Alasadi: like some some of our customers let's say that they have I don't I sell this
+00:17:48
+
+Joyce Kiddell: Okay.
+Waleed Alasadi: company for like US locations and then like European locations. With most of our customers, it's like more direct, right? Like I'm sending you $100,000 product. So they would say that 60% of the users in the US, 40% are in the uh are in Europe. So I would go and take that 100,000 and split it 60% to Europe for the US, 40% to Europe. Right? So it was a clear attribution split that they're able to put in based on user counts. For example, that's where I'm saying like would we need that here?
+Joyce Kiddell: We would for each sign up. Yeah. Like based off of where they're signing up from, but you don't have to attach the CPAs at that level. You know what I
+Waleed Alasadi: Yeah. Okay.
+Joyce Kiddell: mean?
+Waleed Alasadi: That's And where where they sign up from is a single location usually.
+Lina Ceniccola: Yeah.
+Waleed Alasadi: Yeah. Okay.
+Joyce Kiddell: Yeah.
+Waleed Alasadi: All
+Lina Ceniccola: So it's like they the redeposits are related to the
+00:18:40
+
+Waleed Alasadi: right.
+Lina Ceniccola: signups because if we get a sign up in a way we have more money going into the bank account of that specific redeposit. So it's like as the signups grow then the retention budget also grows.
+Waleed Alasadi: Yes.
+Lina Ceniccola: So it's always related to that that actual signup wherever it originated if that makes
+Waleed Alasadi: Yes. No,
+Lina Ceniccola: sense.
+Waleed Alasadi: that that's that makes sense because the origination is a single place which like we don't have to split any amounts by like Yeah. by any percentages.
+Lina Ceniccola: Yes.
+Joyce Kiddell: Yes.
+Lina Ceniccola: Right.
+Joyce Kiddell: Yeah. and the the location um in a world where we're uh grabbing the data from like the the website where users sign up you know the external data point and that flows into Salesforce um the the user will specify their state or province and country at that point um and then at the signup flow stage when a rep goes to log something and confirm that record um they are validating that that's the correct
+Waleed Alasadi: Okay, actually that helps me with my one of my second points.
+00:19:55
+
+Waleed Alasadi: So, bat lab, what what is that?
+Lina Ceniccola: Good question. Sorry, I'm not It's just funny because we actually have um we've canceled that term in the company. So, Bet Lab is just like one of our agency branded sites. We don't use Bet Lab necessarily anymore, but just think of it like all of our agency sites have a different brand for their own brand ambassador because they're kind of running their own network through that name.
+Joyce Kiddell: Yeah. And in the context of the pure, it was probably called out as like Betlab hub or like Bet Lab API. And that's just what we've been calling it like internally,
+Waleed Alasadi: Yeah.
+Joyce Kiddell: but it it it does not actually represent anything that's like userf facing. It's more like our own internal tools that we should rename through this process.
+Lina Ceniccola: Yeah,
+Waleed Alasadi: So I mean
+Lina Ceniccola: we just it means something to us but not to you basically.
+Joyce Kiddell: The same as the agency, right? Anywhere you see agency, it's
+Lina Ceniccola: Yeah.
+00:21:04
+
+Waleed Alasadi: I guess what what I'm asking is because there's like one of the things that we're looking into is there's a lot of data that's being
+Joyce Kiddell: synonymous.
+Waleed Alasadi: kind of inputed into the system. It does start from signups. Uh but then there's like all the different transactions and whatnot. So we're trying to understand what's going to be inputed manually versus what's going to be put in like automatically into the systems. and your PRD. The only thing that I saw was going to be um signups and it's going to be done through this like beta hub beta
+Joyce Kiddell: Yeah.
+Miko Sumagang: Yeah.
+Joyce Kiddell: So it going like further to what Lena said, there's like all these different websites and they have a common backend,
+Waleed Alasadi: hub.
+Joyce Kiddell: right? So like they're sharing an API that we call like the Betlab hub API,
+Miko Sumagang: Mhm.
+Joyce Kiddell: but it's just considered an API.
+Lina Ceniccola: answer.
+Joyce Kiddell: Um and then all of that consolidate consolidated data across all those different sites then flows into Salesforce.
+00:21:52
+
+Joyce Kiddell: So
+Waleed Alasadi: Do we have throughout this process control as to where the API writes or can we query the end points?
+Joyce Kiddell: yeah. No. Yeah,
+Waleed Alasadi: Yeah.
+Joyce Kiddell: we own the website and the like the whole data pipeline from there.
+Waleed Alasadi: Okay.
+Joyce Kiddell: We have been having discrepancies though in terms of like what's submitted through the uh
+Waleed Alasadi: Sweet.
+Joyce Kiddell: websites and then what flows into Salesforce. So that's something that we're kind of troubleshooting outside of
+Waleed Alasadi: Okay.
+Joyce Kiddell: this.
+Waleed Alasadi: Are you are so are you using Salesforce or is this just for testing?
+Joyce Kiddell: We we tried to launch like a version of like the signup flow only with the data flowing in from the websites. Um but it was very flat as an implementation like would not allow us to scale didn't leverage like any of the native objects. Um and uh we we tested it and that's where we noticed that like you know leads were being submitted but not showing up in Salesforce. So that's a whole other thing.
+00:22:43
+
+Waleed Alasadi: Okay. What's your view point of view on native objects? Um, why would you want to use native objects?
+Joyce Kiddell: So, we were told that we should, but I don't know if that's the right way to go or not.
+Waleed Alasadi: Okay.
+Joyce Kiddell: So, like would love your perspective on
+Waleed Alasadi: Okay. Me and I are split, so we don't have a hard opinion yet,
+Joyce Kiddell: this.
+Waleed Alasadi: but the dominant thinking is that actually no. Um, and here's like so that's some of the questions will uncover that. Go ahead.
+Joyce Kiddell: The dominant thinking for us or in general like for all your clients is that you
+Waleed Alasadi: No, no, for you guys. For you guys.
+Joyce Kiddell: Okay.
+Waleed Alasadi: Yeah. No, no. We Okay, maybe I should correct myself.
+Joyce Kiddell: Okay.
+Waleed Alasadi: We're all We always love standard. If you can't do standard, that's when we go to custom. That's like the the stance that we always take. Okay. So, but yes, for specifically those requirements,
+00:23:28
+
+Joyce Kiddell: Okay.
+Waleed Alasadi: we don't think that you should use custom objects. Um but we're like we're going to determine throughout the process. Okay.
+Joyce Kiddell: Okay.
+Waleed Alasadi: So, this is like remember my first comment about person accounts versus accounts and so on. So these are custom sorry these are native objects or standard objects. Um we're trying to see if they would work for your players first of all if we need to do a like if we can use person account for a player or or we can use or we'll have to use a custom object. Um another thing that we're trying to determine is for the operators as well as the uh partners that you have. Do you actually track any relationships with those people? So like I don't know like John Smith is the director of
+Joyce Kiddell: Not yet, but we will for sure. Like in terms of our partners, we have closer direct relationships with them. So,
+Waleed Alasadi: U
+Joyce Kiddell: like we have an opportunity today to be like we're going to throw in, you know, all of our primary contacts information, store it here, um, you know, and create, uh, more of like a a typical CRM, right, environment.
+00:24:35
+
+Joyce Kiddell: Um, but I think as we expand our B2B sales um, efforts, then there's definitely an opportunity to leverage more of your typical like lead
+Waleed Alasadi: Yes. Okay.
+Joyce Kiddell: flow.
+Waleed Alasadi: B2B sales efforts. Thanks for taking us there. So, would your players ever be businesses or are they always going to be
+Joyce Kiddell: No.
+Waleed Alasadi: individuals? Okay. Okay. So,
+Joyce Kiddell: Yeah.
+Waleed Alasadi: that's good to know. But your partners are obviously businesses that could have like multiple contacts under them and then as well as your operators are businesses with contacts. Okay. Okay. So see that answer right now is forcing us to say partners and operators should be
+Joyce Kiddell: Yes.
+Waleed Alasadi: accounts like full-on like accounts and we'll use them simply because you have to use um the contacts under there.
+Joyce Kiddell: Mhm.
+Waleed Alasadi: Um, so that's like one answer on native that we'll kind of look into. The other one is deals. We do not want to use opportunities. Um, are you aligned with that or do you have questions as to why you we don't want to use it?
+00:25:40
+
+Joyce Kiddell: Why? If you can just give us a quick answer.
+Waleed Alasadi: Opportunities represent like they're essentially meant to show forecasts which essentially represents like
+Joyce Kiddell: Okay.
+Waleed Alasadi: it has an open state versus a close state and you kind of want to showuh close dates with that. um it does come with like native features that would have to implement if we do use um deals or opportunities I should say but for you deals are essentially like agreements so once they're executed they're done unless changed um but they're they're living records so that's why
+Emily Vandenberg: Let's
+Waleed Alasadi: we think that deal should not opportunity
+Joyce Kiddell: Okay, keep going.
+Emily Vandenberg: go.
+Joyce Kiddell: I'm just switching to my phone because I have to get in the car.
+Waleed Alasadi: okay no that's all good uh Miko I don't know do you have any other like questions for
+Miko Sumagang: Yeah, like I I I think um in the same vein of like using um what do you call this like
+Waleed Alasadi: now.
+Miko Sumagang: native like objects um one of like the requirements from like the TRD um revolves around like the usage of like the lead like objects um judging from like the requirements and obviously like as we go through like the whole like discoveries like I wanted to just like see like and understand uh the dependencies on like whether or not like we're we're really dependent on like using the lead as like a primary objects for like the signup because if not where this is like where like I'm not saying that like I want to
+00:27:01
+
+Miko Sumagang: like recommend not fully like using it that's like where the discovery comes into play. Um but there are like native functionalities like within Salesforce where there's dduplications that essentially like happen. There might be like dependencies on your bet lab hub uh APIs that we want to like understand on like how it inserts records into like the system. Um so I wanted to just like check in on like whether or not like are we all sold with in like using like the lead like object or like we're okay to kind of like use this for a different one.
+Joyce Kiddell: No, no,
+Miko Sumagang: Okay,
+Joyce Kiddell: not at all.
+Miko Sumagang: sounds good.
+Joyce Kiddell: Like honestly, wherever it says like the actual object name in the purity, just like disregard if you are not aligned. Um I think the the core principle there is just like making sure that we have one centralized type of object that can be associated with multiple signups right like I just want to make sure that the player to deal relationship like the one to many structures in place but I don't care what type of object you're using whether it's custom or
+00:28:01
+
+Miko Sumagang: Okay,
+Joyce Kiddell: native
+Miko Sumagang: sounds perfect. All right, that clearly like answers like the question. Then um there are some like components like within like the PRD like as well where uh where it will like require some custom components within Salesforce that's like not particularly like native. Uh one example that I wanted to like highlight is the views on like how um end users are able to like enter in like records particularly between like the table view and the card view. Uh so Salesforce has like a native way on like how they end
+Joyce Kiddell: Okay, wait, wait, wait. Sorry. Can I cut you off for a sec?
+Miko Sumagang: Yeah.
+Joyce Kiddell: um with regards to the table view and card view.
+Miko Sumagang: Yeah.
+Joyce Kiddell: So I don't know if uh Lena was able to pass on the context that the signup flow is the one piece in the PRD that like I needed to circle back on because initially I was doing um requirements
+Miko Sumagang: Okay.
+Joyce Kiddell: based off of our like first implementation that was like very much just trying to recreate our current logging process with uh Google Sheets.
+00:29:00
+
+Joyce Kiddell: So I we actually rethought um you know a different user experience in terms of how to log those remaining fields within a signup entry. So um anyway that's a longwinded way of saying that uh I need to circle back to that and I can tonight um and give you a more accurate understanding of how we want that to flow but I wouldn't like read in too closely to like the table versus card view. I don't know if that's going to
+Miko Sumagang: Okay, just like from like my end,
+Joyce Kiddell: survive.
+Miko Sumagang: I wanted to just like uh have like a a good way to like advise you all on like whether or not like something is going to be built like custom and like needed because like there are like implications around like the whole like maintainability of that aspect as well is that like we like to like favor something that's just like out of like the box so that it's easily like maintainable and
+Joyce Kiddell: Yep.
+Miko Sumagang: if in case that like if we are going away from like something that's like native, then uh we want to make sure that like it's something that's going to be like uh there's some value like in it just to like make sure that we're not like overbuilding the
+00:30:01
+
+Waleed Alasadi: I
+Joyce Kiddell: totally.
+Miko Sumagang: components.
+Joyce Kiddell: I have a a mockup of what our like kind of revised thinking is like purely
+Waleed Alasadi: think.
+Joyce Kiddell: AI generated of like what a new signup blogging flow could look like.
+Miko Sumagang: Mhm.
+Joyce Kiddell: Um maybe I can send that to you first before I bother like attaching detailed requirements against it and you let me know if it's like um you know easily implementable if that's a word uh within like the the native solutions or if you think it's like the right direction to
+Miko Sumagang: Yeah. Yeah. Absolutely.
+Joyce Kiddell: take
+Miko Sumagang: And like by by no means do we also like shy away from like anything that's that's custom. Again, it's more about like maintainability and like it's also like if it's something that does not like necessarily like change like a lot of like
+Lina Ceniccola: Okay.
+Miko Sumagang: the time sometimes it's kind of like also like a set and forget kind of like component.
+Waleed Alasadi: I don't know. I don't know.
+Miko Sumagang: So I'm a tech
+00:30:45
+
+Waleed Alasadi: Mik and I have arguments about that all the time. I say
+Joyce Kiddell: All
+Waleed Alasadi: just
+Miko Sumagang: guy so like I I like to like build like stuff as long as it's like reliable it'll work but like also like W also has his only feelings to stick around there.
+Joyce Kiddell: right.
+Miko Sumagang: Um okay another point that I do have like over here is um there was a a particular
+Joyce Kiddell: Yes.
+Miko Sumagang: mention around like the moving away from like Dropbox and storing a lot of these like information from Salesforce. One of the things I did wanted to like also like highlight during the discovery is that we would love to get an understanding on like the amount of like volume that's uh that's going through like the whole like signup like process just so like we could actually like forecast on um the amount of like data storage that's going to be required on the Salesforce like side because like um I know that's uh part of like the value prop like of this like project is actually like having like some like cost savings like around like the usage of like Dropbox.
+00:31:38
+
+Miko Sumagang: Um, Salesforce does have 10 gigs that they give you like right out of the get-go like for like enterprise that also like scales based on like the number of licenses that you procure. However, like adding in like more like storage like on that is like a little bit more like pricey from like the Salesforce side. There are alternatives on like how to like bypass like around it like using like other like third party like tools to be able to like connect like the like the data but I also just like wanted to be transparent on that.
+Waleed Alasadi: Yeah. Have you looked into Salesforce storage storage costs?
+Miko Sumagang: Mhm.
+Emily Vandenberg: I briefly looked into it like as much as I like kind of very high level it did seem expensive in comparison. Um but we were we were solution we were I think the where we had got with our troubleshooting and obviously this re like looking for recommendation is like one Dropbox account in which we're that's where we're saving everything off
+Waleed Alasadi: that works with like you put in so instead of like uploading the file,
+00:32:36
+
+Emily Vandenberg: to.
+Waleed Alasadi: you put a link to the file and call it a day that way.
+Emily Vandenberg: sort of I think transformation but that's a solution that from a cost perspective leaning towards where there was savings because I did notice that Salesforce was quite
+Miko Sumagang: Yeah,
+Waleed Alasadi: Yeah.
+Emily Vandenberg: expensive
+Miko Sumagang: you can you can write in an AI agent obviously just
+Waleed Alasadi: But yeah, like Google Drive,
+Emily Vandenberg: Yeah.
+Waleed Alasadi: Dropbox, even an AWS, like if you have do have a lot of volume, like an AWS file storage as well could
+Joyce Kiddell: A quick question on that.
+Waleed Alasadi: work.
+Joyce Kiddell: Um, do you know if Snowflake,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: you know, like Salesforce's uh native data warehouse or whatever you call it, um, does it have the capability of storing like images and videos and would you recommend
+Miko Sumagang: Um,
+Joyce Kiddell: it?
+Miko Sumagang: it stores it as blobs. So like they'll have to like transform it like back into like the system like afterwards. Um as far as like I remember things may have like changed.
+00:33:38
+
+Miko Sumagang: So like I wouldn't like recommends it like right right like away. U but like let me get back to you like on that just in case that there's been updates.
+Joyce Kiddell: Okay. And when you say blobs, like does that mean it's like cold storage?
+Miko Sumagang: Yeah.
+Joyce Kiddell: Like it would have a record of it, but we can't actually like actually access the file
+Miko Sumagang: It basically like transcribes it from like it's uh visual format to uh
+Joyce Kiddell: itself.
+Miko Sumagang: kind of like a a blob of like string like text which is the equivalent like value of it like uh when you open it up in like notepad like an image at like notepad essentially and then like there's like a transformation layer when you pull it out again. This was like from like a few years like back. So I want to like go back and like just like double check. Um just being like extra like nerdy about like how that works.
+Joyce Kiddell: Okay. Yeah,
+Miko Sumagang: Um
+Waleed Alasadi: Okay.
+00:34:24
+
+Joyce Kiddell: that would
+Miko Sumagang: okay.
+Waleed Alasadi: Um I think Miko maybe just for the sake of time because the team did say they needed to drop eight minutes
+Miko Sumagang: Oh yeah.
+Waleed Alasadi: ago.
+Miko Sumagang: Oh
+Waleed Alasadi: Um I I think just from our next steps like our conversation is going to be more questions like this.
+Miko Sumagang: yes.
+Waleed Alasadi: So we'll just ask the team to walk us through the process and we'll continue to ask them questions what they walk us through. Um, do you send some times that are available tomorrow maybe that we can schedule something that Dina be you?
+Emily Vandenberg: I can I can work to get sometimes. I think we just need to connect on the who and then kind of coordinate that.
+Waleed Alasadi: Okay.
+Emily Vandenberg: How does your day look tomorrow?
+Waleed Alasadi: Um, it's like lucky for us if you guys are on the west coast then I wouldn't say our afternoon is open for you. Um,
+Lina Ceniccola: We're
+Waleed Alasadi: oh, oh,
+Lina Ceniccola: east.
+Waleed Alasadi: mistake. Oh, yeah. Yes.
+00:35:17
+
+Waleed Alasadi: Sorry,
+Emily Vandenberg: Yeah.
+Waleed Alasadi: I know that. I don't know why I said that.
+Lina Ceniccola: Joyce and Emily are in London
+Waleed Alasadi: Um, okay.
+Lina Ceniccola: area.
+Waleed Alasadi: Um, how does like between 1 and 2:30 or after 3
+Emily Vandenberg: Um, just going to pull up a sec. Feel like after three. After three works for me, Lena Joyce, how about you and Lena?
+Joyce Kiddell: Yeah, I'm
+Lina Ceniccola: Um, should be good.
+Waleed Alasadi: Awesome.
+Joyce Kiddell: good.
+Emily Vandenberg: At a
+Lina Ceniccola: Yep.
+Emily Vandenberg: minimum, we can use Eric, right?
+Lina Ceniccola: No, probably not.
+Emily Vandenberg: No. Okay. But I feel like Okay. What if we if you give give us a hold around between like 3 and
+Lina Ceniccola: But
+Emily Vandenberg: 4:30, we we could figure out who can join tomorrow.
+Waleed Alasadi: Yeah.
+Emily Vandenberg: I don't
+Lina Ceniccola: yeah,
+Emily Vandenberg: care.
+Waleed Alasadi: Okay.
+Lina Ceniccola: we'll be able to make it work for sure.
+Waleed Alasadi: Wonderful. Um, last question before we just let you all go. I know that the deadline you wanted to be live with Salesforce already, but at this point, do you have an estimated time that you would like to go live with phase one?
+00:36:44
+
+Joyce Kiddell: mid July. Okay,
+Waleed Alasadi: Okay,
+Joyce Kiddell: maybe sooner. How possible is that?
+Waleed Alasadi: we can tell you by the end of the week how about that once we figure out the
+Joyce Kiddell: Okay, perfect.
+Waleed Alasadi: requirements?
+Joyce Kiddell: And do we have a sense of like what like cost would look like? I'm just going to jump straight there.
+Waleed Alasadi: Yeah. No, no, not yet. But we'll also communicate that.
+Joyce Kiddell: Okay.
+Waleed Alasadi: Do do you have a budget in mind that you want to stick to?
+Joyce Kiddell: Not as much as the other consultants.
+Waleed Alasadi: Oh, well, we don't know what the
+Joyce Kiddell: No, sorry. Um, yeah, I don't Lena, you can speak to that,
+Waleed Alasadi: other
+Joyce Kiddell: but I don't think we have a set number in
+Lina Ceniccola: Yeah, I think it a few things depend on the price.
+Joyce Kiddell: mind.
+Lina Ceniccola: I think um we also have just brought on a senior data engineer too. So, I don't know if there's an opportunity to kind of work together.
+00:37:40
+
+Lina Ceniccola: Um, but we're bringing him up to speed on our process and he's also working I mean Joyce can speak a little bit more to this um setting up the foundation of the data throughout the company. So I think he'll be involved in Salesforce in some capacity, but um yeah, at the end of the day, I think like timeline um the resources we were able to have access to as well. Uh but of course, I know it's a little bit early to talk to any price. Um, but it would be important to kind of get a sense or like at least a range on like what we can expect for maybe like setting up the foundation, getting at least the signup flow up and running. And there's the other two parts that we do want part of like an MVP, which would be the referrals and redeposits. So for us, it's like foundation, signups, redeposits, referrals. that is what the core of the business is from the standpoint of the brand ambassador. They need to be able to like track those things and they're all deeply connected and then you know we so you can see from the purity we do have phases after that but um that's kind of where we're at.
+00:39:00
+
+Lina Ceniccola: So we can we're definitely eager to get things moving and you know set up meetings as quickly as we can and we're flexible to that
+Waleed Alasadi: Okay, wonderful. Um,
+Lina Ceniccola: too.
+Waleed Alasadi: the natural generally just natural Salesforce implementation for salescloud, it takes two to three months is like the average natural time frame. So July is a little tight, but like again you're you're the difference between you and others at this point when we're first starting the project is that you do have requirements that are documented. So I think the key steps for both of us at this point is like just determining the system design um that's going to be output from the like this document but also the discovery and then we'll come back to you
+Lina Ceniccola: Yeah.
+Waleed Alasadi: like I said early next week on like what that design would look like.
+Joyce Kiddell: Huh?
+Waleed Alasadi: will also include like our our two cents on timing and whether or not we can hit July and what that looks like. And we'll also share with you the the range of cost um for the different components.
+00:40:04
+
+Joyce Kiddell: Sounds
+Emily Vandenberg: That's great. Are you guys able to send over that meeting hold?
+Joyce Kiddell: great.
+Waleed Alasadi: Yes.
+Emily Vandenberg: Perfect.
+Waleed Alasadi: Okay. Anything else?
+Emily Vandenberg: All right.
+Lina Ceniccola: No, nothing from my end. Uh, we'll sort out tomorrow and get that
+Waleed Alasadi: Hey,
+Lina Ceniccola: going.
+Waleed Alasadi: this is uh this has been so far I know it's only been a couple of days, but very exciting. We it's really interesting when we learn about new businesses and I'll tell you that we haven't come across betting yet. So, this is really cool.
+Lina Ceniccola: Yeah,
+Joyce Kiddell: Thank
+Lina Ceniccola: it's a unique business,
+Joyce Kiddell: you.
+Lina Ceniccola: but it's fun.
+Waleed Alasadi: Uh yeah, we like not to nerd out but like just learning how businesses work is part of the hobby that Miko and I have. I know nerdy but that's why we're excited about this
+Lina Ceniccola: I'm curious too just um what are both of your backgrounds because it it seems like when I was looking online
+Waleed Alasadi: opportunity.
+Lina Ceniccola: your company and Mika and I were talking last week like there's a lot of architects the background so I'm just curious from either of
+00:41:10
+
+Waleed Alasadi: Yeah,
+Lina Ceniccola: you
+Waleed Alasadi: for sure. So, um, me myself, I'm an engineer by education, although that's been like 20 years now, so I don't know how much I should reference it. Uh, but I've been managing revenue operations for for like various technology companies. Um, using Salesforce and other tools. Then, yeah, Mo
+Miko Sumagang: Yeah, like for for me like uh me like you know but I am a Salesforce like architects. Um primarily like I I took school for like uh information systems. So merging of like businesses and technology like to get there. So pretty much like right smack on like where we're at right now. Um and yeah, I've done like revops for pretty much like from like the start of my my career. So been like nerding out about like holding out like systems and enablement of like people and making sure that people actually like end up like using the system.
+Lina Ceniccola: Excellent.
+Miko Sumagang: So we end up like building out.
+Waleed Alasadi: Lena. at Jumper though,
+00:42:03
+
+Miko Sumagang: So
+Waleed Alasadi: I think maybe that's what you're referring to. Like what you'll see is that we do not hire consultants that came from consulting backgrounds. It's very important to us to hire people that have been there, done the job. Um we think that you can Google any tool that you want. It's really about understanding. It's actually what we're doing now. It's understanding the business process and making sure that the tool supports the user requirements. Uh which is why we look for for talent that is actually done been there done that not only consulted on on this.
+Lina Ceniccola: Interesting. Yeah. No. Awesome. Well,
+Waleed Alasadi: Yeah.
+Lina Ceniccola: uh I think Joyce probably has to hop here too. I So, we'll we'll be in touch tomorrow. Well, we'll set up the walk through and yeah, hopefully we can answer any of those questions you guys
+Waleed Alasadi: Wonderful.
+Lina Ceniccola: have.
+Waleed Alasadi: All right.
+Joyce Kiddell: Thanks guys. Nice to meet you.
+Miko Sumagang: That's how One
+Lina Ceniccola: Okay, talk to you later. Bye.
+Transcription ended after 00:43:04
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

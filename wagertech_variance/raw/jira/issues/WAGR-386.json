@@ -1,0 +1,245 @@
+{
+  "id": "10523",
+  "key": "WAGR-386",
+  "fields": {
+    "statuscategorychangedate": "2026-09-17T13:08:08.031-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10519",
+      "key": "WAGR-382",
+      "fields": {
+        "summary": "Operator and Partner relationships, and direct billing",
+        "status": {
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "Normal",
+          "id": "3"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 3,
+      "key": "done",
+      "colorName": "green",
+      "name": "Done"
+    },
+    "resolution": {
+      "id": "10001",
+      "description": "This issue won't be actioned.",
+      "name": "Won't Do"
+    },
+    "resolutiondate": "2026-09-17T13:08:07.970-0400",
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-14T13:22:16.109-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10024",
+        "type": {
+          "id": "10000",
+          "name": "Blocks",
+          "inward": "is blocked by",
+          "outward": "blocks"
+        },
+        "inwardIssue": {
+          "id": "10522",
+          "key": "WAGR-385",
+          "fields": {
+            "summary": "Update Billing details to Direct Billing Details",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-17T13:08:08.031-0400",
+    "status": {
+      "description": "",
+      "name": "Cancelled",
+      "id": "10066",
+      "statusCategory": {
+        "id": 3,
+        "key": "done",
+        "colorName": "green",
+        "name": "Done"
+      }
+    },
+    "description": "## Outcome and context\n\nOnce the relationship record holds direct terms, the same values on the Operator record are a second copy of the same fact. Two copies drift, and the one someone edits is not reliably the one a report reads. This moves the values and takes the old location off the page.\n\nOne constraint decides the shape of the work: **the billing fields are Account fields shared by both the Operator and Partner record types.** They cannot be deleted — Partner records still use them. Retirement on the Operator side means removing them from the Operator page and blanking the values, not deleting fields.\n\nThe same applies to the shared Direct partner Account. Its own billing fields sit on the Partner page it shares with Catena and every other partner, so they cannot be hidden for that one record. Blank them and rely on the field description to say where direct terms now live.\n\n## Current state\n\nOperator records carry populated billing values — the BetMGM record has the full set. `Billing_Relationship__c` is a restricted picklist, `Direct` / `Via Partner`, whose only stated job is controlling which billing fields show on the Operator page.\n\n## Proposed solution\n\n1. Export every Operator with any billing value populated, plus the Direct partner Account, and attach the export to this ticket before touching anything.\n2. Ensure each of those Operators has a Direct relationship row — create it by hand where the operator has no direct Deal yet.\n3. Copy the values across, field for field, including the address.\n4. Blank the billing values on those Operator records and on the Direct partner Account.\n5. Remove the billing fields and the Billing Relationship field from the Operator Lightning page and the Operator Account layout.\n6. Delete `Billing_Relationship__c` once step 5 has soaked for a period Kobi agrees. It has no remaining job — the section it controlled is gone, and the client's objection was that a single either/or value cannot express an operator that is both direct and via-partner at once. **Confirm this with Kobi before deleting;** the alternative is keeping it as a read-only indicator.\n7. Update the Description on the shared billing Account fields to say they apply to Partner records, and that operator direct terms live on the Operator Partner Relationship record.\n\n## Acceptance criteria\n\n1. Every Operator that had a billing value has a Direct relationship row carrying the same values, field for field, verified against the pre-move export.\n2. No Operator record and not the Direct partner Account retains a populated billing value.\n3. Billing values on real Partner records — Catena, GDC, Cipher — are unchanged.\n4. The Operator page shows neither the billing section nor the Billing Relationship field.\n5. A user with the standard operator permission set can open a migrated Operator and reach its direct billing terms.\n\n## Output\n\nPre-move export attached to this ticket. Record counts moved, recorded in a completion comment.\n\n## Dependencies\n\nDepends on _Hold direct billing terms on the Direct relationship record_.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Move Operator billing values onto Direct relationship rows and retire the Operator billing section",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11263",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Closing. WagerTech confirmed on 2026-09-16 that direct billing terms do not vary by market, so the terms are staying on the Operator record where they already are. There is no migration to run and nothing to blank — the values never move. ",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-17T13:08:07.994-0400",
+          "updated": "2026-09-17T13:08:07.994-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002un:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-382"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

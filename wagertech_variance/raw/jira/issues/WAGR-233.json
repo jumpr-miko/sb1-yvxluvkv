@@ -1,0 +1,228 @@
+{
+  "id": "10375",
+  "key": "WAGR-233",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:34:47.821-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.877-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Collapse the mockup's two trailing sections. Admin and system fields move off the main page into the existing More Info tab so the record stops being a scroll.\n\n=== FIELDS ===\n\n* Section name: All Additional Information, inside the existing More Info tab\n\n* Operator External ID — Text(80), External ID, case-insensitive. Marc created this Aug 13; replaces the old auto-number Operator_ID__c.\n\n* Operator Alias — Long Text Area, semicolon-delimited (e.g. 'Catena; Catena Media; CatenaMedia')\n\n* Operator Short Code — Text\n\n* Currency — top-left of the section\n\n* Brand Family — top-right of the section\n\n* Created By / Last Modified By — standard fields, no build\n\n* Logo URL — URL (see BUILD-145)\n\n* Operator Name is NOT included — header only, decided 2026-08-17.\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* No new tab needed — the Operator page already had two tabs, Details and More Info. Kobi live: 'Actually, no, there's already a tab there. Never mind. We can just use the existing tab.'\n\n* Owner is removed from this section and from the layout — 'they're not really going to use it... we'll get rid of the owner.'\n\n* P&L Book Name is deliberately NOT created — Kobi: 'I don't remember that one. We'll leave that out. We'll let them come back to us.' Confirmation happens while demoing the pages, not as a separate ticket.\n\n* CMS Last Sync is deliberately NOT created yet — Kobi asked, Taryn said 'Not yet', Kobi: 'that's okay. I don't think it's urgent.' It gets scoped with the CMS integration work, not here.\n\n* Do not build the error/audit log view. Joyce asked for 'almost like an error log kind of view or audit log' but the population mechanism and ownership fall out of CMS scoping — picked up when CMS integration is scoped.\n\n* Read-only convention per the Aug 17 call with Marc: anything the user shouldn't modify is read-only on the layout.\n\n=== OPEN QUESTIONS ===\n\n* The 'squash' ambiguity. Taryn thinks Joyce said delete System Information outright (\\~36:00 of the Aug 13 recording); Kobi thinks it applied only to Owner. Current build keeps the fields and moves them to More Info. Kobi's counter-argument on the call was sound — 'a logo URL, those are all important things for them to configure' — but it is still an assumption. Taryn to rewatch and confirm.\n\n* Brand Family. Kobi didn't recognise it: 'What is— is brand family like something they wanted? I don't remember talking about it, but I guess it's fine.' Kept on faith. Confirm with Joyce or drop it.\n\n* Which of these are CMS-written vs manual is still unresolved — Emily assumed CMS-driven, mechanism pending the Strah session. Building the fields is safe; deciding read-only vs editable is not.\n\n=== NOTES ===\n\n* ALREADY BUILT — confirmed on the Aug 17 Kobi/Taryn call. Ticket is retroactive documentation.\n\n* Gotcha for the card: sections have to be dragged INSIDE the tab component or they render outside it — hit live on the call.\n\n* Provenance: OP-7.\n\n=== SOURCE ===\n\n* Taryn doc OP-7\n\n* Aug 13 call — squash + tab\n\n* Slack Marc Aug 13 23:33\n\n* Aug 17 call — built live, P&L and CMS Sync excluded\n\nDependencies: BUILD-126\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-131 — Operator: move Additional Information + System fields into the More Info tab",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10498",
+          "body": "Built per spec: created an \"All Additional Information\" section inside the existing More Info tab on Operator, containing Operator External ID (Text(80), External ID, case-insensitive), Operator Alias (Long Text Area, semicolon-delimited), Operator Short Code (Text), Currency, Brand Family, Logo URL, and the standard Created By / Last Modified By fields. Owner was removed from the layout. Per spec, P&L Book Name, CMS Last Sync, and an error/audit log view were not built.",
+          "created": "2026-08-24T17:19:40.960-0400",
+          "updated": "2026-08-24T17:19:40.960-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-265"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563606034220"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001xr:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563606034220"
+      }
+    }
+  }
+}

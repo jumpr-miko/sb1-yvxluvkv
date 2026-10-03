@@ -1,0 +1,227 @@
+{
+  "id": "11575",
+  "key": "WAGR-498",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T18:28:33.200-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-29T18:28:32.873-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10083",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "10332",
+          "key": "WAGR-140",
+          "fields": {
+            "summary": "BUILD-253 — Player Status: Activate Player + Sign-Up Stamps on Completed Sign-Up",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "10084",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "10453",
+          "key": "WAGR-149",
+          "fields": {
+            "summary": "BUILD-250 — Player Status: Sign-Up Completion Date Stamp",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-09-30T01:05:36.964-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nEach Sign-Up preserves the calendar Date of its first click, and only a qualifying new/re-parented Sign-Up source event can automatically reactivate an Inactive Deal.\n\n## First Click Date\n\nAdd a system-managed Sign-Up **First Click Date** (final API name TBD).\n\nUse **Date**, not DateTime, for this derived business field.\n\n### SLC-created Sign-Up\n\n* The inbound SLC already stores the source click as `Study_Link_Click__c.Click_Timestamp__c` (UTC DateTime).\n* When a **new Sign-Up record is first created from an SLC**, stamp First Click Date from the **UTC calendar date** contained in that source click timestamp.\n* This avoids running-user timezone differences.\n\nExample:\n`2026-10-01T00:30:00Z` → First Click Date = `2026-10-01`.\n\n### Repeat clicks\n\n* Multiple SLC clicks may roll into the same existing Sign-Up.\n* Repeat clicks do **not** restamp First Click Date in V1.\n* A future Last Click Date / repeat-click activity rule is explicitly out of scope.\n\n### Import/manual exception\n\n* Authorized historical import/remediation may explicitly supply First Click Date.\n* Preserve a supplied historical value.\n* If a legitimate non-SLC Sign-Up is created without a supplied historical first-click date, default the field to the record's creation business date.\n* Once populated, ordinary updates do not restamp it.\n\n### Re-parenting\n\n* If an existing Sign-Up's Deal lookup is deliberately moved to another Deal, preserve First Click Date.\n* Do not use re-parent time or LastModifiedDate as the activity date.\n\n## Deal auto-reactivation\n\nTrigger/evaluate only from these source events:\n\n1. a new Sign-Up is created with a related Deal; or\n2. an existing Sign-Up's Deal lookup changes to a different Deal.\n\nDo **not** trigger reactivation merely because an unrelated Sign-Up field or Deal field changed.\n\nFor the destination Deal:\n\n* Active → no status change.\n* Inactive → set Active only when First Click Date is populated and **First Click Date >= Inactive Date**.\n* New / Paused / Closed / Review Required / Retired → do not auto-activate/reactivate.\n* If Inactive Date is unexpectedly blank, fail safe / do not auto-reactivate; surface for remediation rather than guessing.\n\nWAGR-486 owns Previous Status / Active Date / lifecycle stamping for the resulting status transition.  \nWAGR-455 owns the resulting CMS sync request.\n\n## Activity summary\n\nWAGR-497 separately rolls MAX(Sign-Up First Click Date) to the Deal. Reactivation must not be driven solely by a generic parent rollup-field update; it is tied to the Sign-Up source events above.\n\n## Existing Player automation\n\nDo not modify WAGR-72 Player automation. Player status continues to use its existing Completed-signup semantics; Deal activity uses First Click Date.\n\n## Acceptance criteria\n\n1. New SLC-created Sign-Up stamps UTC-derived First Click Date once.\n2. Repeat click into the same Sign-Up does not change First Click Date or auto-reactivate a Deal by itself.\n3. Unrelated Sign-Up edit does not change First Click Date or trigger Deal reactivation.\n4. Authorized import-supplied First Click Date is preserved.\n5. Re-parented Sign-Up preserves First Click Date.\n6. New/re-parented Sign-Up to Inactive Deal with First Click Date on/after Inactive Date → Active.\n7. Same event with First Click Date before Inactive Date → remains Inactive.\n8. New/re-parented Sign-Up to Paused/Closed/Retired/New/Review Required → no automatic status change.\n9. Player status automation behavior remains unchanged.\n10. WAGR-497 Deal rollup reflects the preserved First Click Date.\n\n## Dependencies\n\n* WAGR-486 — lifecycle Dates/status tracking.\n* WAGR-497 — Deal Last Sign-Up First Click Date rollup.\n* WAGR-455 — CMS sync after a resulting Deal status change.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Sign-Up — Stamp First Click Date and reactivate Inactive Deal from qualifying activity",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i00913:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "id": "10229",
+  "key": "WAGR-199",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-07-28T15:28:00.538-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:eee79857-319d-43b4-b3a4-1d52b39207b1",
+      "emailAddress": "marc@jumpr.io",
+      "displayName": "Marc Cabantog",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.464-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Objective\n\nShow Reps how complete a Sign-Up record is against the required-field checklist.\n\nImplementation Requirements\n\n* Formula or flow-maintained percentage based on the confirmed required-field list\n\n* Displayed in the Sign-Up highlights panel (BUILD-20, slot already reserved)\n\nAcceptance Criteria\n\n* Percentage reflects the agreed required-field set and updates as fields are populated\n\nBLOCKED\n\nWagertech to confirm the required field list. Nothing can be estimated with confidence until that lands.\n\nDependencies / Impact\n\n* The highlights panel Wagertech signed off on (BUILD-20) currently shows an EMPTY slot where this belongs. Visible gap in a client-approved design.\n\n* SAME blocker as BUILD-06 (required proof set and completion weighting). Chase Wagertech ONCE, unblock both.\n\nEstimate: S · \\~4h post-unblock\n\nSource: Wagertech Additional User Stories, July 2026 — item 26.",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10160",
+        "filename": "image.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-18T16:37:19.593-0400",
+        "size": 324526,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10160",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10160"
+      }
+    ],
+    "summary": "BUILD-40 — Sign-Up Completion % field",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10474",
+          "body": "RESCOPED: field exists but formula is defective — proof criterion tests a value the emoji formula never emits (max 10/11 achievable), and it references First Bet fields (being removed) + Sign_Up_Date_Old__c. Rewrite against Open Questions Q2 field set. Emily's 2026-07-28 19:44 doc comments may close the field-set blocker — verifying.\n\nFormula-fix scope folded into this ticket (no separate ticket): replace proof criterion with the three \\*_Proof_Attached_\\_c checkboxes, remove First Bet + \\_Old field references, align to Q2 field set, regression-test 100% achievable.",
+          "created": "2026-07-29T23:50:19.708-0400",
+          "updated": "2026-07-29T23:50:19.708-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10475",
+          "body": "**UNBLOCKED — Open Questions Q2 confirmed complete by Emily Vandenberg, 2026-08-10.**\n\nSign Up Completion % is driven by exactly these components:\n\n1. Sign Up is related to a **Player** and a **Deal** (Deal carries Operator, Partner, Vertical, Market)\n\n1. **Sign Up Proof**, **Deposit Proof**, **Wager Proof** URLs are populated — presence only, we cannot validate legitimacy\n\n1. **Affiliate Sign Up Date** and **Deposit Date** populated _(note: renaming to Sign Up Date / Registration Date per BUILD-58)_\n\n1. **Deposit Amount** populated\n\n1. **Referrer**, **Referrer Type**, **Payout Amount** populated _OR_ **No Referrer** = True\n\n1. Sign Up is **not** Flagged for Fraud\n\n**No Referrer behaviour** — Kobi's spec, doc thread 2026-07-24: \"When Checked, we'll simply ignore empty values for referrer, referrer type and payout amounts when it comes to Sign up Completion % and any related automation.\" Emily: \"that makes sense to me.\" Excluded from both numerator and denominator.\n\n**Wager Proof was a late addition** — Lina added it 2026-07-28, Emily confirmed 2026-08-10. If the formula predates that, it is wrong.\n\n**Remove auto-completion.** The Q2 line about auto-advancing to Completed at 100% is struck through in the doc and superseded by DECISION-04: completion is manual via the Complete button only. Delete any record-triggered automation flipping Status at 100%.\n\n**⚠️ ONE OPEN ITEM — needs Emily:** First Wager Date was decided on the same day (Q12, BUILD-122) but is **not** in this criteria list. Confirm whether it counts toward Completion %. Do not assume either way.",
+          "created": "2026-08-10T13:08:20.124-0400",
+          "updated": "2026-08-10T13:08:20.124-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10476",
+          "body": "Final Requirements from the Open Questions Document: [https://docs.google.com/document/d/1HUo7sC2robjOPn73g_km6VgAYfWVgkCx8FKiIl8nN1k/edit?tab=t.0#bookmark=id.nt2k3z5a32l9](https://docs.google.com/document/d/1HUo7sC2robjOPn73g_km6VgAYfWVgkCx8FKiIl8nN1k/edit?tab=t.0#bookmark=id.nt2k3z5a32l9)\n\n1. Sign Up Record is related to a Player & Deal (the related Deal record would hold the Operator, Partner, Vertical, Market information for the Sign Up Record. \n2. Sign Up Proof, Deposit Proof, Wager Proof url fields are filled in. (Note we cannot validate if the values in these fields are legitimate, but we can run validation to ensure there is a value for the fields. )\n3. Affiliate Sign Up Date and Deposit Date are filled in.\n4. Deposit Amount is filled in. \n5. Referrer, Referrer Type and Payout Amount are filled in or No Referrer is selected. \n\n1. When No Referrer = True, then Sign Up Completion % ignores Referrer, Referrer Type, Payout Amount\n\n1. Sign Up record is not Flagged for Fraud. \n\n",
+          "created": "2026-08-10T15:24:56.690-0400",
+          "updated": "2026-08-10T15:24:56.690-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10477",
+          "body": "**New Formula**\n\n```\nROUND(\n```\n\n```\n(\n```\n\n```\nIF(NOT(ISBLANK(Player__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Deal__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Sign_up_Proof__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Deposit_Proof__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Wager_Proof__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Affiliate_Signup_Date__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Deposit_Date__c)), 1, 0) +\n```\n\n```\nIF(AND(NOT(ISBLANK(Deposit_Amount__c)), Deposit_Amount__c <> 0), 1, 0) +\n```\n\n```\nIF(OR(No_Referrer__c, AND(NOT(ISBLANK(Referrer__c)), NOT(ISBLANK(TEXT(Referral_Type__c))), AND(NOT(ISBLANK(Payout_Amount__c)), Payout_Amount__c <> 0))), 1, 0) +\n```\n\n```\nIF(NOT(Fraud_Flag__c), 1, 0)\n```\n\n```\n) / 10, 4)\n```",
+          "created": "2026-08-18T16:23:14.238-0400",
+          "updated": "2026-08-18T16:23:14.238-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10478",
+          "body": "```\nROUND(\n```\n\n```\n(\n```\n\n```\nIF(NOT(ISBLANK(Player__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Deal__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Operator__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Partner__c)), 1, 0) +\n```\n\n```\nIF(NOT(Market__c = \"\"), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Deal_Rep_Assignment__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Rep__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(Sign_Up_Date_Old__c)), 1, 0) +\n```\n\n```\nIF(NOT(ISBLANK(First_Bet_DateTime__c)), 1, 0) +\n```\n\n```\nIF(AND(NOT(ISBLANK(First_Bet_Amount__c)), First_Bet_Amount__c <> 0), 1, 0) +\n```\n\n```\nIF(Proof_Status__c = \"Complete\", 1, 0)\n```\n\n```\n) / 11 , 4)\n```",
+          "created": "2026-08-18T16:24:11.968-0400",
+          "updated": "2026-08-18T16:24:11.968-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10479",
+          "body": "## **What Changes vs. the Old Formula**\n\n**Removed** (5 criteria dropped):\n\n* `Operator__c` — now implicitly covered by `Deal__c` (Deal holds Operator, Partner, Market, Vertical)\n* `Partner__c` — same reason\n* `Market__c` — same reason\n* `Deal_Rep_Assignment__c` — not in new requirements\n* `Rep__c` — not in new requirements\n* `Sign_Up_Date_Old__c` — replaced by `Affiliate_Signup_Date__c`\n* `First_Bet_DateTime__c` — not in new requirements\n* `First_Bet_Amount__c <> 0` — replaced by `Deposit_Amount__c`\n* `Proof_Status__c = \"Complete\"` — replaced by 3 individual proof URL fields\n\n**Added** (new criteria):\n\n* `Sign_up_Proof__c` not blank\n* `Deposit_Proof__c` not blank\n* `Wager_Proof__c` not blank\n* `Affiliate_Signup_Date__c` not blank\n* `Deposit_Date__c` not blank\n* `Deposit_Amount__c` not blank and ≠ 0\n* Referrer block (see logic below)\n* `NOT(Fraud_Flag__c)`\n\n## **Key Design Decisions**\n\n### **1. Referrer / No Referrer — Single Combined Criterion**\n\nRather than a dynamic denominator, the entire referrer section as **one combined criterion** that evaluates to `1` if either:\n\n* `No_Referrer__c = TRUE` _(auto-satisfied, fields ignored)_, OR\n* All three are filled: `Referrer__c`, `Referral_Type__c`, and `Payout_Amount__c` ≠ 0\n\n[@Kobi Kunasekaran](https://app.asana.com/1/1202721605677544/profile/1203115293332591) please confirm if this is ok, the payout amount is populated by a flow.\n\n[Update Payout Amount](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ00000xXwMfYAK)\n\n### **2. Fraud Flag — One Criterion**\n\n`NOT(Fraud_Flag__c)` scores 1 point when the record is clean, 0 when flagged. A fraudulent record is capped at 9/10 max.\n\n### **3. Amount Checks (Deposit Amount, Payout Amount)**\n\nFollowing the same pattern as the original `First_Bet_Amount__c` check — validating both not-blank **and** `<> 0` to avoid \"filled with zero\" false positives.",
+          "created": "2026-08-18T16:31:59.628-0400",
+          "updated": "2026-08-18T16:31:59.628-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10480",
+          "created": "2026-08-18T16:37:24.604-0400",
+          "updated": "2026-08-18T16:37:24.604-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 7,
+      "total": 7,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Marc Jester Cabantog"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-146"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "SLC & Sign-Up Intake",
+          "id": "10060"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1216965703875526"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Requirement",
+          "id": "10079"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0011b:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1216965703875526"
+      }
+    }
+  }
+}

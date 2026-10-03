@@ -1,0 +1,961 @@
+📝 Notes
+Jul 8, 2026
+Wagertech <> Jumpr: Onsite
+Invited Miko Sumagang lina@wagertech.bet Kobi Kunasekaran jess@bountysports.com emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi jess@wagertech.bet Marc Cabantog
+Attachments Wagertech <> Jumpr: Onsite
+Meeting records Transcript
+
+
+Summary
+Salesforce implementation progress was reviewed to establish standardized workflows, security protocols, and phased project timelines.
+
+Salesforce Architecture and Workflow
+The system will utilize a tab-based console to centralize records, automating workflows by linking deals, contacts, and accounts. Guided screen flows will replace manual status updates to ensure process adherence.
+
+Security and Data Governance
+Consolidating fraud and status categories streamlines decision-making for representatives. Security measures will restrict visibility to individual record sets while allowing management oversight of team activity.
+
+Implementation Timeline and Training
+The Phase 1 release remains on track for the end of July. Weekly meetings were extended to 1 hour to better accommodate discussions on complex system requirements.
+
+
+Decisions
+Aligned
+* File storage migration to GCP The team decided to replace Dropbox with Google Cloud Platform (GCP) for file storage to enable structured access.
+* Screen flow usage for workflows The team decided to utilize screen flows to enforce data validation and guide the signup process, ensuring required fields are completed before allowing status transitions.
+* Consolidation of status categories The team decided to consolidate 'won't do' and 'fraud' statuses into a single status category, utilizing a reason field to track the root cause.
+* Sales rep data access restriction The system will be configured with private access and sharing rules so that sales reps can only view their own assigned records, preventing unauthorized visibility of other reps' work.
+* Deal rep assignment tracking structure The team decided to use a related child object to track deal rep assignment history rather than creating multiple rows within the primary deal object.
+* Phase 1 scope adjustment The team decided to include 'deal rep assignment' automation in Phase 1, moving it up from its originally planned release phase.
+* Internal user testing requirement The core team will perform the initial evaluation and testing of the Salesforce UI and workflows before rolling access out to the broader sales rep team.
+* Sprint-based delivery model The team decided to adopt a sprint-based delivery model for features following the completion of Phase 1, replacing the originally planned massive, rigid phase structure.
+* Decommissioning of legacy systems The team decided to decommission Dropbox and Airtable once their respective functionalities are fully migrated and verified in Salesforce.
+* Super-user based training approach The team decided to implement a 'super-user' training model, where a small group of internal users is trained first to lead the rollout, including a planned in-person launch day.
+* Research phase completion timeline The research phase completion date is set for mid-August.
+* Sprint-based release planning adoption The team will adopt a month-by-month, sprint-based approach for release planning.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi] Provide Field Feedback: Review current Salesforce fields and advise on which elements should be included in the user specific views.
+* [The group] Discuss WhatsApp Integration: Coordinate a meeting to finalize the strategy for connecting the WhatsApp platform.
+* [The group] Synchronize Deal Assignments: Evaluate the technical requirements for mapping deal rep assignments between the CMS and Salesforce systems.
+* [The group] Define Assignment Caps: Establish the scope and logic for setting and managing signup caps per sales representative.
+* [Eric, Jay] Test Sandbox: Access the sandbox environment to test the UI and provide feedback on the signup flow.
+* [The group] Create Transition Plan: Draft a transition plan to move the team from Google Sheets to Salesforce by August 15th.
+* [The group] Develop Training Strategy: Develop a training plan for the sales team including office hours and potential in-person launch sessions.
+* [The group] Research WhatsApp Integration: Investigate technical options for sending Salesforce notifications to WhatsApp channels.
+* [The group] Conduct Discovery: Conduct research and discovery sprints to finalize scoping for future phases by mid August.
+* [The group] Extend Meeting Time: Schedule recurring one hour weekly meetings to address open questions and project status.
+* [Kobi Kunasekaran] Share Recordings: Send recordings of the meeting to the team for reference.
+
+
+
+Details
+* Salesforce User Interface and Navigation: Kobi Kunasekaran provided an initial look at the current Salesforce build, demonstrating the console view which utilizes a tab-based system similar to web browsers to manage records efficiently (00:00:47). Kobi Kunasekaran explained that the UI customization ranges from basic component arrangement, such as moving fields or adding related lists, to complex coding, with the goal of creating a simplified view for sales representatives (00:01:03) (00:03:21). Kobi Kunasekaran emphasized that the system allows for conditional visibility, enabling administrators to hide or show specific information based on the stage of the player or the user's role (00:01:21).
+* Access Control and Permissions: Kobi Kunasekaran clarified that Salesforce functionality is controlled through profiles and permission sets, which differentiate between administrative or operational views and sales representative views (00:01:36). While administrators require a holistic view of all data, the sales representatives' view should be streamlined to avoid overwhelming them with unnecessary data, which Kobi Kunasekaran noted could lead to inefficiency or misuse (00:02:06) (00:03:38).
+* Object Relationships and Automation: Kobi Kunasekaran explained that the power of Salesforce lies in connecting different objects—such as deals, contacts, and accounts—which enables the creation of automated workflows (00:02:46). By linking these entities, the system can automatically trigger actions or track relationships, which Kobi Kunasekaran identified as a key advancement over current spreadsheet-based processes (00:03:01) (00:05:00).
+* Player Signup Data Ingestion: Kobi Kunasekaran demonstrated how player data from study links on the agency website is ingested into Salesforce via an API (00:05:20) (00:06:37). For testing purposes, Kobi Kunasekaran simulated the import of a new player record, showing how the system automatically creates a player profile and maps it to related records such as signups, deals, and operators (00:06:59) (00:07:57).
+* Sales Queue Management: Kobi Kunasekaran proposed utilizing Salesforce list views as queues for sales representatives to manage their workflow. These queues will display recently added players who have not yet completed the signup process, allowing representatives to process them systematically rather than relying on manual entry in spreadsheets (00:08:33).
+* Status Tracking and Guided Workflows: To ensure process adherence, Kobi Kunasekaran discussed implementing screen flows that act as guided pathways for representatives (00:10:23) (00:23:05). Instead of manually moving statuses, representatives will use buttons to transition records between stages, and these transitions can be gated by requirements, such as uploading a welcome email, to ensure data quality and move records to an "in-progress" status (00:23:46) (00:24:49).
+* Queue Prioritization and Re-engagement: Kobi Kunasekaran emphasized that the goal is to zero out these queues, helping representatives manage their workload effectively (00:11:06). Furthermore, by leveraging object relationships, the team can analyze data to determine optimal re-engagement times, allowing representatives to act when customers are most likely to respond (00:11:27) (00:13:08).
+* WhatsApp Integration Strategy: Kobi Kunasekaran discussed the "North Star" vision of integrating WhatsApp for player communication while keeping the representatives working within Salesforce (00:13:31). The current structure focuses on the representative's user journey in Salesforce, while leaving the external communication layer for future phases, as it involves complex technical considerations (00:14:20).
+* Proof Upload and Storage Transition: Kobi Kunasekaran explained the current manual process involving checkboxes to track proof completion and noted the plan to transition storage from Dropbox to Google Cloud Platform. This move will allow for more structured data management and enable the system to categorize uploaded files with appropriate metadata (00:15:40) (00:16:17).
+* Postback and Dynamic Reporting: Kobi Kunasekaran addressed the need to capture dynamic reporting data, such as URL parameters or click IDs, from postbacks (00:17:04). The team discussed whether this data should flow directly into Salesforce or through the existing backend database, with Kobi Kunasekaran noting that if all necessary mapping information is available, direct ingestion into Salesforce is feasible (00:17:50) (00:19:33).
+* CRM Pipeline Hierarchy: Kobi Kunasekaran highlighted the importance of separating concatenated fields for partners, operators, and direct labels to create a proper CRM pipeline (00:21:28). This structural change will enable accurate reporting and the ability to track the sales cycle and rollup transactions at either the operator or partner level (00:20:54) (00:22:20).
+* Fraud Handling and Status Consolidation: Kobi Kunasekaran proposed consolidating "won't do" and "fraud" statuses to simplify the representative's decision-making process (00:25:47). The team discussed using an "in review" status for potential fraud, allowing operations personnel to confirm the fraud before marking it as closed, with the potential for roll-up logic to flag players based on the specific reason code (00:26:39) (00:27:18).
+* Tracking Rep Activity and Security: Kobi Kunasekaran addressed concerns regarding internal data security and the potential for representative sabotage (00:31:18). While there is no direct "pattern of life" tracking for login times, administrators can track record modifications to gauge activity levels (00:30:07). Kobi Kunasekaran confirmed that privacy restrictions can be set so that representatives only see their own records, while managers retain visibility into their teams' activities (00:31:56) (00:33:32).
+* Deal-Rep Assignment and Caps: Kobi Kunasekaran explained that the Deal-Rep assignment object will track which representatives are assigned to specific deals, enabling the system to associate signups with the correct rep (00:35:46). The team discussed incorporating caps for these assignments, which may involve future automation to prevent reps from exceeding sign-up limits (00:36:12) (00:37:46).
+* Development Timeline and Phasing: Kobi Kunasekaran confirmed the team is on track for the Phase 1 release by the end of July, which covers the signup and logging process (00:42:23) (00:47:02). Future features, such as deposits and payouts, are slated for subsequent phases in September and November, pending research sprints to determine technical feasibility (00:47:25).
+* Adoption and Training Plan: Kobi Kunasekaran recommended a "super user" training approach, where a small group is trained first to act as internal experts before rolling out the system to the rest of the team (00:49:40). The team acknowledged that adoption will be a challenge and agreed that holding office hours, providing transition plans, and setting the expectation that "if it's not in Salesforce, it doesn't exist" are critical for success (00:51:00) (00:51:58).
+* Gamification and Incentives: To encourage adoption, Kobi Kunasekaran suggested implementing gamification strategies, such as Slack-based leaderboards, automated celebratory messages for closed deals, and potentially using tools that play custom songs when a deal is closed (00:55:36) (00:57:13). Kobi Kunasekaran noted that because the sales group is young and already competitive, these methods could be highly effective in driving engagement with the new system (00:57:35).
+* Development Workflow and Capacity: Kobi Kunasekaran discusses the research and discovery phase, noting that they are currently maintaining a workload of 40 to 50 hours per week (00:59:52). This capacity allows the team to conduct research and development tasks in parallel without sacrificing pace (01:00:07). Kobi Kunasekaran suggests that they will manage the initial tasks and then collaborate with the participant to handle technical development and requirements (01:00:21).
+* Project Timeline: Kobi Kunasekaran and the participant review the timeline for the research phase. While early August was initially considered, Kobi Kunasekaran identifies mid-August as a more realistic deadline for completing this phase, given that the current period concludes on July 31st (01:00:39). Both parties agree to utilize a sprint-based approach to align with the subsequent project phases (01:01:00).
+* Project Management and Roadmap: Kobi Kunasekaran confirms that the Asana board has been updated to reflect the current work on Proof of Concept (PLC) components and the upcoming transition to the build phase. To improve visibility, Kobi Kunasekaran plans to provide a month-by-month outline of planned releases during future team meetings (01:01:16).
+* Meeting Cadence: Kobi Kunasekaran proposes extending the current weekly meetings from 30 minutes to one hour, noting that the existing timeframe is no longer sufficient for the depth of discussion required (01:01:35). Kobi Kunasekaran and the participant agree to schedule additional, more frequent checkpoints to address specific open questions, such as fraud handling protocols, the user interface for players, and general interface streamlining (01:01:56).
+* Sandbox Access and Documentation: Kobi Kunasekaran confirms that access to the sandbox environment will be provided during the meeting to facilitate hands-on testing (01:01:56). Kobi Kunasekaran also commits to sending the recordings from the previous day and the current meeting to the participant to ensure they can review the material and navigate the project documentation (01:02:30).
+* Project Progress: Kobi Kunasekaran observes that the team has made positive progress over the last two weeks and expresses excitement about advancing the project toward its final state (01:02:49).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 8, 2026
+Wagertech <> Jumpr: Onsite - Transcript
+00:00:00
+
+Kobi Kunasekaran: if you don't have something ready for us to review on Monday, like Josh will sh um Yeah. Yeah. I mean, those weren't her exact words, but Yeah. You could have brought us anything. Yeah. I know that this is like what we were able to build between like last last week, I guess, uh and today.
+
+
+00:00:22
+
+Kobi Kunasekaran: Um like Will said, like not the final product, um but just work in progress. uh but it kind of gives you the look and feel of what looks like what Salesforce looks like out of the box and uh like translating your uh your existing spreadsheets into it and and uh the UI how much customization can you have UI? So you haven't you haven't like this is like kind of your first look at Salesforce or I've never interacted with it in my Yeah.
+
+
+00:00:47
+
+Kobi Kunasekaran: I want to do just a couple of walkthroughs of like just standard Salesforce. So what you're looking at right now is like that console view versus like what's called the normal view. The whole idea is that it's tabular. So similar to Chrome, you just kind of open up tabs uh and then you're opening the different records.
+
+
+00:01:03
+
+Kobi Kunasekaran: In terms of when you talk about the UI customization, we start from basic all the way to like what you can do with coding. So basic is really you're talking about the different components on the screen like this field versus that field over here. These different sections, you're able to add like related list. So like if I want an account, I want to see their payouts.
+
+
+00:01:21
+
+Kobi Kunasekaran: I'll be able to see a list of their payouts. uh that sort of thing um is kind of what comes in out of the box and a lot of it comes in conditional. So I can show it if it's like an early stage player that's like still going through signup or I can like hide that and sorry this is what a sales rep would see.
+
+
+00:01:36
+
+Kobi Kunasekaran: Is that correct? This is any user for the most part will be able to see this kind with the likewood operation the admin see like have a different view. Yes. This is not that this is what a sales rep, right? we should differentiate able to see this information but I guess what I'm asking is like the admin is going to see a whole view of everybody right so there's yeah right so that's my guess yeah so there's there's two components here there's something called profiles and permission sets profiles is like an admin and
+
+
+00:02:06
+
+Kobi Kunasekaran: operations person where you can start tying like for operations people it's important to put this this information up top versus for for sales jobs it has to be like put in like bottomless from a usability perspective the permissions is about what who gets access to what. So system can see everything when like your play your sales reps probably like take away some.
+
+
+00:02:28
+
+Kobi Kunasekaran: Yeah. Got it. So if you were you were looking at Jess that was more deal that was like a deal object which would be more ops versus sales. Yeah. That's what I show you an understanding like that particular page. The key thing that I I would like you to just kind of look at is every time if you every time you come into a record in Salesforce so right now we're on a date right?
+
+
+00:02:46
+
+Kobi Kunasekaran: So you see that always from the top left is what kind of record that you're on. Right now we're on a deal. If we're on a contact, you'll see a contact or account. The whole thing about Salesforce is it's different objects and you can connect them together. By connecting them together, it means that we can create automations.
+
+
+00:03:01
+
+Kobi Kunasekaran: We can start linking that information. So as you're looking at it, my name is the other page. As we look through these, see those highlighted um highlighted that means that this is a relationship. Yeah. So this is really the power of Salesforce. So player is its own entity. So I can click on that and kind of be able to see it.
+
+
+00:03:21
+
+Kobi Kunasekaran: Yeah. Profile. That's right. Understood. Um okay. This is good. So obviously there's a lot of data that we're going to be able to to have access to. What um in terms of like the sales rep perspective, uh sometimes less is more have a right like and simplicity is better, right?
+
+
+00:03:38
+
+Kobi Kunasekaran: Like sometimes like we just give them a bunch of access to data. There's two issues with it. number one it overwhelms them and they don't they look at 10% of the data and doesn't care about 10% of it and number two they weaponize it against us they have to pass that and so um I guess my question more to our team is do we have a view of what what do we want to show the sales reps because I imagine we would not want to show them everything we don't want to make it as complex as possible the simplest product is likely the best to
+
+
+00:04:04
+
+Kobi Kunasekaran: start we can always make it more advanced do we know what the what that first version looks like we're all align that we have to do that right now they're on the data model that actually so we haven't fully spoke that P looks like but you like preview though like um they're like sign up logging process right like the click through on like a button and this is all they would see or a subset of the
+
+
+00:04:27
+
+Kobi Kunasekaran: main field that that's behind the scenes and most of this is going to be automated so the logging in theory could like a lot of this is not going to be them manually doing this pushed yeah so I think if you can just kind of walk us through the process I think you'll be able to see it like just kind of from end to end.
+
+
+00:04:44
+
+Kobi Kunasekaran: Uh but I also just kind of want to say like on your comment around like what can they see and limiting what they see. I I really I think what we're trying to encourage is thinking about how we like how you paying the sales reps to do something and like make sure that they're doing it versus like having them come through the data.
+
+
+00:05:00
+
+Kobi Kunasekaran: So the thing about like Google Sheets is they always come in and like they're trying to maintain it and make sure that it's accurate. Um you're having issues with like they do and they they don't do it. You're sometimes like sandbagging. So the whole idea is that we want to make sure that the system is like telling you that you have to do the sign up today because it's done right it's all about Yeah.
+
+
+00:05:20
+
+Kobi Kunasekaran: Yeah, it's a system versus them versus them versus the system. That's right. Right. Like it's just like Yeah. No, that makes sense. I want to show you like what what the process looks like from when you have a player sign up on the agency website and clicks through the study links and how that kind of comes into Salesforce.
+
+
+00:05:36
+
+Kobi Kunasekaran: And this is all assuming on the back end we're able to get all the API uh fields and stuff that say, right? Yeah. You want to talk to me about it today? We don't get you have the right Wait, are you talking about the rowdy stuff? No. No. Oh, yeah. Yeah. Oh, yeah.
+
+
+00:05:54
+
+Kobi Kunasekaran: I heard about that. I'm familiar with that. It should be possible because like all these skills I get I got from the doc that the your developers. It's just a different area, right? No, not the erd the Ryan sent like a read me. He sent me with like the API call outs and the JSON.
+
+
+00:06:13
+
+Kobi Kunasekaran: So, most of these fields are there and that's how like I got them. But um some areas you know previously you were sending the name but we want the ID instead because the names can change right. So things like that we need to clarify but I pretty confident that able to do it. Yeah. So we this spreadsheet is just like a bunch of example uh players that or study click links that we might get ingested from Salesforce from that API.
+
+
+00:06:37
+
+Kobi Kunasekaran: So what I'm going to do is actually import it and simulate the important this lag. need to import it in like a real No, no, no. In the real world, as players click on your study, click the uh the study links, it'll come through the API in Salesforce, right? Um but because we don't have that yet, I'm going to simulate it.
+
+
+00:06:59
+
+Kobi Kunasekaran: Um but just to show you like the for for this person like this person does not exist in Salesforce, this player Tyler O. So I search them up, nothing's showing up means it's a brand new player, the first time signing up and they're going to click on a study link. So, I'm gonna do the import over here. Oh, it's gonna be automated.
+
+
+00:07:19
+
+Kobi Kunasekaran: Yeah. Yeah. Yeah. Like skip skip. We um There we go. Okay. All right. I'm gonna search. Created yet? Oh, no. Yeah. The import was successful unless it got flagged for something. Oh, there we go. Okay. So, previously this person wasn't in the database.
+
+
+00:07:57
+
+Kobi Kunasekaran: Now, there is a player record. Um, and yeah, you're right. It was actually contacts as well for the same person. So, if I go into the player, um, this this person was created from that study click link that they clicked on from your website. Um and under the player I can go into the signup that uh that was created from that study click link.
+
+
+00:08:15
+
+Kobi Kunasekaran: Um and in the signup we can see um all of the related records. So the deal uh the operator partner market all of that gets mapped uh with the existing uh data that was already in like the deal that was configured in Salesforce the operator all that stuff that was configured. So this is like the entry point for your rep.
+
+
+00:08:33
+
+Kobi Kunasekaran: So they're no longer manually entering in these uh players and sign up in their sheet anymore, right? This is already petted to Salesforce. And how what I'm imagining or envisioning is like they will have like this list view where they can see like maybe not my my accounts but my players or new players and they'll just see all the players that have been uh recently added that haven't completed signup and then similar to their spreadsheet they can go through and process.
+
+
+00:08:55
+
+Kobi Kunasekaran: Exactly. Yeah. These list views will be the queue um and then they can just click through and it'll just open that to take like a a newly ingested uh player um into like the actual logging process. Sometimes like players are going to click but they're not like ready to actually like complete sign up on the affiliate side, right?
+
+
+00:09:14
+
+Kobi Kunasekaran: So we'll have like you know probably a bunch of signups in a queue and then they'll have to like move it from the kind of pending stage to like you're actively logging. So is there like a step that like captures that transition? So right now everything um all the new all the signups will just be created as new and then um from your PRD you add that logic like if nothing's logged within 3 days then mark it as um overdue.
+
+
+00:09:40
+
+Kobi Kunasekaran: So um that like past due we'll mark it as past due. Um so that automation we can do. Um, but it will be up to the reps to start adding the first time deposits and the other information required to pro to progress the sign up along. Okay. But like if I were to look at my queue and like like kind of move it into like the in progress like how how do uh you don't necessarily need to move it into in progress start working on it.
+
+
+00:10:05
+
+Kobi Kunasekaran: Yeah. There there's a few different ways that we can do it like if you want Okay. Like a UIUX thing where it's like sometimes people just want the the feel of clicking a button to be like I'm working on it which we can do. Absolutely. Yeah. Yeah. Yeah. Like I as a rep I could I open the sign up, I can click on the in progress and mark it as a current status.
+
+
+00:10:23
+
+Kobi Kunasekaran: It could be as simple as that. Or we could even have like a one button version of that too. Okay. Um generally like for in progress you you probably want like additional information, right? So we could put that behind uh what's called screen flows. So these are screen flows. That's a subset of the fields from the signup record.
+
+
+00:10:40
+
+Kobi Kunasekaran: um or it's almost like a guided flow that they can go through and enter the information that's available and it'll update the record itself. Okay. I see this be kind of the biggest hurdle to be honest in terms of development is just like making sure this process is as seamless and like noting as possible. Is it possible to hide the pending and it'll pop up in see these views.
+
+
+00:11:06
+
+Kobi Kunasekaran: So what these views are is basically representing the data and so many different filters. The whole idea with QES, I love that you call it Q's is because Q naturally needs to be zeroed out, right? So yeah, here's all my like in progress or like needed to be action the overdue pass and the rep has to have an objective of like zero people or zero like people in the queue that are waiting on them versus them waiting on.
+
+
+00:11:27
+
+Kobi Kunasekaran: I actually think this will help the rep potentially like re-engage customers that are like lost to the process because I know for a fact these guys get millions of messages. People are they're ready at a very specific time and if they don't attack them at that time to the sign up they they lose them. Yeah. And I was actually I was talking to a rep about this recently where it'd be interesting for um on a VA level if we can see like when their customers are most active and then you can be able to send
+
+
+00:11:58
+
+Kobi Kunasekaran: out the automation for re-engagement at that time because I guarantee if someone's interested but I have 50 people interested at 6:00 p.m. and I get through like 50 of them and then there's 10 stragglers whatever and then next morning I message them all. I don't get responses because like I kind of lost the momentum. Yeah.
+
+
+00:12:20
+
+Kobi Kunasekaran: Or like it's in a sense it's almost like the same like high from the gambling like you get from the sign up too. It's like you're excited your friends might be talking about it but like by 9:00 a.m. I'm like well I don't really feel like gambling. So So how how do you determine what's the uh those preferred times?
+
+
+00:12:41
+
+Kobi Kunasekaran: have to like do we look at like what time the player signed up to say like this is their preferred time because we don't do that. We don't do that today. Oh, okay. I'm saying that would be an interesting I think what's really cool about the object relationship to think about it is because right now I'm looking at a meta and because of this relationship with the signups what it allows you to do from a player
+
+
+00:13:08
+
+Kobi Kunasekaran: perspective be like show me the first sign up the time of sign up and then the average signups and they have multiple signups you can roll all that from a player perspective so you create a lens view u that then allows your bas to be like so you mentioned six months seven months from now I've had all these people that were not interested easy show me all my players have had complete signups in the last six months and that's like what the relationship will be.
+
+
+00:13:31
+
+Kobi Kunasekaran: Yeah. And in a world where we can like automate that notification like in some way where it's like not even manually right about like hooking into WhatsApp WhatsApp we got to get like you guys like once we get this I really think we should have a big conversation about WhatsApp and it like the big it's the biggest like blocker for like no data it's all up to the players sorry the VA they're taking information with them.
+
+
+00:13:57
+
+Kobi Kunasekaran: Yeah. Yeah. We can spend hours on that not there yet. Yeah. Um, can you open up the signup view? Yes. We won't ever be able to get away from like that. Using it. Yeah. I mean, yeah, maybe I'm wrong. I could be wrong, but the whole premise that I just want like what what we can do with this is that the VAS will use Salesforce.
+
+
+00:14:20
+
+Kobi Kunasekaran: The players will get what's out. Okay. So, that's in the current structure is how like of the user journey in terms of how they interact with each other. That's what this is based on. Not a change in what the rep's currently players currently do. So right now we're not going to touch WhatsApp at all.
+
+
+00:14:36
+
+Kobi Kunasekaran: Right. Like this, right? That's how this developed. But I think the idea is that Yeah. That's the north for sure. Yeah. like all the messages that the browser is talking to the players Salesforce would do instead. Yeah. So basically I'm on a player and I can just messaging them right here either like through chat or otherwise but the end the other end is what's up.
+
+
+00:14:54
+
+Kobi Kunasekaran: I definitely that's I think that's a stretchable like you got to figure out what's possible and uh what's going to work for your team. Yeah. Okay. Uh sign up. Yeah. Um can you show the proof upload process? Yep. So out of the box right now this is what comes with Salesforce.
+
+
+00:15:12
+
+Kobi Kunasekaran: Um what we've done is we've set up these check boxes um that reps will have to check manually right now. Um this will drive the proof completion status. So if I go into edit and I'm going to check this and save. Sorry this is all manual because like we haven't built out all the interfaces but so now I marked that I uploaded the signup proof and the proof completion status like a partial.
+
+
+00:15:40
+
+Kobi Kunasekaran: So discussions right now about like they're gonna build an interface where we're actually still upload stuff through Salesforce but it's gonna hook into Google Cloud Platform GCP potentially. Yeah. Um for storage. So we're going to like eliminate Dropbox. GCP is like what 50 bucks a month. It was something like that. Yeah.
+
+
+00:15:58
+
+Kobi Kunasekaran: Per terabyte. Yeah. Yeah. Um so we eliminate the cost of Dropbox. Um, and because it's in GCP and RA has access to that, like we'll be able to like kind of access the file in a much more structured way. So when we do, so right now what comes with Salesforce is these notes and attachments and we can do notes and attachments in any any object, right?
+
+
+00:16:17
+
+Kobi Kunasekaran: And this is straight up like you just upload a file uh from your from your computer, but you can't add any identifiers. You can't say that there's a signup proof. You can't say that this is like for a pause or anything like that. So that's the work that um in that uh storage options uh the Salesforce files and component we can add customization to enable you to upload specifically like a signup and it'll categorize this.
+
+
+00:16:42
+
+Kobi Kunasekaran: So it'll add that metadata but that build that's like custom that we have to build on top and then the other option is right. So like like a button say that says exactly just reset that. Otherwise it's going to be like three or four steps for somebody to upload the file and then go to the file, edit the file and then they have the option to like set the category which is not going to be practical.
+
+
+00:17:04
+
+Kobi Kunasekaran: So one thing I wanted to talk about is like that will still be necessary but we're also piloting these like uh postbacks server store postbacks. So we're going to get like uh URLs click IDs associated with it and then um when we use that URL for players like clicking into like a VMG website for example um we're going to get dynamic reporting back on the parameters in the URL.
+
+
+00:17:29
+
+Kobi Kunasekaran: So those events firing back to us we need to be able to store against the signup. Yeah, I think we like that's that would probably it would go towards our CMS, but I think it it can either go into our play can database first, like not hit our CMS because we like on the UI side, we don't have anything that like reflects that.
+
+
+00:17:50
+
+Kobi Kunasekaran: Um, so it could hit the database first and then update Salesforce if we think that's the best flow. But I was almost wondering like does it make sense for it to go from like the postback to Salesforce to the database? So it can go straight to Salesforce as long as there there's enough data on that postto API call that's coming into Salesforce to uh find the correct sign up to link it to which you might not have all that information right like we're creating this signup record from all the information that comes from
+
+
+00:18:19
+
+Kobi Kunasekaran: the study link clicks which includes the rep and everything. Yeah. To match it. So if you have all that information then to help me understand like what you would need to connect. Absolutely. Absolutely. Yeah. Yeah. So if you have all that information then yes ready to go fast.
+
+
+00:18:34
+
+Kobi Kunasekaran: Yeah. Yeah. Yeah. Yeah. Did I tell you that we're not cipher? No, that's good. Yeah. Yeah. As of like this week. Yeah. Yeah. That'd be that. So I figured like it it makes more sense to go into play kind of like the back end first because you already have all that information there to map it, right?
+
+
+00:18:52
+
+Kobi Kunasekaran: And then because that's the same information that's coming in from the study in clicks. So I would think like you'll map it there and then send the like the transformed updated payload into Salesforce and like web hook through the same API call that does the study link clicks especially where we're putting it right because it would be all part of that journey.
+
+
+00:19:11
+
+Kobi Kunasekaran: Yeah. But like the study link click is like a trigger. So like I was thought we would need web hooks to be able to update that same record from Salesforce to from the database into No, right now play is uh you're just calling out like REST API in Salesforce to create the records. I guess it doesn't have to be web hook if it's still one way.
+
+
+00:19:33
+
+Kobi Kunasekaran: Yeah. Okay. Because it's it's being generated from from from the back end, right? From your from your Yeah. Yeah. Yeah. I think it'll be more. Yes. Yes. Absolutely. Absolutely. Yeah. Right. Yeah. But like I said, like if you do have all that information from the postback already to map it to sign up, then yeah, we can skip the middleman and do it directly.
+
+
+00:19:50
+
+Kobi Kunasekaran: But I don't know I don't know enough about it to say confident. So we'll um whittle down like we'll give you feedback on kind of which fields maybe don't need to be part of. Yeah. Each view. So this is like everything that's for the most part that's in the PRD. We actually skipped a lot of the fields because I don't like adding fields until we know how we're going to use it and what the process behind.
+
+
+00:20:12
+
+Kobi Kunasekaran: you want it in the data model, but it's just like I don't know if you need it from like a rep's perspective like so again treat this as like the first version. Um you're going to want like an ops version that includes everything, right? You want to be able to see everything. So that's this and then from here we can yes we can hide like half of these fields and have like a much smaller view where they just see maybe just a sign of completion like just these set of fields because these are the ones that they need to make sure are all
+
+
+00:20:36
+
+Kobi Kunasekaran: filter right for it to be talking about view and flag makes sense. Yeah. So we're changing market here to be like one like US and then state or Yeah. So we did update it on the deal actually. Oh, you did? So in the in the deal we set up like country market country.
+
+
+00:20:54
+
+Kobi Kunasekaran: So if I go to and then you'll pull them together. Okay. In the country like there's US, Canada, and then US and Canada. Okay. is gonna enable us to do is like you know when you're in talks with an operator and like not just you but like when we scale it to like James or like um we'll have like this as like an actual CRM pipeline to be like oh like you know this is warmly this like we're in contact negotiations here's like the primary contacts like being able to track the sales cycle got it with the operator discussions and we also have partner
+
+
+00:21:28
+
+Kobi Kunasekaran: like an idea of a partner that sits above operators So that would be like GDC, Cina, and then anything that's direct label as direct. Got it. I think the biggest change in your process right now is going to be that right now everywhere across like Air Table, spreadsheets, um, play cam, you you have both concatenated into like one field.
+
+
+00:21:47
+
+Kobi Kunasekaran: Yeah. And we're going have to like separate it out and it's going to be a big change. I think by like as you're describing this like I think it's dimension is the great like way to look at it because you can look at actually all your transactions from an operator partner or right yes when it creating the foundation for reporting right yeah like when we separate it we can start to see like so right now I open up this fanatics operator uh page and we can see all the deals associated where uh fanatics is the operator and all the signups associated and same thing
+
+
+00:22:20
+
+Kobi Kunasekaran: we can do we can add like the relationship to the players as well. So you're able to do all those rollups from either the operator level or even the partner level if you want to go into uh the partner. So that's it'll enable you to do that if we separate it. Um but yeah, this is going to be the change process on your end like we have figure out how that's going to map and everything.
+
+
+00:22:39
+
+Kobi Kunasekaran: Yeah. Well, that's why we have straw to help with Yeah. Yeah. Which one? Uh the first one I'll just start later. Huh? Okay. Like we'll just have the same but we're going to push it back today. Yeah. Sorry, I got distracted. No worries.
+
+
+00:23:05
+
+Kobi Kunasekaran: No worries. Okay. So, yeah. So, this is the fin um we showed you like the guided workflow or like a very slim example of it. We can obviously add like descriptions, guidance, and anything else. uh make this as pretty as we want um to make it awful. Yeah. And I think what's like screen which everybody know what screens are.
+
+
+00:23:27
+
+Kobi Kunasekaran: Okay. So screens is basically like if you look at these buttons where it says complete um essentially what it is is just you're presenting the screen that has like uh these different uh fields conditions maybe related tables how we best should use them exiting. Yeah. So we talked about how do I mark something as in progress?
+
+
+00:23:46
+
+Kobi Kunasekaran: Um how do I mark something as completed? So one way is to just simply say in progress smart status is completed and then like back in the day Salesforce was like very reactive and that all was a validation rule you missed like doing this or you missed doing that. Now what we want to do is actually maybe one thing is like do these these screen flows that Kobe showed.
+
+
+00:24:04
+
+Kobi Kunasekaran: So instead of giving them the ability to change like from completed to in progress like just if they wanted to it'll be like okay move to next stage. So it will be a button and then if it's in progress or if it's like new in order to move to in progress you have to complete these this information do that.
+
+
+00:24:19
+
+Kobi Kunasekaran: So yeah so then in order to do this we have to and I don't know if it's in the PRD we have to know exactly what you need at each stage and then this way it's like the only way to move to in progress would be if you complete these things these items. Yeah. Do we want your reps to be do we want it to be as rigid?
+
+
+00:24:36
+
+Kobi Kunasekaran: Is it always like let's say that you always need to have the I don't know just whatever a day. Do you always have to have it? If you don't always have to have it, then what are you going to do when you don't have it? So that like the reps should not be able to move forward.
+
+
+00:24:49
+
+Kobi Kunasekaran: Can we do it based on screenshots like in progress once they upload a welcome email? Yes. Because really that's the the first indication that the customer is signed up. Sure. So and that would be it, right? Like maybe it'll be like so that if you're in new and then you want to say move stage to in progress, it'll be like great like upload the the signup email.
+
+
+00:25:08
+
+Kobi Kunasekaran: So then that whole like by doing them doing it, it moves it to in progress like that. Yeah, we can talk about that very long. Yeah. Yeah. I think that that whole like this would be like what guides them and makes sure that they do it. Um so and then it makes your list views then accurate because then you know that a new means they don't have the welcome email.
+
+
+00:25:26
+
+Kobi Kunasekaran: Yes. Yeah. Yeah. Great. So, but what happens like the long June flag? Like how do you get those? Um, right now we have this one for fraud. Um, a button for fraud where they have to enter a reason. So, if I do like any reason here, uh, and finish it's going to update the status of the fraud.
+
+
+00:25:47
+
+Kobi Kunasekaran: I'm going to refresh the page actually. I think we I was going to say I think we want to like consolidate won't do and fraud. We can. Yeah. Yeah, we we absolutely can. Yeah. um figure the one two was going to be uh manually set by the rep um flag it could be a mix mix of both right manual be automated one and then fraud is like one of the reasons I see it got okay but like I can see them getting confused
+
+
+00:26:16
+
+Kobi Kunasekaran: if they have to like choose between two items Makes sense makes yeah we can we can cut that out like we really realistically like if it's flagged it's or not Yeah, it all go to the same kind of but we could it could be backtracked if odds approves it like that. Yeah, think about it from like a sales opportunity positional opportunity perspective.
+
+
+00:26:39
+
+Kobi Kunasekaran: You have like closed one and closed loss. The clause for closed loss would be that and then the loss reason would be either fraud or like yeah as long as we're tracking the root cause those problems then like that's a game changer for us. Maybe we do like in review uh initially and then once it's confirmed that it's it's fraud then we mark it as like fraud or won't and that way you have that uh middle status right.
+
+
+00:27:02
+
+Kobi Kunasekaran: So that's where like it goes to ops. Yeah. Somebody to go through and review and actually action it so that it progress to the next next step. Okay. And that would be like more clear like when gets elected won't do then that means it's closed as opposed to it still needs to be reviewed and confirmed.
+
+
+00:27:18
+
+Kobi Kunasekaran: We could do that. Um, right now we also don't have any like logic that rolls up the sign up to the player level to like flag the player, but that's also something we can add, right? So, if if there's a signup that has been flagged uh for fraud or whatever at the like the signup level, then we could have that automatically like update the I think it'll be dependent on the reason code.
+
+
+00:27:38
+
+Kobi Kunasekaran: I have somewhere. I don't know, but it's like if we pick something like um edited screenshots, then we kind of know like they are like banned banned. But if there's like a lesser offense, then maybe they're just like on a watch list once. Okay. Yeah. So, I mean, we could roll all that up like depending on that logic that you let us know.
+
+
+00:27:59
+
+Kobi Kunasekaran: Oh, no. And then once they're uh banned or flagged for fraud, then we have to decide on what happens if they do. This is at the player level now. Yeah. Yeah. So for this one, we were able to have this already. I just gota track it down. No, it's fine.
+
+
+00:28:16
+
+Kobi Kunasekaran: Like we have the foundation now, right? Like now we work through each process one by one and clean it up. Yeah. Yes. I know. Um we do want to be back at our uh office room two. So um if you can maybe like show us like the deal view um more in depth and then the assignment flow and then we can get into timeline and stuff.
+
+
+00:28:35
+
+Kobi Kunasekaran: Does that make sense? Yeah, that works. That works. Um okay so this is the deal for the same example that we're talking about um already configured um but presumably like you have your sales manager or whoever is creating these deals. So we have an O in here. Yeah. And again, it doesn't have to be like all these fields of course, right?
+
+
+00:28:56
+
+Kobi Kunasekaran: Um we could similar to the uh sign up where if they have the complete sign up like we could do like a guided process um where it walks them through the key fields um and then it'll update uh behind the scenes. Um but for the deal like we have the partner, operator, market, market, country, state, um effective date, deal version, vertical cap basically.
+
+
+00:29:20
+
+Kobi Kunasekaran: Uh yes, this was from the PRD yesterday. So with the option for unlimited, right? Um like for an open Yeah. So now we can track like bonus details too and deposit amount. I think if you want to do like the like this is like a numeric field uh but we could have like a CPA target type that says like numeric or unlimited and then we choose unlimited then this field could be black
+
+
+00:29:45
+
+Kobi Kunasekaran: out watcher then build like a pattern of life for each no not heat mapping the I want to watch them like I want to know who's using it when and like develop a pattern of life just watch know they're engaging it's like a creepy thing it's like uh like let's say for example I want to know who's like not working, you know, or like when they work.
+
+
+00:30:07
+
+Kobi Kunasekaran: They work for weird hours since they're working at home. Is that your sales reps? Yeah. Like you could be there's no such thing as like tracking and as an administrator. We can't see. Yeah. We can't see interactive when they Yeah. Uh you can see like when they modified so you can look at like all the records and count them by like how many were modified by the you can't see when they like got logged in and used it like
+
+
+00:30:31
+
+Kobi Kunasekaran: last track people like logging into like in terms of like the actual like usage like you can't like just like aggregate the number of like records that they end up like modifying or creating like for example not to like which page they end up like going out and typing in. to say that he's reporting to as many people as possible like we fired somebody but he's being fired in the future.
+
+
+00:30:56
+
+Kobi Kunasekaran: Um Ethan we told him that but he's like he keeps telling us he's working and so we said okay well that's fine but you're fired still in the future and so um I want to see that he isn't working in evidence. Yeah access though, right? Well, you would kind of get a general sense if his pending queue is exactly because you'll have access to the clips.
+
+
+00:31:18
+
+Kobi Kunasekaran: Oh, I see. I just tal like sabotaging each other like that sort of thing. Is that Yeah. Yeah. Just I was more like just a high level. I was just asking because if it is a problem then we have to look into like security and permissions like you have players like sab sorry not players reps like sabotaging each other.
+
+
+00:31:39
+
+Kobi Kunasekaran: Rohan will sabotage people. You do or not? Yeah, he's done that before. Log in their information like so like how how Salesforce is set up right now. This there's like a baseline setting on sharing versus like private access. Um and sharing generally allows all people to see all theirs and all that.
+
+
+00:31:56
+
+Kobi Kunasekaran: You should only see your stuff. Okay. So, if you want to do like that's not that, right? Uh we've set it up, but right now we're not using the owner field uh to set the reps yet. But if we do type theoretical guess, make sure. So you as a a saleserson should only see your stuff, correct?
+
+
+00:32:12
+
+Kobi Kunasekaran: Yeah, that's like a deal breaker. Jess, when you say sabotaging, like do you mean stealing other people? Oh, no. No. Yeah, Rohan is stealing other people's players. No, no, he likes to watch them, too. Um so unfortunately fore the um the Rohan likes to see how other people are doing to know what deals they have access to online.
+
+
+00:32:39
+
+Kobi Kunasekaran: We want we want to maybe come up with like a leaderboard contest. Yeah. Yeah. There's mutuality across like we want to show them some aggregated stuff but he'll go and watch like a crepeazoid you know like he'll be in there watch them do weird stuff. So he had got access to their the back end of of betab and he did that and he was like using it against them and then like using it to leverage his position in the company which again I kind of respect but um it wasn't it was an issue but I
+
+
+00:33:03
+
+Kobi Kunasekaran: I didn't have a problem. Okay. We're not I just thought but yeah yeah yeah because he's another manager the problem is like yeah yeah wants a whole other but we do have a concept of brand manager here where we will have reporting for the people within their teams. Yeah, but it's not going to be like full on back end access to everybody like we'll have to figure out like what kind of data I think like right right now like every record comes with this owner field um and
+
+
+00:33:32
+
+Kobi Kunasekaran: that's how we could set those uh privacy restrictions. So um we have a separate field for the rep uh but we could like have this one update the other one so that it restricted. So you have to own the record to make any changes to see it or or anything like that. Um, but then your manager can see it.
+
+
+00:33:49
+
+Kobi Kunasekaran: Uh, see everything that you do. Be able to see everything. Exactly. Ron once visited my LinkedIn page every day for seven straight days. They had to ask stop. How do you possibly be doing I had to ask him to stop? I said went back the next day and did it anyway.
+
+
+00:34:09
+
+Kobi Kunasekaran: He knows his like reps have what deals they have access to, right? He has that visibility and that's something who like Yeah, he does. He's in their chats so he knows what what deals he does. Yeah, he has access. I just wanted Yeah, I was just curious. He could go on anyone and so he can at any time.
+
+
+00:34:26
+
+Kobi Kunasekaran: Well, yeah, but they won't know like how much volume they can but he sees in the chat. Yeah. Yeah, we'll figure that out. It might be a use case we need to solve for but yeah like I said seven days that's cruise we can right now right up don't want them to see or we do right now I think they would be we're tracking like referrals and referers sorry for sign up and we have a
+
+
+00:34:51
+
+Kobi Kunasekaran: concept of like primary and secondary refers like literally everything is counting okay sorry can you go back to the dealer Yeah. Is there anything else you want to call out here? Um, no. I think I think pretty much like we also like set up this deal uh signup completion. Um, just pick the main field.
+
+
+00:35:14
+
+Kobi Kunasekaran: Deal rep assignment or no this is the deal. Um, so deal rep assignment is hold sorry this is sign up. Sorry. Let's go back to the deal. Okay. So this is the deal and then we have the deal rope assignment. So I think I like what we talked about yesterday.
+
+
+00:35:29
+
+Kobi Kunasekaran: Okay. So, initially I thought this was going to track um every time you're assigning a deal to a rep, it'll it'll be a new row uh for each of those assignments. But I think what we talked about yesterday was one deal rep assignment for that rep in the deal and then we could capture the the actual history like a child object from there.
+
+
+00:35:46
+
+Kobi Kunasekaran: Um but what this will do is this Yeah. Like it'll be a related object. Yeah. Yeah. True. But what this will do is like so if we assign this deal to like the three of you um there'll be three rows or three records for each of you. Um and then every time there's a study link click uh clicked and it it records a signup it'll be associated to the respective person's uh assignment for that deal.
+
+
+00:36:12
+
+Kobi Kunasekaran: Uh and then we can start rolling up like how many signups they had uh all all time uh from when they had the assignments. Um, we could start doing like if we want to enforce caps, like they can only have 50 signups, then we could start adding that in as well and then maybe notify somebody or something like that that they can't do any more signups.
+
+
+00:36:30
+
+Kobi Kunasekaran: I think for this view, yeah, we're going to want to do Yeah. Or it could be the other way around. I think you might want to do it the other way around because you have all the operator like presumably everything that you're doing in air table will move to here eventually but the problem is that like it's not actually happening in air table like the assignment piece the air table tracks all of the um deals that we have the actual assignment process doesn't happen there happens in the yes but if um if they do the assignment here we could have Salesforce push out the call to your CMS
+
+
+00:37:13
+
+Kobi Kunasekaran: to update it again assuming yeah sorry that's a I guess we have to talk it through internally but just because we know that it's the op team how to do this maybe honestly like either or we can talk back and forth within this like object because we could start with one and then maybe like a future status that we like we manage here if we update here I think that's probably how we want to set up this yeah uh like I have no problem with the CMS creating these deal rep assignments.
+
+
+00:37:46
+
+Kobi Kunasekaran: I think we just have to make sure that you have all the respective IDs so that we can do the lookups and associated to the to the deals. They can use AI assistance. So what about the caps though for these assignments up? Uh because don't you do like only 30 per like you cap assignments, right?
+
+
+00:38:05
+
+Kobi Kunasekaran: Not not assignments but like the clicks, right? Deals we there's like can be caps at the deal level. Yeah. But then and then they're broken down by we have 200 but then we have to divide it out. Yes. 50. So are we going to do that? Right. Because you're saying like gets 15, you get 50. Where where are we saying that?
+
+
+00:38:25
+
+Kobi Kunasekaran: So that technically wasn't sculpted until like phase three or phase four. We brought the deal assignment ahead so that we can do the mapping of the signups to the deal rep. But I think we should actually talk about that and include that in. What is phase four? Sorry. Phase four. Uh phase four was like the actually the deal rep assignment the uh all the automations tied to it like creating those assignments uh affiliate links.
+
+
+00:38:51
+
+Kobi Kunasekaran: I think this was from the PRD uh phase for we all that air traffic controlling you guys do you less now adjust but you'd be like you need 50 times on this book give it to this person right like that whole um process was going to be built later but they moved it up in terms of order of operations because it just made more sense to do it now with like how the data is all now we have it kind of more end to end versus like bolted on
+
+
+00:39:19
+
+Kobi Kunasekaran: later because it was going to come after like payouts and redeposits. But yeah, it's part of the signup flow and I think it makes sense to do it together rather than Okay. So, is this like a good segue into the timeline? Yeah, actually. Yes. Yes. Yes. is um when are we going to get reps here to try it out?
+
+
+00:39:38
+
+Kobi Kunasekaran: Oh, I think it's still too early, but yeah, we we we want to get some feedback to you first. Okay. Yeah. And like play around with UI ourselves. Aaron, Eric to take like a kind of pass at it as like the first step, I think. Yeah. Well, us too. Yeah.
+
+
+00:39:57
+
+Kobi Kunasekaran: Yeah. Us then Eric and then us and J. J. has to do it. Yeah, that's Eric and Jay all at once. Yeah. And then I think Yeah, Eric and Jay can do it at the same time and they're both on the sales side also kind of. Great. I think like that that's as early as possible that would be great because all of this is like us here saying we can get access data and child objects and so great but like from them it's going to be a totally different perspective and I just
+
+
+00:40:22
+
+Kobi Kunasekaran: like if you can get us access and we'll send you an email for those two people also but like definitely us three um and we can start on Monday Eric. Yeah. get a lot. I mean, I don't know that we're ready for Monday, but I heard Monday. I think we might have to like work work through those like uh screen flows and stuff first before you give it to the reps.
+
+
+00:40:43
+
+Kobi Kunasekaran: Otherwise, it's going to be like I can already see the push back. I think they're going to get us right. Yes, 100%. Yeah, we're going to talk about this, but it is July 8th today. So I think that like the apps have to be integrated and we're taking the process from the top right flow and let we get feedback so that we're not having to go come back and it all like we just won't have time.
+
+
+00:41:01
+
+Kobi Kunasekaran: Yeah. The one thing I'll say is that we have access to a rep who's also like kind of working on like more of the op side so he can kind of duel so he can inform the UI. Interesting. crossunctional industry as a really good user because he knows how it needs to then inform like what we need to change so he can kind of I think that could be good ASAP yeah knowing he can he can be okay with the pain yeah I say
+
+
+00:41:37
+
+Kobi Kunasekaran: because one of your main objectives is is uh the time saving time for for us right and that like that's that and we haven't built any for the most part any like the coding UI. So that's where like we want to test out like does Salesforce write itself to Yeah, I think we go through like one first pass ourselves like clean out the fields and create that view first.
+
+
+00:42:03
+
+Kobi Kunasekaran: Um and then they can go through work with that. Uh we don't have to create the screen flows yet, but just a simplified version of what all those fields that you saw, right? Because they don't need access to all of those. That's very easy for us to do. uh pretty quick and then from there they can take it on uh try entering in deals all of that um and then yeah we can work from there for the guided flow.
+
+
+00:42:23
+
+Kobi Kunasekaran: Okay. Okay. So all of this um that we we basically talked about like this this was all that we uh essentially committed or planning to release with phase one right like because this is the big big block. It's uh primarily everything that has to do with the signup blogging process and all the uh supporting objects for it.
+
+
+00:42:43
+
+Kobi Kunasekaran: Um, we're still on track. Um, I think we'll have everything done assuming, you know, the API stuff works out and we'll figure out the storage information. Um, from our end, um, yeah, long as we get all the feedback, I don't see any issues right now. Okay. Yeah, I mean, it works. So once we have all all that information, I think I think we'll be on track.
+
+
+00:43:04
+
+Kobi Kunasekaran: And then while uh as we get into the tail end, like probably in like a like a week or two, we can start talking about like scoping out the deposits, the payouts. Um tail end of phase one, sorry. Tail end of phase one. Yes. Yeah. Um so WhatsApp tech takes I think there there are a few other things that you add in the PRD that we want to incorporate in later phases.
+
+
+00:43:31
+
+Kobi Kunasekaran: Uh but but we we do have to go through like a research sprint to understand how we can do it and everything right. So we we can start that in a couple weeks. um mostly because I think we're gonna need that time to work through phase one and make sure it's stay and in phase one can make sure that we're scoping new starting like later this week on how to make sure that whatever we're launching in phase one still connects to the other spreadsheets that we haven't migrated to the system yet remember how we talked about like making sure that like signups we talked about repositives but repositives aren't going to be
+
+
+00:44:01
+
+Kobi Kunasekaran: in yet there's no down time okay yeah I think like worst case scenario We should be able to create reports that we can then export into your spreadsheets. Yes. And people have that. Yeah. Uh should be possible. There's a bunch of that Google Sheets add. I forget what it's called, but yeah, we should be able to do that.
+
+
+00:44:23
+
+Kobi Kunasekaran: Okay. Um so yeah, so we'll work through the research sprint scoping out the later phases, but I think for deposits and payout, um at least the core object and the the core component should be pretty straightforward. I think we can sculpt that on probably I'm going to say like probably a week uh maybe a week and a half for the I will say is the biggest lift.
+
+
+00:44:45
+
+Kobi Kunasekaran: Exactly. Yeah. Um and then we'll we'll we'll release it like in in that order, right? So instead of like bucketing the later releases like as like giant phases, um recommendation is let's pick a functionality or process that we're going to move over to Salesforce. So redeposits everything that has to do with redeposits to what we can with within Salesforce.
+
+
+00:45:04
+
+Kobi Kunasekaran: We'll work on that uh for the next couple of sprints and then we'll we'll ship that out, move everyone out of their Google spreadsheets for redeposits and then we'll work on payouts. And again, this is if you want to do it the other way, I'd absolutely like the order I don't think necessarily matters. So, it's up to you.
+
+
+00:45:20
+
+Kobi Kunasekaran: You can take affiliate links that are too sorry that okay affiliate links I actually want to talk to you about because that is a big part of your sign up process. So, we might have to pull that up. I can read probably through like a different Okay. But like it can talk to sensors. Okay.
+
+
+00:45:36
+
+Kobi Kunasekaran: Yeah. Let's let's let's on that this week. I I think the key here is that like phase one, you're right. Like that is the beast of like setting up all the objects and instead of like initially when we talked we talked about like specific phases that we move on. And what we're proposing here is that once we go live with phase one, then you're moving into like just sprint based delivery that you want to work on this feature on this feature.
+
+
+00:45:55
+
+Kobi Kunasekaran: It helps from the timelines and like just as things go but also like for you like when you want to stop working on sprints that you just stop working on sprints as well like versus committing to these big phases. For sure. Would you guys be able to do like you know once we get this initial like build done like bi-weekly like release notes like if you're operating in sprints like you know as you release like just send us like a fully kind of
+
+
+00:46:17
+
+Kobi Kunasekaran: documented. Absolutely. Yeah. Yeah. We usually do like uh videos and stuff to show what's been released and uh Okay. Okay. resources for your team to refer back to. Yeah. I think it would be good to like again at the end of the phase also like review our hours usage and see kind of what you're comfortable with from a sprint perspective because that helps kind of also inform like how much kind of we surround the sprint
+
+
+00:46:39
+
+Kobi Kunasekaran: in terms of release notes and videos just hours or like 20, right? Like Yeah. So then like we can communicate timelines better. We can communicate like what we can include in the spin when we have like a set budget to kind of spend spend. Okay. All the customizations we talked about we can do everything but it's like how much effort and time you want to put in there right and does it fit within your budget.
+
+
+00:47:02
+
+Kobi Kunasekaran: So are we good with the timeline? What included? So I think they have a good slide on the phase of it compares to the phases. Uh, no I don't think it was here. Okay. All right. It was a different document. So, basically what what's included here is like by the end of July your the signups are going to come into Salesforce.
+
+
+00:47:25
+
+Kobi Kunasekaran: The the reps are going to be logging within Salesforce. Um, once we kind of make sure that that's good, then we're going to move into like the deposits and kind of get that um hopefully up and running in September. Um, then we move on to payouts. So that would be I think Kobe's hoping for November, but we want to talk about the details that well I I chose November because that was a date that I guess told me yesterday, but that doesn't like I think yeah ultimately the timeline is going to depend on how much you need to
+
+
+00:47:56
+
+Kobi Kunasekaran: build and customize. I think this is what you'll talk about. Yeah. Just like this is helpful for specifically for you Joyce because I think like we we confused with like our phase versus your phase and the BRZ. Yeah. Yeah. So just kind of to align because you're used to it from from your um so ultimately in the first phase we're getting the signups the logging um deal configurations not so much notifications in phase one and that's something that can be added and again although that's small enough that
+
+
+00:48:28
+
+Kobi Kunasekaran: we can we can add it in and squeeze it in if if needed. Yeah. some things have reps actively using it like notifications will just go a long way in terms of like shine like and you're going to want like reports and stuff too. So like those are things that we haven't like explicitly scoped in to phase one but I think we should add in um as as we like a light version.
+
+
+00:48:51
+
+Kobi Kunasekaran: Yeah like and the idea is by the end of like this our phase three um air table you can decommission like that's where and like uh Dropbox we can decommission as soon as we have this new storage solution. Yes. Yeah. Yeah. Um the ones that like we've put uh at the end are the ones with the unknowns because we need to do some research to understand what the feasibility is if we can even do any of these things.
+
+
+00:49:17
+
+Kobi Kunasekaran: Yeah. Operator data warehouse that right because it's going there. Yeah. And affiliate link management. This is yeah this one I I want to talk to talk to you all about this. I've never heard but I like it from one of my previous managing. I know. I just want to talk about go live a little bit too and your plans around training and like getting the apps like on boarded.
+
+
+00:49:40
+
+Kobi Kunasekaran: So what we like we discussed what go live would look like for you. No. Who's going to be doing the training for us? We had talked like when we kind of last talked we had talked about like a small kind of like base that we would train up that would then like train out and we would record.
+
+
+00:49:58
+
+Kobi Kunasekaran: I liked that approach. Um kind of like a super like internal super users. Yeah. kind of like base that we would have and then we would use them and we would have like our then training session outward the rest of the reps I guess let me ask it this way if we are like we're going to go live end of July your expectations in August um are they going to be fully in Salesforce are they going to maintain Google sheets as well like what does that look like from expectations of usage sales I think it'll depend on how redeposits not
+
+
+00:50:31
+
+Kobi Kunasekaran: included redeposits normal weekend just Google sheets be parallel but they I think the question is more like are we maintaining like signups manually as well as Salesforce like I think the idea would be like removing the whole sign up flow for everyone in Salesforce because like that part doesn't make sense to try to contain both but like the only reason I'm hesitating is because like we still need to be able to test it and make sure like it'll like meet the user needs and be able to
+
+
+00:51:00
+
+Kobi Kunasekaran: like be adopted right so Yeah, like if that timeline has to like kind of be malleable then any time. I think the key is like to to like you guys have to think about what the expectation is because what we see will happen without like strict timelines by like we will not look at Google sheets or all they have to be by August 15th and like provide them with the transition plan.
+
+
+00:51:25
+
+Kobi Kunasekaran: Um you will never get away from like double the systems and this will be not accurate in Salesforce. I guarantee it because like we're used to Google Sheets, that's how we use it. So I think the transition plan out of Google Sheets has to come hand in hand with the whole live planning. We can work on that for sure.
+
+
+00:51:40
+
+Kobi Kunasekaran: Yeah. You're basically saying like if we don't hold up our end of the bargain like you guys can't like No, I mean we'll deliver and we're done, right? It's more Yeah. It's it's like adoption is going to be a challenge but no matter like your apps are like working like off times and non-traditional like office environments.
+
+
+00:51:58
+
+Kobi Kunasekaran: Yeah. And like we're bringing them on enterprise tools. So this is a change that I think has to be handheld. So when you think about training like yeah it's great to have the videos but it's also good to have office hours where you expect them to come in um like actually like monitor help them monitor like open the the sheets and like you have like these sorry not the sheets the list views and you have five signup steps.
+
+
+00:52:18
+
+Kobi Kunasekaran: Why haven't you moved them? while I haven't them here, right? Like it's it's very important in the first month for you to invest time getting them enabled and setting expectations. It's really hard in Salesforce. I'm sorry to say, but like for new people, it's what is this? Yeah, for sure. And we're happy to help too, by the way.
+
+
+00:52:37
+
+Kobi Kunasekaran: We've done this many times. Um, so things like training sessions, office hours, if you want to consider us helping with, we can we can do that. Okay. Awesome. We'll come up with a plan and then like let's uh rub it together next week. Yeah. I think like everyone's working on their own spreadsheet, right?
+
+
+00:52:52
+
+Kobi Kunasekaran: Like everyone has their own version. So like maybe the power users, they start first. Everybody else still logs on their spreadsheet. Yeah. It's more about like when we bring in the full team that was going to be like more of a challenge. Are they all in Ontario? Would we Is it a dream to try and pull everyone in for like a training session day or something?
+
+
+00:53:16
+
+Kobi Kunasekaran: We did it once in February. Yeah. Yeah. It's expensive though. No, we Yeah, I mean if it was Yeah, it's it's possible to do it. Obviously up to you. It's just like usually significant. We do these like launch days um become training they follow and like we just kind of help them transition.
+
+
+00:53:34
+
+Kobi Kunasekaran: It would help like I don't even care about it like from a training perspective. It's more like let's get them hyped on it. There's nothing more hyped. I like that. We can I think we can come up with a plan that like accomplishes that. But bring them in. It's just one day.
+
+
+00:53:52
+
+Kobi Kunasekaran: Yeah, I know. It's It is possible. Yeah, we can get the Alberta guys down too. All right. Testing. figure like really kind of galvanized. Yeah. Just be like if you don't use those in the microwave. So it is very common to say if it's not in Salesforce it doesn't exist.
+
+
+00:54:27
+
+Kobi Kunasekaran: I had sales organizations hold back commissions because of Salesforce. Like all of that is very like again Salesforce is nobody loves being like oh I want to log my stuff in Salesforce just because it's not in Google Sheets. It's not going to be great. Sorry. They're all getting paid for signups in Salesforce. They'll all be here early.
+
+
+00:54:46
+
+Kobi Kunasekaran: Yeah. You talked earlier about behaviors um and how you control behaviors and like but like but it's true like traditionally like I've worked with a lot of sales organizations. It's all about commissions. Commissions get you the behaviors that you want. 100%. Right. So like this, most companies I work for, Salesforce is part of the commission structure.
+
+
+00:55:07
+
+Kobi Kunasekaran: I like it. Late signups get dinged. For example, if they're late blogging, they get dinged. Um I mean, you can do that. Is there any strategy you've seen for enablement to get people on it quicker? I hate to say enforcement is the best enablement. usually awesome, but it is that it's like getting them like I love the office hours and I love having them all attend the office hours because they feed off of each other.
+
+
+00:55:36
+
+Kobi Kunasekaran: I do think that's probably the best course of leaderboards are also very like sales reps love leaderboards. Um, so this can be easily connected to Slack. So let's say that forget forget the dashboard, right? like you can be like at the end of the day like here's the top sign artist for today and send like a group message on stack so it gets people like hyped like that don't like underestimate it I don't know you get a lot of volume
+
+
+00:56:00
+
+Kobi Kunasekaran: but we've worked for so many organizations when I closed one or whenever you want to celebrate it sends like a gif or gift whatever you want it to the slack channel people love that and like they used to close it worked in an office environment like whatever you want to pick I like that um we work do that like you can post or something.
+
+
+00:56:20
+
+Kobi Kunasekaran: Yeah. Just don't put money on the line to d it's like no I will do it. This is good. Like it it happens like the assignment like shops like when they meet their crafts like they brought in like 50 players like that could be like an announcement right of like every single deal. Well, however you want to do it.
+
+
+00:56:35
+
+Kobi Kunasekaran: I do think this there is it'll be clown like behind the target bad like gification works right like if you get the one picture of Jess that's like the special one like that's collector it's fun that we talked about like no I mean like gamification making that like its own like epic or something. You know, I had when we worked in office, we had DVDs all around.
+
+
+00:57:13
+
+Kobi Kunasekaran: It started with the gong for sales reps. Yeah. Uh but then we had this tool called appropriation and it was Yes. I'm half. So, you talk to this. Yeah. And to send like their own song and their own like theme song. As soon as they close a deal, the whole office would blast with their own song.
+
+
+00:57:35
+
+Kobi Kunasekaran: And like these reps, if it didn't trigger, they would come and yell at me. It was such like they took it so seriously. It was very important to them that their song plays when they close the And so many times like so easily. I do think because it's a young group too, there is more room for engagement.
+
+
+00:57:52
+
+Kobi Kunasekaran: That's something we kind of talked about moving towards like really know each other that well, right? They hang out. You're just not invited to those. Yeah. Well, I don't want to be. I'm like f****** 15 years old. They like There's little There's groups. They have their own clicks.
+
+
+00:58:14
+
+Kobi Kunasekaran: Clicky. The mean girls. Is everyone like on Slack though? Like No, they're all WhatsApp. Maybe there's those notifications that we can send easily to. Yeah. If we were in a specific WhatsApp group. Yeah. WhatsApp channel. I think let's look at app exchange. It should be easy to find.
+
+
+00:58:34
+
+Kobi Kunasekaran: Yeah. Sending a WhatsApp notification. Sure. I think we spoke them a little with Slack and Salesforce at the same time. Now all these Yeah. Slack will be annex though. Like I guess we're not talking about tech people. Maybe when we replace it with WhatsApp, right? Like it could be Slack to WhatsApp as well.
+
+
+00:58:56
+
+Kobi Kunasekaran: That could work through Salesforce. Um use a lot. I don't know how like we got to look into it like how to use like WhatsApp as like a they have it through cases. Okay. Yeah. So alignment on November 1st for those core modules. It should be doable. Again, it's going to depend on how much scope and how much customization we're going to need beyond what comes out of out of the box and uh what we're kind of scoping in. That's I think.
+
+
+00:59:29
+
+Kobi Kunasekaran: So when when do we want to know then like when can we tell them for sure? Um when do we need to I think we need to get through the research sprints, right? So let's let's call it like end of August. Like if we start the research sprints, we can finalize like if we're going to need additional time, what what the effort's going to look like do the research discovery.
+
+
+00:59:52
+
+Kobi Kunasekaran: Discovery. Yeah, discovery. Like we do the research. You can try. Yeah. because you and I could just like jam this out. I don't know if that's particular, but um that happens to like the actual developer goals. I don't know if you're coding yourself, but I I am likely going to.
+
+
+01:00:07
+
+Kobi Kunasekaran: Yes. Yeah. Yeah. So that's why uh because right now we we're doing about like 40 to 50 hours a week. Um so we can we can we should be able to maintain enough pace. But if we want if we want to do both in parallel, then we'll need to bring I'm a product, right?
+
+
+01:00:21
+
+Kobi Kunasekaran: So like I can do a lot of like the initial and then we'll like kind of work together. Sure. Yeah. Yeah, that works. I can help with the technicals. Yes. Yeah, we can do that. Yeah. Um and then that way it's like we get through discovery the rest of this stuff by early August like August.
+
+
+01:00:39
+
+Kobi Kunasekaran: We haven't really talked about August to commit to end to November like yeah timeline. So early August because we're gonna be done in a research phase by early August, first week of August. Let's work towards it. Yeah. I don't want to commit. I don't want to commit. I think mid August will be more realistic to be honest because we do July 31st is just right.
+
+
+01:01:00
+
+Kobi Kunasekaran: Yeah. It's like three weeks August and by that point we'll know exactly focus for the subsequent phases. Correct. And like because it it seems like you're aligned with the sprintbased approach. Yes. So I think you can align it to to that. It shows you by the spin progression as well.
+
+
+01:01:16
+
+Kobi Kunasekaran: Yeah. Like if we can get a sense of like month by month, these are all the things we're planning on releasing. Like that would be a lot more. Yeah. Yeah, we can do that. And the phases like I I did I don't know if you noticed like the Asana board um I did update it so that like we're working through the PLC components right now and then there's a build phase that we're working through.
+
+
+01:01:35
+
+Kobi Kunasekaran: This is like coming up next. Um, but I'll keep doing this for like the remaining and then maybe when we have our team meetings or weekly is like we're viewing like as like what we kind of start the conversation with. Yeah. I think we need to start extending our week to an hour though. I don't like we're at that point where we need more time and the half an hour is not working.
+
+
+01:01:56
+
+Kobi Kunasekaran: So yeah, you and I can have separate chats too on this. Exactly. Yeah. Yeah. Absolutely. We don't have to just meet once a week like let's just for our checkpoint but we should be actually at this point meeting more often because we we have like a lot of open questions right like how do you want to handle the fraud what does the UI looks like for the for the players uh how do you want to streamline the interface so yeah like we are unblocked so we can just basically you know the requirements you're building all kind of yeah so we'll do like today we'll give you access to sandbox so you can play around with it
+
+
+01:02:30
+
+Kobi Kunasekaran: Um, and I'll send the recordings of the videos uh from yesterday and today if you don't already have it. Um, so kind of know how to navigate recording. We have Okay, very helpful. Only when we started the presentation. So not not all the conversation. I love it. It's it's your recording.
+
+
+01:02:49
+
+Kobi Kunasekaran: Nobody will see it. All the recordings are your Okay. Any other questions? Good. Thank you. Yeah, I think you guys are making like good progress. Um I'm excited to like get it to like that kind of final state. It's only been two weeks. So that's how far it was kind of yesterday.
+
+
+01:03:25
+
+Kobi Kunasekaran: So yeah, like let's do more than one. Sorry, one more than one once a week soon because there is a lot of open questions and I think that should I can thank you guys like coffee or anything? That was getting just for this delivery of food I had to pay twice. Oh my god. I was just honestly Okay, that's fine. Thank you. That's just a jumper. that barbecue. That's where all the stuff literally kill you before you die. Yeah. Four years. That Stop the recording. Amend the screen sharing.
+
+
+Transcription ended after 01:07:17
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

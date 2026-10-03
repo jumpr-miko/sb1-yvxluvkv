@@ -1,0 +1,399 @@
+{
+  "id": "11358",
+  "key": "WAGR-411",
+  "fields": {
+    "statuscategorychangedate": "2026-09-18T12:02:09.412-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10519",
+      "key": "WAGR-382",
+      "fields": {
+        "summary": "Operator and Partner relationships, and direct billing",
+        "status": {
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "Normal",
+          "id": "3"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 3,
+      "isWatching": false
+    },
+    "created": "2026-09-17T13:40:04.278-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10034",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "10435",
+          "key": "WAGR-364",
+          "fields": {
+            "summary": "Partner: Operator Relationships Related List",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-29T09:51:27.587-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2 data-local-id=\"e25c59620799\">Goal</h2><p data-local-id=\"89b6897d8a30\">Show an Operator’s Partner Relationships directly on the Operator record, including the applicable billing details.</p><p data-local-id=\"abb8e3144cc1\">For <strong>Direct</strong> relationships, display billing values from the Operator. For all other relationships, display values from the Partner.</p><h2 data-local-id=\"d3466b9f69df\">Build</h2><h3 data-local-id=\"0ff46db7b78c\">1. Add display fields to <code>Operator_Partner_Relationship__c</code></h3><p data-local-id=\"f7d04d9d164d\">Create the following Formula (Text) fields:</p><table data-local-id=\"cea91b11-3558-4eb4-9598-b35bd659f4b0\"><thead><tr><th data-local-id=\"74c2b04c2f59\"><p data-local-id=\"39f2f5fa341d\">Display Field</p></th><th data-local-id=\"eefbef136fb2\"><p data-local-id=\"b146094d374d\">API Name</p></th><th data-local-id=\"497e64a86b47\"><p data-local-id=\"4857be327c35\">Logic</p></th></tr></thead><tbody><tr><td data-local-id=\"e58191a2dd49\"><p data-local-id=\"e3594b1d4501\">Partner Type</p></td><td data-local-id=\"d1e82a1b17d9\"><p data-local-id=\"25f901e8f774\"><code>Partner_Type_Display__c</code></p></td><td data-local-id=\"454d2c2697e6\"><p data-local-id=\"0e7843d1ddd7\">Direct = <code>&quot;Direct&quot;</code>; otherwise Partner Type</p></td></tr><tr><td data-local-id=\"0b75f9b50859\"><p data-local-id=\"a299c4907a01\">Payment Terms</p></td><td data-local-id=\"142951b6acae\"><p data-local-id=\"403e0bd51e68\"><code>Payment_Terms_Display__c</code></p></td><td data-local-id=\"b4624b73190b\"><p data-local-id=\"0123ab6d4b98\">Direct = Operator value; otherwise Partner value</p></td></tr><tr><td data-local-id=\"681f84f6ae30\"><p data-local-id=\"27c126a1a141\">Invoicing Cadence</p></td><td data-local-id=\"578aeddb2974\"><p data-local-id=\"445daea75a4a\"><code>Invoicing_Cadence_Display__c</code></p></td><td data-local-id=\"97a563c1979d\"><p data-local-id=\"3320603f2773\">Direct = Operator value; otherwise Partner value</p></td></tr><tr><td data-local-id=\"ebabebacc5c9\"><p data-local-id=\"700777de8b4a\">Currency</p></td><td data-local-id=\"19fb819f25cf\"><p data-local-id=\"4fe0fa298601\"><code>Invoicing_Currency_Display__c</code></p></td><td data-local-id=\"474a1c06ad24\"><p data-local-id=\"6179819fadc0\">Direct = Operator value; otherwise Partner value</p></td></tr><tr><td data-local-id=\"2048f7f1368b\"><p data-local-id=\"9c1362613a3f\">AP Contact</p></td><td data-local-id=\"ea35352f509d\"><p data-local-id=\"615b7ec7e9ed\"><code>AP_Contact_Display__c</code></p></td><td data-local-id=\"8ee9c1edd157\"><p data-local-id=\"ceafb82ed30f\">Direct = Operator Billing Contact; otherwise Partner Billing Contact</p></td></tr><tr><td data-local-id=\"8396d497bf14\"><p data-local-id=\"ffaae4088923\">PO Required</p></td><td data-local-id=\"6cb563fc87bd\"><p data-local-id=\"3af2a22ba35b\"><code>PO_Required_Display__c</code></p></td><td data-local-id=\"ee4defa30443\"><p data-local-id=\"af96602dc041\">Direct = Operator value; otherwise Partner value; display <code>Yes</code> / <code>No</code></p></td></tr></tbody></table><p data-local-id=\"c1e410cc50f8\">Use the same pattern for each field: if <code>Is_Direct__c = TRUE</code>, read from the Operator; otherwise read from the Partner.</p><p data-local-id=\"1d0d61e575bd\"><strong>Example — Payment Terms:</strong></p><pre data-local-id=\"57170685-8c4b-46af-a054-ee1efd3427f3\" data-wrap=\"true\"><code>IF(\n    Is_Direct__c,\n    TEXT(Operator__r.Payment_Terms__c),\n    TEXT(Partner__r.Payment_Terms__c)\n)</code></pre><p data-local-id=\"00c1cd45e6d2\">These fields are display-only and should always reflect the current Operator/Partner values.</p><h3 data-local-id=\"44b6729fdb38\">2. Add Partner Relationships list to Operator</h3><p data-local-id=\"6bcbbd3917c1\">Add a <strong>Dynamic Related List – Single</strong> to the Operator Lightning page.</p><p data-local-id=\"00d7994b3f6e\"><strong>List name:</strong> Partner Relationships</p><p data-local-id=\"bf9d22c3751e\"><strong>Columns:</strong></p><ol data-local-id=\"8da0e6882d86\"><li data-local-id=\"1cc54421438e\"><p data-local-id=\"f5798531c294\">Partner</p></li><li data-local-id=\"9419c63ac6ba\"><p data-local-id=\"151bb690508d\">Partner Type</p></li><li data-local-id=\"a0d6ee2c16cb\"><p data-local-id=\"95d59ae5d343\">Payment Terms</p></li><li data-local-id=\"c5f4335724a0\"><p data-local-id=\"103eb78c4d13\">Invoicing Cadence</p></li><li data-local-id=\"3a3f62cd20fd\"><p data-local-id=\"194489af8ed1\">Currency</p></li><li data-local-id=\"bee6709aad7e\"><p data-local-id=\"319465ea9413\">AP Contact</p></li><li data-local-id=\"677354997191\"><p data-local-id=\"d93f479e73a0\">PO Req.</p></li><li data-local-id=\"6ce00463a85c\"><p data-local-id=\"afcd95b3b231\">Deals</p></li></ol><p data-local-id=\"2e87f7c87f59\">Additional configuration:</p><ul data-local-id=\"705101578076\"><li data-local-id=\"3c055b0578bc\"><p data-local-id=\"43170cd11b1f\">Use <code>Partner__c</code> for the Partner column so users can open the Partner record.</p></li><li data-local-id=\"e9155e1bcabc\"><p data-local-id=\"4a130ed7d12d\">Use existing <code>Active_Deals__c</code> for Deals.</p></li><li data-local-id=\"96fce142a8e1\"><p data-local-id=\"069565876f31\">Do <strong>not</strong> include the Relationship Name field.</p></li><li data-local-id=\"d2ad57e2dce9\"><p data-local-id=\"76f8ef1e889e\">Sort by Partner ascending.</p></li><li data-local-id=\"3112e4fd4509\"><p data-local-id=\"80083306b65f\">Remove <strong>New</strong> and other create actions. Relationships are managed by WAGR-384 automation.</p></li><li data-local-id=\"1c30990b8d91\"><p data-local-id=\"f92ee0f2ac3b\">Include both Active and Inactive relationships.</p></li></ul><h2 data-local-id=\"26d144255253\">Acceptance Criteria</h2><ol data-local-id=\"419c2b833663\"><li data-local-id=\"2ced4acb71fe\"><p data-local-id=\"110b10f1dafc\">Direct relationships display billing values from the Operator.</p></li><li data-local-id=\"173a7f81fd18\"><p data-local-id=\"7ccdc60ff882\">Partner relationships display billing values from the Partner.</p></li><li data-local-id=\"9de193068a83\"><p data-local-id=\"4ba2b0c1e34a\">Direct relationships show <strong>Direct</strong> as Partner Type.</p></li><li data-local-id=\"ad6dec213294\"><p data-local-id=\"7ab6dab8e791\">Clicking Partner opens the Partner record.</p></li><li data-local-id=\"7fb73748c763\"><p data-local-id=\"392f6ed0c7e9\">The related list does not allow users to create relationship records.</p></li><li data-local-id=\"b08d96bfdc09\"><p data-local-id=\"d229ec06cba4\">Changes to Operator/Partner billing values automatically appear in the list.</p></li><li data-local-id=\"c66c9855793b\"><p data-local-id=\"a2641d3f611c\">Inactive relationships remain visible.</p></li><li data-local-id=\"c7349f445308\"><p data-local-id=\"0066ec84f769\">Missing billing values display as blank without errors.</p></li><li data-local-id=\"8e7eab0746ae\"><p data-local-id=\"02e5f0670dea\">The Operator highlights panel field that counts related Partners is retitled <strong>Active Partners</strong>.</p></li><li data-local-id=\"78509e0c7655\"><p data-local-id=\"f52bd083acb4\">Active Partners counts only Partners with an <strong>Active</strong> relationship and at least one active deal with the Operator. Inactive relationships are not counted.</p></li><li data-local-id=\"b0173c57c4aa\"><p data-local-id=\"77b9b0f526ef\">The count updates automatically when a relationship or deal status changes.</p></li><li data-local-id=\"e2d2e7f2bf9b\"><p data-local-id=\"76aa506a8464\">The <strong>Partner Relationships</strong> related list still shows Active and Inactive relationships (see AC #7). Only the count is active-only.</p></li></ol><h2 data-local-id=\"4421819dcce3\">Notes</h2><ul data-local-id=\"e73d26bc34cb\"><li data-local-id=\"7f9592264c7b\"><p data-local-id=\"06efba80c091\">Direct-row Currency depends on WAGR-385 adding <code>Invoicing_Currency__c</code> back to the Operator. <span data-local-id=\"76562154-339d-406f-88d2-a1bf519d2545\" data-type=\"mention\" data-user-id=\"712020:e303283b-a074-400e-9470-8d704ea7427d\">@Taryn Reithofer</span> can you confirm if there was a reason for not having Invoicing Currency for Operators for Direct Deals? </p></li><li data-local-id=\"af54c79cf595\"><p data-local-id=\"b47c2750d69f\">Deals represents <strong>Active Deals</strong> only via <code>Active_Deals__c</code>.</p></li><li data-local-id=\"35b39561b176\"><p data-local-id=\"a68141bda09a\">Partner-side related list is covered separately by WAGR-364. <span data-local-id=\"5c22e9ba-54ac-4374-8702-5c5fe8c2df63\" data-type=\"mention\" data-user-id=\"712020:e303283b-a074-400e-9470-8d704ea7427d\">@Taryn Reithofer</span> can you re-write the requirements for <a href=\"https://jumpr.atlassian.net/browse/WAGR-364\" data-card-appearance=\"inline\">https://jumpr.atlassian.net/browse/WAGR-364</a> to match what’s in the mockup for what the Partner page should show for the related Operator page? It should be driven from the junction object Cedrick created as part of this epic. </p></li></ul>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10337",
+        "filename": "Screenshot 2026-09-19 at 1.00.30 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-18T13:01:35.121-0400",
+        "size": 101409,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10337",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10337"
+      },
+      {
+        "id": "10336",
+        "filename": "Screenshot 2026-09-19 at 1.00.52 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-18T13:01:34.758-0400",
+        "size": 98528,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10336",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10336"
+      },
+      {
+        "id": "10339",
+        "filename": "Screenshot 2026-09-22 at 12.46.56 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-21T12:58:27.243-0400",
+        "size": 130894,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10339",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10339"
+      },
+      {
+        "id": "10338",
+        "filename": "Screenshot 2026-09-22 at 12.47.02 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-21T12:58:26.748-0400",
+        "size": 132004,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10338",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10338"
+      },
+      {
+        "id": "10340",
+        "filename": "Screenshot 2026-09-22 at 12.55.56 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-21T12:58:27.609-0400",
+        "size": 132907,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10340",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10340"
+      }
+    ],
+    "summary": "Operator: Partner Relationships Related List",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11273",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"3b535d3141b3\"><span data-local-id=\"68f7b327-53f5-442a-9aba-1fd20e06b501\" data-type=\"mention\" data-user-id=\"712020:61966a85-61f2-42ce-8382-85568cc7e090\">@Kobi Kunasekaran</span> <br><br>I noticed that Invoicing Currency and Payment Terms are currently missing from the Operator layout, whereas they&#039;re visible on the Partner page. Since these fields are referenced in formula fields, I recommend exposing them on the Operator layout as well for UI consistency. Let me know if you&#039;d like me to add them.<br><br><strong>Operator Lightning Page:</strong></p><figure data-local-id=\"f0c262839e40\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"566\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"f06fe9b8-a260-43e7-8c6d-907a2bee0501\" data-alt=\"Screenshot 2026-09-19 at 1.00.30 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><p data-local-id=\"17dddffa9e04\"></p><p data-local-id=\"42e26340dbe7\"><strong>Partner Lightning Page:</strong></p><figure data-local-id=\"cda7f6b43a67\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"551\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"cdb345d4-29b2-43d6-9241-0bc157ea617a\" data-alt=\"Screenshot 2026-09-19 at 1.00.52 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><p data-local-id=\"068686c33910\"><br></p>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-18T13:01:35.483-0400",
+          "updated": "2026-09-18T13:01:35.483-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11274",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"c3e3b5405746\"><strong>Changes made:</strong></p><table data-local-id=\"a5a922c8-4067-4509-8202-c0de24beb5a5\"><tbody><tr><td data-local-id=\"54c055442d75\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"672e305d82b3\">Metadata Name</p></td><td data-local-id=\"41373d590323\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"c938219c9ebc\">Metadata Type</p></td><td data-local-id=\"b0733d20d01d\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"97ab68399276\">Action</p></td><td data-local-id=\"b547617ccc72\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"a68754d72b7d\">Notes</p></td></tr><tr><td data-local-id=\"2a65c63f408a\"><p data-local-id=\"3e81d7f67885\">Operator_Account_Page</p></td><td data-local-id=\"83bff6afefd0\"><p data-local-id=\"776878e0f8ae\">Flexipage</p></td><td data-local-id=\"d8422018c909\"><p data-local-id=\"08b46104ee8c\">Update Component</p></td><td data-local-id=\"ffa85af48b08\"><p data-local-id=\"2a6258674a88\"></p></td></tr><tr><td data-local-id=\"e94edf50b9a0\"><p data-local-id=\"2073396f2162\">Operator_Partner_Relationship__c.Partner_Type_Display__c</p></td><td data-local-id=\"d99901061152\"><p data-local-id=\"cbc7e361cc6a\">CustomField</p></td><td data-local-id=\"53c28b41d29a\"><p data-local-id=\"9dba6bf2ca55\">New Component</p></td><td data-local-id=\"d82dde412a49\"><p data-local-id=\"4acadb4b7e47\"></p></td></tr><tr><td data-local-id=\"b128a91bb3fc\"><p data-local-id=\"bdd14a15c73a\">Operator_Partner_Relationship__c.Payment_Terms_Display__c</p></td><td data-local-id=\"6e4dc683a997\"><p data-local-id=\"7e91fb822b8d\">CustomField</p></td><td data-local-id=\"38db0a10a454\"><p data-local-id=\"35c279542423\">New Component</p></td><td data-local-id=\"de800d5987f5\"><p data-local-id=\"212e56b3450b\"></p></td></tr><tr><td data-local-id=\"573612e6c659\"><p data-local-id=\"951dda95dab8\">Operator_Partner_Relationship__c.Invoicing_Cadence_Display__c</p></td><td data-local-id=\"dc0eeb3470c1\"><p data-local-id=\"548003f022c1\">CustomField</p></td><td data-local-id=\"26fd51683791\"><p data-local-id=\"439a6dccc789\">New Component</p></td><td data-local-id=\"8dda520582a3\"><p data-local-id=\"0c3440af34b4\"></p></td></tr><tr><td data-local-id=\"e695c0a87ac6\"><p data-local-id=\"a77889c0c10a\">Operator_Partner_Relationship__c.Invoicing_Currency_Display__c</p></td><td data-local-id=\"56662ff5070e\"><p data-local-id=\"311e3fadaf36\">CustomField</p></td><td data-local-id=\"afded70cd65d\"><p data-local-id=\"63296b14f6dc\">New Component</p></td><td data-local-id=\"472f7f186ace\"><p data-local-id=\"d635ecd45663\"></p></td></tr><tr><td data-local-id=\"a919fea523a1\"><p data-local-id=\"f4f6ea753f54\">Operator_Partner_Relationship__c.AP_Contact_Display__c</p></td><td data-local-id=\"3b5b83084814\"><p data-local-id=\"091bb4ea74fa\">CustomField</p></td><td data-local-id=\"69a22c695270\"><p data-local-id=\"f48e2be547dd\">New Component</p></td><td data-local-id=\"72c999f04cfe\"><p data-local-id=\"51e90514f7ae\"></p></td></tr><tr><td data-local-id=\"c087dd0763a7\"><p data-local-id=\"2c049d510663\">Operator_Partner_Relationship__c.PO_Required_Display__c</p></td><td data-local-id=\"dde3e4d34cea\"><p data-local-id=\"e448c4191dfb\">CustomField</p></td><td data-local-id=\"427084545de4\"><p data-local-id=\"da626549a330\">New Component</p></td><td data-local-id=\"01d48502493d\"><p data-local-id=\"eea94af5a080\"></p></td></tr><tr><td data-local-id=\"af139763b030\"><p data-local-id=\"fe7ac2aa2cdc\">WT_Operator_Partner_Relationship_Read</p></td><td data-local-id=\"0c70179232bd\"><p data-local-id=\"f397df10de17\">PermissionSet</p></td><td data-local-id=\"1be204c8bc57\"><p data-local-id=\"939ce5158a76\">Update Component</p></td><td data-local-id=\"bbf05f9f2047\"><p data-local-id=\"47634728227f\"></p></td></tr><tr><td data-local-id=\"eedc7059470b\"><p data-local-id=\"4f51fbd085bc\">WT_Operator_Partner_Relationship_Edit</p></td><td data-local-id=\"0a0a20573cc5\"><p data-local-id=\"ee86fbdbdb7a\">PermissionSet</p></td><td data-local-id=\"e38c6ae8c4df\"><p data-local-id=\"2044465a0178\">Update Component</p></td><td data-local-id=\"d11dd7165f1e\"><p data-local-id=\"9e9f2703a3d5\"></p></td></tr><tr><td data-local-id=\"f0e41e009e55\"><p data-local-id=\"2714f817ab4c\">Partner_Account_Page</p></td><td data-local-id=\"263d0914ee29\"><p data-local-id=\"31f859d2ddfe\">Flexipage</p></td><td data-local-id=\"0cf07279be57\"><p data-local-id=\"23231bfec52a\">Update Component</p></td><td data-local-id=\"adc46af6886c\"><p data-local-id=\"a494addb2f76\">Updated the layout to have same billing fields/layout for both Operator and Partner</p></td></tr><tr><td data-local-id=\"63fc396065e4\"><p data-local-id=\"758098b38d70\">Operator_Account_Page</p></td><td data-local-id=\"f8e5af550c29\"><p data-local-id=\"85404bd4b158\">Flexipage</p></td><td data-local-id=\"f97a46a9e014\"><p data-local-id=\"9eb015c9cce2\">Update Component</p></td><td data-local-id=\"8cc7f7567373\"><p data-local-id=\"3a1abef2a8cc\">Updated the layout to have same billing fields/layout for both Operator and Partner</p></td></tr></tbody></table><p data-local-id=\"6ebfd0a09eac\"><strong>Testing:</strong> Validated in sandbox. <s>Awaiting for confirmation:</s><a href=\"https://jumpr-solutions.slack.com/archives/C0BRW5L8SUA/p1789752019217699\" data-card-appearance=\"inline\">https://jumpr-solutions.slack.com/archives/C0BRW5L8SUA/p1789752019217699</a><s>  </s> Working as expected. </p><figure data-local-id=\"2acfe3b0e372\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"510\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"dad9b2a6-ac8e-4af1-8841-5a5a59bd734b\" data-alt=\"Screenshot 2026-09-22 at 12.55.56 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"8fd9cbddb181\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"510\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"ccc60a9c-e8cf-42d8-8a9c-4c580bb5e09d\" data-alt=\"Screenshot 2026-09-22 at 12.47.02 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"33238ba6857c\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"510\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"e1310272-a503-43b6-824a-8f4fe58d6e86\" data-alt=\"Screenshot 2026-09-22 at 12.46.56 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-18T13:58:40.763-0400",
+          "updated": "2026-09-21T12:58:26.741-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11406",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"3a5161dc3c60\">Added DLRS per conversation: <a href=\"https://jumpr-solutions.slack.com/archives/C0BRW5L8SUA/p1790607524126269\" data-card-appearance=\"inline\">https://jumpr-solutions.slack.com/archives/C0BRW5L8SUA/p1790607524126269</a> <br></p><table data-local-id=\"bf42040a-eef3-4ba1-8372-a70c1e31e74e\"><tbody><tr><td data-local-id=\"a8361275e474\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"751cc23c6119\">Metadata Name</p></td><td data-local-id=\"b658cec9cb6d\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"0242a396313c\">Metadata Type</p></td><td data-local-id=\"5a189234b1d9\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"d2ab6a7686a8\">Action</p></td><td data-local-id=\"455ba0d57f5f\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"d613919276df\">Notes</p></td></tr><tr><td data-local-id=\"351419b33f75\"><p data-local-id=\"79945149940b\">OPR_Operators_Associated_Partner</p></td><td data-local-id=\"197155086df3\"><p data-local-id=\"26710a21fe4a\">CustomMetadata</p></td><td data-local-id=\"51a7437648c5\"><p data-local-id=\"3bf4d82188d3\">New Component</p></td><td data-local-id=\"33401041e302\"><p data-local-id=\"1ca18016c24b\">Added for Associated Partner under Operator</p></td></tr></tbody></table>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-28T12:46:34.873-0400",
+          "updated": "2026-09-28T12:46:34.873-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11570",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"80eac16c472e\">Updated points 9-12 of AC for the rollups</p>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-29T09:51:27.452-0400",
+          "updated": "2026-09-29T09:51:27.452-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 4,
+      "total": 4,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000on:9"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-382"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

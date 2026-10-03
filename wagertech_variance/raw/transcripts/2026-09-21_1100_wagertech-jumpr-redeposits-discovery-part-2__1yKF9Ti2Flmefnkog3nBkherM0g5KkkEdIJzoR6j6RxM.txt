@@ -1,0 +1,974 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech <> Jumpr: Redeposits Discovery Part 2
+
+Sep 21, 2026
+Cedrick Infantado lina@wagertech.bet Taryn Reithofer Kobi Kunasekaran joyce@wagertech.bet emily@wagertech.bet ali@wagertech.bet illyas@wagertech.bet
+
+Redeposit allocation processes and Salesforce integration strategies and workflow flexibility discussed.
+
+Current redeposit allocation process
+* Ali distributes monthly redeposit budgets based on prior month volume and deal priorities.
+* Jay developed a standalone tool that automates initial volume-based distribution for redeposits.
+* Ali manually adjusts automated allocations based on individual BA capacity and historical network needs.
+* Assigned redeposits typically maintain a range of $30 to $80 per transaction.
+
+
+Salesforce integration and V1 workflow plans
+* Discussed integrating Salesforce to ingest raw signup data and replace manual spreadsheet tracking.
+* Proposed exporting CSV allocations from the current tool and uploading them into Salesforce for V1.
+* Explored future integration features like a direct upload button to push data into Salesforce.
+
+
+Manual overrides and exception tracking
+* Team agreed to leave redeposit amount limits open and adjust guardrails later based on data.
+* BAs are prohibited from modifying assigned redeposit amounts directly without prior operational approval.
+* Proposed adding a checkbox flag to track differences in player deposits and B2C compensation.
+
+
+Payment tool migration and Salesforce integration
+* The payment tool will retain allocation logic while spinning out CSVs or connecting directly to Salesforce.
+* Kobi requested a September export sample to ensure Salesforce compatibility with existing spreadsheet structures.
+* Salesforce will generate equivalent signup reports to feed input data into the allocation process.
+
+
+Personal redeposits tracking and compliance guard rails
+* Personal redeposits require manual assignment and tagging within the tracking workflow.
+* System links personal redeposits to the actual player profile in the database for compliance.
+* Guard rails for priority book timeframes will remain flexible to accommodate necessary operational exceptions.
+
+
+Next steps
+* [Ali Nawaz] Schedule Jay Meeting: Organize a meeting with Jay to explain the backend logic of the allocation tool.
+* [Lina Ceniccola] Rename Payment Tracker: Update the official name of the payment tracker tool to prevent team confusion.
+* [Emily Vandenberg] Define Product Ownership: Clarify product ownership for the payment tracker tool.
+* [Kobi Kunasekaran] Integrate Manual Overrides: Determine the logic for integrating manual redeposit override records into Salesforce.
+* [Kobi Kunasekaran] Create Design Doc: Develop a design document based on the discussed flows to outline the system architecture before construction begins.
+* [Ali Nawaz] Share Export: Provide the September export file from the current tool to Kobi Kunasekaran and Emily Vandenberg to facilitate system design.
+* [Lina Ceniccola, Emily Vandenberg] Provide Tool Info: Gather and provide additional details about the existing redeposit tool to assist the technical team with requirements.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 21, 2026
+Wagertech <> Jumpr: Redeposits Discovery Part 2
+Invited Cedrick Infantado lina@wagertech.bet Taryn Reithofer Kobi Kunasekaran joyce@wagertech.bet emily@wagertech.bet ali@wagertech.bet illyas@wagertech.bet
+Attachments Wagertech <> Jumpr: Redeposits Discovery Part 2
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Redeposit allocation processes and Salesforce integration strategies and workflow flexibility discussed.
+
+Redeposit Allocation and Automation
+Automated tools streamline initial redeposit distributions. Manual adjustments remain essential.
+
+Salesforce Integration and Workflow
+Integrating allocation tools with Salesforce eliminates manual spreadsheet copying. Operations staff must execute all changes.
+
+System Guardrails and Tracking
+System guardrails remain open-ended for launch. Compliance protections require player profile validation.
+
+
+Decisions
+Needs Further Discussion
+* Deferred tracking of B2C subscription signups Tracking B2C subscription signups in Salesforce is deferred for further discussion.
+
+
+Aligned
+* Manual input for deal budget setting Manual input fields will be used for initial budget setting by deal rather than automated calculation.
+* Salesforce integration via CSV export for V1 Exported CSV allocation files will be uploaded into Salesforce for Version 1 to manage and track redeposit records.
+* Open redeposit limits without hard guardrails Redeposit allocation amounts will remain open without hard guardrails to maintain operational flexibility.
+* Restriction on Business Associate modifications Business Associates are prohibited from modifying assigned redeposit amounts directly and must route changes through operations.
+* Checkbox flag for deposit amount discrepancies A checkbox flag will be implemented for redeposits with differing actual deposit amounts to enable structured reporting.
+* Personal redeposits tracking and linking standard Personal redeposits will be categorized as assigned manual entries, tagged as personal, and linked to the correct player profile in the system.
+* Open-ended redeposit guard rails for launch Automated redeposit guard rails will be left open-ended for launch, relying on internal management instead of rigid system rules.
+
+
+
+Next steps
+* [Ali Nawaz] Schedule Jay Meeting: Organize a meeting with Jay to explain the backend logic of the allocation tool.
+* [Lina Ceniccola] Rename Payment Tracker: Update the official name of the payment tracker tool to prevent team confusion.
+* [Emily Vandenberg] Define Product Ownership: Clarify product ownership for the payment tracker tool.
+* [Kobi Kunasekaran] Integrate Manual Overrides: Determine the logic for integrating manual redeposit override records into Salesforce.
+* [Kobi Kunasekaran] Create Design Doc: Develop a design document based on the discussed flows to outline the system architecture before construction begins.
+* [Ali Nawaz] Share Export: Provide the September export file from the current tool to Kobi Kunasekaran and Emily Vandenberg to facilitate system design.
+* [Lina Ceniccola, Emily Vandenberg] Provide Tool Info: Gather and provide additional details about the existing redeposit tool to assist the technical team with requirements.
+
+
+
+Details
+* Initial Meeting Opening and Temperature Check: Participants joined the call, with Ali Nawaz noting a company logo placeholder for their face while speaking, and Taryn Reithofer discussing regional weather differences such as cooler temperatures in Hamilton compared to Calgary (00:00:04).
+* Overview of Redeposit Allocation Process: Emily Vandenberg introduced Ali Nawaz to explain the redeposit process, where a top-level book breakdown given at the start of the month is spliced into assignment quantities and ranges, leading Kobi Kunasekaran to inquire whether this redeposit allocation can be automated or if manual intervention remains necessary (00:01:02). Joyce Kiddell noted that initial budget setting by deal cannot yet be automated and requires manual input fields before Ali Nawaz's process can take over (00:02:55).
+* Budget Formulation and Prioritization Factors: Ali Nawaz explained that monthly budgets are created based on total volumes from previous months, retention requirements, and specific deal priorities, noting that older books receive lower priority compared to newer client retention efforts such as July sign-ups. Ali Nawaz shared a document demonstrating how volumes for regions like Alberta, Ontario, and the US dictate budget numbers, which vary monthly based on active business priorities (00:03:46) (00:06:26).
+
+
+* Manual Adjustments and Business Associate Volume Realities: Ali Nawaz highlighted that automated distributions cannot be followed blindly because individual business associates handle varying volumes and capacity, requiring Ali Nawaz to manually adjust assignments based on historical performance, individual trends, and working capacity (00:06:26) (00:09:42). Ali Nawaz described how daily monitoring and personal experience with each business associate help catch scenarios where automated tools over-allocate or under-allocate volume (00:16:33) (00:21:28).
+* Automation Tool Functionality and Overview: Ali Nawaz and Emily Vandenberg discussed a standalone payment tracker and allocation tool built by Jay that imports parameters from budget emails and business associate master sheets to automate the initial distribution of redeposits (00:10:30) (00:18:34). Ali Nawaz noted that while the tool saves significant time by generating initial numbers, subsequent manual refinements remain essential to address real-world business associate limitations (00:18:34) (00:23:29).
+* Redeposit Ranges and Slot Allocation Rules: Ali Nawaz clarified that redeposits operate within a standard range of $30 to $80 per slot, averaging around $40, down from previous higher ranges used during tech takes (00:14:29). Ali Nawaz explained that these amounts are added to business associate sheets with blank names, leaving business associates to decide which specific clients receive them (00:15:32).
+* Salesforce Integration Strategy and Workflow: Kobi Kunasekaran proposed an integration path where Salesforce feeds raw signup data into the allocation tool for version one, allowing CSV outputs to be uploaded into Salesforce to create deal records and handle manual reassignments directly in Salesforce (00:27:57) (00:43:40). Ali Nawaz and Lina Ceniccola agreed that this workflow would eliminate the need to manually copy and paste across twenty-five separate business associate spreadsheets (00:29:54) (00:42:44).
+
+
+* Manual Redeposits and Edge Case Flexibility: Lina Ceniccola emphasized the necessity of incorporating manual redeposit overrides and additional batch allocations in Salesforce to accommodate edge cases and requests from business associates, describing the process as a blend of science and art (00:29:54) (00:41:21). Kobi Kunasekaran confirmed that Salesforce will support bulk additional allocations for deals and participants to maintain this operational flexibility (00:30:51).
+* Progress Reporting and Historical Tracking Data: Emily Vandenberg and Ali Nawaz discussed incorporating tracking for redeposit progress throughout the month, including percentage completion and player lists (00:33:18). Ali Nawaz requested that the system maintain historical data regarding when extra assigned redeposits were added and the total additional budgets assigned to business associates (00:34:09).
+* Budget Approvals and Management Roles: Ali Nawaz explained that requests for additional redeposit budgets are reviewed by Ali Nawaz, Owen, and Jay, with final budget approvals coordinated through Ilas. Ali Nawaz noted that unassigned redeposits from priority books can be repurposed and offered out throughout the month as needed (00:35:09).
+* Bank Account Fluctuations and Referral Payments Impact: Lina Ceniccola explained that redeposit budgets function like bank accounts that ebb and flow based on referral payments and shifting priorities across books like DraftKings CTM (00:36:55). Lina Ceniccola noted that unrecorded or delayed logging can cause sudden apparent drops in budget health, necessitating mid-month adjustments and potential cancellation of unspent assigned redeposits (00:37:57).
+* Guard Rails and Threshold Limits for Redeposits: Kobi Kunasekaran raised the question of whether specific guard rails or threshold limits (such as flagging single redeposits exceeding $125) should be established. Lina Ceniccola recommended leaving the system open initially without hard restrictions to preserve operational flexibility and assessing adjustments based on data (00:44:26).
+* Restrictions on Business Associate Edits to Assigned Redeposits: Ali Nawaz and Lina Ceniccola established that business associates must not be permitted to alter assigned redeposit amounts or slot allocations on their own spreadsheets (00:45:18). Lina Ceniccola and Ali Nawaz agreed that any changes must be requested through and executed by operations staff to prevent unauthorized modifications (00:47:31).
+* Player Deposit Discrepancies and Flagging Mechanisms: Kobi Kunasekaran and Ali Nawaz discussed scenarios where a player deposits a different amount than allocated (e.g., depositing $40 instead of $50), noting that while notes sections are used, discrepancies are typically caught during bank audits (00:48:20). Emily Vandenberg and Lina Ceniccola proposed adding a dedicated flag or checkbox in the system for differing initial deposits to streamline reporting and alert operations, backed by context in the notes (00:50:23).
+* Notes and Tagging for Business-to-Consumer Compensation and Subscriptions: Ali Nawaz, Emily Vandenberg, and Lina Ceniccola discussed using clear notes and adding a structured tag or checkbox at the redeposit level for business-to-consumer compensation (such as tech takes subscriptions) to enable structured reporting rather than relying solely on unstructured text notes (00:52:37). Joyce Kiddell noted prior to leaving that tracking these subscriptions in Salesforce requires further internal review, while summarizing the three primary user journeys as assigned, manual, and automated or immediate based on signups (00:57:26).
+* Redeposit Tool Integration and Migration to Salesforce: Kobi Kunasekaran and Lina Ceniccola discussed the migration of the redeposit tool over to Salesforce and the content management system to leverage existing hooks. Kobi Kunasekaran noted that the tool is currently driven by spreadsheets, with an application programming interface pulling information from Google sheets into a payment tracker website (00:58:28). To streamline this, Kobi Kunasekaran proposed building equivalent reports in Salesforce to feed input data such as signups and player information, while keeping the core allocation logic in the payment tool for the interim before spinning out a comma-separated values file or communicating directly with Salesforce (00:59:17).
+* Tracking and Assigning Personal Redeposits: Emily Vandenberg and Ali Nawaz addressed how to track and assign personal redeposits for Business Analysts, noting that budgets are assigned mid-month and priorities frequently change. Ali Nawaz explained that Business Analysts sometimes utilize a family member's account when their own book does not fit priority lists (01:00:25). Lina Ceniccola proposed that personal redeposits should be processed as assigned, manual, and tagged as personal. Following discussion, the group agreed that the redeposit should be linked and tagged under the actual player profile in the system who holds the budget to ensure they are in the network (01:01:42). Kobi Kunasekaran and Emily Vandenberg highlighted that validating whether a player exists in the system provides an extra layer of compliance protection (01:03:43).
+* Guardrails and Account Freshness Rules for Priority Books: Ali Nawaz raised concerns regarding account freshness and priority books, such as Caesars GD, where old accounts from 2024 might be flagged despite being a priority book. Lina Ceniccola and Ali Nawaz discussed that Business Analysts are frequently permitted to redeposit outside standard windows for specific books like DraftKings CTM and Proline RDL based on historical practices (01:04:32). Because teams regularly bypass these windows, Lina Ceniccola and Emily Vandenberg concluded that it is best to leave specific system guardrails open-ended for the upcoming launch and instead manage these edge cases internally to meet the timeline (01:05:31).
+* Reviewing Tool Outputs and Sharing Spreadsheet Data: Kobi Kunasekaran requested that Ali Nawaz share a copy of the generated spreadsheet and tool outputs so the team can ensure the Salesforce design properly handles all necessary columns and maps incoming records correctly. Emily Vandenberg asked Ali Nawaz for an export from September to assist with this process. Ali Nawaz agreed to share the Google sheet containing the allocations (01:07:42). Emily Vandenberg noted that they will examine inputs from Jay and further scope out the content management system integration and pull process (01:08:32).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 21, 2026
+Wagertech <> Jumpr: Redeposits Discovery Part 2 - Transcript
+00:00:04
+
+Ali Nawaz: Hey, brother Kobi.How are you doing, bro?
+Kobi Kunasekaran: Hey Ali, good man. How you doing?
+Ali Nawaz: Good, good, good. Joyce, good morning.
+Joyce Kiddell: Hello.
+Ali Nawaz: Long time no talk. How are you?
+Joyce Kiddell: Right. I'm good. How are you?
+Ali Nawaz: How's it going, guys? How's it going?
+Taryn Reithofer: Hey everybody.
+Ali Nawaz: Good morning. Sorry, you're going to see the wager that came uh logo as my face for for the hour, but my voice will be here for you.
+Kobi Kunasekaran: Take it.
+Emily Vandenberg: How's it going everyone?
+Taryn Reithofer: Good. I'm I'm pretty happy about the colder weather today, actually. It's a nice change.
+Emily Vandenberg: Yeah, it's quite a change, but I'm here for it. I'm here for it for a short term. I needed We need a couple more nice summer days, though.
+Taryn Reithofer: We I'm ready for soup season.
+Lina Ceniccola: What's the temperature?
+Taryn Reithofer: Like 15 13.
+Lina Ceniccola: Oh, really?
+Taryn Reithofer: Yeah, I'm in Hamilton.
+
+
+00:01:02
+
+Emily Vandenberg: Yeah, nice.
+Lina Ceniccola: Oh,
+Ali Nawaz: Yeah,
+Emily Vandenberg: It's like very full.
+Ali Nawaz: it's cloudy. Yeah, it's cloudy. But but Bobby, Lina,Bobby's actually in Calgary. He just went there and it's like all sunny. You would think it'd be colder and more bloomer down there,
+Kobi Kunasekaran: What?
+Ali Nawaz: but it's all sunny in Calgary compared to here for some reason.
+Lina Ceniccola: well, I hope he refers for you.
+Emily Vandenberg: Yes.
+Ali Nawaz: That's that's that's that's a that's a plan. But thank you. That's a plan.
+Emily Vandenberg: All right. So, Kobe, uh, Taran, we have Alihere who's kind of able to answer like a few of those questions um that we kind of had looming after we went through um the redeposit process um last week. So Ally, what he does is he kind of takes, we were talking about how there's like, you know, kind of a book um breakdown that's given at the start of the month that he has to then go splice essentially into, you know, how many the quantity of assignments and the different ranges that exist in the different kind of um books and the different books that are kind of like top level assigned to him.
+
+
+00:02:04
+
+Emily Vandenberg: Um so I think Kobe I had thrown a few questions that we had lingering. I think you guys maybe had a few more, but I don't know if you want him to just like walk through his process or if you want to start with a few questions how you wanted tackle the time.
+Kobi Kunasekaran: Um why don't we start with like that process cuz I think one of the things that we were trying to understand is if there is any logic that we can use to do that redeposit allocation automatically. Right? That was one of those like open things whether it still needed to be manual or if we could say like here's the budget, here are the number of reps, here's the uh here's the business rule to split it and whether we're able to do that. So maybe Ali like you just walk us through like drop down what your process looks like today and then we can see if there's anything that we
+Ali Nawaz: Yep.
+Kobi Kunasekaran: can extract and automate for you.
+Joyce Kiddell: If I can jump in just super quick before we get started.
+
+
+00:02:55
+
+Joyce Kiddell: Um, I think the first piece, like you just said, is the budget. budget setting by deal and I don't think we're at a point to be able to automate that piece where it's like we where we understand exactly the correct amount to like start with and then splice out.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: So if to start if we can just like solution for being like a field or like something that we can input ourselves um and then Alli's process will take over.
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: Yep.
+Joyce Kiddell: Okay. Thank you.
+Kobi Kunasekaran: Yes. Sorry. That's what I meant like not not putting in uh or not determining the budget but once you have the budget
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: determining how would how those uh redeposit rows in your spreadsheet get generated.
+Ali Nawaz: Right. Right.
+Kobi Kunasekaran: I think that was a piece that we're trying to see if we're able to automate or make it easier.
+Ali Nawaz: Yeah. So um the part of making the budget is Ilas and um and Jess before in the past.
+
+
+00:03:46
+
+Ali Nawaz: So pretty much they go by your volume, right? They go by the total volume for each book that we had in the previous month. Sometimes in the month before retention wise, but it also goes by whatever budgets and deals we have. Um uh some of them are more priority than others, right? So if it's a book from last year, we might not have as much priority. I'm just going to share my screen just to show you how one of the older budgets look and then um you could ask some questions from there. Let me know if it's blurry. It should be if you could see this.
+Kobi Kunasekaran: It is blurry for me.
+Ali Nawaz: Yeah, it'll be good in a sec. I don't know why it does that, but uh anyway. So, pretty much this is just the August one. I'm showing you what's sent to me. uh when it comes to the amount of total the total readups that are assigned uh and then the average for each one and then after that it gets distributed and I mean I can explain all that but once you see this clearly just let me know.
+
+
+00:04:53
+
+Ali Nawaz: I literally don't know why it does that but it it usually just clears out. I can't see your guys faces, so I don't know if you could see.
+Kobi Kunasekaran: No,
+Emily Vandenberg: It's great.
+Kobi Kunasekaran: it's still a bit blurry.
+Taryn Reithofer: Yeah, same for me.
+Kobi Kunasekaran: Do you want to like copy it and throw it in a document?
+Ali Nawaz: Yeah, I could do that.
+Kobi Kunasekaran: That' be easier like a Google doc and
+Ali Nawaz: I mean, I could just I could just forward this um to somebody. Joyce, you want me to forward it to you or or Emily?
+Emily Vandenberg: If you forward it to me, I can forward There you go. Okay, Kobe and Taran, you should have this. Let me know when you have it.
+Kobi Kunasekaran: Uh, yep. Okay.
+Emily Vandenberg: Is it you want to see if I can share it? But at least you have it for a reference
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: now.
+Taryn Reithofer: Mhm.
+Ali Nawaz: Yeah,
+Emily Vandenberg: That should be better.
+Ali Nawaz: perfect. There you go.
+
+
+00:06:26
+
+Ali Nawaz: So, um, as you know, we have Alberta volume, a separate network. We have Ontario and we have the US. So, according to our total volume from the previous months, that's kind of how the budgets are are made. But at the same time, it also depends on our deals. So if there's a deal that we we we prioritize for the first couple months and we might not have as much of a priority in more recent months, it might not be the same priority. So these things ch change every month. And like I said, this is not created by me. My job is just to distribute it to the team. Now when you distribute to your team, you go according to the BA's volume, right? But this is where when I first started this I was I had to do a lot of manual changes because of the fact that just because somebody let's just say there's 500 redeposits there for Alberta by MGM-G. Now I know that there's only two MGMs that we have in Alberta at the moment but this one is priority and but the 500 has to be distributed with among the whole team right so depending on the volume that everybody has and uh not only that it goes by uh their trends their logging trends like let's say one person has 80% of the volume I can't just assign him 80% of the readeps because realistically he won't be able to handle it that's just the truth so when we do these things we have to go by a rep
+
+
+00:07:44
+
+Ali Nawaz: byre basis and that's where the manual part hasn't changed where I have to I I'll automate this as just get it just get them distributed evenly um or not evenly fairly and uh when I get it automated it just pretty much goes by their actual volume. So Jay actually created a tool for this where uh I plug in the the numbers and it just distributes it uh accordingly. Now, when that happens, I still have to go back, switch up the uh let's just say switch up the amount for some of the higher volume reps, give some to the lower volume reps because let's say one rep has been doing decent volume for the last 6 months and this previous month he had a very slow month. The the automation will obviously make him get very little readups and I know that he should be getting more. So that's where my manual and my experience with each BA and knowing like their trends, knowing if they're able to keep up with the redeposits, knowing if they're able to handle more the people who finish and complete their readups with within half uh half of the month.
+
+
+00:08:44
+
+Ali Nawaz: Like there's different factors that go into it that make it more uh manual, right? So when it comes to automating it, I mean, we could always automate taking the number total numbers uh from each month. Like you see those notes there? That's kind of what we go by. So all from July, meaning even if a rep had a lot more volume in in uh June or in in the months before, it wouldn't the automation wouldn't pull that because I'm going specifically using these notes, right? The reason why it says all from July is these are books where we're prioritizing the retention of the newer clients and that's where uh we we we prioritize the newest ones. Like July, meaning if this was August redeposits, we could still prioritize people in the current month can also get redeposits. It's like it just that when I go and follow the automation completely, then there's going to be a chance I'm going to miss out on some of the guys who have a have a network from before. And that's kind of what I I have to focus on.
+
+
+00:09:42
+
+Ali Nawaz: And I wish there was way to automate that. But I mean, it it's hard to do cuz each month things change. You know, there's different reps that are are picking it up. Pick some reps who had high volume for a while, like let's say myself, and I brought on some reps and now I'm I'm not high volume. Now obviously I still have a network from the past. It's just that uh because I'm going and following this accordingly then I would get way less
+Kobi Kunasekaran: Cool.
+Ali Nawaz: than somebody else who had a better month last month you know.
+Taryn Reithofer: Mhm.
+Ali Nawaz: So how you want to distribute I mean you could always use any kind of automation just by going by total signup numbers which we use our master sheets right or we use we we go to their sheets to check as well and then uh their total volume and follow the notes and pretty much that's it for now you know.
+Kobi Kunasekaran: So,
+Emily Vandenberg: That
+Kobi Kunasekaran: a couple questions.
+Ali Nawaz: Yes. Yes.
+
+
+00:10:30
+
+Ali Nawaz: One second. Sorry. Go ahead.
+Emily Vandenberg: I was just going to clarify where does the automation happen that we've built in? Is it within the spreadsheet?
+Ali Nawaz: No, no. There's a there's a website here. I'll send it to you now. I don't know if what else uh Jay uses it for, but I think it's like where he has the total.
+Lina Ceniccola: It's Emily. It's the um payment tracker site.
+Ali Nawaz: The payment tracker. Exactly. It is. Yeah,
+Emily Vandenberg: Oh,
+Ali Nawaz: it's in there.
+Emily Vandenberg: he built a tool.
+Ali Nawaz: There's an allocation part there. Like we could go through it. Jay obviously is the one who made built it. But uh and this is the la this is the first two months that I've been using it. Before that, I was just using my own automation to to and then I would have to keep manually adjusting. Now in the past we also had tech takes right and when tech takes was around like as in like we were pushing it we had to prioritize some of the client I mean some of the BAS who might have not been doing as much sales volume but they had uh they had a lot of tech subscriptions meaning they need more readups and when that happens uh we were we were offering more to some of the people and not going exactly according to this and that's because of that factor that comes in and there was no automation for that that was
+
+
+00:11:50
+
+Ali Nawaz: I am just used to clearly doing a lot of manual stuff and in the past but that was my own decision. But I also do it like that because I I I I take I I go on a BA by BA basis where I everyone is different. Some people have potential and can grow and some people are slowing down or can't handle even low amount of readups. Right? So that's kind of how I do it.
+Kobi Kunasekaran: So yeah, couple questions for me. So when you say like uh so this is uh this is the budget essentially that you're getting right instructions on like how to distribute the redeposits. Um, when it says like all from July, um, does that mean we're targeting, uh, players that signed up for Bet MGM in July?
+Ali Nawaz: Exactly. Yes.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: Yes.
+Kobi Kunasekaran: And is it like net new players that came in in July or they could have been uh, players already from like other books,
+Ali Nawaz: So,
+Kobi Kunasekaran: but they signed up for BetGM?
+
+
+00:12:44
+
+Ali Nawaz: so no, exactly. It would have to be the new players who registered and played in July. And in the past, we we'd actually have some of these books that we'd offer for the players from the last 3 months. And technically, there's some of them that we can offer it, but the priority is always going to be the newer clients. Like that's what where the retention comes in. And that's what the operators that we work with are looking at as well, right?
+Kobi Kunasekaran: Okay. So if I if I had signed up for like Bet Rivers the previous month like in June and then I signed up for
+Ali Nawaz: Yeah. Yeah.
+Kobi Kunasekaran: Bet MGM in July um I could be allocated
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: the BMGM one but not necessarily the B reverse one. Right.
+Ali Nawaz: Exactly.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: Now if you look at that that the bet Rivers it shows total readups 200 and total readups 150. Obviously that means we have smaller budgets with them at that time and so we have to prioritize those newer clients.
+
+
+00:13:38
+
+Ali Nawaz: Now if it's the 500 for total readups by MGMD and we offered it all to BAS who have a network from July. I mean, ju that's just a specific book that focuses on um retention more than any other one. So, I know I can't offer it to older clients. But something like drafting CTM, like I said, it's always going to be priority to offer it to the newer clients, but if we had enough of a budget, like right now it says 250 there. In the past, we had a,000 for Ontario. So, when that happens, obviously, there's a chance that we could offer it to a lot of the the the new clients and still offer it to some from the month before or the month before that, right? And the truth is we kind of need that flexibility at times because that's what helps grow your network. You know, you have to have those resources. So it depends on the opportunities. This is Alberta and this is the the first budgets after the launch in July.
+
+
+00:14:29
+
+Ali Nawaz: So obviously the numbers will look way lower here, right? As example.
+Kobi Kunasekaran: Okay. Oh, yeah. That's helpful. And then so for BET MGM you have 500 V deposits. Um so I'm assuming that means like there's 500 players that you need to allocate to this two and then the
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: average is $40.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: What is there like an upper and lower limit?
+Ali Nawaz: Yeah. I mean like uh the truth is we we we want to range it 40 average as in Like we used to increase our redeps uh in a range of 30 to 100 and now it's more 30 to 4 80 and and the re the reason about for that was because we had tech takes and tech takes subscriptions are uh higher higher redeps and if we don't assign uh that 80 to 100 range for for some of the basal budgets like we we were able to give additional budgets for certain books and sometimes those might get abused if it's not done correctly.
+
+
+00:15:32
+
+Ali Nawaz: So that was when we had tactic but right now we kind of stick in a range of $30 to $80 when it comes to the readups that we offer. So 30 35 40 45 right and they're just all added to the BA sheets with no names beside them obviously and that's when the BA decides which clients he's going to offer them to.
+Kobi Kunasekaran: So the amount that like is getting created for the 500 redeposits like I'm thinking like in terms of the spreadsheet I'm assuming like you know there are 500 rows of redeposits for PMGM that's going to be created.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Um the amount for each line um is that is that the part that's being automated right now or like is there any logic on how that gets broken
+Ali Nawaz: Yeah. So the the part that's being automated is taking that note there taking the total readup and
+Kobi Kunasekaran: up?
+Ali Nawaz: the average the average part really and truly we just know our range is 30 to 80. uh when it comes to the total readups 500. Now if we have our master sheet, I'm not sure if you you've seen that before or obviously I have access to each BA's uh sheet.
+
+
+00:16:33
+
+Ali Nawaz: And so what I would do is the automation would just take all the July signups, all the BAS who have it and distribute it where it would put it onto a spreadsheet uh giving them let's just say one person might get 15 redeps, one person might get 50, one person might get 80 depending on what we have. So but it depends on their volume. So let's say give you example uh there's a guy named Mo who works with us and he he's doing the highest amount of uh Ontario and Alberta volume this month and so I mean sorry in August when this is for this is August readups meaning for July but uh for the the for the new readups he got in September he had the most and that is because he had the most volume in the Ontario and in Alberta and now I could go ahead and use automation and it's going to give him way more than everybody else, right? But then the problem is I know he won't be able to handle distributing that much and we do have other BAS who might not have as much reads and the automation will never offer it to somebody if they've had let's say 10 under 10 signups for the month, right?
+
+
+00:17:39
+
+Ali Nawaz: But there could be one of those BAS who who could use five of them only and it could help with whatever with network he has. the the the problem with automation is it would always just go literally uh well exactly how you'd want the volume to be assigned. But then the realistic cases that some of them can't handle and that's where I have to do manual part but how it's done yeah we the numbers are distributed on like we use this tracker now or this uh that J made and once we do that the numbers are there and I I and then we get it exported to a spreadsheet now when it gets exported to a spreadsheet that's where um there has to be a lot of manual changes you know so the spreadsheet uh I have I could share like the
+Kobi Kunasekaran: the allocations.
+Emily Vandenberg: You want
+Ali Nawaz: August one you could look at that and then yeah exactly this is perfect I mean so if you go through um parameters. Yeah. So this is exactly what he made.
+
+
+00:18:34
+
+Ali Nawaz: So you see how on the email there's a note section uh that like the one that I just shared the so the August readups this I pretty much can plug and play here and uh Jay did this ex he pretty much just matched what I get assigned with the email and um and then it automates it into uh it goes into if you scroll back up uh uh Emily yeah if you go back to allocation once you save the parameters and run again the run again button will will run all the numbers like pull the numbers back from each sheet or whatnot to be more accurate right and then it will distribute it like this. So if you look here uh Ontario Mo had 46 uh in August right and then if you look uh in total he had 48. Now if you look at other reps they might have had 11 in the bottom there they'll get offered the five. So this is so it pretty much automates it. It tries to spread it evenly, but like I said, um, depending on the book, it might overly assign something.
+
+
+00:19:33
+
+Ali Nawaz: So, if you look at the one under there, John Vu, DraftKing CTM, uh, just the one under draft because Bet Rivers is too small of a book as an example. So, right here, uh, 400 from August, 100 from July, that's 500 total readups to sign. The note is right under the drafting CTM part. And so now, John in August had 89 signups. In July, he had 29. And then so 119 total, that's 95. At the same time, there's other reps. Uh what's a good example? Uh let's say Rohan. So Rohan had 20 in in August, but 45 in July, right? So the truth is he might have a network that will need it. He got 35. That's pretty good. But the the point being there's times where somebody might have got more redeps in the month before. Uh, and we want to prioritize the let's just say somebody got the redeps more signups in July and and less in August. Like we still want to make sure we're evenly distributing it to them as well because this helps them grow their network.
+
+
+00:20:33
+
+Ali Nawaz: Like these redeps are uh not only for retention, but it helps grow your network volume. It's what gets you to build back your networks. And that's why it's always nice when you're able to offer it to older clients. at this moment our budgets are lower than like let's say last year uh uh last year when we had the most busier times uh because there's also less BAS and more more signups at one point and when that happens. And uh obviously we're able to offer additional readabs at times throughout the month, have some extra ones to offer and now it's a little more uh well it's going to grow to be honest the volume where everything's picking up where it's we're going to be back to it. But just to give you example, we used to have a thousand DraftKings CTM reads. Now it's 500, right? But there's more reps. So trying to make sure everybody's satisfied and has what they need. And that's kind of what I do. That's where they personally reach out to me on the side.
+
+
+00:21:28
+
+Ali Nawaz: That's where if there's a book that I could request additional budgets for, I go back and I try to do that. But that's that's when I was directly dealing with um Jess to do things like that. And now I have illas either way. But uh yeah, so there that's where the manual part becomes a big thing. I have to keep going back and forth, adjusting things, changing things. Some people can't handle it. Some people might might have had a lot of volume last month, but they lost connection with that network. It happens. So when that happens, the manual part comes in that no automation can can change, you know, and there these redep redeposits are um monitored daily almost. And so if they're behind on the redeps, they get called out and it slows them down because we we need them to prioritize them. But let's say they had a issue in their network, it's it's it's almost hard to tell unless they let you know. And so if we just follow the automation, you're never going to be able to know about those little cases of of things.
+
+
+00:22:23
+
+Ali Nawaz: And but that's where I come in and I try to adjust. So
+Emily Vandenberg: Thanks, Ali.Um, I think Joyce, Lina,just to pause, I didn't realize that this was solutioned on our end. Um, cuz I think where we were kind of chatting prior was a little bit of like how we might be able to solution for some of this logic. So I guess Joyce like from the perspective of integr like Salesforce and integration and this existing is it more like we need to connect the systems versus moving anything uh to Salesforce in terms of like the logic etc.
+Joyce Kiddell: I mean, Ali,is the system working well for you right now?
+Ali Nawaz: Yeah, I think it is working well. Uh, but the tr the truth is like literally any automation that you make, if you follow the same parameters, it's it's going to pull the same type of numbers probably. I think this is good though and it's the first two months I've been using it. But it helps. It helps a lot, you know, especially because it's aligned with other parts of our business like the total signup for the month or even throughout the month, you're able to run these parameters and then see what if we need if we get any extra allocation.
+
+
+00:23:29
+
+Ali Nawaz: So, for me, this this works. If you guys want to make any changes that you could definitely do that, but Jay was the one who created this. He worked with me to figure out what what we need. Uh, like I said, regardless, there's still a lot of manual touches that I have to do at the end, but this helps save a lot of time for sure.
+Joyce Kiddell: Is this not in the CMS? Like what is this tool payment?
+Kobi Kunasekaran: Excellent.
+Ali Nawaz: Yeah,
+Emily Vandenberg: Yeah,
+Ali Nawaz: this is Yeah,
+Emily Vandenberg: it it's not the CMS.
+Ali Nawaz: go ahead.
+Emily Vandenberg: MS. It's a standalone kind of like toolbox. Um it originally started as like the payment tracker. Um like a solution for kind of payment tracking and then it's evolved. Um Jay kind of adds has been adding I guess a few kind of extra I knew about the redep like report. So you can run immediate readup reporting through here. Joyce and um yeah it looks like he's doing the assignment too.
+
+
+00:24:28
+
+Emily Vandenberg: Lina,what I don't know is like who actually is doing the I think we have to take that offline, but I think we need to understand kind of product ownership on this tool a bit more.
+Lina Ceniccola: on the this redeposit tool.
+Emily Vandenberg: Yeah. Like what we're calling the payment tracker in general.
+Lina Ceniccola: Oh yeah, I've asked him to update this name a couple times just to avoid confusion. So, let me uh follow up on that. What?
+Joyce Kiddell: Yeah, like I I think the only way it works um to integrate would be like if we can move this into the CMS and then recreate a similar flow to what we're doing on like the deal assignment.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: I'd be curious like is this uh like what are the inputs and outputs from the tool? Like I I know I saw the section on like feeding the uh the the
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: budget that comes from the email and I'm assuming like you're doing this for each uh uh
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: what is it each year, right?
+
+
+00:25:30
+
+Kobi Kunasekaran: Or each book or each month.
+Ali Nawaz: Yeah. Yeah. This this part right here I I was following let's say the email, right? So, but it how everything works on the back end. Like the best thing is for me to get Jay to join and you could speak to him about any of that because I I
+Kobi Kunasekaran: Okay.
+Ali Nawaz: have nothing to do with that part.
+Lina Ceniccola: I haven't seen this either,
+Ali Nawaz: But this Have you seen uh Have you seen So,
+Lina Ceniccola: so I also Yeah.
+Ali Nawaz: you probably never saw this part of it. I think he made it in the last two months, right? But the like the dashboard, if you go to uh Emily, I don't know if you guys have ever seen this.
+Lina Ceniccola: Heat.
+Ali Nawaz: I've I've obviously worked with it.
+Emily Vandenberg: the volume.
+Ali Nawaz: Just Yeah. the volume. It just shows you total volume uh that each rep has per book.
+Kobi Kunasekaran: This is like signups, right?
+Ali Nawaz: Yes.
+
+
+00:26:10
+
+Ali Nawaz: Yes. Exactly. Exactly.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: This is signups. Yeah.
+Kobi Kunasekaran: It's really cool.
+Ali Nawaz: Yeah. Yeah. It's pretty cool, man. And Jay Jay Jay Jay helped make this very clear for me too when I was confused about thing. I would I would get on a call with him if you have specific questions on that and I could I could set that up if needed. But uh as for my parameters and allocation part, it helps a lot. it saves me time and and that's why for now I've been using it and especially so the thing about when those budgets are made right sometimes they're made 2 or 3 days before the end of the month just assuming that we know what the end of month will close out by with right but normally you have to wait for the full month to be over with or the logs to be caught up and the thing is there's a lot of BAS who uh the last couple days of the month they're still catching up so it it becomes harder to be.
+
+
+00:26:59
+
+Ali Nawaz: exact, but it's pretty pretty close like normally. And so what this what that does is gives me that time like a head start because usually it actually takes a while for me to break these down. In the past when I was uh last year when I was doing a lot of manual stuff uh and the whole process was just I took I took way too long with it. But it's like I said it's because I I have to put that manual touch to it. Luckily, we don't have um right now we don't have that tech takes. What we will have we we will have times where we probably need higher higher budgets assigned. But for now, the range that I told you, like that's kind of where we're sticking with
+Kobi Kunasekaran: Yeah, I think like I I'd be curious to like understand how like yeah what those inputs are. It sounds like it it is like the the signups, right? And I'm assuming it's like gathering it from all the individual spreadsheets. It's actually really cool the way it's doing it.
+
+
+00:27:57
+
+Kobi Kunasekaran: just by the UI, I'm assuming Claude's doing the brain work of the allocations behind the scenes.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Uh,
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: right. Okay. So, like we don't need to I don't I don't think we need to replace this tool, but I think we can connect Salesforce to it in a way where Salesforce is able to feed those signups from uh because like ultimately that's where we're going to start tracking it, right? And there's going to be like all the gating and everything and all the logic that's going to happen.
+Ali Nawaz: Of course.
+Kobi Kunasekaran: So it should replace the spreadsheets. So Salesforce could feed the raw like the signup data that uh we get from it. Um the logic of breaking down the uh assignments based on the V deposits could be done uh through this tool like for V1 and we can talk about like whether we want to absorb this into Salesforce later. Um but then like what I'm assuming uh the output of this I think you mentioned it's it's a spreadsheet or CSV that you then uh add into the spreadsheets and then that's where you do the manual reallocation
+
+
+00:28:56
+
+Ali Nawaz: Yeah,
+Kobi Kunasekaran: when you need to so that you can assign some books or some lines to other people. Right.
+Ali Nawaz: exactly. I mean, uh,
+Kobi Kunasekaran: Okay.
+Ali Nawaz: at first he just had the numbers here and I would just plug my own my own spreadsheet and make it myself, right? But now he he got it to export. I think if you go to parameters, you'll see like export where you could export it to a a PDF or spreadsheet and and that's where obviously the numbers are already there, but and then I would just touch them up and when
+Kobi Kunasekaran: Yeah. So this is where I think Salesforce can take over where you don't have to do it in
+Ali Nawaz: that would help. Yeah, for sure.
+Kobi Kunasekaran: spreadsheets anymore like the maybe for V1 like we still have uh the the path
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: of like you export the CSV here but you upload it into Salesforce and Salesforce creates the respective records under the deal and then you can reassign do everything that you do in spreadsheets but you do it in Salesforce and then we're we're able to also do the tracking and everything in Salesforce.
+
+
+00:29:54
+
+Kobi Kunasekaran: Uh but in a future future version we could have a button that just says upload to Salesforce. um and just have this integrated similar to like the CMS DRA upload um where you don't
+Ali Nawaz: Yeah. Yeah, that helps.
+Kobi Kunasekaran: even have to do the extra step of downloading and uploading to Salesforce. It's just connected and it pushes it there.
+Ali Nawaz: Yeah,
+Kobi Kunasekaran: Um,
+Ali Nawaz: that that would all perfect
+Lina Ceniccola: And can we also add in a function for manual redeposits?
+Ali Nawaz: like additional. Yeah, like adding extra,
+Kobi Kunasekaran: yeah.
+Ali Nawaz: right, Lina?
+Lina Ceniccola: Yeah, just because like Alli's kind of touched on it um a few times, but there's definitely a lot of edge cases here where people we
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: like they they ask for something, they're like, "Oh, I need this extra budget here. Do you have any? It'll help me in this way or whatever it is." Like there's always things. Um so, as long as we have the ability to also create manual redeposit records, that's really important.
+
+
+00:30:51
+
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: Um because the flow isn't necessarily onetoone all the time or a under like a strict process. We say it all the time, but we're like it's an art, not a science cuz there's like one aspect that science and then all
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: art.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: So just um going forward making sure that we we do include manual overrides where possible is uh important.
+Kobi Kunasekaran: Yeah. I mean that that's what Salesforce is going to give you, right? like you do have the ability to um like the interface that we talked about last week um where you can add additional uh additional allocations for redeposits in bulk to deals to people. Uh I think that's where you'll be able to do that there and then we we'll have to figure out how we can get that back into this tool in case you know you're adding a new Ruby deposit and you need to factor those previous decisions for the next month. So we'll have to kind of figure that out. But um yeah, all of the all the customization, the reallocation, if you need to add additional redeposits, you would do all of that in Salesforce once like I'm assuming like the initial set is uploaded uh based on whatever this tool gives you.
+
+
+00:32:12
+
+Kobi Kunasekaran: So I think this effectively answers the big question we had last week on like how the roles are going to get created in the first place. We were like are they going to do it one by one like all 500? Uh but it sounds like no like you have a tool that does the majority of the work and then you go in and you reassign and reallocate based on uh your experience and the information that you know so that uh it fills in the gap.
+Lina Ceniccola: Yeah.
+Ali Nawaz: Yeah, exactly. So that that that helps that helps as in like instead of going one by one and uh manually doing work like we we we had to go through those hard times but should be better now.
+Kobi Kunasekaran: Okay, so these are for the monthly uploads. Um, is there anything else? Any other cons? ation or anything else that is part of this process.
+Lina Ceniccola: Are you fault?
+Ali Nawaz: Emily, are you guys going to does this have anything to do with like your redeposits pro progress throughout the month and like any anything like that or this is just about assigning how we assign the redeps?
+
+
+00:33:18
+
+Emily Vandenberg: Yeah, reporting would definitely be a part of it too, Ali. Kind of once everything's like flowing through, then we could easily and like as long as it's like being allocated to the right player, like we set up the right infrastructure, then yes, like we'll be able to take and report off of, you know, the uh percent complete and even like more easily kind of like player lists, etc.
+Ali Nawaz: Yeah, that makes sense.
+Emily Vandenberg: Now, yeah, like when you know we were kind of breaking up the like the different types, Ali,if you will, and like what we were saying from this like manual is like it's this is like is that a full overview of the assigned process like assigned process?
+Ali Nawaz: Exactly. This is assigned. This is only assigned. We're talking about Yeah.
+Emily Vandenberg: Yeah.
+Ali Nawaz: If you want to talk about manual,
+Emily Vandenberg: Is there any I I think we should get Yeah,
+Ali Nawaz: is that what you wanted to ask about?
+Emily Vandenberg: there's definitely some questions we have around around manual, but before we get there,
+
+
+00:34:09
+
+Ali Nawaz: Yeah.
+Emily Vandenberg: just like any anything else or any other kind of like nuance around like the assigned process that we um haven't talked row.
+Ali Nawaz: Um uh I think the main thing that's important is like throughout the month when we have to add the extra assigned readups as long as there's a tool like Lena requested that could do that and maybe even have the history of the date that it was added or whatnot and how much was added you know these things because I I go by I mean it's always different depending on the BA depending on their month and the requests I get from VAS if I'm able to do it or not.
+Emily Vandenberg: He
+Ali Nawaz: But then is it would be good to have like some kind of historical data on when it was added and the the total budget additional budget they were assigned. You know, I don't know if that matters with this system here, but as long as we have that tool to add the extra readups, I think we already went through uh how I distribute it. And that's kind of everything for the sign part.
+
+
+00:35:09
+
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Stop.
+Emily Vandenberg: And when Sorry, just one point of clarity on that. Ali,you're the only one who can like approve manually assigned readups. Is that correct?
+Ali Nawaz: Uh Jay Jay kind of goes and works with me with and Owen as well when they when they have somebody who needs it, they would request it. But it's not obviously like I make the decision if I just feel like it goes by whatever is available. And that's where uh sometimes there let's just say somebody we were assigned total 500 and I need to assign a few more like that's where in the past I had to reach out to Jess about it and now I I reach out to Ilas. So ILAS is kind of the person who uh I request any budgets that I can't I don't have any volume for you know if I let's say we had 500 reads the previous month, but I only gave out 460. I still have 40, which means that I could offer those out at any time throughout the month, you know.
+
+
+00:36:07
+
+Ali Nawaz: So, there's some books that we actually have extra remaining readups that uh weren't assigned because of the fact that it's um maybe not a big a big priority book for our high volume reps and it's for the low volume reps who had it last month. So, things like that. But, uh, I think other than that, there Owen and Jay are kind of the two people who they ask me or they'll they'll go ahead and do it. Jay kind of knows the budgets itself, too. Uh,
+Lina Ceniccola: I think Alior kind of what you're saying is that there could there could be multiple
+Ali Nawaz: yeah.
+Lina Ceniccola: assigned redeposits throughout the month like batches.
+Ali Nawaz: Yes. Yes. Yes. Sometime it used to be more than before, Lina.Like in the past we used to do it way more obviously because of tech takes but I think we're going to get back to needing to do that.
+Lina Ceniccola: Yeah. We also had more budget.
+Ali Nawaz: Yeah. Exactly. And less BAS too.
+
+
+00:36:55
+
+Ali Nawaz: So So yeah,
+Lina Ceniccola: Yeah,
+Kobi Kunasekaran: just saying more redeposits for the same same book in the same month.
+Ali Nawaz: we will we will have chance Yeah. Yeah. Let's just say um we had
+Lina Ceniccola: think of the redeposit budget as like a bank account. So, it es and flows. Now, our bank accounts run a little lower um as they once were. They could go up, they could go down for specific books. It also depends on what uh because referral payments are technically well part of referral payments are technically
+Ali Nawaz: a redeposit. Yeah. Yeah.
+Lina Ceniccola: redeposits.
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: So you kind of determine you see how much was used in that bank account for the specific referral payments. So, which that affects the redeposit bank account for the next month because it's like you don't really know what they're necessarily paying on throughout the month, at least at this stage.
+Ali Nawaz: Yeah.
+Lina Ceniccola: They could be paying one rep could all of a sudden get like a new referral in their pipeline.
+
+
+00:37:57
+
+Lina Ceniccola: They only have one book with us. That's a priority book and then they get like 500 signups. Again, it's like we want that, but at the same time, since it's not logged in live time, too, we might find out 3 weeks in and we're like, "Oh, whoa, the bank account just went down $15,000. Like, what happened here?" But then when you drill in,
+Ali Nawaz: right?
+Kobi Kunasekaran: Hey,
+Lina Ceniccola: it's like, "Oh, okay." I'm using you as an example, Ally, but like, "Oh, Ally got a new referral. He wanted all of his referral payments on Draking CTM. That's why Draking CTM had a dip." So then because Drak King ETM had a
+Ali Nawaz: Yeah.
+Lina Ceniccola: dip that month, we go into the next month. Okay. So because of that dip and we did all those redep maybe we pushed more redeposits as well for that month because the bank account was looking a lot healthier
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: and we go into the next month and we're like, "Oh, it's act kind of s*** right now. So we got to we got to slow down the redeposits there.
+
+
+00:38:53
+
+Ali Nawaz: Is it
+Lina Ceniccola: We might take it off priority referral payments. add on a different priority book and then it's like the this whole science thing where you're not you don't see the exact thing going on every single day. Um and there's so many you know there's 25 reps, there's so many changes, money going out and new people coming in. So we just have to like the goal is to just get closer to these numbers. And it'd be great to be able to see like in live time how the payments are
+Kobi Kunasekaran: Hold
+Lina Ceniccola: actually flowing with each book and that will help us make better decisions on like okay this we actually don't have additional redeposit budget on draft king CTM. So you might want to like even have an option to uh cancel what was assigned like the rest.
+Kobi Kunasekaran: on. Right.
+Lina Ceniccola: So you have all these and then you could see like all these redeposits are open for the month. you might just want to go end all like we've we've overspent cuz we've definitely had situations where we end up overspending on a book uh because we we don't have access to this live data of course because it's the reps just manually logging on their sheets and you know um I hope that can kind of add some context too on how why we'll make specific changes throughout the month on the redeposits and in the current state with a little bit of a lag.
+
+
+00:40:32
+
+Kobi Kunasekaran: Mhm. I think that makes sense. um like when when you do have to offer up like additional B deposits for the same month, um would you put it through this tool and does it have the the
+Ali Nawaz: the last.
+Kobi Kunasekaran: manual adjustments that you might have made in the last time it was run for the initial allocations
+Ali Nawaz: Yeah. So, the first month it we didn't that we use this. It's been two months now. We didn't have that option. Jay added it last month for uh for me. But uh also we haven't had much extra budgets to offer in the last
+Kobi Kunasekaran: Okay.
+Ali Nawaz: two months compared to like before and it's going to get back to that soon which is why we're just kind of prepping for that. But for now it was just not it wasn't a priority and tech takes wasn't around. So both those things together means less budget uh to offer.
+Lina Ceniccola: Yeah, we were also in our slow season technically.
+Ali Nawaz: Yeah.
+
+
+00:41:21
+
+Ali Nawaz: Exactly. Yeah.
+Lina Ceniccola: So naturally the budgets will be lower.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: But now as we enter again this is like high season NFL will probably have additional budgets to offer. And then Ally would be the person to go to different BAS and be like okay we have we have x amount of spend on this book. We want to give these five people a little bit more to help boost. So he'll do like another round of assigned redeposits potentially.
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: And we also have like a Alli mentioned tech takes that was a B TOC product that we offered redeposits as a form of compensation. So we will have that again with another B toC product. So they'll be selling, we'll be offering redeposits as like a form of commission in a way, success pay. So once again, we'll kind of have that same system going. So he'll want to provide additional redeposits there.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: We just need a world where like we can have the assign redeposits in multiple batches but also the ability to manually add
+
+
+00:42:44
+
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: any of these edge case redeposits and Aliwill he'll manage um manually to some extent because again it's art not a science whole thing but I think like there's a lot of things here that can be reduced at least so he can focus more on the strategy part of it than actually in copy and pasting into the different spreadsheets and whatnot and um potentially like the volume of the books too
+Ali Nawaz: Yeah, good point.
+Kobi Kunasekaran: Wait.
+Lina Ceniccola: because we'll have raw data from Salesforce whereas right now it's it's a bit of like a data transfer like taking all from the sheets and then to a main sheet and and totaling all those sheets.
+Kobi Kunasekaran: Right.
+Lina Ceniccola: And it's yeah, it's a bit of a
+Kobi Kunasekaran: Yeah. Right. I guess the current process like even if you have this tool to do the allocation, you're downloading the CSV and then now you have to open up like what you have like 25 reps.
+Ali Nawaz: Yeah. Yes.
+Kobi Kunasekaran: You have to go to each each person's.
+
+
+00:43:40
+
+Ali Nawaz: Yeah. Well, I get I'll get like one of the other ops team members to help out with that.
+Kobi Kunasekaran: Yeah.
+Ali Nawaz: But the point being it should if it's automated straight to their sheets like that saves a lot of time,
+Kobi Kunasekaran: All right.
+Ali Nawaz: right?
+Kobi Kunasekaran: Okay. Yeah. Because like Yeah, that's a additional copy and paste. And then if you're I guess the current manual reassignment processes, you have to literally go into the respective sheets of the person that you're removing from and the person that you're
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: adding from and do that clean up manually, right?
+Ali Nawaz: Yes. Yes.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: Exactly.
+Kobi Kunasekaran: Okay. Yeah, those are all things that like Salesforce will like get rid of because it's just like one record for allocation. So, I think that'll definitely make it a lot easier. Um, the adding the manual allocations and everything, I think that's all fine. I'm not concerned. I I guess like where my questions are coming from is like what guard rails we need to put in, right?
+
+
+00:44:26
+
+Kobi Kunasekaran: Uh, in terms of like first like I asked about the range because like we just have the average here. Um I'm find that like we have a tool that does the allocation so we don't have to we probably don't have to worry too much about it but like Linafor you for example or like you know ops or management do you is there a threshold after which like you want to be informed if a redeposit is like a certain amount like if somebody does like $125 redeposit like do you want to know about it or uh are we safe to like trust what's in the reallocation um or what the tool is spitting out um and how it's outside think or do we need to put any hard guard rails like you cannot exceed more than $80 in a in a single red deposit. Um I think those are the things that we'd want to know if we need to build in or you know for now we can also leave it open and see what the data comes out and then we can always adjust it later too.
+
+
+00:45:18
+
+Lina Ceniccola: I think I lean more towards leave it open and
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: adjust later and see how it goes. Like we have people to manage the system. So I'm not overly concerned about people going rogue or anything like that.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: And it it just gives us that flexibility. Um especially with there are so many changes that go on throughout the month. Let's leave it open and adjust later.
+Kobi Kunasekaran: Okay. Okay. And then for the actual amounts themselves, um, so Ali, like once you put like drop the export into the individual rep spreadsheet, do you do you ever find that they change the veposit amount themselves? Um, and is that allowed?
+Ali Nawaz: Yeah. So,
+Kobi Kunasekaran: Is that something you want to guard against?
+Ali Nawaz: um, well, we have additional budgets like the if they want to add a number that's not 30 to 80, first of all, they shouldn't touch it themselves. You know, in the past, we have different reasons because of tech takes and because let's say you're assigned 20 redeps for one book.
+
+
+00:46:25
+
+Ali Nawaz: Uh, but you have to pay out $300 in readups to one one client, which obviously it's hard to do. When you do that, then they might use three or four slots uh to equal out to that amount, but that their wagering will be deposited at one time, you know. So, it's like there's little things like that that could happen, but if they need to add an amount, it should it's always an additional budget and it has to be approved in the first place
+Kobi Kunasekaran: Adding them out means like adding a new role for the allocation.
+Ali Nawaz: like like adding a slot here yourself. Normally, you're going to get if you go to a BAC, they'll have the book name, the amount is already there, and then the name is empty and that's where they they decide who they give it to. But then let's say there's tech takes payment uh subscription payment and when you when you when you're using the redeps if you're going to use seven slots on one one client then obviously you're limiting yourself for the rest right and that's where we have this additional budget part which uh we could get into when we need to but uh that's only usually done if if it's approved or requested and depending on the book and priority book.
+
+
+00:47:31
+
+Emily Vandenberg: Oops.
+Ali Nawaz: So right now the assigned readab should not be touched uh other than how it's already already assigned to them or added to the sheets.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: I think if we if ops is able to go in and change it,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: that's fine. If they want to request a change,
+Kobi Kunasekaran: Yeah.
+Ali Nawaz: Yeah, exactly.
+Lina Ceniccola: they can just request it through ops and we'll change it. But let's let's not allow BAS to change the assigned
+Kobi Kunasekaran: Perfect.
+Ali Nawaz: Yeah,
+Kobi Kunasekaran: Yeah, that's a one to know.
+Ali Nawaz: I would say that in the past there were just a little more flex. flexibility because of the extra uh like like like their tech takes and other factors as well, right? And but we don't want that happening and it shouldn't happen. So, if there's a way they they can't even and we could we could tell if they do change it to be honest because it's assigned it specific order, but like I said, uh normally they don't touch that.
+
+
+00:48:20
+
+Kobi Kunasekaran: I mean with Salesforce like we can do hard lots right like spreadsheets yes like you you might be able to tell based on the sequencing but it's still not 100% right so you can still change it um but okay so actually
+Lina Ceniccola: Yeah, you have to like go in version history and all that and we've been there,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: but we don't like to do that.
+Ali Nawaz: Yeah. Yep. Yep.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: So,
+Kobi Kunasekaran: Um, what happens on the on the player side? Like do you ever get scenarios where like let's say like the amount that's allocated for them for the redeposit is $50, but they only deposit 40. Does that ever happen? And what do you do in those cases?
+Ali Nawaz: We we have a notes section uh beside their their assigned readups or any readups and they're supposed to be the one letting us know there. And I mean once we have our bank audits that we do like it also would make it clear let's say the transfer was $60 but the the actual read deposit shows 40 like we'd be able to tell that obviously if they never left the note but it's their responsibility to do so and sometimes they might forget to which is annoying but yeah so if if there's a signed redep amount usually that's amount that's deposited.
+
+
+00:49:32
+
+Ali Nawaz: if it's more than the amount uh or it's used maybe they paid out three readups at once uh then they just got to make a note about it because if they don't then it does become confusing but that's where like I said I kind of know which BAS do that or have those issues and which ones don't but when with new BAS coming in and different people who haven't experienced the logging side of things uh it's important for them to use their notes to be more
+Kobi Kunasekaran: Okay. So, like they're they're sending the $50 and then the player is supposed to go in and like redeposit that and send proof.
+Ali Nawaz: Exactly.
+Kobi Kunasekaran: So if they do like if they deposit 40 is that redeposit considered complete or is
+Lina Ceniccola: And I say boss
+Kobi Kunasekaran: it like is there is it a different status because like they didn't do the full amount.
+Ali Nawaz: Well, no, it it has to be the exact amount assigned. And if it's not,
+Kobi Kunasekaran: Okay.
+Ali Nawaz: that that's where this notes part is important.
+
+
+00:50:23
+
+Ali Nawaz: And because that $40 slot was made for obviously the the exact amount that was sent to you to be deposited. If somehow there's more, they they got maybe 80 and they they use two slots, two $40 slots to put it there, but it's a $80 deposit. As long as it's clear in the note, or we could we could track it down by looking at their wages.
+Lina Ceniccola: I think with the note section too,
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: it'll, like I said, with ops being able to go in and manually adjust, it'll be a good way for reps to communicate where adjustments needed, and then an ops member will go in and make sure it's it reflects any of those changes. is. But again, that's typically discovered in the bank auditing process.
+Emily Vandenberg: Maybe
+Lina Ceniccola: But notes will be just a good way for the reps to communicate as well, like any changes.
+Emily Vandenberg: like you know how we do like if the wager amount or the initial deposit differs we have a check box maybe we like check box it so that we can report or like easily escalate and then the notes
+
+
+00:51:20
+
+Kobi Kunasekaran: That's what I'm thinking.
+Emily Vandenberg: is where the context lives cuz it just then
+Kobi Kunasekaran: Yeah,
+Lina Ceniccola: Yeah, that's a good idea,
+Kobi Kunasekaran: that's what I'm
+Lina Ceniccola: Emily.
+Emily Vandenberg: we can like kind of grab and push notification to ops as well.
+Lina Ceniccola: Yeah,
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: I like that.
+Emily Vandenberg: Okay.
+Ali Nawaz: That's true too because normally we the only way we'd find out is when we literally audit their their sheet. So that having that flagged helps us as well.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: And it's not like we'll receive like a hundred flags a day. It's it's not a Yeah,
+Ali Nawaz: Yeah, it's like oneoff. It doesn't happen as much.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: it's the same I would say the same uh rate as deposits differing from survey comp. So, it's a good flow.
+Kobi Kunasekaran: Okay. Uh Okay. So, this covers like the monthly deposits and the manual additions uh for the books and the reps. Um, is there anything else like maybe on the like the logging side of the redeposits or anything that we need to consider besides like this this potential scenario of like the actual amount that the player deposits might be different?
+
+
+00:52:37
+
+Kobi Kunasekaran: Any other edge cases that has come up that we need to account for?
+Ali Nawaz: I think um that well the note section Emily like now let's say you know how we had tech takes in the past or uh we people just put it in brackets that it was a tech takes payment or they put it in the notes that's that's just to make it clear because when you see let's say one client's name three times on one book and you had way more clients that you should have been offering that read up to, then the only way we'd know why they're doing that is if if they make it clear in the notes. So I think that's kind of the one main part that we need to make sure they they use the notes section and that they're not able to add any other like touches to it themselves because the tech takes part we they manually were typing it in in the past it but they were typing it in into whether the name section or into the book section instead of the notes and so I guess as long as the note makes it clear we're good.
+
+
+00:53:33
+
+Ali Nawaz: I don't think there's anything else extra that they need to that they have access to to touch or tweak when it comes to the assigned readups. And uh I think that's all from that side.
+Lina Ceniccola: I think from the logging perspective,
+Ali Nawaz: It's just additional stuff.
+Lina Ceniccola: it's pretty straightforward.
+Ali Nawaz: Yeah, exactly. Well,
+Lina Ceniccola: There's nothing there's Yeah,
+Ali Nawaz: I agree.
+Emily Vandenberg: Lena, would you want and I guess like we'll live on,
+Lina Ceniccola: I think that's
+Emily Vandenberg: but like do we want an identifier at the redep um level Uh, Miss If it's like for B to C comp like um
+Lina Ceniccola: The problem with that is that the B TOC might be used by assigned Redux. So we don't want to replace assigned with B TOC.
+Emily Vandenberg: No, more like an identifier. Like we would keep it as a sign, but then like be able to almost like tag it.
+Lina Ceniccola: Yeah. Yeah. I think if we can add that in that'd be helpful.
+Emily Vandenberg: I think it would make it for reporting like cuz the notes is like very manual, right?
+
+
+00:54:39
+
+Emily Vandenberg: We wouldn't be able to like build out a structured report based on that parameter.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: So if we could tag it through I I say checkbox but for you to kind of solution Kobe but if it applied as like a B TOC um is a compensation then we
+Kobi Kunasekaran: Is that determined like during the allocation? Like I I I kept hearing the tech takes like what how does that happen? How's that different from the regular allocations?
+Ali Nawaz: It just it's just that they would use their assigned readups to pay out whe for for the subscription. And what that means is the subscription was related to sports betting. So obviously they're they're using that to place a bet, but that subscription amount might be higher like 150 or 200. And when that happens, obviously we don't have 150 slot for them to to assign.
+Lina Ceniccola: Well, let's just use the example for the current subscription. So,
+Ali Nawaz: Yeah.
+Lina Ceniccola: right now it the product is 40 per month
+Ali Nawaz: Yeah.
+Lina Ceniccola: or 80 quarterly.
+
+
+00:55:49
+
+Lina Ceniccola: So, they're given either um a redeposit to cover each month or a redeposit to cover the quarterly payment. So it in because they already have to use their assigned redeposits, they're just repurposing it to essentially provide the comp to the customer for the initial
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: subscription.
+Emily Vandenberg: Okay.
+Lina Ceniccola: So we want to be able to track. It's it's more just like of a Emily's point like tracking like tagging that
+Kobi Kunasekaran: s***.
+Lina Ceniccola: an assigned redeposit was for tech takes. doesn't really change much other than helping us track um yeah
+Emily Vandenberg: And yeah, report
+Kobi Kunasekaran: where it's going for
+Ali Nawaz: Yeah, the assigned readups are not changing. It just it's just having a note to make it clear of what it's being used for. if you know that's kind of what
+Lina Ceniccola: the the major issue would be uh Crap. not having assigned redeposits to comp the customer because they don't have any of those signed redeposit slots left or that customer doesn't have those books. So then they request additional redeposit budget to comp the B TOC and then that's where it becomes manual and where we definitely want to tag it.
+
+
+00:57:26
+
+Kobi Kunasekaran: to go to those B TOC like the tech takes subscription signups. Um I think we talked about it a while back. Um is that something that we are planning on tracking in Salesforce as well as like a separate thing?
+Joyce Kiddell: Let's get back to you on that.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: It's evolving in current time.
+Joyce Kiddell: Sorry, I I got to bounce to another meeting. Um, the one thing I wanted to kind of uh anchor this back to is the idea of like having those three flows like and just double checking that we're not changing our minds from it, but like basically in terms of like the user journeys that we could take, it's broken down into assigned um what do we call it? assigned uh manual manual and then the third one would be like automated or
+Lina Ceniccola: additional
+Joyce Kiddell: immediate like the ones that are triggered based off the sign up. So I think everything that Ally was describing can still kind of fit in that context but Okay. All right.
+
+
+00:58:28
+
+Joyce Kiddell: Sorry I got to go.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: But um is the next step Kobe that you're going to come up with like uh design doc after we finish this and then we'll review it before we start building. Okay, cool.
+Kobi Kunasekaran: Yeah. Yeah. I don't know if there was any open questions for the assigned for the automated ones. Um, so yeah, let me go through our notes and I'll get back to you all.
+Joyce Kiddell: Thanks.
+Lina Ceniccola: And can you I think we need to provide some additional info on our redeposit tool.
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: Yeah,
+Lina Ceniccola: So just we can get ahead of that or you can send us specific questions
+Kobi Kunasekaran: like yeah,
+Lina Ceniccola: whatever is easier.
+Kobi Kunasekaran: I think the key thing is like just understanding what the inputs and outputs are. Um, so that we can make sure that, you know, when we move over to Salesforce, the tool still works, right? Or we have alternate inputs. Um because I'm assuming it's being driven by the spreadsheets right now and I'm curious about how manual it is and
+
+
+00:59:17
+
+Lina Ceniccola: Yeah,
+Kobi Kunasekaran: if we can remove some of those manual steps.
+Lina Ceniccola: I'm pretty sure there's um an API that pulls all the information from each Google sheet and into
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: that payment tracker. Ignore the name, but that website.
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: And then it pulls all of that data.
+Kobi Kunasekaran: Okay. Yeah,
+Emily Vandenberg: Thank you.
+Kobi Kunasekaran: I think seeing what that is like through what Joyce was saying like if it makes sense to move that over to CMS so that we can leverage uh the existing hooks and everything we have with Salesforce
+Lina Ceniccola: For sure.
+Kobi Kunasekaran: And yeah,
+Lina Ceniccola: I think it definitely that's the move.
+Kobi Kunasekaran: like I'm imagining like we'll we'll have equivalent reports built in Salesforce to feed the input data like the signups, the player information and everything. And then the actual logic of the allocation will still remain with this payment tool for now. And then it would spin out either the CSV or be able to talk directly in Salesforce to create the uh the allocation records.
+
+
+01:00:25
+
+Lina Ceniccola: Yep.
+Emily Vandenberg: Okay. And then like just although it would follow like the um manual more of the manual process, the personal redeposits. Um, so Ally, like on the personal redeposits, and I guess Lena too is like how do we want those being tracked when we're kind of like assigning? Do we assign the redeposit directly to like the the BA or
+Ali Nawaz: Yeah. So,
+Lina Ceniccola: Yeah.
+Ali Nawaz: I would say I would say that the same option of just being able to add additional readups throughout the month. That's that's same that's the step we would use for the personal readup because we don't we don't decide our personal readup like the budget that each BA is uh assigned until the middle of the month like around this time and that's when it's added. Right. remember usually I have to get Jess to approve some and maybe not as much uh in the near
+Emily Vandenberg: Yeah.
+Ali Nawaz: future but it's because as you know priority books change and also personal redeposits as you know because it's for the BA themselves sometimes the book that they have does not fit in the priority books is not one of the priority books and when that happens they use a
+
+
+01:01:42
+
+Lina Ceniccola: Sorry,
+Ali Nawaz: family member's account who has a priority book Yeah.
+Lina Ceniccola: can I just interject here for a second? I think for personal redeposits, it would fall under assigned, manual, and tagged as personal.
+Ali Nawaz: Yeah, that that makes sense.
+Emily Vandenberg: and and then um okay assigned manual tagged as personal. So we would need another kind of like identifier and then would you want any linkage in terms of where the redeposit actually went to at a like alternate player level if it's applicable?
+Ali Nawaz: as in like what books it went to that that that usually I would man oh if they can't if
+Emily Vandenberg: Yeah. Like if it can't fulfill
+Ali Nawaz: they can't I mean it it's just a manual there has to be a manual step when when we add it I don't
+Lina Ceniccola: I think Emily's asking,
+Ali Nawaz: know if you want
+Lina Ceniccola: you know, example Rohan on gets his personal redeposit under his girlfriend.
+Ali Nawaz: Yes. Yes.
+Lina Ceniccola: So tagging that redeposit actually under Sarah's player profile because she's she's the one with the redeposit
+
+
+01:02:51
+
+Ali Nawaz: Yeah, you could do that.
+Lina Ceniccola: budget. Um,
+Ali Nawaz: Of
+Lina Ceniccola: so we could do that Because if they're getting if they're putting a redeposit on someone else's book, that person has to be in our network.
+Ali Nawaz: course. Yeah.
+Lina Ceniccola: So if we can link it
+Ali Nawaz: Yeah. So I think we would the first step would be the thing is Lena that sometimes some some of these clients our BAS they have clients or family members account that they're going to use and when the time comes there could be an issue with the account and then they want to use somebody else's and so usually what happens is I have them add the account uh the player's name themselves uh and then I'm able to verify if they actually signed up for that book or not which you
+Lina Ceniccola: Yeah, but Ally, they would be in our system.
+Ali Nawaz: Yes,
+Emily Vandenberg: Yeah.
+Ali Nawaz: for sure.
+Lina Ceniccola: So,
+Ali Nawaz: Of course. Of course.
+Lina Ceniccola: they would be a a player.
+Ali Nawaz: Yeah.
+
+
+01:03:43
+
+Lina Ceniccola: If they have to change the player,
+Ali Nawaz: Yeah.
+Lina Ceniccola: that's fine. But it would just say like the player name wouldn't say Rohan. It would say Sarah, but it would be tagged as a personal redeposit.
+Ali Nawaz: I get what you mean. Yeah. This is for Salesforce you're talking about.
+Emily Vandenberg: I I I think that that link like that makes sense.
+Ali Nawaz: Makes sense.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: So it's like I think depending on when Kobiand Taryntake it away and how they solution that if it you know kind of follows its own flow. But then Lina,we can like and Ali,we can validate like this tool can validate, right? Like you can't like if it can't happen if that player's not in our system kind of thing too.
+Ali Nawaz: Makes sense.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: So it gives us an extra like layer um of protection and kind of like compliance protection.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: So and the book,
+Lina Ceniccola: Like they can't choose a player that's not in our system.
+
+
+01:04:32
+
+Ali Nawaz: or or they have a old book.
+Emily Vandenberg: right?
+Ali Nawaz: Yeah, exactly. Like Caesar's GD,
+Emily Vandenberg: Exactly.
+Ali Nawaz: right?
+Lina Ceniccola: Yeah.
+Ali Nawaz: Caesar GD. If they if you just search a player and they signed up in 2024, just because Caesar GD is a priority book doesn't mean that they could offer it to that person because it's a old account, right? So, if that's flagged, that that that helps as well, cuz some of these guys, even if you let them know, there's a chance they might accidentally do that, I guess.
+Emily Vandenberg: And that window was usually what in terms of like um freshness for the book.
+Ali Nawaz: Well, it depends on priority book. So, like uh uh it depends like there Yeah.
+Lina Ceniccola: But the problem with that is they are allowed to read up outside of that window.
+Ali Nawaz: Yes.
+Lina Ceniccola: Like they're allowed to use
+Ali Nawaz: depending on uh depending on the book like DraftKings CTM uh Proline Ardal.
+Lina Ceniccola: Yeah.
+Ali Nawaz: Uh so there's and the the truth is like if we're going to go by the referral priority books uh like list then it's going to obviously tell you that you could only offer it to people in the last 3 months or four months.
+
+
+01:05:31
+
+Ali Nawaz: But uh it depends on the book and kind of I've been going off like what Jess used to prioritize and drafting CTM's one of them. Uh Proline RDL used to be but now we we don't have the same deal. Same with draft king CT but at this moment as you know Caesars
+Lina Ceniccola: I think this goes back to like those specific guard rails. we we're going to leave open-ended and
+Emily Vandenberg: to start.
+Lina Ceniccola: like we'll we'll determine what it is,
+Emily Vandenberg: Yeah.
+Lina Ceniccola: but you'll have to Still. monitor that uh process.
+Ali Nawaz: Exactly.
+Emily Vandenberg: Yeah.
+Ali Nawaz: Yeah, good point.
+Lina Ceniccola: I think it's good as you as you go through it too, like start making notes of where these edge cases live because it's like yes, we have this window, but we also allow people to go outside of this window and then for the reasons why, but we can take that offline. It's just better to leave it open-ended
+Emily Vandenberg: Yeah. Okay.
+Lina Ceniccola: also given like our our timeline here for launch to set up these guard
+
+
+01:06:35
+
+Emily Vandenberg: Yeah.
+Lina Ceniccola: rails but then actually have to go back and be like well actually we let people go against these all the time so doesn't really make sense to set it up. We just have to manage it internally.
+Emily Vandenberg: Okay. All right. Um, so I think then that kind of covers off those three flow. I think now we've like in depth Kobe Tan covered off those three flows as Joyce was kind of calling them out. The referral which we'll get into on Wednesday which is like a part of it but it's very kind of distinct in nature. um we'll kind of bolt on, but thank you Alifor kind of being able to walk us through and kind of give us that inner kind of knowledge on how you're how you're doing the
+Ali Nawaz: Yeah.
+Emily Vandenberg: readups.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Yeah,
+Ali Nawaz: No worries.
+Kobi Kunasekaran: this is helpful.
+Ali Nawaz: If you guys need to get another call, just let me know. And like I said, when it comes to that payment tracker or that that she sorry, that website, uh I could always find out any questions you have for for you from Jay or he could get on call with us.
+
+
+01:07:42
+
+Kobi Kunasekaran: Can we um the next time you use it to like generate the CSC or spreadsheet,
+Ali Nawaz: Yeah. Yeah.
+Kobi Kunasekaran: uh are you able to send us a copy of that? Um,
+Ali Nawaz: Yes.
+Kobi Kunasekaran: Emily, so we can see like what that looks like,
+Ali Nawaz: Yes.
+Kobi Kunasekaran: the output from the tool itself, and we can design, we can make sure that whatever we're designing on the Salesforce side is able to handle those inputs or like those columns, those uh those spreadsheets and information. And because I have a feeling we're going to likely have to potentially add some additional information or figure out how to map what comes out of the spreadsheet to the records that we have in Salesforce. So, it'll it'll be helpful to see what that looks like.
+Emily Vandenberg: Ally, do you have an export from September that you could share with us?
+Ali Nawaz: Yeah, like the Google sheet I could I could I could definitely share with you right now. See, I think I already did in the beginning, but I'll share it again with you, Emily.
+
+
+01:08:32
+
+Emily Vandenberg: Okay. Yeah. Sorry, I must have missed that. Um, but I think Kobe instead of waiting then that Cool.
+Kobi Kunasekaran: Yeah, that works. Yeah, like anything like whatever came out of that tool in terms of the allocations that it
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: generated. Yeah, if we can see that that'll that'll be helpful to for us to design around it and also identify like if there's anything we need to add to that process.
+Ali Nawaz: Sounds good. Sounds good. I just
+Emily Vandenberg: And then we'll get a bit closer to on the inputs and uh from Jay. So we'll we'll break that down and then we can loop back. But agreed we need to kind of then scope out the integration and the and how we pull it into the CMS. So leave that with us. Um I ping Joyce on the side as well for that. So
+Kobi Kunasekaran: Okay. Yeah, the inputs I'm not as worried right now because I think for the most part we should be able to spit out at the very least like the same kind of reporting you have uh in terms of your like signup spreadsheets from the data that we have in Salesforce. So that's why I don't unless like there's any like something outside of those spreadsheets that's being considered um it should be fine. But yeah, it's still good to know uh so we can design around it. Awesome sauce. Okay. Uh all right.
+Lina Ceniccola: All right.
+Kobi Kunasekaran: Oh,
+Lina Ceniccola: Thanks everybody.
+Ali Nawaz: Okay, thank you guys.
+Kobi Kunasekaran: thanks everyone.
+Ali Nawaz: Take care, Kobe. Thanks guys.
+Taryn Reithofer: Thanks.
+Ali Nawaz: Have a good one.
+Kobi Kunasekaran: See you later. Thanks guys.
+Lina Ceniccola: Bye.
+Kobi Kunasekaran: Bye.
+Emily Vandenberg: Hi.
+
+
+Transcription ended after 01:20:06
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

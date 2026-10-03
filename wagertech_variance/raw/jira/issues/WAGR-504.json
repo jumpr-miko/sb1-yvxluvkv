@@ -1,0 +1,244 @@
+{
+  "id": "11581",
+  "key": "WAGR-504",
+  "fields": {
+    "statuscategorychangedate": "2026-09-30T11:31:51.034-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10400",
+      "key": "WAGR-305",
+      "fields": {
+        "summary": "Sign-Up Logging Experience (UX)",
+        "status": {
+          "description": "This issue is being actively worked on at the moment by the assignee.",
+          "name": "In Progress",
+          "id": "3",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-30T11:31:50.581-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10090",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "11560",
+          "key": "WAGR-483",
+          "fields": {
+            "summary": "Accounts: Update Recently Viewed columns so record types are distinguishable",
+            "status": {
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "10091",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "11578",
+          "key": "WAGR-501",
+          "fields": {
+            "summary": "Sign-Up: Show Brand Ambassador more prominently in the Ops list view",
+            "status": {
+              "description": "This issue is being actively worked on at the moment by the assignee.",
+              "name": "In Progress",
+              "id": "3",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-10-02T11:19:39.597-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Outcome and context\n\nWhen an Ops user searches a name in the top-level (global) search, the results should show enough detail to pick the right record without opening it. Emily asked on 2026-09-30 for two changes: (1) the Sign-Up results should show the same details as the Sign-Up table, and (2) the Accounts results should show the account type next to the name, so a Player, a Referrer and a BA can be told apart.\n\n## Current state\n\n* Emily's request came with a screenshot of the current search results. The screenshot could not be opened from Slack when this ticket was written, so the current columns are not yet documented here.\n* The Sign-Up and Accounts result columns are not confirmed.\n* Related: WAGR-483 covers the Accounts Recently Viewed list columns so record types are distinguishable. It is list view work, not search results.\n\n## Proposed solution\n\nOptions to review. None is decided yet.\n\n1. In Setup, open Object Manager > Sign-Up > Search Layouts > Search Results, and add the fields from the Sign-Up table to the results layout.\n2. Do the same for Account, and add the account type (record type) to the results layout. If the record type cannot be added to the search results layout, review a formula field that shows the type.\n\nNot confirmed: whether the Sign-Up table fields and the Account record type can all be added to a search results layout, and whether the global search dropdown (the quick results) uses the same layout as the full results page. Check both before promising this to Emily.\n\n## Acceptance criteria (draft, pending confirmation)\n\n1. A global search for a player name shows the agreed Sign-Up fields in the Sign-Up results.\n2. The Accounts results show the account type (Player, Referrer, BA) next to the name.\n3. No other object's search results or list views are changed.\n\n## Open questions\n\n* Which Sign-Up table fields does Emily want in the search results? The full column set, or a shortlist?\n* Should the account type show for all users or Ops only?\n* Do the changes apply to the search dropdown as well as the full results page?\n\n## Out of scope\n\n* Changes to list views (see WAGR-423 and WAGR-483).\n* Ranking or matching logic for search.\n\n## Source\n\n* Emily Vandenberg, Slack, 2026-09-30, 10:54 AM ET: https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1790780070785829\n* Related: WAGR-483, WAGR-501, WAGR-423. Parent epic: WAGR-305.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Global Search: Show Sign-Up details and Account type in top-level search results",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0092f:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-305"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

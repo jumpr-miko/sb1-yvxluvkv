@@ -1,0 +1,684 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech Internal Sync
+
+Sep 17, 2026
+Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+
+Project migrations and data issues and integration planning reviewed via detailed updates.
+
+Jira migration and project organization
+* Migrated Octo project tracking to Jira using Kanban boards instead of sprints.
+
+
+Wagertech discovery and API integration
+* Conducted discovery on redeposits and awaited Emily's approval for commercial terms design.
+* Targeted CMS integration to begin once sandbox credentials are received today.
+
+
+Salesforce automation and flow development
+* Encountered Salesforce system errors configuring asynchronous triggers for operator partner relationship automation flows.
+* Proposed adding decision gates comparing prior and current values to optimize flow execution.
+* Replaced email notification requirements with a scheduled report flagging deals missing relationship identifiers.
+
+
+Player management and requirements clarification
+* Evaluated supportive markets build options requiring manual maintenance versus complex flow validations.
+* Confirmed primary email fields are mandatory upon creation, preventing blank record scenarios.
+* Flagged the need to clarify fraud flag banner logic and player ban reasons with Emily.
+
+
+Next steps
+* [Kobi Kunasekaran] Update Appto: Post a message in the appto group confirming the status of the Jira board migration.
+* [Kobi Kunasekaran] Demonstrate Board: Walk through the new Jira board with Taryn once the setup is complete.
+* [Kobi Kunasekaran] Investigate Data: Research data issues and record a video documenting the resolution process for the team.
+* [Kobi Kunasekaran] Reschedule Wagertech: Reschedule Wagertech morning meetings if the proposed time with the lead is confirmed.
+* [Kobi Kunasekaran] Consult Emily: Verify with Emily that the team can proceed with the commercial terms custom object build.
+* [Kobi Kunasekaran] Update Stories: Create or update a user story regarding billing details for junction records.
+* [Taryn Reithofer] Consult Emily: Consult Emily regarding the supportive markets build requirements to determine if manual maintenance is acceptable or if more complex validation is needed.
+* [Cedrick Infantado] CMS Integration: Begin CMS integration work once the sandbox credentials have been received.
+* [Cedrick Infantado] Optimize Flow: Add an entry gate to the automation flow to exit the process if no changes are detected in operator or partner fields.
+* [Cedrick Infantado] Implement Billing: Implement the billing details functionality for junction records after the user story is assigned.
+* [Cedrick Infantado] Create Deal Report: Develop a report to flag deals missing identification numbers.
+* [Kobi Kunasekaran] Incorporate Feedback: Review feedback from Emily and Lena regarding where billing details should reside for direct accounts.
+* [Kobi Kunasekaran] Determine Assignments: Determine and delegate tasks for the epic based on the reviewed feedback.
+* [Kobi Kunasekaran] Create Tickets: Generate tickets for the team to address pending work.
+* [Kobi Kunasekaran] Troubleshoot Issue: Investigate the root cause of the encountered error to trace its origin.
+* [Kobi Kunasekaran] Provide Walkthrough: Create a recording or schedule a follow-up call to demonstrate the solution steps.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 17, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Project migrations and data issues and integration planning reviewed via detailed updates.
+
+Octo Migration and Data
+Migration to Jira adopted Kanban boards and planned data investigations.
+
+Wagertech and Market Build
+API credentials expected for CMS integration while evaluating market build options.
+
+System Logic and Automation
+Retained backlog stories and resolved email automation replacements.
+
+
+Decisions
+Aligned
+* Migrating Octo Board from Asana to Jira Kanban The team decided to migrate from Asana to Jira for Octo, choosing a Kanban format instead of sprints.
+* Retaining Redeposits and Payouts Backlog Stories The team decided to keep the redeposits and payouts user stories in the backlog for now and clean them up later once the design is hashed out.
+* Replacing Automated Email Requirement with Scheduled Report The team cancelled the automated email requirement and decided to use a scheduled report instead to flag deals without partners or relationship IDs.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Update Appto: Post a message in the appto group confirming the status of the Jira board migration.
+* [Kobi Kunasekaran] Demonstrate Board: Walk through the new Jira board with Taryn once the setup is complete.
+* [Kobi Kunasekaran] Investigate Data: Research data issues and record a video documenting the resolution process for the team.
+* [Kobi Kunasekaran] Reschedule Wagertech: Reschedule Wagertech morning meetings if the proposed time with the lead is confirmed.
+* [Kobi Kunasekaran] Consult Emily: Verify with Emily that the team can proceed with the commercial terms custom object build.
+* [Kobi Kunasekaran] Update Stories: Create or update a user story regarding billing details for junction records.
+* [Taryn Reithofer] Consult Emily: Consult Emily regarding the supportive markets build requirements to determine if manual maintenance is acceptable or if more complex validation is needed.
+* [Cedrick Infantado] CMS Integration: Begin CMS integration work once the sandbox credentials have been received.
+* [Cedrick Infantado] Optimize Flow: Add an entry gate to the automation flow to exit the process if no changes are detected in operator or partner fields.
+* [Cedrick Infantado] Implement Billing: Implement the billing details functionality for junction records after the user story is assigned.
+* [Cedrick Infantado] Create Deal Report: Develop a report to flag deals missing identification numbers.
+* [Kobi Kunasekaran] Incorporate Feedback: Review feedback from Emily and Lena regarding where billing details should reside for direct accounts.
+* [Kobi Kunasekaran] Determine Assignments: Determine and delegate tasks for the epic based on the reviewed feedback.
+* [Kobi Kunasekaran] Create Tickets: Generate tickets for the team to address pending work.
+* [Kobi Kunasekaran] Troubleshoot Issue: Investigate the root cause of the encountered error to trace its origin.
+* [Kobi Kunasekaran] Provide Walkthrough: Create a recording or schedule a follow-up call to demonstrate the solution steps.
+
+
+
+Details
+* Octo Project Jira Migration: Kobi Kunasekaran announced the migration of Octo over to Jira from Asana, selecting Kanban instead of sprints due to differing cadences and workflow patterns. While cleaning up the board, Kobi Kunasekaran planned to post an update in the Octo group once columns and setups are finalized. Additionally, Kobi Kunasekaran noted that Cedrick Infantado is currently occupied with Wagertech, but expressed hope that Cedrick Infantado can assist with Octo once Wagertech work eases (00:03:27).
+* Data Investigation and Common Data Issues: Kobi Kunasekaran discussed recurring data issues where updates made in one location require manual cleanup elsewhere. Noting that Travis is absent for the next couple of weeks, Kobi Kunasekaran planned to conduct an initial investigation and record a video walkthrough to document the resolution process for the team since these issues occur frequently (00:05:25).
+* Wagertech Discovery and Commercial Terms Design: Kobi Kunasekaran reviewed Wagertech items, noting a discovery session held yesterday regarding redeposits. Regarding the commercial terms design discussed previously, Kobi Kunasekaran is waiting for a confirmation thumbs-up from Emily before scoping the work for a custom object build (00:06:26).
+* Wagertech API Credentials and CMS Integration Planning: Kobi Kunasekaran stated that API documentation was received and sandbox credentials are expected today. Once credentials arrive, Cedrick Infantado will pivot focus to initiate the Content Management System integration, referencing a PDF and Google document available in the Wagertech channel (00:07:30).
+* Supportive Markets Build Options: Taryn Reithofer raised questions regarding options for the supportive markets build, specifically evaluating a multi-pick list and formula versus a related option check-in combined with flow validation. Taryn Reithofer intended to ask Emily clarifying questions regarding manual maintenance versus reporting requirements before closing out the item (00:11:34).
+* Backlog Redeposits and Payouts User Stories: Taryn Reithofer questioned whether to scrap backlog tickets and user stories for redeposits and payouts created in mid-August (00:12:47). Kobi Kunasekaran decided to retain them for now as they derive from operator partner page design mockups, intending to merge or cancel them after finalizing the redeposits design (00:14:17).
+* Player Profile Primary Email Validation: Taryn Reithofer questioned the necessity of a primary email blank banner requested by Emily, noting that primary email is a mandatory creation field (00:15:22). With assistance from Kobi Kunasekaran and Cedrick Infantado using Salesforce Inspector to test record updates, they confirmed that the system prevents email fields from being cleared, rendering an error message or blank banner unnecessary (00:16:46).
+
+
+* Fraud Flag Banner Logic and Clarification: Taryn Reithofer and Kobi Kunasekaran discussed Emily's feedback requesting a fraud flag banner on player profiles (00:19:47). Kobi Kunasekaran and Taryn Reithofer debated whether fraud status should derive from signups or ban reasons, noting potential redundancy with ban banners, and agreed to clarify behavioral expectations and alignment with Emily before implementation (00:21:05).
+* Operator Partner Relationship Flow Optimization: Cedrick Infantado reported encountering a Salesforce system error when configuring an asynchronous flow for operator partner relationships to trigger on both record creation and updates simultaneously (00:28:50). Kobi Kunasekaran suggested adding an exit path decision at the beginning of the flow to check if prior and current values match, preventing unnecessary data manipulation language impacts and resource waste (00:35:06).
+
+
+* Deal Relationship Email Automation Replacement: Cedrick Infantado questioned the email content expectations for the fourth automation in the operator partner user story (00:39:40). Kobi Kunasekaran advised skipping the flow email automation entirely and replacing it with a scheduled report to flag deals lacking partner or relationship IDs, simplifying the process (00:40:50).
+
+
+* CMS Integration Timeline and Sequence: Kobi Kunasekaran expressed concern regarding the timeline for Content Management System integration, emphasizing that sandbox credentials and testing must be prioritized to prevent it from becoming a blocker (00:43:02). Kobi Kunasekaran clarified the integration sequence, noting that Salesforce-to-Content Management System integration must be established first to supply deal IDs before handling incoming Deal Rep Assignments (00:44:09).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 17, 2026
+Wagertech Internal Sync - Transcript
+00:00:20
+
+Taryn Reithofer: Hey,
+Kobi Kunasekaran: Are you trying?
+Taryn Reithofer: good morning. Doing okay. My uh daughter was resisting going to school this morning,
+Kobi Kunasekaran: Oh,
+Taryn Reithofer: so it's it's hard to start the day off like that.
+Kobi Kunasekaran: no.
+Taryn Reithofer: It's like I hate starting the day off on a bad bad note, but it is what it is.
+Kobi Kunasekaran: She just didn't feel like going.
+Taryn Reithofer: Yeah. Like she she's not really liking the classroom setup cuz her daycare that she came from was like huge and like less kids and they had a lot of like quiet time and stuff. And now this classroom is smaller with like double the kids and there's no nap time and she's having a hard time adjusting to the changes. So that's why she didn't want to go this morning, but she's there. So all that matters.
+Kobi Kunasekaran: Yeah, that sucks.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Guess uh is it first week,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: right?
+Taryn Reithofer: Uh this is this is the second week.
+Kobi Kunasekaran: Where's the technique?
+
+
+00:01:26
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Apparently it can take up to like a month or two.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: So,
+Kobi Kunasekaran: Yeah. Okay, hopefully she adjusts quickly.
+Taryn Reithofer: yeah, I hope so, too. I'm sure she will.
+Kobi Kunasekaran: How you doing?
+Cedrick Infantado: Um good. Uh but uh this day is uh today is one of those days that my son doesn't want me to go to work.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: But because it's night time here, so 1000 p.m.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: Usually he goes to bed 9:30 and we've uh we have a little bit
+Taryn Reithofer: Yeah,
+Cedrick Infantado: of bonding and but he doesn't want me to go. So this is our Yeah.
+Taryn Reithofer: he wants to cuddle.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: Yeah. Oh, we're both dealing with kid problems. It's so hard. It's like uh you want to but you can't and then like they don't understand the reasoning. So, what do you say to make them understand? It's like so hard.
+Cedrick Infantado: Yeah.
+
+
+00:02:25
+
+Cedrick Infantado: Yeah. Sometimes he wants to join the meeting but but I said no you have to go to bed
+Kobi Kunasekaran: That's rough.
+Taryn Reithofer: No.
+Cedrick Infantado: and you have to sleep.
+Taryn Reithofer: Yeah. Oh. Any
+Kobi Kunasekaran: You can help me go in the meeting.
+Cedrick Infantado: Yeah, actually um sometimes he joins my meeting in the morning. So he wants to act like he's working already. I keep telling him,
+Taryn Reithofer: Yeah.
+Cedrick Infantado: "No, you don't want to.
+Taryn Reithofer: Want to We have Exactly.
+Kobi Kunasekaran: Enjoy life while he can.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: Enjoy like no responsibilities.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: That's funny. Uh Kobe, you have any dog problems right now?
+Kobi Kunasekaran: No, no, not really. They they've been pretty good today.
+Taryn Reithofer: Good. Good.
+Kobi Kunasekaran: They've been pretty good.
+Taryn Reithofer: Good.
+Kobi Kunasekaran: It's uh it's like gloomy outside today. So, I I always feel like whenever it's gloomy outside, their energy level also goes down. And like I'm also like I I'm feeling tired too.
+
+
+00:03:27
+
+Kobi Kunasekaran: So I don't know if it's like all around but um yeah not that good.
+Taryn Reithofer: All right, let's let's just call it a day, guys.
+Kobi Kunasekaran: Yes, called a week. You start next like uh
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: okay uh just adds up uh I guess like Cedric probably not relevant to you yet but uh I started migrating uh after over to Jira as well.
+Taryn Reithofer: I saw
+Kobi Kunasekaran: So no more tickets in Jira or no more tickets in Asana. Still cleaning up the board a little bit. So I think it should be done by like yeah in probably another hour or so. uh getting the columns and everything set up.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: So, um I'll post a message in the appto group.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Um Cedric, like you're not onto yet, but once hopefully once uh Wagertech tippers off a little bit, I'm hoping you can uh get a bit more familiar and help out there too. But uh you've got your hands full with Wagertech now. So, no worries for the time being.
+
+
+00:04:27
+
+Kobi Kunasekaran: Spare you the chaos.
+Cedrick Infantado: Okay.
+Taryn Reithofer: Yeah, the board is great. I was like I was like, did he just make this or is the was this like outstanding? But yeah, that makes sense that it was just made because it doesn't make sense at all right now how it's set up.
+Kobi Kunasekaran: Yeah. And there's a lot of stuff there. And it's also like I went with Canban instead of sprints for uh for Octo just because we don't have the same kind of cadence. Um and we tend to have work sitting around either waiting for them or waiting for us or to schedule. So, um it's uh it's slightly different um but more or less like it's Ojira. It's more or less the same.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I'll uh we we can walk through it once it's uh ready to go.
+Taryn Reithofer: Sounds good.
+Kobi Kunasekaran: Um and then I also booked a meeting for us to go through that question rem um just because I think I need to do some research to see
+
+
+00:05:25
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: what's going on as well.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Um I was hoping it's simple enough that like I can show you and it's a good way to kind of get familiar with like how the values get are getting populated and stuff. Um so I let me do like one round of investigation first and then uh maybe I'll do like a recorded video so that we can start documenting the process because you're going to you'll see questions like this come
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: in quite uh quite frequently.
+Taryn Reithofer: Oh, these ones are common.
+Kobi Kunasekaran: Um they're pretty common. Yeah. And like Travis kind of knows how uh how to see and fix them, but uh they're generally like data issues, like somebody updated something somewhere and it needs to be cleaned up somewhere else.
+Taryn Reithofer: Easy.
+Kobi Kunasekaran: Lily is not as familiar. So um and Travis is off for the next couple weeks. So hopefully when he comes back, he might be able to kind of resolve them on his own. But if not, we just need to point them to the right place and like where to look and do some investigations.
+
+
+00:06:26
+
+Taryn Reithofer: Mhm. Okay.
+Kobi Kunasekaran: Um okay so aside from that uh let's talk about wager tech. So we had our discovery yesterday on um was a redeposits. Um looks like they saw some messages from a lead to uh schedule followup for Monday. Um I'll thunder with some times. We'll try to I might move around our meetings in the mornings if that time works out better for them so we can get it out of the way. So just heads up. Um, I'm just going to offer up like I think most of the day it seems to be okay. Um, and then we'll see if we can get that out of the way. Um, and then some outstanding items on my end. Um, the commercial terms uh, design that we talked to them about on Tuesday. Uh, no, not on Tuesday, on Friday. Um, I think I'm just waiting to just get a thumbs up from Emily on if we're good to proceed. and uh scope that out and uh assign that out for somebody to build.
+
+
+00:07:30
+
+Kobi Kunasekaran: I think it's going to be a custom object.
+Taryn Reithofer: A thumbs up from your um slides.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: So, I don't I think it's fine, but I'm just going to do like a quick check with her just to make sure that there's no red flags before we spend the time to build.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Um, and then the API documentation we got yesterday. Um, we still don't have the sandbox credentials, but we're supposed to get it today. So, as soon as we get that, um, Cedric, that's probably where you're going to shift focus and we'll get get that like CMS integration going. Um, I there's a PDF in the uh in the Wagertech channel if you want to take a look. um if you have time today also moved it to like a Google doc I think so can send that over as well. Um yeah, other than that I think there's still a few more things to clean up on the board and there's a lot of things in review. Go to try and get through those this week.
+
+
+00:08:39
+
+Kobi Kunasekaran: Um but that's a lot on my plate so I'm gonna kind of power through it. But what do you what do you guys got going on?
+Taryn Reithofer: I've heard you say that so many times now.
+Kobi Kunasekaran: Gonna get to it.
+Taryn Reithofer: You might as well just stop.
+Kobi Kunasekaran: We're going to get to it.
+Cedrick Infantado: It's a second week.
+Taryn Reithofer: There's like It's It's daunting. There's so much to go over, but I uh yesterday
+Kobi Kunasekaran: I'm just telling myself that if I keep saying it, you know, I'm going to manifest myself to do it myself to do it.
+Taryn Reithofer: or you know, you know when you say one word over and over again and it starts to lose its meaning and you don't
+Kobi Kunasekaran: True.
+Taryn Reithofer: like it could be that too.
+Kobi Kunasekaran: True. True.
+Taryn Reithofer: Um,
+Kobi Kunasekaran: True.
+Taryn Reithofer: but you said yesterday like we could book some time to go over them together and just like go through them and come out fast. Like I think that maybe if we um what is it called?
+
+
+00:09:37
+
+Taryn Reithofer: It's like when when you need to do like homework and you don't have the motivation or you don't want to do it. Oh, body doubling where you like ask someone to be with you for company and then it like helps in a way. That's like we can body double if you want.
+Kobi Kunasekaran: Yeah. Okay. Find some time. Actually, like yesterday I I was struggling the focus and I went to a went to Starbucks and worked out of there for like the first half of the day and got so much done. So, I might end up doing that this afternoon. We'll see.
+Taryn Reithofer: Ah being perceived.
+Kobi Kunasekaran: I just need to get out of the house.
+Taryn Reithofer: Yeah. Yeah. Like, oh, I'm at a coffee shop on my laptop. I can't be a poser. I actually have to like do stuff.
+Kobi Kunasekaran: Exactly. Exactly.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: And there's no distractions,
+Taryn Reithofer: Not that
+Kobi Kunasekaran: right? There's no distractions and uh or like there there's, you know, people go coming and going and stuff, but those are I find it's good distractions.
+
+
+00:10:33
+
+Kobi Kunasekaran: It doesn't take you away from the work. It doesn't like you don't you don't start doing something else that you should you don't necessarily need to be doing.
+Taryn Reithofer: like laundry.
+Kobi Kunasekaran: I mean no like you know doing a Jira migration when I don't really need to do a Jira migration or a SA
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: migration when we have all these things to do for uh for widget tech.
+Taryn Reithofer: got it. Yeah, yeah, yeah. Oh, I guess it also reduces your screen too,
+Kobi Kunasekaran: Uh so it's a
+Taryn Reithofer: right? So, you have just like you can only do one thing at a time.
+Kobi Kunasekaran: laptop. Yeah.
+Taryn Reithofer: Yeah. Okay,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: good to know. Um, okay. for me. Um, I think I've got a few questions that I want to ask Emily to really know what we should do for the uh supportive markets build. Um, and Cedric, once I have those questions answered from her, then um, well, I guess I could do it.
+
+
+00:11:34
+
+Taryn Reithofer: When you did that mockup, did you actually do it in the sandbox or was that just like
+Cedrick Infantado: Yeah, it's in the partial sandbox.
+Taryn Reithofer: partial sandbox?
+Cedrick Infantado: So I just created a mp list for that.
+Taryn Reithofer: Oh, okay. Oh, okay. Okay, cool. So, the work's almost done anyway. So, okay. I'll let you know um what she says. And I think the two options s are sorry, let me pull up the uh
+Cedrick Infantado: Awesome.
+Taryn Reithofer: so multi-pick list and formula which is going to be quicker but the caveat is that it would have to be manually maintained on their side so it could drift out of sync and then the other way is a related option. check in plus flow validation which stays accurate but obviously it's going
+Cedrick Infantado: What's
+Taryn Reithofer: to be more effort to build. So I think those two options would satisfy what they want but I think I just wanted to ask her a couple questions like is she okay with it being manually maintained?
+
+
+00:12:47
+
+Taryn Reithofer: Is this just like a quick reference or does she need to report on it?
+Kobi Kunasekaran: What's
+Taryn Reithofer: Stuff like that. So once we have those answers then um I'll close I'll close that out. So just to loop back to that conversation that we kind of dropped uh yesterday was it? Um and then I also have row three open. Yeah.
+Kobi Kunasekaran: How is it?
+Taryn Reithofer: Okay. So, there's um there's still that um chunk of tickets that I reassigned to you, Kobe, that I don't know if you've gotten to look at yet. Um that if you think those are things that I can actually work out myself, then you can reassign them back to me. I just thought that those specific ones were kind of like a little over my head right now. at least there's a lot of like decision making happening with those ones. Um and then I wanted to ask for the backlog. There's um redeposits and payouts tickets that are waiting that we had built that we had made the user stories for.
+
+
+00:14:17
+
+Taryn Reithofer: Um, when was that? Uh,
+Kobi Kunasekaran: be a while ago.
+Taryn Reithofer: yeah, like middle of August.
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: Should we just like scrap those and start over with all this new information now or do you still want them to be there?
+Kobi Kunasekaran: I think we should keep them for now because they came out of the design mockups that they shared with us for like the operator partner pages, right? In terms of like what they wanted to see there. So it might still be valuable um once
+Cedrick Infantado: Okay.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: once we hash out the design for the redeposits. we can like either cancel or merge them together if needed. That way we don't have to like go back and figure out what else they had in the markers themselves. I mean the point of the stories is to capture those requirements, right?
+Taryn Reithofer: again.
+Kobi Kunasekaran: So um once we have the object like how do we show that on like the player record or on the um operator record or partner record that I believe that those were mainly what those
+
+
+00:15:22
+
+Taryn Reithofer: Boom.
+Kobi Kunasekaran: stories were for. So we keep them for now. We clean it up once uh once everything else is done.
+Taryn Reithofer: over. Okay, sounds good. Um, I did have one question that I wanted to um verify. Let me just share my screen. Um, so from the player feedback, Emily had suggested that we have a fraud flag banner and also a primary email banner that shows under the condition if the primary email is blank. Um, but I'm just a little bit confused on that and maybe I'm missing something, but the primary email is required on creation. So it would never be blank, right? Because I built it and then I tried to test it,
+Kobi Kunasekaran: It shouldn't be blank.
+Taryn Reithofer: but then it's a required field.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: So like
+Kobi Kunasekaran: Are you able to create or use inspector to clear out the primary email?
+Taryn Reithofer: Oh no. How do I do that?
+Kobi Kunasekaran: Uh like open a record on inspector.
+Taryn Reithofer: I should probably save it.
+
+
+00:16:46
+
+Taryn Reithofer: Should I save information that I've been changing?
+Kobi Kunasekaran: Uh it's it's it's it's fine. It's it's all test data anyway. So, um, as long as they're not doing any like ongoing data verification between CMS and, uh, Salesforce, which they're not as far as I know, uh, it's fine.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: When they're doing those types of verification,
+Taryn Reithofer: And I
+Kobi Kunasekaran: that's when we'll put a hold or at least like we have to keep track of the changes we're making here,
+Taryn Reithofer: Okay. And I've I've been only making changes to this this person and
+Kobi Kunasekaran: players.
+Taryn Reithofer: like Yeah.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: And like for refer like I'm just sticking to one person as well just to keep track of
+Kobi Kunasekaran: Okay. I mean,
+Taryn Reithofer: it.
+Kobi Kunasekaran: I I would keep track of it at least in your own notes uh or even like in the comments of um the tickets that you're working on and you're making changes um as a result. So, if if we do something and whatever changes that you make to this shows up as a bug or an error on whatever other change that we might be implementing, uh at least we know that it's because we were testing something and not because it naturally occurred.
+
+
+00:17:49
+
+Kobi Kunasekaran: So,
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: it it's still good to keep track of it. Um, but yeah, like you don't have to like go back and fix a record or anything like that.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: As long as like you know if if a question comes up about like hey does somebody work on this um if you're able to uh talk about it that'll be good.
+Taryn Reithofer: Yeah. Yeah. Okay. Cool.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: So yeah if you go to show all data over this account.
+Taryn Reithofer: How do
+Kobi Kunasekaran: Yeah. And then uh do you have a new version of inspector does not look like that?
+Taryn Reithofer: I don't know?
+Cedrick Infantado: Yeah, it's new. It's using SLDC now.
+Kobi Kunasekaran: Is it? Ah, interesting. And upgrade line.
+Cedrick Infantado: But but some of the links are not working.
+Kobi Kunasekaran: Looks cool.
+Cedrick Infantado: So whether or not
+Kobi Kunasekaran: Oh,
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: yeah. Okay. Uh, okay. So, you see the email field here.
+
+
+00:18:36
+
+Kobi Kunasekaran: If, uh, double click on it and then you should be able to clear it and save.
+Taryn Reithofer: heat.
+Kobi Kunasekaran: No. Okay. So we have validation errors. Uh okay. So I think trying to think if there would be any
+Taryn Reithofer: Yeah, this is the same error.
+Kobi Kunasekaran: other scenarios where you could have the blank email because this would show up on imports as well.
+Taryn Reithofer: Why would they ever have no email?
+Kobi Kunasekaran: Uh it's possible right like integrations uh the player records are technically created through the SLC flow. So if something errors out during that process um or if they're doing like a data import uh it's always a possibility but it looks like we've prevented that from happening. So an error message won't be necessary in this case. Um, so I think yeah, I think what what you have in there like you just let her know that it it's we are like maybe show her the screenshot of the error when somebody tries to create a record without an email or tries to update a record and clear the email and let her know like it's not a scenario that should happen.
+
+
+00:19:47
+
+Taryn Reithofer: Hello. Okay. Okay. Okay. Cool. Yeah. I just wasn't sure if there was like something that I wasn't aware of that we implemented um at the beginning with this, but that makes sense. And then the fraud flag error. That's easy enough.
+Kobi Kunasekaran: That should already be there.
+Taryn Reithofer: Um um we have banned,
+Kobi Kunasekaran: No, do we not? And
+Taryn Reithofer: pending, and inactive. Um, we have like a fraud check box in the signups related
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: list. And then in the um player, no, sign up. Yeah. Uh, sign up more info. There's like a fraud details section that shows um uh more information. There's no fraud bullet banner.
+Kobi Kunasekaran: But that's on the But this is on the sign up though, right? Not on player.
+Taryn Reithofer: Yeah. Yeah. So I think she wants to to if this uh fraud is flagged. Then she wants it to show on the player banner.
+
+
+00:21:05
+
+Kobi Kunasekaran: Uh, but how would that work? Cuz you you could have multiple signup records, right? and like if one of them is flag fraud but not the rest like I would define that behavior first and confirm that's what she's looking for cuz my I thought we are not doing fraud specifically and banned was supposed to represent fraud like you ban a player when they're flagged for fraud.
+Taryn Reithofer: Oh, right.
+Kobi Kunasekaran: Unless like the band logic like there's that check box for fraud on the player but do we do we define how that checkbox is getting checked on the player?
+Taryn Reithofer: I believe it's a manual
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: input.
+Kobi Kunasekaran: it's not going to be manual but I'm going to manually check it on the signup. It's being driven by the fraud button. Um, so while it's there for display,
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: like technically they're not going to go in and check that checkbox. The process is through the fraud button. They click on that and then they provide a reason and it'll check the check box on the signup record.
+
+
+00:22:19
+
+Kobi Kunasekaran: Um, but for player,
+Taryn Reithofer: Right.
+Kobi Kunasekaran: if I'm not mistaken, like we decided on the ban and one of the banned reasons was fraud. Um, and we could show a banner saying fraudulent or if the band reason is fraud. Um, if that's the that's what they're looking for. So, I think for me clarify.
+Taryn Reithofer: So I think for for refer we kept the uh ban reasons
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: and that one's confirmed fraud there. But for player we decided to keep it simple and not have the reasons and it was just a simple ban.
+Kobi Kunasekaran: Oh, really?
+Taryn Reithofer: You think so? Yeah. I'd have to find the ticket again to verify, but I'm pretty I'm like 90% sure that's what happened in or that's what we decided on one of our sinks like literally I don't know like a month ago here.
+Kobi Kunasekaran: Is it? Yeah, I can't remember.
+Taryn Reithofer: Let me try and find it right now while we're uh Uh clear down the sound.
+Kobi Kunasekaran: Yeah, I thought we want we needed to keep the reasons because that's like how how
+
+
+00:24:07
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: else would they know why the play was banned?
+Taryn Reithofer: Confirm scope cut. Oh no,
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: son.
+Kobi Kunasekaran: you can check let's check this like outside like let me know loop back around on this.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um but like either way so either the fraud flag like the banner is simple enough but I think we need to figure out what the logic behind the like how it's going to be driven. I wouldn't rely on it being the checkbox. If it if they're gonna ban players, 99% they're gonna need to know like why the player was banned. So, either we would have like a screen flow to drive that behavior and capture the reason or it was supposed to be tied to the uh the ban button along with the reason that comes with the ban. Um, and we just need to confirm either or. Uh, and if we're using the ban button with the reason code, then we can have the checkbox checked if one of the reasons is like one of the ban reasons, sorry, one of the fraud reasons from the ban, then that could drive the fraud banner.
+
+
+00:25:21
+
+Kobi Kunasekaran: Um, but then like you're going to have two banners, right? One that says a player is banned and then one that says uh the account is or the player is fraudulent. So that might be redundant. Uh so that's one more thing to double check.
+Taryn Reithofer: Yeah, I agree. I agree. You know, maybe like I found where Joyce said, she said uh it would just be inferred from the signups that it was flagged for fraud. She said I think it just says banned and we just have a banner and then see signups for more details. All right.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Hey
+Kobi Kunasekaran: If we're going to infer from signup, then we need to define what that means. like what? So you you you're going to have multiple signups for a player, right? Um at what point does the player get marked as fraud and what implications does it have on the rest of the statuses on the player?
+Taryn Reithofer: Wow.
+Kobi Kunasekaran: Like when they're marked for fraud, does it does it mean like they need to go up for review?
+
+
+00:26:31
+
+Kobi Kunasekaran: Does somebody need to look at it or is it justformational only? Um,
+Taryn Reithofer: Again.
+Kobi Kunasekaran: or do we just display the signup that's marked as fraud and then expect the operations team to ban the player as a result once they confirm the fraud? Um, I think like we need to kind of hash out what that looks like and then build out the banner for it.
+Taryn Reithofer: Yes, I agree. It's It's well it sounds like like their initial expectation is now being changed through Emily's feedback here based on what she was saying. So I think they would probably agree.
+Kobi Kunasekaran: Yeah. Yeah. I think just align on like what what what it is that we're they're trying to do like take a step back and then before we add the banner because I think she's looking at it in isolation and it might not make sense in isolation.
+Taryn Reithofer: Yeah. and she uh pasted the um prototype again like referencing it but it's so far off now that maybe she's getting
+Kobi Kunasekaran: Exactly.
+
+
+00:27:40
+
+Taryn Reithofer: confused
+Kobi Kunasekaran: Yeah. Like we we moved away from it, right?
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: And I don't think I don't think she remembers what we talked about in the call either.
+Taryn Reithofer: You run.
+Kobi Kunasekaran: So, yeah. Okay. So, uh I'll leave you with that one. Like we'll let's just double check before uh adding it in. And yeah, if it's a matter of like adding the banner in based on the signup, we just need to confirm like what the behavior should be. Like how does that factor in with the with the active status, the inactive status, the ban status, um and when do you show it versus hiding?
+Taryn Reithofer: This is Okay. For me, that was that I needed help in clarifying. Um,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: that's in my to-do list.
+Kobi Kunasekaran: Okay. Awesome. Um, Cedric, what do you have going on?
+Cedrick Infantado: Uh for me I'm still working on the uh operator partner relationship. So I'm on the final um flow or the automation the for automation on that uh user story.
+
+
+00:28:50
+
+Cedrick Infantado: But I do have one problem on the solution that uh for automation number two um it is uh we are triggering it a synchronously but the entry criteria stated on that is that it could be either created or updated the record. So however um let me just share my screen so so that you can imagine what I'm talking about. So the flow for maintaining the relationship um it should um the trigger should be created or updated. that however if I try to save this one it could throw an error or a system error for a prevention of Salesforce stating that it could be um it should be updated only or the um in simplified terms it can't be both. So it can be either created or just updated. So the solution that I've got from the internet is just to um create two separate uh flow for that. So that's why you would see update and the the other one is create but I feel like it would be hard to maintain that in case that we want to add more um logic on that.
+
+
+00:30:26
+
+Cedrick Infantado: So I what I'll try to do now is to create a subflow and then just pass on um or if if that's okay with you I would try to create a subflow and so that there's a single place that we can manage the logic for this maintaining relationship for the deals.
+Kobi Kunasekaran: So the the problem we're trying to solve here is um the point of the flow is to create um the junction records when the operator or partner are updated or I guess like when the when a deal is
+Cedrick Infantado: or both created and um it is yeah when the deal is created or
+Kobi Kunasekaran: updated.
+Cedrick Infantado: updated actually.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: So the logic is the same.
+Kobi Kunasekaran: When the deal was created or updated, you're checking to see um if the if there's already a junction record for the
+Cedrick Infantado: Yeah. If there's
+Kobi Kunasekaran: pair and if not then you create it.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Um, okay. I I don't think you need to do two flows. Uh, one second. I'm just trying to open up the sandbox here.
+
+
+00:31:36
+
+Kobi Kunasekaran: Yeah, there is a way. I think I believe there's a way to do it without uh in in a single flow. I think you just have to use the formula field for the entry criteria instead of
+Cedrick Infantado: Yeah, I tried that as well. I heard different things yesterday. Yeah, that's one uh formula evaluates to true and then I tried to put like is new then like u is strange. Um, I think it's operator. So, the problem with this one is when I try to save it with the trigger being created or updated, it would throw something some error like this one. An this one a path for that run a synchronously configure the flow to only run when the record is updated to meet the condition requirement of select exchange operator.
+Kobi Kunasekaran: Oh, that that just means uh you have to change the uh when the flow runs for updated records to the other one. to only when the record is updated to meet the conditions.
+Cedrick Infantado: this alone.
+Kobi Kunasekaran: Yeah, I think we still have a missing locket,
+
+
+00:33:10
+
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: but that should be the fix.
+Cedrick Infantado: This one. Yeah. Same thing. I tried changing the settings. Yes.
+Kobi Kunasekaran: I don't know.
+Cedrick Infantado: Yes.
+Kobi Kunasekaran: run the flow for directory and the start has changed. Um, okay, let me check because I do have an async path on the SLC that I ran into the same issues. Oh, you know what? I don't have the is changed or uh anything like that set up for it.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: It's just checking. But maybe that's maybe that's the way to go. Like do we need to like can we just make sure that uh like the entry condition is that the um I guess the operator or the partner fields are not blank and then if it's not blank then it's going to try to like it'll run through the flow cuz you're checking anyways to see if the relationship exists, right? Or the you're checking anyways to see if the the junction record exists and then if it exists, you're not doing anything with the flow.
+
+
+00:35:06
+
+Cedrick Infantado: No. If if it is XPS Yeah, we're stuck. We're stamping again, I think. Um, yeah, maybe we can just So, uh, the problem is that is every so it is blank. Every time it saves it will go through this async.
+Kobi Kunasekaran: Yeah, like it'll it'll be Yeah,
+Cedrick Infantado: So
+Kobi Kunasekaran: it'll run through the flow, but it technically shouldn't make any updates if nothing has changed for the operator or the partner. You could also add that as a condition below to even gate it.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: So while it'll trigger the flow um you could have a deci decision I think that compares the prior value to the current value. So if the prior value of the operator is the same as the current value and the prior value of the partner is the same as the current value then exit the flow and then that way no harm done right what the trigger gets flowed or sorry the flow gets triggered but then it just it does that check and then it's it's done no changes and uh there's no DML impacts
+
+
+00:36:30
+
+Cedrick Infantado: Yeah, I'll I'll try that. I'll just try to um add another check here so that it would not restump or the the the relationship
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: field.
+Kobi Kunasekaran: I think you can do it at the at the top like just as soon as the record like the tri flow is triggered and then
+Cedrick Infantado: Yeah, this one.
+Kobi Kunasekaran: that way it doesn't even go through the rest, right?
+Cedrick Infantado: Yeah, actually I'm thinking that yesterday, but u my worry about that is that um all of the records that are being updated, so we have no gate at the beginning. So it would all all of the deals that are updated um will come to this um flow into this flow.
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: So I think that's
+Kobi Kunasekaran: but I I think I think the point is as long as you're not making any updates as a result for every single one without any change, it's still fine,
+Cedrick Infantado: No. Okay.
+Kobi Kunasekaran: right?
+Cedrick Infantado: Sure.
+Kobi Kunasekaran: Like if you are making an update, like the way it's set up right now, it looks like it's going to set the relationship ID or create a relationship every time the flow runs.
+
+
+00:37:36
+
+Kobi Kunasekaran: But if you have an exit path for when there's no changes, I don't think that has any like negative implications on uh on the process like on on the resources or anything.
+Cedrick Infantado: Yeah, because I uh previously on my projects we really or we really don't want uh things to go in a flow if if it does nothing. So maybe it's my preference only.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: I'll just add this a gate here just to check out that and then proceed or
+Kobi Kunasekaran: Yeah. I think it's valid.
+Cedrick Infantado: exit the flow if there's a
+Kobi Kunasekaran: it it's valid like especially when like if it becomes like a high volume account and yeah it is like wasted resources but um I I don't think we need to worry about it much right now
+Cedrick Infantado: yeah okay sure because this is something that we also flag when we are doing uh um what do you call this uh code reviews
+Kobi Kunasekaran: reviews yeah I think it's the it the alternate is like you have to come up with like a creative solution to trigger the async for the right
+
+
+00:38:45
+
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: conditions,
+Cedrick Infantado: I Yeah,
+Kobi Kunasekaran: right?
+Cedrick Infantado: I also I'm also thinking having a checkbox for for this so it would re-trigger and go back to this one.
+Kobi Kunasekaran: I think that's what I ended up doing for the SLC. Like I'm seeing the reprocess. checkbox and I think that's that's how I did it. like at the end it unchecks that so we know not to go through the flow again but it does add
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: unnecessary additional layers right that I don't know if we need
+Cedrick Infantado: like yeah, I I don't feel like that doing that as well for for just um simple flow.
+Kobi Kunasekaran: um
+Cedrick Infantado: So yeah,
+Kobi Kunasekaran: yeah
+Cedrick Infantado: I'll just have a decision and then move on.
+Kobi Kunasekaran: yeah I have a feeling like if when we do the CMS integration maybe we'll have to think about like if there's going to be implications here, but I I think it's fine. Either way is like if you're not so if you're only updating the deal when there is a change, I don't think it should be uh it should impact anything.
+
+
+00:39:40
+
+Kobi Kunasekaran: So, we should be okay.
+Cedrick Infantado: Okay, sure.
+Kobi Kunasekaran: Yeah. Okay. Awesome. So, this is this looks like it's almost good to go as well. Um, we I did get confirmation from them on the billing details for the junction records. Um, so I'm going to follow up with I'll probably like update or create a new story for that. Um, and assign it to you. I don't know if there's anything that we need to do as a result. Um, I have to go back through the notes and uh confirm
+Cedrick Infantado: Okay, send it to my bucket and I'll I'll take care of it. Um I I just have another question for this one. So uh for the fourth uh automation for for this user story um it says that we I would I should be triggering some email. So uh what is the expectation on the uh on on the contents of of that email? Are we do we do you want to just send the ids with hyperlinks on that or name with hyperlinks or what's the preference?
+
+
+00:40:50
+
+Cedrick Infantado: They want they want CSV something like that.
+Kobi Kunasekaran: Uh, you know what? Let's let's let's skip that one. Let's skip that. I think what we can do instead of like a flow is just build a report where the relationship or partner info is blank and then set a scheduled report to send that out.
+Cedrick Infantado: It's okay then.
+Kobi Kunasekaran: that'll be easier because and mostly because I don't think it's it's gonna it's going to be a scenario that happens uh realistically because we have gates to make sure every deal has a partner. So once this process goes out um it's going to make sure that as a deal is created there's going to be a junction record created. So I don't see the scenario happening. So we can catch it in a report. So we can cancel that uh that requirement. We'll keep it simple.
+Cedrick Infantado: Okay. Okay. for that report. Should I include that in my story or no
+Kobi Kunasekaran: Um yeah, like maybe just replace it.
+
+
+00:41:57
+
+Kobi Kunasekaran: So, we just create a report to flag the deal uh sorry flag the accounts or the deals like the deals the deals yeah deals without partners or relationship
+Cedrick Infantado: the deals without
+Kobi Kunasekaran: IDs and then we'll call it a day simple
+Cedrick Infantado: Okay, sure. I think that's all of my question for that one. Um it takes longer than I have expected because of some uh some problems that I encountered.
+Kobi Kunasekaran: the async.
+Cedrick Infantado: Yeah, this is async. Yeah.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: So yeah.
+Kobi Kunasekaran: I mean like if if you think there's a better way to do it than how it's proposed cuz uh the design that is proposed like that was uh that was cloned. So if you think there's a different way like feel free to go about it a different way that's easier. You don't want to follow it to a team.
+Cedrick Infantado: Okay. Good s***. I think that's that's all for
+Kobi Kunasekaran: Awesome. Okay. I think we have a couple more things in that same epic.
+
+
+00:43:02
+
+Kobi Kunasekaran: Um, but they might have to do with the record page updates. Um, let me read through them uh again uh and feed in the feedback from uh Emily and Lena on where the billing details should live for direct and then I will go back and figure out the assignments and uh sign that over.
+Cedrick Infantado: Okay, sure.
+Kobi Kunasekaran: Um, okay. Yeah, I'm hoping we get the the CMS integration details soon though, so we can get started on that. That one is uh starting to worry me a little bit just because that it's going to take us some time to
+Cedrick Infantado: Sure.
+Kobi Kunasekaran: test out and work through and work out the errors and uh we're and then we're going to need to then start setting up CMS sending us the deal rep assignments as well. So, this is going to start to become a blocker if we don't uh start this soon. Hopefully get that to seek
+Cedrick Infantado: Did we already pro provide the uh our endpoints to them for um bill assignment or are we the one supplying them the dr?
+
+
+00:44:09
+
+Cedrick Infantado: I think they are
+Kobi Kunasekaran: we they are they are supposed to be the ones creating the DRAs but we haven't worked out what that what that looks like uh from like a handling perspective on Salesforce like they they are always have the option of creating the DR records directly um like through like an update call, right? And that might be the way to go. Um but what we did with SLC is we have like a staging object, right? That takes in a raw API calls and then it processes it uh and sends it to the respective like creates a respective signup record, player record and all of that. So I don't know if we need to do anything to that level or if we're good with them just sending the calls to upsert DRAS directly based on the IDs. So that's what we kind of I feel like we need to figure out the CMS sorry the Salforce to CMS integration piece first where we're sending the deal ids because that's what the information they're going to need in order to send the DRA back.
+
+
+00:45:06
+
+Kobi Kunasekaran: So that's why it's kind of data uh queued up sequentially. So if once we figure out CMS's sorry Salesforce's CMS then we'll talk about it coming back in the form of uh DRAS.
+Cedrick Infantado: Okay, cool.
+Kobi Kunasekaran: Yeah. All right guys, I think that's it for now. Um, got lots of work to do. So, I'm going to try to get caught up and uh do have some uh tickets for you all. Um, but yeah, if you have any other questions in the meantime, uh, should be lock.
+Cedrick Infantado: Thank you.
+Taryn Reithofer: Sorry. Do you want to stay on track though or do you want to move it?
+Kobi Kunasekaran: Um, let's move it. Let me let me see if I'm able to like uh troubleshoot and have an idea of like what the issue is and then I I'll walk you through the steps.
+Taryn Reithofer: Okay. Okay.
+Kobi Kunasekaran: Yes.
+Taryn Reithofer: Sure.
+Kobi Kunasekaran: Yeah. I I did try to look at this yesterday a little bit and it wasn't a quick one and I couldn't figure out. Usually I can figure out in like a few minutes what where the problem happened, but this one I couldn't trace it back. So I need to spend a little bit more time and then once I trace it back um yeah I'll either do like a recording to kind of show you so you have it for later too. um or we'll schedule a call to walk through it.
+Taryn Reithofer: Oh, right. You did mention that. Sorry. Completely forgot.
+Kobi Kunasekaran: No worries.
+Taryn Reithofer: Okay, cool.
+Kobi Kunasekaran: Okay. Awesome. All right. So, yeah, I I'll talk to you later. I'll try to go through go through octo first and then we deck. So, yeah,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: if you have any questions, let me know.
+Cedrick Infantado: Okay,
+Taryn Reithofer: Thank you.
+Kobi Kunasekaran: All right, guys.
+Cedrick Infantado: thanks.
+Kobi Kunasekaran: Bye.
+Taryn Reithofer: Bye. You too.
+Cedrick Infantado: Play.
+
+
+Transcription ended after 00:47:03
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

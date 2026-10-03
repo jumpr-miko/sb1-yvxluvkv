@@ -1,0 +1,261 @@
+{
+  "id": "10547",
+  "key": "WAGR-410",
+  "fields": {
+    "statuscategorychangedate": "2026-09-16T11:30:21.387-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-16T11:21:38.055-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10030",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "10544",
+          "key": "WAGR-407",
+          "fields": {
+            "summary": "Player: Decide Fraud Flag Presentation — Related List vs. Signup List Flag",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:32.520-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nDecision made on WAGR-407 — flag fraud directly in the Sign-Ups related list on Player instead of building a separate Fraud Flags related list. This ticket implements that decision.\n\n## Current state\n\n* The Sign-Ups related list already exists on the Player page (WAGR-197).\n* `Fraud_Flag__c` and `Fraud_Review_Status__c` already exist on Sign_Up__c — confirmed via a live sandbox schema check (Sep 16, 2026).\n* Neither field is currently surfaced as a column on the Sign-Ups related list.\n\n## Proposed solution\n\n1. Add `Fraud_Flag__c` (Fraud) and `Fraud_Review_Status__c` (Fraud Review Status) as columns to the Sign-Ups related list's column set on the Player page layout / Lightning page.\n2. No new fields, objects, or automation required — this is a column-set change only.\n\n## Acceptance criteria\n\n1. Fraud and Fraud Review Status both appear as columns on the Sign-Ups related list on the Player record page.\n2. No other columns, ordering, or configuration on the related list is disturbed.\n\n## Out of scope\n\n* The underlying fraud business rule / automation (what sets these fields, when) — tracked separately under WAGR-295 and WAGR-1, still open.\n* Any change to the Sign_Up__c fields themselves — they already exist as-is.\n\n## Source\n\n* WAGR-407 — decision ticket this implements\n* Emily Vandenberg, doc comment (Sep 14, 2026) — asked to simplify and flag fraud directly in the Sign-Up list\n* Sandbox schema check (Sep 16, 2026) confirming both fields already exist on Sign_Up__c\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Player: Add Fraud columns to Sign-Ups related list",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10567",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Build ticket implementing this decision.",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-16T11:23:27.378-0400",
+          "updated": "2026-09-16T11:23:27.378-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10568",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "In order to add both new fraud columns, one of the exiting columns needs to be drop to satisfy the 10 field max requirement on the related list. Waiting for Emily to reply to the document thread.",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-16T11:29:43.357-0400",
+          "updated": "2026-09-16T11:29:43.357-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11258",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Emily “I think its ok to have just the fraud checkbox, and we can click in to records for more details”",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-17T09:26:23.337-0400",
+          "updated": "2026-09-17T09:26:23.337-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 3,
+      "total": 3,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vn:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,260 @@
+✍️ Quick notes
+Wagertech Internal Sync
+
+Sep 4, 2026
+Cedrick Infantado Kobi Kunasekaran Taryn Reithofer
+
+Holiday updates and ticket progress leading to integration strategy discussions
+
+Ticket Progress and Logic
+* Cedrick completed tickets 243 and 2550 regarding signup completion dates.
+* The "last updated by" stamp reflects the running user for screen flows and manual updates, while scheduled flows utilize the default process user.
+* Kobi identified potential status field restriction for representatives as a low-priority future task.
+
+
+Workflow Dependencies and Integration Planning
+* Cedrick identified a dependency requiring the subflow for the last activity date prior to the activate player task.
+* The team targets an integration work start for next week, pending the completion of current ticket stories.
+* Kobi identified risks regarding the provided API documentation, specifically the lack of a sandbox environment and CMS-based formula calculations.
+
+
+Meeting Logistics
+* Kobi confirmed the team is off on Monday for the Labor Day holiday.
+
+
+Next steps
+* [Kobi Kunasekaran] Document Meeting Tickets: Write up the tickets discussed in the Tuesday meeting and queue them for upcoming work.
+* [Cedrick Infantado] Build Subflow: Develop the subflow for the last activity date as it is a dependency for the activate player task.
+* [Cedrick Infantado] Verify Status Tagging: Run the ban process and manually update the status to confirm it tags the correct user rather than the default automation process.
+* [Cedrick Infantado] Review Ticket: Check the ticket assigned to Taryn regarding the ban automation to determine how it fits into the current workflow.
+* [Kobi Kunasekaran] Follow Up: Follow up with the external team regarding the login flow requirements.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📝 Full notes
+Sep 4, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Kobi Kunasekaran Taryn Reithofer
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Holiday updates and ticket progress leading to integration strategy discussions
+
+Ticket Progress and Automation
+Tickets 243 and 2550 completed. Screen flows display running user.
+
+Ticket Dependencies and Testing
+Ticket 252 planned before 253. Status update testing scheduled.
+
+API Integration Strategy
+API documentation reviewed. Remaining tickets prioritized before integration.
+
+
+Decisions
+Aligned
+* Last updated by logic confirmed The team confirmed that the existing automated process logic for the 'last updated by' field is acceptable because it correctly identifies the running user for manual and screen flows.
+* Status field access restricted The team decided to restrict access to the player status field by making the player page read-only for representatives.
+* Subflow dependency sequencing defined The team decided to prioritize development of the subflow (ticket 252) before the activate layer task (ticket 253) due to existing dependencies.
+* API integration project deferred The team decided to prioritize completing existing user stories before commencing the API integration project.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Document Meeting Tickets: Write up the tickets discussed in the Tuesday meeting and queue them for upcoming work.
+* [Cedrick Infantado] Build Subflow: Develop the subflow for the last activity date as it is a dependency for the activate player task.
+* [Cedrick Infantado] Verify Status Tagging: Run the ban process and manually update the status to confirm it tags the correct user rather than the default automation process.
+* [Cedrick Infantado] Review Ticket: Check the ticket assigned to Taryn regarding the ban automation to determine how it fits into the current workflow.
+* [Kobi Kunasekaran] Follow Up: Follow up with the external team regarding the login flow requirements.
+
+
+
+Details
+* Meeting Administrative Updates: Kobi Kunasekaran and Cedrick Infantado discussed the upcoming Monday holiday, which is Labor Day. They noted that they will both be off for the long weekend, marking the final holiday before local schools start on Tuesday (00:00:42).
+* Ticket Progress: Cedrick Infantado confirmed that tickets 243 and 2550, which includes the signup completion date, are complete and tested with screenshots attached (00:00:42).
+* Ticket 251 and Automation User Stamps: Cedrick Infantado raised a concern regarding ticket 251, specifically whether the "last updated by" field would display the "automated process" instead of the actual user when statuses are updated via a flow. Kobi Kunasekaran and Cedrick Infantado discussed the implications for scheduled versus screen flows, noting that they needed to ensure it was clear who triggered the change (00:02:00).
+* Clarification on Workflow User vs. Running User: Following the discussion on automation, Kobi Kunasekaran and Cedrick Infantado clarified that the "default workflow user" designation only applies to scheduled flows (00:06:11). They concluded that for screen flows, the system would correctly display the running user's name as the person who performed the update (00:07:54).
+* Status Field Security: Kobi Kunasekaran suggested potentially locking down the status field for representatives to prevent unauthorized changes. While the team determined this is a lower priority than current tasks, they agreed it would be acceptable to keep the player page mostly read-only for representatives (00:09:02).
+* Testing Plan for Ticket 251: Kobi Kunasekaran and Cedrick Infantado agreed to test the status update process, both manually and via automation, to confirm that the "last updated by" field correctly captures the appropriate user versus the default automated process user (00:09:02).
+* Ticket Dependencies and Roadmap: Cedrick Infantado outlined the plan to work on ticket 252, involving a subflow for the last activity date, before proceeding to ticket 253, which involves activating the player, as there is a functional dependency between the two (00:10:10).
+* Upcoming Workload: Kobi Kunasekaran mentioned they are currently reviewing tickets from Tuesday's meeting and intend to have them written up and queued for the following week (00:10:10).
+* API Integration and Documentation: Kobi Kunasekaran reported having reviewed the API documentation and shared the link with Cedrick Infantado. They identified several risks, including the provision of a staging or production endpoint rather than a sandbox for testing, and concerns regarding the calculation of deal formulas within the content management system rather than Salesforce (00:11:26).
+* Integration Strategy: Kobi Kunasekaran and Cedrick Infantado agreed to discuss the API integration approach the following week, prioritizing the completion of the five remaining tickets currently in Cedrick Infantado's queue before beginning the integration work (00:12:27).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 4, 2026
+Wagertech Internal Sync - Transcript
+00:00:42
+
+Kobi Kunasekaran: Hey, Cedric.
+Cedrick Infantado: Hey Kobi, morning.
+Kobi Kunasekaran: Hey, good morning. How you doing?
+Cedrick Infantado: Yeah, I'm doing good. Yeah,
+Kobi Kunasekaran: Good. Awesome.
+Cedrick Infantado: large.
+Kobi Kunasekaran: I'm doing all right. I'm doing all right. Had like a late volleyball game yesterday, so I uh ended up sleeping in a little bit. I was still waking up. Um yeah, it's uh finally Friday. Um I don't know if you know, but we are off on Monday. Um it is a long weekend. Um I believe you also get the day off. Uh actually don't know the specifics, but uh yeah, so you won't have a sink on Monday.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Um, that said, uh, how are your tickets going?
+Cedrick Infantado: Uh for me uh I'm I'm already done with um what do you call this? 243. So I've already tested that out attach the screenshots and and also that's my work yesterday as well as the 2550 which is the signup completion date. So that's already done as well um yesterday.
+
+
+00:02:00
+
+Kobi Kunasekaran: Nice.
+Cedrick Infantado: So um I've tried to start the 251 yesterday. I've created the fields and assigned it to the permission set but um however um I've asked the question that I have yesterday for that and I believe you've already provided your answer on that. So we'll proceed with that one. So um just making sure that um it's all right that even if they do a manual and um it is triggered from a flow um the name would be the same for for that stunt.
+Kobi Kunasekaran: Um, sorry. So, if I do change the status manually, it's still going to show automated process instead of I guess. Yeah, that makes sense because the flow would be it would be the flow that updates the BAM.
+Cedrick Infantado: So for example, Um let's say um Emily is the default um workflow user. So um whether she changes it manually or um an scheduled flow fired uh or automation fired up. So it would still show Emily as the stamp uh on the stamp of last edited or what do you call this that fields the name of the field it is last updated by
+
+
+00:03:31
+
+Kobi Kunasekaran: Mhm.
+Cedrick Infantado: so it um either way it would show Emily's name so would that be fine with them or Yeah, because I presented three three options. So, first one is that
+Kobi Kunasekaran: I I thought that was for like the scheduled one, but I didn't realize even for the ones that are like if they ban somebody, it the last updated won't necessarily say who the record was banned by based off of what you're saying, right? It'll still say the automated process.
+Cedrick Infantado: Um actually we'll just display um the name of the default uh what you call this default process user.
+Kobi Kunasekaran: What flow user
+Cedrick Infantado: So if it is Emily um it would show Emily for the scheduled flow and it would still um the same thing if she tried to manually change the status of that player for example um um it would still show her name. So we uh we don't have a way to know if it is by the automated process or by automation or by manual which is would uh uh ideally would show the name of who changes
+
+
+00:04:57
+
+Kobi Kunasekaran: Okay. Uh, don't know if I like that. I I Yeah, I I assume that it was just for the schedule flows, but if it's also going to do it for like if somebody like bans or unbans somebody, maybe we need to move that automation to those flows instead, right? like the flow that does the batting. We could set the last updated by and at that
+Cedrick Infantado: Um, for the bunny,
+Kobi Kunasekaran: point.
+Cedrick Infantado: I I'm actually I don't have any visibility yet because I believe that one is um assigned
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: to Taryn. Um,
+Kobi Kunasekaran: Mhm.
+Cedrick Infantado: I'll check her ticket for that and see if uh if where it fits in. So, so that um but if you're saying that the band part is triggered by automation as well, maybe it would show the name of the running user.
+Kobi Kunasekaran: Well, the bad part should be uh triggered by uh it's a screen flow, right? So screen flows if it's run as the user, we should be able to know like who the user is that triggered the screen flow.
+
+
+00:06:11
+
+Cedrick Infantado: Yeah, definitely.
+Kobi Kunasekaran: Okay. So, okay. So, maybe we'll do this. Let's actually uh split this up. So you've already taken care of adding the um sorry check what we have in the ticket. It's just for the last updated
+Cedrick Infantado: The ticket assigned for Taryn is 25 five, right? 255 or This is the B button. Yeah.
+Kobi Kunasekaran: Yeah, this one is part of it, but I think she actually has another ticket that was created before that might be specific for ban. It's like it's also like ban and and active inactive. I think there are a few there that maybe we just need to rework or alternatively the flow that's running like the flow that you're building uh we make that run as a user but if we make that run as a user um if there are field level restrictions or anything and the user that updates the status doesn't have access then it could fail running the flow. Um but no actually hold on. So the default workflow user would only be for schedule flows.
+
+
+00:07:54
+
+Cedrick Infantado: actually um
+Kobi Kunasekaran: No, not for record triggered flows.
+Cedrick Infantado: yeah yeah yeah even for screen flows something like that it it would fall under the manual update as well. So um that um the stamp will be the running user. So yeah um the affected part only is the scheduled flow.
+Kobi Kunasekaran: schedule flow. Okay. So then it's it's still fine. That's okay then cuz Yeah. So if I click on ban without like the running user for that for your flow to stamp the player status would be me not necessarily the default workflow user.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Default workflow user is only for the schedule flow. So that's what that's the only path where we won't know um who might have moved the status but that's okay because the schedule flow is only to push things from active to inactive. So there's no user to do that right.
+Cedrick Infantado: And do we have a validation for that?
+Kobi Kunasekaran: So, okay. So, then yeah.
+Cedrick Infantado: That's The user cannot move or
+
+
+00:09:02
+
+Kobi Kunasekaran: Uh, I think we we need to lock down the status field for reps. Um, I don't know if we like I think right now it might still be uh editable by a rep, but that's okay. I think it's a lower priority. I don't like if we if we make the player page mostly read only for reps, I think it should be okay.
+Cedrick Infantado: Okay. Yeah,
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: sure.
+Kobi Kunasekaran: Okay. So then this is fine. So whatever you're doing uh for uh 251 is fine. I don't think we need to make any changes but we can we can test it out like we can we can see like
+Cedrick Infantado: I miss
+Kobi Kunasekaran: run the ban process run the uh like try manually updating the status and just confirm if it's tagging the right person versus the default automation person.
+Cedrick Infantado: sh and that's out the sun.
+Kobi Kunasekaran: Okay. Uh okay. So you've got that one and then uh so preventing the login from uh proceeding without uh without anything filled out in the flow that's already been completed.
+
+
+00:10:10
+
+Kobi Kunasekaran: Um so I can follow up with them on that. Uh and then the next one or I guess the next ones in these series is to uh move the status to active when the signup is completed. Yes. Right.
+Cedrick Infantado: Yep.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: Um sorry I think um no no um what will I do next is 252 the subflow for last activity date because um I think um 253 the activate layer um task has dependency on that one. So I will be uh after 251 I will be doing 252 before 253.
+Kobi Kunasekaran: Got it. Okay. Okay. Okay. Okay.
+Cedrick Infantado: Yeah because I've reviewed it yesterday and I I see a dependency on that
+Kobi Kunasekaran: That makes sense. All right.
+Cedrick Infantado: one.
+Kobi Kunasekaran: Okay. That makes sense. Uh, yeah. So, you got those. Um, I am so reviewing the tickets from our Tuesday meeting. So, I'll get those written up today and cue that up. Um, so that'll be like what we end up uh starting with, I guess, next week.
+
+
+00:11:26
+
+Kobi Kunasekaran: Uh, or after you're done with these ones. Um, and then yeah, then we'll see how it goes. I did actually take a look at the API documentation. I think I shared the link with you and tagged you in it as well. Um,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: we do need like a little bit of like a bit more information from them. I don't think we're ready to start. Mostly I feel like they gave us the endpoint for their like staging broad environment and not a sandbox like we can play around with. So that's a bit of a risk.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Um and then it also Sounds like they're calculating the formula for the deals themselves in the CMS as opposed to getting it from Salesforce which
+Cedrick Infantado: No.
+Kobi Kunasekaran: is causing some problems.
+Cedrick Infantado: No.
+Kobi Kunasekaran: So um couple of things to resolve there. Um but outside of that I think the rest looks mostly okay. like we just had to figure out the behaviors of um when to trigger the sync, when like give them away to resync, how to handle the errors and stuff.
+
+
+00:12:27
+
+Kobi Kunasekaran: I think and I have some like potential designs uh or approach for that. But uh we can we can talk about that next week. I don't think there's anything we need to give them or a good sweep for this.
+Cedrick Infantado: Okay, sure. We line up that um next
+Kobi Kunasekaran: Yeah. Um, yeah, I might still like prioritize some of the smaller things like the what like the stories that you're still working on. Um, just so we can wrap up that entire section before we move on to integration. But, um, yeah, let's see what we can do and see how that works out next week.
+Cedrick Infantado: Yeah. Um, I still have five tickets on my bucket. So, yeah,
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: probably I'm still doing this by next week, Thursday or Wednesday.
+Kobi Kunasekaran: Yeah, I I think they're like pretty straightforward enough though, the ones that you have. So, I'm hoping at least even if we could start the process next week to for the integration, it'll be good good progress.
+
+
+00:13:28
+
+Kobi Kunasekaran: So, we'll see how it goes.
+Cedrick Infantado: Yeah, of course.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: Sure.
+Kobi Kunasekaran: All right, man. I think that that's all I got for you for today. Any questions?
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Anything else?
+Cedrick Infantado: No. Um I think yeah, my user stories are very straightforward. That's why I don't have any questions yet. Um,
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: yeah.
+Kobi Kunasekaran: Okay. Awesome. Cre. Well, if I don't talk to you later today, have a great weekend.
+Cedrick Infantado: So,
+Kobi Kunasekaran: Uh and um uh
+Cedrick Infantado: what's the holiday for Monday? Coon.
+Kobi Kunasekaran: so for Monday, we have the day off for it's called uh Labor Day. Um, and I actually don't know what the reason for it is, but uh it is like the day before everybody starts school here. So this like next week all the like uh all schools basically start on Tuesday. So this has always been like the final holiday before school starts.
+Cedrick Infantado: like a final handy for everyone or the for the family to
+Kobi Kunasekaran: Yeah. Yeah.
+Cedrick Infantado: have.
+Kobi Kunasekaran: I don't like it's it's not something like anyone really celebrates per se. It's all like Halloween or Christmas, but uh it's a it's a nice nice last day before everybody goes back to school.
+Cedrick Infantado: That's great.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: That's great to have.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: That's why I think Taryn took the day off so she can uh like prep her kids for school and stuff So,
+Cedrick Infantado: Oh,
+Kobi Kunasekaran: uh, everyone's going to be like busy that.
+Cedrick Infantado: so maybe that's the reason. Yeah. Enjoying the last days before school.
+Kobi Kunasekaran: Yeah. Yeah. All right, man.
+Cedrick Infantado: Thanks.
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: All right.
+Kobi Kunasekaran: I think that's it.
+Cedrick Infantado: Thank you.
+Kobi Kunasekaran: Cool.
+Cedrick Infantado: Yeah. Thank you.
+Kobi Kunasekaran: Talk to you later, C.
+Cedrick Infantado: I'll just just message if I have any questions. Today.
+Kobi Kunasekaran: Sounds good. Thanks, man. Bye.
+
+
+Transcription ended after 00:15:42
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

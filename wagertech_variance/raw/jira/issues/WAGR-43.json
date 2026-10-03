@@ -1,0 +1,215 @@
+{
+  "id": "10293",
+  "key": "WAGR-43",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T10:54:19.107-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-14T03:30:49.721-0400",
+    "status": {
+      "description": "",
+      "name": "Ready",
+      "id": "10059",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "# PL-2: Attribution Details\n\n_Assigned BA and referrer attribution on the Player record, plus the set-once/flag-on-mismatch logic that keeps signups from getting blocked._\n\n### FIELDS\n\n* Assigned BA\n\n* Lookup to Brand Ambassador. Reassignment is stamped in field history.\n\n* Primary Referrer\n\n* Lookup to Referrer. Entered on the first sign-up, then autofilled onto every later sign-up.\n\n* Registration Date — Date.\n\n* The date this player signed up with the agency.\n\n* Secondary Referrer — Lookup to Referrer\n\n* Who introduced the Primary Referrer; drives a milestone bonus, not a per-signup payout.\n\n* Related Referrer Record — Lookup to Referrer\n\n* For when this player is also a referrer.\n* Cross-reference only, never merges records.\n\n* Notes — Long text, general-purpose.\n\n* Not referral-specific (e.g. used when a referral deposits using another player's book, naming the linked secondary referral so Finance can validate the payment).\n\n### IMPLEMENTATION REQUIREMENTS \n\n* Field was labeled \"Referral Notes\";\n\n* rename to general \"Notes\" — Joyce, 08/18: \"I would just call it like notes in general, not referral notes.\"\n\n* Assigned BA, Primary Referrer, and Secondary Referrer are all set from the player's first sign-up when blank; on a later mismatch\n\n* flag for Ops review rather than blocking the sign-up — Kobi, 08/18. Same flag-don't-block pattern as PL-9's BA mismatch automation; this story only carries the fields, PL-9 owns the automation logic.\n\n* Related Referrer Record is cross-reference only\n\n* do not build any merge logic between Player and Referrer records.\n\n### NOTES \n\n* Provenance: PL-2 (Player Record User Stories doc).\n* Depends on the Player object existing first (PL-1).\n\n### SOURCE \n\n* [Taryn doc PL-2 — Player Record User Stories](https://docs.google.com/document/d/1OSqt7ilS1feVS7aVxAYSsBZIcTrc1J31_WnQiVucEJg/edit)\n* [Aug 18 Weekly Sync — Kobi Kunasekaran, 1:20:00 (BA/Referrer set-and-flag logic)](https://fathom.video/calls/787411922?timestamp=4800)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 1:21:12 (Notes field rename)](https://fathom.video/calls/787411922?timestamp=4872)\n* Dependencies: [BUILD-173 — Player: Core Details fields](https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217684264652851)\n* Owner (proposed): Taryn Reithofer\n* Remember to update the requirements documentation as part of this change.\n* Created 2026-08-20 from Player record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-174 — Player: Attribution fields",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10345",
+          "body": "**Reminder — still open on this ticket:**\n\n* Automation to auto-fill Primary Referrer and Secondary Referrer from a player's first sign-up, and flag Ops on a later mismatch (same logic as Assigned BA), is not yet built — need to confirm trigger object (SLC vs. Sign Up) and the flagging mechanism first.\n\n",
+          "created": "2026-08-20T15:28:13.188-0400",
+          "updated": "2026-08-20T15:28:13.188-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10346",
+          "body": "[@Kobi Kunasekaran](https://app.asana.com/1/1202721605677544/profile/1203115293332591)to scope out the automations to fill Assigned BA, Primary/Secondary referrer fields from the first Completed Sign Up record based on the Sign Up's Referrer Fields.",
+          "created": "2026-08-24T11:34:19.033-0400",
+          "updated": "2026-08-24T11:34:19.033-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-292"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217685557162828"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001fj:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217685557162828"
+      }
+    }
+  }
+}

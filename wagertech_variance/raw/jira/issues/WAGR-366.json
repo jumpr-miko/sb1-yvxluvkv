@@ -1,0 +1,185 @@
+{
+  "id": "10513",
+  "key": "WAGR-366",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:38:08.830-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:35.567-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "Placeholder so the Aug 13 requirements don't get re-litigated. Emily cut this from Phase 1 and Kobi and Taryn re-confirmed Phase 2 on Aug 17. DO NOT BUILD.\n\n=== FIELDS ===\n\n* Suspended — Checkbox\n\n* Suspended On — Date, automation-set\n\n* Suspension Reason — Text\n\n* Suspended By — Lookup(User), automation-set\n\n* Suspension Source — Picklist: Salesforce; CMS\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* DESCOPE EVIDENCE. Joyce: 'Could we also push this deeper out to like after, like as like a launch?' Emily: 'so let's cut this for like, you know, next phase or whatever, next release.' Re-confirmed Aug 17 — Kobi: 'for suspended, we said we're going to table that for later, right?' Taryn: 'Phase two.'\n\n* TARGET BEHAVIOUR, verbatim so it survives. One button, gated to 'a very high permission set'. On click: all associated Deals go Inactive, their links are removed from the CMS, and reps no longer see those operators on their landing pages. Existing sign-ups, queued redeposits and earned payouts are explicitly unaffected.\n\n* Both directions must produce the same end state. Joyce: 'if it triggered on the CMS side, then it would just give you a heads up and then automatically deactivate all of the associated deals also and change the status. So either way, that button has to do that function.'\n\n* Direction agreed, directionally only: originate in Salesforce, because CMS-to-SF deal updates don't exist — the CMS only sends back Deal Rep Assignments today. Joyce owed an internal decision: 'that's something that we just need to figure out internally and then we can get back to you.'\n\n* Open when this resumes: does the Suspend button relabel to 'Reactivate' once suspended? The mockup didn't. And does the Deals related list actually show Inactive in the suspended state — the mockup's column looked blank.\n\n=== NOTES ===\n\n* Provenance: OP-5, OP-6, PT-6, PT-7 — all four stories collapse here.\n\n* The Status picklist in BUILD-126/136 currently has only Active and Inactive. Suspended gets added when this resumes, and BUILD-147's automation will need a guard so it doesn't overwrite a suspended record.\n\n=== SOURCE ===\n\n* Taryn doc OP-5/OP-6/PT-6/PT-7\n\n* Aug 13 call — Emily cut it\n\n* Slack Kobi Aug 13 16:18\n\n* Aug 17 call — re-confirmed Phase 2\n\nDependencies: Deal Status value set, CMS bidirectional sync\n\nOwner (proposed): TBD\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-171 — PHASE 2 — Suspend Operator / Suspend Partner (fields + cascade + permissions)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "On Hold"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-285"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Deferred",
+          "id": "10032"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "2",
+          "id": "10084"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Nice to Have",
+          "id": "10042"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Development",
+          "id": "10055"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563758033381"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002sf:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563758033381"
+      }
+    }
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "id": "10358",
+  "key": "WAGR-205",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:34:47.824-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:32.277-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Rebuild the Deals related lists on Account using Dynamic Related List – Single. Deal has two lookups to Account, so there are two distinct lists and they must be named apart.\n\n=== FIELDS ===\n\n* Child relationships renamed on Deal — Deals Partner and Deals Operator. Kobi live: 'I'm going to rename one of the child relationships a deal partner and then the other one to deals operator.'\n\n* On Operator, columns: Deal Name / Partner / Country / State-Province / Vertical / CPA / Exclude from Partner Bonuses / Deal Status / Effective Start\n\n* On Partner, columns: Deal Name / Operator / Country / State-Province / Vertical / CPA / Exclude from Partner Bonuses / Deal Status / Effective Start\n\n* Sort: Effective Start Date — Kobi: 'you can sort it by effective start date. That's a good one.'\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Remove the Deal Version column entirely. Kobi, Aug 17: 'there's no deal version. So that entire column can be removed from the deals like when you add the deal fields.' Deal Version was scrapped on Aug 11 — Taryn's doc still lists it in both OP-9 and PT-10.\n\n* Remove the New action button — these lists are display-only.\n\n* Use Dynamic Related List – Single, not the layout-driven Related Lists component. Kobi: 'the related lists generally pull from the page layout configuration but we try to move away from that... What you actually want to use is a dynamic related list single.' Reason: per-list column control.\n\n* Why there are two lists — worth writing down because it caused visible confusion: Kobi 'the reason why we have two deals is because the deal can be related to a partner and an operator. Both of them are accounts. So there's two relationships.' This is the mechanical expression of Deal being the junction between Operator and Partner.\n\n=== ACCEPTANCE CRITERIA ===\n\n* Column shows Exclude from Partner Bonuses (BUILD-153). 'Counts Toward Bonus' from the mockup is NOT built — decided 2026-08-17: 'We will do Exclude from Partner Bonuses as agreed upon.' One field, not two. Taryn's OP-9 and PT-10 stories both list Counts Toward Bonus; ignore it.\n\n=== NOTES ===\n\n* PARTIALLY BUILT. Rebuilt live on Operator during the Aug 17 call. Taryn's own outstanding item: 'deals we just did earlier that I'll clean up' — column cleanup and the Partner-side list remain.\n\n* Build on the Dynamic Lightning record page using Dynamic Forms, not the classic page layout.\n\n* Combined OP-9 and PT-10 — identical structure, one sitting.\n\n=== SOURCE ===\n\n* Taryn doc OP-9 + PT-10\n\n* Aug 11 call — Deal Version scrapped\n\n* Aug 17 call — rebuilt live, relationships renamed, sort + column decisions\n\nDependencies: Deal object (exists)\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-132 — Operator + Partner: Deals related lists (two of them) — this is where Deal-as-junction shows up",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10540",
+          "body": "Partially built, per this ticket's own notes: the Operator-side related list was rebuilt live on Aug 17, but column cleanup and the Partner-side list are still outstanding. Full spec calls for two Dynamic Related List – Single components on Deal (via renamed child relationships Deals Partner and Deals Operator), columns Deal Name / Partner or Operator / Country / State-Province / Vertical / CPA / Exclude from Partner Bonuses / Deal Status / Effective Start, sorted by Effective Start Date, no New action button, Deal Version column removed.",
+          "created": "2026-08-24T17:20:20.362-0400",
+          "updated": "2026-08-24T17:20:20.362-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-269"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563914007415"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001tz:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563914007415"
+      }
+    }
+  }
+}

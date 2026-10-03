@@ -1,0 +1,445 @@
+{
+  "id": "10452",
+  "key": "WAGR-148",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10298",
+      "key": "WAGR-72",
+      "fields": {
+        "summary": "BUILD-178 — Player: Player Status Automation",
+        "status": {
+          "description": "",
+          "name": "Jumpr Review",
+          "id": "10062",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-31T15:29:54.200-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10086",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11563",
+          "key": "WAGR-486",
+          "fields": {
+            "summary": "Deal — Lifecycle status tracking, Date fields and Effective End Date",
+            "status": {
+              "description": "",
+              "name": "Requirements",
+              "id": "10058",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-29T18:48:48.405-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Summary\n\nWhenever a Player's Player_Status\\__c changes — from any source: manual UI edit, screen flow, record-triggered or scheduled automation, or data load — the system stamps Player_Status_Set_Datec and Player_Status_Last_Updated_By_\\_c.\n\n## Context\n\nEvery other story in this epic (BUILD-178) writes Player status, and statuses can also change by hand (e.g., the unban path in BUILD-255) or via data updates. Rather than each automation stamping audit fields itself — and manual edits slipping through unstamped — one before-save flow on Account owns the stamping for every path. The other children rely on this story and do no stamping of their own.\n\n## Current state\n\nPlayer_Status_Set_Date\\__c (DateTime) exists. Player_Status_Last_Updated_By_\\_c exists as a **Lookup(User)** — a lookup is unnecessary for an audit field and will be replaced with Text. Lookup fields cannot be converted in place; the field must be deleted and recreated.\n\n## Proposed solution\n\n1. REPLACE Account.Player_Status_Last_Updated_By__c: delete the Lookup(User) field (currently unpopulated) and recreate it as **Text**, same label (\"Status Last Updated By\"), read-only on layouts.\n2. NEW before-save record-triggered flow Account_Before_Save_Stamp_Player_Status_Audit — entry: Player record type AND Player_Status\\__c changed. Stamps Player_Status_Set_Datec = now and Player_Status_Last_Updated_By_\\_c = the running user's name. Automated contexts (e.g., the BUILD-254 scheduled flow) will stamp \"Automated Process\" — this is expected and desirable for the audit trail.\n\n## Acceptance criteria\n\n1. A status change via manual UI edit, screen flow, record-triggered flow, scheduled flow, or data load stamps both fields.\n2. Account edits that do not change Player_Status__c leave both fields untouched.\n3. Scheduled/automated status changes stamp \"Automated Process\" as the updater.\n4. Bulk-safe at 200+ records.\n\n## Output\n\nRecreated field + flow deployed in Partial SB; API names recorded on this ticket; requirements doc updated.",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10044",
+        "filename": "Screenshot 2026-09-04 at 11.13.32 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:08.846-0400",
+        "size": 120324,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10044",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10044"
+      },
+      {
+        "id": "10046",
+        "filename": "Screenshot 2026-09-04 at 11.13.45 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:17.818-0400",
+        "size": 111283,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10046",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10046"
+      },
+      {
+        "id": "10045",
+        "filename": "Screenshot 2026-09-04 at 11.13.54 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:24.718-0400",
+        "size": 129902,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10045",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10045"
+      },
+      {
+        "id": "10043",
+        "filename": "Screenshot 2026-09-04 at 11.14.12 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:30.820-0400",
+        "size": 125315,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10043",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10043"
+      },
+      {
+        "id": "10042",
+        "filename": "Screenshot 2026-09-04 at 11.14.47 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:36.776-0400",
+        "size": 112126,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10042",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10042"
+      },
+      {
+        "id": "10064",
+        "filename": "Screenshot 2026-09-04 at 11.14.55 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:42.630-0400",
+        "size": 121030,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10064",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10064"
+      },
+      {
+        "id": "10063",
+        "filename": "Screenshot 2026-09-04 at 11.15.04 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:45.267-0400",
+        "size": 113934,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10063",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10063"
+      },
+      {
+        "id": "10067",
+        "filename": "Screenshot 2026-09-04 at 11.15.18 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-04T11:17:50.437-0400",
+        "size": 126143,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10067",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10067"
+      }
+    ],
+    "summary": "BUILD-251 — Player Status: Centralized Status Audit Stamp",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10231",
+          "body": "**Changes made:** \n\n| **Metadata Name** | **Metadata Type** | **Action** | **Notes** |\n| --- | --- | --- | --- |\n| Account.Player_Status_Last_Updated_By__c | Customfield | New Component | Deleted the old field (user lookup) to text |\n| WT_PersonAccount_Player_Edit | PermissionSet | Update Component | Added Account.Player_Status_Last_Updated_By__c |\n| WT_PersonAccount_Player_Read | PermissionSet | Update Component | Added Account.Player_Status_Last_Updated_By__c |\n| Player_Account_Page1 | Flexipage | Update Component | Add Account.Player_Status_Last_Updated_By\\__c, Account.Player_Status_Set_Date_\\_c |\n| Account_Before_Save_Stamp_Player_Status_Audit | Flow | New Component |\n\n**Testing:** Validated in sandbox.Confirmed working as expected.\n\n**Scenario 1:** Inactive > Active > Ban > Update some field > Inactive",
+          "created": "2026-09-03T14:13:59.459-0400",
+          "updated": "2026-09-03T14:13:59.459-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Cedrick Infantado"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-377"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218032023624155"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002ev:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-72"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XXS (1-2 Hours)",
+          "id": "10043"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218032023624155"
+      }
+    }
+  }
+}

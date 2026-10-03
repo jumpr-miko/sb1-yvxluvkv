@@ -1,0 +1,199 @@
+{
+  "id": "10519",
+  "key": "WAGR-382",
+  "fields": {
+    "statuscategorychangedate": "2026-09-14T13:17:30.462-0400",
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10019",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "10167",
+          "key": "WAGR-100",
+          "fields": {
+            "summary": "BUILD-274 — Account: Auto-generate Operator and Partner External IDs",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "issuetype": {
+      "id": "10000",
+      "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+      "name": "Epic",
+      "subtask": false,
+      "hierarchyLevel": 1
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-14T13:17:30.091-0400",
+    "updated": "2026-09-17T13:11:11.780-0400",
+    "description": "## Outcome\n\nAn Operator record shows every partner it does business with, and its own direct billing terms, without anyone reading the Deal list to work it out. A Partner record shows the same from its side.\n\nToday both answers are inferred from Deals and the inference is unreliable. The associated-partner count is derived from a semicolon-separated string of partner record Ids in a 255-character text field, so it stops being correct at about thirteen partners, and it counts partners whose deals closed. Direct billing terms sit in an Operator-level section controlled by a single Direct-or-Via-Partner picklist, which cannot express an operator that has both a direct deal and deals through an affiliate network at the same time — the situation WagerTech raised on 2026-08-28.\n\n## Scope\n\nA relationship record between an Operator and a Partner, created the first time a Deal joins them and deactivated when their last active Deal goes away. Direct billing terms held on the relationship row for the shared Direct partner record. Retirement of the Operator-level billing section and the Billing Relationship picklist. Partner and operator counts rebuilt as counts of relationship rows.\n\n## Success measures\n\n* Partner and operator counts stay correct past thirteen relationships and exclude ended ones.\n* An Operator with a direct arrangement and two affiliate partners shows both facts on its record, each linking to the relevant record.\n* No billing value exists in two places.\n\n## Children\n\n* Confirm whether an Operator can hold more than one set of direct billing terms\n* Operator–Partner Relationship records created and deactivated from Deals\n* Hold direct billing terms on the Direct relationship record\n* Move Operator billing values onto Direct relationship rows and retire the Operator billing section\n* Show direct billing on the Operator record without leaving it\n* Rebuild the associated partner and operator counts from relationship records\n\n## Background\n\nRequirement source: _Operator & Partner Record Pages_ (Google Doc, 2026-08-28), section \"Billing Relationship — needs rework\". Design agreed with Kobi on 2026-09-14; it supersedes the 2026-08-17 position that the Deal itself was the junction between Operator and Partner, and absorbs the on-hold work to surface partner and operator information from Deal.\n\nAll direct deals attach to a single shared Partner Account named Direct (Partner External ID `PT-DIRECT`), which is why an operator's direct billing terms can live on its relationship row with that record rather than on the Operator itself.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Operator and Partner relationships, and direct billing",
+    "comment": {
+      "comments": [
+        {
+          "id": "11265",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Answered by Lina Ceniccola, 2026-09-16, in the comment thread on the Operator & Partner record pages doc, after Emily Vandenberg reassigned the question:\n\n> \"the billing would not differ. betmgm direct would be the same\"\n\nOne set of direct billing terms per Operator. No Market field on the relationship object and no market component in the uniqueness key — the key stays Operator Id + Partner Id.",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-17T13:11:11.780-0400",
+          "updated": "2026-09-17T13:11:11.780-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "customFields": {
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Issue color": {
+        "id": "customfield_10017",
+        "value": "teal"
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002tr:"
+      },
+      "Epic Status": {
+        "id": "customfield_10012",
+        "value": {
+          "value": "To Do",
+          "id": "10016"
+        }
+      },
+      "Epic Color": {
+        "id": "customfield_10013",
+        "value": "ghx-label-11"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

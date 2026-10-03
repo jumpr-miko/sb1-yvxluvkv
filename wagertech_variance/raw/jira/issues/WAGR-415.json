@@ -1,0 +1,191 @@
+{
+  "id": "11362",
+  "key": "WAGR-415",
+  "fields": {
+    "statuscategorychangedate": "2026-09-22T15:28:08.231-0400",
+    "issuetype": {
+      "id": "10011",
+      "description": "Bugs track problems or errors.",
+      "name": "Bug",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-22T15:28:07.630-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10035",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "11360",
+          "key": "WAGR-413",
+          "fields": {
+            "summary": "Player: Investigate All Players Defaulting to CAD Signup Currency",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T10:24:08.109-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Summary\n\nCountry (and State) data is missing from the large majority of Study Link Click (SLC) records coming in from the client's API. Because Player currency defaults to CAD whenever Country is blank, this is producing incorrect Signup Currency on most Player records, not a true reflection of Player location.\n\n## Component\n\nSLC intake / Player creation (`SLC → After Save → Player DRA and Signup` flow)\n\n## Steps to Reproduce\n\n1. Pull a report of all Study Link Click (SLC) records (all-time or a recent date range).\n2. Check the `Country` field on each SLC record.\n3. Cross-reference against the resulting Player record's `CurrencyIsoCode`.\n\n## Expected Result\n\nCountry should be populated on SLC records coming from the client's API for the large majority of clicks, and Player currency should be set based on that country (per the existing SLC → Player currency formula logic, which is confirmed working correctly when country data is present).\n\n## Actual Result\n\nOnly **49 of 1,400** SLC entries (\\~3.5%) contain a Country value. The remaining \\~96.5% are blank, so the Player creation logic falls back to the CAD default — meaning most Player records show CAD regardless of the player's actual location.\n\nAdditionally: on at least one SLC record, the Country field contained clearly malformed/gibberish text (along with garbled First Name/Last Name), suggesting there's no input validation or picklist constraint on the client's side for this field — it accepts free-text and passes through whatever they send.\n\n## Root Cause (known so far)\n\nThis is confirmed to be an issue on the client's (CMS/API) side, not ours:\n\n* Our SLC intake fields are intentionally left as open text (not picklists) so we don't block SLC creation on malformed API data — validation and data prep is expected to happen on their end.\n* Our Player currency logic is working as designed: it correctly uses Country when provided, and only falls back to CAD when Country is absent. This was validated in the Sep 22 sync.\n* The client's API is inconsistently sending Country — already raised with them \\~2–3 weeks prior to this ticket, not yet resolved on their end.\n\nOpen question (to verify, not yet confirmed): whether the SLC → Player flow's mapping for Player State/Country is itself correctly configured. Cedrick to confirm the field mapping is passing through correctly whenever the source data is present.\n\n## Evidence\n\n* SLC troubleshooting report (all Study Link Click records with key columns, including Country) — shared by Kobi in the Sep 22 WagerTech Internal Sync. Attach/link that report here.\n* Example malformed record: Country field contains non-sensical text alongside garbled name fields — worth flagging to the client as a specific example when this is raised with them again.\n\n## Impact\n\nMost new Player records are getting an inaccurate Signup Currency (defaulting to CAD instead of reflecting actual location), which affects any reporting or logic downstream that relies on Player currency being accurate.\n\n## Suggested Next Steps\n\n1. Confirm SLC → Player flow mapping for Player State/Country is correct (no bug on our side).\n2. Re-raise the missing-Country issue with the client (WagerTech's API/CMS team), including the malformed-record example, and request input validation on their end.\n3. Track resolution status with the client; no fix required on our side beyond confirming the mapping.\n\n## Related\n\n* WAGR-413 — Player: Investigate All Players Defaulting to CAD Signup Currency (this bug is the confirmed root cause for that investigation)\n* WAGR-404 — Player: Default Signup Currency Automation by Player Country (currency formula logic itself confirmed correct; not impacted)\n\n## Source\n\nSep 22, 2026 WagerTech Internal Sync — Cedrick's investigation into WAGR-413, discussed with Kobi and Taryn.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Player Country/State missing on majority of SLC entries — driving unwanted CAD currency fallback",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002ur:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

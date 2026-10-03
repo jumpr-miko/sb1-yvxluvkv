@@ -1,0 +1,238 @@
+{
+  "id": "10524",
+  "key": "WAGR-387",
+  "fields": {
+    "statuscategorychangedate": "2026-09-17T13:10:45.857-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10519",
+      "key": "WAGR-382",
+      "fields": {
+        "summary": "Operator and Partner relationships, and direct billing",
+        "status": {
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "Normal",
+          "id": "3"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 3,
+      "key": "done",
+      "colorName": "green",
+      "name": "Done"
+    },
+    "resolution": {
+      "id": "10001",
+      "description": "This issue won't be actioned.",
+      "name": "Won't Do"
+    },
+    "resolutiondate": "2026-09-17T13:10:45.776-0400",
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-14T13:22:33.546-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10025",
+        "type": {
+          "id": "10000",
+          "name": "Blocks",
+          "inward": "is blocked by",
+          "outward": "blocks"
+        },
+        "inwardIssue": {
+          "id": "10522",
+          "key": "WAGR-385",
+          "fields": {
+            "summary": "Update Billing details to Direct Billing Details",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-09-17T13:10:45.857-0400",
+    "status": {
+      "description": "",
+      "name": "Cancelled",
+      "id": "10066",
+      "statusCategory": {
+        "id": 3,
+        "key": "done",
+        "colorName": "green",
+        "name": "Done"
+      }
+    },
+    "description": "## Outcome and context\n\nMoving direct terms to a child record puts the most common billing task one click further away than it is today. This puts it back: a lookup from the Operator to its Direct relationship row, and a component on the Operator page that renders that row's billing fields inline and editable. The data lives in one place; the Operator page still shows it.\n\n## Current state\n\nNeeds verification during the build: whether the standard **Related Record** component renders and edits fields of a custom-object record referenced by a lookup, alongside the Dynamic Forms configuration on the Operator page. If it does not behave, the fallback is a Dynamic Related List – Single filtered to the Direct row with the billing fields as columns — visible, but read-only in place.\n\n## Proposed solution\n\n1. New **Direct Arrangement** lookup on Account to the relationship object, set by the same automation that maintains the rows, pointing at that Operator's Direct row.\n2. Add a Related Record component to the Operator Lightning page, sourced from that lookup, with an update action exposing the billing fields.\n3. Component visibility: shown only when the lookup is populated.\n\n## Field description and help text\n\n> **Direct Arrangement — Description:** The Operator Partner Relationship record holding this operator's direct billing terms — its relationship with the shared Direct partner. Set by automation. Used by the Operator record page to show direct billing inline. Do not edit.\n\n> **Help Text:** Set automatically. Points at this operator's direct billing arrangement.\n\n## Acceptance criteria\n\n1. Opening an Operator that has a direct arrangement shows its billing values on the Operator page.\n2. Editing a value there saves it on the relationship record, and the relationship record shows the change.\n3. An Operator with no direct arrangement shows no empty billing block.\n4. The lookup points at that Operator's Direct row and at no other row, including after a new direct Deal is created.\n\n## Dependencies\n\nDepends on _Hold direct billing terms on the Direct relationship record_.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Show direct billing on the Operator record without leaving it",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11264",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Closing. This existed to put direct billing back in front of the user after it moved to a child record, via a lookup and a Related Record component. The terms are no longer moving, so they are already on the Operator page and there is nothing to surface.",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-17T13:10:45.804-0400",
+          "updated": "2026-09-17T13:10:45.804-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002uv:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-382"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

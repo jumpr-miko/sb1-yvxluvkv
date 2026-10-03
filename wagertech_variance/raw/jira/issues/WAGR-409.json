@@ -1,0 +1,152 @@
+{
+  "id": "10546",
+  "key": "WAGR-409",
+  "fields": {
+    "statuscategorychangedate": "2026-09-16T10:44:17.690-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-16T10:37:55.791-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:32.996-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nSalesforce sent an automated security notification (Sep 11, 2026) flagging suspicious login activity in the Production org: traffic from a high-risk anonymizing proxy was detected on user ID `005ao00000BSxOc`. Salesforce froze the user, revoked its access tokens, and will require a password reset before it can be used again.\n\nKobi identified the flagged user as the integration account for SaaScend (`client+wagertech@saascend.com`) and forwarded the notice to Emily to confirm whether the integration is still in use. Emily confirmed (Sep 15) that SaaScend can be removed.\n\n## Current state\n\n* User `005ao00000BSxOc` (SaaScend integration user) is currently frozen by Salesforce in Production.\n* No live production data exists yet, so Kobi assessed this as not urgent, but it still needs to be resolved and tracked.\n* Kobi set Emily up as the org's Security Contact while reviewing this (using his own phone number as a placeholder, since Emily's wasn't on file).\n* Client has confirmed SaaScend is not needed going forward.\n\n## Proposed solution\n\n1. Deactivate the SaaScend integration user (`005ao00000BSxOc`) in the Production org, rather than unfreezing/resetting its password — the integration itself is being retired, not just the flagged login.\n2. Check for and remove any related connected app, permission set, or API access tied specifically to the SaaScend integration, if separate from the user record itself.\n3. Confirm with Kobi/Emily whether the Security Contact phone number should be updated to Emily's own number instead of Kobi's.\n\n## Acceptance criteria\n\n1. SaaScend integration user is deactivated (not merely unfrozen) in the Production org.\n2. No other active integration or automation depends on that user.\n\n## Out of scope\n\n* Unfreezing/reactivating this user — not applicable since it's being deactivated instead.\n* Broader audit of other integration users' access — not raised in this thread.\n\n## Source\n\nEmail thread \"Fwd: \\[Consulting\\] Salesforce Security notification\" — Salesforce security notification (Sep 11, 2026); Kobi Kunasekaran to Emily Vandenberg (Sep 11); Emily Vandenberg confirming removal (Sep 15); Kobi Kunasekaran to Taryn Reithofer requesting deactivation and this ticket (Sep 16).",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Deactivate SaaScend integration user flagged by Salesforce security notification",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vz:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

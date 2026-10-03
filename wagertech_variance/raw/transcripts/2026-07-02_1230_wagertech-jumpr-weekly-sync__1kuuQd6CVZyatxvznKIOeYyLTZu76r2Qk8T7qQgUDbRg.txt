@@ -1,0 +1,1018 @@
+📝 Notes
+Jul 2, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited Marc Cabantog Miko Sumagang lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi strah@wagertech.bet
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+Project progress, storage strategy, and system architecture changes were finalized via team collaboration and technical review.
+
+Project Scope and Licensing
+The team confirmed adherence to timelines despite expanding scope and decided to defer Salesforce license restructuring until the next renewal period to maximize negotiation leverage.
+
+Storage and Data Architecture
+Google Drive and Google Cloud Platform were selected for data storage to manage rapid growth, and the team approved the initiation of production build modifications.
+
+System Configuration Strategy
+Configuration plans for deal structures were simplified using picklists rather than complex objects, and backend requirements for new link tracking processes were established.
+
+
+Decisions
+Aligned
+* Platform Plus licensing strategy selected Shift representatives to Platform Plus licenses to reduce costs while retaining necessary Lightning Console functionality.
+* Google Cloud Platform selected for storage Adoption of Google Cloud Platform (GCP) is confirmed as the primary file storage solution to support cost efficiency and future automation.
+* Market configuration set to picklist The team will configure 'market' as a picklist attribute on the deal object initially to simplify the data model, rather than building a separate custom object.
+* Production build initiated for static components The team is authorized to begin building out static Salesforce components in the production environment immediately, rather than waiting for final sign-off on the full project document.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [The group] Confirm Licensing Costs: Contact the account executive to verify final pricing and licensing details for the platform plus transition.
+* [The group] Verify Integration Limits: Verify if the integration user account is included in the platform plus license tier.
+* [The group] Research Archiving Solutions: Research third party tools that automate data retention and help manage storage costs for aging records.
+* [The group] Finalize Storage Decision: Decide between Google Cloud Platform storage and native Salesforce files within one week to maintain the current project timeline.
+* [The group] Align Storage Strategy: Consult with Strahinja Vladetic to reach a final consensus on the storage integration strategy.
+* [Strahinja Vladetic] Compare APIs: Review the Salesforce APIs to provide a comparison for image handling.
+* [Joyce Kiddell] Review document: Read the design document and provide comments by the end of the day tomorrow.
+* [Kobi Kunasekaran] Share diagram: Send the mirror diagram that maps the study link process.
+* [Kobi Kunasekaran] Send follow-ups: Distribute next steps and requests for input regarding project workflows by tomorrow morning.
+* [Kobi Kunasekaran] Coordinate lunch: Send an Uber Eats link to collect meal preferences for the upcoming Wednesday meeting.
+* [Kobi Kunasekaran] Create timeline: Prepare a draft timeline for project phase 2 and 3 for presentation at the next meeting.
+* [The group] Review model: Analyze the signup data model and workflow processes documented to confirm alignment with system requirements.
+
+
+
+Details
+* Project Timeline and Progress: The team is currently on track with the project timeline, having utilized approximately 81 hours out of the estimated 250 hours (00:04:56). While there was a slower start due to holidays, the solution design phase is progressing, and the team is ready to begin the build phase once the proposed design is finalized (00:02:41) (00:05:58).
+* Project Scope and Estimates: Miko highlighted that two components originally planned for future phases—data storage and deal inputs—have been pulled into the current phase. While this shift might bring the final effort to the higher end of the estimates, the team is currently not projected to exceed the original estimates (00:07:13).
+* Platform Licensing Options: Kobi proposed moving most users from full Salesforce licenses to Platform Plus licenses to reduce costs. Platform Plus is preferred over the base Platform license because it accommodates the necessary object limits and includes the Lightning Console, which is required for the user interface mockups (00:10:21).
+* Integration Account Strategy: Kobi recommended utilizing a dedicated integration account for connecting tools to Salesforce rather than using a standard user account (00:14:50). This approach avoids potential credential issues related to employee exits and allows for better auditing of record changes made by integrations (00:13:39).
+* Licensing Renewal Strategy: Miko advised waiting until the next renewal period to finalize license changes (00:15:44). This timing allows the team to negotiate with Salesforce to maintain the current Annual Recurring Revenue (ARR) while securing more licenses, rather than simply swapping license types now (00:16:47).
+* Licensing and System Constraints: Kobi confirmed that the transition to Platform Plus licenses poses no risk to current operations, as the team is not utilizing objects like Leads or Opportunities that are restricted in the lower-tier licenses (00:17:58). Future scaling to full licenses is possible if requirements change, such as the introduction of price books or quoting functionality (00:19:01).
+* Storage Options and Metadata: Kobi outlined three storage options: keeping files in Dropbox (current), using native Salesforce Files, or integrating with Google Drive/GCP. Native Salesforce Files are the easiest to implement but lack the metadata categorization needed for automated tracking (00:21:27).
+* Current Storage Consumption: Lina confirmed that the organization is currently using 500 GB of storage, an increase from 396 GB in May. This rapid growth indicates that the team will need a scalable solution to handle future data storage needs (00:26:06).
+* Data Retention and Archiving: Joyce discussed the possibility of implementing a 30-day retention policy to keep live data in Salesforce while archiving older files (00:26:06). Miko suggested that third-party solutions could facilitate this automation, keeping storage limits in check while ensuring data remains accessible for fraud investigations (00:27:22) (00:29:28).
+* Reducing Storage Needs via Automation: Joyce proposed reducing the volume of stored proofs by utilizing postbacks and forwarding welcome emails to Salesforce. This automation would capture registration, first-time deposit, and wager events, potentially reducing the reliance on manual file uploads (00:33:50).
+* Finalizing Storage Decision: After evaluating the costs—approximately $130 per terabyte for Salesforce extensions versus $20 per terabyte for Google Drive/GCP—the team agreed to proceed with the Google Drive/GCP integration. Strahinja noted that storing files in GCP will also facilitate easier access for future automation and auditing tasks (00:39:58) (00:44:05).
+* Build Documentation Review: Kobi directed the team to the shared build documentation and Miro diagram to verify the logic and mappings before moving forward. Emily and the team agreed to review these materials offline to ensure the proposed build aligns with the project scope (00:45:16) (00:53:46).
+* Market Object Configuration: Kobi proposed replacing multi-select picklists for markets with dedicated objects for each country and state, which would improve reporting accuracy. The team will evaluate if this approach is necessary based on the granularity of their source data (00:47:21).
+* Deal Assignment Object: Kobi recommended adding a "deal rep assignment" object to act as a junction between deals and representatives. This structure would allow the team to manage assignments within Salesforce similarly to their existing Airtable process and ensure signups are correctly linked to specific reps (00:48:34).
+* API and Data Verification: Kobi requested that the team's developers review the API documentation to confirm that all required fields for linking signups, operators, and deals are available in the backend. This verification is necessary to ensure the workflows correctly associate clicks with the appropriate records (00:51:16).
+* Defining Deals and Verticals: Joyce clarified that a "deal" represents a unique permutation of a vertical and a market (country/state) (00:56:58). The team discussed whether this requires separate objects or if it can be managed through the signup record structure to avoid over-complicating the data model (00:55:36).
+* Deal Structure in Salesforce: The team discussed how to configure deals in Salesforce for the partnership with Fanatics and Kina. Joyce Kiddell explained that while one primary deal exists with the partner, the agreement contains sub-rates covering different states and verticals (sports versus casino), which impacts downstream payments and volume targets (00:58:14). Kobi Kunasekaran suggested treating each combination of these variables as a unique deal rather than a single deal with multiple attributes (00:59:26). Joyce Kiddell recommended creating a fourth object specifically for "vertical" to handle these permutations, a proposal Miko Sumagang supported due to the level of detail required for accurate data modeling (01:00:21).
+* Market Configuration and Data Modeling: The group debated whether to implement a "Market" object or use a picklist. Kobi Kunasekaran initially proposed a separate object because markets could involve complex combinations, such as a country, specific states, or provinces, which might exceed the capacity of a standard picklist (01:01:12). Joyce Kiddell noted that rates differ by region (e.g., Ontario versus New Jersey) and that a market usually represents a single specific region per deal rather than multiple regions simultaneously (01:02:21). Following this discussion, Kobi Kunasekaran suggested starting with a picklist approach as an attribute of the deal. If reporting or interface requirements later necessitate more complexity, the team agreed they could transition this into a custom object using a data loader, avoiding the need for a complex initial build (01:05:20).
+* Project Build Authorization: Kobi Kunasekaran and Miko Sumagang sought authorization to begin "build mode," which involves removing existing configuration in the production system and creating new Salesforce objects and components (01:07:53). Joyce Kiddell and Lina Ceniccola confirmed that there was no sensitive data requiring backups and provided approval for the team to proceed with these changes immediately (01:08:58). The team decided to maintain their scheduled Tuesday sync to discuss any lingering issues, though the meeting might be canceled if the work proceeds smoothly via asynchronous communication (01:09:48).
+* API Integration Requirements: Emily Vandenberg inquired about necessary API development work. Kobi Kunasekaran explained that the backend team must modify their processes because the system will no longer create leads or player records, but instead will create "study link" objects upon a click (01:11:23). Kobi Kunasekaran requested confirmation that all required information for the study link click can be transmitted via the API. The team agreed to schedule a call to discuss the division of labor between the data team and the current build team once the data model is finalized (01:12:17).
+* Phase 2 and 3 Planning: Emily Vandenberg requested that the timeline for phases 2 and 3 be ready for presentation during the upcoming in-person meeting the following Wednesday. Kobi Kunasekaran acknowledged the request, noting that the timeline might be an approximation until further processes are reviewed, but committed to providing a draft of the expected structure (01:13:07).
+* Lunch Coordination: Regarding the upcoming in-person meeting on Wednesday, Kobi Kunasekaran and Miko Sumagang offered to handle lunch arrangements using an Uber Eats link to collect individual preferences (01:14:10). The team discussed restaurant options, specifically Thai cuisine, with Joyce Kiddell and Kobi Kunasekaran suggesting "Ktown Road" and "Pie" as preferred local choices (01:14:55).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 2, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:10
+
+Kobi Kunasekaran: Here
+Lina Ceniccola: Hello.
+Miko Sumagang: Hello. Hi everyone.
+Kobi Kunasekaran: you
+Miko Sumagang: Afternoon.
+Lina Ceniccola: How's it?
+Kobi Kunasekaran: go.
+Miko Sumagang: Hello.
+Kobi Kunasekaran: Are you all done?
+Miko Sumagang: Good. Good. Lena, are you getting a heat wave over there as well?
+Lina Ceniccola: Yeah,
+Miko Sumagang: O yeah.
+Lina Ceniccola: it's a bit crazy right now.
+Miko Sumagang: How bad is it over there?
+Lina Ceniccola: I think it's like 100 degrees.
+Miko Sumagang: 100°. I'm sure that's in Fahrenheit because otherwise you'll be boiling 30
+Kobi Kunasekaran: And I
+Lina Ceniccola: Yeah.
+Miko Sumagang: seconds.
+Lina Ceniccola: Otherwise,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: you'd probably hear about me on the news. So, that's 30.
+Miko Sumagang: 38. Closer to 38.
+Lina Ceniccola: Mhm.
+Miko Sumagang: Yeah, that sounds just about right. Yesterday uh it was Canada Day, so it was like off for like everyone and then uh went to like the park. Um there's like a fair and then it was like it feels like 42 degrees like by like the water. I was just cooking.
+
+
+00:01:33
+
+Lina Ceniccola: Wow, that's
+Kobi Kunasekaran: Yeah, we tried playing beach volleyball yesterday.
+Lina Ceniccola: crazy.
+Kobi Kunasekaran: Uh, and by like 12 p.m. or even like 11, the sand got so hot. We We all had like sand socks and everything. Felt the burn right through it. It was It was ridiculous.
+Emily Vandenberg: It was a hot one. Um, I'm trying to think. Are we all here? Is he joining?
+Miko Sumagang: Uh not for today. Is uh out for a week and a half uh for today,
+Kobi Kunasekaran: Oh,
+Miko Sumagang: but he will be like joining us like when uh you all like make your your visits. Uh he's taking the time to come into like the office during that time.
+Lina Ceniccola: Always
+Miko Sumagang: So yeah.
+Kobi Kunasekaran: yeah. So, I think we're all here, so we can get started. All right. So,
+Lina Ceniccola: on.
+Kobi Kunasekaran: I know I sent quite a bit of stuff over the past like couple days. Um, so I don't know if you'll uh if you'll have had a chance to go through all of it.
+
+
+00:02:41
+
+Kobi Kunasekaran: I know it was like time off uh Canada Day and everything. So, um before we like dive into uh like the discussion points in the agenda, like I want to get a sense of like how are you feeling? Um, any initial thoughts, uh, questions, concerns? Um,
+Lina Ceniccola: All this is fun.
+Kobi Kunasekaran: how do you feel about the project so
+Emily Vandenberg: I can go.
+Kobi Kunasekaran: far?
+Emily Vandenberg: I think I I kind of I didn't get fully through the design solution. So, I think there's probably some stuff there. I'm like kind of looking forward to um where we get to today and then just like understanding from your perspective timeline like if still on pace. Um I think we took a little bit of a slower start. Um but obviously there was a lot to get through. Um so I think and obviously some holiday as well. So interested to kind of see where that all sits as we go through that today. Um and also kind of where the hours are.
+
+
+00:03:41
+
+Emily Vandenberg: I haven't had a look um at kind of like what that design how that tracked against kind of like what you're anticipating. But overall um I think we're just like excited to get started and like um anxious to get started.
+Kobi Kunasekaran: Okay. Okay, it's fair. Um, wait. Uh, Lena, Joyce, anything else to add? You all good?
+Lina Ceniccola: Yep.
+Kobi Kunasekaran: Okay. Um, wait. So let me start with like uh I guess like timelines and where we are with the project. Um so far um we're still uh we're still on on track like I I did say like you know once we get through the initial solution design um and we define like what the objects are the field the automations that that is like a big chunk of the work. Um, and uh, if you go through the the the document, not the slides, like it's like we're pretty much build ready from our end if you're good with what's been proposed. Um, and I'm fully expecting, you know, there are going to be some areas that we're probably going to need to tweak, um, update, change, maybe include or exclude.
+
+
+00:04:56
+
+Kobi Kunasekaran: But, um, based on what I've went through so far, I think we're still good with our delivery timeline, um, again, as long as like we don't add too much more other things or um, we don't derail from, uh, from scope, um, we should be good. Um the hours report I uh I did pull it I shared it over. So we're at like 81ish so far from the project hours. Um out of I think the lower end we were we're trying to aim for 250. Um still on track.
+Lina Ceniccola: What's
+Kobi Kunasekaran: Again a lot of the time went into breaking down all of the objects and fields and
+Lina Ceniccola: up?
+Kobi Kunasekaran: defining the uh the actual flow for the for your signup click link and how your API is going to talk to Salesforce. So, um I think we're still good. Um but there are like two or a couple of big areas that we need to talk through and decide on how we want to move forward because that's going to determine what the ultimate scope and if there's going to be any like timeline changes.
+
+
+00:05:58
+
+Kobi Kunasekaran: That's going to determine what those are.
+Lina Ceniccola: Thanks so much.
+Emily Vandenberg: Okay. How did 81 against what you were anticipating for the range?
+Kobi Kunasekaran: Uh
+Emily Vandenberg: I'm trying to go back, but um for phase like the solution design and kind of getting us there.
+Kobi Kunasekaran: um so we're still good. So again like the actual configuration of Salesforce like once you have the objects and field and automations defined that that is the hardest part. That's the thing that takes the longest. Once we have that, the actual like going into the system to uh do all those things isn't isn't a lot of work. And from there, like there's there are going to be UI components that we're going to have to talk through once we're good with the design. Um there's testing, deployment, all of those things where like that's going to be variable, right? Like as we start building um if there's any feedback, um we'll have to incorporate those in.
+Lina Ceniccola: Oops.
+Kobi Kunasekaran: But um I'm feeling pretty good about what we've scoped out uh based on what your my understanding of what you need from everything that we've seen and all the discovery and what your uh teams are doing
+
+
+00:07:13
+
+Miko Sumagang: Yeah. Yeah.
+Kobi Kunasekaran: today.
+Miko Sumagang: So like Emily like um I just chatted with like Kobe from like earlier today like as well like in
+Lina Ceniccola: Um
+Miko Sumagang: general um we are on track on hitting like our likely like number. Now uh what Kobe was like saying from like earlier there are two components that basically were pulled in from future phases to like this phase given uh what came out like during the deep deep dive which is one was like the data um storage and then the other one was basically like the inputs for like like the deals. Now, incorporating both might move us from essentially being on like the likely to like the higher
+Lina Ceniccola: Is it?
+Miko Sumagang: ends of the estimates, but we're not like in a state yet where like we're basically going over from like the estimate. So now like the decision points is going to be do we include like those like two like components? um do we include just like one uh for example because for example like the data part could be moved over for like a a latter phase uh so that like we could like keep ourselves like within like the the estimates that we like provided.
+
+
+00:08:17
+
+Miko Sumagang: That being said um in terms of like where we are like on a whole like project like built. I do want to like reiterate what like Kobe has just like mentioned that like usually like the the front loading of like the effort starts like during like really the architectural like design because like after uh we discussed that like we get like all like alignment like on this it really is just going to be broken up into like different like stories and our teams can start like building uh the components account. So like this is like where you're going to see like a lot of like the builds, a lot of like the story lines and then constant like demos like during like the follow follow through like meetings that we'll have. So like there's going to be a lot of like momentum like following uh this like
+Kobi Kunasekaran: Any
+Miko Sumagang: alignment.
+Emily Vandenberg: Okay, thanks.
+Kobi Kunasekaran: questions, concerns? Okay. Okay. Um Okay. So, I I know we have a lot to cover and we only have an hour.
+
+
+00:09:20
+
+Kobi Kunasekaran: So, um, couple of top of mind things to chat through. Um, platform licensing. Um, we put together a slide deck with the options. Um, I think I have it open here. So, right now you do have the, uh, like you have the full license for every single person. Um, it's like it includes like pretty much everything that you need, right? Um, it includes like the lead object, salescloud, opportunities, all of those things. Um, but based on how we've designed the system, you don't necessarily need uh all the things that come with a full Salesforce license. Like specifically like we're not using opportunities, we're not using deals. We're not using I think there's like a slide that talks about like all of the things. Uh just also put together a really detailed document. So u I did link it somewhere here. Feel free to go through, but oh am I not
+Joyce Kiddell: Sorry, I mean like uh make the slide bigger. Like if you present it,
+Kobi Kunasekaran: Oh, yes.
+
+
+00:10:21
+
+Joyce Kiddell: it'll take
+Kobi Kunasekaran: Yes, yes, yes, yes. Uh, this better. There we go. Let's restart it so it's bigger. Um, yeah. So all of these things that are that typically come from uh your full license, you don't necessarily need. So we could scale back. Now full licenses are still needed uh for people that are configuring flows. Um like if you're doing get uploads and stuff, generally you should be okay with the platform license. Um but we've uh scoped it out to include like five licenses. Like we're going to need at least one for the build. Um, and whether like if you want uh somebody else to be also be able to like build flows, troubleshoot flows, which you're likely going to want, right? Like uh over time, um you're probably going to want at least like one other person, maybe uh maybe two like another admin to be able to go in and uh do troubleshooting, you'll probably want like a couple of uh full licenses. But for everyone else, uh like all the reps, um we should be able to switch them over to platform plus licenses.
+
+
+00:11:41
+
+Kobi Kunasekaran: They have two. They have platform and platform plus. Platform is uh bare minimum, but it does have object limits. Um it only comes with like 10 objects which we're already going to go over uh from phase one. And based on everything else that you're uh that we have in the PR, we're going to exceed that very quickly. So platform plus I believe uh we get like it's either unlimited or it's like a very high number that we're not going to hit. you've got 110 objects which should be plenty like more than enough for what you're looking for. Um, and the one other main thing um is the lightning console. Um, so based off of your like uh UI mockup uh that you shared with like the tab on one side and then the records on the other side and like a tab view that's called lightning console uh within Salesforce and that is not included in the base platform license um but it should be included in the platform plus. So, uh, that platform plus, I believe it's like $100 versus $25 for the platform starter.
+
+
+00:12:42
+
+Kobi Kunasekaran: Um, but this should still save you quite a bit of money if you want to like downgrade, move all of the reps to platform plus and then keep a handful of full licenses or just the build, troubleshooting, administration.
+Emily Vandenberg: Okay. So, you're saying that the $100 does include the console.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I was thinking it was another 25 on top of it based on what I was reading and that the savings actually kind of diminished quite a bit based on that.
+Lina Ceniccola: That's how I read it,
+Emily Vandenberg: Yeah.
+Lina Ceniccola: too.
+Kobi Kunasekaran: this like the information that we were able to get from like agent source and what was listed. Um, initially we thought it was an extra add-on, but it's an extra add-on for the regular platform license. But these are things to confirm with a though, like you you're going to want to talk to your AE on the final prices. Um, and these are like list costs, too. and you should be able to negotiate them down to bring the cost down.
+
+
+00:13:39
+
+Kobi Kunasekaran: Um, so you might save a little bit there. Um, and then I think we flagged a few things that we weren't able to like confidently determine from our end. So those are things to check with your AE and confirm before we do the full switch.
+Emily Vandenberg: The one thing on the integration, were you able to confirm like what like what um gets you like a
+Lina Ceniccola: Goodbye.
+Emily Vandenberg: free like what a single free um integration
+Kobi Kunasekaran: So I believe like every like enterprise or generally has um I free like this was something that
+Emily Vandenberg: means.
+Kobi Kunasekaran: Salesforce added pretty like recently like maybe like the last like two to five years. Um but because we are downgrading um most of your users to platform plus just worth confirming if like it's a lower limit or if they're still going to get five. I don't think you need five. Um like we're anticipating at least one for the for your back end right like for play can to talk to Salesforce. Um, and generally use if you want if you have other integrations, other tools that you're integrating with Salesforce, it's good to have them set up with their own integration access so you can control what those integrations can access.
+
+
+00:14:50
+
+Kobi Kunasekaran: You can uh you can audit the record changes that those uh uh integrations are making. But you can also share the license for those. So you can just have a one integration user. So this is something that just needs to be checked today to confirm that if we do go to platform plus that is still going to be
+Lina Ceniccola: Come
+Kobi Kunasekaran: included.
+Emily Vandenberg: Okay. And we can talk through like how many integration we
+Lina Ceniccola: on.
+Emily Vandenberg: need.
+Kobi Kunasekaran: Yeah, you'll need at least one if we don't have an integration user.
+Lina Ceniccola: What?
+Kobi Kunasekaran: What like and this is what we used to do before the integration user became available is we just uh designate one account one account as the integration user. So that's the one that'll be connected. It should not be a user account like it shouldn't be something that somebody's going to be logging in with and administering the system. Um because like employee exits you don't want to have to like uh reset credentials and you have to do it everywhere.
+
+
+00:15:44
+
+Kobi Kunasekaran: So it should be like a separate account but that's recommended. So that's what we used to do and there still a lot of our clients are still on like that model. We like not everybody has switched over. Um but you always have that option.
+Miko Sumagang: Yeah, I want to just like add like also like I don't want to like spend like a lot of time like on this just because this might be like more of like a future um decision that we have to like make. Typically like when you sign off like with Salesforce you start off with like a specific number of like terms like two two year like term or what have you. So you'll have to like wait up until like the the end of like your term normally to kind of start like negotiating. What Kobe has like shown is list price which typically like Salesforce does give a quite like a generous discount like on like the list price. They just like want to have like a high like baseline. But just like note that when you do transfer some like licenses like over they're going to be a lot of the times like basically like they're going to push to have like the same like AR for you guys um to preserve like basically like the the revenue.
+
+
+00:16:47
+
+Miko Sumagang: They don't really like worry so much about the type of like licenses and number of licenses that you you have. It's typically like more around like the annual like spend. So my recommendation honestly is to if you are like going to like move some uh clients like around they will try to like push to basically preserve you guys with the same ARR with higher licenses but like negotiate for like the discount so like you do get like a higher number of like license scout like for this um and that'll that'll just have to be a conversation that happens like a month or two like before like your next like renewal just to like make sure that everything is like clear coming up to it.
+Emily Vandenberg: Yeah, that makes sense. The only thing that I couldn't like understand through the like kind of permissions and licensing is like we start so we're locked in. We all started an enterprise and then we make the change if we can kind of get it across the line to the premium and then is there any impact based on how we built and how we um kind of like got our records, you know, to date and then you make this license change and then people people have issues with the access or data or
+
+
+00:17:58
+
+Miko Sumagang: with the permissions. Yeah. Um so I could answer that. So um the only thing that uh they would lose like functionality of and I say like only because like you want to like preserve five licenses worst case scenario for builders within like your org. Everybody else that's going to use like new your new system that we've uh we will agree upon will basically just like use like custom objects. Um, custom objects literally has like no like difference between uh a platform like an actual like license and a platform like user license. As long as you have like the lightning console,
+Emily Vandenberg: Okay.
+Miko Sumagang: the lightning console as long as it is included then like your look and feel is basically the same which is included in the plus like already anyways but always like confirm with like your AE because pricing models like always like change with like Salesforce like as often it's like they change hairstyles seems. Um so um yeah like I don't necessarily see like any risk like with you all. If anything it basically like just like provides you with more licenses upon your next like renewal um after like we can create a
+
+
+00:19:01
+
+Emily Vandenberg: Okay.
+Miko Sumagang: system
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: I think like as we like as we talk about like you know phase two and three if we find that you may need one of these objects then at that point who might have to think about like going from platform plus to full license but that transition is not a problem at all. It's always like, you know, if you're going from the uh full license to platform, we just have to make sure that you're not using any of these objects. And as of now, you are you're not. And I don't foresee us using any of these. Unless you want to start bringing in like price books and quoting within Salesforce, you're probably not going to need any of these things.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Okay. So I believe your renewal was it like one year like you have until like next year to decide.
+Lina Ceniccola: That's
+Kobi Kunasekaran: Is that what I remember from an earlier call?
+Lina Ceniccola: one.
+Kobi Kunasekaran: Okay. Okay. Yeah. So I I think right now it's fine like we're not using leads.
+
+
+00:20:06
+
+Kobi Kunasekaran: I think leads are the biggest constraint from how the previous version was built to what we're doing now. So, um, since we're not using leads, um, like we can get move away from all of those things, um, with the new design and, uh, you should be good with the platform plus.
+Emily Vandenberg: Okay, we can take that away.
+Kobi Kunasekaran: Okay. All right. I'll leave that one with you. Um, the next major decision was going to be storage. Um and this one has a lot of implication on what the final effort and uh timelines could be. Uh I think timeline we should be okay. Uh I don't think it's going to affect us too much but just how much effort that we're going to have to put into to uh make this work. Um right now you have the Dropbox option which which is fine. Um but we'll still need to build uh the like components for the users to interact with it uh from the new like signup object all those things. So there's still some uh work that needs to be done and we can try to reuse the existing like API uh that's been configured but like as we go through it like we have to like check test validate make sure that it's still working because we did build
+
+
+00:21:27
+
+Kobi Kunasekaran: that. Um, so that's like you always have that option and I believe like right now every user has an account so it's very expensive and Emily you were mentioning like you want to drop it down to like a couple of users and just use one account to uh integrate that could cut quite a bit of cost. So uh this is one option. Um I think the long-term option that's going to be the most economical for you guys strictly from a storage perspective is the Google Drive GCP. um because per terabyte it is the cheapest. Um between all three like the Salesforce files plus custom component GCP or drop offs there's still the work involved in setting up the user interface like the custom object to track the metadata. Um essentially making sure that we have enough information to at the signup or player level confirm that they've uploaded the proof. Um, if we're good to go get away from that and relying on users to check that off manually in the signup records, we can just use native Salesforce files and attachments.
+
+
+00:22:34
+
+Kobi Kunasekaran: Sorry, I should have kn this presented YouTube. Um, we we could just use native notes and attachments. It like we're not building any custom interfaces. There's like when they go to like a record um like if I just use this random one as an example there's like these Salesforce files they would upload the files um and you know choose from their uh whatever it is but there's no metadata like they can't go in and change what the file type is. This doesn't necessarily easily roll up into the parent object or anything like that without custom work. Um but this is like the out of the box option that's available from Salesforce. um if you want to cut down on like effort and time uh but the native option does cost storage uh so still for storage right now I think you have like something like uh 700 gigs or no 70 gigs I don't remember what the number was that we saw earlier but as you drop down licenses like platform licenses uh you're probably going to like drop down on what's available from a storage perspective there so then you'll have to start paying per terabyte um and it was around like 120 with like a 60% off that promo that they have right now
+
+
+00:23:50
+
+Emily Vandenberg: That was for a dropbox.
+Kobi Kunasekaran: uh for Salesforce like if you want to use Salesforce files
+Joyce Kiddell: Kobe,
+Emily Vandenberg: Okay.
+Joyce Kiddell: is there an option where for the Google Drive GCP
+Miko Sumagang: Yeah.
+Joyce Kiddell: integration um we could do some of the work in house? Like how much of that effort is Salesforce specific?
+Kobi Kunasekaran: So the 40 is Salesforce specific. We're assuming that you're going to do the configuration on the GCP side to like stand up the service account. Um, set up the folders, um, like all of that. Um, but the like setting up the credentials, setting up the API callouts to GCP, setting up the interface for users to upload files, all of that is going to be within Salesforce.
+Joyce Kiddell: Got it.
+Kobi Kunasekaran: Yeah, we can like the complexity will change though like if if we're good with like just a simple like container similar
+Joyce Kiddell: So,
+Kobi Kunasekaran: to this where they upload um and you don't need metadata or anything like that easier than adding like a custom object um that you will it'll essentially do the upload save the file URL in that custom object and then we can choose a category uh in that custom object as part of like the upload process.
+
+
+00:25:09
+
+Kobi Kunasekaran: That's obviously going to be a little bit more involved than just like a random file upload. But when you have that option, then we're able to automate calculating like if uh if the signup has all the proof like the required files uploaded. Um if we don't have that, then there's like we won't be able to automatically determine that unless like we come up with like a file naming system or something like that.
+Joyce Kiddell: and then in terms of like total storage uh capabilities within Salesforce um do we know if it's 70 or 700 because I feel like that
+Kobi Kunasekaran: I can check right now. Yeah,
+Joyce Kiddell: will
+Kobi Kunasekaran: that's a big I I think it was not 700. It's definitely
+Emily Vandenberg: our current current
+Miko Sumagang: If you type in
+Kobi Kunasekaran: under
+Emily Vandenberg: usage.
+Joyce Kiddell: know what Salesforce allows and I'd be curious to know if there's like a cap how
+Kobi Kunasekaran: Yeah, 72 is not going to be enough. Like you already have I think the last number you shared from like May was like 396
+
+
+00:26:06
+
+Joyce Kiddell: much
+Kobi Kunasekaran: gigabytes.
+Lina Ceniccola: 500.
+Kobi Kunasekaran: So you're already going to go over it.
+Lina Ceniccola: We're at
+Kobi Kunasekaran: There are 500 now.
+Lina Ceniccola: 500.
+Joyce Kiddell: Okay. But that's all time,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: right, Lena?
+Lina Ceniccola: Um, as of right now, yeah, we're using 500
+Miko Sumagang: Since when has uh have you been all using that?
+Joyce Kiddell: Yeah.
+Miko Sumagang: Just curious about like how much like growth over time in terms of like
+Lina Ceniccola: Yeah, that shows the month over month.
+Miko Sumagang: data.
+Lina Ceniccola: Um, I can post it in our chat here.
+Kobi Kunasekaran: I think the number we saw from like May was like 396 and then if 500 is like the
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: latest then that's about like just over 100 gigs in two months,
+Miko Sumagang: I think
+Kobi Kunasekaran: right?
+Joyce Kiddell: I'm just wondering if we can potentially come up with a rule set of like within Salesforce like anything
+Miko Sumagang: it
+Joyce Kiddell: in the past like 30 days or whatever is like live and like still accessible but then anything older we archive into like cold storage essentially like I don't know if you've looked at like hybrid solutions like All right.
+
+
+00:27:22
+
+Miko Sumagang: There are definitely like solutions like uh for those in Salesforce. Um they don't come in built like out of the box like unfortunately like choice. Um but there are like clients of ours that basically had like make use of like third party solutions like for that where anything greater than 30 days you start like just like automatically removing them. So like you're able to like preserve this. That being said like we should like also like look into like the general like cost of if we were to like go with like that third party solution cuz like one terabytes uh for this with the promo code is like what like $130 like per month. Kobe if I if I recall.
+Kobi Kunasekaran: Something like that. Yeah.
+Miko Sumagang: Yeah. So like you could like theoretically just like make use of like maybe that license plus um
+Kobi Kunasekaran: Yeah.
+Miko Sumagang: or that one one terabyte plus like what you have and plus like the the third party like software and that will just you know uh keep your data storage um limit in check.
+
+
+00:28:24
+
+Joyce Kiddell: and sorry, the full license comes with a terabyte. Is that what you
+Miko Sumagang: Yeah. like sorry what I meant was um cuz like you have like 72 gigs like right now you are currently
+Joyce Kiddell: said?
+Miko Sumagang: like preserving or estimating around like 200 uh gigs like per month if I'm understanding correctly on like the growth from um what's it called uh from your current like storage like provider sorry blanking um so you likely like will need uh extended file storage within Salesforce which is like $130 like per So if you are looking to have like an automatic archiving tool um we could like as a a takeaway we could like look at some options like for you then maybe like a combination between that third party tool plus um a license a file storage extension of like one terabyte should be like sufficient for you all.
+Joyce Kiddell: That sounds good to me, especially if it cuts down on the build
+Miko Sumagang: Yeah.
+Joyce Kiddell: effort.
+Miko Sumagang: Um my my so like just like my question uh Joyce is that like you said like
+
+
+00:29:28
+
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Stop.
+Miko Sumagang: a 30-day setup uh or 30-day retention like policy. Do you need um backups like for for them um by any chance or like
+Emily Vandenberg: Heat.
+Miko Sumagang: is it good to like kind of like just fully get like archived? I'm just like curious about like what's your data retention for backing up or archiving like these data?
+Joyce Kiddell: Yeah, the 30 days is kind of arbitrary. Lena, do you see like a world where like the players or ops will have to like not players
+Miko Sumagang: Yeah.
+Joyce Kiddell: uh the BAS will have to go back further than 30 days to like look at people's proof?
+Lina Ceniccola: Yes. Um if if there is a case of fraud that isn't somehow it like slips under the rug. Oh, one second. Sorry.
+Joyce Kiddell: under the radar.
+Miko Sumagang: Okay.
+Emily Vandenberg: I love
+Lina Ceniccola: So then they might have to cuz like if they're
+Joyce Kiddell: Yeah,
+Emily Vandenberg: cracking.
+Lina Ceniccola: trying
+Joyce Kiddell: but I guess like I agree that we'll we'll want to go back in time like probably to an indefinite period and that like fraud could have been rampant for like the past year for example and we just won't know exactly when it started so we'll have to go back.
+
+
+00:30:52
+
+Joyce Kiddell: But it's not like we need every single proof like queryable like like accessible through Salesforce every single time. You know what I mean?
+Miko Sumagang: Mhm.
+Joyce Kiddell: So like if we were able to set it up in a way where it's like we only pay for it when
+Miko Sumagang: Mhm.
+Joyce Kiddell: we actually search and need it. Like I don't know if there's like a solution there.
+Miko Sumagang: Uh so sorry.
+Kobi Kunasekaran: So sorry I I want to add a little bit of color onto like where the like the bulk of the
+Miko Sumagang: Go ahead, Kobe.
+Kobi Kunasekaran: effort is going to go as like storage is one part of it but then um it a lot of it actually ties back to uh the automations that we need from determining if a signup has completed all the proofs or um based off of like uh what we're trying to do is like on on a signup level, right? You have like the signup data coming in from agency website. Um and then you have uh you have that record in Salesforce tied to the player record.
+
+
+00:31:50
+
+Kobi Kunasekaran: Um and now your BAS are go going to go in and start uploading the proofs. when they're uploading the proofs. um if we use Salesforce native uh it's this the standard
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: like notes and attachments where they add in a file right so that's easy this is going to like
+Joyce Kiddell: Yeah. Yeah.
+Kobi Kunasekaran: cost us nothing in terms of building any interface but the trade-off with this is we can't query those files to determine if a signup proof has been uploaded or not to then calculate on the signup that it has uh like all three files have been uploaded as expected So, we can't do that rollout with just the out of the box native uh component. So, even if we do pay for the one tab, um we'll still we're still going to need to build some sort of logic to like either add um additional uh like fields on the document object. And then it's going to be like a couple of steps uh out of the box. It's a couple of steps.
+
+
+00:32:53
+
+Kobi Kunasekaran: they'll have to upload the file and then go to the file um and click on the category to set the category. If you want to do all of that and make it easier for them uh from like the like the whatever signup interface that they upload the proof from, that's where there's going to be like a screen flow or something built to help fix that. So that that front-end UI interface is actually a lot of the build uh between all three of these options that is like I'm going to say at least like 20 hours or so and then maybe maybe even a little bit more and then the rest uh the actual integration with GCP. Um this one takes a little bit more because yeah we have to set up the API call out test that out and everything. Um with Salesforce we don't have a lot of that so we're dropping down to like 30 hours. Um but even if you do have the one tabyte um the native notes and attachments might not be enough for you if you want that
+
+
+00:33:50
+
+Joyce Kiddell: Yeah, to be honest,
+Kobi Kunasekaran: automated.
+Joyce Kiddell: I was more kind of just um concerned on like the storage limitations on from a cost perspective. It was just more like where does everything live? And just to give you a bit of insight um as to how like we're trying to actually limit that storage amount going forward. You know, you saw my sock message about like um postbacks. So, we're trying to move towards a system where instead of requiring the player to submit proof at all, we're going to have links um appended with like click IDs where on the operator side when that player um clicks over an ID attached to the link and then uh they fire over the post back um every time a a sign up flow event happens. So, registration, first- time deposit, and wager, each of those would get sent back to us automatically through these postbacks. Sorry, it's the worst technical explanation, but um if we can get even like 50% coverage across all of our signups, then that would reduce the need to actually store a lot of these proofs going forward because we won't need them.
+
+
+00:35:10
+
+Joyce Kiddell: All right, that's um um wrench number one that we'll throw in your process.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: And wrench number two is that like we are actually hoping to um migrate to players forwarding us welcome emails and then um potentially connecting the welcome email itself to Salesforce and not requiring a screenshot for at least the first step of the proof um process.
+Kobi Kunasekaran: So the
+Lina Ceniccola: But we don't we won't get welcome emails forwarded to us for all signups. We'll still need some sort of option for as a fallback.
+Kobi Kunasekaran: Hey,
+Joyce Kiddell: Yeah. So, like this is definitely still needed. It's just like the depth of storage won't be as high hopefully going
+Lina Ceniccola: Okay.
+Joyce Kiddell: forward.
+Kobi Kunasekaran: okay. I the I think we need to double click on the nature of the post and like where that's going to live and how that's going to be tied to the different records that we have and how it's going to be like how we're going to be able to connect uh connect those to the respective player slashdeal slash u like that combination right I think we need to kind of talk about that But um assuming like that's that information is first going into like your your back end because that's where like your player information originates from initially, right?
+
+
+00:36:41
+
+Kobi Kunasekaran: Um, and you're you you have all of that and you're just going to uh call out an API uh API call from your back end to Salesforce uh maybe at the signup record if that information is also available in the back end to say okay for this signup we've uh we have uh proof for the first time deposit like that obviously is not going to take up any storage right like that might be we we do that through like a field on the signup record that your API would talk to and uh and check off Um if like yeah and if that's going to happen to like for all of them yes like that that's perfectly fine. Um but to Lena's point like if we need fallbacks for people that are not like or operators that don't support postbacks or anything like that then yeah I think you're still going to need this. I don't think you can get away from one of these options. Now, if we don't need to store uh like if we're not going to have hundreds of gigs every month of storage because we're going to go on like a API uh postback route versus uh only some files being uploaded, then we might not need to take on the additional complexity for Google Drive because honestly 120 a month for a terabyte for Salesforce storage is not that expensive in the grand scheme of things,
+
+
+00:37:53
+
+Joyce Kiddell: No.
+Kobi Kunasekaran: right?
+Joyce Kiddell: And that's where I'm like leaning towards number two because like to your point regardless there's going to be some sort of custom
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: work required. Emily and Lena,
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: what do you think?
+Emily Vandenberg: I think that there Yeah. Like I think there's probably a few things we should maybe just like kind of land on our side and then like it will kind of tell us best. But I agree with you that doesn't seem crazy,
+Joyce Kiddell: Do we need to decide this today,
+Emily Vandenberg: but
+Joyce Kiddell: Kobe? Like is it like a blocker for you?
+Kobi Kunasekaran: um I think if we if we want to go the GCP route, we want to know as early as possible because that that's going to be like a lot of like API work testing and everything and uh but we need to make sure that we can staff that from our end properly. Not everybody can do the API work. Um, Salesforce files and components and like all of us can do.
+
+
+00:38:47
+
+Kobi Kunasekaran: So, this is not a big problem. Um, so earlier the better. Like obviously, you know, maybe like in the next next week if we can decide that'd be great. Um, we can't wait until like late July to decide that's going to throw up to the size.
+Joyce Kiddell: Like I I feel pretty confident that option two unless we like something else comes up that would like impact this which it might somebody's point but I don't
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Yeah, maybe we just
+Joyce Kiddell: know
+Lina Ceniccola: What what can option three do that two
+Kobi Kunasekaran: Option three, upload everything to Google Drive as opposed to keeping it all in
+Lina Ceniccola: can't?
+Kobi Kunasekaran: Salesforce.
+Joyce Kiddell: and initially I was thinking drive would have a lot more storage capacity but if we get a terabyte through Salesforce anyways then why not just keep it all
+Kobi Kunasekaran: Google Drive is still cheaper if the plan is like if you do want all the proofs because like Google Drive is like something like $20 per terabyte. So while the initial setup is a little involved and we're building a lot of like the custom callouts and everything um if you are planning on storing everything in GCP $20 a terabyte is it's the cheapest that you you're probably going to get.
+
+
+00:39:58
+
+Joyce Kiddell: What's the difference between 20 bucks to like 130?
+Kobi Kunasekaran: So from a scalability perspective,
+Joyce Kiddell: Is that what you said?
+Kobi Kunasekaran: yeah,
+Joyce Kiddell: 120?
+Kobi Kunasekaran: for like immediate term,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: um,
+Joyce Kiddell: Per terabyte.
+Kobi Kunasekaran: yeah.
+Joyce Kiddell: And like like guys, I don't see us getting to two terabytes anytime soon.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: So like we're talking about a difference of a hundred bucks a month.
+Emily Vandenberg: Yeah, I think it to me a little bit less about the cost and more just around like we're we're changing kind of a few things and like uncovering a few things is like how is that going to integrate Great. What's the best way to kind of like push and store? Um and maybe we can kind of just connect with straw too around it and then in short order like align on path but I don't think the cost is the for the storage is the bigger blocker
+Joyce Kiddell: Stra, do you have any concerns?
+Strahinja Vladetic: Um my only concern would be that well um if it is in GCP it would be easier
+
+
+00:40:48
+
+Emily Vandenberg: There.
+Strahinja Vladetic: for me to work with I would assume.
+Kobi Kunasekaran: That's true. Yeah.
+Strahinja Vladetic: I don't know how easy it is to get access to the files if they're stored in Salesforce or Salesforce has APIs to make that easily available.
+Kobi Kunasekaran: I I was actually just thinking that too like if if you do want those files from like thirdarty systems, GCP it like you you can like directly work with it versus Salesforce you
+Strahinja Vladetic: So,
+Kobi Kunasekaran: can you can talk to it through APIs. Um but it's it's a couple of extra steps. I I don't know if it's going to be materially different.
+Lina Ceniccola: If we're My only question too is like if we're going to build potential future automations that directly impact our image um intake, I guess we'd want to go Google Drive. Like since there's a world where we want to automate the images from WhatsApp getting stored
+Emily Vandenberg: Thanks.
+Lina Ceniccola: and it's not a manual shift from like rep putting image here and it can just directly tie into it. It you're saying Google Drive would be the best way to like build an automation outside of Salesforce.
+
+
+00:42:10
+
+Kobi Kunasekaran: I think at that point like we could look at uploading those directly into Salesforce as well. I don't know if it's going to be that much different because Salesforce still needs to know about those files um going into Google Drive for it to link it back to the signup. So there's still going to be that layer. So, I don't know if it's going to be you're going to talk to it through some sort of API whether to uh GCP or Salesforce. Um, yeah, I don't know if it's going to be that much of a difference. Google Drive is going to be like it is going to be easier for you to navigate like if you want to do like a bulk export all those things because you can do that through drive versus Salesforce files and component. It's not as easy uh once those files are there, right? you you go to the records, you'll have like the list of files. Depending on your access level, you may have access to some files versus others.
+
+
+00:43:02
+
+Kobi Kunasekaran: It's a bit more cumbersome, but it is the most seamless, I guess, from a Salesforce
+Emily Vandenberg: If I think of like I might be taking this the wrong way,
+Kobi Kunasekaran: perspective.
+Emily Vandenberg: but like Joyce a world where we're like we're accessing those and auditing um them. Is it make it harder to do that through the Salesforce versus like
+Kobi Kunasekaran: You'll need to make sure whoever is going to do the audit has access to Salesforce.
+Emily Vandenberg: Google
+Kobi Kunasekaran: I think that's the minimum requirement, right? Versus GCP generally every like your entire like company roster is going to have like Google accounts and you can share access easily through there. You're not paying extra for it. So if the people that are doing audits are outside of like Salesforce
+Emily Vandenberg: I'm thinking automation like the automation running
+Kobi Kunasekaran: users
+Emily Vandenberg: the audits on the images and the
+Kobi Kunasekaran: like to confirm if like a first time deposit has been uh uploaded if like the wager
+Emily Vandenberg: file.
+Kobi Kunasekaran: deposits have been
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: uploaded.
+
+
+00:44:05
+
+Emily Vandenberg: Like the amounts match like
+Kobi Kunasekaran: Oh, if you I mean if you want to do that level of analysis, I mean we'd have to see like where are you going to do that analysis? Like that wouldn't be Salesforce, right?
+Emily Vandenberg: no
+Kobi Kunasekaran: Um
+Strahinja Vladetic: Yeah, I know you guys were talking about like maybe uploading images to get them reviewed by AI or extracting information that way that
+Kobi Kunasekaran: yeah.
+Joyce Kiddell: All
+Strahinja Vladetic: my gut reaction is that any any integration like that on top of the files would be easier if it was in GCP.
+Joyce Kiddell: right,
+Strahinja Vladetic: But stop me if
+Joyce Kiddell: let's do it. No, no, I'm converted. That makes sense.
+Strahinja Vladetic: I'm
+Joyce Kiddell: Okay,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: rubber stamps.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Let's do it.
+Kobi Kunasekaran: You see?
+Joyce Kiddell: Yeah, that's kind of where we were leaning originally,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Kobe.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: if you guys if you guys want me like a more confident answer for me just because I don't know as much I could look at the Salesforce APIs um to do a quick comparison but I yeah definitely for for working with the files GCP You would be easier right now for me.
+
+
+00:45:16
+
+Joyce Kiddell: That's fine.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Yeah, I think like that's where we're leaning.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Yeah, maybe we just like quickly take it offline by and confirm. I want to take a look at like the scope of like the build too and make sure like the 40 how you're thinking of the 40 hours and it all tracks but let us get back to you by end
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: of
+Kobi Kunasekaran: Yeah. Take a look at uh I did link the document there.
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: So in the initial analysis we did just the three options which is um like option two,
+Emily Vandenberg: exactly.
+Kobi Kunasekaran: three and four and then I actually added the option one as a last minute in case like the storage costs and like the initial build costs are expensive. So option one is not mentioned anywhere here. Um, but Jester did a great job of breaking down like what are the components for each of the builds. So, take a look. And this is where like these uh for GCP, these are the things that we can happily help do it for you, but we've kept it out of the uh build hours because you're going to want somebody on your side that has an access to do all of these things.
+
+
+00:46:22
+
+Emily Vandenberg: Yeah, makes sense. I leaning there,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: but let's just get you final confirmation and review a little bit closer with
+Kobi Kunasekaran: Yeah. Okay, awesome. Okay,
+Emily Vandenberg: straw.
+Kobi Kunasekaran: we are we are way over time that I was expecting for where we are, but good conversations. Um, yeah, let me know. I think the between the two, it's going to it's going to be a matter of like do we need an additional object or do we just need to build the interface to add metadata to the existing files. So that the earlier we know the better. um otherwise it's not going to necessarily block us from the rest of the build for now. Um the main things that I did want to uh talk through from a build perspective um like one I I know like the AI summarize slide deck is actually pretty good. It's a good way to like go through without getting overwhelmed by all the fields and everything in the design document. So that's why like I wanted to make sure that's included.
+
+
+00:47:21
+
+Kobi Kunasekaran: Um and I did answer some of your questions. Um the main thing that I am looking for clarification slash um a little bit more information on uh is one for the market object. Um so for market we talked about this a couple times like initially um in your like PRDS you wanted like a multi select pick list so you can have like a deal that's set up to be uh for multiple markets. um multi select pixel list like we talked about before it's not the greatest for uh reporting um because it's essentially like a comma separated value of the different options that are available. Uh the best way to break it down is into like a uh individual object for like the each country and state that a deal uh could be related to. And that's how I've broken it down. It is a bit more complex than just a single market object. Um but this this means like if your raw data like your um signup data has uh you have your deal you have your operator ids and then you have the state and country that that deal was uh supported for.
+
+
+00:48:34
+
+Kobi Kunasekaran: We can do those lookups to determine what the deal ID from Salesforce would be. So it depends on how granular your source data is uh of like whether we need this or not. So take a look and let me know if this is overkill or if you're good with just like multi select pick list. Um and the other one that I did bring up from later phases is the deal assignments. So initially in our uh scope we thought we can just get away with uh just a deal object. Um but after going through the discovery and talking with like how the team is associating or doing the assignments and then setting up those links in your agency websites and how those tie back to uh the players and the respective agents. We I think we need to actually bring up the deal rep assignment object as well. So this is a junction between a deal and the rep. Um I didn't scope out any like simplified user interface. So I'm making the assumption that maybe for this phase we go through with whatever Salesforce software is in terms of creating records but we can fine-tune that and like as we start building this you can let me know like if you want a simpler interface for uh for the assignments as well and then we can add that in. Um but what this does is essentially you have your deal uh and then just the same as what your reps are doing now in Air Table where they're assigning a deal uh or like the links to different reps.
+
+
+00:49:58
+
+Kobi Kunasekaran: You would do that in Salesforce and then uh in your backend when your uh players are clicking on the study links uh you you already have the sales rep information and then you have the uh part or all of the deal information and we're able to use that to associate that signup directly to that deal rep uh deal rep assignment. And then we can then do some filtering like make sure that deals are only uh sorry signups are allocated to the right player based on the effective dates and things like that we're able to do with the dealer assignment object. So that's another one to just double click on like take a look and let me know if this makes sense if you have any issues. Um and then the one more I needed you to like confirm if this is possible. Um, so from what I saw uh of the presentation that uh I think it was Ryan that put uh put together for your uh back end uh and the API docs. Um I assume that you have all the information to link a sign up or like a study link click to that combination of uh operator market uh vertical uh player.
+
+
+00:51:16
+
+Kobi Kunasekaran: Um, so I've let me go to the signup link object. So I've included all of what I saw in the API docs um as fields that could be sent every time somebody clicks on a study link. Um, it is indicated on the in the description like set through the API. I just need confirmation that this information is actually available. uh and if not and if we need to do any other additional lookups with records in Salesforce then we just need to update the workflows a little bit accordingly. So this might be something to bring in your developer uh into and just have them review and confirm that this information is actually available.
+Joyce Kiddell: for the stuff that's coming in through the API. Do you need to know like the exact like field
+Kobi Kunasekaran: Um yes I
+Joyce Kiddell: name?
+Kobi Kunasekaran: mean yes like we're we're not going to be the one configuring the API right it is going to be uh like whoever is updating uh the API callouts from the play can side that's going to be updating it um I will provide the mapping like so where how those fields map to the fields that are available here uh what we need to make sure is that like um I think the workflow is linked here.
+
+
+00:52:40
+
+Kobi Kunasekaran: I don't know if you have access to the mirror diagram but I'll share but there's like a written up process as well. So this is the process and how like your study link clicks are going to link to the player through the deal to the deal rep assignment to the market and everything. So for the player um you already have the sales rep name. I I think it should be easy enough to get like a sales rep ID. So, we're doing that lookup. We're flagging anything where we find more than one player or something like that. But for the deal, I'm assuming in the back end you have like a deal ID that we can just look up with like a accompanying deal in Salesforce. If you don't and if we instead need to break it down into its individual components like in those in the API call when they click on the study link you'll send us like a operator ID uh partner ID uh market ID um deal rep ID like depending on what that information is we'll have to update these workflows to do the lookups in Salesforce to do the relationships
+
+
+00:53:46
+
+Joyce Kiddell: Can you um potentially export that and send it to
+Kobi Kunasekaran: I I share the mirror diagram actually.
+Joyce Kiddell: us?
+Kobi Kunasekaran: So I I'll share that over. Um there's like a writt like a summarized version of it in the user story itself but the diagram is easier to follow through. Those are the main things um that and like there are a few things that I've highlighted as questions as well. So again, I know I sent this like yesterday. So, uh, not expecting that you've gone through all of it, but please do go through and just make sure that I didn't do anything that's like completely out of what you were expecting. Um, and then I think all the other objects are pretty straightforward. I don't think there's any like major blockers or red flags. U, but it's just a signup. the signup is the one we're going to have to make sure that it's it's right before we get
+Joyce Kiddell: So,
+Kobi Kunasekaran: started.
+Joyce Kiddell: you want us to just uh respond to anything you've highlighted in yellow and like review everything else obviously,
+
+
+00:54:44
+
+Kobi Kunasekaran: Yeah. And like just make sure that you're good with the model like the how the study links are going to connect to the signups. And um in this diagram like I've also made assumption that we're just going to do the lookup and if we find something we'll link it but thinking through your statuses and everything you might want different behaviors like if a signup is already completed and like a study link like comes in with the same information how do we treat that signup like those are some like scenarios and things that we'll have to define. Um, and we can do that through as part of like the build process. We'll build out the initial happy path and then you'll test it, uncover all these like other edge cases and we can continue to iterate. Um, but those are yeah, just fun things to take a look, review and let us
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: know.
+Joyce Kiddell: that's probably the right approach is just to build out happy path and then like as we're going through this we'll come up with like different test cases.
+
+
+00:55:36
+
+Joyce Kiddell: Um the I wanted to ask like out of our comments in the slide deck, was there anything there that we needed to talk
+Kobi Kunasekaran: No, I like basically you were asking about the vertical.
+Joyce Kiddell: through
+Kobi Kunasekaran: The vertical right now it's a pickless field. It's not a separate object. Um, and this is based on the assumption that every deal uh you're going to have a unique deal per vertical uh for the other combination. Um, so if that's not the case and a deal could have multiple verticals configured, then we might have to look at multi select pick list or like a related list to do those linkages as
+Joyce Kiddell: So let me run through that.
+Kobi Kunasekaran: well.
+Joyce Kiddell: Like a deal can have different permutations of both markets and verticals, right? in that. Um, hold on.
+Kobi Kunasekaran: Hat.
+Joyce Kiddell: I have a visual that might be helpful here. So, this is what we use on like the digital side of the business. It's not the same thing as agency necessarily,
+Kobi Kunasekaran: Heat.
+
+
+00:56:58
+
+Joyce Kiddell: but it's kind of modeled the same in that there's like a partner operator type which is
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: vertical and then the market would be state and country. There's no country here. There should be,
+Kobi Kunasekaran: Heat.
+Joyce Kiddell: right? But we know what a market is. We know this is the vertical. Um, and then the combinations of all these things, like a casino um, agreement in Michigan will have a different CPA attached to it than a casino agreement in New Jersey for fanatics, for example. But when it comes to like what do we actually sign at the end of the day,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: a deal is really just a combination of Kina and um, Fanatics. So I think it depends on how we want to look at it within the data because like the full thing of casino plus or like vertical plus market I think needs to tie back to the signup record. So in my mind that's what we should be calling a deal. Um but like the actual
+
+
+00:58:14
+
+Kobi Kunasekaran: But in this case like you have a separate row for like the different states for fanatics, right? So would that would you configure those as like separate deals or are you expecting this to be a single deal for like Kina Fanatics Casino and
+Joyce Kiddell: So it would be like in terms of like the actual deal,
+Kobi Kunasekaran: and
+Joyce Kiddell: we're only signing one deal with Fanatics and Kina, right? But then we're um like the actual agreement
+Kobi Kunasekaran: crap.
+Joyce Kiddell: will have all these like sub rates included for like sports books versus casinos in different states.
+Emily Vandenberg: For the like purpose of steel in Salesforce, it feels like it's at the state province level, right? like contractually. Yes, it's higher up,
+Joyce Kiddell: But state,
+Emily Vandenberg: but
+Joyce Kiddell: province plus vertical just because like all of those things like the different permutations of
+Emily Vandenberg: yeah.
+Joyce Kiddell: all four could result in different payments. It's like will affect downstream calculations.
+Emily Vandenberg: And targets, right, Lena? Because we get targets at that level,
+Joyce Kiddell: Yeah.
+
+
+00:59:26
+
+Emily Vandenberg: too. And where what you can turn on and off.
+Lina Ceniccola: Yeah, there'll be different volume targets for sports versus casino just overall.
+Joyce Kiddell: So if we call the four the fourth inclination a deal and then like the agreement is what we sign at a
+Lina Ceniccola: Oh,
+Joyce Kiddell: partner and operator level and that's it like we'll use that for like the actual you know sales cycle tracking later
+Kobi Kunasekaran: Yeah, like at a high level like the way I have this set up is that the deal
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: you're essentially going to have like a unique deal per combination per like your other fields like your if your CPA is different, it's going to be two separate deals um versus a single uh that represents like two different
+Emily Vandenberg: Heat.
+Kobi Kunasekaran: clicks, right? So that's kind of how it's set up.
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: But and I think that makes sense like
+Joyce Kiddell: Yeah. Yeah, I would just add a fourth. Like, you know how you have the three kind of called out as objects?
+
+
+01:00:21
+
+Joyce Kiddell: I would recommend having a fourth object for
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: vertical. Mo, you're you're nodding. So, I don't know if that's what you're thinking,
+Miko Sumagang: No, like I'm in agreement like if if it requires that like level of like data for like the permutations and with
+Joyce Kiddell: but
+Miko Sumagang: your like targets, there's no really other alternatives rather than like getting that level of like detail into the data object model, right?
+Kobi Kunasekaran: So we could add a like I I guess the question is like do we really need a separate object or can we just treat it as an attribute of
+Miko Sumagang: Um
+Kobi Kunasekaran: the deal right a separate object means because it your verticals are like finite right you have like five or six options it's not like a list of like accounts or it's not a list of companies or anything like that that's going to keep growing
+Joyce Kiddell: I might keep though in terms of like the different verticals we
+Miko Sumagang: Yeah.
+Kobi Kunasekaran: So
+Miko Sumagang: And there's no like sub attributes for vertical,
+
+
+01:01:12
+
+Joyce Kiddell: approach.
+Kobi Kunasekaran: Yeah.
+Miko Sumagang: right? Like it's
+Emily Vandenberg: currently. No.
+Miko Sumagang: do you envision it having some at some point or do you want like that flexibility to like have
+Emily Vandenberg: Right.
+Miko Sumagang: have it at some point?
+Joyce Kiddell: like what would be the the sub attributes of market like that's where I'm getting tripped up what makes
+Miko Sumagang: Yeah. I don't think so. Yeah.
+Joyce Kiddell: market its own thing but then vertical wouldn't be
+Kobi Kunasekaran: So for market the reason we broke it up into like a separate object is so you could have like a market um can be like one country one state or it could be one country five states or it could be like US and Canada and all of uh all of the provinces in Canada except Ontario. So that's how like the TRD had it described like you had like five different options for the market. So that kind of configuration you like we could have a running list of like pick list options with every single possible combination as an option but that not the like the scalable way to
+
+
+01:02:21
+
+Joyce Kiddell: So, sorry. I don't maybe in the I think in the PR I wasn't explicit enough about it,
+Kobi Kunasekaran: go.
+Joyce Kiddell: but like if a market is Ontario then that's going to have a different rate than New Jersey. Um but like they you know I mean like it's not going to be all of those things at once.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: It's going to be similar to verticals and that it's like one at a time is a deal because it's going to be a different rate each time.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: I think I was trying to show examples of like a rest of Canada and like the the variability and that it's not always one state or one province. It's it could be like one country or or one like region of ROC, right? But um I think making that into a pick list would also be probably sufficient if we're doing that for verticals as well.
+Miko Sumagang: But it also just like means that like if it's like the whole of Canada as opposed to like just like Ontario, you can have like a single like record that's like whole of like Canada for like that given like market with that permutation.
+
+
+01:03:28
+
+Miko Sumagang: But what happens if you have uh a permutation that basically has the whole
+Joyce Kiddell: Mhm.
+Miko Sumagang: of Canada and would you ever have instances where like it would also like be like Ontario? Which one do you end up like following or like are are we going to be specific enough that like you wouldn't have like those like overlaps
+Emily Vandenberg: All
+Miko Sumagang: ever?
+Joyce Kiddell: So it would either be all of Canada or Ontario and the rest of Canada as like individual rights within that
+Miko Sumagang: Mhm. All right.
+Emily Vandenberg: right.
+Miko Sumagang: So,
+Joyce Kiddell: agreement.
+Miko Sumagang: do you need like a market then that basically has rest of Canada minus Ontario as like a record? Right.
+Kobi Kunasekaran: We either record or like a option and a pick list,
+Miko Sumagang: I'm just like trying to like figure out like how Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: right?
+Miko Sumagang: Right. Otherwise,
+Joyce Kiddell: Yeah.
+Miko Sumagang: you'll have like multiple deals that basically has like Ontario, Nova Scotia, and Vanc uh what's it called? like Vancouver or like you know
+
+
+01:04:24
+
+Joyce Kiddell: Could we just do all of the provinces in a drop down and the rest of Canada and
+Miko Sumagang: BC.
+Joyce Kiddell: then
+Miko Sumagang: Yeah.
+Kobi Kunasekaran: we can like in a single like but then you also have like the 52 states as well.
+Miko Sumagang: Like quick list,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: So that's a pretty big pickless value set.
+Miko Sumagang: right?
+Kobi Kunasekaran: And then if you have like combinations where like Ontario and Quebec is one rate and then the rest of Canada
+Joyce Kiddell: But that's the thing is those are those are almost always going to be a different
+Kobi Kunasekaran: or everything except that.
+Joyce Kiddell: rate.
+Kobi Kunasekaran: Okay. Yeah, it's up to you like uh like the simplify the market object into
+Joyce Kiddell: I get wanting to pick. Sorry.
+Kobi Kunasekaran: sorry.
+Joyce Kiddell: I I understand wanting to like shorten the pick list like 52 is a lot to have to choose from.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Like I don't know if there's a way to just like like you're given the ability to type it in and then it autofills kind of thing as you're setting up a deal, but like I don't think we need the ability to have multiple regions called out at once in one
+
+
+01:05:20
+
+Kobi Kunasekaran: Okay, that definitely makes it easier.
+Joyce Kiddell: deal.
+Kobi Kunasekaran: Like I I broke it down and like if it's just a pick list then it'll just be an attribute of deal. Then we don't need to worry about like all the complexities of like the country, the joint tables or anything. Okay. Why don't we like going from the pick list to breaking down to into like a market object? We can always do that. if we need to. So why don't we set up the pick list first?
+Miko Sumagang: Yeah.
+Kobi Kunasekaran: We can see how that looks like and how the deal configuration works and then if if that works for you for all the different like uh use cases,
+Joyce Kiddell: What?
+Kobi Kunasekaran: then we can stay with that and we don't need to build out like a custom market object. Um but then if we find that it doesn't necessarily translate to the the data that's coming in
+Miko Sumagang: Yeah.
+Kobi Kunasekaran: or like the interface for your users uh or the data that you're looking for in terms of reporting, then we can always add the market in after.
+
+
+01:06:11
+
+Kobi Kunasekaran: Doesn't have to be from day
+Miko Sumagang: Yeah. Yeah.
+Joyce Kiddell: Okay.
+Miko Sumagang: And it's pretty easy for us to like basically just like even if you start from like a pick list and then we create
+Kobi Kunasekaran: one.
+Miko Sumagang: um a c a custom object like afterwards because like we do have like that like starting point of like the data, it'll just like be basically be a data loader to convert it. So wouldn't shouldn't be like the the hardest part.
+Kobi Kunasekaran: Yeah.
+Miko Sumagang: Sorry. Just I want to be respectful of everyone's time
+Kobi Kunasekaran: Yeah. We are over time. Yeah. Okay. In terms of next steps,
+Joyce Kiddell: Okay.
+Miko Sumagang: over
+Kobi Kunasekaran: like um are you are you all good to like maybe review this over the next couple days and then um we do have our weekly sync on Wait, is it next week that you're coming in, right? Yeah, you're coming in on Wednesday.
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: We do have a weekly sync on Tuesday as well.
+
+
+01:07:01
+
+Kobi Kunasekaran: Um yeah, like do you want to review the document over the next couple days? maybe leave leave comments, questions in there and then we can regroup uh either like on Tuesday um if that time still works for you um or earlier if there are any big decisions that we need to make before we get started. Um uh and then like on our end we'll start with like the organization configuration and everything uh in the meantime and then we can go from there.
+Joyce Kiddell: Yeah. So, just to be clear, like are you guys good to go into build mode? Like knowing that there's some pieces that are are obviously being blocked, but like do you need us to sign off on the full thing before you get started?
+Miko Sumagang: No, I I think I'm gonna speak like towards that. Like I was talking to like Kobe from like earlier today.
+Kobi Kunasekaran: No.
+Miko Sumagang: Like we're also like eager to like start like actually like building out like the components. So what we actually like wanted to like do is like a like I know like we've already like mentioned this but like you already
+
+
+01:07:53
+
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Heat.
+Miko Sumagang: have a a production system that has some like test like data that has like some configuration. So we do want to like just like do like one last slide check that's like hey we're okay to like rip these like components like out uh so that like while you all are here viewing we're actually like in parallel also like preparing ourselves for like like the build. Secondly like there are uh yes I know like there's some like loose ends but like we're talking about like the last 10 15% that we will be able to like tackle as we go through you know like the build the demo or what have you. So we would like to actually start like building out like the components or like safe now just to like you know keep like the momentum like going. Um so if you are all okay like with that then maybe like for like the safer like objects and what have
+Joyce Kiddell: Totally.
+Miko Sumagang: you we'll start ripping out like some of uh the configuration that you have like in in like production creating like the the safer like objects and components that like we know uh are going to remain like static and then um the rest of like the materials that like are are waiting for your final like sign off then like we could just you know uh start tackling on those like as soon as you're able to provide
+
+
+01:08:58
+
+Joyce Kiddell: Yeah,
+Miko Sumagang: your feedback.
+Joyce Kiddell: that would be my preference. Um,
+Miko Sumagang: f***
+Joyce Kiddell: and Lena, are we good to just like rip out whatever is in there? Like what they were saying about like whatever has been built in Salesforce already?
+Miko Sumagang: like there's no sensitive data or anything like that like that we have to make backup copies on and configs.
+Joyce Kiddell: No, no, no,
+Miko Sumagang: No.
+Joyce Kiddell: no. Let's go.
+Miko Sumagang: Yeah.
+Joyce Kiddell: Let's do this. I'm sorry.
+Miko Sumagang: Okay. All right.
+Lina Ceniccola: Oh,
+Miko Sumagang: Let's
+Joyce Kiddell: I'm like so like itchy on this project.
+Kobi Kunasekaran: Okay.
+Miko Sumagang: go.
+Joyce Kiddell: So, do what you need to do. Um,
+Kobi Kunasekaran: Okay.
+Miko Sumagang: Okay.
+Joyce Kiddell: and then what I'm going to propose is that like give us until like next Wednesday, like if we can even potentially cancel the Tuesday and then if there's anything like hangover that we need to discuss, like can we do that in person? M or would you rather have another like chat
+
+
+01:09:48
+
+Emily Vandenberg: Maybe let's keep it for Tuesday.
+Joyce Kiddell: beforehand?
+Emily Vandenberg: If we need it, we use it. If we don't, we don't. Like just knowing that we're going to have Jess and like, you know what I mean? Depending where the conversation might drift when we're in person. If there's anything tactical that we just like want to make sure we're lying to kind of keep momentum going or get
+Joyce Kiddell: Ouchie.
+Emily Vandenberg: unblocked on, we'll use it for that. If everything's good and we can respond and handle everything through um email and whatnot, then we'll
+Kobi Kunasekaran: It's
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: clockwork.
+Joyce Kiddell: I'm I'm committing right now like I'll have read through the whole document by end of day tomorrow and I'll just leave a bunch of
+Emily Vandenberg: just
+Miko Sumagang: Okay.
+Joyce Kiddell: comments and we can kind of work async if that works.
+Kobi Kunasekaran: Perfect.
+Joyce Kiddell: Um, and like with Jess being there on Wednesday, like Emily's point, if there's anything that you're able to kind of like show us in terms of what's been built, like I think he'll be extra happy if he knows that we've gotten
+
+
+01:10:36
+
+Miko Sumagang: Yeah. Okay. No worries. Like I I could feel that like,
+Joyce Kiddell: started.
+Miko Sumagang: you know,
+Kobi Kunasekaran: Okay.
+Miko Sumagang: like we want to have like some sort of like show and tell like coming up. Like I'm sure like he's eager to see like progress like around it too. And there's been like a lot of like planning over the course of the last like few weeks. So we want to make sure that like we're able to like match like everyone's expectations too. And you know it's it's always like nice to like do like a demo where like every everyone's like there like too. It's uh it eases like everyone's concerns and that we're on
+Emily Vandenberg: And Kobe, just in terms of the API stuff,
+Miko Sumagang: track.
+Joyce Kiddell: Perfect.
+Emily Vandenberg: you just need us to kind of like validate everything that you said that was co could be extracted. Like maybe it's not currently, but like that the API can get that to you.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Is there API development work that you've identified that we need to kind of bring
+
+
+01:11:23
+
+Kobi Kunasekaran: like your backend team is going to have to do some work because the like we're
+Emily Vandenberg: back
+Kobi Kunasekaran: ripping out all of the uh logic that they've built for integrating with Salesforce right now because they're they're no longer creating leads. They're no longer uh like creating player records or anything like that.
+Emily Vandenberg: All right.
+Kobi Kunasekaran: So we right now I've kept it minimal where as long as we have like the one process through the study link
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: click we can cover 99% of everything that we need to do in Salesforce. So at minimum uh we just need confirmation that all of this information for the study link click can be sent as somebody clicks the link and confirm that those fields are available and everything like that. Um, and then they're going to be the one that updates the API. Like we'll after we set up the object, they can't do anything now, but after we set up the object, then instead of creating leads, they'll be creating these study link objects from that API from or from
+
+
+01:12:17
+
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: there.
+Emily Vandenberg: Okay. Yeah, we'll
+Kobi Kunasekaran: Yeah, happy to like set up a call to like talk through this as well.
+Emily Vandenberg: just
+Kobi Kunasekaran: Like this is again I didn't want to go too much into all the information all at once because like we're still hashing out the like the structure and everything. If we're good with the data model and everything, then we can start putting together more like actionable next steps of what your data team has to do versus what we have to do. That'll help.
+Emily Vandenberg: Okay. Yeah. Yep. So, we'll kind of keep moving that forward.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Um, we'll take a few things offline. We'll get back to you. We'll comment into document and if there's anything that you need as you kind of come up,
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: just let us know. We'll get you those answers.
+Kobi Kunasekaran: we'll do
+Emily Vandenberg: Um, and then just a reminder for like next week, we did say like that we'd be presenting the timeline for kind of phase 2 three.
+
+
+01:13:07
+
+Emily Vandenberg: Um, so just making sure that that's being worked on or able to kind of be ready for
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: that
+Kobi Kunasekaran: Okay. It is like I I will say like it's going to be like rough because we like until we go into all the processes.
+Emily Vandenberg: connect.
+Kobi Kunasekaran: Uh I don't know how how detailed or accurate we're going to be, but I I'll try my best to like put together like a what what it looks like to have everything in
+Emily Vandenberg: Yeah, because we were just thinking we needed kind of this time like we were I think we even gave ourselves a little grace to be able to kind of like
+Kobi Kunasekaran: place.
+Emily Vandenberg: feel more confident. So hopefully over the next week we get there.
+Kobi Kunasekaran: Okay. We'll do all right.
+Emily Vandenberg: Cool.
+Kobi Kunasekaran: So, I I'll put together some follow-ups as well, like after the call. I have another meeting after this, but uh by the end of the day today, if not like early morning tomorrow, I'll I'll send over some next steps and like anything specific that I need like input earlier on and we can go from there.
+
+
+01:14:10
+
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: Sounds good. Anything else? I know we're way over. Uh but yeah,
+Emily Vandenberg: perfect.
+Kobi Kunasekaran: any any other last
+Joyce Kiddell: Um,
+Kobi Kunasekaran: questions?
+Joyce Kiddell: are you guys okay to handle the ordering of lunch on Wednesday or do you need anything from us on that?
+Miko Sumagang: any dietary restriction.
+Kobi Kunasekaran: We'll send over like a link.
+Joyce Kiddell: What's that?
+Kobi Kunasekaran: Sorry, M. I was going to say like Okay,
+Miko Sumagang: I was going to say like
+Kobi Kunasekaran: go. Yeah, I'll go. I'll go. I'll Will he leave suggested like we'll we'll do the whole like Uber Eats like send out the link so they can pick uh what they want. So we'll we'll probably send that over. I don't know if you've used this feature like it's a it's a link and you just add everything to a cart and then we can just order it all from
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: our end.
+Joyce Kiddell: Sure. Do you have like a restaurant in mind?
+
+
+01:14:55
+
+Kobi Kunasekaran: Uh no not really. Do you all have any preferences like we're queen?
+Miko Sumagang: like the jumper team has like very flexible on like what we Sorry.
+Kobi Kunasekaran: Oh
+Miko Sumagang: We're a bunch of foodies. So, uh, taking your lead if like you guys like have like a preference or like been craving on something that's like from
+Kobi Kunasekaran: yeah.
+Miko Sumagang: Toronto.
+Joyce Kiddell: Uh, I don't know. Em, do you have a preference?
+Emily Vandenberg: No, I mean
+Miko Sumagang: What What's favorite cuisines? Any anyone maybe just put it out there.
+Joyce Kiddell: Okay.
+Emily Vandenberg: I
+Joyce Kiddell: I love Thai food.
+Miko Sumagang: Oh, okay.
+Kobi Kunasekaran: Those are good.
+Joyce Kiddell: like Houseand Road and and Pie were two of my favorites back in the
+Miko Sumagang: Okay.
+Lina Ceniccola: Oh,
+Miko Sumagang: There you go.
+Lina Ceniccola: I love road.
+Miko Sumagang: There you go.
+Joyce Kiddell: day.
+Miko Sumagang: I think uh we know what we're gonna
+Lina Ceniccola: Is cast on road the same as Nana tie or is it a different one?
+Miko Sumagang: get.
+Lina Ceniccola: I don't
+
+
+01:15:42
+
+Miko Sumagang: Ah,
+Kobi Kunasekaran: I think that's
+Miko Sumagang: there was like there's like a really nice one like that's like by the well Kobe.
+Lina Ceniccola: remember.
+Kobi Kunasekaran: different.
+Miko Sumagang: Remember I talking about like the one that like Lauren really likes or something like
+Kobi Kunasekaran: I don't know.
+Miko Sumagang: that.
+Kobi Kunasekaran: But like I I'm I stand behind Ktown Road and Pie because those are the two
+Miko Sumagang: Okay.
+Kobi Kunasekaran: best Thai restaurants.
+Lina Ceniccola: I remember being
+Miko Sumagang: Yeah. Yeah. Okay. I don't think I've tried that. Like I do love pie,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: good.
+Miko Sumagang: but like I'm always like down for like anything like like So, okay, we'll figure it out. We'll send out like take the need.
+Joyce Kiddell: Okay, sounds good. All right,
+Kobi Kunasekaran: Works.
+Joyce Kiddell: looking forward to it. Talk to you later.
+Emily Vandenberg: Okay.
+Miko Sumagang: All right.
+Joyce Kiddell: Bye.
+Kobi Kunasekaran: Awesome.
+Miko Sumagang: See y'all.
+Kobi Kunasekaran: He says,
+Emily Vandenberg: Five.
+Miko Sumagang: Bye.
+Kobi Kunasekaran: "What?
+
+
+Transcription ended after 01:18:29
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

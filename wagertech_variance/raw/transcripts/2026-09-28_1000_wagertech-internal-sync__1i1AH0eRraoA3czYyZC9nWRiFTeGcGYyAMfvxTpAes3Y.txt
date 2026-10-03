@@ -1,0 +1,591 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech Internal Sync
+
+Sep 28, 2026
+Cedrick Infantado Taryn Reithofer Kobi Kunasekaran Waleed Alasadi
+
+Certification exam results and weekly focus updates via integration architecture reviews
+
+Claude certification exam results and insights
+* Waleed and Miko attempted the Claude certification exam, with Miko passing and Waleed scoring 702.
+* The exam featured challenging sections on coding syntax, multi-agent execution, and tool integration.
+* The test emphasized API cost and credit optimization strategies for transactions.
+
+
+CMS integration architecture and webhook configuration
+* Cedric successfully configured the CMS webhook and verified connectivity using Postman and Salesforce.
+* Cedric evaluated platform events and flows to execute secure HTTP callouts.
+* Kobi preferred the flow-based approach to ensure maintainability and simplify troubleshooting.
+
+
+Sprint progress and user story updates
+* Affiliate link blockers were resolved, and the signup logging experience remained stable.
+* Cedric restricted rep access to exclusively create referrals for assigned accounts.
+* Taryn worked on DLRS rollups for operator relationships and feedback items.
+* Kobi advised tracking internal project management tasks directly in Jira to aid prioritization.
+
+
+Next steps
+* [Cedrick Infantado] Investigate Flow reliability: Investigate if flow-based architecture can handle retries and wait times for CMS integration. Perform a proof of concept to determine the feasibility of logging and retry logic.
+* [Kobi Kunasekaran] Conduct CMS process walkthrough: Conduct a meeting to walk through the CMS integration process and ensure all associated tickets are groomed. Prepare for this sync by performing necessary ticket grooming beforehand.
+* [Kobi Kunasekaran] Share commercial designs: Share the commercial term designs with stakeholders to gather final feedback before finalizing user stories. Complete the design work for the remaining items.
+* [Taryn Reithofer] Finalize Emily tickets: Meet with Emily to resolve ticket 408 regarding supported markets and ticket 166 regarding brand ambassador and player related lists.
+* [Taryn Reithofer] Reorganize signup header: Hide the attribution banner and reorganize the signup header highlights panel. Complete these updates prior to the meeting with Emily.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 28, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran Waleed Alasadi
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Certification exam results and weekly focus updates via integration architecture reviews
+
+Claude Exam and CMS Focus
+Exam results revealed diverse technical topics. Weekly focus centered on CMS integration goals.
+
+Integration Architecture and Validation
+Salesforce flows were proposed for CMS integration. Task allocation discussions addressed validation rule complexities.
+
+Backlog Prioritization and Management
+Ticket prioritizations targeted launch value. Project designs and documentation tracking concluded the session.
+
+
+Decisions
+Needs Further Discussion
+* CMS Integration Implementation Architecture Approach The team deferred final adoption of a flow-based architecture for CMS integration pending verification of retry and wait capabilities.
+
+
+Aligned
+* Account Referral Creation Restrictions for Representatives Representatives are restricted from creating referrals for anything other than accounts upon system login.
+
+
+
+Next steps
+* [Cedrick Infantado] Investigate Flow reliability: Investigate if flow-based architecture can handle retries and wait times for CMS integration. Perform a proof of concept to determine the feasibility of logging and retry logic.
+* [Kobi Kunasekaran] Conduct CMS process walkthrough: Conduct a meeting to walk through the CMS integration process and ensure all associated tickets are groomed. Prepare for this sync by performing necessary ticket grooming beforehand.
+* [Kobi Kunasekaran] Share commercial designs: Share the commercial term designs with stakeholders to gather final feedback before finalizing user stories. Complete the design work for the remaining items.
+* [Taryn Reithofer] Finalize Emily tickets: Meet with Emily to resolve ticket 408 regarding supported markets and ticket 166 regarding brand ambassador and player related lists.
+* [Taryn Reithofer] Reorganize signup header: Hide the attribution banner and reorganize the signup header highlights panel. Complete these updates prior to the meeting with Emily.
+
+
+
+Details
+* Claude Certification Exam Results and Content: Waleed Alasadi shared that they and Miko spontaneously took the Claude certification exam the previous Thursday without prior preparation. Waleed Alasadi scored 702 out of 1,000, narrowly missing the passing grade of 720, while Miko successfully passed the exam (00:00:36) (00:03:13). Waleed Alasadi described the exam's difficult sections, which included coding perspectives using functions like Bash, glob, and gleb, detailed tooling and update records questions, agent roles and communication architecture, and credit optimization strategies for reducing transaction costs (00:01:27) (00:04:39). Waleed Alasadi noted they used Claude to generate a training artifact an hour before testing, which was helpful despite the lack of preparation time (00:05:28).
+* Weekly Focus and CMS Integration Goals: Kobi Kunasekaran reviewed the previous week's discoveries regarding the widget tag, noting a large volume of remaining requirements and a busy week ahead (00:07:23). Kobi Kunasekaran stated that the primary focus for the current week is completing the CMS integration to stream Salesforce deal data and affiliate links. Cedrick Infantado moved the corresponding ticket to review, marking the completion of affiliate link deals. Kobi Kunasekaran is currently grooming new deal-level lifecycle stories to facilitate transmitting data, behaviors, and affiliate links to the CMS by the end of the week (00:08:49).
+* Task Allocation and Validation Rules: Kobi Kunasekaran discussed assigning validation rule stories to Taryn Reithofer to build their experience, though Taryn Reithofer expressed hesitation about taking on complex, unfamiliar tasks due to time constraints and a slower pace on first attempts. Kobi Kunasekaran agreed to be mindful of task complexity and keep Taryn Reithofer focused on shipping completed pages, addressing feedback, and powering through accessible items (00:10:12). To manage backlog maintenance, Kobi Kunasekaran planned to use Claude to close out older, verified shipped tickets, reducing the review queue from 138 items to a manageable number (00:12:03).
+* CMS Integration Architecture: Flows Versus Apex: Cedrick Infantado reported successfully configuring the CMS webhook using Postman and Salesforce name credentials, achieving a status 200 response (00:13:02) (00:20:06). To maintain security and avoid sharing credentials directly with users, Cedrick Infantado proposed using Salesforce platform events and flows for the CMS integration instead of Apex, citing better maintainability (00:14:13). Kobi Kunasekaran raised concerns about flow runtime limits and the reliability of handling retries and wait times for asynchronous responses (00:16:55). Cedrick Infantado mentioned a new flow feature allowing timed waits and agreed to investigate its reliability and test deal retries, while keeping the October 9 target in mind (00:18:02). Kobi Kunasekaran supported the flow approach if it proves reliable, and planned a dedicated session with Cedrick Infantado to walk through the process and groom the related tickets (00:20:06).
+
+
+* Review of Specific Jira Tickets and Bugs: Cedrick Infantado confirmed they set up user permissions so sales representatives can only create referrals for specific accounts (00:21:05). Kobi Kunasekaran and Cedrick Infantado reviewed ticket 415, confirming it serves as a bug tracker for missing player country and state fields coming from the CMS to Salesforce, which impacts player currency (00:22:06). Kobi Kunasekaran decided to assign ticket 415 to themself to review and close out once signups since Friday are verified (00:23:28).
+
+
+* Sign-Up Logging Experience and Attribution Banner Updates: Taryn Reithofer reported working on DLRS rollups for operator relationships related lists and preparing for an afternoon meeting with Emily to close out ticket 408 (supported market field) and ticket 166 (brand ambassador player related list). Taryn Reithofer also planned to work on sign-up logging experience tickets, including hiding the camp and showing attribution details in the header, and reorganizing the highlights panel (00:24:30). Kobi Kunasekaran advised Taryn Reithofer to complete the highlights panel reorganization before the meeting with Emily to confirm if the single remaining attribution field matches stakeholder expectations (00:25:53). Taryn Reithofer questioned the necessity of the recent click timestamp column, and Kobi Kunasekaran explained it helps representatives quickly identify the latest signup click among multiple historical entries (00:27:01).
+
+
+* Backlog Prioritization and Task Management: Kobi Kunasekaran advised Taryn Reithofer to reach out on Slack if they spend more than half an hour to an hour on a task without finding a next step, rather than getting stuck (00:29:10). Taryn Reithofer noted the difficulty of prioritizing items from a backlog of 119 tickets to ensure maximum value for launch. Kobi Kunasekaran explained that prioritization relies on focusing on individual components, such as the current emphasis on pages and the sign-up logging process to unblock user testing, while bubbling up incoming feedback naturally (00:30:01).
+
+
+* Project Design Updates and Documentation Tracking: Kobi Kunasekaran outlined their schedule for the day, which includes grooming the deals and CMS integration, sharing commercial term designs with stakeholders for final feedback, and finalizing remaining designs (00:31:16). Taryn Reithofer asked whether to link JIRA tickets directly inside Emily's feedback document, and Kobi Kunasekaran responded that maintaining the link within the JIRA ticket originating from the document is sufficient to keep administrative work minimal (00:33:40). Finally, Kobi Kunasekaran and Taryn Reithofer discussed tracking internal project management tasks and discoveries in Jira alongside timesheets to aid in personal prioritization (00:34:39).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 28, 2026
+Wagertech Internal Sync - Transcript
+00:00:36
+
+Kobi Kunasekaran: Hey ladies,
+Waleed Alasadi: Oh, that's sub Kobe.
+Kobi Kunasekaran: good morning. How you doing?
+Waleed Alasadi: So, last Thursday at 4:30,
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: Nico and I were talking about like the concerts.
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: Like, you know what? Let's just oneshot it today. Let's just f****** go for it.
+Kobi Kunasekaran: Okay.
+Waleed Alasadi: We went for it that night.
+Kobi Kunasekaran: Ashley
+Waleed Alasadi: Uh yeah. Uh Mo got it. I didn't get it,
+Kobi Kunasekaran: Okay.
+Waleed Alasadi: man. The passing grade was 720 out of 1,000.
+Kobi Kunasekaran: How was it?
+Waleed Alasadi: I got 702.
+Kobi Kunasekaran: Yeah. No.
+Waleed Alasadi: So yeah.
+Kobi Kunasekaran: So close. So close.
+Waleed Alasadi: Yeah. So like like I really I was so bummed for two days because like I mean I didn't prep for it so it's
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: fine but the exam was hard.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Like it was not easy.
+Kobi Kunasekaran: What was the content like? What was the nature of the questions?
+
+
+00:01:27
+
+Waleed Alasadi: Um, so there's like four different sections,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: but a lot of them had to do with um, well, not a lot of them. So like this the big the hardest section had to do with like the coding perspective of it. So like Glob and Gleb and Bash, do these things mean anything to you?
+Kobi Kunasekaran: Bashia I don't know about club and the other one they
+Waleed Alasadi: Yeah, Gleb. And there's a fourth one.
+Kobi Kunasekaran: said Yeah,
+Waleed Alasadi: Um I was talking about the claude sort exam there and and Cedric.
+Taryn Reithofer: Yeah. Yeah. Yeah.
+Waleed Alasadi: Um so like so those are basically functions like when when you're
+Cedrick Infantado: What's
+Waleed Alasadi: um like just querying data and calling data and like based on like if you're
+Kobi Kunasekaran: it's a criminal. Yeah.
+Waleed Alasadi: looking for a word or you're looking for a file name and stuff. So like that part I like didn't do well in.
+Cedrick Infantado: that?
+Waleed Alasadi: Um the other part is like the like you see cloud like like it uses tools right like the update record tool and whatn not tool.
+
+
+00:02:24
+
+Waleed Alasadi: So they had a lot of like detailed questions around the tooling um and like when do
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: you use auto and then like if it needs to go this tool then this tool then this tool how do how do you do that? That was also a little bit like tricky for me. But then there's like two other parts. What about like just kind of like the again when you talk when you work with cloud code, do you see how like it's it spins up or spawns different agents and just like how
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: do you like like know the role of each agent? How do they talk to each other? Like what's the execution? Where should the prompt be? should it be at the cloud.mmd or for the project? So those ones I got okay. Um and even the coding ones, they're like they're logical. It's just when they start saying like glob or gle, I'm like WTF? Like I don't know what you're talking about.
+
+
+00:03:13
+
+Taryn Reithofer: So, did you pass?
+Waleed Alasadi: No, I was saying I got 702 out of a thousand and passing is
+Taryn Reithofer: Oh.
+Waleed Alasadi: 720.
+Taryn Reithofer: Oh,
+Waleed Alasadi: I know.
+Taryn Reithofer: damn.
+Kobi Kunasekaran: I'm close.
+Waleed Alasadi: So that's why I was bummed.
+Kobi Kunasekaran: I'm close.
+Waleed Alasadi: But I didn't study. So that's the thing.
+Taryn Reithofer: Oh,
+Waleed Alasadi: I just decided to just go for it.
+Taryn Reithofer: okay. So,
+Waleed Alasadi: But Miko did.
+Taryn Reithofer: you're taking a retake?
+Waleed Alasadi: him and I decided to do it together like just out of the blue.
+Taryn Reithofer: Yeah,
+Waleed Alasadi: So Miko got it.
+Taryn Reithofer: nice.
+Kobi Kunasekaran: Is there like a trail head type of situation for this?
+Waleed Alasadi: Yeah. Yeah.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: So now like like normal people would I'm going to have to go back and study so that I can actually pass.
+Kobi Kunasekaran: I mean, I think it's it's Yes, passing it is one thing, but I think I I I want to do this just so I can get better at cloud.
+
+
+00:03:48
+
+Kobi Kunasekaran: Like,
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: I feel like it'll make my day-to-day a lot easier.
+Waleed Alasadi: So I don't know if we're going to get to that. So like the whole premise was like you're pulling out like something from GitHub and then like you're pushing a PR, you know what I mean? So like reviews and it's all about that and it's like we don't deal in that world at all.
+Kobi Kunasekaran: Oh, we will. We will.
+Waleed Alasadi: I don't think I guess we are because like code is becoming so
+Kobi Kunasekaran: Don't you worry. We're getting there. We're getting there.
+Waleed Alasadi: much easier at Dreamforce.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: They were saying that um like AI is to math what calculators or like AI to coding is what calculators are to math. Like you just need to use a calculator. You don't really need to like know how to do like long division and like I don't know to the power of 7,000 is like the calculator can do it.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Yeah.
+
+
+00:04:39
+
+Taryn Reithofer: So
+Waleed Alasadi: You're just going to know like simple like concepts, principles, right? Like what the order is of the brackets, is it multiplication first or like addition first? That kind of thing.
+Taryn Reithofer: yeah.
+Kobi Kunasekaran: It's you just have to be able to like give it the instructions and and the goals and stuff, right? And be able to like call b*******. Uh and yeah,
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: it can it can do everything for you.
+Taryn Reithofer: until you run out of credits.
+Waleed Alasadi: And there was a lot of questions about Yeah.
+Kobi Kunasekaran: It's great.
+Waleed Alasadi: So there was like how do you optimize credits and how do you go the cheaper path? So they're like there's this example where um it's working, everything's fine, but it's like cost $3 a transaction. So we want to do it for like a $150 a transaction. So how do you ensure the same thing? Um uh like with different models supporting it or whatever it is. So there's that. And then the context, it's like how do you make sure that it doesn't reread the context like that sort of thing.
+
+
+00:05:28
+
+Waleed Alasadi: Um, it talks a lot about like if it's not giving you what you want, the answer often is you give it two to three examples,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: not like you rewire the whole thing or give it an example of every outlier. That was a common I actually Sorry, I'll stop talking. I've been talking a lot about one of these skulls.
+Taryn Reithofer: What?
+Waleed Alasadi: But what I've done in the one hour um before I decided to take the
+Kobi Kunasekaran: Okay.
+Waleed Alasadi: the thing, I actually had Claude create like a whole artifact to train me on it. And that was like that was really cool.
+Kobi Kunasekaran: s***.
+Waleed Alasadi: Actually,
+Cedrick Infantado: Excuse me.
+Waleed Alasadi: that worked like really well.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: I mean, I failed,
+Kobi Kunasekaran: Teach me to use you better basically.
+Waleed Alasadi: but yeah, I'm like, I have a test coming up in an hour. Like, let's go. It did like the scrum sheet. Like, here are the things that you got to do. And it helped me.
+
+
+00:06:13
+
+Waleed Alasadi: Like, it actually helped, but an hour is not enough prep.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: But I guess like now at least you know the things that you should explore on your own,
+Taryn Reithofer: Very
+Kobi Kunasekaran: right?
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: Then like try to incorporate day-to-day that might make things better.
+Waleed Alasadi: Yeah, I had no no expectation of passing, but because I was so close, that's why I was so bummed.
+Taryn Reithofer: nice. Yeah.
+Kobi Kunasekaran: Anyone else uh do anything fun over the weekend?
+Taryn Reithofer: No,
+Kobi Kunasekaran: No.
+Taryn Reithofer: just got physically and mentally abused by my kids.
+Kobi Kunasekaran: Oh, nothing.
+Waleed Alasadi: That's every day, isn't it?
+Taryn Reithofer: Yeah, it is but longer. But the whole day instead of just the tip bits in the morning and in the evening.
+Waleed Alasadi: Do you have kids?
+Cedrick Infantado: Yeah, I I have one uh he's uh three
+Waleed Alasadi: How old?
+Cedrick Infantado: years old right now.
+Waleed Alasadi: Oh, man. Nice.
+Cedrick Infantado: Pick pick of running season for keep chasing
+Waleed Alasadi: What's his name?
+
+
+00:07:23
+
+Cedrick Infantado: him. Um his name is Edie Kill. We called him kill.
+Waleed Alasadi: Is it nice?
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: That's
+Waleed Alasadi: All right.
+Taryn Reithofer: Yeah. So,
+Waleed Alasadi: Oh.
+Taryn Reithofer: Cedric's in the thick of it, too. Um, what was I going to say?
+Kobi Kunasekaran: about to get started. Um, okay. We have a busy week ahead. Um, so last week was was great. I think it was a lot of discoveries. Um, trying to figure out like what else is left in terms of what we need to build for widget tag. And uh, basically what it came out at the end of the week is we have a s*** ton of work to do. There's there's a lot more requirements. um some of the things that we did discovery for last week I think it was actually like not as complicated as as I was expecting um whereas others it it's a few more objects than just like one or two um so um going to have to scope that out but I think we're in pretty good shape at least from like a signup blogging experience there are a few like uh smaller feedback and stuff that came in but u that seems to be good overall um I think the focus for this week.
+
+
+00:08:49
+
+Kobi Kunasekaran: It's really like let's get the CMS integration uh and everything that we have to do to get data from Salesforce and the deals and affiliate links uh working and sent to the CMS. Um I think last week um Cedric I noticed that you moved the ticket over to review. So I'm assuming that's done. We we'll dive into it. Um, I think that was a good milestone and we wrapped up all of these deals that we needed on the affiliate links which was on the blocker. Um, there are a couple of new deal level like life cycle stories that I'm uh grooming through this morning. Um, and I think once those are done, um, we should be able to get the rest of the CMS integration, uh, like send the actual data, the behaviors and everything over. Um, and I think we can get it done this week. So, um, that's like goal number one. Um, Cedric, that's going to be like mostly you. Um, and then Darren, I think for you, um, and and me, it's like one, let's wrap up everything for like the the pages that that we've already shipped and, uh, any feedback that they've given us, um, and, uh, share some of the completed work that we've already done that they can review if there's still anything that hasn't been shared over.
+
+
+00:10:12
+
+Kobi Kunasekaran: Um, and then work through the additional feedback items and uh any anything else like that's like build ready that uh you might be able to pick up as well. Um, and as I'm working through stories, I'm also like going to start assigning some of those over to you so um you can work through it now that you know you have a lot more experience. I think there was one like for validation rules I was thinking I should uh get you to give it a try because I don't think you've done one yet. But um that it's the one that you assigned to Cedric, but I left it in Cedric's plate for now because it also needs to be added on the screen flow. So uh if there there might be others, I'm going to try to get those added for you so that you can also learn how those works.
+Taryn Reithofer: Okay. Yeah, I'm just like hesitant on taking bigger stuff right now just cuz I know I'm like extremely slow if it's the first time I'm doing it and we're really crunched for time.
+
+
+00:11:08
+
+Taryn Reithofer: So, um I'm trying to be mindful of that. Thank you.
+Kobi Kunasekaran: That's fair. That's fair. Yeah. And if something looks like too complicated, let me know and then we can like figure it out. Uh I'm consciously trying to assign new things and I think we just do it quickly.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um so that we can keep like Cedric focused more on the CMS automation and stuff.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um I'm backed on design and inventory so I want to work through those.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: So anything that uh that you should be able to power through like uh work through it.
+Taryn Reithofer: Yes. Yes.
+Kobi Kunasekaran: Um but yeah like if you are blocked on anything obviously like posting the channel between like all of us whoever is available can help unblock.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Um that said the other thing that u I had on your backlog was to help clear through like things that are in review. um lowest priority. Um let's just do it as you know feedback comes or as we're wrapping up components.
+
+
+00:12:03
+
+Kobi Kunasekaran: Um see if we can close those off. I'm also going to try to see if I can just get Claude to help me close off any of the really old ones that we've already confirmed is already shipped and everything. So it it's not like you know 138 that's in ready for review to work through. Maybe it's like a few dozen instead. So uh I want to do that. But I want to prioritize getting some of these stories groomed so we can power through Luminous League. Uh and then we'll get back to that.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um that said, um can we go through what uh you all were able to work through last week and uh I guess specifically up for Friday and uh what you have going on for today. Um, and if you have any questions on anything assigned to you,
+Taryn Reithofer: Um, Cedric, do you want to go first? Because I I Kobe, you always ask what we did for the previous day and I don't know why, but I always completely forget.
+
+
+00:13:02
+
+Taryn Reithofer: So, I'm going to need a minute for that.
+Cedrick Infantado: I'm also checking right what I what did I do with last Friday
+Kobi Kunasekaran: I mean, ideally,
+Cedrick Infantado: I think it's
+Kobi Kunasekaran: you should just be able to look at the Jira board. of like what's ready for review and just read through that.
+Cedrick Infantado: yeah
+Kobi Kunasekaran: That's what we want to get to.
+Taryn Reithofer: I don't think I put anything for review on Friday. That's the issue.
+Cedrick Infantado: so uh for me I think um the the one that I focus on last Friday is the this one the CMS um configuration ation of the web hook. So um basically I I was able to call the that endpoint for both Postman. After Postman, I of course I started um um doing the configuration in Salesforce and after that uh I uh I did anonymous um call to that uh endpoint and I was able to get status 200 for that with the same payload that I've uh done with Postman. So I think we're able to connect using that um name credentials I think
+
+
+00:14:13
+
+Kobi Kunasekaran: Okay. And then in terms Sorry,
+Cedrick Infantado: there's go ahead
+Kobi Kunasekaran: go ahead. Um I was going to ask so in terms of us being ready to start sending actual like deal information. So this was like setting up the infrastructure right setting up the uh the connection details the metadata for the settings and things like that. Um, so in terms of next steps, is it like diving into Apex to put together what is going to get
+Cedrick Infantado: I
+Kobi Kunasekaran: like generated as a payload and then uh how it gets sent over to CMS.
+Cedrick Infantado: for that one I'm thinking because of their state that uh it seems that uh we are uh what do you call this unbinding the call or I would say we want a single user or the integration integration user do the call to the CMS since uh based on this user sorry
+Kobi Kunasekaran: Mhm.
+Cedrick Infantado: I've read through it it seems that we uh we don't want the user to directly use the name credentials for this. So, it says here that it would use PL platform events, I think.
+
+
+00:15:34
+
+Cedrick Infantado: Yeah, platform events for uh for the triggering. I'm not sure if that's the architecture that you want to go with this one. So, that uh uh I forget the the term for that. uh basically we don't want uh we don't we want to have a single user that doing the integration and um so that the the credential will not be shared with other users. I think that's the goal here. So yeah, so for the integration, I think what we need to do next is to have a flow that would fire a platform event if if that's what we want to do or even a CDC if we want that and then just use another flow to trigger the integration.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: So I'm thinking that I'm thinking that uh a flow would be enough for now um to handle those uh these things. Uh we just want uh we just need to prep the data and then do the HTTP call out on the flow. So it's I think it's better for maintenance maintainability of of the integration.
+
+
+00:16:55
+
+Kobi Kunasekaran: for for the flow approach. What how about like retries and waiting for a response to confirm that uh it actually went through and stuff. I think that was one of the reasons why again this is like recommended architecture. I'm no dev so you tell me if this doesn't make sense. Um but I think one of the reasons for not necessarily relying 100% on flow is um is the wait time right sometimes like responses don't get returned right away and I think uh Apex flows have a runtime limit of how long a flow can like a flow interview can stay opted and I think the concern was that you might not get a response in time and might get treated as like a fair flow
+Cedrick Infantado: Um, do you want it to be synchronous or a sync? Because we can trigger it in a sync and then let's say fire another event
+Kobi Kunasekaran: Mhm.
+Cedrick Infantado: after that and then we do a a wait or wait time on the flow then retry again after that.
+Kobi Kunasekaran: Can you do a weight time on a flow?
+
+
+00:18:02
+
+Kobi Kunasekaran: Aren't there limits around that?
+Cedrick Infantado: Yeah. Yeah. There's uh I think this this is a new feature on the flow that there's uh
+Kobi Kunasekaran: Okay. Okay.
+Cedrick Infantado: you can wait you can tell time like 3 minutes after after this do that.
+Kobi Kunasekaran: Okay. I mean,
+Cedrick Infantado: I'll check
+Kobi Kunasekaran: if if we can do this through flows, like I I'm all for it because that just makes it a lot easier for more people to maintain, right, and update and uh if there are changes, it'll be it will be easier than diving to Apex. So, I'm all for it if that is going to be reliable enough for what we're trying to do.
+Cedrick Infantado: I'll do a quick check on that and uh I'll and let you know if that's possible on flow. I'll do a quick P on triggering of uh on the deals and then see if we can do retries and after that save it on on a log if if maybe that's possible
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: because I'm worried about of the timing that we have right now uh with our October 9 target.
+
+
+00:19:01
+
+Cedrick Infantado: So of course if you do 8x you need to do test classes for that as well.
+Kobi Kunasekaran: Right. Yes.
+Cedrick Infantado: I know clog can help but bad experience.
+Kobi Kunasekaran: Okay. Um Okay. in terms of like what what the workflow or the um the sequence of events are for like when the flow gets triggered when we sync to CMS and stuff. Is that clear from the epic or the other user stories? Um or do you think it'll be helpful for us to walk through at a high level the process and make sure that we have that
+Cedrick Infantado: Nope.
+Kobi Kunasekaran: captured in the stories?
+Cedrick Infantado: Yeah, I think uh we need to walk through on this. uh I don't see uh yet any of uh those conditions right now um on this user story as well as the the epic.
+Kobi Kunasekaran: Okay. So
+Cedrick Infantado: So if we could walk through of what uh of the high level that what we want to do for this I think yeah I can I can have a better view of what we're trying to do.
+
+
+00:20:06
+
+Kobi Kunasekaran: okay. Uh okay. Let's let's do that then. Um, so I'll assume like for for the purpose of 446 that like we've tested the uh credentials we're good there. We don't need to get anything from the Wagertechteam as of now. Um, and once we have our ducks in a row, we should be able to build and um and then just let them know once it's ready. So um with that I I'll start doing some prep today um for us to like go through the whole process. Um, and I'll also groom these tickets uh in while I'm doing that. And then I'll set up a meeting with you. Probably not today, maybe tomorrow. Uh, or today before your end of your shift. I'm going to try my best to see if I can wrap it up before then.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Um, that way we'll talk through it, make sure you're good with all of the tickets, and then uh we can start powering through it. And then Yeah, in terms of like Apex versus flows, I'm indifferent to both as long as the flow method is reliable.
+
+
+00:21:05
+
+Kobi Kunasekaran: I think that's my only uh only concern. Um, so if we can build it in a way that we're able to make sure that there are retries and confirmations and everything to make sure that things are being sent from Salesforce to CMS, uh, I'm good with the flow approach because you're right, like it is easier to build, easier to maintain, and easier to test and troubleshoot and change. So, um, that works for me. Yeah,
+Cedrick Infantado: Where?
+Kobi Kunasekaran: in the meantime,
+Cedrick Infantado: Oh.
+Kobi Kunasekaran: you've got a few like smaller tickets. I think those will uh I don't think they should like completely derail uh any of this. Um so you can work through those until I set up that meeting with you.
+Cedrick Infantado: Okay. Sure. Thank you.
+Kobi Kunasekaran: Any questions on any of those tickets that are assigned by the way or any because there's one that's in progress.
+Cedrick Infantado: Um,
+Kobi Kunasekaran: Think this is the one we talked about last week already.
+Cedrick Infantado: sorry. Yeah, I think um Tarynhas confirmed that um the reps can only create referrals for for this one.
+
+
+00:22:06
+
+Cedrick Infantado: So, um yeah, I'll I'll set it up um so that when reps log in, they can only they can only create referrals for the accounts.
+Kobi Kunasekaran: Okay,
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: awesome.
+Cedrick Infantado: for other tickets I was not able to see it yet. Uh I just moved them from the my backlog to uh to the current spread.
+Kobi Kunasekaran: No worries. Yeah. Uh, take a look. I think, uh, I went through 425 and 426. It should be pretty straightforward. Uh 4:15 I think we talked about last week as well. Um
+Cedrick Infantado: Yeah, I think this is the tip.
+Kobi Kunasekaran: actually for this one is there any next next steps for this?
+Cedrick Infantado: I think this is a placeholder or a tracker for for that bug that we've find out on the uh the integration SLC that uh air country air state are not being populated.
+Kobi Kunasekaran: But I think last week you already created u a field sorry there was some mapping so that the player
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: country and state that is going to the standard fields is getting uh is displaying as like on the player record page.
+
+
+00:23:28
+
+Kobi Kunasekaran: Right?
+Cedrick Infantado: Yes.
+Kobi Kunasekaran: Jordi.
+Cedrick Infantado: Uh that's for that's for the mapping but this one is for the integration itself.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: the one coming from the CMS to Salesforce where the fields or the player country and states are not being populated. I think this is just a tracker for that because it's affecting as well the currency of the player.
+Kobi Kunasekaran: Okay. I'm gonna assign this to me. I don't think there's any action item from you. And I also think um we just confirmed that this should be good to go as of Friday. So, I can I'll review and close it off.
+Taryn Reithofer: Cool.
+Kobi Kunasekaran: Um once I make sure like all of the signups since Friday,
+Cedrick Infantado: Sure.
+Kobi Kunasekaran: I'll have like the state and country. Um and then yeah, I don't think there's anything else I have to do for this. Okay, awesome. Okay, so you got these two and then I will get back to you with uh with a meeting to go through the CMS integration and then we'll just hyperfocus on that afterwards.
+
+
+00:24:30
+
+Kobi Kunasekaran: Okay, fire off. All right, thanks Cedric. Um Aaron, let's go through what you got going on.
+Taryn Reithofer: Yeah. Um so this morning I started um reworking the DLRS rollups for um operator relationships related lists that's in in progress.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Um I'm getting stuck a bit so I'll spend a little bit more time before I ask for help on that. Um, I have a meeting after my lunch with Emily today and hope hopefully we'll be able to close out 408 finally the supported market stupid field and um there was one other one uh the brand ambassador
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: player related list one wager 166 after that meeting hopefully get out of here. Um, and then this morning I brought in a couple more um, tickets to work on that I think I can probably power through today that's in my to-do list and it's on the sign up logging experience epic. Just like hide the camp and show attribution details in the header and then reorganize the signup header uh, uh, like the highlights panel.
+
+
+00:25:53
+
+Taryn Reithofer: So easy stuff like that. Um,
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: what else? Um,
+Kobi Kunasekaran: for this one I think if you can do this actually before the call with Emily. Um because my concern with uh moving the attribution banner is that sorry the uh let me just log in so I can talk to why. So my concern with what they asked for um like moving everything to the headlight uh not headlights highlights man I always keep saying headlights for some reason but highlights panel perfectly fine. The only thing is it we're going to have an attribution section with only a single field left because if all of these are getting moved up.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: Um it might not look as good. So uh I think it's quick enough that you might be able to do it before the call uh with her and then just show her and confirm and see if they want they actually want it that way. Uh or if there are like other things that we should add here to like kind of fill it out or balance it out.
+
+
+00:27:01
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: if you can. Um,
+Taryn Reithofer: Yeah. Yeah. No, I definitely can. I was just thinking what the recent click timestamp indication is for anyways.
+Kobi Kunasekaran: uh, this indicates like if they have multiple signup clicks that come in, um, for the same market, for the same thing, there may like there's going to be multiple, uh, clicks in the history. So, um, this is to let them know which one the latest one is.
+Taryn Reithofer: That doesn't it says click time stamp on one of the columns. Can't we just order them into descending?
+Kobi Kunasekaran: Yeah. But this is like an extra step for reps to see, right? Whereas here, they can see it directly quickly from a
+Taryn Reithofer: Okay. Something. Okay.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: it's a it's a great question, though. Um, it's a good one to ask, Emily. uh and confirm if there is a need because like this is these field sets are like we designed this a while
+
+
+00:27:55
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: ago, right? Um it was it did go through quite a bit of feedback cycle before we got to where we are, but um it doesn't mean we can't change it if things don't make sense anymore because we've come a long way.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So,
+Taryn Reithofer: Yeah. Sounds good.
+Kobi Kunasekaran: okay. Yeah, I think for the other feedback, I don't think I had any issues with the ones that they asked for. Um, yeah.
+Taryn Reithofer: And then um which ones did you put back in into my sprint? Was it uh the brand manager's ability to deal
+Kobi Kunasekaran: Uh, no. I don't think I've put anything on to yours yet. I as I'm going through grooming, I'm going to look into it cuz I saw that a couple for Cedric and I I thought
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: the your rules one might be good for you, but uh because it needs to be done on the screen too, we'll just leave it for Cedric to do. Um so we're not splitting uh splitting the validation for the same thing.
+
+
+00:29:10
+
+Kobi Kunasekaran: Um and then if there's like anything isolated,
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: I'll assign them to you as I go through it.
+Taryn Reithofer: That's nice.
+Kobi Kunasekaran: Okay. Um, but yeah, like for for the Cananban one and even some of the other ones, like if if you find that you're spending like too much time on them, um, I would say like generally like half an hour, more than half an hour to an hour to figure out what the next step is, just shoot a message. That way we can unblock.
+Taryn Reithofer: or should I just put it back in the backlog?
+Kobi Kunasekaran: uh shoot a message and then we can decide whether to put in the backlog or
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: whether it's like a longer one because like you know like the like the referral uh status one
+Taryn Reithofer: Yeah, I guess
+Kobi Kunasekaran: last week like that that's a good one that you know because we put it up and we were able to test it and confirm that there some other bugs, right? So,
+Taryn Reithofer: True.
+
+
+00:30:01
+
+Kobi Kunasekaran: we'll get to put it up.
+Taryn Reithofer: Yeah. I just um I just don't know what we're prioritizing or like cuz this is this is new feedback that's come back, right? Um and there's a lot of it. So, you know, when I'm picking these easy ones from the backlog, like there's there's 119 tickets in the backlog. So, it's like what I I just at like a backlog view, it's just hard to see which which ones to prioritize to get the most value for launch, you know?
+Kobi Kunasekaran: Yes. Um I think that's why like we focus on uh the individual components at a time, right? So that's why we've been focusing on the pages, making sure that everything is wrapped up there. um the signup logging uh because uh Emily mentioned that she wanted to try getting some users into it. Um I think prioritizing that for this week is is a good idea.
+Taryn Reithofer: Nice.
+Kobi Kunasekaran: Um again, anything that's like critical um if something is optional or uh or you know we're not able to do it or something like that.
+
+
+00:31:16
+
+Kobi Kunasekaran: Um like shoot a message on Slack and we can decide um if it seems like questionable in terms of priority. Um, but I think if we can wrap these up, it'll unblock them. They can start doing some user testing on the signup process and then we can work through the rest of the backlog. Um, as we go through, plus like the rest of the backlog, if there's any feedback that comes, then that bumps up those items and that'll naturally like bubble it up, right? So, anything that's not important will either clean up later or it might no longer be relevant.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Does that help?
+Taryn Reithofer: Yep.
+Kobi Kunasekaran: Okay. Um, okay. Cool. Uh, on my plate, yeah, I'm going to try working through the, uh, deals and CMS integration, uh, grooming, and then I need to send them uh, some information about what the commercial term designs look like to get like a final round of feedback before uh, pushing the user stories over. Uh so aiming to do that today as well and then wrap up on the designs for the rest of it.
+
+
+00:32:29
+
+Kobi Kunasekaran: It's going to be a heads down kind of day
+Taryn Reithofer: Yeah, there's not a lot of meetings, so it's Nice.
+Kobi Kunasekaran: which is good. Yeah, that's why I moved all of our meetings by the way.
+Taryn Reithofer: Yeah. Yeah,
+Kobi Kunasekaran: I need heads on time to push.
+Taryn Reithofer: I figured.
+Kobi Kunasekaran: So I'm hoping by like Thursday, Wednesday, Thursday we should be free and then we can talk some more.
+Taryn Reithofer: Yeah, Friday Friday was meeting heavy. I feel like I didn't do any like actual Salesforce work. There's just a lot of like grooming and like admin. in and you know I was able to tie the feedback documents the answers for Emily document um to ticket so to clean that up.
+Kobi Kunasekaran: Nice.
+Taryn Reithofer: I think there was just a couple that still need to be checked off. And then, oh, I wanted to ask like since she added in the um additional uh list from the um signup call like log signup call. Did you also want me to put the associated ticket beside those two or
+
+
+00:33:40
+
+Kobi Kunasekaran: Uh they were already captured in the tickets that you created. No.
+Taryn Reithofer: Yeah, except for like one. Yeah.
+Kobi Kunasekaran: Um, sorry. Your question is whether to put put it under the same epic.
+Taryn Reithofer: No. Um, so in the document itself for her view,
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: do you want me to add the associated ticket each bullet that she
+Kobi Kunasekaran: Oh.
+Taryn Reithofer: has?
+Kobi Kunasekaran: Uh, I don't think it's necessary as long as like we know in the ticket that it came from the dock and then you know
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: as as it's wrapped up you're able to follow up and the comment because that doc seems to be working
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: for Emily.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: So we can just keep using that as a running dock.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: Um yeah let's let's keep that minwork to a minimum where as as much as we can. Um unless like they ask something differently. Um, as long as we have the linkage somewhere, like if it's already in the J ticket indicating that it came from the dock, I think that's fine.
+
+
+00:34:39
+
+Kobi Kunasekaran: As long as we can close the loop. I think that's that's the most important thing, right?
+Taryn Reithofer: Yeah, actually it came from Nicole and then I noticed that she had posted in the doc. So then I had Claude just make sure that what we created before I looked at the doc is the same as the doc and it it would it was just like one added one and then the one that you caught that we both missed. So yeah,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: but okay, we'll do that.
+Kobi Kunasekaran: Okay. Awesome. And then like going back to like you know uh you were saying like you weren't sure um what are the things that you worked on those types of tasks by the way you could you can create them in Asana there or not asana in Jira. there is a I call just internal um like you know putting the links and like project management stuff that's not really it's related to the project but not really like a deliverable uh feel free to trap them in Jira um in whatever way you want so that way because it is still work that you're doing right um the work doesn't necessarily just need to be the user stories that is directly for weight if it helps if it helps again
+
+
+00:35:46
+
+Taryn Reithofer: Yeah, fair. I've Yeah.
+Kobi Kunasekaran: as long as it doesn't add like more work might be helpful.
+Taryn Reithofer: Um well, I've I guess I have been tracking them in a way when I log um client
+Kobi Kunasekaran: Time sheets.
+Taryn Reithofer: inclient. Yeah.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: So I don't know would you prefer it in the what your view for project work.
+Kobi Kunasekaran: it's it's up to you if it makes it easier to like prioritize uh against the other work. Um I would say drop it in Shira as well.
+Taryn Reithofer: Just
+Kobi Kunasekaran: I started doing it for my like discoveries and stuff too cuz like like there's a lot and I need to prioritize. So like and it there's nothing nothing in them. It's not as flushed out as anything else. It's just a heading with like, hey, this is what I need to do. So, I remember um I remember for next time and I'm able to prioritize it against actual like build tickets or grooming or stuff like that. So,
+Taryn Reithofer: Okay, I'll give it a shot.
+Kobi Kunasekaran: that'll be helpful.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: Yeah. Okay. Awesome. All right. Thanks everyone. I'll talk to you'all later.
+Taryn Reithofer: Yeah. See you later.
+Kobi Kunasekaran: A good uh Monday.
+Taryn Reithofer: See you too. Bye.
+Kobi Kunasekaran: Yes.
+
+
+Transcription ended after 00:37:14
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

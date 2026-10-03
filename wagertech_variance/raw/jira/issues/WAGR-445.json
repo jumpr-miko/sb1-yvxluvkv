@@ -1,0 +1,155 @@
+{
+  "id": "11394",
+  "key": "WAGR-445",
+  "fields": {
+    "statuscategorychangedate": "2026-09-24T10:01:13.993-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-24T10:01:13.492-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-24T10:01:14.239-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "### Summary\n\nWebhook keys and a database password for the WagerTech CMS have been posted in plain text in shared places. That breaks the v2 contract's own rule: \"keys are exchanged by password-manager share only\". Exposed keys stay usable until they are rotated. This task closes the exposure and sets the handling rule for this integration.\n\n### Work Required\n\n1. Ask WagerTech (Strah) to take the following actions. Kobi has a draft message ready.\n\n    * Rotate the **staging webhook key** and the **Neon read-only DB password** after the staging test. Both were posted in #ext-wagertech-jumpr on 2026-09-23.\n    * Confirm whether the **production key** in the v1 guide has been rotated. It appears in the Slack PDF of 2026-09-02 and in the Google Doc \"WagerTechCMSDealsWebhookSalesforceIntegration v1\", which was shared on Sep 3, 4 and 9. If it hasn't, issue a new one.\n    * Remove the key from that Google Doc, or restrict the doc's sharing.\n    * Deliver every future key through a password-manager share.\n    \n2. Store the staging key only in the sandbox External Credential principal. Store the DB credential only in Jumpr's password manager, for Cedrick's verification queries.\n3. Delete or edit the Jumpr-side copies, if there are any. Do **not** delete WagerTech's messages; ask them.\n4. Raise WAGR-249 with Kobi for a decision. It was closed \"Not necessary\" without rotating the exposed partial-sandbox consumer secret. The options are to rotate the secret, or to record the risk acceptance. This ticket does not change WAGR-249 itself.\n\n### Done When\n\n* WagerTech has confirmed the rotation of the staging key, the DB password and the production key. The confirmation records dates only, never values.\n* No key value exists in Jira, Slack threads Jumpr controls, Confluence, local docs or the metadata repo.\n* Kobi has decided the WAGR-249 outcome.\n\n### Constraints\n\n* Never paste a key or password into Jira, Slack or any document, including in this ticket's comments.\n\n### References\n\n* Design doc (Confluence page to follow) §8\n* Relates to WAGR-249\n\n",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [],
+    "summary": "CMS Sync — Secure and rotate CMS webhook and database credentials",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0085j:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

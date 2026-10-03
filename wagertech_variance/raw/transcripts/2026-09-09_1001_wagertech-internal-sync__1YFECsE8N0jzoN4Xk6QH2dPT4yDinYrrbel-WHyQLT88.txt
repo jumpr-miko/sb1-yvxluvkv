@@ -1,0 +1,335 @@
+✍️ Quick notes
+Wagertech Internal Sync
+
+Sep 9, 2026
+Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+
+Ticket status updates and historical data logic addressed with workflow strategies and sandbox access planning.
+
+Player Status User Story 253
+* The flow logic for story 253 will not automatically handle historical data imports, as these are treated as one-time events rather than regular processing requirements.
+* Kobi recommended using Declarative Lookup Rollup Summaries (DLRS) as a potential solution if historical data calculation is required in the future.
+
+
+Wagertech CMS Integration
+* Kobi resolved a sync break caused by Wagertech updating Deal IDs in their CMS by adjusting the flow and name logic.
+* Development is currently pending sandbox access from the Wagertech team to avoid testing in their production environment.
+* The team will proceed with Proof of Concept (POC) testing using API responses as the primary data source until sandbox access is provided.
+
+
+Workflow and Process Standardization
+* Kobi encouraged challenging proposed ticket solutions rather than accepting them as finalized designs to improve development autonomy and creativity.
+* The team is prioritizing the standardization of ticket creation and documentation processes using AI to increase efficiency.
+* Team members will share AI prompt templates and workflow best practices through the dedicated knowledge sharing channel.
+
+
+Next steps
+* [Cedrick Infantado] Test Player Status: Complete testing for player status user story 253 including all identified scenarios.
+* [Cedrick Infantado] Attach Test Evidence: Attach test evidence for user story 253 documentation.
+* [Cedrick Infantado] Implement 254 Flow: Implement scheduled flow for user story 254 to set status to inactive after 90 days of inactivity.
+* [Cedrick Infantado] Review API Document: Review the API integration document provided by Kobi Kunasekaran.
+* [Cedrick Infantado] Track API Review: Create a task in Asana to track the review of API requirements.
+* [Kobi Kunasekaran] Assign New Stories: Prepare and assign additional stories for Cedrick Infantado to work on.
+* [Kobi Kunasekaran] Request Sandbox Access: Secure sandbox access for the CMS integration from the Wagertech team.
+* [Cedrick Infantado] Provide Process Feedback: Consolidate and share feedback on ticket creation processes to help standardize team workflows.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📝 Full notes
+Sep 9, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Ticket status updates and historical data logic addressed with workflow strategies and sandbox access planning.
+
+Signup Date Logic
+Discussion on user story 253 prioritized daily operations. Historical data migrations will be handled manually.
+
+CMS Integration Planning
+Wagertech Content Management System synchronization issues led to new tasks. Proof of concept will proceed while awaiting sandbox access.
+
+Process and Collaboration
+Agreement reached on developer autonomy and solutioning. Team initiatives focus on standardizing ticket creation.
+
+
+Decisions
+Aligned
+* Exclusion of historical data in signup flow The team aligned to exclude built-in historical data backdating from the signup flow, relying instead on a one-time utility or manual data update if required.
+* Collaborative approach to ticket solutioning and review The participants agreed to include proposed solutions in tickets while requiring developers to critically evaluate and challenge the designs rather than following them blindly.
+
+
+
+Next steps
+* [Cedrick Infantado] Test Player Status: Complete testing for player status user story 253 including all identified scenarios.
+* [Cedrick Infantado] Attach Test Evidence: Attach test evidence for user story 253 documentation.
+* [Cedrick Infantado] Implement 254 Flow: Implement scheduled flow for user story 254 to set status to inactive after 90 days of inactivity.
+* [Cedrick Infantado] Review API Document: Review the API integration document provided by Kobi Kunasekaran.
+* [Cedrick Infantado] Track API Review: Create a task in Asana to track the review of API requirements.
+* [Kobi Kunasekaran] Assign New Stories: Prepare and assign additional stories for Cedrick Infantado to work on.
+* [Kobi Kunasekaran] Request Sandbox Access: Secure sandbox access for the CMS integration from the Wagertech team.
+* [Cedrick Infantado] Provide Process Feedback: Consolidate and share feedback on ticket creation processes to help standardize team workflows.
+
+
+
+Details
+* Meeting Opening and Personal Check-in: Cedrick Infantado and Kobi Kunasekaran began the meeting by exchanging pleasantries regarding personal events, including a birthday dinner and the proximity of family members. Kobi Kunasekaran noted that Taryn would not be joining the call because they were not feeling well (00:00:15).
+* Ticket Status - User Story 253: Cedrick Infantado provided an update on user story 253, stating that the work was nearly complete. They planned to conduct testing on various scenarios, specifically raising a question about how the system should handle cases where a user uploads a completed signup with a date that precedes an existing, later signup record (00:01:17).
+* Handling Historical Data for Signup Dates: Kobi Kunasekaran and Cedrick Infantado discussed the logic for processing signup dates. They agreed that the flow should prioritize day-to-day operations where representatives complete signups via the user interface. For historical data migrations or backdating scenarios, they decided that building complex logic into the current flow was unnecessary. Instead, such scenarios would be handled as one-time events using tools like a Database Lookup Relationship or manual data updates (00:03:46).
+* Ticket Status - User Story 254: Cedrick Infantado confirmed that after completing the testing and documentation for ticket 253, they would proceed to user story 254. This task involves building a scheduled flow to set a player's status to inactive after 90 days of inactivity (00:06:05).
+* Task Management and Wagertech CMS Sync: Kobi Kunasekaran explained that they had assigned new tickets to themself, some of which might be delegated to Cedrick Infantado. Kobi detailed that updates to deal IDs in the Wagertech Content Management System (CMS) disrupted the existing synchronization flow, which was designed to prevent changes to the deal external ID after creation. Consequently, Kobi updated the name logic and created additional tasks to address the cleanup (00:07:10).
+* Wagertech CMS Sandbox Access: The team discussed the requirement for a sandbox environment from the Wagertech team for the CMS integration. Kobi Kunasekaran emphasized the importance of avoiding the use of the production environment for testing. They noted that they have enough information to build a proof of concept for authentication and API communication while waiting for the sandbox, which will become the primary focus for Cedrick Infantado once access is granted (00:09:02).
+* API Integration Documentation Review: Kobi Kunasekaran directed Cedrick Infantado to review the API integration documentation as the next priority. While the team is currently basing their assumptions on API responses, Kobi has requested CMS access to better understand the data being committed. They agreed that if Wagertech does not provide a response by the end of the day, they will discuss the integration further during a scheduled meeting on Friday (00:09:55).
+* Solutioning Approach and Developer Autonomy: Cedrick Infantado expressed a preference for having proposed solutions included in tickets to ensure alignment with project goals. Kobi Kunasekaran agreed to provide high-level context but encouraged Cedrick to actively challenge the proposed designs rather than accepting them as the definitive approach. Both participants agreed that this collaborative process helps prevent tunnel vision and allows for better technical outcomes, drawing on their past experiences as a Technical Architect and in product management (00:13:15).
+* Process Standardization and Knowledge Sharing: Kobi Kunasekaran discussed the team's ongoing initiative to standardize ticket creation and processes, utilizing AI to assist with documentation. They encouraged Cedrick Infantado to contribute feedback on improvements and stated that they are working to democratize knowledge and share prompt templates within the team. Kobi emphasized the importance of using the internal knowledge sharing channel to facilitate collaboration and communication in their remote work environment (00:15:58).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 9, 2026
+Wagertech Internal Sync - Transcript
+00:00:15
+
+Cedrick Infantado: Hey, Kobe. Good morning.
+Kobi Kunasekaran: How you doing?
+Cedrick Infantado: I'm doing great. Um, we just got off to our uh to my mother's house. Um, it's her birthday today. We just had a dinner just ago. Uh, I just excuse myself because I have work to do.
+Kobi Kunasekaran: Oh, no. Is it Oh, I guess it's 10 p.m. there. Or 10 a.m. 10 a.m.
+Cedrick Infantado: 10 p.m. 10 p.m.
+Kobi Kunasekaran: No, 10 p.m.
+Cedrick Infantado: here.
+Kobi Kunasekaran: 10 p.m.
+Cedrick Infantado: So,
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: we just had dinner and just a little chat and then I said I had to go.
+Kobi Kunasekaran: Nice. Nice. Was a Was it a good dinner?
+Cedrick Infantado: Yeah. Yeah.
+Kobi Kunasekaran: Yeah. Nice.
+Cedrick Infantado: Um our um all of us are there and we just have um yeah talk about life and how was it to be adult?
+Kobi Kunasekaran: Good old conversations. Does your like brother live far from you?
+Cedrick Infantado: No, actually um my parents live close by.
+
+
+00:01:17
+
+Cedrick Infantado: So it's about um a kilometer away from from our home. So yeah.
+Kobi Kunasekaran: Okay, that's not bad. That's not bad.
+Cedrick Infantado: Yeah. Yeah.
+Kobi Kunasekaran: So, it's not like you travel like half an eight to get yourself.
+Cedrick Infantado: No, not like that. So yeah,
+Kobi Kunasekaran: Nice. Uh, okay. I don't think Taryn is joining. I think she's saying she wasn't feeling well. So, we can kick it off and then uh we can go back to your conversations if you want.
+Cedrick Infantado: sure.
+Kobi Kunasekaran: Um, okay. How are you doing with your pigments?
+Cedrick Infantado: Uh for my tickets, um I'm almost complete with the 253. So um that that is what we I've worked on. um yesterday and I think this is the biggest chunk of um the player status user story. So I'm just um uh I I will just do a testing right now maybe um a quick test on the other scenarios that I'm uh I'm thinking of. So I think one last question on that is uh for example there um there is a sign up.
+
+
+00:02:29
+
+Cedrick Infantado: I'm not sure if this would happen. Um, if ever there's a sign up that was um most or latest one or let's say um the first sign up in the player is let's say August 10 and I've loaded as completed sign up which is dated July 26 or something. Should that supersede the existing value on the first sign up? Look up. as well as the dates.
+Kobi Kunasekaran: Um, let me ask you this. How do you have this flow set up? Is this like uh uh like is it being triggered on every completed signup where it just checks for uh for like a blank record and fills it in or is there any sort of sorting happening?
+Cedrick Infantado: Um, right. No, no. Um, there's no sorting. So um it um based on the story if the first sign up is blank and the first signup date is blank um it will fill up the first completed signup. So um I'm imagining um that only considers the scenario wherein the signups are being managed internally or inside the organization or the environment.
+
+
+00:03:46
+
+Cedrick Infantado: Um I'm just thinking about the scenario wherein if there are historical data that they want to pull uh to pull in and or they want migrated on the environment I I'm wondering if um if should the flow handle that scenarios as well because uh for for the for the late or the what do you call this the last sign up date my flow will work for that scenario so that's
+Kobi Kunasekaran: There we go.
+Cedrick Infantado: fine however for uh for backdating the first um what do you call this first sign up so I think that's where my flow will break and I want I just want a confirmation with you if should we um consider that as
+Kobi Kunasekaran: I think in a natural setting um like on a day-to-day we're expecting the reps to go through the UI to complete the signups. So in that sense the first signup date should be or first completed signup date should be when they mark the record as completed. So, um I think that should be the day-to-day for the historical data imports. Um I think I don't think we need to necessarily build for it cuz that's if we end up doing something like that, it's going to be a onetime thing, right?
+
+
+00:05:11
+
+Kobi Kunasekaran: So, because it's a onetime thing,
+Cedrick Infantado: Mhm.
+Kobi Kunasekaran: we can and if this is needed, we could always set up like a like a DLRS or something to determine the earliest signup based off of all the signups and fill it in uh fill it in and just run it like one time and call it a day. I don't necessarily think we need to make uh make this flow complicated and less about complicated I think just more about like uh like adding more uh more load to the processing by trying to compare the dates and everything if not necessary.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: What do you think?
+Cedrick Infantado: Yeah. Uh I'm good with that. So, uh we could either do that on the flow or maybe um as well as update the data. So, whichever works. So, yeah.
+Kobi Kunasekaran: Yeah. Because I think like the historical import. I don't expect them to do it on a regular basis, right? Like maybe we'll do it during like production go live.
+Cedrick Infantado: Well, yeah.
+
+
+00:06:05
+
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: Yeah, I agree on that.
+Kobi Kunasekaran: And then if there's like maybe oneoffs like they they forgot to do it manually and there's oneoffs then maybe we can give them a way to do that. But yeah, I don't see it being a regular occurrence. So I think based off of the requirements that we have right now, this is okay. Um and then if they do need the ability for that to like be properly calculated and stuff, we can yeah I think we can solution for that later.
+Cedrick Infantado: Okay, good. I I scope out that one for my scenarios. So yeah, I I think I will just run a pass through on this today and I'll just attach the um the test evidence that I have and I think that's pretty much done. So I after that I will be moving to 254 which is a scheduled uh flow. I think it's scheduled flow to set the status to inactive after 90
+Kobi Kunasekaran: Yep.
+Cedrick Infantado: days of no activity. So after that I think Kobi um I don't have any task left uh on my bucket.
+
+
+00:07:10
+
+Cedrick Infantado: So if you if you do have any um just um put it on my bucket so so that
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: I can review that as well.
+Kobi Kunasekaran: Yeah, I was working on a few new tickets yesterday and I just assigned them to myself because I figured uh I'll get it done while I work on it. Uh but I may assign some of those to you. And then I still have the new uh the stories from the other day to still scope out for you as well. So I'll get those added as well.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Yep.
+Cedrick Infantado: And I also noticed that you uh uh you've uh all this you get one of my uh a task yesterday and
+Kobi Kunasekaran: Yes, I I did. I did. And it's B like because like they wanted to um like I don't know if you're following the conversation on the Wagertech channel, but like they updated a bunch of the uh the deal ids in the in their CMS.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: So it's breaking the sync because our like we set up our flow so that the deal external ID never gets changed right after it's created.
+
+
+00:08:09
+
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Uh,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: so anything moving forward follows a new format. So while I was cleaning it up, I'm like,"Okay, I I needed the name logic to be updated as well." So I'm already here. I might as well do it. So it was like it was pretty quick and I did that and then I realized like there were a couple more things that I wanted to just do while I'm already there and wrap it up. So uh that that's where the additional stories came from. Um,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: so I let me see if like if there's anything that's like not going to block me from cleaning up the deal, I will assign those to you and then uh otherwise I I have other stories uh for you to work on. So all good there.
+Cedrick Infantado: Sure.
+Kobi Kunasekaran: Okay. And worst case scenario like if we don't um the one thing we're waiting for the Wagertech team on is a sandbox for the uh for the CMS integration.
+
+
+00:09:02
+
+Kobi Kunasekaran: Um because everything else like I I think uh we have all the information we need to get started and uh build out like a PLC on how we're going to communicate, set up the authentication and everything. But my only issue is I think they're giving us access to not not a sandbox. I think it's like their production environment and I don't want to play around with the production environment. So the moment we have that access uh you're going to shift focus onto that and that's going to be like your main thing because that's um that is arguably one of the most uh important pieces of this project at this point. So u and I think that and everything that kind of comes along with it is likely going to be uh like the main things that you work on and I may assign a few stories here and there but um I'm hoping that they give us or or they resolve like some of the open questions ASAP so that we can get to it. Oh,
+Cedrick Infantado: Yeah.
+
+
+00:09:55
+
+Cedrick Infantado: Okay. Got it.
+Kobi Kunasekaran: and
+Cedrick Infantado: So uh once I'm sorry uh once uh they have uh or they signed off with the or are we just waiting for the sandbox of the CMS? Is that it?
+Kobi Kunasekaran: just waiting for the sandbox.
+Cedrick Infantado: So
+Kobi Kunasekaran: I think we can get started the moment we have a sandbox. Um, yes, there's still some open questions that we have to work through, but we have enough to at least get get some things uh set up. uh test out a few calls to make sure it works, get the uh get the API call structures and everything figured out and then we can fix the other things afterwards.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Okay. Have you had a chance to look at the document for uh the API integration yet?
+Cedrick Infantado: Uh actually no, I didn't have any chance yet.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: But yeah, after this uh I'll I'll just check it afterwards. So um are you referring to the to the document that that they have sent and that you have comment commented on or are you talking about other
+
+
+00:10:55
+
+Kobi Kunasekaran: Yeah. Yeah. This this one. This one. So, this this will be I guess if you haven't had a chance to look at it, um pick this up as the next thing unless I tell you otherwise uh I'll put in the group chat so we're on the same page. And if it helps like feel free to create a a sauna ticket to track that you know you're doing you're reviewing the requirements and stuff that's totally fine. Um just so you have something to log time and everything against but yeah so if I don't give you anything else uh after the tickets that are assigned to you then um go through the document um and I think we could start prepping what the next step should be uh for this.
+Cedrick Infantado: Okay, got it. And what it looks like, do they provide us the access to the CMS? Should we be the one who's checking that or are we just um um basing our assump or our test on based on the API response?
+Kobi Kunasekaran: Um, uh for now just based on the API response, but I did request access um so we can at least see um what we're committing into their database and stuff.
+
+
+00:12:08
+
+Kobi Kunasekaran: So hopefully they're able to give us something like that, too.
+Cedrick Infantado: Okay,
+Kobi Kunasekaran: We'll see.
+Cedrick Infantado: got it.
+Kobi Kunasekaran: Yeah. Um I think yeah, hopefully Straw is able to get back to us today. If not, we do have a meeting on Friday where we can uh we can talk through it. So um if not, by today, tomorrow uh by Friday. So in the meantime, I'll co-ound additional stories and uh get those assigned to.
+Cedrick Infantado: Okay. Okay.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: Good.
+Kobi Kunasekaran: For like for an integration um like story like this, I know some of the stories they they actually have like the solution built in. Um what's your preference? Like do you do you want the solutions or are you good with just getting like the uh like what what what are what the requirements are and then uh would you rather like put together uh like a design dock or something and then build
+Cedrick Infantado: uh for that one uh I think um I'm more confident if there's a solution already on the ticket so that um it is um totally align with wi with with what um what is the goal of the uh of the integration for that?
+
+
+00:13:15
+
+Cedrick Infantado: But I'm uh if it is too hard or it would just uh pile up on you um then just give me the high level and then I'll figure that out.
+Kobi Kunasekaran: Okay. Um, I'm I'm happy to do like some of the solutioning where uh where it makes sense. Especially like Claude seems to be doing quite a bit because I have a lot of context loaded that I'm able to work through it. Sometimes it does take a little bit of time and sometimes I have to like go back and fix cloud because like whatever it proposes is crazy. So I'm happy to do it where I can. Um but when I do give those like when those solutions are in the tickets though I do want you to challenge it. So I don't want you to funnel vision and just work on that like actually think about if it's actually makes sense and it is the right approach.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Don't assume it's the truth. Don't assume it's like a set design or anything like that.
+
+
+00:14:03
+
+Kobi Kunasekaran: Um cuz like back in my day like I used to in my product management days um I did a mix of both and I used to get a lot of push back from my developers and this is not Salesforce developer like regular developers when I try like when I know what I want like in terms of a design like I'll be like this is what I want but then I I've learned that that it puts a developer in like a in like a focus state and then we might miss on other opportunities uh
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: that might come if you uh if if you know you have a little more creativity and uh autonomous. So yeah,
+Cedrick Infantado: Yeah. There we go.
+Kobi Kunasekaran: like I'm happy to include whatever I can in terms of contact just so um you know we don't have so many
+Cedrick Infantado: Sure.
+Kobi Kunasekaran: like back and forth questions. But yeah, please challenge and question and uh suggest alternatives. Don't don't assume that that is the only way to go.
+Cedrick Infantado: Sure.
+
+
+00:14:55
+
+Cedrick Infantado: I'm
+Kobi Kunasekaran: That's why like I call it like proposed solution as opposed to the actual solution It's just one way.
+Cedrick Infantado: Yeah, that actually I'm good with that as well because when I'm I was in a doing an SA thing solutions architecting on um on Salesforce projects as well of course um there there are things that um that I didn't notice that should be there and
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: um the T the TA and uh the technical architect and me are having conversation back and forth that um this should be included in the story and um there there should be a check on this as well because it would affect the other user story.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: So yeah uh I'm I'm pretty I'm totally good with uh with that approach.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: So two heads is better than one of course.
+Kobi Kunasekaran: Absolutely. Okay. Awesome. I'm I'm glad to hear that. And then one more thing, we are also trying to like standardize or come up with like uh I guess standardize is the word is is the right word like standardize how we're creating tickets and stuff.
+
+
+00:15:58
+
+Kobi Kunasekaran: So uh I know you've worked with a lot of uh a lot of different like projects and people and stuff. So if there are things that you think we can improve in the tickets that we're creating um uh let's like bring those up either in these calls or like just shoot me a message or something like that so we can refine um the skills that we're creating with AI to make sure to include those components in the stories.
+Cedrick Infantado: Okay, sure.
+Kobi Kunasekaran: Okay, because yeah, we're we're small company. We're trying to figure out processes while we're also like delivering and doing the
+Cedrick Infantado: Delivery. Yeah.
+Kobi Kunasekaran: projects and like every everybody's been so slammed for the past like few years uh backtoback projects and now thankfully with AI we're able to offload some of the documentation and process uh process documentation and and things like that so that we you know you don't have to like sit there and write it from scratch.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: So trying to take the opportunity to standardize things so it's easier for everybody.
+
+
+00:16:56
+
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: And also I would like like to also learn from you on how you do your prompts. Maybe you have some templates that you could share on at some point. I'm not sure if that's okay.
+Kobi Kunasekaran: Yeah. Absolutely. Yeah. Yeah.
+Cedrick Infantado: So that I could learn from it.
+Kobi Kunasekaran: Absolutely. Absolutely. Well, we are trying to de democrat uh democratize it too. Like everybody kind of has been doing their own thing. Uh I mean man like a lot in AI and co-work. It's like what a few months old now that we've been using it. So it's not like you know we're experts but everybody's kind of doing their own thing. But we do have initiatives on the side to make it more available for everyone as well. So we're all able to kind of feed off of the same knowledge base, same uh like our our meeting transcripts for example like I have all my meetings coming into my co-work sessions and I'm able to like it my cloud has all the context about this project and every project I work with and my preferences.
+
+
+00:17:47
+
+Cedrick Infantado: Oh.
+Kobi Kunasekaran: So it's able to generate stories and uh and things like that for me, right? And unfortunately,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: it's not an easy way. there's no easy way for me to just share that with you as is. Uh so we're trying to figure out a way where like as a company we can have like a common
+Cedrick Infantado: unre
+Kobi Kunasekaran: repository uh or knowledge base where we can feed off of. So that is in the works. But yeah, in the meantime like man if you have any questions absolutely like let me know. Uh but you're also like in the team the knowledge sharing channel, right? You're not you should be there because Yeah,
+Cedrick Infantado: I'm already there knowledge sharing.
+Kobi Kunasekaran: you're there. Okay.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Yeah, because that's where like people will post like tips and tricks and things that they learn about Claude. And same like if you learn things that you think will be helpful like please post it there. It's really helpful.
+
+
+00:18:34
+
+Cedrick Infantado: Okay. Sure. Sure. I'll be waiting for that star.
+Kobi Kunasekaran: It's one of those things you know like when you work Yeah. like working remotely like you know in when you work in an office it's easy like go tell people in person and like show them like some of the cool things we do.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: This is working remotely. This is the only way we can do it. You know, you gota just post and share and uh communicate as much as you can.
+Cedrick Infantado: Yeah. Yeah. That's the only thing I miss on working on office the bonding with with a coworker
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: and just sharing things that um you would see the reaction reaction live something like that.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: But um yeah, the the coming out now.
+Kobi Kunasekaran: Is that exactly cheating? Same. Same. Anyways, all right,
+Cedrick Infantado: So yeah.
+Kobi Kunasekaran: man. So, I think you're good in terms of stories. I will um you've got your next steps. I'm I I will prioritize getting the other stories uh lined up as well in case uh we don't have any we don't have enough to move forward with the integration. Um and then yeah, keep me posted on how the rest of the things go. And uh yeah, we'll chat later.
+Cedrick Infantado: Okay. Thank you, Kobe.
+Kobi Kunasekaran: Cool. All right.
+Cedrick Infantado: Have a great day.
+Kobi Kunasekaran: Thanks, Andre. You too.
+Cedrick Infantado: Bye-bye.
+Kobi Kunasekaran: Bye.
+
+
+Transcription ended after 00:20:02
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

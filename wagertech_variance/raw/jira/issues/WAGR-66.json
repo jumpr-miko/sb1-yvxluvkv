@@ -1,0 +1,196 @@
+{
+  "id": "10189",
+  "key": "WAGR-66",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:36:54.813-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-14T03:30:59.723-0400",
+    "status": {
+      "description": "",
+      "name": "Ready",
+      "id": "10059",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "Reverse visibility. From a Contact record, make it obvious which Operators and Partners that person is attached to — the piece Joyce asked for when she gave up the Contacts related lists.\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Joyce, Aug 13: 'once I get to Elias's page, then it's clear that he's associated with Catena.' Kobi: 'from Elias's contact page, we can show the accounts or partners of operators that they're related to' -> 'That's easy.'\n\n* Complication found on Aug 17: because Operator and Partner are both Accounts, the lookups will dump everything into a single undifferentiated Accounts list. Kobi: 'if there's a person that is a primary contact for both a partner and an operator, it's just going to throw it all under one list just under an accounts list and it might not necessarily separate them based on the account record type.'\n\n* Solution he landed on: 'I think maybe that's not a problem because we can use dynamic lists on the contact page to separate them out based on the related record.' So: separate Dynamic Related List – Single components on the Contact page, each filtered by Account record type.\n\n* Cover both lookups: Primary Contact and Billing Contact.\n\n=== ACCEPTANCE CRITERIA ===\n\n* A Contact who is primary for one Operator and billing for one Partner shows them in two clearly labelled lists, not one merged list.\n\n=== NOTES ===\n\n* Identified on the Aug 17 call and explicitly not ticketed at the time. This is the only surviving piece of OP-11/PT-12 — both related-list stories are otherwise dead.\n\n* Note: the record-type split is new information from the Aug 17 transcript.\n\n=== SOURCE ===\n\n* Taryn doc OP-11 / PT-12\n\n* Aug 13 call — Joyce's requirement\n\n* Aug 17 call — record-type split complication\n\nDependencies: BUILD-126, BUILD-136\n\nOwner (proposed): TBD\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-144 — Contact: show related Operators and Partners, split by Account record type",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-278"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563757479219"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000sf:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563757479219"
+      }
+    }
+  }
+}

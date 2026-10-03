@@ -1,0 +1,239 @@
+{
+  "id": "10339",
+  "key": "WAGR-147",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-31T15:01:36.907-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.283-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2>Summary</h2><p>Direct deals now have multiple sources, so two BetMGM-Direct-ON deals can differ only by source — the current name format can&#039;t tell them apart in list views. <strong>Solution: the Deal Name flow appends -{Source_Code__c} after Vertical (all deals, only when Source is set), keeping -TEST as the final token — e.g. ON-BETMGM-DIRECT-CASINO-S.</strong> Extends the format from BUILD-117/BUILD-125.</p><h2>Current state</h2><p>Flow <code>Deal_Before_Save_Set_Deal_Name</code> sets Name via formula DealNameFormat: {Market_State_Code_<em>c|country}</em><em><s>{Operator Name}</s></em><em>{Partner_Codec}-{Vertical} uppercased, then -TEST if Test_Deal</em>_c. Example: ON-BETMGM-GD-CASINO. Fires on create and update with no entry filter → Name restamps whenever deal makeup changes (decided behavior; CMS keys on External Deal ID, not Name).</p><h2>Proposed solution</h2><ol><li><p>Modify DealNameFormat to append -{Source_Code_<em>c} (from BUILD-246) after Vertical, only when Source_Code</em>_c is non-blank, keeping <s>TEST as the final token: {geo}</s>{OPERATOR}<s>{PARTNER_CODE}</s>{VERTICAL}[-{S}][-TEST]</p></li><li><p>&quot;Direct&quot; remains spelled out in full (explicit Aug 25 decision — no -D shortening).</p></li></ol><h2>Acceptance criteria</h2><ol><li><p>Existing before-save trigger on create/update; no new trigger.</p></li><li><p>Deal with Source=Shurzy → name ends -S; suffix applies to all deals (any partner), not only Direct.</p></li><li><p>Source blank → name identical to today&#039;s format, no trailing hyphen.</p></li><li><p>Test deal with Source → …-S-TEST, not …-TEST-S.</p></li><li><p>Re-saving an unchanged Deal produces the same Name (idempotent).</p></li></ol><h2>Out of scope</h2><ul><li><p>External Deal ID (BUILD-247).</p></li><li><p>Requiring Source (BUILD-249).</p></li></ul>",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-248 — Deal: Append Source code to Deal Name automation",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10364",
+          "body": "<p>Updated Formula in this flow: Deal - After Save - Set Deal Name <a href=\"https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011YdkIYAS\">https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011YdkIYAS</a> </p><p>UPPER(</p><p>BLANKVALUE(</p><p>IF( LEN({!$Record.Market_State_Code__c}) &gt; 0,</p><p>{!$Record.Market_State_Code__c},</p><p>IF( {!$Record.Market_Country_Code__c} = &#039;US &amp; CA&#039;, &#039;USCA&#039;,</p><p>{!$Record.Market_Country_Code__c} )</p><p>), &#039;NOMKT&#039;)</p><p>&amp; &#039;-&#039; &amp; BLANKVALUE({!$Record.Operator__r.Name}, &#039;NOOP&#039;)</p><p>&amp; &#039;-&#039; &amp; BLANKVALUE({!$Record.Partner_<em>r.Partner_Code</em>_c}, &#039;NOPT&#039;)</p><p>&amp; &#039;-&#039; &amp; TEXT({!$Record.Vertical__c})</p><p>)</p><p>&amp; IF( LEN({</p><figure data-type=\"media-single\" data-layout=\"center\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"UNKNOWN_MEDIA_$Record.Source_Code__c}) &gt; 0, &#039;-&#039; &amp; {\" data-width=\"200\" data-height=\"183\"></div></figure><p>$Record.Source_Code__c}, &#039;&#039; )</p><p>&amp; IF( {!$Record.Test_Deal__c}, &#039;-TEST&#039;, &#039;&#039; )</p><ul><li><p>Formula above also makes some improvements on handling blank values for operator/partner,etc. and renamed the flow to After Save as it was previously named Before Save incorrectly. </p></li></ul>",
+          "created": "2026-09-08T14:02:00.011-0400",
+          "updated": "2026-09-08T14:02:00.011-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10366",
+          "body": "<p><strong>Heads-up on the</strong> <code>Source_Code__c</code> <strong>reference (2026-09-08)</strong></p><p>The formula in this ticket references <code>{!$Record.Source_Code__c</code>}, which is <strong>safe as written</strong> — <code>Deal_Before_Save_Set_Deal_Name</code> is actually an <em>after-save</em> flow despite its &quot;Before Save&quot; label, and after-save flows read recalculated formula fields fine.</p><p>It becomes a silent defect if that flow is ever converted to before-save (the mislabelled trigger type is worth its own clone-and-rebuild ticket). Before-save flows cannot read same-record formula fields — on insert the value is blank, on update it is the pre-update value. If the conversion happens, replace the reference with an in-flow CASE, mirroring <code>fxSourceCode</code> in the External Deal ID flow but <strong>without</strong> its <code>NOSRC</code> fallback (the placeholder belongs in the id, not the Name). Otherwise every new deal name silently loses its Source suffix.</p><p>Related: <a href=\"https://app.asana.com/0/0/1218291458396323/f/\">BUILD-272 — Deal: Makeup dedupe key and duplicate block</a>, which extends that External Deal ID flow.</p>",
+          "created": "2026-09-08T17:54:45.857-0400",
+          "updated": "2026-09-08T17:54:45.857-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-374"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218031283565012"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001pr:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XXS (1-2 Hours)",
+          "id": "10043"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218031283565012"
+      }
+    }
+  }
+}

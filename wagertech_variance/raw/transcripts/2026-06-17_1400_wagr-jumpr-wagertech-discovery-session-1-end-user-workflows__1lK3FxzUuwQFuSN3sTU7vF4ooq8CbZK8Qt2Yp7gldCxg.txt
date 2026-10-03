@@ -1,0 +1,1082 @@
+📝 Notes
+Jun 17, 2026
+WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows
+Invited Miko Sumagang lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi ali@wagertech.bet jay@wagertech.bet owen@wagertech.bet Marc Cabantog
+Attachments WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows
+Meeting records Transcript Recording
+
+
+Summary
+The team aligned on a desktop-first Salesforce architecture to streamline operations via centralized tracking and reporting.
+
+CRM Strategy and Hierarchy
+The team will build a desktop-first interface to optimize for the workforce’s current needs. Access levels will be structured to support operations, management, and Brand Ambassadors.
+
+Data Tracking and Reconciliation
+Manual logging errors necessitate a shift to automated Salesforce workflows to prevent revenue loss. The system must support gap analysis between forecasted and actual operator-confirmed conversion data.
+
+Workflow Integration Requirements
+The team aims to improve link attribution and deal management by integrating existing affiliate tracking into Salesforce. Standardizing these processes will reduce reliance on disparate manual spreadsheets.
+
+
+Decisions
+Aligned
+* Desktop-first Salesforce development strategy The team agreed to prioritize building the Salesforce interface for desktop first, while ensuring the platform remains compatible with mobile use.
+* Executive-level Salesforce access permissions Executive-level users will be granted read-only access to Salesforce.
+* Workflow knowledge transfer strategy defined The team will conduct project discovery using recorded video demonstrations for workflow walkthroughs, followed by targeted meetings to address outstanding questions.
+* ERD validation requirement established The project will require a validation session for the ERD to ensure the database solution is viable and prevents short-term project blockers.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Ali Nawaz] Discuss Performance Analysis: Schedule a follow-up call with Waleed Alasadi to explain in detail the current process of identifying trends, tracking performance, and analyzing rep data.
+* [Lina Ceniccola] Poll Device Usage: Conduct a poll in the sales chat to determine the preferred device usage (mobile versus desktop) for logging activities.
+* [Kobi Kunasekaran] Plan Licensing: Add a section to the project plan to account for configuring user roles, permissions, and initial license setup.
+* [Emily] Demonstrate Reconciliation Process: Record or present a demonstration of the current spreadsheet reconciliation workflow. Include the interaction between operator reports and internal tracking sheets.
+* [Ali] Demonstrate Airtable Process: Provide a walkthrough or screen recording of the data entry and link distribution workflow currently managed in Airtable. Show how deals are set up and assigned to business agents.
+* [Emily] Record Application Programming Interface Signup Flow: Create a video recording capturing the entire customer signup journey through the current Application Programming Interface. Explain how the data flows from the initial click to system tracking.
+* [Emily Vandenberg] Provide Workflow Recordings: Provide workflow recordings showing daily spreadsheet operations, signup logging, and decision making processes.
+* [Kobi Kunasekaran] Document Outstanding Items: Compile and distribute a summary list of the outstanding topics and action items discussed during the session.
+* [Joyce Kiddell] Send Executive Mockups: Email the mockups representing the ideal state for executive reporting.
+* [Kobi Kunasekaran] Provide Scheduling Link: Provide a scheduling link to Emily to facilitate the booking of upcoming project meetings.
+* [Emily Vandenberg] Record Loom Tutorials: Create Loom videos covering the specific smaller process items identified during the discussion.
+
+
+
+Details
+* Project Introduction and Team Setup: Kobi Kunasekaran introduced the discovery call for the Salesforce simplification project, establishing the team members and roles involved. Waleed Alasadi and Kobi Kunasekaran clarified project roles, noting that Kobi Kunasekaran will serve as the project manager and primary consultant, and Jester, also known as Mark, may join future calls (00:00:04).
+* Role Descriptions and Responsibilities: Owen Scott and Jay described their roles in operations and sales, detailing their management of partner relationships, deal tracking in AirTable, and operational tasks. Ali Nawaz described their role as the head of sales, noting their experience as a Brand Ambassador and their ability to identify sales trends, which helps the team improve performance and address potential issues (00:02:22).
+* Salesforce Proficiency and CRM Familiarity: The group discussed the team's level of experience with Salesforce. It was determined that most Brand Ambassadors have little to no previous experience with Salesforce or other CRM systems, which will necessitate user-friendly interface design and simplified training to avoid intimidation (00:06:25).
+* Mobile Versus Desktop Usage Strategy: The team discussed whether to prioritize a mobile-first or desktop-first experience for Salesforce usage. While the team primarily uses mobile phones for daily tasks, logging is often split between mobile and desktop due to the complexity of the current Google Sheets process. The consensus is to focus on a desktop-first build that is also mobile-optimized, allowing for potential behavioral shifts toward mobile use as the UX improves (00:10:27).
+* Organizational Hierarchy and Access: The team outlined the organizational structure for Salesforce access, identifying three main groups: operations staff, sales managers, and Brand Ambassadors. Brand Ambassadors are the frontline workers logging signups, while Brand Managers oversee these networks. The team confirmed that referrers will not have access to the system, but the structure must account for how numbers roll up from Brand Ambassadors to Brand Managers (00:13:22).
+* Referral and Assistant Access Considerations: Joyce Kiddell and the team discussed whether sales assistants need their own Salesforce access. It was noted that while most assistants do not perform the logging themselves, having separate access might improve audit trails for error tracking, though this must be balanced against licensing costs and Salesforce limitations regarding read-only licenses (00:19:03).
+* Access Permissions and User Counts: The team estimated the current user requirements, including approximately 22 Brand Ambassadors, 6 managers, and 10 operations staff members who require access. Kobi Kunasekaran emphasized the need to restrict access levels to prevent user errors, suggesting admin-level access for operations and view-only access for executive levels, with a proposal to be developed later (00:22:24).
+* Deal Origination and Assignment Process: Jay and Ali Nawaz explained the deal management process, where Master Affiliates provide deal volumes (books). These opportunities are tracked in Notion and distributed to Brand Ambassadors based on performance, historical logging accuracy, and the ability to meet volume requirements (00:28:55).
+* Player Value and Segmentation: Ali Nawaz described the strategy for assigning volume, which involves considering the quality of players. They look for players who demonstrate high activity levels, such as those making frequent deposits or wagering, rather than just high volume, ensuring that opportunities are matched to the best performers (00:32:55).
+* Deal Structure and Categorization: Joyce Kiddell provided context on how deals are structured, explaining that they are defined by a combination of the operator, any intermediary partner, the vertical (sports vs. casino), and the market (geographic coverage). Future-proofing for potential additions like prediction markets and daily fantasy sports is a priority (00:34:43).
+* Data Auditing and Metrics: Ali Nawaz explained that they audit player value and tracking by cross-referencing reports from operators—which include FTDs, registration dates, and deposit amounts—with the unique codes assigned to each Brand Ambassador’s network (00:38:01).
+* Forecasted Versus Actual Data: Joyce Kiddell and the team discussed the importance of maintaining visibility into both forecasted (logged) data and actual (operator-confirmed) data. This gap analysis is essential because operator reporting often differs from what is logged, and having both sets of data allows for better performance monitoring and identification of discrepancies (00:39:59).
+* Fraud Identification and Write-offs: The team addressed the need for audit trails to handle fraud and "write-offs," such as locked accounts or duplicate signups. By tracking these through specific reason codes in Salesforce, the team can better manage discrepancies between logged data and actual conversions (00:43:13).
+* Operational Efficiency and Revenue Impact: Jay explained that manually logging data on spreadsheets often leads to missed logs and delays, which negatively impacts revenue and P&L. Moving to a Salesforce-driven process is viewed as critical to ensuring accurate, real-time logging and preventing revenue loss caused by missed or delayed reporting (00:46:35).
+* Automation and Communication Future: The team discussed the potential for future phases to include Salesforce-driven automated outreach. Currently, communication relies heavily on WhatsApp, which creates a blind spot in the tracking process. By centralizing communication within Salesforce, the team aims to improve efficiency and enable automated reminders for deposits and wagering requirements, though they acknowledged this will require a transition process (00:51:28).
+* Operational Challenges with CPA Logging: Ali Nawaz describes difficulties where BAs complete signups and registrations that qualify for CPA payouts but fail to log them in a timely manner, sometimes waiting until payment days or missing the opportunity entirely. Ali Nawaz notes that this behavior necessitates manual auditing of sheets and networks to identify inconsistencies, as they currently rely on manual updates from the BAs (00:58:19).
+* Communication Strategy and Design: Emily Vandenberg and Waleed Alasadi discuss the need to improve communication, particularly regarding player notifications and surfacing signals to brand managers that require attention (00:59:16). Waleed Alasadi explains that while they do not expect to change player communication methods in the next three phases, they are considering utilizing "cases" as a tool for communication during the design phase (01:00:19).
+* Reconciliation Process Demonstration: Kobi Kunasekaran requests a demonstration of the current reconciliation process, specifically regarding how decisions are made, which spreadsheets are opened, and how reports from operators match up against internal logs. Emily Vandenberg agrees to provide a recorded video to show this process in practice (01:02:16) (01:18:58).
+* Data Management in AirTable: Owen Scott explains that AirTable is used for daily updates regarding book availability and assigned volume, as these variables change frequently. Ali Nawaz adds that AirTable is essential for organizing and linking specific BAs to operators, ensuring accurate tracking numbers are visible to the team (01:03:40).
+* Operational Tracking Difficulties: Ali Nawaz discusses the challenge of switching operators for a brand in the middle of the month, which requires BAs to manually update logs to ensure accuracy. Ali Nawaz suggests that Salesforce could improve this workflow by automatically displaying the operator through which a client registered, thereby reducing manual logging errors (01:04:36).
+* Link Management and Attribution: Joyce Kiddell clarifies that there are two distinct types of links: the BA-specific agency website link used for internal attribution and the affiliate tracking links that lead to operator landing pages (01:06:57). Ali Nawaz notes that from an operational standpoint, they assign specific affiliate links to individual BAs and may switch these links when targets are met, without the customer noticing any difference (01:08:03).
+* VA Link Allocation Process: Kobi Kunasekaran inquires about how affiliate links are distributed to VAs, and Ali Nawaz explains that they manage a limited number of links by assigning them to BAs, sometimes rotating them to ensure high-volume reps are not duplicating efforts on the same link (01:09:10). Ali Nawaz states that AirTable is used to track the assignment and unassignment of these links to maintain organization (01:10:14).
+* Signup Tracking and API Integration: Emily Vandenberg explains that current signup measurement relies on user clicks from the agency website, with a middleware redirect in place as the user moves toward conversion. Joyce Kiddell notes that the team is working toward server-to-server postback integrations with partners, though they anticipate only 50% to 60% coverage, necessitating continued reliance on manual reconciliation between logged and tracked data (01:12:57).
+* Agency Website Scaling: Emily Vandenberg discusses the current structure of agency websites, which utilize "slugs" for each rep, and notes that the team plans to migrate to a single site for all markets before the project goes live (01:15:04). Kobi Kunasekaran emphasizes the need to see the signup flow in practice to determine which data fields can be captured and automatically mapped to Salesforce objects (01:16:08).
+* Workflow Documentation Plan: Kobi Kunasekaran and Emily Vandenberg agree that the team will provide recorded videos demonstrating the top-down deal setup, signup processes, and logging workflows to help the design team understand the current operational reality (01:18:58).
+* Data Analytics and Reporting: Kobi Kunasekaran requests access to executive-level reports to determine if they can be imported into Salesforce to support reconciliation. Joyce Kiddell confirms that the team has created mockups for an ideal reporting state and will share them via email (01:21:10).
+* Future Meetings and Coordination: The team agrees to schedule a follow-up meeting for the following Monday to continue the discussion, which will include Ali Nawaz, Kobi Kunasekaran, and Jay (01:22:53). Kobi Kunasekaran commits to providing a scheduling link to facilitate this and any further necessary meetings (01:23:39).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jun 17, 2026
+WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows - Transcript
+00:00:04
+
+Emily Vandenberg: Hey everyone. Um
+Joyce Kiddell: Ally, where's your face?
+Jay: Oh, he's a bit busy. Uh, he's listening, but he's just doing something else right now. He said he told me to let you guys
+Joyce Kiddell: Okay,
+Jay: know.
+Joyce Kiddell: but where's your face and
+Jay: Too ugly. So ugly.
+Joyce Kiddell: Owen?
+Owen Scott: My hair's all over the place. Look like cat. Static cat.
+Lina Ceniccola: They want to remain mysterious.
+Kobi Kunasekaran: Are we Is everybody here? Should we get started?
+Emily Vandenberg: I think it was just Mark and Mo.
+Joyce Kiddell: Mhm.
+Emily Vandenberg: I wasn't sure if they were
+Kobi Kunasekaran: Uh, Miko, I don't think he's going to join.
+Emily Vandenberg: joining.
+Kobi Kunasekaran: I think he has another call. Uh, Jester may join in a bit, but we're going to record the call anyway. So, um, I'll share it over to them.
+Waleed Alasadi: Jester aka Mark. It took me a while, but same person.
+Emily Vandenberg: That was Yeah, the last call I was trying to
+Waleed Alasadi: Yeah. Yeah.
+
+
+00:01:24
+
+Waleed Alasadi: When he he joined us,
+Kobi Kunasekaran: All
+Emily Vandenberg: decipher.
+Waleed Alasadi: his like legal name is Mark, but then he goes by Jester. So it uh caused the conflict of the systems.
+Emily Vandenberg: All right, we probably do you want to do like just kind of a brief intro Kobe with Jay Owen
+Kobi Kunasekaran: right.
+Emily Vandenberg: and
+Kobi Kunasekaran: Yeah. Yes. Uh oh, sorry. Didn't mean to cut you off.
+Emily Vandenberg: Now go
+Kobi Kunasekaran: All right. Hello everybody. Uh my name is Colobby.
+Emily Vandenberg: ahead.
+Kobi Kunasekaran: Um I am going to be your uh project manager and uh primary consultant throughout the Salesforce simplification project. I assume everybody knows about this project, right? Or do I need to like give an intro on the project? Are we good?
+Owen Scott: No,
+Kobi Kunasekaran: Okay.
+Owen Scott: we're all familiar.
+Lina Ceniccola: Wow.
+Kobi Kunasekaran: The world of awesome. Um yeah, so this is going to be our first discovery call. Um really this is uh a chance for me to kind of get to know you um the process that you have set up.
+
+
+00:02:22
+
+Kobi Kunasekaran: Um and uh honestly like treat me and we'll lead on the call. Um and you know if we have additional discovery calls like treat it all as if like you're were new employees to your company and you know show us the robes, show us what you would show to your new employees. Um I have a few like guiding questions and things that I wanted to cover in this call. Um, but we usually end up going on tangents and it's perfectly fine if we need additional time, we'll reach out and schedule additional time. Um, but yeah, before we get started with uh what we wanted to go over today, um I'm meeting a lot of you for the first time. So, can I get a quick intro of who you are and uh what you do at Widget Tech and how you kind of fit into this project?
+Owen Scott: I'll start. Uh I'm Owen. I work on operations and sales as well. Uh Jay works directly with me. Uh I deal with everything link related for us.
+
+
+00:03:23
+
+Owen Scott: So Air Table and Play can. I'm sure you're somewhat familiarized with those two. Uh, I deal with contacting our partners directly. So, if we're working with deals, if we're trying to get deals, if we're trying to deal with issues that we're having, uh, I contact them and general operations, daily work, going through the motions. Feel free
+Jay: I can go next. Um, I'm Jay. I work directly with Owen. Like you said, my tasks are basically a lot the same as him, but I don't really deal with operators directly. Um, that's uh a lot of it that a lot of that hard job is Owen. Um, I do more operational work. Uh, I do some other work on the side in sales. Um, I think I'm more of a hybrid. Like I I can be both a BA and um operations. So if you need like a BA side perspective, I think I can provide that.
+Lina Ceniccola: Yeah, Jay will actually log the signups for one of our BAS. So, that's an important thing to note as
+
+
+00:04:37
+
+Ali Nawaz: What's going on,
+Lina Ceniccola: well.
+Ali Nawaz: guys? I'm Ally. I wish I could show my face right now. I'm just uh actually it was just I thought this was at 3 to be completely honest and I'm I'm at an appointment at the moment. So, but I I was able to move away just to introduce myself here. So, um I actually overlook the I'm I'm I overlook the sales side of things for the team. Uh, also on the operational side, um, kind of because I do have my own sales experience. I've been I've been a BA for a couple years now. I I was one of the first actually to to start up and um, I got my direct training straight from Lena. So, you know, everything I know comes straight from from her experience as well. But uh I I've been able to identify different trends and and skill sets on the sales side just because I have the experience there that it's hard for others who might just be focused on the operational side only to to figure out.
+
+
+00:05:32
+
+Ali Nawaz: So, I'm I'm kind of hybrid just like Jay said as well where I do I still have my be my sales side of things and I have people who uh take care of that for me, but I also overlook everybody else's skills just trying to make sure the team keeps going and making sure the the numbers uh keep improving any type of trends, any type of traits that um I'm able to identify. We try to make sure we we we find the root cause of any issues and uh also just make sure things we grow gradually. Right now, the team is growing as as you could probably see and um there's a lot more in store for future. So, I'm excited for that, too.
+Emily Vandenberg: The one thing I'll say too just about Ally, he so talking about our Salesforce instance, he spent a bunch of time kind of in Salesforce already through our discovery testing if you will. So he's got a chance, you know, and he's provided like great insight and um kind of collaborated through what we have built.
+
+
+00:06:25
+
+Kobi Kunasekaran: It's
+Emily Vandenberg: Um so he just just has a little bit of extra kind of knowledge on the Salesforce side.
+Waleed Alasadi: Awesome. Great to meet you,
+Kobi Kunasekaran: nice.
+Waleed Alasadi: Ali. I think one of the things that was very interesting as you were talking that um if not today, we don't get to it like we should make sure to have some time is like you talk about like spotting trends, understanding kind of performance in a lot of ways of the other reps. Um would love to understand like what you're do,
+Ali Nawaz: Of
+Waleed Alasadi: how how you're doing that today, what kind of things that you're looking for and what blind spots that you have as well.
+Ali Nawaz: course. Let's let's set up a call.
+Waleed Alasadi: Yeah.
+Ali Nawaz: I'll go through I I talk a lot when it comes to work.
+Waleed Alasadi: I love
+Ali Nawaz: So I I'll be glad glad to explain things in detail for you anytime.
+Waleed Alasadi: that. This is literally the the the setting that we want you to talk a lot.
+
+
+00:07:18
+
+Waleed Alasadi: So when when we meet, let's bring it up.
+Lina Ceniccola: What's that?
+Waleed Alasadi: Yeah.
+Ali Nawaz: For sure. For sure. I I I'm I'll be glad because it is it is hard for a lot of people to understand unless they kind of go through it themselves. And obviously, it's hard for someone who's not on the sales side to to go through some of the the obstacles that we face. And that's kind of why I feel like I'm I'm able to identify these trends because I went through this the the process, the ups and downs, the pros and cons before anyone else,
+Waleed Alasadi: Awesome.
+Ali Nawaz: right?
+Waleed Alasadi: Pix.
+Kobi Kunasekaran: We're going to look forward to you validating once we build everything to make sure that it still works.
+Ali Nawaz: I'm hoping. I'm sure we'll be good for
+Kobi Kunasekaran: Awesome. Just just out of curiosity, what's uh what's everybody's like Salesforce knowledge like? Have you used it before? Um is it going to be first time?
+Ali Nawaz: for myself. I was I was the BA that we tested this out with so far.
+
+
+00:08:16
+
+Ali Nawaz: So, I mean, I have u my assistant Naomi who helps out with a lot of issues pretty much doing a lot more of the actual logging side of things, but I was able to touch some of the pros and cons of using it. And I feel like it will be beneficial for a lot of people uh on the BA side and actually help us when it comes to logging accuracy and tracking just because uh there just some flaws sometimes when we're when we're when we're just manually logging on spreadsheets,
+Kobi Kunasekaran: Okay. What about like the rest of the
+Emily Vandenberg: I would say there's really like low percentage of usage within Salesforce within the
+Kobi Kunasekaran: team?
+Emily Vandenberg: like reps specifically. Would you agree,
+Lina Ceniccola: Yeah, definitely. Um,
+Emily Vandenberg: Lena?
+Lina Ceniccola: I don't know if any of the reps have really used Salesforce before on our team. I have used Salesforce before when I worked at um an investment firm, but other than that,
+Waleed Alasadi: would your reps have used like a CRM before?
+Lina Ceniccola: no
+
+
+00:09:24
+
+Waleed Alasadi: You think any CRM?
+Owen Scott: Maybe if they work somewhere like a sales place, but I don't think so.
+Waleed Alasadi: Sure.
+Owen Scott: Based on our group of people,
+Waleed Alasadi: Okay.
+Owen Scott: I would say no.
+Lina Ceniccola: our sales reps are quite young, so I'm not
+Waleed Alasadi: Okay. No,
+Lina Ceniccola: sure.
+Waleed Alasadi: I mean that's that's fair and like we're bringing the enterprise tool to their day-to-day. So, we got to be mindful of that.
+Lina Ceniccola: Yeah, at least I haven't heard anybody offer up that information. I would assume they may have if they've used it. So, I personally haven't heard
+Kobi Kunasekaran: It's it's good to know. I think it's it it's going to help us shape how the training sessions and what the interfaces and everything look like. Cuz if they're not familiar with Salesforce, then we're going to want to spend a bit more time making sure the UI uh the entry, the inputs are a lot easier than what comes out of the box with Salesforce because that stuff is pretty intimidating for people that are not used to CRM.
+
+
+00:10:27
+
+Waleed Alasadi: and uh just like this is the appropriate time to say like on everybody I think the BAS are are like they use mobile first when it comes to Salesforce um and if that's not a true like as we take on this project um it is a specific work stream to add mobile support um so if that's not true like like we should call it out early on but I I think that's something that we're taking into consideration as
+Owen Scott: I think the majority use phones. There's like a select few who bring a computer literally everywhere, but for the most part like 99% of his phones.
+Lina Ceniccola: Are you talking about
+Waleed Alasadi: Yes. And like and beyond,
+Lina Ceniccola: logging.
+Owen Scott: Yeah,
+Waleed Alasadi: right? I think just
+Owen Scott: actually. Yeah, I think logging would be more split.
+Jay: I would say logging is like 90%
+Owen Scott: Yeah,
+Lina Ceniccola: I will I'm actually going to do a poll in our sales
+Kobi Kunasekaran: Okay.
+Jay: laptop.
+Lina Ceniccola: chat.
+Owen Scott: that's a good idea.
+
+
+00:11:23
+
+Lina Ceniccola: So, just give me a second.
+Joyce Kiddell: I it's kind of a leading question though in that like they are mo I think mostly using their desktops or laptops for logging but it's also because the logging process is very complicated and on a Google sheet right now which would be hard to do on your phone. So if we create a UX that's more mobile friendly we might actually be able to shift that behavior. So, it's a consideration, but I don't know that it's like as required maybe as like even the PR initially filled out.
+Lina Ceniccola: That's a good point.
+Joyce Kiddell: Yeah, it's hard to compare before and
+Kobi Kunasekaran: Yeah,
+Waleed Alasadi: So, Joyce,
+Kobi Kunasekaran: I think
+Joyce Kiddell: after.
+Waleed Alasadi: are are you suggesting that we like do kind of with the mobile experience and then see how it's
+Kobi Kunasekaran: like
+Waleed Alasadi: being adopted or focus on desktop first?
+Joyce Kiddell: both.
+Emily Vandenberg: What is
+Joyce Kiddell: I don't know.
+Waleed Alasadi: Uh we we think both is the right answer like I think yeah um it will give feedback it will give
+
+
+00:12:20
+
+Joyce Kiddell: Okay.
+Emily Vandenberg: interesting?
+Waleed Alasadi: because you your adoption or change change management is not going to happen like overnight. Um I think the behavior is still going to be well I've always booked 7 o'clock to go and do logging so I'm going to continue to do it at 7 o'clock. Um but if they have the tool and they do it once twice and it becomes a force of habit we can I think help shift it this way.
+Joyce Kiddell: Yeah, cuz like I mean they're using their phones for WhatsApp. So if we keep that as their communication channel then like I imagine it'd be easier to just like send a note log, you know what I mean? Like you're just switching between apps or um experiences on your phone. But yeah, I like that approach.
+Kobi Kunasekaran: I think like when we come come to decision points where we we might have some trade-offs for optimizing desktop over mobile like we'll call that so that we can make a decision on if that needs to be from day one or if we can push to push it to later so that we can stick to our timeline and budget right for this phase.
+
+
+00:13:22
+
+Kobi Kunasekaran: Um but yeah like like said like we'll we'll build desktop first but make sure that it still works in mobile too. Okay. All right. So um I wanted to put together slides but I didn't have a enough time but I did uh I want to go over like a few things that I want to cover in this call. I just dropped it all. This the same stuff I sent you over Emily over email um and just moved it move some of the things around because u you said we might whether we don't have enough time or we might have to move it to a later meeting. Um the first thing I want to actually uh go through is a quick tour of the team. um not just like the people here but uh who are all the people that are going to be working in Salesforce once you go live. Um we talked about reps, we talked about like uh yourselves um their managers u uh so just want to get a layout of what the org chart looks like and uh who we need to account for as we uh as we build these things.
+
+
+00:14:30
+
+Emily Vandenberg: the core journey. Sorry. Um, you just want to know who for each one of them. We're kind of calling on
+Kobi Kunasekaran: No,
+Emily Vandenberg: Kobe.
+Kobi Kunasekaran: for the team like your org structure in terms of like who's going to be using Salesforce? Um like I know for the like login the signups it's going to be like um the reps or referers but um who else is going to be using Salesforce? What does your or chart looks like for everyone that needs access to Salesforce?
+Emily Vandenberg: I
+Lina Ceniccola: would be I mean I can go top down. So like you have operations team then you have the sales
+Emily Vandenberg: can
+Lina Ceniccola: manager then the brand ambassador that falls under the sales manager and then their sales assistant if they have one. So it's also like if they have a manager and if they have a sales assistant but if they are a brand ambassador they would be using Salesforce regardless.
+Waleed Alasadi: um when they don't have a manager, are they a manager?
+
+
+00:15:37
+
+Waleed Alasadi: Is that like how we consider them
+Lina Ceniccola: No.
+Waleed Alasadi: themselves?
+Lina Ceniccola: If they don't have a manager they would be a brand ambassador.
+Waleed Alasadi: Okay.
+Lina Ceniccola: They could turn into a brand manager if they were to bring on a brand ambassador under them. But you only convert to brand manager once you are managing someone else.
+Waleed Alasadi: And who's managing like I guess the sales manager or the embedded manager?
+Lina Ceniccola: The brand operations team would be managing the
+Waleed Alasadi: Yes.
+Lina Ceniccola: brand managers and the
+Jay: I I guess we also manage the ones without the manager as well.
+Lina Ceniccola: What did you
+Jay: We would also manage the ones without the manager as well because normally if someone with the
+Lina Ceniccola: say?
+Jay: manager has a problem, we go to the manager but if they don't have a manager, we just talk to them directly.
+Kobi Kunasekaran: if he was in the operations team.
+Jay: Correct.
+Kobi Kunasekaran: Okay. So, brand ambassadors, they're the ones that are like front lines, um logging the signups, uh reaching out to the referrals.
+
+
+00:16:47
+
+Kobi Kunasekaran: Um what do the brand managers do? Are they also doing uh some of the same tasks?
+Lina Ceniccola: Brand managers are also brand ambassadors. In any case, the brand if you convert to a brand manager, you are still your own brand ambassador running your own sales network. Now you just have like many use that you manage.
+Kobi Kunasekaran: Gotcha.
+Waleed Alasadi: Does it does do their numbers roll up to the brand manager or do you look at their
+Lina Ceniccola: So,
+Waleed Alasadi: performance still independent individually?
+Lina Ceniccola: um the brand managers get uh partial commissions for the people that they manage.
+Emily Vandenberg: In terms of like how we kind of view, we typically go by like VA,
+Waleed Alasadi: Okay.
+Emily Vandenberg: but I think like an ideal state would be that we're looking at brand manager rollups as well more easily.
+Lina Ceniccola: Yeah, like a team view, how each team is doing, how that brand manager is managing their team and the numbers and
+Emily Vandenberg: Okay.
+Waleed Alasadi: Okay.
+Lina Ceniccola: whatnot.
+Joyce Kiddell: I'm just going to go ahead and say it like the structure is um similar to what you'd imagine of like a multi-level marketing scheme.
+
+
+00:18:06
+
+Joyce Kiddell: Not like scheme, maybe that's not the right word, but like you know what I mean? an LM structure in that um underneath uh brain
+Waleed Alasadi: That makes
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: sense.
+Joyce Kiddell: ambassadors like you would have like the primary refers and then those primary refers can also bring in secondary referers or yeah is that the right way to describe it
+Lina Ceniccola: Yeah,
+Joyce Kiddell: Lena
+Lina Ceniccola: it's like uh pyramid scheme. That's We don't like using that word.
+Joyce Kiddell: but there are partners Whereas they sign NDAs,
+Waleed Alasadi: Let me
+Joyce Kiddell: it's fine.
+Lina Ceniccola: It's like it is,
+Waleed Alasadi: Just
+Lina Ceniccola: but it's not.
+Joyce Kiddell: But in terms of like how you set up the hierarchy within Salesforce, it's probably a good idea to know that in terms of what needs to roll
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: up.
+Kobi Kunasekaran: I think that's the key like what the what information needs to roll up above like the referers above the brand
+Waleed Alasadi: okay.
+Kobi Kunasekaran: ambassadors, brand managers and then ultimately to like operations
+Joyce Kiddell: But to be clear,
+
+
+00:19:03
+
+Kobi Kunasekaran: team.
+Joyce Kiddell: you only have access to Salesforce if you're a brand ambassador or above.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: But referers will not have access.
+Kobi Kunasekaran: Gotcha.
+Waleed Alasadi: I'm sorry who who will not have access referrals will not yeah um the sales
+Joyce Kiddell: Referers
+Kobi Kunasekaran: Okay.
+Waleed Alasadi: assistants do they will have access to and then are
+Joyce Kiddell: Yes, sorry. Yeah,
+Lina Ceniccola: Yeah.
+Waleed Alasadi: they like they're logging on behalf of someone right like we're not tracking them as any like
+Joyce Kiddell: for
+Lina Ceniccola: Yeah.
+Waleed Alasadi: numbers
+Lina Ceniccola: They would just log in using the brand ambassadors license.
+Waleed Alasadi: okay so like from our perspective We just treat them like as if like they don't exist. They're just going to act as if they're abandoned. That's
+Joyce Kiddell: Lena,
+Waleed Alasadi: it.
+Joyce Kiddell: I'm wondering if it's useful to have their own role. um if we can keep it under the cap of our total licenses. Um for the purpose of error logging or like tracking like who made what change, you know, like if we're looking at like logging history, like would that be helpful to know if it was an assistant versus a rep?
+
+
+00:20:07
+
+Lina Ceniccola: I think maybe like Ally or Jay could speak to this, but if you have an assistant, you're not really doing the
+Joyce Kiddell: I don't know.
+Lina Ceniccola: logging.
+Jay: Yeah, most um most VAS nowadays when they have uh assistance, they don't really do the logging, which is true. I think like Ali, Mo, there's a few of them that will actually sit there and log and do their own signups because they're fair to their assistants, but majority of BAS if they have an assistant, they don't do their own logging. No.
+Joyce Kiddell: All right. Well, maybe if we can introduce like a business rule where if they have to add additional context, then it's like they sign off like it's from me like me Naomi for, you know what I mean? Or if there's like a comment box as part of like what they're logging. Um, I don't
+Emily Vandenberg: Yeah,
+Joyce Kiddell: know.
+Emily Vandenberg: maybe it would be like a view a role that's like view only and that that you would just have a shared license for like the those that aren't contributing but just viewing.
+
+
+00:21:13
+
+Emily Vandenberg: Do you know what I mean? Because it's access to view.
+Jay: doesn't know,
+Emily Vandenberg: If we're talking licensing like cost
+Jay: you know.
+Waleed Alasadi: the Salesforce does not offer read only access licenses.
+Emily Vandenberg: specifically
+Waleed Alasadi: Uh but it does like I I go back to the conversation I had with you guys about the platform license component last time. Um so that might be an option like the the only issue is that the the one object that they would need access to would be leads and that's essentially like a big part of their job in in logging, right? So, we could consider to look at that. Um, but you're right, Joyce, in calling it out like you if they share license, there's no reasonability um at all of who did the change.
+Lina Ceniccola: We can think about it.
+Kobi Kunasekaran: Yeah, we don't need to make a decision on the call right now, but it's good to know like if we do need to build any um anything to indicate, you know, signups log by assistance versus brand ambassadors and yeah, that's something we would want to know uh earlier on so that we can account for it in the design.
+
+
+00:22:24
+
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: And then for roles,
+Kobi Kunasekaran: done.
+Emily Vandenberg: I know we were kind of chatting through like um more of that VA um function, but the like Owen kind of coming at it from the perspective and like uh Jay as well from like ops and partnership deal management which is I phase three right so he's kind of like he would be the one managing the deals and the different um attribution there and then we would obviously have like we have a team of like BAS's reporting kind of like function that would need to access to to help with the visualization
+Kobi Kunasekaran: Okay. Um, okay. Yeah, that's helpful. I think the when we get to talking about like setting up the operators and the operator deal combos and things like that, the that information is going to be helpful so we know like who we're building for and who's going to need access to those objects because presumably you don't want all your BAS to have access to uh configure like the deals and stuff. So we want to make sure to restrict that so that there are no user errors.
+
+
+00:23:35
+
+Kobi Kunasekaran: Um okay. Okay. Do do you have like rough numbers of like how many brand managers versus brand ambassadors uh that you have right now?
+Jay: We have 24 I think right now brand
+Lina Ceniccola: R could
+Jay: ambassadors.
+Lina Ceniccola: be soon 20 depending on the the rampage Jess is on right
+Kobi Kunasekaran: Okay.
+Jay: Yeah.
+Lina Ceniccola: now.
+Jay: Yeah. projected to be about 20 and we have I think like five or six managers roughly.
+Lina Ceniccola: I can tell you right now in one second we have one, two, three, four, five, six managers. And we have 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 brand ambassadors.
+Kobi Kunasekaran: um in your current version of Salesforce, have you imported all these users already or is this just like the people that were testing?
+Lina Ceniccola: Just asked
+Kobi Kunasekaran: That's okay. All right. I just made a note like I we will need to add like a section in our project plan to account for getting the licenses set up.
+
+
+00:25:08
+
+Kobi Kunasekaran: Account setup robot set up for this.
+Lina Ceniccola: Yeah. And just to call out,
+Kobi Kunasekaran: That's good to know.
+Lina Ceniccola: we have 30 licenses right
+Kobi Kunasekaran: 30. Okay.
+Lina Ceniccola: now.
+Kobi Kunasekaran: 30 licenses. You have projecting 20 ambassadors and I think it was six managers. Um, sorry. How many people are on the operations team that might need access to
+Lina Ceniccola: Um,
+Kobi Kunasekaran: Salesforce?
+Emily Vandenberg: Two,
+Lina Ceniccola: some people will be dual rep and ops.
+Emily Vandenberg: three.
+Lina Ceniccola: So, I just want to make sure we don't include those people in this total. So, you have 1, two, 3, 4, 5, 6, 7, 8 9 10 10
+Waleed Alasadi: 10 that are not also
+Kobi Kunasekaran: Okay.
+Waleed Alasadi: sales.
+Lina Ceniccola: Yeah, I wasn't including sales or sales
+Waleed Alasadi: Okay.
+Lina Ceniccola: assistant.
+Waleed Alasadi: So what's the plan with the those people's access and it's cool if like the answer is they want to share license. I mean it's not cool by Salesforce but it's cool by us. It's just more of if they are going to share a license, we need to be able to consider the permissions of like all their jobs versus like the just like the overall role.
+
+
+00:26:38
+
+Lina Ceniccola: I think some people could share an access for sure. Um,
+Waleed Alasadi: Mhm.
+Lina Ceniccola: we can kind of group them in to certain boxes.
+Waleed Alasadi: Okay. And like Yeah. Then the sales group is probably going to have to be split into just like grow sales and then ones that have additional permissions with operations.
+Lina Ceniccola: Yeah,
+Waleed Alasadi: Okay.
+Lina Ceniccola: it would be like Yeah, just brand ambassador then brand
+Waleed Alasadi: Yeah.
+Lina Ceniccola: manager um and brand ambassador slash ops and then ops
+Waleed Alasadi: And ops is basically could probably do everything highest level.
+Lina Ceniccola: Mhm. And maybe like one other layer for executive
+Waleed Alasadi: Yeah.
+Lina Ceniccola: level. I just don't know if like there's a split we should have between ops. That's like everything and most things. We can discuss that, but
+Kobi Kunasekaran: I think we'll want to like separate admin level access even within ops versus like reporting level access. So they don't they can't make like record changes but they can still view all the data um if they're helping with reporting and things like that.
+
+
+00:27:58
+
+Kobi Kunasekaran: So um and then exact level same thing like generally we just do like view
+Lina Ceniccola: Yes.
+Kobi Kunasekaran: only um unless you know uh guest is going to go in and uh start updating records which it I don't think based on what I've seen like that's going to happen. So we can just provide uh view
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: access.
+Lina Ceniccola: He doesn't like to read things, so I don't think he'll go and start around in
+Kobi Kunasekaran: Okay. Okay.
+Lina Ceniccola: there.
+Kobi Kunasekaran: I think it's mostly going to be for like reporting and dashboards, right? Um he's going to want to like if whatever we end up building, he's going to want to be able to see it in Salesforce. Um unless you have plans to like move all of that because I know Stra's here like you're trying to build like a data warehouse with
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: all the data connected. So if the eventual plan is to move to a BI tool, then yeah, we can probably even trim that out. But at least for the time being, you're going to want to be able to at least get read only access to the reports.
+
+
+00:28:55
+
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: All right. I think this is helpful. Um I have a good idea of like what the break off of break up of the roles and responsibilities are going to be. Um, obviously nothing final like we'll we'll put together the proposal that we can decide on uh what happens uh when we go live. Um okay, next up the crux of this call. Um so from the pre-sale discovery call um it was actually very helpful. Um I think Jay, I know when you guys were uh walking uh Willy through the signup flow process, it was actually very very helpful. Um it helped to like tie the uh what was in the PRD to your actual processes. Um I do have some questions around the how this entire process kind of starts. I think for in the other call like we we went from like the rep level uh up to how they go from logging uh sending the messages, logging the deals and onwards. Um but I kind of want to go from the other way around from inception like when do you get a partner, when do you get an operator?
+
+
+00:29:57
+
+Kobi Kunasekaran: Uh when do you get a deal? um what that process looks like of you entering it. I think it's in Air Table right now. What does that look like? What the distribution look like? How do you make those decisions? Um how that kind of gets rolled out to your VMs and VAS. Um and then and then yeah, like we can maybe go from there. Um and I'll like ask questions along the way if that's okay.
+Jay: Yeah, sure. So, um we'll usually get the deals from what we call master affiliates. Uh again, that's like that's Owen's, uh kind of like specialty. He's uh usually the one that's in contact with them. So, they'll reach out to us and say like um we have uh x amount of space on this book for you. Um we don't really control that at all. Like we we do have certain deals which means we get an x amount of volume guaranteed, but we'll sometimes get additional volume or we'll get new um new books uh given to us.
+
+
+00:30:59
+
+Jay: And those aren't necessarily deals like they're just additions that they give us. But uh we we'll usually they'll usually reach out to Lena, Jess, and Owen. And um Owen will then let us know inside a chat we have um that this book is available with this amount uh this amount of space. And what we do from there is um or more so Alli will do it because um he's a head of sales and he's pretty fair when it comes to giving it to to the reps. Uh we look at a lot of different things before we make our mind on which rep gets it. So like logging trends, are they logging on time? um are they keeping up with uh like what what we ask of them like immediate redeposits, things like this. If if they're on top of their work, they get uh rewarded with more books. So, how it works is we'll break it down and right now we track it in notion. We track how much we give to each rep in notion. So, it's pretty much broken down like this.
+
+
+00:31:59
+
+Jay: the master affiliate reaches out to Owen, tells them you can have a 100 um signups on Xbox and then Owen will uh let us know. Alli will break it down. So he'll say um for example, Jay, you can have 30. Um Lena, you can have 20. Joyce, you can have 15. And then we'll go into their chats. And these are chats in WhatsApp. We call them the BA chats, brand ambassador chats. We'll go in there and we'll let them know, hey, this book has been turned on. Um, you have this amount, this amount of volume. Please get it done by this date and log it as this. And we'll put it on their link. And from there, they it it's once it's on their link, they just go ahead and let their guys know to start pushing it. The volume gets done. They they report back in that same chat, hey, I finished the volume. We'll then go into notion, write down that they're done, and we'll close the book. And that's basically how we do it. We also rely on the operator side.
+
+
+00:32:55
+
+Jay: Sometimes the operator will reach out to us and say like, "Hey, you're approach like you're approaching that 100 signup cap." So then we'll stop the signups. We we we also go that route too.
+Ali Nawaz: Yeah, pretty much. I I'll add on to that.
+Joyce Kiddell: Good.
+Ali Nawaz: So, pretty much Owen and Jess, they work on getting the deals for us. Sometimes there sports requirements, sometimes there's casino, it's a certain cap for the month that they want us to hit and uh then we assign it accordingly, right? So once they once they finalize those deals then my job is to give it and offer it to the to the right BAS the people who could number one either the high volume BAS who could handle it but
+Joyce Kiddell: Excellent.
+Ali Nawaz: there's also uh the player value side of things right So, with with with with casinos and sports, they're looking for players who are uh who are actually genuinely gambling or obviously they just want to see people depositing more money and and w losing. To be honest, that's what the casinos want, but they want to see more activity.
+
+
+00:33:52
+
+Ali Nawaz: So, you when you assign the volume, you want to assign it to not only the higher volume guys, but the guys who are bringing in the better quality players. And then at the same time, uh we have other reps who are more on the lower volume side. And my job is to still make sure they get their opportunities. And once I catch any trends of them slowly growing their network, I'll fuel them with more more opportunities in the future. But there's different parts of it. Some people have a network of sports players that they that that prefer uh like sports betting over casino. And then a big percentage they like casino more than anything. So when I'm breaking down the volume, I make sure I I sign it accordingly. but also by using the BA trends that I know that I know from auditing them for a couple years now.
+Waleed Alasadi: And as I wrap and maybe we can Sorry, Josh. Go ahead.
+Joyce Kiddell: Sorry.
+Ali Nawaz: Yeah.
+Joyce Kiddell: I I just wanted to offer a bit of context in terms of kind of like the inception of all of this.
+
+
+00:34:43
+
+Waleed Alasadi: Okay.
+Joyce Kiddell: Um cuz I think these guys covered off really well like what is the essentially like deal assignment process look like once we have the deal how do we allocate that to the right people um but uh in terms of how we get the deal in the first place it's typically Jess who is doing a lot of that like initial outreach setup negotiation contract finalization and then what comes of it is uh either an agreement direct with uh operator which is also called a book as you can hear and the way we talk about it. Um, and there's a a few of those that fit that criteria where the contract is with them, but then the majority of the operators that we actually work with, we don't have direct deals with them. We're working through what's called um, you know, I think Owen called it a master affiliate, but in the purity we called it as a partner. So that's like the gambling.com kina and then like the way that we were initially conceiving of it it would be like if we have a direct relationship with the operator then that's essentially a partner type as well.
+
+
+00:35:56
+
+Joyce Kiddell: Does that make
+Waleed Alasadi: interesting. Yeah, that's uh like I I that it made more sense now for me.
+Joyce Kiddell: sense?
+Waleed Alasadi: I didn't see the need for a partner type actually like that. I I thought that like there's just a deal that doesn't have a partner, right? Like it's that's just what it is. Um but anyway,
+Joyce Kiddell: Yeah.
+Waleed Alasadi: we can we can talk about that.
+Joyce Kiddell: Yeah. uh we don't have to get into the solution,
+Waleed Alasadi: Yeah.
+Joyce Kiddell: but just know that like in terms of if a deal equals like what are we getting paid at the end of the day by whoever we have the agreement with the rates are very much grounded in the combination of a partner if there is one the operator um and then it's contingent on two other things being the vertical which is what Ally was describing around like casinos versus sports books and then there's a few other options that we're trying to future proof for for like prediction markets uh sweeps and daily fantasy sports.
+
+
+00:36:53
+
+Joyce Kiddell: So it's a combination of operator partner um vertical and then market which is like the um the idea of like is this for you know only New Jersey or is it USwide or is it Canada wide is it Ontario specifically like a a market could be either a national agreement or it could cover only um specific states or provinces. Just let me know if that makes sense.
+Waleed Alasadi: Yep. Um Ali, I want to circle back to just something that you said real quick, which was um like you you want to give obviously when you get the the the codes, you want to give them to highest value players. How do your BA like your BAS I saw like just from the last session, these are long lists and a lot of names, right? So, how do you or your BAS know what a high quality player
+Ali Nawaz: Yeah, we get uh we get access to detailed reports, right?
+Waleed Alasadi: is?
+Ali Nawaz: Uh where depending on what operators we work with and casinos we work with where we will get the reports.
+
+
+00:38:01
+
+Ali Nawaz: It wouldn't show people. It wouldn't show their names. It will just show their first time deposit amount, the date they registered, the first time deposit date, and then we cross reference that with the unique uh links that each BA has. They have their own unique code where I could at least know that this this this report came from this BA's network. And then I just cross reference that with the logs and then I'm able to identify who it is. And then I could audit by looking at not only the screenshots but just the reports where the reports will show you how many bets and hands they played if they ch if they bet sports or casino and uh obviously if if it tracked in the system like the CPA the CPA count would go up. So those are the things we look at for player value but for tracking wise as well. And also when we want to offer uh some testing books where we we have a specific amount of volume that uh we haven't gotten a a confirmed deal for a a bigger amount yet.
+
+
+00:38:59
+
+Ali Nawaz: We want to give it to the right people who could actually bring in a better fair better value.
+Waleed Alasadi: Okay. Um I I guess the question back to the to the entire team or the comment back is I totally understand kind of the the data architecture that's happening to start consuming the operator data makes a lot of sense. Um, it also makes a lot of sense why you choose values like 39 and 41 just to be able to kind of backtrack and like match in the in the back end while we're building Salesforce. Sorry, did someone want to say something?
+Jay: No, I said yeah, that's correct. That's exactly why we do
+Waleed Alasadi: Okay. Um, so while we're waiting for um like in the beginning time of Salesforce or with Salesforce specific data, sign up data, deposits, redeposits, payouts, like that stuff that we have on the player, um, does any of that data is or is any of it valuable to help you understand how like good the player is versus not or is it really just the operator actuals that matter?
+
+
+00:39:59
+
+Lina Ceniccola: I think what are you asking? Is there any way upon getting the customer to know if they're a strong player?
+Waleed Alasadi: Yeah, maybe not upon getting getting them, Lena. It's just I'm thinking that in the beginning if if we can then great. Yes, like if there is parameters. I didn't think that that was possible. I was thinking more of like well we have them in our system as a player now. So like a rep can be like okay I have these players. I can see this player has done like five redeposits. They've gone through five signup flows. So to me that's a strong player versus one that's like maybe
+Joyce Kiddell: Yeah, I think all of that data is useful. Um,
+Waleed Alasadi: not
+Joyce Kiddell: and the way that I would look at at least signups in terms of how we look like treat that data, it's almost like what we track internally for signups is like the forecasted and then we don't know the actuals until there's confirmation back from the operator.
+
+
+00:40:55
+
+Joyce Kiddell: And we have baselines for each operator in terms of like what is normal in terms of having that like plus minus discrepancy of how much we're tracking versus what's reported cuz some of it's like not even um something the reps can necessarily control and that the operator might just have like stricter um limitations or requirements for something to be considered a conversion on their end. So yes, everything you're describing is still useful. It's just like not 100% confidence in that data, I would say.
+Waleed Alasadi: And this is why the erd conversation is important to see like also like the integrations that you're looking for. But if you're saying one is forecast and one is actual, when that infrastructure on the operator side is done,
+Joyce Kiddell: Yeah.
+Waleed Alasadi: do do you suspect that you're going to like update your data um so the forecast is the actual?
+Joyce Kiddell: I think we would still have the two comparables because it's important for us to see what the the gap analysis is.
+Lina Ceniccola: We need to see what is logged versus what has tracked as a
+
+
+00:41:53
+
+Waleed Alasadi: Yeah. Okay.
+Lina Ceniccola: conversion.
+Waleed Alasadi: that that's like has brought up has been brought up many many many times, right? Like validate look there's been errors like you're validating not because of like mal intentions or like errors. you're validating because what you mentioned on the variability that is the like sure I've gone through the right steps from my end but the operator may have their own mind of like how they interpret that is it's
+Lina Ceniccola: Well,
+Joyce Kiddell: It's a
+Lina Ceniccola: it would be there's like there's bad actors,
+Joyce Kiddell: piece.
+Waleed Alasadi: both
+Lina Ceniccola: but then there's also even if every single customer did every single step right, it would still not track 100%. For whatever reason, it's like people can change how they trigger the CPA. like we don't know and we also don't know.
+Waleed Alasadi: It's
+Lina Ceniccola: Um
+Waleed Alasadi: good.
+Lina Ceniccola: like there's factors that go into it
+Jay: It's
+Lina Ceniccola: and we've we have like educated guesses but there's there's no
+Jay: okay.
+Lina Ceniccola: like blueprint like this is how your signup can track 100%.
+
+
+00:43:13
+
+Lina Ceniccola: we can just make a solid guess on how it'll track, but there's also like link issues. They will just claim the data was lost, stuff like that. That's we can't anticipate, but we can do we can do our best to hit our benchmarks on
+Jay: Okay.
+Lina Ceniccola: what should track without any bad actors involved. So like when that number starts slipping, we kind of we know to go into the network and that it's like an issue with fraud as opposed to what would just naturally slip.
+Emily Vandenberg: And I will say we're like working on some um kind of initiatives internally to close that attribution gap like to have a bit more of our own kind of confidence. in the tracking on our end like what we do have ability to. So, I think that will continue to like get better, but the reality is we'll always need to be validating the two
+Jay: Yeah, it's generally pretty clear to when it's an operator issue versus a like fraud issue.
+Emily Vandenberg: sources.
+Joyce Kiddell: Yeah.
+Jay: It's usually pretty clear because you most operators that for the most part even for the last year like DraftKings will track close to the benchmark that we expect.
+
+
+00:44:33
+
+Jay: MGM same thing. Bat Rivers is horrible but they're consistent. So even even the books that track poorly are still consistent. So when you see like a a sharp decline in tracking in one of these books, it usually points towards fraud more than a like a operator issue. So that's it. It's a way that the ops team is is able to like like for example if I see somebody with a 50% tracking on DraftKings historically DraftKings tracks in the 80s and it should track higher but again like Lena said there's always bad actors. There's always like you know somebody has the DraftKings app downloaded for whatever reason so it didn't track properly. Like there's these little nuances that cause that little 20% variance but if you're like below 80 then it usually indicates fraud. So there is some consistency by looking at the operator versus um by looking at the operator and their historical trends like Lena was saying for benchmarks.
+Joyce Kiddell: And I do want to make it clear that in sorry in terms of what we're tracking in the system,
+Waleed Alasadi: So
+Joyce Kiddell: we'll need the ability for reps to flag something as either potentially fraud,
+
+
+00:45:34
+
+Waleed Alasadi: yes.
+Joyce Kiddell: right? And that's more like malicious intent things like edited screenshots, the person like took money and ran. Um or there's like I think I have a list of reason codes in the PR. Um but there's fraud and then there's just uh the concept of what they call write offs in that it could be due to like a locked account or the guy forgot that he also already had that um operator signed up. So it might might have started as you know a a log or a lead or whatever but like we might just have to like reject it and the rejection and the reason why is something that we need that audit trail of.
+Kobi Kunasekaran: That was like at
+Waleed Alasadi: So today like in the Excel sorry I just want to close the gap on this one like in the Excel sheet that
+Kobi Kunasekaran: the
+Waleed Alasadi: we saw last I think it was two weeks ago now like every reps is Excel sheet sorry Google sheet is every transaction there like once you get the operator data in
+
+
+00:46:35
+
+Jay: Yep.
+Waleed Alasadi: practice today are you going back to that sheet and being like yep check check check on each
+Jay: Uh, no. So, so to be fair, like if if a if a rep for example, like I'll take Alli for an example, right? He tracks like exceptionally well. So, he tracks at like 90%. I'm not looking for that 10% that uh, you know, didn't track. We're not going back and trying to figure out who that 10% was. We don't normally do that. that we just take that as like as like a plus minus kind of thing. But um if if there is a tracking problem then yeah we're we're taking the reports that we get from the operator. They're called detailed reports. We don't have them for every operator. We have them for Proline points fed and some others. We'll we'll then take that and that basically it doesn't give us names but it gives us detailed information like how much they deposited, what date they deposited, how many hands they played. So stuff like that we can narrow down from our from our Excel sheet and then we'll look for basically who you know who's causing the uh like the signups to not track.
+
+
+00:47:44
+
+Jay: Usually it comes down to one referral. So we'll find a pattern through one referral and then we'll ban that refer. But only we're only really going back to answer your question if that uh BA is tracking poorly or the book entirely is tracking poorly. That's the only time.
+Waleed Alasadi: Okay.
+Lina Ceniccola: And I do want to call out here,
+Waleed Alasadi: And Um,
+Lina Ceniccola: that's why it's so important to get as live data as we can from the sales rep side because if they just haven't logged 50 signups and we're going and cross
+Waleed Alasadi: Oops.
+Lina Ceniccola: referencing, we're kind of missing half of the customer journey. So we can also have more visibility into seeing like okay they haven't they might be tracking at 50% but we can actually see that there's that other 30% in the middle of the process because it is a staged process like there's you know they sign up they register that's a that's a um first step
+Jay: option.
+Lina Ceniccola: then they deposit second step then they wager it's there's time in between all those two cuz like they sign up or like they make an account then they go to a deposit oh they have to verify themselves verification process they send in their ID their utility bill whatever the money could be deposited and it's ready to go but we haven't had that conversion event but then the rep hasn't put it on their sheet in cases because it's it's not ready to they're not ready to get
+
+
+00:49:11
+
+Ali Nawaz: Yeah, it works.
+Jay: Right.
+Ali Nawaz: It's
+Lina Ceniccola: paid for it so it's in this pending phase, which is okay, but it kind of skews our view of what is tracking and what's not. And then sometimes they get paid on Wednesday. All these logs come in Tuesday night.
+Jay: Yeah.
+Lina Ceniccola: And that's when we all jump in for a quick actual snapshot because we're like, okay, now we can actually compare what's logged versus what's tracked. So, if we could do that on a daily basis.
+Jay: So believe to like to answer your your
+Lina Ceniccola: But yeah, Jay
+Jay: question again like basically what Lena's trying to say is like when when we don't have something like Salesforce we rely on the the the reps that we have right to accurately log what they have to log. The problem with that is like she was saying is like there's going to be delays on the operator side. So sometimes logs get missed like and when and when they get missed right and they're not put on that sheet. We don't know that they actually did those um signups.
+
+
+00:50:15
+
+Jay: So what happens is when we come with the amount of conversions that we have so our operator will give us like a report. It says that you have 50 OG conversions, right? We then go to the the rep sheet and they have let's say 52 logs, right? We're like, "Oh, perfect. They're tracking exceptionally well." And so, we don't actually look into their network. But in reality, let's say they had like 20 more, but they just didn't log it. So, in reality, they actually have 70 something logs, like 74 logs, and they only have 50 CPAs, right? Or 50 conversions. That would actually prompt us to investigate, maybe even pause them because now we're we're bleeding money as a company. So, the the reason why like um Salesforce is super important is we we're trying to curb that. like we don't want to we don't ever want the we don't ever want that to happen again like where we have to rely on the rep to do the log and to be consistent with the log and to be honest like even I have gone back like last month even like I was like oh shoot I missed this one right but it's it's an honest mistake on my end but it messes up the numbers for the operations the company the P&L so it's it's like there's so it's like a web effect basically is what Leos was trying to
+
+
+00:51:28
+
+Jay: like Right.
+Waleed Alasadi: So if I can describe this simply uh sorry I just because I want to make sure I understand it like the way
+Joyce Kiddell: and Yeah.
+Waleed Alasadi: that we're closing the gap is because the sales rep is going to send through
+Joyce Kiddell: Yeah.
+Waleed Alasadi: WhatsApp a link the user is going to click on that link as soon as they click on that link and I don't know fill in their name, you're expecting that's going to create a signup in Salesforce. Now, the rep may have to come back still and add like proof and more information, but you immediately have a signup that is tagged to like the attributes that we're tracking like the deal and so on. So,
+Jay: Correct.
+Waleed Alasadi: you have a number.
+Jay: Correct.
+Waleed Alasadi: Okay.
+Jay: Yeah, that's correct. Because like it the other like in retrospect what normally happens is like there are signups that take forever.
+Waleed Alasadi: Okay.
+Jay: So the rep just doesn't log it cuz they most reps log when they get back the videos which is wrong. They shouldn't be doing that but it happens unfortunately.
+
+
+00:52:18
+
+Jay: So like there is like a good amount of signups that are lost and like Lena said people logging super last minute and so they'll forget like they'll forget logs like if there was a foolproof way of us to just have the logs there and it it kind of acts like a reminder like hey you have to get this logged or you have to write this off. So yeah
+Waleed Alasadi: Yeah,
+Jay: that's
+Waleed Alasadi: it's cool too because you guys have like you are working on timeline so it gives you SLAs's like it's been 24 hours so like maybe like they're not eligible or maybe Yeah, it like gives you abilities to do that.
+Jay: Yeah. Yeah. Absolutely.
+Lina Ceniccola: because I I'm sure there's reps that just like even forget about people who wanted to
+Waleed Alasadi: Um
+Lina Ceniccola: start their signup journey and they move on to the next person who's like more ready to
+Emily Vandenberg: Mhm.
+Lina Ceniccola: go. So I think for them having a true sales pipeline would more sales for them
+Waleed Alasadi: yeah, it's so important to frame it this way because I think that if we want to start looking at improving their efficiency like right sending
+
+
+00:53:11
+
+Lina Ceniccola: too.
+Waleed Alasadi: automated outreaches, Hey, it's been like 4 hours since you've like signed up. Like you just automated without having them do that. Um, that's things that we could look into like as future phases, too. So, it's good to call it like
+Lina Ceniccola: Yeah, I know for sure they're they're sending hundreds of messages like,
+Waleed Alasadi: that.
+Lina Ceniccola: "Hey, need your deposit. Hey, need your wager. Hey, this, hey that." Like, and there's there are certain requirements,
+Waleed Alasadi: Yeah.
+Lina Ceniccola: too, that don't change. So, it would be good to embed that in the message, too. Like, Jay and Ally, you can probably speak to this, but like you could get specific on I need you to bet on sports. like reiterating that message. If it's not
+Waleed Alasadi: One,
+Joyce Kiddell: an sorry an important piece of context I just want to make sure is understood is
+Jay: It
+Lina Ceniccola: done
+Waleed Alasadi: two,
+Joyce Kiddell: that like unless you already did but um it's that we pay based off of what the rep logs not what the operator confirms.
+
+
+00:54:15
+
+Jay: hard.
+Joyce Kiddell: So, we're paying based off of forecasted. So, if we can close that gap, you guys asked on the last call like what are we most excited about? It's like the the cost savings is it for me. We did like a whole analysis that we could potentially like share you guys on at least like the key takeaways. Um, and that if we are able to reduce any tracking discrepancies, then it could result in like savings of hundreds of thousands of dollars for us. Just putting that out there.
+Waleed Alasadi: Okay. Okay. The the one thing I want to call out as we continue to work on this is not going to be solved like right now but it's just like WhatsApp and the communication channel. So if we are looking to have like more automated outreach just to give like more scale even introducing AI um like WhatsApp definitely could could work it's just not the way that it's being used today. So as like we continue conversations like I think from us we would want to know how far is the idea of like moving communication or actually looking into the communication between um the reps and the players and their ferrors so that we can see what automations we can kind of anticipate.
+
+
+00:55:30
+
+Jay: It connects you like what you would recommend like what would your like what would be the best in your opinion
+Lina Ceniccola: Yeah.
+Jay: like that has like um accessibility for these automations.
+Waleed Alasadi: Uh I mean I would I wouldn't know like to tell you what the best is right now. Like there's hundreds of tools and I think every one of them works well in a different use case. Um like I loved how you guys like use WhatsApp like you are dealing with people at the end of the day and I think WhatsApp is like a good communication channel. The thing is it is it is a blind spot right so that you're not able to um like communicate with the systems like Salesforce. I think instead of thinking of the tool I think that the origination of the message has to either come from Salesforce or come from wherever you want it through Salesforce to your player. Um now if it comes from Salesforce it could go to WhatsApp, it could go to Slack, it could go to email, it could go to text message.
+
+
+00:56:25
+
+Waleed Alasadi: Um, but you as a wager tech employee, you're not doing the communication on your phone. You're doing it in sorry, you're not doing it in in your WhatsApp's app. You're doing it in
+Jay: I see. Okay, that makes sense.
+Waleed Alasadi: Salesforce.
+Ali Nawaz: I think that that part with with automation uh for chats it we could get it done. It's it would be a process because a lot of the BAS they have their own systems of everybody just has their own system of how they deal with their networks. Some people don't even aren't even involved in in in the in the lead. They have their referrals dealing with everything. But we also cannot rely on the referrals to be the ones to uh go through full processes unless it's a trusted one. So when when people start referring and they join our networks, it takes a while for them to understand all all the the necessary steps and the making sure the player value part and different and different type of wagering and and stuff like that.
+
+
+00:57:24
+
+Ali Nawaz: So it's a process and a lot of the referrals are not really they're not really the best at I wouldn't say they're they're all of them are responsible enough to handle uh a network on their own. They they that's why myself like doesn't matter how how big my volume is. I make sure I'm at least involved where I could overlook and I could look for any any any red flags and call it out. But I have to be involved for me to make sure things are going correctly, you know. And but some other guys, they might have a system where they're not they really don't they're not in the chats. They don't communicate with the lead and they have the referral doing it. And then we'd have to make sure the referrals are are educated and on point. And I can't say every single one would be like that, but our core guys are. So, it just it would definitely be a process. Same thing with the logging. Um, because we're doing manual logging now, like the reps are all they all have their own trends of how they do it.
+
+
+00:58:19
+
+Ali Nawaz: Some people complete a bunch of they complete a bunch of signups and registrations and and and the CPAs go through, but they haven't gotten the time to log it. Some people uh have issues with uh account some of their clients have issues with their accounts being locked after they register and uh and the the they still have the funds in there. They never wagered so the CPA won't trigger or some and so they never logged it. But some because we're relying on the BAS to manually update these things. There's a big amount of them there's a big chance some of the some of the things they just leave or miss out until it's called out at the end
+Kobi Kunasekaran: Three.
+Ali Nawaz: of the month. And so that's where I I I kind of have to go and look deep into their their audit audit their sheets and audit their networks to make sure there's there's no problem. But there's there al there are also some calculated reps as well who they only log x amount and they wait until Tuesday night maybe until they get paid or they save them they feel like they want to save a couple signups for the next week.
+
+
+00:59:16
+
+Ali Nawaz: Like it it doesn't make sense to do so but they they do that and I'm just talking about the logging side. They might have completed it and converted the the client the signup and the lead earlier, but they never logged it. And that's why it gets a little tough to um look at the reports and and rely on logs knowing that there's still a few logs that haven't been uh added to their sheet.
+Waleed Alasadi: Thanks.
+Emily Vandenberg: Emolita, I think we were kind like chatting through like the notification out to like to the actual
+Waleed Alasadi: Yeah.
+Emily Vandenberg: kind of player as a reminder. the one thing chatting through and I can't remember if you've already touched on this but the like communication to kind of up to the brand managers of like hey check in or you know from a management perspective like that's definitely top of mind as like kind of surfacing you know what needs action or like where there's kind of signals that need to be looked at further that we need attention that definitely comes into place within the redeposits as well but I think there's opportunity in the sign up um flow It's
+
+
+01:00:19
+
+Waleed Alasadi: Okay. Yeah, that makes
+Ali Nawaz: I just think we'll lead once you feel free to let me know when when you want to meet and I feel like
+Waleed Alasadi: sense.
+Emily Vandenberg: like
+Ali Nawaz: once you just get the answers to a lot of the questions you probably still have regarding the way that people convert a sale and then the referral program and whatnot, that's when you'd be able to recommend specific things. I'm assuming, right?
+Waleed Alasadi: Perfect. Yeah, I know. Well, I I mean that's totally awesome. Like Ali, we are really looking forward to having walked that through with you. Um I just think I I like it's what what I'm trying to do is continue to bring up the communication part um and how we're going to evolve to it. I totally do not expect us to change how you communicate with your players anytime soon in the next three phases. to be honest. I just want to know where your head is at as we're designing and like looking at at at objects and like
+
+
+01:01:09
+
+Emily Vandenberg: In your perspective, are there two kind of like distinct paths?
+Waleed Alasadi: thoughts.
+Emily Vandenberg: Like if we're if we're kind of saying like that's not on our kind of foreseeable road map, then you'll take a different path.
+Waleed Alasadi: It would make me less Sorry.
+Emily Vandenberg: in just like thinking about like phase one
+Waleed Alasadi: Go ahead.
+Emily Vandenberg: to
+Jay: is black.
+Waleed Alasadi: Yeah,
+Emily Vandenberg: specifically.
+Waleed Alasadi: it would it would make me less think about think less about the importance of some like native objects for example because like communication is kind of central and key. Um there's like completely upfront with you but I don't know there's something called cases as well
+Emily Vandenberg: Yeah.
+Waleed Alasadi: which in my mind is a good actually method to be able to communicate with um uh with your players but maybe not. So it's just more considerations to think about um but no real impact on like scope or timeline of the project. It's just more of like considerations.
+Emily Vandenberg: Got it.
+Lina Ceniccola: One sec. I just have to take a call.
+
+
+01:02:16
+
+Kobi Kunasekaran: Um, I think what would be helpful, um, is it doesn't have to be right now, um, but it could just be like a recorded video or something, but to actually see what the, uh, what that reconciliation process looks like in practice, like what are the spreadsheets you're opening up, what are um, how are you making the decisions, how are you doing the reconciliation, what do those reports from your uh, operators look like and how that matches up against what you have in your spreadsheets. Uh, I think it would be helpful to like see like a demo of like what that looks like in in practice with those uh with those sheets and
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: stuff.
+Emily Vandenberg: we can definitely get that. Get that for
+Kobi Kunasekaran: Awesome. Okay,
+Emily Vandenberg: you.
+Kobi Kunasekaran: we kind of went uh pretty deep into the process. Um, I just want to take a step back. Um so when we were talking about like setting up the deals um setting up like the combination of like the operator partner market vertical um all of that information I I believe right now it lives in Air Table um how often are you entering this data in and how often is this getting updated and actually like what what are the information what are the uh things that you're putting into Air Table right Um, as these deals are getting set
+
+
+01:03:40
+
+Emily Vandenberg: Oh,
+Ali Nawaz: Do you want me to answer me?
+Kobi Kunasekaran: up,
+Emily Vandenberg: Owen, are you good,
+Ali Nawaz: Yeah. Owen,
+Owen Scott: Yeah.
+Ali Nawaz: was he on the
+Owen Scott: Uh it's it's like a daily thing.
+Emily Vandenberg: too?
+Owen Scott: Uh depends because things change frequently. So if we're changing a book or uh whatever it is, turning one off, turning one on, swapping to a different one, that has to be reflected in Air Table just so we can see accurate tracking numbers. Otherwise, things get jumbled. So it's basically every day. Uh, some days a lot less, some days a lot more, just depending on where reps are at with assigned volume and depending on what's going on with our books.
+Ali Nawaz: Yeah, to add on to that, so Air Table helps us organize and uh what links each each BA has assigned to them for each operator. The thing is and because I use Salesforce now for a month or two, I the one thing that I really liked is that uh for example, let's just say BMGm.
+
+
+01:04:36
+
+Ali Nawaz: BMGM we we we have more than one deal when we when we do there's some reps that might be assigned to one of them and some assigned to the other. But in the middle of the month, they might get switched to the other operator. From the customer standpoint, it's still BET MGM, but from the logging side and for for for on the operational side, we have to log it differently, right? So, the the issue with that is we're relying on the reps now to make that switch. When they're notified that they're switched to a different operator, they have to manually make that switch and make sure they're not logging incorrectly. But with Salesforce, it already shows you what operator they they clicked or registered through, which made it way easier to avoid like logging issues because that that does happen a lot. But uh air table is what we use to manually update those links. So where anybody who wants to know like what link and tracker code each BA was on, they could see it on there. If if we also had um a air table page where we share the tracking report or tracking details with the BAS where they're able to see their the CPAs and and like what tracked in their network versus logged and and then obviously we we go out our way to audit it, but they they get the chance to at least see their own network and how how things are going as well.
+
+
+01:06:00
+
+Kobi Kunasekaran: Okay. So, uh I want to make sure I understand this correctly. So, you have these links that you're sending out and these links are going to your BAS or the
+Ali Nawaz: So the link is there the link is there they have their own site right their own their own site.
+Kobi Kunasekaran: referers
+Ali Nawaz: So that when they register through the link their their website when a client registers then they get to see the studies that we have available and it could be whatever is live on my page at that time right for example if I have MGM DraftKings and Proline uh are the three books available those are there once they click each one they get to register for them through our so when they click each link through the website they whether it's Proline or MGM DraftKing they register and and then they they go from there. So, uh I don't know if you're just asking are you asking about like when when they register if it's separate links? It's it's just at the soy joints.
+Joyce Kiddell: What? Sorry.
+
+
+01:06:57
+
+Joyce Kiddell: I sorry. I think I can clarify like like to Alli's point, there's two concepts of links, right? Like there's the um the BA specific uh agency website link in that it could be like accessrame.work work or whatever the URL is and then forward/alli and all of his signups coming in through that BA specific link, right? So that's for our own internal attribution purposes. The links he was referring to earlier in terms of like which uh BAS are assigned to which link. Um those are the affiliate tracking links in that like they provide us with tagged URLs that lead the user back to like a landing page on BMGm. um with like a custom uh like whatever the slugs at the end. Um and sometimes the affiliate URLs can be one to one and that like there's one link per uh BA or there's like a shared affiliate link across multiple BAS. Is that correct Sally? Did I explain that right?
+Ali Nawaz: Yes. So uh so from the operational side we we update their links
+
+
+01:08:03
+
+Joyce Kiddell: Okay.
+Ali Nawaz: if if we have let's say we have 20 Proline links uh for that specific operator. We assign indiv assign one to each BA and then uh it's added to their page. So from the customer standpoint, they just see Proline and they click click register or sign up and they they're able to do that. But from our side, we know what operator they have live what link and we add that we add the specific link that they're assigned to and it might switch. So, like I was saying, there's times in the middle of the month I I might be switched from one Proline operator to another another one another deal that we have. And that's because we might already have hit targets on on on one of them and we have to push more for the other. And when that happens from the customer standpoint, they would never know the difference. They're just looking at OOLG Proline, right? So, it's more so on the operational side that we make those links uh link changes.
+Kobi Kunasekaran: Okay.
+
+
+01:09:10
+
+Kobi Kunasekaran: So, you have these affiliate links, the these affiliate links with uh with whatever like tracking parameters that are added onto them. Those you're getting from your operators or your partners.
+Ali Nawaz: Yes. Yes. Thank you.
+Kobi Kunasekaran: Okay. And then from that, um you said like you might have like 20 uh Proline affiliate links. So you're getting 20 affiliate links from your operator or partner and you're now then allocating those links to the respective VAS that's going to be working on the on that book.
+Ali Nawaz: Exactly. And uh sometimes we don't have 20 and they they give us a limited amount and then we have to make sure we break
+Kobi Kunasekaran: Okay.
+Ali Nawaz: it down uh between multiple reps. And when I do that uh we we make sure we're we're not putting let's say two high volume reps on the same link, things like that. So it depends on the book. We don't have uh 20 links for everything and that's where it gets a little limited. But either way, as long as we know what link is assigned to each BA, which we we used Air Table as well.
+
+
+01:10:14
+
+Ali Nawaz: And then obviously uh uh we're able to just know that any other tracking numbers from a separate link would not be showing up on my my custom link because I was assigned to this specific one. So it it's more so air table shows us how to organize like we assign the links and we unassign the links if we need to but for the most part if we have enough links we try to keep people on the same one so we don't mix them up.
+Kobi Kunasekaran: And when you say like you're signing the links um to the VA like um you're adding
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: those links to their respective agency website portal.
+Ali Nawaz: Exactly. Exactly. Yes.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: Yes.
+Kobi Kunasekaran: Um and it's the same link. like you're not transforming that link and adding any other additional tracking or anything like that.
+Ali Nawaz: Well, yeah, it's if they're assigned to Xlink,
+Kobi Kunasekaran: Right.
+Ali Nawaz: then they're that that's what is added to their um their agency website. And then if they're not live on that and they might not they might be switched to a different operator,
+
+
+01:11:09
+
+Kobi Kunasekaran: Right.
+Ali Nawaz: we just close that off their page and it's not being used. And if we have if we have enough links, it would not be assigned to anybody else. But if we have uh only a limited amount cuz some of the operators don't give us uh that that many links. So when that happens, then we have to assign that to somebody else. But we use Air Table to kind of track where it's going, you know, and who had it previously. I I'll be honest, the best way to to to understand is to show you.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: So I that that'll probably be the best way because it's by explaining it with words. Like I could I I know I'm not really the best here to do that too, but it's better off I I explain it when I share my screen another time. And we could set it up and we'll figure it
+Kobi Kunasekaran: Yeah, I think that that would actually be great. Like maybe next time you set up a uh set up a deal and like distribute uh distribute those links um like a screen recording or happy to jump on a call to walk through it as well so we can uh we can ask
+
+
+01:12:08
+
+Ali Nawaz: Yeah,
+Kobi Kunasekaran: questions live.
+Ali Nawaz: absolutely.
+Kobi Kunasekaran: I think that'll definitely help.
+Ali Nawaz: Uh, absolutely. No worries, man. I could do that.
+Kobi Kunasekaran: Okay. Yeah, I'd love to also see like what what this portal is like uh like the agency websites what what that looks like. And so you have those links present for your uh for your BAS and those are the links that they are then sending to the referers to send to the players to sign up from. Is that right or no?
+Ali Nawaz: They just send the agency website link their their custom agency website link and once you access that they'll be able to find what option and then you Exactly.
+Kobi Kunasekaran: and you have access to those links. Okay. So,
+Ali Nawaz: Exactly.
+Kobi Kunasekaran: your players are still are clicking that affiliate link ultimately just through like another portal.
+Ali Nawaz: Exactly. Exactly. Yes.
+Kobi Kunasekaran: Gotcha. Okay. Um and when so when they click those links and sign up like how how does this come into like I think in the PRD like there was that API integration.
+
+
+01:12:57
+
+Emily Vandenberg: truth.
+Kobi Kunasekaran: How is the affiliate link presumably is like a third party link, right? Like it is a link to your operator. So how are you collecting that information in the form of a
+Ali Nawaz: Emily, you want to
+Emily Vandenberg: We're yeah we're actually just measuring that currently by
+Kobi Kunasekaran: signup?
+Emily Vandenberg: click on so from the agency website and the applicable study which is mapped to a book is uh upon click we're capturing the lead. We're changing in the midst of changing that to there's like a middleware redirect that's in place
+Kobi Kunasekaran: I think
+Emily Vandenberg: upon a bit closer to the conversion but knowing that we lose the ability to track right when
+Kobi Kunasekaran: that
+Emily Vandenberg: they when they kind of leave our sites. So trying to get closer to the conversion and that tracking but right now it's just based on the user clicking on the front end.
+Joyce Kiddell: Kobe,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: I'm not sure if you're familiar,
+Kobi Kunasekaran: So when the
+Joyce Kiddell: sorry, with the concept of uh postbacks, which would be like a server to server thing.
+
+
+01:14:02
+
+Joyce Kiddell: Yeah. Um we're trying to uh hopefully get that integrated with our partners and
+Kobi Kunasekaran: Yes.
+Joyce Kiddell: operators, but we don't expect to get full coverage from that. Um like at most probably 50 to 60% and then the rest uh we are kind of at the mercy of our our current um like confirmation process between what's logged and what's tracked.
+Kobi Kunasekaran: Okay. Yeah, I think I'd love to see this in practice as well, like how um how we go from that link to it
+Joyce Kiddell: We
+Kobi Kunasekaran: coming into your system as like a signup record and what information comes along with it because
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: that ultimately is going to determine like what that signup object looks like, what are the fields that we can capture and like automatically relate to the relevant objects. uh relevant like downstream
+Emily Vandenberg: and we can send that over.
+Kobi Kunasekaran: objects.
+Emily Vandenberg: But also when we do the API walkthrough, you'll be able to kind of see just we can walk completely through the
+Kobi Kunasekaran: Okay. Okay.
+
+
+01:15:04
+
+Emily Vandenberg: process.
+Kobi Kunasekaran: And these agent websites I I saw like a few examples on the PRD. Are are those it or like do you spin up new ones uh as there are like new books open or new operators that come up?
+Emily Vandenberg: the agency sites like are it for now, but there's like a pen your like slugs that go each rep and so a new rep gets a new slug. Um, and then there's the US and Canada. We're in the midst of hopefully migrating to like one um site for all
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: markets, but that's not in place just yet. It should be before we're live though.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: It will be unless there's a major
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: concern.
+Kobi Kunasekaran: I I I went into one of them and like or a couple of them I clicked on like the sign up link um and there was like a form there. So that form is not the form that your players are getting, right? There there's like it's still one more layer beyond
+
+
+01:16:08
+
+Joyce Kiddell: It is,
+Kobi Kunasekaran: that.
+Joyce Kiddell: but like it just would come in through a tag blank. They would still have to complete all the same details.
+Kobi Kunasekaran: Got it. Okay. Interesting. Okay. Yeah. I I I do want to see that in practice so we can like kind of connect the dots there. That'll be helpful.
+Emily Vandenberg: just like from sign up like I can have somebody to record a video just like sign up all the way through and then give you how
+Kobi Kunasekaran: Cool.
+Emily Vandenberg: it flows through the API currently.
+Kobi Kunasekaran: Yeah. Yeah. And like Yeah. I'm trying to understand like what information we're going to have available ultimately from from the API that we can use on the Salesforce side to do the reconciliation map it to players uh map it to the BAS um and all of that and this is where like you know Alli like whenever we do the walkthrough of the top down like how you're entering the data in air table and how those uh those books map to the uh the individual agents as you're as you're assigning the referral links I think that's going to help us understand what what that process looks like in Salesforce when you start doing it in Salesforce as opposed to Air Table
+
+
+01:17:11
+
+Kobi Kunasekaran: and how we can link that how you can make that connection from that signup all the way to uh to that deal uh or to that
+Ali Nawaz: Yeah,
+Emily Vandenberg: And the Yeah,
+Ali Nawaz: tell them it's
+Kobi Kunasekaran: book.
+Emily Vandenberg: sorry. The one thing I'll say is that we'll show you what we're currently doing, but I feel like there's opportunity to like, you know, to meet maybe into a more ideal state if needed.
+Kobi Kunasekaran: Of
+Emily Vandenberg: Um,
+Kobi Kunasekaran: course.
+Emily Vandenberg: so it's it's a m we'll give you kind of what's currently happening and then we'll look for
+Kobi Kunasekaran: Yeah, for sure. Yeah,
+Emily Vandenberg: feedback.
+Kobi Kunasekaran: like I'm just trying to understand like what data we have right now and what the process looks like right now. So when we when we start changing it, um we don't want it to be like drastically different, right? Or miss like any any important points in the middle. Like already I'm thinking about like we want to be able to roll up um like you have like 20 affiliate links linked to a single deal.
+
+
+01:18:01
+
+Kobi Kunasekaran: We're going to need to be able to roll up. um how how many signups coming through each uh each link and then through each uh each rep. It's going to be like we might need a few more objects to support that level of uh rolling up. But yeah, like once once I have a handle of like what that entire process looks like, I can I can let you know.
+Emily Vandenberg: Yeah, we can improve.
+Kobi Kunasekaran: Okay, we are I think we have another like eight minutes left. Um, we kind of just went through like the core journey which is great. Like I think this is actually very helpful. Um, we should schedule some additional time like or if you want to just record uh what we talked about and send it over that also works for me. We don't need to like uh do everything live and then we can schedule like a follow-up if we have any questions. Um, so that could work. Um, and
+Emily Vandenberg: I think we'll take the approach of like getting you the recordings that you need and then like we'll book the
+
+
+01:18:58
+
+Kobi Kunasekaran: then
+Emily Vandenberg: subsequent details like I think you and Ally sitting down for sure um necessary but then we can like book
+Kobi Kunasekaran: yeah.
+Emily Vandenberg: the kind of smaller items that you mentioned um in Loom and then you can just probe for where you need
+Kobi Kunasekaran: Yeah, I think that works. That works. Um,
+Emily Vandenberg: more
+Kobi Kunasekaran: and if there's anything else that you haven't shown us in terms of like day-to-day uh that you do in the spreadsheets, um, whether like the top down like setting up the deals or the signup process or logging, um, like let me know uh, and we'll, you know, if you can send us recordings for those too, that'll definitely help.
+Emily Vandenberg: and Kobe, you have the recording from when we did the discovery with uh Okay, perfect. Yeah,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: because we going through detail.
+Kobi Kunasekaran: Yeah, that was actually great. Like and the screen sharing showing us like where the the signups are getting logged and what are the different tabs. That's actually helpful. So that's actually what I'm looking forward to hopefully in the additional recordings like instead of just talking through it like seeing how you do it in practice.
+
+
+01:20:05
+
+Kobi Kunasekaran: Um where are you going? How are you making the decisions on like if uh if this player is actually making uh or bringing in a good amount of uh sorry if this refer or BA is bringing in uh a good amount of players like how you make those decisions with the data that you have I think it will be helpful to see so that we can translate those uh into Salesforce. Um few more minutes we'll need anything else we should cover
+Waleed Alasadi: No, I think I think like there's no like there's no time to open a new topic right now,
+Kobi Kunasekaran: before.
+Waleed Alasadi: but yeah, like definitely conversation with Ali, not just the recording. I think that's um key. Um yeah, and yeah, that's it.
+Kobi Kunasekaran: Okay. Um All right. So, Emily, I'll send over like a list of like what we talked about like uh outstanding items. I think we already talked about like potentially setting up another call for the Salesforce walkthrough. Um, so maybe that's something we can get set up uh sooner as we wait for the recordings.
+
+
+01:21:10
+
+Kobi Kunasekaran: Um, and then the ERD, that's uh we can we can wait on that one. I think it doesn't need to be like right away. Um, the other big one that I want to look through is the data and reporting. Um, like from a executive level and we talked about like these operator reports. I'd love to see what that looks like. Uh, and if that's something that we can import it to Salesforce so it can help you with the reconciliation. I don't know if if that's it's really for that. Um, but also like what are the other reports that you're putting together with based off of the spreadsheets um that we need to be able to support um as we build out these objects. That could be another session or if you have example reports that you can share that could also work and then we can ask questions from there.
+Emily Vandenberg: Yeah, Joyce, you pull we pulled together some mockups of ideal state, right, for the executive.
+Joyce Kiddell: Yeah, I'll shoot that over via email.
+
+
+01:22:04
+
+Emily Vandenberg: Yeah, that'd be great because I think like we have some reports,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: but there's a lot of opportunity here. Um because obviously the data is quite hard to get at. Um, so a lot of the analysis is even being done by AI right now just based on like you know what
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: we're feeding. Um, so yes, absolutely. The only thing about the ERD is I know it we kind of like can wait, but given like where we're at on that project and like maybe just like talking through
+Kobi Kunasekaran: Sure.
+Emily Vandenberg: um the solution that we want to go through with the database, it might just make sense that we have a quick connect so that um draw can validate what he needs to
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: on his end and make sure the right solutions are kind of pushing along and not there's not going to be any like blockers uh in the short term. And then I think Ally, when would be a good time for you and Kobe to meet?
+
+
+01:22:53
+
+Emily Vandenberg: Do you have time this
+Ali Nawaz: I'll be honest. Uh uh I think it would have to be uh next week,
+Emily Vandenberg: week?
+Ali Nawaz: but I could do Monday next week if if that's okay with you.
+Kobi Kunasekaran: Yeah, works for
+Emily Vandenberg: Do you have a best time, Ally? I know your days
+Kobi Kunasekaran: me.
+Emily Vandenberg: are
+Ali Nawaz: Um Monday afternoon's work. In the morning, I could get all my operational task done if needed. And then uh so let's just set up a time. I mean uh Emily, maybe you could let me know and we could figure it out.
+Jay: Oh, I I'll do it with you, Ellie. I'll join with you.
+Ali Nawaz: Okay. Yeah. Yeah, please. That would be nice.
+Emily Vandenberg: Yeah.
+Ali Nawaz: Jay Jay provides a lot of contact cuz he works just like me. He works a lot with the sales guys and uh and helps out one of them as well. So it's always good to have no
+Kobi Kunasekaran: Okay,
+
+
+01:23:39
+
+Emily Vandenberg: Perfect.
+Kobi Kunasekaran: that works. Yeah, my calendar is open. So, whenever whatever time works, but also set up like a scheduling link and I'll send that over Emily. So, any other meetings that we want to set up, you can just use the link.
+Ali Nawaz: Sounds
+Kobi Kunasekaran: Awesome.
+Emily Vandenberg: Sweet.
+Kobi Kunasekaran: All right. Anything else? Any other last minute comments, questions,
+Lina Ceniccola: I had to jump away there for like 10 minutes or whatever.
+Kobi Kunasekaran: concerns?
+Lina Ceniccola: I hope I didn't miss too much. I'll ask Emily or Joyce if I needed.
+Emily Vandenberg: Uh yeah, I think you're good, Lena, that just recapping kind of some of the recordings that we want to get over to them to support this.
+Kobi Kunasekaran: Cool.
+Emily Vandenberg: And as you're going through, Kobe, anyone else or like anything else you really want to dive into? We'll prioritize like the discovery. I know we said you think you'll be through the discovery kind of mid next week. We'll we're here to kind of support that landing.
+Joyce Kiddell: That
+Emily Vandenberg: um by Wednesday or before.
+Joyce Kiddell: means
+Kobi Kunasekaran: Awesome.
+Emily Vandenberg: So then we can like start kind of looking at stuff and pushing forward with
+Kobi Kunasekaran: Awesome. Yeah, that would be great.
+Emily Vandenberg: design.
+Kobi Kunasekaran: I think I think like again prd has a lot of information. Um what I'm trying to do is like connect that to your actual workflows and what your reps are uh doing today so that we can we're designing with that in mind. Um and we're not adding extra complexities that we don't need. So um yeah, let's let's do that. I'll I'll let you know I'll let you know as I go through and as we like piece everything together if anything else that comes up.
+Emily Vandenberg: Perfect.
+Kobi Kunasekaran: Cool.
+Emily Vandenberg: Thank you.
+Joyce Kiddell: Thanks everybody.
+Ali Nawaz: Thanks guys. Take care in those videos.
+Kobi Kunasekaran: Awesome.
+Waleed Alasadi: Hey.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Thanks everyone for your time.
+Emily Vandenberg: Thank bye.
+Kobi Kunasekaran: Have a good day.
+
+
+Transcription ended after 01:27:41
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

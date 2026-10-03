@@ -1,0 +1,253 @@
+{
+  "id": "11372",
+  "key": "WAGR-423",
+  "fields": {
+    "statuscategorychangedate": "2026-10-02T14:59:53.362-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10400",
+      "key": "WAGR-305",
+      "fields": {
+        "summary": "Sign-Up Logging Experience (UX)",
+        "status": {
+          "description": "This issue is being actively worked on at the moment by the assignee.",
+          "name": "In Progress",
+          "id": "3",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-23T14:46:43.866-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10089",
+        "type": {
+          "id": "10000",
+          "name": "Blocks",
+          "inward": "is blocked by",
+          "outward": "blocks"
+        },
+        "outwardIssue": {
+          "id": "11578",
+          "key": "WAGR-501",
+          "fields": {
+            "summary": "Sign-Up: Show Brand Ambassador more prominently in the Ops list view",
+            "status": {
+              "description": "This issue is being actively worked on at the moment by the assignee.",
+              "name": "In Progress",
+              "id": "3",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-10-02T14:59:53.362-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "**Context**\nThe sign-up list views were behaving inconsistently the day before the call (sort order wasn't reliable), and the team wants a cleaner default working list for reps.\n\n**Requirements**\n\n* Create a new \"All Active\" list view, cloned from the current \"All\" list's columns, that excludes anything already Archived or flagged as Fraud.\n* All list views should sort by Created Date descending (newest at the top) — this was inconsistent/buggy as of 09/22.\n* \"All Active\" should be the list reps use as their working queue for the day.\n* Keep the existing \"All\" list available (don't remove it) — it just won't be the pinned/default one going forward.\n* Align the \"Recently Viewed\" list's columns to match \"All\"/\"All Active\" so it doesn't look inconsistent, even though it can't be forced as the default (see constraint below).\n\n**Constraints / Dependencies**\n\"Recently Viewed\" is the true default list Salesforce opens for a brand-new user (out-of-the-box system behavior) — this cannot be changed at the org level, only at the individual user level (each user pins their preferred list the first time they log in, e.g. as part of onboarding). It may also vary by browser/device per user. Note this limitation rather than trying to build around it — only the column alignment is in scope here.\n\n**Source**\nFathom — WagerTech <> Jumpr Weekly Sync, 09/23/2026 (https://fathom.video/calls/831090060) — Emily Vandenberg \\~16:29–19:20, Kobi Kunasekaran \\~18:08–19:20. Also Taryn's notes, Sign-ups > \"left panel All list → All Active list, newest at the top,\" \"Make Recently viewed list look like (All) with the icons and stuff.\"",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Sign-Up: Default \"All Active\" list view + list sort/column fixes",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11577",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Update:\n\n* Cleaned up the \"All\" list view: removed the duplicate Operator and Player columns and Deposit Date_old.\n* The first 4 columns are unchanged\n* Created Date, sorted descending (newest first).\n* Sent Emily a message asking whether anything else is needed in the table view for V1. Waiting on her reply before finalizing columns.\n* Next: rebuild the New, In Progress, Fraudulent Sign Ups, Archived and Overdue lists by cloning \"All\" and re-applying each list's filters. Then update Recently Viewed to match \"All.\"\n\n",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-29T15:37:09.241-0400",
+          "updated": "2026-09-29T15:37:09.241-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11606",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Update:\n\n* Found a limit: the table view shows a maximum of 15 columns. Emily's POC sheet has 23.\n* The first 4 columns (Player, Operator, Status, Created Date) feed the split view, so that leaves 11 free columns.\n* Proposed approach: combine view-only fields where they are closely related. For example, the 3 proof URLs become one Proof Status column, and the deposit amount fields become one. Fields not in the table remain on the record page.\n* Formula fields cannot be edited in the table, so fields reps edit must stay as real columns.\n* Sent Emily a message asking which fields reps edit in the table and which they only view. Waiting on her reply.\n* Open item: confirming whether the table view can freeze columns (Emily asked about freezing through column G).\n* Next: finalize the 15 columns once Emily replies. Any new formula fields are new build, so I will confirm scope before building them.\n\n",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-10-02T14:59:45.682-0400",
+          "updated": "2026-10-02T14:59:45.682-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0080n:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-305"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

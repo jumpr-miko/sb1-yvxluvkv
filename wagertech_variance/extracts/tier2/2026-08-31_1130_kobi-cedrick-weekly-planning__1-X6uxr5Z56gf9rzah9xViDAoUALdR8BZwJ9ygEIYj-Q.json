@@ -1,0 +1,595 @@
+{
+ "doc_id": "1-X6uxr5Z56gf9rzah9xViDAoUALdR8BZwJ9ygEIYj-Q",
+ "title": "Kobi <> Cedrick: Weekly Planning - 2026/08/31 11:30 EDT - Notes by Gemini",
+ "meeting_date": "2026-08-31",
+ "meeting_time": "11:30 EDT",
+ "doc_link": "https://docs.google.com/document/d/1-X6uxr5Z56gf9rzah9xViDAoUALdR8BZwJ9ygEIYj-Q/edit",
+ "meeting_type": "internal sync",
+ "tier": "tier2",
+ "screen_verdict": "include",
+ "screen_reason": "Jumpr-internal onboarding/planning 1:1 for a new developer on WagerTech. Contains WagerTech delivery content: API dependency on WagerTech, stories 242/243/244 (signup screen flows, Log Signup validation, referral layout), player status automation design, definition of done, permissions, test user and prod/UAT timing. Personal, timesheet/billing and sizing/estimation passages are not recorded.",
+ "delivery_line_ranges": [
+  [
+   97,
+   97
+  ],
+  [
+   156,
+   231
+  ],
+  [
+   274,
+   311
+  ],
+  [
+   341,
+   345
+  ],
+  [
+   365,
+   383
+  ],
+  [
+   398,
+   425
+  ]
+ ],
+ "evidence_grade": "transcript",
+ "raw_copy": "tool-download-html-converted (gdoc_html2txt.py)",
+ "attendees": [
+  "Cedrick Infantado",
+  "Kobi Kunasekaran"
+ ],
+ "lines_total": 460,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-08-31-1130-01",
+   "type": "risk-blocker",
+   "firmness": "decided",
+   "feature_area": "CMS Integration",
+   "topic": "Waiting on WagerTech API logic",
+   "statement": "Jumpr is still waiting on the WagerTech side for the API logic and information needed to build the integration workflows. Kobi is assigning backlog tickets to Cedrick in the meantime.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:04:10",
+   "line_start": 97,
+   "line_end": 97,
+   "quote": "Kobi Kunasekaran: ... we wanted to get the API logic and stuff built out. Um we're still kind of waiting on the wager tech side for all of that.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "'widget' later in the same line = WagerTech [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-02",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "WagerTech Console is the default app",
+   "statement": "The Wager Tech Console app is the app used for all signup work. Kobi said Jester disabled the other apps because users were going into the wrong ones.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:09:34",
+   "line_start": 160,
+   "line_end": 165,
+   "quote": "Kobi Kunasekaran: ... wage tech console is what we're using for all of it. / Kobi Kunasekaran: Um, I think jester disabled all the other apps because they were going into the wrong ones.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "wage tech = WagerTech [ASR?]; jester = Jester [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-03",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Align other signup list views later",
+   "statement": "The 'All' signup list view has the most up-to-date columns. The other signup list views need to be updated to the same columns; Kobi will queue this for later.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:10:47",
+   "line_start": 165,
+   "line_end": 165,
+   "quote": "Kobi Kunasekaran: ... it's the all signup uh, list view that is the most updated. We do need to update the rest of them to have the same columns and stuff, but uh I'll cue that up for later.",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "cue = queue [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-04",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "First Wager Date field purpose",
+   "statement": "A First Wager Date field was added to the signup. It records the date the player deposits/wagers, as proof (alongside the deposit and signup proofs) that payout requirements for the signup are met.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:10:47",
+   "line_start": 165,
+   "line_end": 165,
+   "quote": "Kobi Kunasekaran: ... there's this first wager date field that we added. Um the idea was that this was you know when when the player deposits the money that they got from way to play in the casino or whatever um they would record that date in here as proof that they've completed the requirements to get paid out for the sign up",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "way to play = WagerTech/wager-to-play [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-05",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "Log Signup and Complete screen flows behavior",
+   "statement": "There are two screen flows on the signup: Log Signup and Complete. In New status users only have Log Signup; saving moves the record to In Progress. Fields are not required in Log Signup but are all required in Complete, and saving Complete marks the signup Completed.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:11:53",
+   "line_start": 171,
+   "line_end": 171,
+   "quote": "Kobi Kunasekaran: We have two screen flows. There's one for log signup and one for complete. ... during the new new status u they only have access to log signup right and the expectation is that when they enter some value and click save it moves a record to in progress. ... So in the lock signup they're not required but in complete signup all of these are required",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "lock signup = Log Signup [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-06",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "Story 242: add First Wager Date to flows",
+   "statement": "Story 242 is assigned to Cedrick: add the First Wager Date field to both the Log Signup and Complete screen flows, following the same field arrangement and placed at the bottom.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Cedrick Infantado"
+   ],
+   "timestamp": "00:09:34",
+   "line_start": 156,
+   "line_end": 180,
+   "quote": "Kobi Kunasekaran: ... there is this persuasure date um on the uh field set here that isn't in here. And all we need to do for story 242 is to make sure to add that in uh into the screen flow for both. / Kobi Kunasekaran: For both. Yeah. And you can like follow the same uh arrangement. / Kobi Kunasekaran: Yeah. And just put it at the bottom.",
+   "jira_keys_mentioned": [
+    "WAGR-242?"
+   ],
+   "owner": "Cedrick Infantado",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "persuasure date = first wager date [ASR?]; 'bill 242' at line 156 = story 242 [ASR?]. Tickets are tracked in Asana, so the WAGR key mapping is unconfirmed.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-07",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Story 243: Log Signup must require input",
+   "statement": "Relayed client ask (story 243): Log Signup currently moves the record to In Progress on save even with no input. The client wants a check that some value is entered; otherwise the record stays New.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:13:03",
+   "line_start": 182,
+   "line_end": 189,
+   "quote": "Kobi Kunasekaran: ... if I click on log signup, I don't need to fill anything in. If I just click save, it moves it to in progress automatically. / Kobi Kunasekaran: Um, so that's fine from a user perspective, but what they want is uh to actually do a check to make sure that they're actually filling something in. / Kobi Kunasekaran: So any any value has to be set before the record moves in progress. Otherwise, if I just click save, it should just remain as new until I click on lock signup and put some information in.",
+   "jira_keys_mentioned": [
+    "WAGR-243?"
+   ],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "lock signup = Log Signup [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-08",
+   "type": "change-to-earlier-decision",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "Story 243: show screen instead of silent check",
+   "statement": "The story 243 acceptance criteria said to compare field values before and after save and not move the status if nothing changed. Kobi and Cedrick agreed instead to show a follow-up screen telling the user to enter information to move the record to In Progress (the before/after check is still needed). Internal Jumpr build decision; client acceptance not shown.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Cedrick Infantado"
+   ],
+   "timestamp": "00:14:07",
+   "line_start": 197,
+   "line_end": 223,
+   "quote": "Kobi Kunasekaran: ... in the story actually the A I specified is like let's compare the value before and after of the fields that are in the signup and then if nothing is saved then or nothing has changed then don't move the status but now that like I'm talking about it I was also thinking the same thing we just display an error message instead or not an error message but like a follow-up / Kobi Kunasekaran: Let's let's go forward with throwing a screen that says enter some information to move this record to in progress. / Kobi Kunasekaran: It's okay. Let's do that. Let's do that. I like that idea actually.",
+   "jira_keys_mentioned": [
+    "WAGR-243?"
+   ],
+   "owner": "Cedrick Infantado",
+   "due": null,
+   "supersedes_hint": "Replaces the story's AC (silent before/after comparison, no status change) with an explicit follow-up/error screen. Story text not yet updated per the transcript.",
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "'A I' = AC (acceptance criteria) [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-09",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Referral and Payouts",
+   "topic": "Story 244: rearrange referral information section",
+   "statement": "Relayed client ask (story 244): rearrange the referral information section so Refer and Referral Type are on the first row, Secondary Referral on the left and No Refer on the right. Kobi first said the client wanted Payout Amount at the top but then said to leave Payout Amount and related fields below. Conditional visibility on some fields must be kept.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:18:22",
+   "line_start": 231,
+   "line_end": 231,
+   "quote": "Kobi Kunasekaran: ... There's some conditional that actually hide and display some of these deals. So you have to keep an eye on keep an eye out for that. ... and what she wanted was to move it up. So refer and referral type will be on the first row. Uh secondary referral will be on the left and no refer on the right. Um yeah and then for payout amount what did she say for payout amount? So, we wanted the payout amount at the top, but yeah, we'll leave the payout amount and stuff below that.",
+   "jira_keys_mentioned": [
+    "WAGR-244?"
+   ],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "deals = fields [ASR?]. 'she' (the client contact) is not named.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-10",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Referral and Payouts",
+   "topic": "Story 244 reassigned to Cedrick",
+   "statement": "Kobi reassigned story 244 to Cedrick to package with 242 and 243, since the referral information section uses the same format in both flows.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:16:21",
+   "line_start": 225,
+   "line_end": 231,
+   "quote": "Kobi Kunasekaran: And then one more thing actually I think now that I'm thinking about it this one might be good to package together as well. / Kobi Kunasekaran: same uh same format as here. I think uh 244 might be better for you too. You know what? Yeah, let me let me change this.",
+   "jira_keys_mentioned": [
+    "WAGR-244?"
+   ],
+   "owner": "Cedrick Infantado",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-11",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Player",
+   "topic": "Player created Pending via SLC processing",
+   "statement": "SLC processing finds an existing player by email or external ID, or creates a player record. New player records get status Pending by default (Kobi is unsure whether the flow sets it).",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:24:04",
+   "line_start": 279,
+   "line_end": 279,
+   "quote": "Kobi Kunasekaran: ... Our SLC processing automation is going to either find a player that exists for that click based on email address or external ID. Um, if that player doesn't exist, then it's going to create a player record. And when it creates a player record, the status on the player record is set to pending um automatically.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-12",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Player",
+   "topic": "Player set Active on signup completion",
+   "statement": "Planned automation: when a related signup is marked Completed, set the player status to Active if the player is Pending and not Banned. Story still being finalized by Kobi.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:24:04",
+   "line_start": 279,
+   "line_end": 297,
+   "quote": "Kobi Kunasekaran: ... the moment of a signup is marked as completed that's related to the player, we want to update the player status to active. / Kobi Kunasekaran: and then create the automation that will trigger off of signup completed so that when a signup is completed, if the related player is pending and not banned, set them to active.",
+   "jira_keys_mentioned": [],
+   "owner": "Cedrick Infantado",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-13",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Player",
+   "topic": "Scheduled flow: Active to Inactive after 90 days",
+   "statement": "Planned scheduled flow: move Active players with no signups in the last 90 days to Inactive. Story still being finalized by Kobi.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:25:08",
+   "line_start": 284,
+   "line_end": 302,
+   "quote": "Kobi Kunasekaran: Uh we need to track when the last completed signup was done for the player. Um, and then we want to mark or move the status of the player to inaptive if they had no signups in the last 90 days. / Kobi Kunasekaran: And then set up a schedule flow that'll look for any players uh that have had no signups for the last 90 days that are still active and move them to uh inactive.",
+   "jira_keys_mentioned": [],
+   "owner": "Cedrick Infantado",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "inaptive = inactive [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-14",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Player",
+   "topic": "Banned status must not be overwritten",
+   "statement": "A Banned player status, set by a button the ops team uses (e.g. for fraud), is being built separately by Taryn. The completion and 90-day automations must not overwrite a Banned status; Banned is a test case for Cedrick.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:25:08",
+   "line_start": 288,
+   "line_end": 302,
+   "quote": "Kobi Kunasekaran: And then uh Teran is working on a ban status uh which is going to be driven by a button. ... So when a player status is set to banned um the previous two automations, so if a signup is completed or if it's been uh more than 90 days, we don't want the status to be overwritten if it's already banned. / Kobi Kunasekaran: ... But yeah, assume like one of the test cases for you is going to be banned.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "asr_note": "Teran / parent (line 293) / Karen (line 302) = Taryn [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-15",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "Confirm/add signup completion date field",
+   "statement": "Cedrick to confirm the signup completion date is tracked on the signup record and add the field only if it is missing. Kobi thinks it already exists.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:26:14",
+   "line_start": 293,
+   "line_end": 293,
+   "quote": "Kobi Kunasekaran: ... we need to start tracking signup completion date on the signup record and the player. Uh, I think it's there on the signup record, but just confirm. If not, let's add it in.",
+   "jira_keys_mentioned": [],
+   "owner": "Cedrick Infantado",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-16",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Player",
+   "topic": "Last activity date vs last completed signup",
+   "statement": "Open: whether the player field (called 'last activity date') tracks only the last completed signup or rolls up other activity. Kobi will decide and finalize the stories; he may limit it to completed signups for now and expand later.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:26:14",
+   "line_start": 295,
+   "line_end": 302,
+   "quote": "Kobi Kunasekaran: And then we need to make sure to start tracking the last uh last signup completed on the player. We're calling it last activity date. it I'm thinking it might expand to other activity. Um so I will get back to you with the final details when I assign over the stories. / Kobi Kunasekaran: ... I'm still deciding on if it's going to be last activity or uh we'll just limit it to completed for now and then we can expand the definition later.",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-17",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Player",
+   "topic": "Inactivity flow limited to player records",
+   "statement": "Players are person accounts. The Active-to-Inactive scheduled flow must be restricted to player records so it does not affect referrers, operators or other account types.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:28:29",
+   "line_start": 311,
+   "line_end": 311,
+   "quote": "Kobi Kunasekaran: They are person accounts, so not like a contact. ... for the schedule flow to move the statuses from uh active to inactive, you'll want to make sure it's only restricted for player records because we don't want the same thing happening for referers, operators, or anything like that.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-18",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Player status stories not yet in Asana",
+   "statement": "The signup feedback stories are already in Asana; the player status stories are not and Kobi will move them to Asana once finalized.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:30:26",
+   "line_start": 341,
+   "line_end": 345,
+   "quote": "Kobi Kunasekaran: yeah, the signup feedback ones, / Kobi Kunasekaran: these ones should already be in Asana. These ones I don't they're not in Asana yet. I will move them to Asana once I finalize the stories, / Kobi Kunasekaran: the status one.",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-19",
+   "type": "decision",
+   "firmness": "decided",
+   "feature_area": "Testing, UAT & Go-Live",
+   "topic": "Definition of done; sandbox only",
+   "statement": "Done means the story is moved to Ready for Review in Asana with a comment summarizing what was built (fields, API names, flows). No deployment yet; work stays in the partial sandbox. Production deployment comes later after a UAT stage.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:31:21",
+   "line_start": 365,
+   "line_end": 371,
+   "quote": "Kobi Kunasekaran: ... once you're done put the story in ready for review and then in the comments um add in like whatever it is that you created like API names or the fields that you created flows ... there's no deployment we're still working in partial sandbox for now so um done is when it's ready to be reviewed uh in the sandbox.",
+   "jira_keys_mentioned": [],
+   "owner": "Cedrick Infantado",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-20",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Other (source control / DevOps)",
+   "topic": "No source control on the project",
+   "statement": "The project has no source control. Kobi said Cedrick may keep his own local metadata copy if useful; org-wide source control is being considered but not in place.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Cedrick Infantado"
+   ],
+   "timestamp": "00:32:23",
+   "line_start": 372,
+   "line_end": 383,
+   "quote": "Cedrick Infantado: ... do we have a source control for for this project or okay? / Kobi Kunasekaran: No, not not right now. / Kobi Kunasekaran: we don't have like a organizationwide source control right now. It is something we're thinking about and you know we do need to start doing it",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-21",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Four permission set groups; rep lowest",
+   "statement": "There are four permission set groups; Rep is the lowest (read/write on most signup logging fields), Ops has Rep plus more. New fields have been made accessible to all and locked down afterward via layouts or read-only on pages/screen flows. Flows must be able to update date/time fields such as completion time. Story-specific permission needs are added to stories; developers should flag gaps.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:33:27",
+   "line_start": 399,
+   "line_end": 409,
+   "quote": "Kobi Kunasekaran: ... Okay we have these four permission set groups that we've created. / Kobi Kunasekaran: Um the rep one is the lowest level for uh reps that have generally they have read and write access to most things on the signup. ... a lot of the fields that we've been creating, we've been making it accessible for everyone and we're kind of locking it down after the fact. / Kobi Kunasekaran: ... at the end of the day just make sure like flows can update especially like the date time like complete time and things like that.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-22",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Testing, UAT & Go-Live",
+   "topic": "Jared Ali test user as rep",
+   "statement": "Jared Ali is the user configured as a rep for Jumpr's own testing of the rep experience; Kobi noted the user also has additional permission set groups it should not have.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:35:44",
+   "line_start": 413,
+   "line_end": 421,
+   "quote": "Kobi Kunasekaran: ... one person that we did configure as a rep is uh Jared, / Kobi Kunasekaran: I believe. Uh, yeah, Jared Ali. This person is the one that we were using for our own testing and we set them up with the I guess we added additional permission set groups. They shouldn't have this but this is a good one to still test with",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-31-1130-23",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Testing, UAT & Go-Live",
+   "topic": "Prod deployment weeks away; internal UAT first",
+   "statement": "As of 2026-08-31, production deployment is still a few weeks away. A full internal UAT as reps, ops and managers will happen before production deployment.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Cedrick Infantado"
+   ],
+   "timestamp": "00:36:40",
+   "line_start": 422,
+   "line_end": 425,
+   "quote": "Cedrick Infantado: Okay. Sure. And before we deploy, we will be having an internal testing as well, right? Or maybe I'm not sure. / Kobi Kunasekaran: before we deploy the prod. / Cedrick Infantado: Yeah. Yeah. / Kobi Kunasekaran: Yeah. Yeah. Absolutely. like we we're uh we're still a few weeks aways from prod deployment. So we'll do a full internal UAT as as user as uh as ops as managers",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "note": "Jumpr-internal meeting; the client was not present. Client asks are relayed by the Jumpr lead, not client-voiced evidence.",
+   "quote_verified": true
+  }
+ ],
+ "gemini_disagreements": [
+  {
+   "summary_text": "[Cedrick Infantado] Update Layout: Rearrange the referral information section by placing referral and referral type on the first row, secondary referral on the left, no refer on the right, and the payout amount at the top.",
+   "transcript_quote": "Kobi Kunasekaran: ... So, we wanted the payout amount at the top, but yeah, we'll leave the payout amount and stuff below that.",
+   "line": 231,
+   "why": "Contradicted. Kobi ends by leaving Payout Amount below. The Gemini Decisions and Details sections also say 'below'; only the Next steps item says 'at the top'."
+  },
+  {
+   "summary_text": "[Cedrick Infantado] Add Field: Add the signup completion date field to the signup record to ensure it is available for tracking.",
+   "transcript_quote": "Kobi Kunasekaran: ... Uh, I think it's there on the signup record, but just confirm. If not, let's add it in.",
+   "line": 293,
+   "why": "Firmer than the transcript. The task is to confirm the field exists and add it only if missing; Kobi thinks it already exists."
+  }
+ ],
+ "rule5_redactions": 3,
+ "secret_exposed": false,
+ "notes": "Read all lines. Jumpr-internal 1:1 between Kobi (lead) and Cedrick (new developer); the client was not present, so client asks are relayed by Kobi. Tickets 242/243/244 are referenced as stories tracked in Asana; WAGR key mapping is unconfirmed (marked with '?'). Three passages were not recorded under rule 5 / non-delivery handling (personal matter, timesheet/billing procedure, task sizing and hour estimates). Partial sandbox login is mentioned without any credential values. Other non-WagerTech-delivery talk was not extracted."
+}

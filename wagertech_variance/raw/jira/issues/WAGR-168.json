@@ -1,0 +1,297 @@
+{
+  "id": "10354",
+  "key": "WAGR-168",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-26T10:46:29.661-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.971-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# RF-1 (support): Primary/Secondary Referrals Roll-Up Automation\n\n_Populate Referrer's Primary Referrals and Secondary Referrals Count fields via Flow, since the Sign Up → Referrer relationship uses Lookup fields, not Master-Detail, so native Roll-Up Summary fields are not available._\n\n### FIELDS\n\n* Primary Referrals — Number(0), read-only via page layout/FLS, on Referrer (already exists per BUILD-185; confirm it is a plain Number field, not Roll-Up Summary)\n* Secondary Referrals — Number(0), read-only via page layout/FLS, on Referrer (same)\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Two Record-Triggered Flows on Sign Up (After Save: create, update, delete) — one for Primary Referrer, one for Secondary Referrer\n\n* On create, update, or delete, recalculate the affected Referrer's count by querying and counting matching Sign Up records fresh each time, rather than incrementing/decrementing, to avoid drift under bulk operations\n* On update where the referrer lookup value changed, recalculate both the old and new Referrer's counts\n\n* Assumes either lookup can be blank on a given Sign Up\n\n* Ruled out converting to Master-Detail for this reason — Master-Detail fields cannot be null. Discussed with Taryn in chat, Aug 26, 2026 — not from a transcript.\n\n### NOTES\n\n* Provenance: none — this ticket was opened directly from a build blocker Taryn hit while working [BUILD-185 — Referrer: Object + Core Status](https://app.asana.com/0/0/1217693311564006/f/). Primary Referrals and Secondary Referrals could not be built as native Roll-Up Summary fields because the underlying relationship is a Lookup, not Master-Detail.\n* Exact API names for the Primary Referrer / Secondary Referrer lookups on Sign Up not yet confirmed — verify neither is a Master-Detail relationship before building.\n\n### SOURCE\n\n* No user-story doc citation — created directly from a build blocker on [BUILD-185 — Referrer: Object + Core Status](https://app.asana.com/0/0/1217693311564006/f/), discussed with Taryn in chat, Aug 26, 2026.\n* Dependents: [BUILD-185 — Referrer: Object + Core Status](https://app.asana.com/0/0/1217693311564006/f/) (blocked on this ticket's automation)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-26 directly from a BUILD-185 build blocker.\n\n",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10130",
+        "filename": "image.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-26T14:19:20.713-0400",
+        "size": 140067,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10130",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10130"
+      },
+      {
+        "id": "10141",
+        "filename": "Screenshot 2026-08-31 at 11.17.42 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-31T14:17:17.172-0400",
+        "size": 311501,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10141",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10141"
+      },
+      {
+        "id": "10140",
+        "filename": "Screenshot 2026-08-31 at 11.17.53 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-31T14:17:15.880-0400",
+        "size": 309692,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10140",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10140"
+      }
+    ],
+    "summary": "BUILD-238 — Referrer: Primary/Secondary Referrals Roll-Up Automation",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10389",
+          "body": "**Build status: in progress, paused for review. Flow: \"Sign Up - After Save - Update Primary Referrals on Referrer\"**\n\n[https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/lightning/r/FlowRecord/2aFWJ0000047PAg2AM/view](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/lightning/r/FlowRecord/2aFWJ0000047PAg2AM/view) (version 2)\n\n**Start**\n\n* Object: Sign Up\n* Trigger: A record is created or updated\n* Optimize for: Actions and Related Records\n\n**Fields created this session, both on Account:**\n\n* Primary Referrals — Number(18,0), field-level security visible/not editable on all profiles, added to the Referrer page layout. Expected API name: Primary_Referrals__c\n* Secondary Referrals — same spec. Expected API name: Secondary_Referrals__c\n\nBoth should be spot-checked in Object Manager to confirm exact API names before Secondary Referrals flow is built, since they were not re-verified after creation.\n\n**Decision 1 — \"New Primary Referrer Not Null\" (API: New_Primary_Referrer_Not_Null)**\n\n* Outcome \"Has Primary Referrer\" (API: Has_Primary_Referrer): Resource = Referrer (Referrer\\__c), Triggering Sign_Up_\\_c version. Operator = Is Null. Value = {!$GlobalConstant.False}\n* Default Outcome: no referrer set\n\n**\"Has Primary Referrer\" path:**\n\n* Get Records \"Get Sign Ups for Referrer\" — Object: Sign Up. Condition: Referrer\\__c Equals {!$Record.Referrer_\\_c}. Store: automatically store all fields, all records.\n* Loop \"Look Through Sign Ups\" — Collection: {!Get_Sign_Ups_for_Referrer}. Direction: first item to last item.\n* Assignment \"Add to Count\" (inside For Each) — countVar: Add, 1.\n* Variable countVar — Number, 0 decimal places, default 0, not available for input/output.\n* Update Records \"Update Referrer Primary Referrals\" (After Last) — How to Find Records: \"Update records related to the sign up record that triggered the flow.\" Related Records: Referrer (Referrer\\__r), Triggering Sign_Up_\\_c. Condition Requirements: None — Update All Related Records. Field Values: Primary Referrals = {!countVar}.\n\nBoth this path and the Default Outcome path merge and feed into Decision 2.\n\n**Decision 2 — \"Referrer Changed On Update\" (API: Referrer_Changed_On_Update)**\n\n* Outcome \"Old Referrer Needs Recalc\" (API: Old_Referrer_Needs_Recalc), All Conditions Are Met (AND):\n\n* Condition 1: Referrer (Referrer\\__c), Prior Values of Triggering Sign_Up_\\_c version. Operator: Is Null. Value: {!$GlobalConstant.False}\n* Condition 2: Referrer (Referrer\\__c), Prior Values version. Operator: Does Not Equal. Value: Referrer (Referrerc), Triggering Sign_Up_\\_c version.\n\n* Default Outcome: goes straight to End.\n\n**\"Old Referrer Needs Recalc\" path — NOT YET COMPLETE:**\n\n* Get Records \"Get Sign Ups for Old Referrer\" — Object: Sign Up. Condition: Referrer\\__c Equals {!$RecordPrior.Referrer_\\_c}. Store: automatically store all fields, all records. Done.\n* Loop \"Loop Through Old Referrer Sign Ups\" — Collection: {!Get_Sign_Ups_for_Old_Referrer}. Direction: first item to last item. Done.\n* Assignment \"Add to Old Count\" (inside For Each) — oldCountVar: Add, 1. Done.\n* Variable oldCountVar — Number, 0 decimal places, default 0, not available for input/output. Done.\n* Get Records \"Get Old Referrer Account\" (After Last) — Object: Account. Intended condition: Id Equals {!$Record\\__Prior.Referrer_\\_c}. BLOCKED: the standard Id field does not appear in this org's field search here, or in the equivalent Update Records screen earlier. Last thing tried, not confirmed: switching this element to \"Update records related to...\" using a Prior Values relationship path, the same shortcut that worked for the new Referrer branch.\n* Not yet built: Assignment to set the fetched old Referrer record's Primary Referrals field to {!oldCountVar}.\n* Not yet built: Update Records to save that record, likely via \"Use the IDs and all field values from a record or record collection.\"\n\n**Explicitly out of scope for this flow:** record deletion. Salesforce does not allow one Record-Triggered Flow trigger to cover create, update, and delete together. A second, delete-only flow is still needed.\n\n**Once complete:** save, activate, and test against a real Sign Up before relying on the counts. The Secondary Referrals flow should be built by cloning this one with Save As and swapping field references, rather than rebuilt element by element.",
+          "created": "2026-08-26T14:04:18.907-0400",
+          "updated": "2026-08-26T14:04:18.907-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10391",
+          "created": "2026-08-26T14:19:26.941-0400",
+          "updated": "2026-08-26T14:19:26.941-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10394",
+          "body": "After discussing with Kobi, these rollups can be completed by a DLRS. Screenshots from the two created and both tested ✅",
+          "created": "2026-08-31T14:17:19.136-0400",
+          "updated": "2026-08-31T14:17:19.136-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 3,
+      "total": 3,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-364"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Development",
+          "id": "10055"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217870569060418"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001t3:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217870569060418"
+      }
+    }
+  }
+}

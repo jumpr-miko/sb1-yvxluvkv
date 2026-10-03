@@ -1,0 +1,990 @@
+📝 Notes
+Jun 22, 2026
+Wagertech <> Jumpr - Deal and Rep Process Walkthrough
+Invited Kobi Kunasekaran emily@wagertech.bet jay@wagertech.bet ali@wagertech.bet Marc Cabantog Miko Sumagang Waleed Alasadi andy@wagertech.bet
+Attachments Wagertech <> Jumpr - Deal and Rep Process Walkthrough
+Meeting records Transcript Recording
+
+
+Summary
+The team reviewed operator link management systems, discussed manual logging challenges, and finalized the mandatory user survey policy.
+
+Managing Operator Link Systems
+PlayCan CMS and AirTable function as the primary systems for managing operator links and tracking deals. Brand ambassadors utilize unique links for attribution, though manual tracking persists during operator transitions.
+
+Addressing Logging and Attribution
+Manual logging errors occur during operator transitions, necessitating reviews of timestamps and screenshots. A bot facilitates link assignments, but historical data gaps often require manual investigation of performance.
+
+User Survey Requirement Decision
+The team decided that all users must complete a survey 1 time per account to qualify for iGaming studies. This enables eligible participants to join multiple studies without repetitive documentation.
+
+
+Decisions
+Aligned
+* Slack selected for project communication Slack is established as the primary channel for project communication and collaboration.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Update Salesforce: Update and fix Salesforce to align the tracking functionality with the actual business process for lead and signup management.
+* [The group] Consult Ilas: Coordinate a meeting with Ilas to discuss Air Table configuration and history tracking.
+* [Kobi Kunasekaran] Create Slack Channel: Establish a dedicated workspace channel for team coordination.
+
+
+
+Details
+* Meeting Objectives and Introductions: Kobi Kunasekaran, Ali Nawaz, Andy Bhiekham, and Jay convened to review the user registration process, operator logging systems, and the data connectivity between agency sites and AirTable, as Kobi Kunasekaran sought to understand how these systems link to the company’s internal operations (00:00:02).
+* Logging and Spreadsheet System: Ali Nawaz explained that the team transitioned from manual tracking to a Google Sheets system to manage operator signups, noting that each operator has unique deals and target CPAs that the operations team must monitor (00:01:39).
+* Operational Context and Volume Distribution: Ali Nawaz and Waleed Alasadi discussed the distribution of sales volume among Brand Ambassadors (BAS), noting that the team assigns operators and manages deals to meet specific volume targets while maintaining fair distribution among reps (00:04:26).
+* Verification and Wagering Audits: Ali Nawaz outlined the verification process, which requires reps to collect welcome emails and wager/transaction screenshots to audit player activity and ensure they meet operator-specific requirements before a CPA is triggered (00:06:09).
+* CMS for Operator Management: Ali Nawaz and Jay introduced the team to PlayCan CMS, the platform used to turn operator links on or off for individual reps; they emphasized that BAS do not have access to this system (00:08:49).
+* Brand Ambassadors and Organizational Structure: Jay clarified that the company uses a branding model where managers like Ali Nawaz and Andy Bhiekham own brand identities (e.g., Ashurix) and manage specific reps who operate under those brands using dedicated, trackable links (00:10:43).
+* Link Tracking and URL Slugs: Jay and Ali Nawaz explained that each rep is assigned unique links and URL slugs, which allows the company to trace signups back to specific Brand Ambassadors, provided the reps use the correct assigned links (00:16:02).
+* AirTable as the Source of Truth: The group established that AirTable functions as the primary database for managing active links, tracking ranges, and effective dates, acting as a critical fail-safe for the PlayCan CMS (00:17:43).
+* Challenges with Manual Logging: Ali Nawaz noted that historical data often contains discrepancies due to rep mislogging when they are switched between operators mid-month, necessitating manual reviews of timestamps and welcome emails to correct the logs (00:21:43).
+* Lead Generation and Salesforce: Kobi Kunasekaran and Ali Nawaz discussed the distinction between tracking clicks and actual conversions, noting that the current process heavily relies on screenshots provided by reps via WhatsApp rather than just automated data (00:23:36).
+* Seasonality and Volume Management: Ali Nawaz indicated that the number of active books and volume availability fluctuate throughout the year, with peak activity typically occurring during the NFL season (00:26:09).
+* Link Assignment Logic: Jay and Kobi Kunasekaran discussed the importance of unique links for tracking "erosion" (lost data), though they acknowledged that limited supply from operators sometimes forces multiple reps to share a single link, which complicates attribution (00:27:49).
+* Data Attribution and Reporting: Jay and Ali Nawaz confirmed that when links are shared, tracking individual rep performance becomes more difficult, and the team often has to manually investigate logs to determine which rep drove the signup (00:30:47).
+* System Integration and Gaps: The group discussed the lack of native signup attribution in the current CMS, and while they are looking toward Salesforce to better track leads, historical data gaps remain a concern (00:33:12).
+* Operator Switching Workflow: Ali Nawaz explained that when a rep is switched from one operator to another, they must reference welcome emails to log signups correctly based on the date of the switch, as some leads may have been generated prior to the transition (00:35:51).
+* Managing Link Statuses in AirTable: The team reviewed how AirTable manages the "active" versus "paused" status of links and highlighted how the platform handles multi-state assignments, such as distinct links for different regions (00:37:34).
+* Bot-Assisted Link Management: Andy Bhiekham described how the team utilizes a bot to handle link assignments, which helps optimize resource usage by automatically identifying the most suitable available link for a rep (00:38:59).
+* Workflow for Updating Assignments: Andy Bhiekham detailed the process where the bot suggests a reassignment, the team confirms the change in AirTable, and then they manually update the link in the PlayCan CMS (00:43:02).
+* Volume Caps and Status Management: Jay and Andy Bhiekham confirmed that links are paused rather than deleted in AirTable when volume caps are reached or deals conclude, allowing for future reactivation (00:45:12).
+* Manual Reassignment Procedures: Jay demonstrated how to manually reassign an existing link code to a different rep within AirTable, effectively pausing the link for the previous holder and activating it for the new one (00:47:00).
+* Reporting and Historical Data: Kobi Kunasekaran raised concerns regarding the loss of historical visibility on pause and resume dates, while Andy Bhiekham noted that while effective dates are tracked, the system's ability to show a detailed history of pauses may be limited (00:49:04).
+* Assignment Tracking and Priority Books: Jay explained that the "Previous Assignment" field tracks changes within the same casino and that "Priority Books" are designated based on profitability and the company's relationship with the operator (00:53:00).
+* Communication and Logging Errors: Jay and Ali Nawaz noted that reps are notified of link changes via WhatsApp, but acknowledged that this manual communication channel is a frequent source of logging errors (00:55:50).
+* Compliance Requirements: Andy Bhiekham clarified that as part of the compliance process, all clients are required to complete a survey regarding their experience with the platform (00:57:59).
+* User Survey Requirement: The team discussed the necessity for all users to complete a survey prior to participating in an iGaming study. Kobi Kunasekaran sought clarification on whether the survey requirement was per person or per study, and Andy Bhiekham confirmed that the survey is required once per user account. Once a user completes the survey, they are eligible to participate in multiple studies without needing to complete the survey again (00:58:45).
+* Next Steps and Communication Channels: Kobi Kunasekaran expressed that the meeting resolved outstanding questions and invited the team to share any challenges or improvement suggestions to assist in the final Salesforce design. Ali Nawaz agreed to provide support through calls or messages as needed. The participants agreed to utilize Slack for ongoing communication, with Kobi Kunasekaran offering to establish a dedicated channel for the group (00:59:32).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jun 22, 2026
+Wagertech <> Jumpr - Deal and Rep Process Walkthrough - Transcript
+00:00:02
+
+Kobi Kunasekaran: Hey guys,
+Andy Bhiekham: How's it going, guys?
+Kobi Kunasekaran: afternoon.
+Ali Nawaz: Hey, good afternoon, boss. How are you?
+Kobi Kunasekaran: Good. Good. How are
+Ali Nawaz: Not bad. Not bad.
+Kobi Kunasekaran: you?
+Ali Nawaz: Hey, hey, nice to meet you, boss.
+Miko Sumagang: Hello.
+Ali Nawaz: Uh, so we have Jay and Andy here. Uh, Jay was with us last week, and I don't know if you met Andy last week. He's also a part of the ops team, but also a BA as well. So, only two of us doing that at the moment, I think. Uh, yeah. So it was better off we brought him as well so he could give us some context of things. Uh first off just to clarify did you want to go through just the process of from the the agency sites to the logging side like is there something specific you want to start
+Kobi Kunasekaran: Um,
+Ali Nawaz: with?
+Kobi Kunasekaran: so Emily did share some recordings of how the user process for the agency site works.
+
+
+00:00:58
+
+Kobi Kunasekaran: So that was kind of helpful to see like how they click through it.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: What I'm trying to understand is like how that ties back to like your uh your
+Ali Nawaz: Yeah. Operators and logging.
+Kobi Kunasekaran: air table. Exactly that.
+Ali Nawaz: Okay. Got it. Got
+Kobi Kunasekaran: But like even a step further like um I'm also trying to understand how the books work in general like what's the
+Ali Nawaz: it.
+Kobi Kunasekaran: life cycle like? Uh when do they get open? When do you add like a new record or new row onto your air table?
+Ali Nawaz: Right.
+Kobi Kunasekaran: And like couple of questions off the top of my head like can you reopen a book that's already like
+Ali Nawaz: Right.
+Kobi Kunasekaran: closed?
+Ali Nawaz: Right. Right.
+Kobi Kunasekaran: if you do what happens when uh when it comes time for reporting. Uh just a few things like that like we can go through it as as you maybe walk walk through
+Ali Nawaz: No worries. I think I think we kind of figured that's what you need to do.
+
+
+00:01:39
+
+Ali Nawaz: So, I I got Andy here to prep uh we're going to use Andy's uh sales spreadsheet
+Kobi Kunasekaran: it.
+Ali Nawaz: and just some u just cross reference with the logging and the agency site all together and we'll go through. If you have any questions, let us know. Andy, can you just share your screen?
+Andy Bhiekham: Sure.
+Ali Nawaz: Uh, and we could start by maybe showing them your spreadsheet.
+Andy Bhiekham: Sure.
+Ali Nawaz: Uh, have you have you looked at anybody's spreadsheet at all? Uh, Kobe?
+Kobi Kunasekaran: just in the videos. I don't think uh we have access to any of these spreadsheets as far as I
+Ali Nawaz: Yeah. Yeah.
+Kobi Kunasekaran: know.
+Ali Nawaz: Uh, I don't know if that's something you need, but if not, we could figure out later. So, like I said,
+Kobi Kunasekaran: Yeah.
+Ali Nawaz: we we run by this Google Sheets system. you know, it was before it was even less uh organized than it is now where it was just a bunch of manual logging. Uh just to give you context on how we do this, right?
+
+
+00:02:32
+
+Ali Nawaz: If you look at the bottom there, this is the sign up uh tab, meaning anybody who registers for whatever book through us, uh we have to log each one individually, right? So if they if they signed over three books, their name should be there three times with the operators that were live. Uh that's why you see if you look at the sports casino section you'll see Proline with the - C or DraftKings GD. These are different operators, right? We have Proline with nothing beside it. You'll see in some of the other ones uh some of the other logs from earlier when he had it live and that would mean we have a direct deal with them just like with BMGm if there's nothing beside it. Uh this is just our logging side of things, right? But uh when it comes to the operators, right? So there's different operators, deeds, cipher, uh, and kina. So there's a bunch of different operators we work with and it could be the same book as you could tell like Proline C, Proline GD.
+
+
+00:03:28
+
+Ali Nawaz: So just to give you some context here, you will never have two of the same uh you will never have two operators live for the same book. So if it's Proline, you usually wouldn't have Proline GD and Proline C, for example, together, right? It would it would be one. And each operator is given like a target CPA. So depending on if we're close to hitting targets, that's when somebody uh it's actually Ilas and uh Ilas, Owen, and Lena and the team who will decide whether we need to switch one of our high volume reps to a different operator to hit a target or if they're staying. So you are assigned one operator always like one operator for pro line draft kings MGM but we have to make sure we we hit the targets for that. So I'm going to that's a lot of detail just for even that part. I'll just go by summarizing this real quick. So that's where we will log the operator name. Um and then obviously pretty straightforward the details there.
+
+
+00:04:26
+
+Ali Nawaz: Hey W. How are you man?
+Waleed Alasadi: Good man. Sorry. Sorry. Just a quick question interrupting.
+Ali Nawaz: Yes.
+Waleed Alasadi: So you said that like you can you can have two pro lines that are active just not active per like a salesperson can only have one active but the company
+Ali Nawaz: So I'm Yeah, I'm talking about sales side. Yeah. So company will always have multiple different deals,
+Waleed Alasadi: overall
+Ali Nawaz: right? Sometimes it's limited, sometimes it's it's there's more variety. So we might have four deals for Proline, but there's times where we only have one. And when that happens, we have limits and because of the amount of BAS in the company, uh we have to distribute it in evenly. For example, if one book like MGM, we might have uh temporarily lost the deal and we rely on one. What that means is not everybody could get a a higher amount of volume on it and we have to split it evenly or give assign it accordingly to the people who are tracking well, right?
+
+
+00:05:19
+
+Ali Nawaz: There's a lot of different parts of it when we distribute volume. But if it's a book that we have a huge amount of volume or multiple different operators live for Proline, for example, we break it down according to people's volume and different trends, right? So, uh that's that's a whole different part when it comes to the logging. The sales people, they don't they don't have anything to do with that, right? So, they don't know. They're just told when they're switched to a different operator. And what that means is after that date that they're switched, they have to uh they have to make sure they log it by that operator. Now, when we get into Air Table, it that's where they're they're able to see what books they have live and if they're changed, the date they were changed. They cross reference Air Table. So, I just want to go through the spreadsheet really quick. Uh, so this is how it's logged once it's completed. Right? So, the email, the date, the referral, the referral bonus, right?
+
+
+00:06:09
+
+Ali Nawaz: There's there's bet credits. There's a bet credit option where people who are referrals, they want they want to get paid for for for them to deposit into one of the books. they registered through us, right? So, beck credits. Um, and then we log when it comes to the logging side, we log three different screenshots here. I mean, this is not this is just general screenshots. And if we wanted more detailed that the the BAS usually have it, but the first one would be this welcome email. If you want to just click one, um, Andy, so let's just go to one that's proine, it doesn't matter, honestly. So anybody who registers for for Bet MGM whether they do it through us, whether they do it on the app store their own self that has nothing to do with us, you always get a welcome email once you're verified, right? Because uh the first step is to register. The second step is to verify that you're actually so there's not people using basically you cannot have more than one account for MGM, right?
+
+
+00:07:02
+
+Ali Nawaz: If you register for MGM yourself in the past, you can't register through us because you've already had an account. So you you kind of have to rely on books that you don't have uh through us that you could sign up for. But this would be the standard welcome email that they receive and they send us that to let let us know they got verified. And then we have uh I mean depending on the amounts, right? So each operator has different ranges, different amounts and uh we we go through uh we go through the BAS kind of have to decide they stay within the range but they could decide what amount they give them as long as it's within the range that we require. And then uh we this is when we send when we send out that amount they have to deposit it the exact amount and this is where we see that data. If you want to click click one of those again, Andy. Yeah. And then and then transaction history would just be their wager wager history.
+
+
+00:08:00
+
+Ali Nawaz: What they have to wager as in like whether it's sports or casino. That's something we could go through later. That's depends on the operator that we have deals with. So just quickly if you just go through one of those and then I don't want to go spend too much time on this part because I want to go to through from the agency side first. So this is just a a recording showing their wagering, right? What games they play and um I mean this is one part of what we audit to know whether they're doing what kind of games they're playing, if they're switching up games, their player value in general, right? So we could go through all that later as well. Like I said, I I I want to go through uh at least like the registration process, which I think maybe would would have been a better idea to start with first. So Andy, let's go through uh let's first let's go to Yeah,
+Kobi Kunasekaran: What the f***?
+Ali Nawaz: let's go to play CMS.
+
+
+00:08:49
+
+Ali Nawaz: Jay, if you want to add in or if there's a different um process or step-by-step way you want to go, we can do that. But for now, I just want to show them. I don't know if you've ever seen this guys, but this is our play can CMS. This is where we turn on and off operators, right? So every every person in the company has their own link and site site and agency site with the URL that that's aligned to them. Right? So this is where we turn on and off books. Right? So if Ontario, if you see the one that's white there, that's Caesar's D. That means that's live on his page right now. And sports if you scroll up, right? All these red ones means they're probably operators in the past that we have that we don't use right now or a pause for us. You would never have two se you would never have two different Caesars open. Like I said, he has Caesar Sports open, meaning it's a sports requirement.
+
+
+00:09:38
+
+Ali Nawaz: And then we go to casino if you scroll down. So he has Bet MGM GD and DraftKing GD live on his page right now. Sorry, there's some construction going on up here. Um, okay, Jay, how about we do this? Can you can you Andy can you open up the agency site and then Jay just go through the process of somebody how they register and how it works and then we'll go from
+Jay: Yeah. Yeah. just wanted to ask um for for you uh for you guys on the call. Uh what exactly are you guys uh like trying to I guess learn here today so I can like um
+Kobi Kunasekaran: So from my perspective um what I'm trying to understand is how the information connects to each other. So, I've seen part of like the sign up process here um where they fill out the form,
+Jay: Yep.
+Kobi Kunasekaran: they choose the where where you're located and then they go into a study and from the API docs that uh Emily sent from Ryan,
+Jay: Right.
+Kobi Kunasekaran: I believe, um it logs a lead at the time that they click a study.
+
+
+00:10:43
+
+Kobi Kunasekaran: I'm trying to understand like how that links back to the rep.
+Jay: Right there.
+Kobi Kunasekaran: Um how that relationship like how is that connected?
+Jay: Okay. Yeah,
+Kobi Kunasekaran: And then there's this whole concept of surveys that I want to drill down into as well.
+Jay: I got you.
+Kobi Kunasekaran: not understanding what surveys are and how that plays into all of this. Uh,
+Jay: Yeah.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: but that could be like maybe
+Jay: Yeah. No worries. No worries. So, so um just to like maybe it will make more sense if I put it this way.
+Kobi Kunasekaran: later.
+Jay: So, we have multiple uh what we call BAS, right? Brand ambassadors, but a better way to put it is like reps, right? Like representatives for the company.
+Kobi Kunasekaran: Mhm.
+Jay: Um we believe that each rep should have their own brand. So, like for example, um like our belief is that like like for example, Ali is one of our strongest reps, right? So his brand is Ashurix, which is which is what you see in front of you right now.
+
+
+00:11:30
+
+Jay: So Ashurix, for example, if um if I was to compete against Alli,
+Kobi Kunasekaran: Okay.
+Jay: most of downtown Toronto, for example, if that's Alli's dominant network, he they would know what Ashurix is versus like let's say mine is like below. Nobody would really know mine, but most people would know Alice just because he he dwarfs me in terms of volume, right? And that's kind of how we wanted it. We wanted multiple brands uh and each each rep is able to build their brand. So how so what that means is like each rep then will be given their own uh links right. So now if if Alli goes and he clicks one of these links these are links that are are
+Kobi Kunasekaran: Gotcha.
+Jay: assigned to him. Therefore when he clicks the link that's how it traces back to that specific uh brand ambassador because that link is his. So, and we track all of that in air tableable. So, if Andy, if you can open air tableable, you can show we can show an example like if you go to assignments maybe and then just choose Alli as a as a as a
+
+
+00:12:30
+
+Ali Nawaz: So that's that's that's Andy's page there,
+Jay: BA.
+Ali Nawaz: but we could we could show we could show him uh mine. It doesn't matter. So yeah, you could you could go through here, Jay.
+Jay: So, so like you see how um under program we have a a list of like a lot of these uh programs, right? These all have their own dedicated links. Um, and those links belong to Alli like just Alli and Ali alone.
+Kobi Kunasekaran: Mhm.
+Jay: And so the brand Ashurix is tied to Alli but so are these links and these links are put on his site Ashurix. So if somebody goes on Ashurix and clicks start, we're able to associate that click to Alli because the uh he has that specific link. So like
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Okay. So,
+Ali Nawaz: So just to clarify Jay,
+Kobi Kunasekaran: every every signup that comes from Assur is 100% Ali and nobody
+Jay: um
+Ali Nawaz: so so let's just clarify one thing. Uh Jay, so Ashurix is actually Andy,
+Kobi Kunasekaran: else's.
+Ali Nawaz: right?
+
+
+00:13:21
+
+Ali Nawaz: Andy's a manager.
+Jay: Oh, sorry.
+Ali Nawaz: So So Andy's a manager,
+Jay: My bad. My bad.
+Ali Nawaz: meaning he has reps under him.
+Jay: Correct.
+Ali Nawaz: So everybody who he manages that's a that's a BA under him has this platform.
+Jay: Correct. Sorry. My bad. My apologies. Yes.
+Ali Nawaz: Yes.
+Jay: Shurik is not Ally. It's It's Andy. Sorry about that.
+Ali Nawaz: Yeah. So that's Andy's link.
+Jay: I I believe your I believe your access frame might
+Ali Nawaz: Now if you go to if you if you look at the if you look at the URL slug there and then you go back to play can. Can you can you show him on assur first real quick? Yeah. So you see the URL slug there al research. If you go to play can CMS Andy.
+Kobi Kunasekaran: Mhm.
+Ali Nawaz: So that's that's linked directly to him. So when Jay says that we're he has individual specific links for each book assigned to him. Those links from Air Table that we we we keep and we manage here and organize, they're specifically his link is added to Playan.
+
+
+00:14:07
+
+Ali Nawaz: The only way it's open live on his page is if it's open live on play can. That's what runs everything, right? But when it comes to the organizing of links,
+Jay: But and it's worth mentioning also,
+Ali Nawaz: that's where Air Table comes in.
+Jay: I should put it this way, if you have a site, you are a manager. Um, and and what what that means is like Andy, for example, was a manager. Alli is a manager. Um, so they are given their own sites. So for example, Andy has Ashurix, right? So he has about three or four reps under him. They would also be under the Assurance banner, but they have their own links like they have links that are dedicated to them. So that's basically when you go on the link and you click you you go on Assurix, you put in a referral code, right? So you see how AL research that belongs to Andy. If if uh we were to talking about one of Andy's uh guys that are under him, right? Because Andy's the manager.
+
+
+00:15:02
+
+Jay: We're talking about like let's say Ethan, uh this would then be or Alvaro, that's a good example. It would then be Alvaro's link that that we would be going to. Uh it because when you put the referral code in when you sign up, it takes you to Alvaro's uh Asurix link and then under Albero's assur link, sorry. Under all the studies, you would find only Albero's tracking links. And that's basically how every time they click, it's going to it's going to record and attribute that sign up back to that that specific rep. I like it it I know it's a little confusing, but if if uh I can explain it again in simpler
+Kobi Kunasekaran: Okay.
+Jay: terms,
+Kobi Kunasekaran: So to regurgitate what I understood, so um you have the main website uh or I guess you call it like a brand,
+Jay: correct?
+Kobi Kunasekaran: right? like a cer is a brand um that's owned that's owned by the managers and then
+Jay: Correct. The answer to branding.
+Kobi Kunasekaran: within the manager you have like uh whatever number of reps and each rep has their own slug or I forget there's a term for that in URLs but uh yeah each each person has their
+
+
+00:16:02
+
+Jay: Slug is good. Slug is good.
+Kobi Kunasekaran: own and um that's essentially like driven by the referral code or like whatever that the user would have to put in during the signup right or is it like just part of the signup link that you share to the user
+Jay: Yep. Correct. Uh no. No.
+Kobi Kunasekaran: or the player,
+Jay: Uh, so it it's both. So like for example,
+Kobi Kunasekaran: sorry.
+Jay: if uh Andy puts ashurik.net/alvaro for example, when they go to sign up, Alvaro is already pre-filled in the referral section. So yeah.
+Kobi Kunasekaran: Okay.
+Jay: So it's both. It's
+Kobi Kunasekaran: Okay. And then when they I guess they're either signing up or logging in here.
+Jay: both.
+Kobi Kunasekaran: And then when they log in, they're choosing uh where they're located. And then from there, they're they get taken to the study links. And those study links are only the ones that are active for that rep at that like during that time
+Ali Nawaz: Exactly. Like like Alvo and Andy will have different ones live for their at they might have the same books
+
+
+00:16:51
+
+Kobi Kunasekaran: period.
+Jay: Correct.
+Ali Nawaz: obviously it might be different links or different books like Andy might have Caesar's sports and Alvaro doesn't have it. So it depends on the rep and their volume and and what we have available at that time where we on the upside decide what books are live and what books aren't. But it goes starts by our operator deals and how much um volume we have or target goals for each one. Right? So if you if
+Jay: like uh h how we control that volume is through a CRM which is play can like what
+Kobi Kunasekaran: Okay.
+Ali Nawaz: you
+Jay: what Andy's on right now is how we control it. So like you can see he's on his own right now. You could see Andy uh sorry I'm gonna butcher your last name but uh you could see like under Ontario he's able to see the links that are turned off and turned on right now. So this is how
+Ali Nawaz: so can you can you click can you click that BMGmd Andy? Okay. So that's the link right.
+
+
+00:17:43
+
+Jay: we
+Ali Nawaz: So now uh if you go to air tableable can you just go to air tableable I just want to show him. So just go to links go to master links maybe. So look each operator gives us a different amount of links not we might not get 20 links for everything we might
+Kobi Kunasekaran: I
+Ali Nawaz: get three for some and you have to distribute it with between maybe five or six people but like I said for the
+Kobi Kunasekaran: see.
+Ali Nawaz: most part we have more more than one link for things. So with MGM right here, it's with GD right now. If he wants, he could he could look for his exact link uh by I mean we assign it here, but for others they could they could look for their link. But if you go to like uh go to your your name, Andy, I think you could go to your name there and then yeah, go to the arrows on the left. So yeah, we update we manually update these ranges there, right? Because depending on the operator, there could be different ranges.
+
+
+00:18:41
+
+Ali Nawaz: If you see the deposit range on the bottom, 50 to 160, uh what that means is the BA has the decision to make of how much they want to offer for this one client each time. You want to make sure you switch it up, right? So 50 to 160, but you you have to make sure you're mixing up the ranges there. Uh and and then uh if you go down, I just want to show them the link like go to the yeah hidden fields and it should show
+Jay: Sure.
+Ali Nawaz: you the link somewhere. Well, that's Yes. So, that's the tracker code that's connected to his link. But where does it show the link? Does should show somewhere.
+Kobi Kunasekaran: and this is a specific one that's assigned to Andy at this given time.
+Ali Nawaz: Yes, exactly. So, when we go when we go to the operator tracking numbers and reports,
+Kobi Kunasekaran: Okay.
+Ali Nawaz: we are able to just identify by that tracker code or the link that it's Andy specifically. And by using air table on the right you'll see like we we have the effective from effective to to let us know when it was live or when it was closed or paused.
+
+
+00:19:40
+
+Ali Nawaz: Uh the problem obviously is that this is still manual work, right? Like there's we have our bot now that helps but it's still manual work. Meaning if somebody was to turn it on play can which is where it actually counts and not update air table then we have we we we might have some discrepancies and we're we're working towards of like limiting that and we don't really have it as much but it's still bound to happen if you're relying on just manual manual changes, right?
+Kobi Kunasekaran: So the link assignment and stuff are are you doing it in play can first and then coming to air tableable to update it so um you have like a record or is it the other way around where you're doing everything in air tableable and then you're activating it
+Jay: No, it yeah it it would be air table first because um
+Kobi Kunasekaran: in play
+Jay: air table is supposed to act as the uh as the as the fail safe for play can.
+Kobi Kunasekaran: Um,
+Jay: So if the record exists in air table first then there's no way we mistakenly put the link on play cam because the just so like uh you're aware like for example if I was to give um a incorrect BEM MGM link like an inact or a different operator that one that we don't have volume for.
+
+
+00:20:47
+
+Jay: So like there's Bed MGM GD and BEM MGM uh let's say C, right? And I give Alli BM MGMC, but we don't have BEMGMC volume. And I put that up by accident on his PlayCan uh uh CMS. And I and I activate that link for him. There's no actual way for him to know that that link is incorrect unless he's like specifically looking at the link and knows the link, but most reps are not going to know that. And then what's going to end up happening is when we pull tracking, we're going to realize, oh shoot, there's something wrong here. Then we go check the links and we realize like, okay, someone here made a mistake.
+Kobi Kunasekaran: Watch
+Jay: So it it's it play the the main goal of air table was to eliminate that.
+Kobi Kunasekaran: her.
+Jay: So it's like a record exists
+Ali Nawaz: Yeah. So, so Kobe here for context,
+Jay: first.
+Ali Nawaz: like a couple months ago was when we started incorporating Air Table. Before that, it was specifically just turning on and off on play can and kind of keeping track through our messages and it was obviously a mess like that, right?
+
+
+00:21:43
+
+Kobi Kunasekaran: I
+Ali Nawaz: Because from the from the from the BA standpoint, if they're switched from let's say B proline GD to Proline C in the middle of the month
+Kobi Kunasekaran: see.
+Ali Nawaz: on the 15th or 16th and they might just start logging everything as the the new book, but they might have guys who registered two weeks ago uh when they had Proline GD live or what whatever and but they didn't start the process and then they start the process of the wagering and depositing a couple weeks later. But we the BAS might assume that's just uh to log it at as their current live book. But there's times where uh there's people who register way earlier and they're not ready to start. So when that happens, I mean for us, we we rely on looking at like uh the welcome emails and dates and I mean Salesforce start once I started using Salesforce, it it shows very clearly like what what they use or what they clicked what lead they clicked on and I'm at least able to log the right books.
+
+
+00:22:40
+
+Ali Nawaz: But we have an issue sometimes with BAS mislogging it. And that's where we have to kind of investigate because they're just doing they're just doing exactly what they're told when they're told whenever they're told to switch to a different operator. But there's a big chance that they got some of them mislogged and then this the tracking numbers don't look accurate until we we review that.
+Kobi Kunasekaran: So play on The BAS don't go into it. It's just the managers that are going in and uh like setting up the links and stuff,
+Ali Nawaz: Yeah, exactly. BAS cannot touch that at all.
+Kobi Kunasekaran: right?
+Ali Nawaz: No. Yeah. And there's only a few of us who actually uh not the whole ops team like Jay,
+Kobi Kunasekaran: Okay.
+Ali Nawaz: myself, Andy, Owen, even Lena and Emily don't they kind of rely on us for that. Uh we're kind of the only ones who are doing that.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: So, you're setting up the links uh under the respective like reps uh website. Um and then customer clicks on it, goes to like let's say BEMGM uh signs up.
+
+
+00:23:36
+
+Kobi Kunasekaran: Um when they click on the study, I think that's when like do you get any information back to know that they clicked on it or are you literally just waiting until like they send you the confirmation information to log the sign
+Ali Nawaz: without Salesforce. Yeah,
+Kobi Kunasekaran: up?
+Ali Nawaz: without Salesforce, yeah, we wouldn't know because the thing is once the referrals want to grow their network, they they they go out their way to connect with their own people, people who are interested in these platforms. And that's something that's almost happening before they reach out to us. Once they're ready and they have somebody uh interested, then they kind of go through the registration process on the agency already. And for the most part, they usually register for what books they need to register and have the welcome emails ready and whatnot. And that's how we know they're ready to go. If they don't send that send us that detail, we kind of don't really do anything about it. Now that I mean with Salesforce, when you see people clicking, that's good for leads.
+
+
+00:24:30
+
+Ali Nawaz: But the problem with that is if let's just say the referral wants to click the leads just just I mean click the the studies themselves right and they've already registered for these but it'll that will still show up on Salesforce which doesn't really isn't really as important to us you
+Kobi Kunasekaran: sign up. Yeah, I mean I I want to like step away from what's in Salesforce right now because I think like um I just want to look at like focus on the process outside of Salesforce so that when we do update and fix
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Salesforce um it more like lines up to what you're expecting and how your actual like day-to-day process works.
+Ali Nawaz: All right.
+Kobi Kunasekaran: So like and sorry and might be super quick.
+Ali Nawaz: There you go.
+Kobi Kunasekaran: Is it the players that are clicking on those study links or is it the referers and then the referers will then
+Ali Nawaz: It's supposed to be the players obviously,
+Kobi Kunasekaran: share players?
+Ali Nawaz: but sometimes uh because the study the studies they might not know what they are until they click it like
+
+
+00:25:20
+
+Kobi Kunasekaran: Okay.
+Ali Nawaz: uh because it doesn't say the the full name on it until they actually click the link and see the website. Because of that, I'm assuming people maybe click it. It happens or they're guiding somebody through. Some people might not actually know how to do the full registration process. So there there's always a chance of people clicking it, but we we we we want just the client who's interested to do so,
+Kobi Kunasekaran: Mhm.
+Ali Nawaz: right?
+Kobi Kunasekaran: Like nothing's stopping a person from clicking it multiple times either,
+Ali Nawaz: Exactly. That's what I mean.
+Kobi Kunasekaran: right?
+Ali Nawaz: Yeah. Exactly.
+Kobi Kunasekaran: Um and then right now as I understand like every time they click there's a signup record being created uh by Canon
+Ali Nawaz: Yeah. I mean, I'm the only one who'd know that because they nobody else has been uh the one testing Salesforce.
+Kobi Kunasekaran: source.
+Ali Nawaz: So yeah,
+Kobi Kunasekaran: Fair enough.
+Ali Nawaz: I' I've noticed that though.
+Kobi Kunasekaran: Yeah.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Okay.
+
+
+00:26:09
+
+Kobi Kunasekaran: Um, okay. And then so in in the website there are three links and each of those are for three distinct books that are active at a given time,
+Ali Nawaz: So there's three links that are live for that one person.
+Jay: It can it could be more than three.
+Ali Nawaz: Let's if we're talking about specifically Andy, right?
+Kobi Kunasekaran: right?
+Ali Nawaz: Yeah.
+Jay: It can be up to like like six, seven rings, too.
+Ali Nawaz: Yeah. It could be it could be two. At sometimes it's two.
+Jay: Honestly,
+Ali Nawaz: It depends on the time of the year. I mean,
+Kobi Kunasekaran: Got it.
+Ali Nawaz: I feel like close to like NFL season, that's when we have the most uh volume overall. I mean, like opportunities and books, but there's also limitations. Like some of the BAS might not have been around, but I feel like this is kind of one of those times, you know, that some of the operators are not as available or not not as they're not pushing as much in Ontario. So, we don't have them as much as maybe we used to in December or November.
+
+
+00:26:58
+
+Ali Nawaz: So that's something actually that Owen deals with where he's the one who looks into the deals or gets updates with Jess. And so when when it comes to what books we have live, they kind of let us let someone like me know and when if we have extra volume available, they let me know. So I mean throughout the month there's always different updates, right? Sometimes we might be limited and it might be they might have got the green light from the operator to to push a little more CPS than we were expected and then we assigned it to the the appropriate BAS who can handle that volume and get the CPAs. Tracking is main thing, right? It's not just about who brings you volume. I mean, we want the high volume guys to track well, and for the most part, they do, but we also want to be fair and offer to the lower volume guys to let them find a way to grow. It's just that we have to distribute it in a way that helps us hit our targets, too.
+
+
+00:27:49
+
+Kobi Kunasekaran: Okay. So, taking a step back. So, you you have all these links that are coming in from I think Proline was the one that you were showing me earlier. um like you have these links that are uh provided to you by the operator and it's generally more than one link. Um but as as understand like you could have multiple reps sharing that same link, right? Or is it always like one to
+Jay: I ideally ideally we want each rep to have their own link because then it it allows us to
+Kobi Kunasekaran: one?
+Jay: track like u what we call er erosion just means um like a signup that didn't track right so um like loss for the company is what we call erosion ideally we want each rep to have their own link that way uh we have the most data sets available to us so for example like if Ally has his own link and Andy has his own link and Andy's getting scammed and I can't I'm not going to go blame Alli for Andy Andy tracking because I could because I they have they each have a link.
+
+
+00:28:39
+
+Kobi Kunasekaran: Thanks.
+Jay: I have that data set for each one. But there are there are like Alli said earlier there's going to be times where we don't have enough links and it's not even like we've tried requesting it from the operators. They just you know they'll say like sorry it's not something that we can give you. Maybe it's because it cost them money. I'm not too sure on the reasoning there but so that we do have uh people who uh will be on the same link and that's also tracked in air table. So like uh if Ambi you want to show uh if you just go to quickly like bet MGM for example or actually don't do bed MGM just do um do Caesar's. Yeah, do Caesars if you can. Andy, I don't think I think you should.
+Ali Nawaz: Is he on there?
+Jay: Um, but but basically like you see where it says um the assignment code like it would say 274494. Uh Andy, can you go to Caesars?
+Andy Bhiekham: is uh
+Jay: If you scroll down like uh No.
+Andy Bhiekham: here.
+Jay: See where reps is?
+
+
+00:29:44
+
+Jay: Just scroll down and you'll see the No. Yeah. Yeah.
+Andy Bhiekham: Okay. Okay, I got you.
+Jay: Caesars. So, um you see how uh multiple people seem to be on Caesar's D1 as the link code there. That means that uh because Caesar's D that specific operator D stands
+Kobi Kunasekaran: Mhm.
+Jay: for like their version like that's their own operator. D1 is telling D is telling us that you can only have one link which is silly, right? It it sounds silly but unfortunately we have to put out of bio Alexander,
+Kobi Kunasekaran: Okay.
+Jay: Alli, Alvaro, Andy, Eric, and Ayanu. All these these are all specific reps and we have to put them all on one singular link. So unfortunately, if one person is getting scammed, we can't, you know, iron iron out who it is. We have to have to go manually check all the logs and stuff. But uh that's an example of like what you just asked where like but ideally ideally we want each rep to have their own link and for the most part it is like that.
+
+
+00:30:47
+
+Jay: There's some some that aren't unfortunately like Caesar's
+Ali Nawaz: So if you see here,
+Kobi Kunasekaran: So in this case like I was going to ask like so in this case like they have the same link
+Ali Nawaz: sorry. Go ahead. Go
+Jay: D1.
+Ali Nawaz: ahead.
+Kobi Kunasekaran: so each person's uh like website will point to the same exact location. Um are you same exact URL.
+Ali Nawaz: The same URL.
+Jay: Correct.
+Ali Nawaz: Yeah.
+Kobi Kunasekaran: Sorry. And then are you able to I guess like how do you tie those signups to that user? Is it just based on what they
+Ali Nawaz: pretty
+Jay: So unfortunately in in cases where there is a uh like I
+Kobi Kunasekaran: log?
+Ali Nawaz: much.
+Jay: if we're looking at it from a sales sales force perspective I don't know I don't know but if you're looking if
+Ali Nawaz: He's don't even worry about the sales force right now.
+Jay: you're asking like our current uh no I I get that but if you're asking from
+Ali Nawaz: Just just in our own
+
+
+00:31:34
+
+Jay: uh like our current perspective then yeah Because the BA has to log it manually. They know how what they sent out, right?
+Kobi Kunasekaran: But in play can right now though as I understand it like the the API like when they click on the
+Jay: So they would they would just log
+Kobi Kunasekaran: studies um or like that those will be the links right so when they click on it don't you
+Jay: it.
+Kobi Kunasekaran: get uh don't you get those signups uh tied to the like the person's website or like the slug that uh they clicked through
+Jay: Yeah. But if the L Uh yeah,
+Kobi Kunasekaran: in
+Jay: but if the link is the same for each each uh person, unfortunately, if the link is what's uh what's going to record the person's information when they click, then yeah, you're absolutely right. So that's that's why I was saying for like a sales perspective, it it it would it would be logging it from like on on Salesforce specifically,
+Kobi Kunasekaran: Good.
+Jay: it would it would be logging from that slug from that slug.
+Kobi Kunasekaran: Okay.
+Jay: That that's actually very that's actually correct.
+
+
+00:32:31
+
+Kobi Kunasekaran: Because they'd be logged in, right?
+Jay: Yeah, that is correct.
+Kobi Kunasekaran: Like they'd be logged in and then it'll be specific to that rep.
+Jay: Yeah. Yeah. Yeah. Yeah.
+Kobi Kunasekaran: And then even if they're clicking the same shared link, I I think in the
+Jay: It doesn't matter because the site would know. The site would know who's clicking the link.
+Kobi Kunasekaran: Yeah.
+Jay: Yeah, you're absolutely right. Yeah, that's a good
+Kobi Kunasekaran: So this information right now like is it available in like do you guys have access to it in play can to see the signups
+Jay: perspective.
+Kobi Kunasekaran: as they click through those study links.
+Jay: No, we don't. Um, and I and it's it's actually a very easy thing to implement,
+Kobi Kunasekaran: Okay.
+Jay: but we haven't implemented it. I think it's because it's believed that Salesforce is going to do it for us, but it we should have had it implemented from the jump cuz it would actually save us a lot of money. Absolutely. But for some reason,
+Ali Nawaz: I think our I actually think our developers have access to like look at specific details like that.
+
+
+00:33:12
+
+Jay: we don't have it.
+Ali Nawaz: I'm not sure Jay if you know about that like Chelandra but I don't know I don't know about like
+Jay: Uh
+Ali Nawaz: that specific when it comes to like the operator names or what not.
+Jay: he he doesn't unfortunately cuz he didn't build the redirect like when he built the redirect he didn't build it like playan CMS is so archaic and old like this uh the CRM it's so like archaic and old that it doesn't have the ability to to to do that but like like you know um Salesforce is actually a CRM itself and that's why we're moving there cuz like uh it would be able to track
+Kobi Kunasekaran: Okay. Yeah. In the API docs,
+Jay: that
+Kobi Kunasekaran: it sounds like you are getting it here and you're also sending that information to Salesforce. So, if it is available here,
+Jay: correct.
+Kobi Kunasekaran: like uh it'll it'll be a good way for us to like just check back and look at the data as they click through those
+Jay: Yeah.
+Kobi Kunasekaran: uh through those link.
+
+
+00:34:09
+
+Jay: Yeah. I I think that was added because the signups were going missing.
+Kobi Kunasekaran: But
+Jay: I think Alli like happier missing or something like this and then they added this.
+Ali Nawaz: Yeah, I don't I don't know what was going on at that time, but uh I mean it would be helpful to have that type of information to be
+Kobi Kunasekaran: I mean, I'm not surprised. I think like the way it's set up right now,
+Ali Nawaz: honest.
+Kobi Kunasekaran: it's creating leads directly and if any type of dduplication rules, if it's just creating those records in Salesforce, it will stop creating those records for every single signup if it thinks it's a duplicate.
+Ali Nawaz: And then there's different cases like there's there's still there's BAS who have a system where they they might not convert the full sign up until a week later,
+Kobi Kunasekaran: So
+Ali Nawaz: right? Like I I mean for myself, I kind of keep it and to make sure everything's done within the same day or or maybe 24 hours. But because they have their own systems, they might uh send the the wagering might be the deposit might be done, the registration, but the wagering is not.
+
+
+00:35:04
+
+Ali Nawaz: Now, if the wagering is not completed, the CPA doesn't trigger, which means it wouldn't show that it tracked or not, right? So, and they won't be able to log it as a complete signup until they have that that information,
+Kobi Kunasekaran: Right.
+Ali Nawaz: right? So, it's like what I'm saying is what with Salesforce, I had a chance I know we're not supposed to keep bringing this related back, but I had a chance to check it out where some of my signups that were actually completed last week, uh, but I never logged it or I mean,
+Kobi Kunasekaran: All
+Ali Nawaz: it wasn't it wasn't logged on my sheet. It basically was showing it for last week, but the the wagering was done the same week. So, what I'm trying to say is it it was not showing everything in like the system we use it with spreadsheets where everything that's completed I just keep logging one by one in order, right?
+Kobi Kunasekaran: right.
+Ali Nawaz: So, it it was having a little bit of that, but that we could resolve later on.
+
+
+00:35:51
+
+Ali Nawaz: I'm I'm just telling you one of the issues I faced there. So, I was looking for signups and I couldn't find it for that week.
+Kobi Kunasekaran: Okay. Yeah, I think like that we'll have to figure out the what the what the data what data is being dropped there. But yeah, we can we can troubleshoot that once we go down that route. Um but okay, so this makes sense how you're like setting up the links and assigning uh assigning each rep um who uh or sorry what what what books are available to them. Um, but you also mentioned like you could swap around the books. Um, and like especially what you just said now, uh, they could send out they could start the sign up process two weeks ago and then in that meantime you could have swapped the book for that rep to something else and then if the signup comes later, how are they supposed to log those
+Ali Nawaz: Well, they would log it depending on when the person registered,
+Kobi Kunasekaran: signups?
+Ali Nawaz: right?
+
+
+00:36:44
+
+Ali Nawaz: They would know by the welcome email date would show. If if the if if I was switched from the 15th of June uh to Proline GD and I had Proline C from the 1st to 15th, then if I have a welcome email from Pro June 6, I know that's Proline C because I didn't have it live at that time.
+Kobi Kunasekaran: I see
+Ali Nawaz: But it's they're still relying on us letting them know about these changes and Air Table, right? So Air Table would show you your last the last time you were switched or what the time and date,
+Kobi Kunasekaran: what's
+Ali Nawaz: right? So it's kind of a mix of do both, but there's still a lot of mislogging. People don't look they just log things and carelessly sometimes.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: So there's a little bit of mislogging that definitely does happen from
+Kobi Kunasekaran: Okay.
+Ali Nawaz: that.
+Kobi Kunasekaran: And in Air Table like as these books become available uh or you know deactivated how does that get managed?
+Ali Nawaz: Uh, I mean for the Yeah.
+
+
+00:37:34
+
+Kobi Kunasekaran: Like if you can go back to the air table like where you you stored all the books that were
+Ali Nawaz: Can you go Andy to the Can you go to air table, please?
+Kobi Kunasekaran: open.
+Ali Nawaz: And then let's just say for yourself, let's say you're going to switch from Proline, GD, whatever, whatever you have live for Proline to another one. You just could quickly like show an example. We don't have to fully do it, but So, you have Proline GD live,
+Kobi Kunasekaran: So these are all the books that are open right now,
+Ali Nawaz: right?
+Kobi Kunasekaran: right?
+Ali Nawaz: Or him.
+Kobi Kunasekaran: Or Andy.
+Ali Nawaz: Yes. Well,
+Kobi Kunasekaran: Okay.
+Ali Nawaz: unless it says paused on the right there, which means there's a chance that it might be opened back live later on.
+Kobi Kunasekaran: link status.
+Ali Nawaz: He ran he he was assigned a specific amount of volume and he's out of it.
+Kobi Kunasekaran: Okay. So,
+Ali Nawaz: And remember,
+Kobi Kunasekaran: the
+Ali Nawaz: if you if you see something active that like two different Caesars active there,
+
+
+00:38:14
+
+Kobi Kunasekaran: program
+Ali Nawaz: that's obviously because we didn't uh update it,
+Kobi Kunasekaran: Yeah. Like I see hard rock.
+Ali Nawaz: but they should be there.
+Kobi Kunasekaran: There's two hard rock like row 12 and 13.
+Ali Nawaz: So, it's different states. So, different states, right? So Michigan has a a different Hard Rock link and and so does um New
+Kobi Kunasekaran: I see.
+Ali Nawaz: Jersey. So if you were to Yeah,
+Kobi Kunasekaran: Gotcha.
+Ali Nawaz: Andy, if you want to like We don't have to do the full thing, but when you're turning when you're switching from MG,
+Kobi Kunasekaran: Okay.
+Ali Nawaz: let's just say Proline GD to proine CTM, how we assign the other league, how we unassign this, like I think he just wants to see that process really quickly and then you could show them how you do it on play can as well.
+Andy Bhiekham: Um,
+Kobi Kunasekaran: I'm also curious like how happens like you know when you go from like pause to like reactivate like is it the same link or are you like are you creating new
+
+
+00:38:59
+
+Andy Bhiekham: well, I mean, there's a manual way and there's the the bot like um I've been using the bot way.
+Kobi Kunasekaran: rows
+Andy Bhiekham: But like if we're just adding a new link or you're literally just going to add a new assignment, um put in the link code. Um so example uh let's see if I'm adding B MGM for example the link code is unlock CAS4 and I'm adding I want to add um Ali to it
+Kobi Kunasekaran: That link code you get from from BMGM, right? Or G
+Ali Nawaz: Yeah, they give us m if we have let's say we have 15 links for GD BMG GD then each one of them
+Andy Bhiekham: Um,
+Kobi Kunasekaran: Got
+Ali Nawaz: has their own link code or tracker code which is how we check on the reports but from the
+Kobi Kunasekaran: it.
+Ali Nawaz: standpoint of here yeah if we have enough links we un we could assign one and unassign knowing that we're if nobody else would be assigned to that tracker code until he's back live again. But if we're sharing links, um if we're sharing links, then obviously you unassign the link.
+
+
+00:40:09
+
+Ali Nawaz: And if there's somebody else who's going to be using it instead of him, then we just have to make it clear that they're both on on the same one. So if they were if one was assigned and the other was unassigned within the same month, then we have to look at both of their numbers when we look at the uh tracking.
+Andy Bhiekham: So just for some context like Air Table has already populated uh it's already loaded with all the links and the tracker codes. So, um, if you're adding a link, you would search the link through here. Um, get the track, uh, code, um, adding an assignment. Let's just say I'm adding Ali to this.
+Kobi Kunasekaran: So that link like when you chose the link uh or the code it it filled in that program for you,
+Andy Bhiekham: Um,
+Kobi Kunasekaran: right? Because it's coming from the other
+Andy Bhiekham: what when I put when I put the when I put when I located the link um through through the master
+Kobi Kunasekaran: table.
+Andy Bhiekham: set of links, it would identify.
+
+
+00:40:57
+
+Andy Bhiekham: So, let's just say he was putting uh I mean this is the manual work. If you're using the bot, the bot would literally if we're moving a rep from one code to the next or one um let's just say I I'm being moved from Bet MGM um GD to bet NGM CTM, the bot would look for the most uh least the last used uh link and put me on that last used link. Obviously, you confirm before it proceeds, but the bot would kind of sift through what available links there are um and kind of organize if if it has to put someone on the same tracker link for whatever reason. If there isn't enough links, it would kind of confirm who do you want to put on what link um with who. But for the most part, like the bot would kind of do the the sharing and the managing of the of the reps on the links um based on the availability.
+Kobi Kunasekaran: Okay.
+Andy Bhiekham: So like if if we're moving someone from link to to link to link like if I'm moving myself from
+
+
+00:41:50
+
+Kobi Kunasekaran: Okay.
+Andy Bhiekham: um from that let's just say Proline GD to Proline um where is this here
+Jay: Uh I just want to point out like with these links that we add to air table, we add them manually like so the operator gives us the links.
+Andy Bhiekham: All
+Kobi Kunasekaran: Right.
+Jay: Yeah. Like how our current workflow is um just to keep it clean.
+Andy Bhiekham: right.
+Kobi Kunasekaran: Yeah.
+Jay: Um, you met Owen earlier. We have him uh specifically in charge of adding the uh links, the book, and the assignments, everything onto Air Table. Then it makes what Andyy's showing you very, very easy.
+Andy Bhiekham: So, example, if I'm moving myself from Proline um to Proline,
+Jay: Um,
+Andy Bhiekham: from Proline GD, I would tell the bot before any changes, can you move Annie to Proline? Um it will look through my Proline link if it was on a recent Proline link. If I had my own Proline link, it would then um reassign me to that Proline link and move me off of um the current uh link that I'm on, the GD uh link.
+
+
+00:43:02
+
+Andy Bhiekham: that point in time it would all once it does its thing it would have have me confirm what link um I'm going to be going on to. So in this case um it should put me on to my own Proline link and then air table would reflect be reflective um here of the changes. Um,
+Kobi Kunasekaran: So every time like you're adding a new link, it's it's a new row on that like master sheet.
+Andy Bhiekham: correct, correct,
+Kobi Kunasekaran: And then when you're swapping them to an existing link,
+Andy Bhiekham: correct?
+Kobi Kunasekaran: you're effectively like deactivating or pausing the current link and reactivating the previous
+Andy Bhiekham: Correct. Correct. Uh,
+Kobi Kunasekaran: link.
+Andy Bhiekham: it could be the it if it's if the rep has an individual link, then it would activate the rep on that individual link. um if it's not assigned anymore, it would find another link. Some links reps have are like static links in the sense that they don't move off of those links. Um so it would kind of the air table at one point in time it we were kind of doing the manual um moving around.
+
+
+00:44:05
+
+Andy Bhiekham: But now that you know there's a database of Air Table with all the links, Air Table kind of does the sifting and and moving around. We just kind of review and confirm that um everything's right once it makes these changes.
+Kobi Kunasekaran: Yes.
+Andy Bhiekham: Um, we would then head over to play can and make sure it would actually provide you the link. It would actually once you make this change,
+Kobi Kunasekaran: Cheers.
+Andy Bhiekham: you it will provide you the actual link that you're changing. You would go to air tape. You would go to play can I would go over to um Andy. I would go over to Andy. Go over to Ontario. Um, and for the most part, Proline is um is already here. Um, so this would be it would it would essentially give me this link cuz this is my static Proline link. I would copy that link that um the bot shoots out um from here and essentially
+Jay: Okay.
+Andy Bhiekham: make sure that's in here. And um yeah, that's pretty much all.
+
+
+00:45:12
+
+Andy Bhiekham: All
+Kobi Kunasekaran: So when these books are getting like activated or paused and active activated. Um, I'm assuming that signups are like time bug,
+Andy Bhiekham: right.
+Kobi Kunasekaran: right? You're activating these links for a certain amount of time or for like a certain amount of
+Jay: Yeah,
+Kobi Kunasekaran: signups,
+Jay: signups. We we we say volume sometimes, but yeah,
+Andy Bhiekham: Correct.
+Jay: volume signup, same thing.
+Kobi Kunasekaran: right?
+Jay: Yeah, they'll they'll the operator will let us know how much to do and then we drag that and drag it
+Kobi Kunasekaran: Uh,
+Jay: in.
+Kobi Kunasekaran: okay. Okay. So like so let's say like last month Andy had Ben Pen MGM through GD and then this month it's Proline and then next month we're reactivating Benm GM. Um so you're not creating a new row for that for that like the second month. You're just reactivating the previous month cuz
+Ali Nawaz: Can you show him the unassigned links?
+Kobi Kunasekaran: it's
+Ali Nawaz: Like we It just goes back to like our There's a
+Jay: No, no, we we wouldn't we wouldn't even do that.
+
+
+00:46:03
+
+Jay: We would just pause it. We would just pause it.
+Kobi Kunasekaran: just pause
+Ali Nawaz: master
+Jay: Yeah. Like if you want to show that,
+Kobi Kunasekaran: it
+Jay: Andy, real quick, like just pausing it. Like just change one of these to activives to just pause it and then just change it back up
+Kobi Kunasekaran: and replace.
+Jay: here. It would just be like that. That That's all we
+Kobi Kunasekaran: Okay.
+Jay: do.
+Kobi Kunasekaran: And then so if it's paused, can you reassign that link to somebody else?
+Jay: Uh yeah. So that's what Alli was getting at. Do you want to explain that Alli or you wanted to do it?
+Ali Nawaz: Go ahead. magic.
+Kobi Kunasekaran: Okay.
+Jay: Uh so if you want to reassign this exact link to somebody else, you can actually just go to their page and click the little plus button um and add it manually by just copying the link code. So you know how it says link uh or assignment, sorry. See how like for example, if I wanted to give uh like see 841 for DraftKings GD for Niko Sukani.
+
+
+00:47:00
+
+Kobi Kunasekaran: Mhm.
+Jay: If I I can take A41 and uh Can you click the
+Kobi Kunasekaran: Yeah.
+Jay: little plus there, Andy? The uh the plus to add a add a whole new section like Exactly. And then type in 841 in there or Yeah, click the plus. Sorry. Click the plus and then so Nikquil Sukani's um uh it would be Casino Play 8. So we would just click Casino Play 8 here and then it autofills. We would just choose the BA. So let's give it to Alli and then we can delete it after. And then we it it already marks as active for us. It's already done that. We've set the effective from to today and we just mark it as active. And now it's active. And now we know it's active. So now we just go to play can uh CMS and we would add this link manually and turn it on.
+Kobi Kunasekaran: Okay. So,
+Jay: And now
+Kobi Kunasekaran: every signup that comes in as of June 22nd,
+Jay: he
+Kobi Kunasekaran: which is the effective from date, um with that code would be uh would go to Alli
+
+
+00:48:03
+
+Jay: correct.
+Andy Bhiekham: Correct.
+Kobi Kunasekaran: instead of Mikail.
+Jay: Correct. Uh,
+Kobi Kunasekaran: Okay.
+Jay: no. So, so right now we have it active on both Nikio and Alli.
+Andy Bhiekham: Correct.
+Jay: So, they're just sharing the same link essentially, but you would just pause it on Niko,
+Kobi Kunasekaran: Right.
+Jay: turn it on for Alli. So, yeah. Yeah, we just skipped the part where we pause it for Niko.
+Kobi Kunasekaran: Okay.
+Jay: You could delete that.
+Kobi Kunasekaran: Okay. And then if you're resuming it uh with Nikil,
+Jay: Uh
+Kobi Kunasekaran: then you're just updating the status. You're not creating another record to say that it's effective from like today as opposed to the 18th.
+Jay: uh correct. Correct.
+Kobi Kunasekaran: Okay. Yeah, I think I think this is starting to make sense. So, you you effectively have a role for every single assignment here. And um the one thing I'm not particularly a fan of from like a data reporting perspective is like the resuming because you do lose the history of like when you last paused and then when you resumed, right?
+
+
+00:49:04
+
+Kobi Kunasekaran: If you don't create another row for that uh like sending it back to that
+Andy Bhiekham: So actually air table air table should be able to so example if I were
+Kobi Kunasekaran: person.
+Andy Bhiekham: to if I were to ask uh What? It would essentially show you all the links and changes that were made
+Kobi Kunasekaran: I'll see
+Andy Bhiekham: um for for me in May.
+Kobi Kunasekaran: you.
+Andy Bhiekham: Um whether I was on a Proline GD, uh the time when I was on Proline GD to when if I got moved to Proline, Prol Proline C. Um but yeah, I would break down a a detailed um chronological sequence of kind of what was going on, what changes
+Kobi Kunasekaran: So, does this actually show you the pauses too or uh like the dates that were paused and
+Andy Bhiekham: were.
+Kobi Kunasekaran: resumed?
+Andy Bhiekham: Um that's a good
+Kobi Kunasekaran: It's okay if it doesn't.
+Andy Bhiekham: question.
+Kobi Kunasekaran: I'm just curious. I mean, I I guess the it leads into like the
+Andy Bhiekham: I think it just shows effective date and and effective from and effective to.
+
+
+00:50:21
+
+Andy Bhiekham: It wouldn't indicate pause. All right. I don't know. That's a good question. I never asked it to
+Ali Nawaz: I don't think it does. Yeah, I don't think it does.
+Kobi Kunasekaran: X
+Ali Nawaz: And that is it is definitely a problem. It gets a little uh annoying,
+Andy Bhiekham: look
+Ali Nawaz: but like I we also have our chats, right? So when somebody's paused on it, we let them know. So I know it's not the best method, but we we rely on looking at that as well.
+Kobi Kunasekaran: I think as long as like the reps have like a unique link per rep it's it doesn't matter but the moment they are sharing links that's when the reporting and allocation can get murky, right? If if we're not tracking when when one one person's link is being paused and the other person's
+Ali Nawaz: Exactly. Great.
+Kobi Kunasekaran: being started and then when it goes back to
+Andy Bhiekham: Yeah.
+Kobi Kunasekaran: them.
+Andy Bhiekham: So the the it it appears that it would indicate if it was if it was there if there were any pauses um on Proline at any point it would indicate it as
+
+
+00:51:11
+
+Kobi Kunasekaran: All right. Okay.
+Andy Bhiekham: well.
+Kobi Kunasekaran: I guess I wonder if this is like actually stored in the cable or it's just like going through like a field history type of thing to get this info, but it's good. It's good to
+Andy Bhiekham: probably.
+Ali Nawaz: Yeah, I feel like uh maybe we'll we'll see if we could find some time with Ilas cuz he he
+Kobi Kunasekaran: know.
+Andy Bhiekham: Yeah.
+Ali Nawaz: also was the one who originally set this up. So, he he can answer specific questions like that that maybe I I wouldn't be able to. I don't know if Jay, you know anything about that, but with the pauses, does it record it anywhere?
+Jay: I think it's stored somewhere because I think that the bot is able to like I have seen it like I'm pretty sure you've done it before, right? where you've been able to ask the B like when the pauses were.
+Andy Bhiekham: Yeah.
+Jay: So that information has to be stored somewhere.
+Kobi Kunasekaran: Okay,
+Andy Bhiekham: Yeah.
+Jay: I just think that the way I set this up, he doesn't have a like a box for it where you can see the history of it.
+
+
+00:52:03
+
+Kobi Kunasekaran: I
+Jay: But like what you're saying is absolutely true and it is something that actually Alli has brought up in the past to um to
+Kobi Kunasekaran: try
+Jay: like to management as well about the fact that like it can cause a real data reporting problem when we don't have that information about when that when that person was paused.
+Kobi Kunasekaran: Right.
+Jay: That's definitely something like we agree with you on there for sure.
+Kobi Kunasekaran: I mean there are it's like I see 17 hidden fields. So maybe it is being tracked on a field that we just don't see which which just might be the case.
+Jay: Exactly. Exactly.
+Kobi Kunasekaran: Um so on on the fields that you do see now though uh previous assignment what is how is that getting populated and where is that coming from?
+Jay: Previous assignment populates automatically. Um, so like for example, you could I can choose replace and replace someone's link with a different different assignment and it would uh it would it would basically say like okay so this guy was on DraftKings GD uh now he's on DraftKings uh CTM.
+
+
+00:53:00
+
+Jay: And the reason why we do that is so if uh we go want to go back and see who was on GD because our tracking reports come a little bit later than they supposed to. It's not hard for us to kind of like quickly see that at a glance. Uh can you demonstrate maybe? Um
+Kobi Kunasekaran: So, it it's previous assignment for the same casino though, right? Like not necessarily like uh they were previously on Proline and now they're on DraftKings.
+Jay: Yeah. Yeah. It's always the same casino. Yeah. Yeah. No, we never do that.
+Kobi Kunasekaran: Okay.
+Jay: We never It's always the same one. Yeah. Correct.
+Kobi Kunasekaran: Okay.
+Jay: Correct.
+Kobi Kunasekaran: Um Okay. Can you click into one of the like the rep uh tables? Just want to see if the if there's any like this. Yeah, the one of those ones. Yeah. Okay. So, here we have sales rep program sports casino region active from previous book which is okay. Like it's just a different partner link status date deposit range.
+
+
+00:53:57
+
+Kobi Kunasekaran: This comes from is this unique per deal or specific or this like
+Andy Bhiekham: Yep.
+Jay: Sorry.
+Kobi Kunasekaran: this uh this instance of the
+Ali Nawaz: Yeah,
+Andy Bhiekham: Yep.
+Ali Nawaz: per deal.
+Andy Bhiekham: It's unique for
+Ali Nawaz: Per deal.
+Kobi Kunasekaran: deal?
+Ali Nawaz: doesn't it's always per deal and it could switch month by month and um yeah so it
+Andy Bhiekham: you.
+Kobi Kunasekaran: Okay.
+Ali Nawaz: depends on the operator or the the operators we work with and their deals
+Kobi Kunasekaran: Okay. Priority book. What does that mean?
+Jay: uh priority book just basic. So basically we have books that we deem as priority versus non-priority and we deem that based off of like uh the perks and benefits they give us and our are like a relationship with that operator.
+Kobi Kunasekaran: Yeah.
+Jay: So, like for example, if DraftKings GD offers us like a compensation of like something like very low, like 50 bucks, that doesn't make sense for us business-wise. We still keep the deal because um it may be very little profit, but drafting CTM, for example, gives us $100.
+
+
+00:54:56
+
+Jay: Then we're going to we're going to put drafting CTM as the priority book because we want to give them as much volume as possible, keep them happy. We also get paid respect like respectively. So that's basically it's just basically on a profit basis is how we determine which book is makes more sense.
+Kobi Kunasekaran: Okay, awesome. Well, this was this was very helpful. I think it it it makes sense how the data is getting populated, how the assignments kind of work. And I'm sure you run your own like calculation on who who to assign it to. And I don't know if that's something we need to get into right now. Um, but the assignment logic makes sense. The information that you're putting in and how every assignment is like essentially a new row, that kind of makes sense. Uh, the links
+Jay: I can give you like a Sorry. Sorry to cut you off.
+Kobi Kunasekaran: table
+Jay: There's like a delay. I didn't Sorry about that. I can just give you a quick like if it's low profit book, we give it to our low volume reps.
+
+
+00:55:50
+
+Jay: If it's a higher profit book, we give it to our higher volume reps. That's just how it's basically how we do it
+Kobi Kunasekaran: So literally you're just doing the assignment here. You're updating the links in play can CMS and then that's it.
+Jay: though.
+Kobi Kunasekaran: Like you call the day. I guess you also let them know on WhatsApp that this book is active for them and then now they go through and refer players and refers to those links.
+Jay: Correct. Correct. And like like you said, yeah, we do go into their chat and we we will tell them like DraftKings CTM has now been turned off. You are now on DraftKings GD. So effective that minute that we send that message, every single email they get, welcome email they get from there on forward, they would have to log on their sheet as DraftKings um like GD for example, right? Like whichever we updated them to. But you can imagine sometimes reps forget, sometimes those emails come in a little bit uh like sometimes those emails came in a little bit earlier and they didn't uh they didn't realize because they're logging a little late.
+
+
+00:56:46
+
+Jay: And so there's a lot of these like incorrect times and stuff like that.
+Ali Nawaz: Yeah,
+Jay: So that happens a lot
+Ali Nawaz: it's also also like if there's switch from draftings, let's just give example, Caesars, Caesar CTM has a casino and sports, but sometimes we only have a deal for sports. When that happens, they might have been used to their Caesars's casino uh assignment before, but if once they're switched to the Caesar sports, meaning they'd have to wager in the sports in order for the CB CPAs to trigger and for for it to track. If they register through our sports link and they do casino, it will not track in the system, which is why it's important they they do that correctly, right?
+Kobi Kunasekaran: So the clicks yeah like as they click the studies it we that information is making it to either Salesforce or play can database right now but then you can't really verify that they did anything until you get the information from them uh generally through WhatsApp it seems that's when they submit the proof the screenshots and everything and you add that information into the players there's signup info and that's when you have enough they're considered like complete.
+
+
+00:57:59
+
+Ali Nawaz: Exactly.
+Kobi Kunasekaran: How do surveys work?
+Ali Nawaz: Ex Andy,
+Kobi Kunasekaran: Like what are surveys? I I keep it keeps popping up uh in a lot of places and I'm not understanding what that
+Ali Nawaz: you want to show it? Jay Jay, if you could just explain this.
+Kobi Kunasekaran: is.
+Ali Nawaz: We do have to uh I have a next meeting at two.
+Kobi Kunasekaran: Yeah, we have like two
+Jay: Yeah.
+Ali Nawaz: So, uh Andy,
+Kobi Kunasekaran: minutes.
+Ali Nawaz: can you open this up?
+Jay: Yeah.
+Andy Bhiekham: Yeah, just on a compliance standpoint, uh,
+Jay: What?
+Andy Bhiekham: every, um, client that participates in a study needs to complete a survey. Um, there's some questions that would pertain to their experience after the fact and there's some questions that would pertain to their experience before. So, pretty much after the client is finished um um testing out these platforms, they'll come back and submit their feedback on the survey on the survey here and kind of provide uh some feedback for us to kind of look at.
+Jay: Ideally,
+Kobi Kunasekaran: I expected to do
+
+
+00:58:45
+
+Jay: we want like every single user to do a sign
+Kobi Kunasekaran: This
+Jay: up.
+Andy Bhiekham: So every every single user should essentially be doing a survey
+Jay: Yeah.
+Andy Bhiekham: um before participating in a
+Jay: It's it's I gaming's
+Kobi Kunasekaran: is it.
+Andy Bhiekham: study.
+Jay: rules.
+Kobi Kunasekaran: Is it like per per person or is it per uh per study or like for like the clicking
+Jay: No,
+Andy Bhiekham: Person.
+Kobi Kunasekaran: person?
+Andy Bhiekham: So once you log in to the link um you would uh cond uh you
+Jay: personally.
+Andy Bhiekham: would do the you would uh do the survey. So it's per per account I
+Kobi Kunasekaran: Okay. Work out. Okay. So,
+Andy Bhiekham: guess.
+Kobi Kunasekaran: I I just have to do it once and then I can open any number of accounts. Sorry, any number of like uh casinos and stuff,
+Andy Bhiekham: Correct.
+Kobi Kunasekaran: but it's just the one survey that's needed to be considered like complete.
+Andy Bhiekham: Correct. Correct. Correct. You can participate in several studies once you have an account.
+
+
+00:59:32
+
+Kobi Kunasekaran: Okay. Awesome. Okay. All right. We are at time. Uh I don't want to hold you guys uh back anymore, but this was actually great. I think this answered a lot of my questions and unknowns. I'm probably going to have more questions as I go through. I know Emily sent me a bunch of recordings as well. So, if there's anything else that you you think I should know, um again, like if if there are any challenges and anything that you'd like to see improved, uh shoot them my way and uh we can try to like incorporate them as we uh as we like put together the final design for you guys in Salesforce.
+Jay: Perfect.
+Andy Bhiekham: Sounds
+Ali Nawaz: Yeah,
+Jay: Awesome.
+Kobi Kunasekaran: Awesome.
+Ali Nawaz: let us know anything else so we could always get on a call or you could just I'll send over some emails or messages and we'll we'll
+Andy Bhiekham: good.
+Ali Nawaz: get back to you right away. All right. Thanks,
+Kobi Kunasekaran: Did you guys work in Slack at all?
+Ali Nawaz: guys. Yeah. Yeah, we
+Kobi Kunasekaran: Yeah. Okay. So,
+Ali Nawaz: do.
+Kobi Kunasekaran: uh we are on Slack. Uh happy to like open up a channel that'll help too.
+Ali Nawaz: Yeah. Yeah, let's do it.
+Andy Bhiekham: Yeah,
+Ali Nawaz: That would work for sure.
+Andy Bhiekham: that echo.
+Kobi Kunasekaran: Okay.
+Jay: Yeah, we're all on Slack.
+Kobi Kunasekaran: Awesome. All right.
+Jay: Yeah.
+Ali Nawaz: All right. Thanks, guys.
+Kobi Kunasekaran: All right.
+Ali Nawaz: Take care.
+Kobi Kunasekaran: Thank you everyone for your time.
+Ali Nawaz: Have a good one.
+Andy Bhiekham: Okay.
+Jay: See you guys.
+Kobi Kunasekaran: Have a good one, guys.
+Jay: So,
+Kobi Kunasekaran: Bye.
+
+
+Transcription ended after 01:02:55
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

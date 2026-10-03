@@ -1,0 +1,571 @@
+{
+  "id": "10332",
+  "key": "WAGR-140",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10298",
+      "key": "WAGR-72",
+      "fields": {
+        "summary": "BUILD-178 — Player: Player Status Automation",
+        "status": {
+          "description": "",
+          "name": "Jumpr Review",
+          "id": "10062",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-31T15:29:54.230-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10083",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11575",
+          "key": "WAGR-498",
+          "fields": {
+            "summary": "Sign-Up — Stamp First Click Date and reactivate Inactive Deal from qualifying activity",
+            "status": {
+              "description": "",
+              "name": "Requirements",
+              "id": "10058",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-29T18:48:34.325-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Summary\n\nWhen a Sign-Up is completed: a **Pending or Inactive** Player becomes Active, and the Player's first/last completed sign-up dates (and Last Activity Date) are stamped. **Banned and already-Active Players never have their status changed** by this automation.\n\n## Context\n\nPlayers start at Player_Status__c = Pending when the SLC intake flows create them. The player's **first completed Sign-Up** should automatically move them to Active, and any completed Sign-Up should reactivate an Inactive player. (Today Inactive only ever means inactivity — see the epic's out-of-scope note on future reason-based gating.) Ops also wants first/last completed sign-up dates on the Player for reporting. This story is the single automation for \"a Sign-Up just completed → update the Player.\"\n\n## Current state\n\nAccount.First_Completed_Sign_Up\\__c (Lookup → Sign_Up_\\_c) exists, unpopulated — the stamping logic was drafted in a BUILD-177 comment but never implemented. No first/last-completed date fields exist on Account. Audit stamping is handled centrally by BUILD-251 (prerequisite).\n\n## Proposed solution\n\n1. NEW Account fields (Player layouts, read-only): First_Completed_Sign_Up_Date\\__c, Last_Completed_Sign_Up_Date_\\_c (DateTime).\n2. NEW after-save record-triggered flow Sign_Up_After_Save_Update_Player_Activity — entry: Status\\__c changed to Completed AND Player_\\_c not blank:\n\n    * Call Player_Stamp_Last_Activity with Completion_Date__c (converted per the BUILD-252 date convention note).\n    * If First_Completed_Sign_Up\\__c blank → set lookup + First_Completed_Sign_Up_Date_\\_c.\n    * If Last_Completed_Sign_Up_Date__c blank or older → update it.\n    * Status branch — only Pending and Inactive Players are eligible for a status write: (1) Pending → Active; (2) Inactive → Active + clear Player_Status_Reason__c; (3) Banned or already Active → status untouched (date fields still stamp).\n    \n3. Prerequisite: blast-radius check — identify and review **all active automations** that fire on Sign-Up completion or that write to the Player fields this story touches; confirm no conflicts or double-fires (including flows firing on records created already-Completed by data loads); record findings on this ticket.\n\n## Acceptance criteria\n\n1. First completed Sign-Up on a Pending Player → Active; lookup, both date fields, Last Activity Date all set; audit fields stamped (via BUILD-251).\n2. Completed Sign-Up on an Inactive Player → Active, reason cleared.\n3. Must NOT change status on a Banned or already-Active Player (date fields still stamp); must not fire without Player__c or on non-Completed status changes.\n4. A second completed Sign-Up never overwrites the First lookup/date; Last date only moves forward.\n\n## Out of scope\n\n* BA/Primary/Secondary Referrer defaulting (awaiting client confirmation — separate ticket).\n\n## Output\n\nTwo fields + flow deployed in Partial SB; blast-radius result + API names recorded on this ticket; requirements doc updated; drafted-logic comment on BUILD-177 resolved.",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10103",
+        "filename": "Screenshot 2026-09-09 at 1.38.00 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:46:07.407-0400",
+        "size": 143276,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10103",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10103"
+      },
+      {
+        "id": "10101",
+        "filename": "Screenshot 2026-09-09 at 1.38.24 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:47:12.031-0400",
+        "size": 182748,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10101",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10101"
+      },
+      {
+        "id": "10088",
+        "filename": "Screenshot 2026-09-09 at 11.29.04 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:43:06.082-0400",
+        "size": 196529,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10088",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10088"
+      },
+      {
+        "id": "10086",
+        "filename": "Screenshot 2026-09-09 at 11.29.56 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:43:11.825-0400",
+        "size": 213109,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10086",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10086"
+      },
+      {
+        "id": "10090",
+        "filename": "Screenshot 2026-09-09 at 11.32.44 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:43:21.109-0400",
+        "size": 225796,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10090",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10090"
+      },
+      {
+        "id": "10089",
+        "filename": "Screenshot 2026-09-09 at 11.33.16 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:43:23.964-0400",
+        "size": 184026,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10089",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10089"
+      },
+      {
+        "id": "10096",
+        "filename": "Screenshot 2026-09-09 at 11.49.52 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:53:08.234-0400",
+        "size": 188510,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10096",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10096"
+      },
+      {
+        "id": "10105",
+        "filename": "Screenshot 2026-09-09 at 11.50.08 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:53:10.915-0400",
+        "size": 197343,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10105",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10105"
+      },
+      {
+        "id": "10104",
+        "filename": "Screenshot 2026-09-09 at 11.50.34 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:53:23.219-0400",
+        "size": 258770,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10104",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10104"
+      },
+      {
+        "id": "10079",
+        "filename": "Screenshot 2026-09-09 at 11.50.44 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:53:27.965-0400",
+        "size": 224554,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10079",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10079"
+      },
+      {
+        "id": "10078",
+        "filename": "Screenshot 2026-09-09 at 11.51.08 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:53:33.787-0400",
+        "size": 177240,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10078",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10078"
+      },
+      {
+        "id": "10084",
+        "filename": "Screenshot 2026-09-09 at 12.51.56 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:45:52.829-0400",
+        "size": 183573,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10084",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10084"
+      },
+      {
+        "id": "10082",
+        "filename": "Screenshot 2026-09-09 at 12.52.09 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:45:58.753-0400",
+        "size": 172766,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10082",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10082"
+      },
+      {
+        "id": "10099",
+        "filename": "Screenshot 2026-09-09 at 12.58.22 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:46:00.302-0400",
+        "size": 119978,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10099",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10099"
+      },
+      {
+        "id": "10098",
+        "filename": "Screenshot 2026-09-09 at 12.58.38 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-09T11:46:04.130-0400",
+        "size": 163285,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10098",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10098"
+      }
+    ],
+    "summary": "BUILD-253 — Player Status: Activate Player + Sign-Up Stamps on Completed Sign-Up",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10293",
+          "body": "**Blast-radius check — findings (reviewed against Partial SB metadata in force-app, 2026-09-08)**\n\nNo blocking conflicts found. Details and two implementation risks worth addressing below.\n\n**1. Automation already firing on Sign_Up\\__c.Status_\\_c → Completed**\n\n* `Sign_Up_Before_Save_Stamp_Completion_Date` (Active, before-save, Create+Update) — stamps `Completion_Date__c` when Status = Completed and that field is blank. No field overlap with this story.\n\n* `Sign_Up_Before_Save_Assign_Operator_Partner_Rep_and_Brand_Manager` (Active, before-save) — entry is Status _not equal_ Completed, so it stops running once a Sign-Up completes. Mutually exclusive with the new flow's entry criteria, no overlap.\n\n* DLRS rollup `Sign-Ups - Player Total Completed` (Active, realtime) — counts Sign_Up\\__c where Status = Completed into Account.Total_Sign_Upsc via {{Playerc}}. Runs through the DLRS-managed trigger on Sign_Up_\\_c (separate from any new flow), and does its own Account update. Not a field conflict, but it is a second automatic write to the Player account in the same transaction — see sequencing note below.\n\n* `Sign_Up_After_Save_Update_Payout_Amount` is Draft (inactive) — no current risk, but flag it if anyone activates it later, since it touches Sign_Up__c after-save on Create+Update.\n\nNo other active flow, Process Builder, or Apex trigger reacts to Status\\__c = Completed. No Apex trigger logic exists on Sign_Up_\\_c or Account beyond the DLRS-generated triggers (`dlrs_Sign_UpTrigger`, `dlrs_AccountTrigger`), which only run the DLRS rollup engine.\n\n**2. Automation writing to the Player fields this story touches**\n\n* `Player_Status__c`: only written today by `SLC_After_Save_Player_DRA_and_Sign_Up` (sets it to \"Pending\" at Player creation) and the two manual screen flows `Player_Ban_Button` / `Player_Reactivate_Button`. Nothing today automatically flips Pending/Inactive → Active — confirms this story is the first automation to do that.\n\n* `Account_Before_Save_Stamp_Player_Status_Audit` (Active, before-save, BUILD-251) fires on ISCHANGED(Player_Status\\__c) for Player-record-type Accounts and stamps {{Player_Status_Set_Datec}} / {{Player_Status_Last_Updated_Byc}}. This will fire automatically whenever the new flow changes Player_Status_\\_c — that's expected per the ticket (audit stamping is centralized in BUILD-251), just confirming it will engage correctly since it's a separate before-save flow on the same object.\n\n* `First_Completed_Sign_Up__c`: not referenced by any existing automation. Confirmed unpopulated/untouched today.\n\n* `Last_Activity_Date__c`: the `Player_Stamp_Last_Activity` subflow (BUILD-252, Active) is explicitly documented in its own flow description as the sole writer: \"Single writer of Last_Activity_Date__c — new qualifying-activity sources call this subflow, never write the field directly.\" Confirmed no other flow or Apex writes this field directly. The proposed design in this ticket correctly calls that subflow rather than writing the field itself.\n\n**3. Data-load / insert-time \"changed to Completed\" behavior**\n\nThis org already has a working precedent for exactly this concern: `Sign_Up_Before_Save_Stamp_Completion_Date` avoids relying on IsChanged/doesRequireRecordChangedToMeetCriteria semantics on insert. Instead it uses a direct value filter (Status__c = Completed) plus an idempotency guard (target field IsNull), with recordTriggerType = CreateAndUpdate. That sidesteps any ambiguity about whether \"changed\" evaluates true on a brand-new record.\n\nRecommendation: build the new `Sign_Up_After_Save_Update_Player_Activity` flow the same way — CreateAndUpdate, entry criteria on the Status\\__c value itself (not a bare IsChanged formula), so a data-loaded Sign_Upc created already at Completed fires correctly. Salesforce's documented behavior is that IsChanged/doesRequireRecordChangedToMeetCriteria does treat a populated field on a new record as \"changed\" (prior value is treated as blank), so this should fire either way — but given the ticket flags this as a specific risk, recommend an explicit sandbox test inserting a Sign_Upc via data load with Statusc = Completed and Player_\\_c set, rather than relying on documented behavior alone.\n\n**4. Sequencing risk to watch in the build (new finding, not yet an issue since the flow doesn't exist yet)**\n\n`Player_Stamp_Last_Activity` does its own Get + Update on the Account record (a separate DML, not a $Record-based update). If the new flow also queries the Player Account once, holds it in memory to set Player_Status\\__c / First_Completed_Sign_Up_\\_c / date fields, and performs its own \"Update Records\" using that in-memory copy _after_ calling the subflow, that later update could overwrite the Last_Activity_Date\\__c value the subflow just set (stale in-memory copy, DML ordering conflict). Recommend either: re-query the Account after calling the subflow before the flow's own update, call the subflow last so its write is final, or scope the flow's own Update Records action to only the specific fields it owns (excluding Last_Activity_Date_\\_c) rather than passing the whole record.\n\n**5. Minor documentation flag (not a blast-radius conflict)**\n\nThe existing `First_Completed_Sign_Up__c` field description reads \"Set automatically when their status flips from Pending to Active\" — narrower than the approved design here, which also stamps the lookup/date for Inactive → Active, and stamps the date fields (not the status) even for Banned/already-Active players. Worth updating that field description when the two new date fields are created, so it doesn't mislead the next person who reads it.\n\n**Bottom line:** no active automation conflicts with or double-fires against this story's entry criteria. Proceed with the proposed solution; just apply the CreateAndUpdate + value-filter entry criteria pattern (not bare IsChanged) and watch the Account DML sequencing between the flow's own update and the Player_Stamp_Last_Activity call.",
+          "created": "2026-09-08T09:57:41.607-0400",
+          "updated": "2026-09-08T09:57:41.607-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10294",
+          "body": "**Changes made:** \n\n| **Metadata Name** | **Metadata Type** | **Action** | **Notes** |\n| --- | --- | --- | --- |\n| Sign_Up_After_Save_Update_Player_Activity | Flow | New Component |\n\n| Account.First_Completed_Sign_Up_Date__c | Customfield | New Component |\n| --- | --- | --- |\n\n| Account.Last_Completed_Sign_Up_Date__c | Customfield | New Component |\n| --- | --- | --- |\n\n| Player_Account_Page1 | Flexipage | Update Component | Added Account.First_Completed_Sign_Up_Date\\__c & Account.Last_Completed_Sign_Up_Date_\\_c |\n| --- | --- | --- | --- |\n| WT_PersonAccount_Player_Read | PermissionSet |\n\n| Added Account.First_Completed_Sign_Up_Date\\__c & Account.Last_Completed_Sign_Up_Date_\\_c |\n| --- |\n| WT_PersonAccount_Player_Edit | PermissionSet |\n\n| Added Account.First_Completed_Sign_Up_Date\\__c & Account.Last_Completed_Sign_Up_Date_\\_c |\n| --- |\n\n**Testing:** Validated in sandbox. Working as expected.\n\n**Scenario 1:** Pending Player > Completed a Sign Up > Active Player\n\n**Scenario 2:** Inactive Player > Migrate Sign Ups - 250 Test Data; thread limit to 12> Player Status Activated. \n\n**Scenario 3:** Player is Banned > Complete a Sign Up > No Status Update; Last Activity & Last Completed Sign Up Updated",
+          "created": "2026-09-08T13:45:38.991-0400",
+          "updated": "2026-09-08T13:45:38.991-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Cedrick Infantado"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-378"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218031940325843"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001o7:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-72"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218031940325843"
+      }
+    }
+  }
+}

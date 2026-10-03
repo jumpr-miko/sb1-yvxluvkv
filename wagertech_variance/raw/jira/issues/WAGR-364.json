@@ -1,0 +1,371 @@
+{
+  "id": "10435",
+  "key": "WAGR-364",
+  "fields": {
+    "statuscategorychangedate": "2026-09-24T11:11:09.675-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:35:50.258-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10034",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "11358",
+          "key": "WAGR-411",
+          "fields": {
+            "summary": "Operator: Partner Relationships Related List",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-29T09:52:25.797-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2 data-local-id=\"5da852090e33\">Goal</h2><p data-local-id=\"1edd57cd29c8\">Show a Partner&#039;s related Operators directly on the Partner record, including the applicable billing details — mirroring WAGR-411 (Operator: Partner Relationships Related List), driven from the <code>Operator_Partner_Relationship__c</code> (OPR) junction object Cedrick built.</p><p data-local-id=\"35cf6f02d5ac\">For <strong>Direct</strong> relationships, display billing values from the Operator. For all other relationships, display values from the Partner.</p><h2 data-local-id=\"bfab7003782c\">Build</h2><h3 data-local-id=\"89ae6652000a\">1. Display fields on <code>Operator_Partner_Relationship__c</code></h3><p data-local-id=\"a68e740fcb3e\">Reuse the Formula (Text) fields built for WAGR-411 (no new fields needed if WAGR-411 ships first):</p><table data-local-id=\"ea11e334-fe5e-4f5c-a7b4-a5906e2d3ede\"><thead><tr><th data-local-id=\"b39fb45d6c0c\"><p data-local-id=\"bfd855d5a54f\">Display Field</p></th><th data-local-id=\"26898469a41e\"><p data-local-id=\"59836f763854\">API Name</p></th></tr></thead><tbody><tr><td data-local-id=\"f890caaa95ac\"><p data-local-id=\"f17796576302\">Partner Type</p></td><td data-local-id=\"5995961c5ac3\"><p data-local-id=\"4f3363c48d90\"><code>Partner_Type_Display__c</code></p></td></tr><tr><td data-local-id=\"3f1a53608e40\"><p data-local-id=\"dad5af55bf1a\">Payment Terms</p></td><td data-local-id=\"d4d3dbcce39d\"><p data-local-id=\"05c6c9021fa2\"><code>Payment_Terms_Display__c</code></p></td></tr><tr><td data-local-id=\"e4fa1784af5c\"><p data-local-id=\"9dd4b85d2f20\">Invoicing Cadence</p></td><td data-local-id=\"667e441b9813\"><p data-local-id=\"de898bbca35d\"><code>Invoicing_Cadence_Display__c</code></p></td></tr><tr><td data-local-id=\"12bda8506964\"><p data-local-id=\"7e35575fb716\">Currency</p></td><td data-local-id=\"89d030819a7c\"><p data-local-id=\"c907eff4e87a\"><code>Invoicing_Currency_Display__c</code></p></td></tr><tr><td data-local-id=\"da191bccb63d\"><p data-local-id=\"36b4754eae62\">AP Contact</p></td><td data-local-id=\"0cf411dbb282\"><p data-local-id=\"7d40103c8793\"><code>AP_Contact_Display__c</code></p></td></tr><tr><td data-local-id=\"b94a49006f49\"><p data-local-id=\"b5a24c4afbe5\">PO Required</p></td><td data-local-id=\"3d739b1fab12\"><p data-local-id=\"8fc251e37d12\"><code>PO_Required_Display__c</code></p></td></tr></tbody></table><h3 data-local-id=\"9efeadfd8f27\">2. Add Operator Relationships list to Partner</h3><p data-local-id=\"4b620b74531f\">Add a <strong>Dynamic Related List – Single</strong> to the Partner Lightning page, same pattern as WAGR-411.</p><p data-local-id=\"23d0b219d66f\"><strong>List name:</strong> Operator Relationships</p><p data-local-id=\"851a131bc614\"><strong>Columns:</strong></p><ol data-local-id=\"c002da3506b3\"><li data-local-id=\"16f9434cebcb\"><p data-local-id=\"772dfd097cac\">Operator</p></li><li data-local-id=\"3f038a9f5ffd\"><p data-local-id=\"63aa5e5d0c78\">Partner Type</p></li><li data-local-id=\"e93f99557ece\"><p data-local-id=\"fe1a5b83876e\">Payment Terms</p></li><li data-local-id=\"561228a17d66\"><p data-local-id=\"5fc7582991de\">Invoicing Cadence</p></li><li data-local-id=\"2048b7107557\"><p data-local-id=\"1b60a7152c62\">Currency</p></li><li data-local-id=\"897008dc736e\"><p data-local-id=\"eb8c48f12e23\">AP Contact</p></li><li data-local-id=\"f2ec5b3ac2f1\"><p data-local-id=\"6b0f7947e674\">PO Req.</p></li><li data-local-id=\"89abbc2729c4\"><p data-local-id=\"84d22a4f5856\">Deals</p></li></ol><p data-local-id=\"2012ab9b4221\">Additional configuration:</p><ul data-local-id=\"3edcc6e0330b\"><li data-local-id=\"246f716da0f8\"><p data-local-id=\"204648731c7c\">Use <code>Operator__c</code> for the Operator column so users can open the Operator record.</p></li><li data-local-id=\"500aef92fd1d\"><p data-local-id=\"fa69a6c1892a\">Use existing <code>Active_Deals__c</code> for Deals.</p></li><li data-local-id=\"8996c17630b6\"><p data-local-id=\"48d320807df2\">Do <strong>not</strong> include the Relationship Name field.</p></li><li data-local-id=\"ebaecf227566\"><p data-local-id=\"acb1a6b5d173\">Sort by Operator ascending.</p></li><li data-local-id=\"94e1689ef92a\"><p data-local-id=\"ecd0418f85d5\">Remove <strong>New</strong> and other create actions. Relationships are managed by WAGR-384 automation.</p></li><li data-local-id=\"67add4e3d5ee\"><p data-local-id=\"06aae1e09476\">Include both Active and Inactive relationships.</p></li></ul><h2 data-local-id=\"4411db1df5e9\">Acceptance Criteria</h2><ol data-local-id=\"b3a91449f21e\"><li data-local-id=\"09df29c37b8c\"><p data-local-id=\"8aba2560f9a0\">Direct relationships display billing values from the Operator.</p></li><li data-local-id=\"656bdfc0f663\"><p data-local-id=\"95fc117de3de\">Partner relationships display billing values from the Partner.</p></li><li data-local-id=\"9dc71113276c\"><p data-local-id=\"ae901cba60c4\">Direct relationships show <strong>Direct</strong> as Partner Type.</p></li><li data-local-id=\"9cc2ec34a2d4\"><p data-local-id=\"8e2264394dbc\">Clicking Operator opens the Operator record.</p></li><li data-local-id=\"080f55217232\"><p data-local-id=\"b5af65dca3b3\">The related list does not allow users to create relationship records.</p></li><li data-local-id=\"3e5532eaf662\"><p data-local-id=\"8ba574da990a\">Changes to Operator/Partner billing values automatically appear in the list.</p></li><li data-local-id=\"ca01908b65f8\"><p data-local-id=\"7c18f1148fd6\">Inactive relationships remain visible.</p></li><li data-local-id=\"e6b6254ba8fe\"><p data-local-id=\"a85475099d97\">Missing billing values display as blank without errors.</p></li><li data-local-id=\"1f4f2c3a6c2a\"><p data-local-id=\"4c47dd463e72\">The Partner highlights panel field previously titled <em>Associated Operators</em> is retitled <strong>Active Operators</strong>.</p></li><li data-local-id=\"83d5534036a0\"><p data-local-id=\"ea9d68db520b\">Active Operators counts only Operators with an <strong>Active</strong> relationship and at least one active deal with the Partner. Inactive relationships and Operators with no active deals are not counted.</p></li><li data-local-id=\"642ed2859483\"><p data-local-id=\"72e87898936f\">The count updates automatically when a relationship or deal status changes.</p></li><li data-local-id=\"eee72522aa2f\"><p data-local-id=\"232f380086d7\">The <strong>Operator Relationships</strong> related list still shows Active and Inactive relationships (see AC #7). Only the count is active-only.</p></li></ol><h2 data-local-id=\"2d5c0cd3e0e5\">Notes</h2><ul data-local-id=\"c9051bb05404\"><li data-local-id=\"39bb39001a96\"><p data-local-id=\"32f3fa1fb510\">Met with Emily 09/28 and she verified this rollup should show Operators with active deals with the Partner. And that we should likely reflect that in the naming of this field.</p></li><li data-local-id=\"fee2b7a23f2e\"><p data-local-id=\"eca8b3387777\"><strong>Supersedes original scope.</strong> This ticket previously covered a Deal-derived Operator list (BUILD-140, tabled alongside BUILD-133/148). That approach is replaced by the OPR junction object built for WAGR-411 — the old &quot;Since&quot;/Verticals/Markets column plan no longer applies.</p></li><li data-local-id=\"f0bd9c737c43\"><p data-local-id=\"e6de52828f1a\">Per Kobi&#039;s comment on WAGR-411: this is the ticket to rewrite once the junction-object approach was confirmed.</p></li><li data-local-id=\"d64db8f99f9e\"><p data-local-id=\"6e10bfdc10ba\">Re-scoped following the Sep 22, 2026 WagerTech Internal Sync, where Kobi confirmed to build this &quot;similar to what Cedrick already did&quot; on WAGR-411, pulling from the OPR junction object.</p></li><li data-local-id=\"6e2dcad79d43\"><p data-local-id=\"bd8ab476dc6a\">Confirm final column set against the mockup before implementation — the column list above mirrors WAGR-411 but hasn&#039;t been independently verified against a Partner-page-specific mockup.</p></li></ul>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10390",
+        "filename": "Screenshot 2026-09-28 at 11.50.03 AM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-28T11:58:45.982-0400",
+        "size": 299376,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10390",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10390"
+      }
+    ],
+    "summary": "Partner: Operator Relationships Related List",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11302",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"a527714cdcfd\">Done and implemented, waiting on a response via slack about superseding original scoped Header rollups</p>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-24T15:43:13.194-0400",
+          "updated": "2026-09-24T15:43:13.194-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11403",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"a07300ddafdb\">“Don’t remove, the undelying logic should be changed to work off of the OPR object rather than the text based approach the DLRS is doing now.”</p>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-28T09:29:02.692-0400",
+          "updated": "2026-09-28T09:29:02.692-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11405",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"99ad809a1b6e\">Deleted old DLRS from <a href=\"https://jumpr.atlassian.net/browse/WAGR-64\">WAGR-64</a>, no longer needed<br></p><figure data-local-id=\"6bc720f33ffe\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"447\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"509a3b92-38a3-47e4-993c-543944d69d1e\" data-alt=\"Screenshot 2026-09-28 at 11.50.03 AM.png\" data-width=\"1084\" data-height=\"869\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-28T11:58:46.392-0400",
+          "updated": "2026-09-28T11:59:48.434-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11571",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"4f66d950881d\">Added pointsAC points 9-12 for the rollup</p>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-29T09:52:09.603-0400",
+          "updated": "2026-09-29T09:52:09.603-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 4,
+      "total": 4,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "On Hold"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-271"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "On Hold",
+          "id": "10033"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Nice to Have",
+          "id": "10042"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563865561441"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i007yb:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563865561441"
+      }
+    }
+  }
+}

@@ -1,0 +1,709 @@
+📝 Notes
+Jun 11, 2026
+Wagertech Internal Kickoff
+Invited Miko Sumagang Kobi Kunasekaran Waleed Alasadi
+Attachments Wagertech Internal Kickoff
+Meeting records Transcript
+
+
+Summary
+Meeting discussions established operational protocols for an AI-native project delivery while defining client goals and timelines.
+
+Operational and AI Setup
+Defined requirements for AI agent integration, project folder management, and Model Context Protocol connection to Salesforce. The team agreed to use internal and external Slack channels for data scraping.
+
+Project Strategy and Timeline
+Established a 3-phase delivery model with an August deadline for Salesforce go-live. The team prioritized end-user discovery over immediate data engineering to ensure proper requirement gathering.
+
+Architectural and Process Focus
+Selected Salesforce Person Accounts and a custom signup object to replace manual tracking in Google Sheets. The delivery will utilize weekly sprints to manage the 230-hour project scope.
+
+
+Decisions
+Aligned
+* Standard meeting prefix "WT" established The meeting prefix "WT" is established for all project-related communications to organize AI agent data intake.
+* Slack tracking channel structure requirement Two Slack channels, one for internal and one for external, are required for the AI agent to scrape data effectively.
+* Synthesized transcript storage protocol adopted Project folders will store synthesized transcript data, condensed by an AI agent, rather than raw transcripts to manage context window limits.
+* Automated meeting transcript access protocol Access to meeting transcripts is granted by adding the AI agent/Kobi directly to all meetings, rather than individual file-by-file access.
+* Agile project methodology adoption The project will follow an agile methodology with weekly sprints to maintain alignment and continuous demonstration of progress.
+* End-user focused discovery process prioritization Discovery sessions will prioritize end-user workflows and problem understanding before technical data engineering implementation.
+* Minimalist UI component creation scope UI component development is limited to essential elements rather than full library recreation to maintain efficiency.
+* Discovery session follow-up structure Discovery sessions will be structured as follow-ups to previous sessions, focusing on unanswered questions and end-user interactions.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [The participant] Read Checklist: Review the project checklist highlighted in orange to understand current requirements and future execution steps. Communicate the findings once the document has been fully analyzed.
+* [The participant] Create Agent: Build an operational agent equipped with necessary skills to assist with project delivery and task management.
+* [The group] Schedule Kickoff: Select a mutually convenient time for the project kickoff meeting and send the invitation to the client.
+* [The participant] Watch Discovery Videos: Review all available discovery video recordings to fully understand the client business processes and requirements.
+* [The group] Prepare Kickoff Slides: Develop presentation slides for the client kickoff meeting to outline project expectations and team backgrounds.
+* [The group] Draft Discovery Plan: Outline the scope and methodology for the initial project discovery phase. Document the approach to ensure alignment with client goals.
+* [The group] Create Backlog: Establish a project backlog in Asana to track tasks, timelines, and milestones effectively.
+* [The participant] Review Phase Definitions: Evaluate the phase definitions in the project documentation to ensure agreement on the scope of work.
+* [The group] Research Person Accounts: Analyze the use of person accounts for players and referrers within the system. Decide if this approach is suitable for the current architecture.
+* [Kobi Kunasekaran] Review Video: Examine the provided video content to prepare for the upcoming meeting on Wednesday.
+* [The group] Confirm Attendees: Determine the participants for the discovery session and provide an update on Monday morning.
+* [The group] Setup Shared Drive: Create a shared drive to facilitate collaboration and document management.
+* [Kobi Kunasekaran] Prepare Discovery Questions: Compile a list of detailed questions for the discovery session.
+
+
+
+Details
+* Project Operational Setup and AI Configuration: Kobi Kunasekaran outlined the operational requirements for the new project, including the use of an AI agent to assist with project delivery. To facilitate this, meeting emails should use the prefix "WT". Kobi Kunasekaran specified the need to define two fields for Slack channels—one for internal and one for external communications—to enable data scraping (00:00:52).
+* Project Folder and Transcript Management: Kobi Kunasekaran discussed creating a project folder on the drive. An agent will be built to process raw transcripts into synthesized data to manage context window limits effectively (00:02:59). Kobi Kunasekaran advised that the team needs to determine the appropriate authentication method for meeting notes, suggesting either adding the AI agent to all meetings or manually granting access to transcripts (00:04:47).
+* Salesforce MCP Connection and Access: Kobi Kunasekaran addressed the need to establish a Model Context Protocol (MCP) connection for the client's Salesforce environment to allow data querying. Kobi Kunasekaran noted that while an official document exists, it does not support multi-setup, so further investigation is required regarding a new process released in April (00:03:24).
+* Handbook and Process Documentation: Kobi Kunasekaran explained the plan to develop a process document, including flowcharts and operational definitions, to serve as a ground truth for the project. The team aims to utilize insights from the discovery phase and Jira tickets to build a self-healing agent capable of maintaining system knowledge (00:05:44) (00:07:39).
+* AI-Native Project Delivery Approach: Kobi Kunasekaran emphasized that this project will serve as the first AI-native project delivery. The strategy involves building an agent on a local drive, refining components with assistance from Lauren, and stress-testing with another client before pushing the solution to the cloud to eliminate the need for manual transcript access (00:08:15) (00:10:43).
+* Client Project Overview and Status: Kobi Kunasekaran identified that the client previously attempted a Salesforce implementation that failed to meet end-user needs, resulting in a system cluttered with Lightning Web Components. The client operates using Excel and AirTable but has ambitious scaling objectives. They are currently rebranding to become more technologically focused and plan to expand service into Alberta in August, necessitating a Salesforce go-live before then (00:13:22) (00:14:50).
+* Project Stakeholder Roles: Kobi Kunasekaran detailed the three key stakeholders: Joyce, a product manager and the most technical contact; Lena, a business operations partner who acts as the CEO's chief of staff; and Emily, who manages operational execution. The client also employs an IT administrator who lacks Salesforce certification but hopes to learn the system .
+* Project Phases and Timeline: The project is structured into three phases, with current efforts focused on phase one, which is scheduled to conclude in mid-August. Despite the client's urgency, the team aims to manage expectations regarding the timeline and ensure they do not rush the scope definition .
+* Agile Methodology and Sprint Cadence: Kobi Kunasekaran proposed a weekly sprint methodology to keep the client engaged, including end-of-week demos. The team plans to use Salesforce to track and report consumed hours to the client, with a goal of keeping within the 230-hour scope. The kickoff is planned for Wednesday, and the team will need to prepare a project plan, slides, and a discovery plan by Tuesday (00:24:34) (00:27:16).
+* Discovery and Design Strategy: Kobi Kunasekaran argued against rushing into data engineering tasks, advocating instead for an initial focus on end-user discovery to understand workflows and requirements. The team needs to address UI/UX layouts, specifically mobile versus desktop configurations, early in the project to determine which components require custom building (00:28:15) (00:29:12).
+* Business Process Analysis: Kobi Kunasekaran explained the client's current workflow, where business managers use WhatsApp to coordinate with referrals and players, often relying on Google Sheets and AirTable. The core business involves affiliate links and promo codes with specific attributes like operator, partner, and market, which dictate deal payouts and commission math (00:38:47) (00:41:13).
+* Salesforce Architecture: Person Accounts and Signups: The team discussed using Salesforce "Person Accounts" to streamline records. Kobi Kunasekaran suggested implementing a "signup" object to act as the primary record for tracking transactions, affiliate attribution, and financial math, including redeposits and margins. This object will replace the manual Google Sheet tracking process currently utilized by the client .
+* Immediate Next Steps and Team Availability: Kobi Kunasekaran concluded that the team will dedicate Monday and Tuesday to learning the project background, reviewing recorded discovery sessions, and preparing kickoff materials. They will determine the specific team members to invite to the discovery session by Monday morning. Additionally, it was noted that Chester is currently available to assist as the QA framework project has been deprioritized .
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jun 11, 2026
+Wagertech Internal Kickoff - Transcript
+00:00:00
+
+Kobi Kunasekaran: Let's open the meeting that we we set up for this. Okay. Send you this. Either way, I'm sure if it scraped through like your team hanging, but Oh, no. I did not see this. Did you just send me this? So this like I just like made like just in the last like few like moments like I'll let you and we'll leave like discuss around like the projects but I'll just like set expectations on like what kind of like things I'll need just like make sure that it's can be like
+
+
+00:00:29
+
+Kobi Kunasekaran: AI electrical. Okay, cool. Okay. So this checklist basically includes like everything that we've already like discussed with tech on promises that we have to like execute timelines and like when we said like they'll do it etc etc. The ones that I've highlighted are ones I just like wanted to like talk to you about just like make sure that as we start like executing the project.
+
+
+00:00:52
+
+Kobi Kunasekaran: I know you have your own like agent but I want to make sure that like we have like an operational agent that basically helps out across like the project delivery. Um easiest way that I find for the AI which is like know like which meetings are associated with like which like projects. It's like having like a a standard prefix on like the emails.
+
+
+00:01:13
+
+Kobi Kunasekaran: Alternatively, I could basically just like ask it to like nudge you on which project is this like meeting going to be like for, but like if you want it to be like more like on autopilot, I think it'll be like helpful. Yeah. Uh, so what I do for like Q4 for example is I always like preface it with like Q4-C that's a whole like reason like why I do it just so like it feeds towards it.
+
+
+00:01:34
+
+Kobi Kunasekaran: Yeah. Um, so if you have like a pref uh meaning prefix, I actually want to like set it up with like WT if that's okay with you. Yeah, right. Okay. Another thing that we've mentioned like in how like we're tracking it is like we'll have like the knowledge sources within the client projects. Now we'll have like two fields like essentially or like related like uh records to basically specify which Slack channels basically it's Brian is supposed to like scrape through.
+
+
+00:02:03
+
+Kobi Kunasekaran: Okay. So ideally we have like one for like internal the other one for external at least like that's like how like we built it for like WCS. Yeah. Um right. It's the same format we follow for everything else, right? Yes. So, as long as like we have one, then I think that'll be good because I just like have to like feed it into the structure on like how like it'll scrape you like the data.
+
+
+00:02:23
+
+Kobi Kunasekaran: Yep. Yeah. Yeah. Okay. So, once that are like in orange is like under like on your end um to basically like action and then you just like have to like inform me on like how you end up like building it out. Yeah. Um client facing coms. This is like the external channel.
+
+
+00:02:39
+
+Kobi Kunasekaran: Same thing. Um, one is internal, one is I don't know both Slack. Okay. Project tooling. I don't think that we have one like decided yet. I don't think they have one like on like their own. So, we Yeah. So, like we'll we'll use like a just like put it in there.
+
+
+00:02:59
+
+Kobi Kunasekaran: And then uh we need like a project folder drive like on this. Um, I could craft one up, but just like a heads up, I'll likely build out like an agent that will take your transcripts, condense it, and then put it in there. Same as like what we just like discussed from like earlier because like you want like the raw data, but like a synthesized data on top just so like it doesn't fill up the u the context windows.
+
+
+00:03:24
+
+Kobi Kunasekaran: Yeah. Okay. Um, I'll let Wi talk about like these like skip skip. You have like the access already for the Salesforce or so. So, that'll be like what we need to share with you. Okay. I logged into I think Wiggo. Yeah. For what? likely have to like set one and you know what one thing that we have to add in like over here too is have to like create like an MCP MCP connection and connection with the clients does that NCP connection let you
+
+
+00:04:12
+
+Kobi Kunasekaran: query the data as well or just yes read only for everything you got to show me how to do that uh there's one official document that Salesforce like has but like it doesn't work with like multi- setup right yeah for like so like apparently there's like a new process that they rolled out on April that supports it so I may have to just like double check on that but I'll I'll give you like the info after okay so name project owner is good data engineer we'll be talk to you about that uh data
+
+
+00:04:47
+
+Kobi Kunasekaran: templates meeting notes. Okay, so meeting notes you have to authenticate. you either have to um add me to like all of like the meetings so I naturally get like access to the transcripts like already or you may have to like nontop like grant like access like as like Brian's trying to like access like your transcripts. I would say the latter would be or the former would be like easier.
+
+
+00:05:17
+
+Kobi Kunasekaran: It's like totally up to you. And I'll just like put myself as like you know I won't put myself as anything. I'll put you as alternal. Yeah. Okay. That way you still get the meeting. Okay. uh internal alignments WhatsApp um there's going to be a component of this where we have to like bring in some like WhatsApp like messaging so there's that will talk to you about it control plan okay once in blue is on me so
+
+
+00:05:44
+
+Kobi Kunasekaran: feel free to like just like skip like over that but meeting prefix uh Gemini notes um a handbook is there so like for like the handbook honestly like I think I I'm going to end up like doing is that like they have like the PRP that we're going to start with like building one out and then after the first few weeks um well within like the first week they're expecting like a discovery like just like a deeper dive discovery on like how things are going to get built.
+
+
+00:06:14
+
+Kobi Kunasekaran: So I imagine like one of like the outputs like from that is going to be like a process document of some sort flowcharts how people are going to work etc etc. So would love to kind of get like a copy of that so it becomes like uh you know uh a grounded truth on like how like we'll just like hey if this is the operations around it here's like the apex flows automations fields etc etc just so like they I kind of like just like self learn from that and then like I could have it like self-maintaining selfheal as I build build new components after
+
+
+00:06:47
+
+Kobi Kunasekaran: that so these are technical stuff so the handbook for like you guys are doing it uh like for Q4 was in Google Drive or it was a Google top Google doc. It's your agent updating Google. So right now my the agent is launched. Okay. Yeah. Yeah. Like a whole bunch of comments suggestions and I didn't know it was so that was Brian to like start with I see and then um I didn't I haven't gotten around to like just like putting in that schedule
+
+
+00:07:15
+
+Kobi Kunasekaran: process that takes in closed Jira tickets and then pushes it out. Okay. So what we found is that like not everything makes it to like Jiraa because like sometimes they'll have like a quick patch that they ask for and it gets ends up like getting missed and then it doesn't feed into uh the handbook etc etc. So like it's it's 95% correct with some like asterisk here and there.
+
+
+00:07:39
+
+Kobi Kunasekaran: So just something to like know but ideally um we know about like wager tech from like all the the discoveries that we've already done. we know like the the SMMES that we're going to work work with. Um, and then we're going to have the uh workbook. Once we have like all of those, like honestly like between those like three contextes plus like the components within the Casana, then I could just basically build out like a self-healing like agent that maintains like everything after this.
+
+
+00:08:15
+
+Kobi Kunasekaran: Is this going to be a con agent or is it going to be like it's going to be Brian? So, I think I'm going to end up like starting with just like my local like drive. Yeah. Um, we'll ask for like help for like Lauren too. She's she's going to help us out with like building out like these like components.
+
+
+00:08:32
+
+Kobi Kunasekaran: Um, and then like once like everything is like refined, then we'll stress test it again with with another client. And then once everything is like working, then we push it to the cloud. That's a whole idea. So like as soon as soon as I get sent to club then like I don't have to like ask you for like all these like transcript access and all that stuff.
+
+
+00:08:51
+
+Kobi Kunasekaran: Yeah. But um yeah I'm I'm obviously going to set up my own agent call. Yeah feel free feel free like build your build your own. Yeah but like we do need like an uh yeah we we do need like an oversight like for jumper like internal note internal kind. Yeah. Okay. Okay.
+
+
+00:09:14
+
+Kobi Kunasekaran: So, like I think like that's it. Like really like that's uh I want to make sure that I I'm just like transparent on like the the groundwork, the plumbing that's going to be necessary to to like do this. Um I made it fairly like clean for your like I shouldn't say me like Brian like made it like fairly clean on like all of the deliverables that we like promised like from from here.
+
+
+00:09:34
+
+Kobi Kunasekaran: So I mean I'll read through it and then I'll let you know. I mean seems pretty straightforward. I think just like the structure of like the Google Drive and things like that will will just work through. Yeah, because like that that's the project setup. It's whatever like Yeah, that's we do have like the client's folder, right?
+
+
+00:09:53
+
+Kobi Kunasekaran: It warrants like a a clean up. Yeah, I have a tendency of just I bookmark it like I on my Chrome I have like the bookmarks and I just create docs and just bookmark it instead of putting it in the drive. Yeah. Uh, but maybe I can use AI to make sure to drop it in the drives.
+
+
+00:10:11
+
+Kobi Kunasekaran: Yeah. And I I just want to be like my personally to like myself to like just like figure out like as we're designing this like like setup because I don't know if like the first task that I end up like doing was like good enough to like track like the components around it cuz like in WCS like it's honestly like there's so much like legacy transcripts and what have you that like it doesn't like elucinate but like I imagine like something that that's net new like I I think it's like unproven.
+
+
+00:10:43
+
+Kobi Kunasekaran: So that's why like I wanted to just make sure that we have like a starting point. So you'll be the first this one's going to be like the first AI native project delivery. So I just want to make sure that it works. It's going to be good good testing ground. Yeah. Okay.
+
+
+00:11:00
+
+Kobi Kunasekaran: You know what? While waiting for I'm just going to create like this project now for you. So we're good to go. Yeah, I noticed like their their emails are like they're very particular on like the hours and stuff. Yeah. Like not over. Yeah. Anything else? No, you didn't.
+
+
+00:11:36
+
+Kobi Kunasekaran: So you have gesture with this. Yeah. So I'm just going to add you I'll put you add. Yes. Let me just create the account. Uh I should create an agent with a skill. Right. Okay. Maybe it's low volume. He's not good. You don't do it often enough that it's a problem tool.
+
+
+00:12:31
+
+Kobi Kunasekaran: It's about All righty. Ready? Go ahead. Yeah. Yeah. Um, can we align first just so that we're all on the same page like what availability do you have like right now for wage time? Me? Yes. Uh 95% of my time. I think like I don't think we have anything major from our reporting meeting earlier today.
+
+
+00:13:22
+
+Kobi Kunasekaran: A couple of investigations wrapping up the deliverables for Q4. Uh sorry for the Ross team. I'm shipping the future of one more they wanted some more work on but I don't think it's going to be a lot long. So assume like more or less full time because they're eager emails. super like um so essentially like the background is they they looks like not looks like they bought Salesforce they cla it up didn't work so if you go into their Salesforce it's full of LWC's okay uh it's just
+
+
+00:13:58
+
+Kobi Kunasekaran: like yeah they didn't really think about the end user experience do you so at a high level do you feel do you feel like you know what they do I know what they do yeah uh you saw that discovery that we I haven't seen the videos yet. I I'm going to watch them. Um, but I went through the PRD like with with notebook 11 and got like the deep dive.
+
+
+00:14:18
+
+Kobi Kunasekaran: Um, I saw what like I think one of the things that I don't know if it was clear is whether we're doing like a like scrapping everything that's there and starting fresh or we're trying to fix it and patch it up. Okay. So, I think like I I have big thoughts on that. Yeah, I don't think it's the time to talk about it right now because I think like just it's good for you to like like proceed the talking just like like let's get on the same level and then we can talk about right so
+
+
+00:14:50
+
+Kobi Kunasekaran: like essentially like they they've been using Excel and air table and it's been working the thing they have like you probably saw in the BRZ they have very ambitious objectives from the from the project Um, amongst other things, sales rep efficiency. This is one that scares me a little bit because the sales reps are uh on the road a lot.
+
+
+00:15:19
+
+Kobi Kunasekaran: So, like what we're doing is we're just making it hopefully easier and more streamlined to like log stuff, but not like like I I really wanted to be in a position to because you use WhatsApp a lot. Yeah. To be like you can do the job from WhatsApp. We're not there. like this is very ambitious.
+
+
+00:15:37
+
+Kobi Kunasekaran: Uh Miko keeps reminding me they're not a massive company like with a lot of resources. Yeah. Uh nonetheless it seems like again similar to Lum they've spent a lot of time thinking about this thinking really about this. Now I don't know how but like as like my read on the organization is they've successfully been able to create a process for something that's chaotic.
+
+
+00:16:00
+
+Kobi Kunasekaran: Okay. And it's been working for them and now they want to like they do want to scale. I don't know again I don't know if you know but just based on the domains and the different like ways of presenting themselves it looks like small companies that buy each other like there's some acquisitions maybe some not stuff like that uh but they've figured out a process to like to make it work essentially and like to know how to get new people and be like this is how we do the job and all that and now it's about because it's like real money that they're making they need to be able to like control it and manage it
+
+
+00:16:34
+
+Kobi Kunasekaran: uh automated. Yeah, they rebranded the company just so for this digitalation, right? Like from like the announcement that they have problem like they were named like a separate like company from like before and then word for word from like the their announcement like we're rebranding it to push ourselves to be like more technologically focused. So it is like a key initiative like for them to like move off of like Google Sheets to Salesforce.
+
+
+00:17:01
+
+Kobi Kunasekaran: So in order to be technologically focused they have to have a platform. I don't know what that platform is like to be honest right now it seems to be a signup sort of platform with some questionnaires but like as part of them thinking about it too much um they have a architect that's like data engineer data engineer I guess that's been helping them design for their product.
+
+
+00:17:26
+
+Kobi Kunasekaran: So they keep talking about him and they keep talking about like we have the objects, we have like the the relationships and the hierarchies and it's true they do and I think like what they have like is what they need what they have. What I think is like they're still like not seeing um it's just like how do we get it all to work functionally for everyone that's involved?
+
+
+00:17:46
+
+Kobi Kunasekaran: Um it's not a hard job. It's just like it's a matter of putting it all together quite honestly. Nevertheless, so they have they're going to a new market uh Alberta. So they're going to start serving Alberta. They serve Ontario and the US going to Alberta in like August. So it seems like the whole time they've been trying to get the Salesforce implementation to go live with like before that and they came to us saying like end of July I bargained with them like that's just September.
+
+
+00:18:19
+
+Kobi Kunasekaran: uh like we read on. Okay, for me all of that is like words and stuff until we actually go in and define like what the scope is going to be. It just sets the tone to how fast we need to like move to get like the scope done and get them agree to what like actually is in phase one and like work on it up then.
+
+
+00:18:44
+
+Kobi Kunasekaran: Um there's three people that we've been talking to. Joyce, product manager. Okay. Yeah. Product owner. She's on the product team. Okay. She's like our most senior, I think, the most technical person that we have. She gives a very vibe. She's from London. Very like those KW like like one time we're on the call with her and like she got on the phone and she's on her like camera and she's like, "Oh, here's the data engineer I'm talking about. He's driving." Yeah.
+
+
+00:19:14
+
+Kobi Kunasekaran: I don't know if that means he's her boyfriend or they're just working together and like they're going to be meeting. Nonetheless, she's like she's cool and stuff. It's like very like practical down to earth. Yeah. Uh you've got Lena who's just like busy be like trying to get stuff done. Keep festering eco and stuff like that.
+
+
+00:19:31
+
+Kobi Kunasekaran: What's her role? What's business partner? Yeah, business ops partner. I feel like actually like the CEO's chief of staff. make sure is done like on his behalf essentially. She signed so but still like she's not I don't think she's like an operational stakeholder. Uh I think she does need to stay in the loop to like there's budgets overruns like she needs to see and like at the end of the day she's gonna be the CEO's like so like she's there but like she's not going to participate in the project
+
+
+00:20:05
+
+Kobi Kunasekaran: that then we've got Emily. Emily Emily seems I don't know like they don't really have roles to like introduce themselves. But Emily is like she's just like our operational like she's the one that's going to get stuff done. They do have a technical IT guy who's not Salesforce like certified, but they're like the whole story of how hoping to have him like be the administrator and learn stuff to do the whole person that initially
+
+
+00:20:35
+
+Kobi Kunasekaran: built the somebody else like they went to a consulting consulting company that like kind of like went through like this setup and I think that was like the first run. Wait a second. The consulting company built this like no like the consulting company built the design the PRD. Oh, the PRD came from that while we're very well generated by the way.
+
+
+00:21:00
+
+Kobi Kunasekaran: It's not somebody somebody did not write it down. I'll tell you that. Yeah. Thank you. But like you would like like Joyce because like Joyce understands like the PRD and seems to be coming from like a product owner background like the the developer that they do have though is not very heavy on Salesforce but they are like also not very flexible on like a double budget.
+
+
+00:21:25
+
+Kobi Kunasekaran: So like they were like trying to like see if we could like leverage it and that's it's about that and about like them taking ownership later on like they obviously want the appetite to do this by themselves. they just need to push. So there is like three phases within the SW discussion. We're focusing on phase one right now from today.
+
+
+00:21:42
+
+Kobi Kunasekaran: I think there is a phase two and three that we'll take especially if we move fast and like check the boxes faster but possibly this guy can learn like how to do Salesforce. That's like um phase one is still like that's still going into September. Sorry mid August. Did they push the timeline the second? She just came back and said no again.
+
+
+00:22:09
+
+Kobi Kunasekaran: I won't talk to them like I I just want to like we haven't had a chance man to breathe like they like wanted to move very fast right like if this was different we would have had time we've talked about right for the project we were sent a pre- kickoff email to be like the jumper what to expect share the login right but we just haven't had time um to do that um anyway right now they are like ready they're
+
+
+00:22:36
+
+Kobi Kunasekaran: lally just waiting and for us to start so We there they want us to match that energy and I think we should match the energy. U so I bought us until Wednesday for a kickoff. Okay. Um, do you have do you have the email or what came up? So, first of all, like they asked who you are, by the way.
+
+
+00:23:09
+
+Kobi Kunasekaran: They ask for that. Yeah. It's like again, they're very they're very like careful. People don't like to work with consultants. These are people that don't like to work consultants. I think we won them over like just seeing that we're like normal people consultants are friendly. It's fine. Uh but they are like they are apprehensive right they only are doing this because they have to.
+
+
+00:23:28
+
+Kobi Kunasekaran: Hence the conversations around the budget and team that um okay so just introductions who we are a little background about you I think would be just like important and helpful here. Two is like going in review and aligning on spoke. So I think what what this is there's clear topics in their PRD. There's clear topics about what they want in their phases in their several phases.
+
+
+00:23:50
+
+Kobi Kunasekaran: We didn't follow that exact same path 100%. Okay. Right. Like our phase one does not align to their phase one. I tried to like me and CL call it something else and I forgot it and it lost that it was called like step one or something. So I called call it phase but it got lost and now we so we don't need to go into much detail I think at this point but just like the topic.
+
+
+00:24:11
+
+Kobi Kunasekaran: So like there's something like the sign up, the logging, the experiences that they're going to have like which there's very clear like objects that we need to like just kind of review and say this is it's all in SW not empty but just saying that this is what it is. Um and and then like when we say align on scope we we want to work on this Monday Tuesday.
+
+
+00:24:34
+
+Kobi Kunasekaran: So I'll come back to this. Okay. Okay. um very keen on time. Okay. So, we're going to go in, we want to run this sprint styles. Uh ideally, we do this weekly sprints with them. Um before the weekly, we talk about like what we're going to do the next week.
+
+
+00:24:55
+
+Kobi Kunasekaran: We put in a see it, approve it while we're working. I was hoping I was talking to Miko that just is able to help you with this as well so we can keep going. Like we have and I should have started this like our scope is what is it? 200 hours. Yeah. Yeah.
+
+
+00:25:09
+
+Kobi Kunasekaran: Like no more 2:30. 2:30. So we want to finish this starting next week until like in two months essentially right. So like I think that's like how we want it or not even two months like if we can do it faster. Yeah. But they wanted a person and a half like a full for a full month.
+
+
+00:25:33
+
+Kobi Kunasekaran: A person and a half for a full month or three quarters. Yeah. So like we we want to like try try. Yeah. So So we're going to talk about Sorry, can you go back when you talk about like the methodology like we just want to make sure that we're like let's let's do agile so that we're doing it like ahead of time.
+
+
+00:25:51
+
+Kobi Kunasekaran: We don't So because it's agile, we don't need to do a full project plan. But personally and I think they they need it. They need to see like a this is kind of what it's gonna look like. So like I guess fine. Yeah. Like we'll talk about Yeah. Um specifically less about the deliverable maybe yes like high level deliverables but more so about they need to be engaged.
+
+
+00:26:13
+
+Kobi Kunasekaran: Right. So what am I going to think about this thing? What am I going to do next? What is my role? What is it? What am I going to see? And the reason I also said sprint styles because I think like they will appreciate like a end of week demo being like here's what we built.
+
+
+00:26:25
+
+Kobi Kunasekaran: Like be cool. Do you like it? idea and I think you'll be like very well like with that structure and like you can do this very good to say if we take this on it's going to like hurt our timeline is it important like blah blah blah budget like don't be afraid to have that conversation u especially like starting like when we start build absolutely I think like we need to be strict and I think you'll be in a good position to do this especially if you're set up with like a good like cadence
+
+
+00:26:55
+
+Kobi Kunasekaran: structure on names Like we set the expectation from the beginning, right? Yeah. Exactly. And because they're like we just put it there and because they they're product people so then appreciate like I said execution. Okay. Uh and we have thought to write the requirements. So like the tickets. Yeah.
+
+
+00:27:16
+
+Kobi Kunasekaran: Exactly. Yeah. Yeah. Um cool. So that's that. So then um but anyway so because of that so that we want to talk about like the agile we're going to do weekly meetings like this is the meeting and so on we're going to set up I have a in Salesforce um like this app right app that sends a report of the time consumed okay so before whatever we decide on the weekly meeting like the morning before we're gonna we want to schedule it so that it sends an email saying like here's the hours that we've consumed this for me I found
+
+
+00:27:46
+
+Kobi Kunasekaran: that no matter what I do by 9:00 a.m. on Tuesday, I'm gonna have to put in my hours because it's gonna send the email on Friday on 10 a.m. So, just like something like that, we would tell them about this. Um, client expectations. I think just like high level here because we want to be engaged blah blah blah involved like learn like for that guy you can say like start on like trail head like all that because then I want to go into here.
+
+
+00:28:15
+
+Kobi Kunasekaran: Okay. So we're going to work on this like next week, but we want to talk about like what our discovery and uh like design is going to be with them. Again, my opinion is they're thinking like they I we need to be the data engineer right away. We need to be a data engineer. I think that's wrong.
+
+
+00:28:33
+
+Kobi Kunasekaran: I think that's absolutely wrong. I think we should do and I would like to tell them that I think we should start with more end user discoveries, understand the problem, understand the flows, understand what they're trying to do. Ideally, I would love if the data engineer is there to start like maybe like giving hints and saying like this is what it looks like.
+
+
+00:28:51
+
+Kobi Kunasekaran: We get what the business is and what they're trying to do. Then we go okay let's go like okay person that makes sense operator like and we start like finishing up what that design looks like with an understanding of what the user requirements are going to like. I I'm going to keep it to like like all of you to like all of us to come up with that.
+
+
+00:29:12
+
+Kobi Kunasekaran: But that's like that would be what my preference is for how we run the discovery and design. In terms of design, um, one thing that we cannot forget about and it's going to be really important to discuss up front, usually most of our projects we put in later on is like UI uh, layouts, mobile layouts versus like uh, like computer layouts.
+
+
+00:29:37
+
+Kobi Kunasekaran: I put it and I meant it a few times is that unless it's absolutely necessary, we're not going to create all the VC components, but we are going to create a few. So like trying to understand what those are early on because I think if we do do all that really well in about a week and a half or two then um we could actually go into agile and like have our tickets and start finding them, prioritizing them.
+
+
+00:30:01
+
+Kobi Kunasekaran: Yeah. So any any thoughts of that? How does their PRD fit into all of this? Like it sounds like we're starting from scratch, but then from their emails and stuff, they think they've done a lot of the initial work and like I think they've done the initial work. Absolutely. Okay. They have not I they they have not matched it to Salesforce.
+
+
+00:30:27
+
+Kobi Kunasekaran: So one big question for example that we presented and debated on should a player be a personal account, right? or should it be a custom object? They've talked about it having a lead or a contact and an account. None of this is like done in finalized. I see. Okay. Um when we talk about the the sales rep views, what they will look like, what it looks like, what functions are going to um we didn't talk about I mean maybe there's notifications.
+
+
+00:30:51
+
+Kobi Kunasekaran: I I don't know, right? Like even if it is an onboarding period for us, we need to be able to be onboarded in that way. So like we do it in our way of discoveries and making sure we check the boxes. But I it's like it's very valid. I think we'll deliver like at least maybe 70% of that.
+
+
+00:31:09
+
+Kobi Kunasekaran: Um like taking a step back and like understanding the process instead of just what they expected on the deliverables. Yeah. And that's like what was like right now it's like you said you called us three years later because we didn't just say like yes, right? Like like just kind of do It was just like kind of gigg and they've called us because it's not about just the technical, it's about also like getting it to a usable stage.
+
+
+00:31:37
+
+Kobi Kunasekaran: Yeah. So that's where like I don't want to just blindly follow a PR and then like end up in the same place just different. Yeah. Exactly. Yeah. That's true. Yeah. So like we do have responsibility to to we know what we're doing, right? Like it makes sense.
+
+
+00:31:53
+
+Kobi Kunasekaran: It's going to be used this way. Like look freaking fantastic. Yeah. It's just like they're just views not actually like I don't know just like I don't know they're really cool like views with like indicators and stuff but like somehow use Salesforce I don't know probably old school that's like not but the process is also very different right like it's not your traditional like new lead journey well but it's very similar in that it's CRM right like I'm recording information I'm logging information it's process automation it's alerts it's like check like sure it's not like deals and and leads, but like it's very like it's it's right documentation and automation like
+
+
+00:32:32
+
+Kobi Kunasekaran: like okay um so because they're eager beavers they're asking for first of all time to meet on Wednesday so I want to send them to ID as soon as we're done decide on the time and send to them okay uh eager beavers they're asking to meet on like same day can we just transition to discovery so let's say Yes, just put in the time block and then we can we need to pull anybody else outside of and that's the thing like ideally like we have a 10-minute conversation right
+
+
+00:33:07
+
+Kobi Kunasekaran: now on what that discovery is first one that we would want to do just so that uh we can book somebody to come in right like I I don't know like that's what it is okay so yeah okay so in order to achieve I think the project plan and all of that we have to spend a lot of time Monday Tuesday like just focus on this.
+
+
+00:33:32
+
+Kobi Kunasekaran: Yeah. Everything else Monday is going to be I think about like you just really learning s*** out of it. Once discovery going to Salesforce like PRV it all. Um then maybe like one day at the end of the day we can have a three of us we can have a um like a discussion session on like our our approach like what we thinking like how should we build it all that Tuesday we have to come
+
+
+00:34:01
+
+Kobi Kunasekaran: up with two things the slides for the kickoff but also like I don't know what your thoughts are on like showing the what do you call it the the backlog but I feel Like ideally we show up with an asana that we can modify over time, but like it would be it will go much smoother. Clients generally love it a lot more if we show up to like kick off with like here's the timeline, the project plan at a high level, but they're able to see dates and milestones and all of that.
+
+
+00:34:31
+
+Kobi Kunasekaran: Um, so to do then, oh, and we have to have a discovery plan. That's like those are the three things that we need to have ready for the So Monday, Monday is you learning it. Tuesday is like slide, discovery plan and back plan whatever you want to call it. And again, we we'll add to it just like I'm happy to say this.
+
+
+00:34:54
+
+Kobi Kunasekaran: We need to say in the kickoff like we say always when we're done with this discovery design phase, it's going to come what are we going to produce? First of all, we have to agree like right now they have PRDS and stuff like I don't necessarily need to present another seven page document to them. Yeah. Uh but just like talking about like at the end of this like what do we what is it going to be and maybe it's just like the backlog of tickets right and that's fine as Right.
+
+
+00:35:18
+
+Kobi Kunasekaran: Exactly. But like maybe there's some design decisions like they have to they have to have an approval on like what we want to build and it cannot be done through like 300 tickets. Yeah. some sort of way to say that here's an approval step on the design. Yeah. So that's what so the PRD that they sent is that supposed to be for like all three phases or all eight.
+
+
+00:35:52
+
+Kobi Kunasekaran: Yeah. Again there phases are different than other there's the eight phases include more than what the three phases. Okay. I haven't seen that. I don't think you sent me that yet. So maybe I'll take a look at that and see what our phase definition is and then that will give me a better idea.
+
+
+00:36:11
+
+Kobi Kunasekaran: Yeah. Like it's basically I think our phase one is the first four pages of their class. I see. Okay. And then notifications from phase five. Okay. The mobile first is going to be interesting. I feel like we never really focused on mobile. No, but anything that we've done.
+
+
+00:36:32
+
+Kobi Kunasekaran: I don't think it's going to be like we just haven't focused on it or done it. But it's like there there are tradeoffs. Do a lightning page. Yeah. There's a lightning there's a mobile tab that shows you that, right? So like Yeah, but there I think there are some trade-offs. Like I don't know off the top of my head, but I remember like some of the new features aren't necessarily supported yet.
+
+
+00:36:52
+
+Kobi Kunasekaran: screen flows like embedded screen flow. I don't know. There was something screen flow launched in in lightning in like your app. I think you've solved all our problems. Oh yeah. I think because that's like you like add a new player, sign up three next and move on, right? Like that kind of thing.
+
+
+00:37:09
+
+Kobi Kunasekaran: Yeah. Mobile's tricky because like it's everybody has different phones, different screen sizes. But like Salesforce is not too app. Yeah. But like when you're doing it like LWC Yeah. I don't know. You don't have the same freedom as a desktop app, right? That's okay. We'll figure it out.
+
+
+00:37:30
+
+Kobi Kunasekaran: We'll figure it out. Like for for me it's like half of like the business like or majority of the business goes to like WhatsApp, right? So like it's almost like even a good deal if you can find a way to like not have them like read WhatsApp if possible like that might be a bit like too much like over engineering.
+
+
+00:37:47
+
+Kobi Kunasekaran: It depends on what they're doing. It'll come out like from like discovery. Yeah. But you said like they they did a bunch of screen sharing. Do they not cover those processes? Oh no. If you if you watch Discovery like watch the understand like literally watch the recording. They're recording.
+
+
+00:38:03
+
+Kobi Kunasekaran: Yeah. Sit with it. You'll understand. listen to what the guys are saying. It's important. Seems like they're just like talking stuff, but like everything they're saying is important because we need again they're bros, but they're still doing the same things all the time. So that's the job. Yeah.
+
+
+00:38:22
+
+Kobi Kunasekaran: I mean, you're not. And this guy like he picked up on it. Yeah. He's like, so he works for the company, but he said I'm also a refer a high volume referral. Yeah. So this guy works for the company, but he also refers people that makes money like by what he call this Eminem.
+
+
+00:38:47
+
+Kobi Kunasekaran: Yeah. Like this is much of like Primark. Okay. So can we think of what would our first discovery session be? Can't ask right now. No, no, sorry. I'm just like going through anything else. So they they work primarily out of WhatsApp to interact with people and then they're going into Salesforce to like are they creating records like so the way that it works is like they have like a sign up and then that sign up
+
+
+00:39:28
+
+Kobi Kunasekaran: is coupled with uh sorry I have to like go into like a meeting in one minute. um their sign up is coupled with um the organization that they're working with, the location um and when we're like the payout like information that's on it. So like the permutation of like those like three combinations dictate like how much money they're essentially like going to like get and then that's like what you're trying to like piece like together.
+
+
+00:39:55
+
+Kobi Kunasekaran: That's literally when someone signs up, you create that permutation that creates like the record and then like adding in like the the the financial reporting kind of like just like downstream gets generated from that. It's not complex, but it is like honestly like going to be like very prone for like error when people are trying to like log in like components like on it because um it is all like related custom objects that you're kind of like piecing together.
+
+
+00:40:27
+
+Kobi Kunasekaran: I don't know if that makes sense but so look at this. Okay, let's think of that. That's that I am that MQ. am I am I am a bunch of Caesars I work with companies I forgot what they called it remember one maybe sorry I'm gonna have to like give you guys something like so these are the problem I think I just explained this right MGM will go directly to so like there's no connection honestly with the operator with with them okay it's just more through these guys okay each deal each like agree contract.
+
+
+00:41:13
+
+Kobi Kunasekaran: Yeah, I guess it's not really a contract. NGM says, "Hey, Sina, here's a thousand affiliate links." That's like an affiliate like think of it as a promo code situation, right? like each promo code situation um comes like has different attributes like who the operator is, who the partner is, uh there's one more thing what the market is, which is like which region and the combination of all of these is going to be a deal that contains
+
+
+00:41:41
+
+Kobi Kunasekaran: the payout or the the money information um commissions I don't know whatever that so one two three will give you and like the fourth money attributes. This is like how we pay people and how we figure it out. Okay. So, and you can have like mix and match. You can have OG certina and USG certina.
+
+
+00:42:05
+
+Kobi Kunasekaran: Those are all like independent deals. Okay. It could be like and it could come like OG Certina US and then like it's not active and then like they can come back. Oh, there is something else. There's the like vert sorry that's a good one. This vertical side I forgot what they call it vertical.
+
+
+00:42:20
+
+Kobi Kunasekaran: Okay. But that's like OG Certina US uh sports book. OG Certina US casino stuff like that. Okay. Because like a casino pays differently than a sports book. And these deals like are they time bound or is it like they are time bound and they are numbers bound. So you'll see in the video I get a thousand signups from here for this.
+
+
+00:42:47
+
+Kobi Kunasekaran: I come up with they come up with a promo code and be like okay I want to give like 200 to like Liz and 100 to Lauren and 50 to so that they can go and distribute them to like players right so like you you you'll figure out this thing more when you watch the video okay but then ultimately so this is the infrastructure for like the how like the agreements work and the relationships then you've got these
+
+
+00:43:13
+
+Kobi Kunasekaran: referrals they don't work for a wage. They're just again bros. They're just people like one guy works for them too, but generally they don't work too. They're bros. They call uh they have a relationship with with their ads or what's called the business managers. The business managers are the sales reps. Um so how happens you're a refer you want to bring like Lauren on to like the whole situation.
+
+
+00:43:43
+
+Kobi Kunasekaran: So you start a WhatsApp group between me the AE and Lauren the player and you the refer. So I as the AE I'm like hi Lauren. Okay crap. Here is um here is credit about here's a template of information that I give you including in it is a like a signup link but I also want from you blah blah blah which I'll get to what blah blah blah is.
+
+
+00:44:11
+
+Kobi Kunasekaran: Okay, but that key thing is that signup link gives them to their platform. I don't know what it is. API is the integration. It's a custom page. So the BM is going to give the link. The player is gonna go to like this thing and that's that's their app. That's their gonna add their name and their email whatever information this question is in here.
+
+
+00:44:40
+
+Kobi Kunasekaran: Yeah. That they need to answer. Um and then when they do that they also like I don't know what happens like when they do that they're like sign up in their platform. Okay. So it adds that inter. Okay. Okay. at the same time concurrently player goes to Google Sheets and adds the information there anywhere because that's where they're like there the player goes there.
+
+
+00:45:07
+
+Kobi Kunasekaran: Okay. No, no, sorry. Not the player at all. The the BM goes in there and enters the player information because that that's basically they're tracking the sale. That's right. So, this is like how they go into the system and this is how they track all the stuff, right? Because it is followup.
+
+
+00:45:25
+
+Kobi Kunasekaran: Um yeah so then when it enters here it really doesn't matter today the whole thing that we're trying to do. So again, so this is as you can see air table like a lot of WhatsApp. Hey, I have met MGM people. Hey, WhatsApp. Um these people are on WhatsApp, Google Sheets. This was like creating affiliate links and stuff that help us track but like we don't really know what's happening.
+
+
+00:45:52
+
+Kobi Kunasekaran: So the whole idea is that this is pretty clear how we're going to put it in Salesforce. There's a whole emphasis on the signup flow which essentially basically because we're eliminating Google sheet ultimately what happens is when you sign up through the API you should become in Salesforce and as a as a VM now I have you available to update you that same record so now it's like one entity not like an air table person and a Google sheet and that's like ultimately what we're trying to do and making it work for the whole thing but what like I heard I heard concepts of like that same person could have multiple.
+
+
+00:46:29
+
+Kobi Kunasekaran: Yeah, it could be a referer and a player for example. Um I mean I in my mind I solved it right like I think there's just two different two different records like two different content but in my opinion this is do you know have you ever worked in person accounts? Oh, I have no time. It does.
+
+
+00:46:46
+
+Kobi Kunasekaran: So in like when you go into B2C like actually this is literally the story of how they came up. Salesforce was always B2B and then like they started expanding B2C came in and everybody will do like account name Kobe and then contact name Kobe and then just like how BS is that so person accounts is essentially it's so funny in the back end it creates a contact and account for you but in the front end it's just one record.
+
+
+00:47:07
+
+Kobi Kunasekaran: Oh okay. I personally haven't worked with it with those and stuff. I don't know how it behaves, but that's ultimately what it is. And then the whole thing about it is that if you turn it on, you can't turn it off. But what does it mean is just it's a record type. It's an account record type.
+
+
+00:47:21
+
+Kobi Kunasekaran: So you can just always have an active account. It seems to me that this is why I don't want to influence. I think we should do the research like very quickly and decide like player and referer I think should be personal accounts and then the personal accounts always going to have a lookup to the referer. Um who referred like uh sorry another there's something called the sign like um because like like player player can only like attribution wise the player can only be attributed to one referer.
+
+
+00:48:00
+
+Kobi Kunasekaran: No. So that's what's right. So, it's more about it's not about the player is one person, but there's the whole like we're going to have to bring in what's called a signup object because like during this WhatsApp chat that I was talking to you about, I'm actually not sending you one at least. Like, I'm probably sending you like three or four, right?
+
+
+00:48:16
+
+Kobi Kunasekaran: Like his one, he's the old G1. So, I as a player now, I'm tracking against four different transactions, right? I'm tracking against Oh, yeah. Yeah, that's fine. But like you're still referred by one person though, right? like yeah but like I could like next month refer you like while it doesn't happen so much in practice I don't think you should put that restriction because it's like maybe I also let Kobe and he referred me too that's fine
+
+
+00:48:37
+
+Kobi Kunasekaran: right so it's not it's more that the referral is on the trans the transaction which is the signup situation that like the signup situation makes sense I think that and the signup is where like the math of the deal is going to come out to be like okay this signup is this is how profitable it is this is gave us is how much they came back.
+
+
+00:48:57
+
+Kobi Kunasekaran: So the sign up essentially ties everything together. Yeah, like the deal has the attributes and then the sign up does the math for the on the peraction. There's other objects. There's like redeposits, there's payouts, there's other things in here. Uh but like the premise is like this is it. Payouts is like what they pay for redeposits like red NGM specifically says like I don't want any player to come.
+
+
+00:49:20
+
+Kobi Kunasekaran: I want players that have high intent. So what does that mean? is that those are ones that actually uh sign up uh sorry re reup their like account within one to three business days after the first like one. So remember from here Sina is giving them let's say $200. These guys are taking a 200 and giving 40 to the player to play with right but they want that player to come back again.
+
+
+00:49:47
+
+Kobi Kunasekaran: they will give him another 40 but this time it's not coming from Cina it's coming actually from their own like pockets so this is also going into the sign up because this is a redeposited that affects my margins that I made on this one site okay I think watch the video yeah like I just like honestly I just in order to be prepared on Wednesday you have to spend Monday Tuesday that's I want to start like tomorrow try to wrap up all these things
+
+
+00:50:16
+
+Kobi Kunasekaran: because I'll start tomorrow. I'll watch a video and I'm gonna have a lot of question. Okay. Okay. So, I'm gonna send we'll do I'll do like an hour kickoff and an hour discovery after. I'll just say I don't know who to be honest with you. Let's just put a placeholder and we'll get back to you like Monday morning on who it would be.
+
+
+00:50:39
+
+Kobi Kunasekaran: Like I don't know. I mean like I don't know what the first discovery session like with the information that we've gotten so far. Where do you think we should start? I don't know, man. Like end user show us how like the whole referral affiliate link situation or do they show that already the discovery?
+
+
+00:50:56
+
+Kobi Kunasekaran: If they did, I don't want them to like we don't waste time. And I think like typically like we start from the bottom up like we start from from the end users. Yeah. Like from the business managers. They're the ones that we're building all this for, right? Okay. So, let's do this then.
+
+
+00:51:13
+
+Kobi Kunasekaran: Let's do the discovery session to be uh a followup to the first discovery. So like with the same people like end users and there's just like some unanswered questions cuz even when I watch the video again there's like well then how do you do this and there's details that we didn't get into. Okay. So we can maybe like yeah yeah I'll start putting some questions together too.
+
+
+00:51:37
+
+Kobi Kunasekaran: We'll do like a share drive together. copy on the response back. Can you send me the view? I'm hoping that they're also able to I hope so. I'm counting on it. Uh he just was working on the QA framework which he should be winding down. It's going to be a couple weeks then you should be winding down right now.
+
+
+00:52:20
+
+Kobi Kunasekaran: They said to stop. Oh. Oh, I haven't heard heard that yet. Okay. Okay. Jester did like I didn't have a chance to meet with him, but he did say that the QA form was de prioritized. So, I haven't had a chance. when I first started working with now, you know what I mean?
+
+
+00:52:50
+
+Kobi Kunasekaran: So, he wants like it seems like it's all gone. That's okay. Until then, wants to stop. Oh, I didn't know. Okay. So, then Chester should be free. Yeah, exactly. Oh, perfect. should work well because you also have actto still. I still have Octo. Yeah.
+
+
+00:53:11
+
+Kobi Kunasekaran: But act has been pretty I mean we get stacking a lot. Yeah. Yeah. We get peaks and they're coming up to their June July summit and that's where like we get a lot of work. Okay. But that's okay. Nothing we can add. And I heard like MC Okay. Should we stop this recording? We're done with this, right? Yeah. MC's done. So he showc and it's
+
+
+Transcription ended after 00:59:51
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

@@ -1,0 +1,287 @@
+{
+  "id": "10352",
+  "key": "WAGR-194",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-21T12:05:27.064-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.512-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# PL-15: Total Sign-Ups (DLRS Rollup)\n\n_Give reps and Ops a quick count of how many completed Sign Ups a player has, directly on the record._\n\n### AUTOMATION\n\n* A Number field on Player (Total Sign-Ups) is maintained by a DLRS (Declarative Lookup Rollup Summary) rollup — not a native Salesforce Roll-Up Summary field\n\n* Counts completed Sign Ups only — the rollup's Relationship Criteria filters to Sign Up Status = Completed\n* DLRS is required specifically because Sign Up relates to Player via a standard Lookup, not Master-Detail — native Roll-Up Summary fields aren't available on Lookup relationships\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Build using DLRS, not a native Roll-Up Summary field. Support is available if issues come up during setup.\n\n### NOTES\n\n* Provenance: new item raised in the Aug 24 Kobi/Taryn Weekly Planning sync — not part of the original Player Record User Stories doc's PL-1 through PL-14 story map. Numbered PL-15 as a natural extension.\n* Field itself (Total_Sign_Ups__c, Number, 0 decimal places, default 0) must exist on Account before the DLRS rollup definition can target it.\n* DLRS rollup definition: Parent Object = Account, Child Object = Sign Up, Relationship Field = the Sign Up → Player lookup, Relationship Criteria = Status equals Completed, Field to Aggregate = Name (placeholder, irrelevant for Count), Aggregate Operation = Count, Aggregate Result Field = Total_Sign_Ups__c, Calculation Mode = Realtime, Active = checked.\n* Run DLRS's full recalculation after activating, to backfill existing Players rather than only counting Sign Ups going forward.\n\n### SOURCE\n\n* Aug 24 Kobi/Taryn Weekly Planning — [transcript](https://docs.google.com/document/d/1qB7cUeJGFs_SZba9NX5R9MWKzOj8yTetmWTWoqY3gw8/edit), verified.\n* Dependencies: [BUILD-173 — Player: Core Details fields](https://app.asana.com/0/0/1217684264652851/f/), and [✓ POC-10 — Create Sign-Up object and fields](https://app.asana.com/0/0/1216276872010067/f/) (need Sign Up's Status field and Player lookup).\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-21 from the Aug 24 Kobi/Taryn Weekly Planning sync.\n\n",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10074",
+        "filename": "Screenshot 2026-08-25 at 4.01.44 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-25T16:01:53.052-0400",
+        "size": 503061,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10074",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10074"
+      },
+      {
+        "id": "10094",
+        "filename": "Screenshot 2026-08-31 at 9.54.26 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-31T14:17:46.397-0400",
+        "size": 449510,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10094",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10094"
+      }
+    ],
+    "summary": "BUILD-227 — Player: Total Sign-Ups (DLRS Rollup)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10534",
+          "body": "Completed the lookup rollup summary \"[**Player Total Completed Sign-Ups**](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/lightning/r/a0DWJ00000EhQon2AF/view)**\"**\n\n[@Kobi Kunasekaran](https://app.asana.com/1/1202721605677544/profile/1203115293332591) I'll need help testing this, claude is giving me like a billion steps and I have a feeling it should be more simple...",
+          "created": "2026-08-21T13:15:12.701-0400",
+          "updated": "2026-08-21T13:15:12.701-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10535",
+          "body": "Resolved today. We confirmed the correct setup path is \"Manage Lookup Rollup Summaries\" (not the older one-time \"Lookup Rollup Summaries\" tool). We verified the Id field, and confirmed the child Apex trigger is installed (via Manage Child Trigger). Live test run confirmed the rollup works. Ready for review.",
+          "created": "2026-08-24T17:00:26.483-0400",
+          "updated": "2026-08-24T17:00:26.483-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10536",
+          "created": "2026-08-25T16:07:37.838-0400",
+          "updated": "2026-08-25T16:07:37.838-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10537",
+          "body": "tested ",
+          "created": "2026-08-31T14:17:48.073-0400",
+          "updated": "2026-08-31T14:17:48.073-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 4,
+      "total": 4,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-352"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Integration",
+          "id": "10056"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217740345582686"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001sn:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217740345582686"
+      }
+    }
+  }
+}

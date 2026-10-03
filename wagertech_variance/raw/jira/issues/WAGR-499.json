@@ -1,0 +1,227 @@
+{
+  "id": "11576",
+  "key": "WAGR-499",
+  "fields": {
+    "statuscategorychangedate": "2026-09-30T01:02:49.844-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-30T01:02:49.248-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10087",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "11437",
+          "key": "WAGR-456",
+          "fields": {
+            "summary": "CMS Sync — Include CMS-eligible Affiliate Links in Deal payload",
+            "status": {
+              "description": "",
+              "name": "Requirements",
+              "id": "10058",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "10088",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "11567",
+          "key": "WAGR-490",
+          "fields": {
+            "summary": "Affiliate Link — Stable Link External ID",
+            "status": {
+              "description": "",
+              "name": "Requirements",
+              "id": "10058",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-09-30T01:18:02.382-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nAffiliate Link source fields can store the authoritative values required by CMS without silent truncation, while the Link External ID remains deterministic and within Salesforce limits.\n\n## Current-state finding\n\nThe Partial Sandbox metadata sweep found:\n\n* `Link_Code__c` is currently Text(40).\n* the current Tracking URL field is a Salesforce URL field, which is limited to 255 characters.\n* source/Airtable data includes tracking URLs substantially longer than 255 characters.\n\n## Requirements\n\n### Tracking URL\n\n* The authoritative Tracking URL used by CMS must support the CMS contract envelope of up to 2,048 characters.\n* Do not silently truncate an existing/source URL.\n* Replace/augment the current URL-field storage with a field type/length that can preserve the full authoritative URL.\n* Preserve an easy clickable user experience where practical (for example a display/action/formula pattern), but clickability must not reduce the authoritative storage length.\n* Update the existing Affiliate Link create/edit experience to use the authoritative field.\n* Migration/cutover must copy current valid values to the authoritative field before the old field is deprecated.\n\n### Link Code\n\n* Do not silently truncate Link Code.\n* Current design may retain the existing 40-character operational limit **if WagerTech confirms Link Code is intended to be a short controlled code**.\n* Legacy/source rows that exceed the approved limit must be deliberately normalized/re-created with an approved Salesforce-friendly code before migration.\n* If WagerTech confirms longer Link Codes are valid business values, expand the field before migration and re-check WAGR-490 Link External ID length.\n* No runtime architecture is required solely to preserve arbitrary legacy Airtable token values.\n\n## Acceptance criteria\n\n1. A Tracking URL longer than 255 characters and within the approved CMS maximum is stored in full and sent without truncation.\n2. Existing valid Tracking URLs are migrated to the authoritative field.\n3. The Affiliate Link edit flow reads/writes the authoritative Tracking URL field.\n4. Link Code values that exceed the approved maximum fail clearly or are resolved during migration; they are never silently truncated.\n5. WAGR-490 verifies the composed Link External ID still fits its Salesforce field after the final Link Code limit is confirmed.\n\n## Dependencies / sequencing\n\n* Must be resolved before production Link migration/publication.\n* WAGR-456 depends on the authoritative Link Code/Tracking URL fields.\n* WAGR-490 depends on the final Link Code limit.\n* Lower priority than the core Deal lifecycle/CMS sender foundation, but required before Affiliate Links go live.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Affiliate Link — Harden Link Code and Tracking URL storage for CMS",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0091b:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "id": "10538",
+  "key": "WAGR-401",
+  "fields": {
+    "statuscategorychangedate": "2026-09-15T13:47:16.708-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-15T10:55:30.427-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.005-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nEmily asked us to confirm Survey Completed Date is populated from SLC/CMS data, and if so, that reps shouldn't be able to edit it — only Ops.\n\n## Current state\n\nBUILD-69 (WAGR-46) confirms Survey Completed Date (Date_Survey_Completed__c) is populated by an inbound CMS→Salesforce event (player external id + completed_at), replacing the earlier click-inference logic. No field-level security restriction limiting edit access to Ops has been scoped or built.\n\n## Proposed solution\n\n1. Confirm to Emily that Survey Completed Date is system-populated per BUILD-69.\n2. Set field-level security on Date_Survey_Completed__c (and the related Survey_Completed__c checkbox, if applicable) so the field is read-only for the Rep profile/permission set and editable only for Ops.\n\n## Acceptance criteria\n\n1. A user on the WT Rep permission set cannot edit Survey Completed Date.\n2. An Ops user can edit it when a correction is needed.\n3. The CMS-driven automation (BUILD-69) continues to populate the field without being blocked by the FLS change.\n\n## Dependencies\n\nDepends on BUILD-69 — Survey completion inbound API event → Player (WAGR-46).\n\n## Source\n\nWagertech Notes / Questions (Emily Vandenberg), Player record doc, reviewed Sep 2026: \"Confirming that Survey Completed Date is populated based on the SLC data — If yes, the rep should not be able to edit, just Ops.\" https://docs.google.com/document/d/1mp3b1qpJkzKNDztEQpdnv-BYCgUgDdXe5jLuJi-ix1U/edit?tab=t.0",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10218",
+        "filename": "Screenshot 2026-09-15 at 2.47.33 PM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-15T14:47:52.218-0400",
+        "size": 41835,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10218",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10218"
+      }
+    ],
+    "summary": "Player: Restrict Survey Completed Date to Ops-Only Edit Access",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10556",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Attached screenshot shows when logged in as a Rep, the fields cannot be edited ",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-15T14:47:25.559-0400",
+          "updated": "2026-09-15T14:47:25.559-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vi:zr"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

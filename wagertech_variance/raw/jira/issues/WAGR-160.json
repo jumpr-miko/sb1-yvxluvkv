@@ -1,0 +1,289 @@
+{
+  "id": "10220",
+  "key": "WAGR-160",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T10:26:17.438-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10032",
+        "type": {
+          "id": "10007",
+          "name": "migration_parent",
+          "inward": "is a parent of",
+          "outward": "is a child of"
+        },
+        "outwardIssue": {
+          "id": "10541",
+          "key": "WAGR-404",
+          "fields": {
+            "summary": "Player: Default Signup Currency Automation by Player Country",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.742-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# PL-1: Core Details Fields\n\n_Core identity + status fields on the Player Person Account record type._\n\n### FIELDS\n\n* First Name — Standard (Person Account)\n* Last Name — Standard (Person Account)\n* Primary Email — Standard (PersonEmail). Required before any Sign Up can be marked Completed; primary CMS matching key.\n* Secondary Email — Standard/custom email. Contact only, never used for payout. Surfaces an old/duplicate account's email when Player records are joined. Do not rename to E-Transfer.\n* E-Transfer Email — existing field, tied to SLC automation. Do not rename the API name.\n* Date of Birth — Standard\n* Phone — Standard (PersonMobilePhone)\n* Country — sourced from CMS intake payload\n* State/Province — sourced from CMS intake payload\n* Signup Currency — Picklist. Not Salesforce multi-currency — payouts are fixed matrix values, no FX conversion.\n* Profile Status — Formula, read-only. Complete / Incomplete.\n* VIP — Checkbox.\n* Player Status — Picklist: Pending, Active, Inactive, Banned.\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Most of these fields already exist and are tied to the SLC flow that creates Player records from API clicks. Do not rename any API names without confirming first, and log any change made so the SLC flow gets retested.\n* Signup Currency defaults from the player's first Sign Up, inferred by country.\n* VIP is manual-only for now, set by Owen/Jay. Not confirmed — hold before building: whether VIP should be auto-detected instead of set manually.\n* Profile Status is a nice-to-have for this phase, not build-blocking.\n* Manual Player/Sign-Up creation, outside the CMS pipeline, is restricted to Lina, Jay, Owen, and Emily.\n* Not confirmed — hold before building: whether Player Status = Banned should be enforced as a validation rule, or is just a UI convention.\n\n### NOTES\n\n* Provenance: PL-1 (Player Record User Stories doc).\n* Person Account + Player record type already exist and are active. No org setup needed here.\n\n### SOURCE\n\n* Taryn doc PL-1 — Player Record User Stories\n* Aug 18 Weekly Sync transcript\n* Slack — Kobi, Aug 19, 2026\n* Dependencies: None identified\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-19 from Player record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-173 — Player: Core Details fields",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10452",
+          "body": "[@Kobi Kunasekaran](https://app.asana.com/1/1202721605677544/profile/1203115293332591) for the player status, the field is being use in Sign up, (flow) POC SLC, SLC. Is it okay if I change the values since it'll effect these areas as well?",
+          "created": "2026-08-20T14:25:34.844-0400",
+          "updated": "2026-08-20T14:25:34.844-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10453",
+          "body": "Profile Status formula did not like: \n\nIF(\n\nAND(\n\nNOT(ISBLANK(Name)),\n\nNOT(ISBLANK(Primary_Contact_Email__c)),\n\nNOT(ISBLANK(Date_of_Birth__c)),\n\nNOT(ISBLANK(Country__c)),\n\nSign__c <> \"\"\n\n),\n\n\"Complete\",\n\n\"Incomplete\"\n\n)",
+          "created": "2026-08-20T14:46:04.412-0400",
+          "updated": "2026-08-20T14:46:04.412-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10454",
+          "body": "[@Taryn Reithofer](https://app.asana.com/1/1202721605677544/profile/1216960149732326)Profile Status Completion is not necessary as per the feedback from them during the call. The Status for Active/Inactive, etc. should be there though.",
+          "created": "2026-08-21T17:13:06.737-0400",
+          "updated": "2026-08-21T17:13:06.737-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 3,
+      "total": 3,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-291"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217684264652851"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000zb:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217684264652851"
+      }
+    }
+  }
+}

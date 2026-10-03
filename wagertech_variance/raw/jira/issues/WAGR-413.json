@@ -1,0 +1,396 @@
+{
+  "id": "11360",
+  "key": "WAGR-413",
+  "fields": {
+    "statuscategorychangedate": "2026-09-21T13:37:40.366-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 2,
+      "isWatching": false
+    },
+    "created": "2026-09-18T15:39:14.054-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10033",
+        "type": {
+          "id": "10007",
+          "name": "migration_parent",
+          "inward": "is a parent of",
+          "outward": "is a child of"
+        },
+        "outwardIssue": {
+          "id": "10541",
+          "key": "WAGR-404",
+          "fields": {
+            "summary": "Player: Default Signup Currency Automation by Player Country",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "10035",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11362",
+          "key": "WAGR-415",
+          "fields": {
+            "summary": "Player Country/State missing on majority of SLC entries — driving unwanted CAD currency fallback",
+            "status": {
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10011",
+              "description": "Bugs track problems or errors.",
+              "name": "Bug",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:30.093-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2 data-local-id=\"7da888aef68e\">Outcome and context</h2><p data-local-id=\"1180d2cd31e2\">While working WAGR-404 (Signup Currency display field), every Player record reviewed shows CurrencyIsoCode = CAD, with no variation observed across any record. Kobi flagged that since most/all Players are created via the SLC process, if all of them are landing on CAD, it&#039;s likely the currency is being defaulted rather than actually set based on Player location/country.</p><h2 data-local-id=\"12102ccd3e43\">Current state</h2><ul data-local-id=\"e1a923f9e1b5\"><li data-local-id=\"b1763139e359\"><p data-local-id=\"a1a71a04cc97\">It’s assumed the SLC flow drives CurrencyIsoCode based on either Player Country or a currency value passed from the CMS, but it’s not certain which mechanism it actually is.</p></li><li data-local-id=\"98459e899ccf\"><p data-local-id=\"7afd3a1ba24c\">Every Player record reviewed to date shows CurrencyIsoCode = CAD — no non-CAD examples found.</p></li><li data-local-id=\"74cf379c49c2\"><p data-local-id=\"538ff5061322\">Separately recalled a known bug affecting State/Country data from SLC, but wasn&#039;t sure if it impacts Player records, Deal records, or both.</p></li><li data-local-id=\"e684052c2287\"><p data-local-id=\"ce190ed6c64c\">Country__c on the Player record (free text, sourced from CMS intake) has also been observed blank on recent records, though this has not been confirmed as a production data issue vs. a sandbox/test data artifact.</p></li></ul><h2 data-local-id=\"04cff1eab2ef\">Proposed solution</h2><ol data-local-id=\"dd3f3150beff\"><li data-local-id=\"f01489a2cf1a\"><p data-local-id=\"93cf4da44b1d\">Review the SLC flow logic during the next SLC flow update pass and confirm exactly what drives CurrencyIsoCode today — Country, a CMS-provided currency value, or a static default.</p></li><li data-local-id=\"702ff0f02e43\"><p data-local-id=\"294f18901308\">Cross-reference against the known SLC State/Country data bug to determine whether it&#039;s contributing to Players landing on CAD regardless of actual location.</p></li><li data-local-id=\"31248d945a91\"><p data-local-id=\"28ad4d8a4d4a\">Confirm whether any non-CAD Signup Currency values exist or have ever existed in production, to help distinguish &quot;systemic default&quot; from &quot;legitimately all-Canadian data to date.&quot;</p></li><li data-local-id=\"49f31175d783\"><p data-local-id=\"1465d79ed17c\">Determine whether the automation approach in WAGR-404 (formula field only, relying on SLC flow to set CurrencyIsoCode) is sufficient, or whether the SLC flow itself needs a fix/update.</p></li></ol><h2 data-local-id=\"426962ace616\">Acceptance criteria</h2><ol data-local-id=\"c80d69be0804\"><li data-local-id=\"77b972bf94a7\"><p data-local-id=\"93eafd83cf5e\">Root cause identified: static/default behavior vs. Country-driven logic vs. SLC State/Country data bug.</p></li><li data-local-id=\"6fc137d51777\"><p data-local-id=\"0dbe7d0662dd\">Confirmation on whether WAGR-404&#039;s formula-field approach is sufficient as-is, or whether additional SLC flow changes are needed.</p></li><li data-local-id=\"6e9d3c60a143\"><p data-local-id=\"a8640489f12f\">Findings documented on this ticket.</p></li></ol><h2 data-local-id=\"ebed50aab287\">Dependencies</h2><p data-local-id=\"7719787f7b17\">Related to WAGR-404 — Player: Default Signup Currency Automation by Player Country. Possibly related to a known (unticketed) SLC State/Country data bug — to be confirmed/linked once identified.</p><h2 data-local-id=\"5b9ec6d909e4\">Source</h2><p data-local-id=\"029e7eb0e98c\">Kobi Slack message, 2026-09-18, re: WAGR-404 follow-up: &quot;Most, if not all of the players should be created from the SLC Process, if all of them are CAD, then it seems like they are likely being defaulted to CAD and currency not set based on location. That said, I recall there being a bug on state/country info for SLC and not sure if that&#039;s for player or deal but that might be related.&quot;</p>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10347",
+        "filename": "Screenshot 2026-09-22 at 11.55.43 PM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-22T11:58:49.615-0400",
+        "size": 181570,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10347",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10347"
+      },
+      {
+        "id": "10348",
+        "filename": "Screenshot 2026-09-22 at 11.58.39 PM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-22T11:58:49.984-0400",
+        "size": 142615,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10348",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10348"
+      },
+      {
+        "id": "10344",
+        "filename": "Study_Link_Click__c-9_22_2026.csv",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-22T10:58:05.276-0400",
+        "size": 151754,
+        "mimeType": "text/csv",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10344"
+      }
+    ],
+    "summary": "Player: Investigate All Players Defaulting to CAD Signup Currency",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11285",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"1db8a0581cd6\"><span data-local-id=\"1befb7d6-9336-45bf-927d-2ff510da5d3d\" data-type=\"mention\" data-user-id=\"712020:61966a85-61f2-42ce-8382-85568cc7e090\">@Kobi Kunasekaran</span>  This task mentions a known bug affecting the state/country. Could you please share that specific issue with me so I can investigate further?</p><p data-local-id=\"9d6d95acecf2\">So far, here are my observations:</p><ol data-local-id=\"d48c3837a8b2\"><li data-local-id=\"25c7b2f7a392\"><p data-local-id=\"875de70df233\">The player currency is assigned in the flow for new player records: <strong>SLC_After_Save_Player_DRA_and_Sign_Up.</strong></p></li><li data-local-id=\"19b9c543b31d\"><p data-local-id=\"0ed7c488c257\">The formula that sets the currency references the Player_Country__c field:</p></li></ol><pre data-local-id=\"710299f4-a33d-4e0a-99d8-cd9917f7434a\" data-wrap=\"true\"><code>IF(\n  ISBLANK({!$Record.Player_Country__c}),\n  TEXT({!$Record.CurrencyIsoCode}),\n  CASE(\n    UPPER(TRIM({!$Record.Player_Country__c})),\n    &quot;CA&quot;,             &quot;CAD&quot;,\n    &quot;CAN&quot;,            &quot;CAD&quot;,\n    &quot;CANADA&quot;,         &quot;CAD&quot;,\n    &quot;US&quot;,             &quot;USD&quot;,\n    &quot;USA&quot;,            &quot;USD&quot;,\n    &quot;UNITED STATES&quot;,  &quot;USD&quot;,\n    TEXT({!$Record.CurrencyIsoCode})\n  )\n)</code></pre><ol data-local-id=\"92b08922559a\" start=\"3\"><li data-local-id=\"4263c9ce94d0\"><p data-local-id=\"38fbaad2eb2b\">The majority of the SLC records do not have data for <strong>Player_City__c, Player_State__c, </strong>or<strong> Player_Country__c</strong> (see attached). Overall, only 49 out of 1,415 records have a value for <strong>Player_Country__c</strong>. <span data-local-id=\"890e652c8270\" data-type=\"media-inline\" data-media-type=\"file\" data-media-id=\"ea773419-c08d-4716-93a9-01c1743c6274\"></span> </p></li></ol>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-22T10:57:33.907-0400",
+          "updated": "2026-09-22T10:58:05.191-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11286",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"03b6f5f9aee2\"><span data-local-id=\"6cd438fd-b9da-414d-884a-649acfab71a4\" data-type=\"mention\" data-user-id=\"712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278\">@Cedrick Infantado</span> to check the full Player mapping per <span data-local-id=\"488734fd-6229-43fa-b1f9-74b2e08b74e1\" data-type=\"mention\" data-user-id=\"712020:61966a85-61f2-42ce-8382-85568cc7e090\">@Kobi Kunasekaran</span>.</p>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-22T11:05:17.807-0400",
+          "updated": "2026-09-22T11:05:17.807-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11288",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"e1296c268508\"><span data-local-id=\"64b57b26-b9dc-43ce-beac-f3d73b03ab3c\" data-type=\"mention\" data-user-id=\"712020:61966a85-61f2-42ce-8382-85568cc7e090\">@Kobi Kunasekaran</span> <span data-local-id=\"92ca9610-469e-45b0-a2f9-72873001eecb\" data-type=\"mention\" data-user-id=\"712020:e303283b-a074-400e-9470-8d704ea7427d\">@Taryn Reithofer</span> <br><br>The player address is currently mapped to the standard billing address. On the player page, we are displaying custom fields for the country and state/province. Would you like me to map these to the custom fields instead?</p><figure data-local-id=\"6bed9efe2a06\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"566\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"0ff01c92-d51e-4652-9b51-319bdfd421d6\" data-alt=\"Screenshot 2026-09-22 at 11.55.43 PM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"ebe4e1f83529\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"566\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"2feabb51-2b40-4948-b513-85cf2869c4d8\" data-alt=\"Screenshot 2026-09-22 at 11.58.39 PM.png\" data-width=\"1600\" data-height=\"783\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-22T11:58:50.312-0400",
+          "updated": "2026-09-22T11:58:50.312-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11293",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"6a4f0198e81d\"><span data-local-id=\"e1d6187e-c260-44b6-b295-72ff20f5f324\" data-type=\"mention\" data-user-id=\"712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278\">@Cedrick Infantado</span> will add mapping to the Player custom fields for country and state/province.<br><br>cc <span data-local-id=\"d16b5e93-af63-454e-95c9-f07cb5a43e31\" data-type=\"mention\" data-user-id=\"712020:61966a85-61f2-42ce-8382-85568cc7e090\">@Kobi Kunasekaran</span> </p>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-23T11:23:19.936-0400",
+          "updated": "2026-09-23T11:23:19.936-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11294",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"2468ff3f4531\"><strong>Changes made:</strong><br></p><table data-local-id=\"b4c534b8-8c95-42c9-896f-323100b0fc90\"><tbody><tr><td data-local-id=\"342a7a0f9b6b\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"dbb469b60117\"><strong>Metadata Name</strong></p></td><td data-local-id=\"f5dbbcefe31e\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"4397b3d5f39c\"><strong>Metadata Type</strong></p></td><td data-local-id=\"5e4f1154a483\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"f22e0a47f0b5\"><strong>Action</strong></p></td><td data-local-id=\"76189b5a4ff6\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"b235235432d0\"><strong>Notes</strong></p></td></tr><tr><td data-local-id=\"002948620717\"><p data-local-id=\"e74d5e05f371\">SLC_After_Save_Player_DRA_and_Sign_Up</p></td><td data-local-id=\"fd4092a59713\"><p data-local-id=\"e07181a18c0c\">Flow</p></td><td data-local-id=\"0a739a9d6aed\"><p data-local-id=\"30606358d114\">Update Component</p></td><td data-local-id=\"e61408be5695\"><p data-local-id=\"1f2ea0b4fe12\">Added mapping to the Player custom fields for country and state/province.</p></td></tr></tbody></table>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-23T11:30:47.832-0400",
+          "updated": "2026-09-23T11:30:47.832-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 5,
+      "total": 5,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000on:4"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

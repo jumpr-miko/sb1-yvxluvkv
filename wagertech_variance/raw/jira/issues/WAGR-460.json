@@ -1,0 +1,155 @@
+{
+  "id": "11441",
+  "key": "WAGR-460",
+  "fields": {
+    "statuscategorychangedate": "2026-09-25T09:26:39.937-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-25T09:26:39.474-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-30T01:06:33.353-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Summary\n\nProduction cutover must preserve already-issued integration identities, reconcile Salesforce ↔ CMS mappings deliberately, and enable the new sender in controlled stages.\n\n## Data principle\n\nDo **not** bulk-regenerate or “clean up” External Deal IDs merely because current source fields/formulas would produce a different value.\n\nOnce an External Deal ID has been used as an activated/integration identity, preserve it unless a specific Salesforce/CMS reconciliation explicitly requires a correction.\n\nPartial Sandbox records are test data; no automated legacy-backfill feature is required solely to make those records conform.\n\n## Work Required\n\n### 1. Pre-test / pre-cutover readiness\n\n* Identify existing Deals used for UAT that need minimal manual setup to enter the new lifecycle safely (for example First Activated Date or lifecycle Dates on a test record).\n* Prefer creating fresh Deals through the target process where practical.\n* If existing production Deals require First Activated to prevent post-activation fields being treated as editable, prepare a **one-time data-fix list** before enabling lifecycle enforcement. This is migration/cutover work, not permanent automation.\n* Do not modify historical External Deal IDs unless specifically approved.\n\n### 2. Production Salesforce ↔ CMS identity map\n\nWith Strah/WagerTech:\n\n* build/confirm Salesforce External Deal ID ↔ CMS row map;\n* identify real mismatches;\n* decide case-by-case whether Salesforce or CMS needs correction/retirement before the first push;\n* confirm SLC matching continues by External Deal ID.\n\n### 3. Credentials/config\n\n* production key entered only through approved credential storage.\n* verify production Named Credential URL.\n* deploy with sending **off**.\n* safe initial config:\n\n    * Enabled = false;\n    * Include Test Records = false;\n    * Include Links = false until Link staging is approved.\n    \n* never expose secrets in Jira/test evidence.\n\n### 4. Single outbound path check\n\n* Queueable WAGR-454 is the intended outbound sender.\n* Verify whether any external subscriber is actually consuming Deal CDC.\n* Existing External Service/CDC metadata must not create a duplicate production send path.\n* If a real CDC consumer exists, document/resolve it before enabling the new sender.\n\n### 5. Controlled enablement\n\n* smoke test one approved Deal;\n* verify Salesforce + CMS result;\n* enable Deal sending;\n* run controlled re-sync/full sync;\n* enable Affiliate Links only after WAGR-459/WAGR-499/contract dependencies are ready.\n\n### 6. Hypercare\n\n* verify counts and representative fields in CMS;\n* confirm no `active_makeup_conflict` from identity mismatches;\n* WagerTech completes any manual Operator/Partner CMS mappings;\n* agree who monitors Salesforce/CMS failure alerts.\n\n## Done When\n\n* Every eligible production Deal is Synced or has an agreed remediation reason.\n* No unintended External Deal ID regeneration occurred.\n* No duplicate outbound sender is active.\n* No `active_makeup_conflict` is caused by unreviewed identity mismatches.\n* WagerTech confirms CMS values and SLC matching are correct.\n\n## Dependencies\n\n* WAGR-458 staging Deal verification.\n* WAGR-459 staging Affiliate Link verification if Links go live.\n* WAGR-445 credential work.\n* Data Migration epic where applicable.\n* WAGR-499 before production Links.\n* CMS-side SLC reprocess capability required for production support.\n\n",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [],
+    "summary": "CMS Sync — Production cutover",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0088v:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

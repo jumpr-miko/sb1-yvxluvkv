@@ -1,0 +1,233 @@
+{
+  "id": "10196",
+  "key": "WAGR-86",
+  "fields": {
+    "statuscategorychangedate": "2026-09-14T03:06:10.101-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T14:18:34.952-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.466-0400",
+    "status": {
+      "description": "This issue is being actively worked on at the moment by the assignee.",
+      "name": "In Progress",
+      "id": "3",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "**Goal:** separate test/demo Deals from real ones so list views, reports and the CMS integration can tell them apart at a glance.\n\n## Scope\n\n1. New checkbox `Deal__c.Test_Deal__c` (\"Test Deal\"), default **false**, not required.\n2. Deal `Name` gets a **-TEST suffix** when checked, and loses it when unchecked.\n3. `External_Deal_ID__c` gets a **TEST- prefix** when checked — note this is a _prefix_, deliberately. See the design note below; a suffix breaks the collision handler.\n4. ~~Downstream~~ `Is_Test_Deal__c` ~~formula on~~ `Sign_Up__c` ~~and~~ `Deal_Rep_Assignment__c` ~~so those objects can be filtered too.~~ Cancelling for now to keep scope tight, will add later if needed. \n5. ~~Validation rule locking~~ `Test_Deal__c` ~~after creation.~~ Cancelling for now to keep scope tight, will add later if needed. \n6. Backfill the 15 Deals loaded 2026-08-20 — all of them are test data.\n\n## Design note — why the External Deal ID uses a PREFIX, not a suffix\n\nThe flow _Deal - Before Save - Set External Deal ID_ handles collisions by querying `External_Deal_ID__c StartsWith fxBaseKey`, sorting descending, and deriving the next number with `VALUE(RIGHT(match, LEN(match) - LEN(base) - 1)) + 1`.\n\nWith a **suffix**, a real Deal keyed `BETMGM-GD-ON-CAS` would match `BETMGM-GD-ON-CAS-TEST` on StartsWith. Descending sort puts `-TEST` above `-002` (T > 0), so the formula evaluates `VALUE(\"TEST\")` and **the flow errors on the next real Deal**.\n\nWith a **prefix**, test Deals occupy their own `TEST-…` namespace. Real Deals never see them, test Deals collision-count among themselves. No change needed to the collision logic.\n\nThe `Name` keeps the `-TEST` suffix as requested — Name has no collision logic, so there is nothing to break.\n\n## Formula changes\n\n**1. Flow** _**Deal - Before Save - Set Deal Name**_**, formula resource** `DealNameFormat` — wrap the existing IF and append:\n\n```\nIF(\n```\n\n```\nISBLANK(TEXT({!$Record.Market_State__c})),\n```\n\n```\nUPPER(IF({!$Record.Market_Country_Code__c} = 'US & CA', 'USCA', {!$Record.Market_Country_Code__c})\n```\n\n```\n+ '-' + {!$Record.Operator__r.Name} + '-' + {!$Record.Partner__r.Partner_Code__c}\n```\n\n```\n+ '-' + TEXT({!$Record.Vertical__c})),\n```\n\n```\nUPPER({!$Record.Market_State_Code__c} + '-' + {!$Record.Operator__r.Name}\n```\n\n```\n+ '-' + {!$Record.Partner__r.Partner_Code__c} + '-' + TEXT({!$Record.Vertical__c}))\n```\n\n```\n)\n```\n\n```\n& IF({!$Record.Test_Deal__c}, '-TEST', '')\n```\n\n**2. Flow** _**Deal - Before Save - Set External Deal ID**_**, formula resource** `fxBaseKey` — prepend one line, leave the rest untouched:\n\n```\nIF({!$Record.Test_Deal__c}, \"TEST-\", \"\")\n```\n\n```\n&\n```\n\n```\nBLANKVALUE(SUBSTITUTE({!$Record.Operator__r.Operator_External_ID__c}, \"OP-\", \"\"), \"NOOP\")\n```\n\n```\n& \"-\" &\n```\n\n```\n... (existing formula unchanged from here)\n```\n\nLength is fine either way — both fields are 80 chars and the longest current value is well under 45.\n\n## Acceptance criteria\n\n* New Deal, box unchecked → Name and External Deal ID unchanged from today's format.\n* New Deal, box checked → Name ends `-TEST`, External Deal ID starts `TEST-`.\n* Two test Deals with identical operator/partner/market/vertical → second gets `TEST-…-002`.\n* A real Deal created _after_ a matching test Deal still gets the clean base key, no error.\n* Unticking on an existing Deal is blocked by the validation rule.\n* Sign-Up and DRA list views can filter on `Is_Test_Deal__c`.\n* All 15 Deals from the 2026-08-20 load are flagged and renamed.\n\n## Backfill — the 15 existing Deals\n\nDo NOT try to null `External_Deal_ID__c` to force regeneration — it is a required field and system validation runs before the before-save flow, so the update fails. Instead set both values explicitly in one Data Loader update: `Test_Deal__c = true` and `External_Deal_ID__c = 'TEST-' + current value`. The Name flow re-fires on save and adds the suffix on its own.\n\n_Deploy the validation rule AFTER the backfill, or it will block it._\n\n## Companion recommendation — not required, worth doing while we are in here\n\n_Deal - Before Save - Set Deal Name_ is actually a **RecordAfterSave** flow despite its API name, with no entry criteria — so it issues a second DML on **every** Deal create and update. Cross-object references like `$Record.Operator__r.Name` work fine in before-save (the External Deal ID flow already does exactly that). Converting it removes a DML per save, removes the recursion risk, and makes the API name honest. Roughly 1h including regression. Raise as its own ticket if we would rather not widen this one.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-222 — Test Deal flag: checkbox on Deal, -TEST in Deal Name, TEST- prefix on External Deal ID",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10426",
+          "body": "**Partially delivered 2026-08-20.**\n\n**Done:**\n\n* `Test_Deal__c` checkbox created on Deal (default false).\n* Both flow formulas updated — `DealNameFormat` appends the `-TEST` suffix, `fxBaseKey` prepends the `TEST-` prefix.\n* Backfill loaded: the 15 July sample Deals flagged, the 15 client Deals from the 2026-08-20 load left unflagged per Kobi.\n* Verified 15/15 — flag, name suffix and ID prefix all consistent, no duplicate external IDs. Unticking correctly drops the suffix, so the flow round-trips in both directions.\n\n**Outstanding:**\n\n* Validation rule locking `Test_Deal__c` after creation — safe to deploy now, the backfill is done.\n* `Is_Test_Deal__c` formula on `Sign_Up__c` and `Deal_Rep_Assignment__c`.\n* Production / Test list views on Deal (only \"All\" exists today).\n* Field permissions on `WT_Deal_Read` and `WT_Deal_Edit`.\n\n**Note:** the Deal Name formula has no guard for a blank market — `SAMPLE-DEAL-009` renders as `-PULSZ-CTM-CASINO-TEST` with a leading hyphen. Test data, so not urgent, but worth fixing before any real Deal lands without a market.",
+          "created": "2026-08-20T15:41:15.839-0400",
+          "updated": "2026-08-20T15:41:15.839-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-346"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "In Progress",
+          "id": "10026"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217694594254324"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000tz:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217694594254324"
+      }
+    }
+  }
+}

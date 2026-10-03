@@ -1,0 +1,197 @@
+{
+  "id": "10205",
+  "key": "WAGR-112",
+  "fields": {
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-07-30T16:44:37.414-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:22.405-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "Verify the one dependency we cannot check from outside before committing to the \\~56h build.\n\nBreakdown:\n\n* Salesforce authentication plumbing, reused as-is by the build — 4h\n\n* Direct-to-Drive upload probe, including whether Google permits browser-to-Google uploads from a Salesforce page (§4.2) — 5h\n\n* Minimal test component and screen-flow embed check — 2h\n\n* Test at realistic file sizes, document findings, recommend a path — 1h\n\nEXIT CRITERIA\n\n* GO: authentication reliable, upload and viewing work, an interrupted upload leaves no orphaned file behind, no blocking org policy, one path demonstrably sound. Proceed to build reusing the POC's auth work\n\n* CONDITIONAL GO: works with a constraint worth weighing (e.g. a file-size ceiling). Report the constraint and its cost; WagerTech decides\n\n* NO-GO: something blocks it, e.g. an org policy we cannot work around. Stop and report before further effort\n\nRecommended architecture is Option B (browser sends direct to Drive) — removes a whole category of chunking code rather than adding it, and does not need revisiting if file sizes grow. Option A (Salesforce relays) is a known-good fallback since the existing Dropbox integration proves it works at current file sizes; would be sized from POC findings, not guessed now.\n\nBlocked on WagerTech prerequisites C1-C7 (BUILD-94).\n\nSource: Drive Storage doc §4.3, §6.\n\nBILLING: SOW assumes native Salesforce storage, so this comes through as a change order. Client sign-off on the doc authorises the POC ONLY; the build is authorised separately after findings.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-93 — Google Drive proof storage: Proof of Concept (12h)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10432",
+          "body": "**APPROVED TO PROCEED — 2026-08-04. Client explicitly reprioritised this ahead of the CMS API work.**\n\nKobi had proposed tabling it \\[47:22\\]: \"if this is not urgent, I would table this for later, and focus on deal and deal rep assignment and CMS API work first.\"\n\nJoyce reversed that \\[48:11\\]: \"if you were waiting on us for like the deal stuff and the GCP integration seems pretty straightforward, like folder structure aside, I would probably focus your efforts on the GCP while we're like 100% confirming stuff… internally on the deal side of things.\"\n\nEmily signed off on the design \\[52:00\\]: \"I think like what we've been talking around here, Kobi, then I think you're good.\"\n\n**Not blocked on folder structure.** Agreed the POC proves file transfer and API calls first; folder hierarchy is iterative.\n\n**Confirmed scope boundaries:**\n\n* Target is **Google Drive via a service account**, not GCP proper. Kobi \\[53:00\\]: \"what we're proposing here, it's Google Drive, essentially, through a service account where we're storing everything. Very similar to Dropbox.\"\n\n* **No compression, no encryption** in scope — service-account security only.\n\n* Files tagged by proof type on upload (sign-up / deposit / wager).\n\n* Sign Up records keep the **link-paste** proof fields for Phase 1. Button-upload is the POC, not the Phase 1 UX.\n\n**#1 requirement — per-rep walled garden.** Joyce \\[43:14\\]: \"you should only have access and visibility over your own proofs… it's like a walled garden per rep\", plus \"a separate provision for like operations role to be able to see everything.\" Proposed hierarchy (not final): rep → player name → operator / sign up → date.\n\n**Client-side dependencies:** service account provisioning is \"an Alex thing\" (Emily \\[52:52\\]). Emily also asked whether the required Drive permission scope is documented in the design doc — Kobi owes that: \"It should. If not, I'll get that for you.\" \\[54:14\\]",
+          "created": "2026-08-10T13:11:03.926-0400",
+          "updated": "2026-08-10T13:11:03.926-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Proofs File Storage"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-200"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Awaiting Client Feedback",
+          "id": "10025"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "2",
+          "id": "10084"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Integration",
+          "id": "10056"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Sign-Up Proofs & Storage",
+          "id": "10069"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217037388971663"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000vz:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217037388971663"
+      }
+    }
+  }
+}

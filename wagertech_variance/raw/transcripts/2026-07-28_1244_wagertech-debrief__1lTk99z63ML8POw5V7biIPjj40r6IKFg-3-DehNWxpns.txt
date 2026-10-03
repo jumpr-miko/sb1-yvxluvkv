@@ -1,0 +1,329 @@
+📝 Notes
+Jul 28, 2026
+Wagertech Debrief
+Invited Kobi Kunasekaran Waleed Alasadi
+Attachments Wagertech Debrief
+Meeting records Transcript Recording
+
+
+Summary
+Technical integration review evaluated Salesforce and content management system connectivity with a decision favoring manual workarounds.
+
+System Integration Assessment
+Analysis of existing content management system architecture revealed a lack of Salesforce integration. Team members determined that syncing deal assignments necessitates complex cross-platform API calls.
+
+Resource and Timeline Constraints
+Significant resource challenges regarding Apex development jeopardized the July 31st user acceptance testing deadline. The team identified conflicting priorities between new automations and integration tasks.
+
+Strategic Implementation Decision
+Leadership decided to adopt manual workarounds instead of delaying the user acceptance testing deadline. This approach manages scope creep while deferring complex integration work to future phases.
+
+
+Decisions
+Needs Further Discussion
+* UAT and go-live strategy alignment The team is weighing whether to prioritize manual processing for the upcoming deadline or to delay the UAT timeline to accommodate new, complex integration requirements, pending a strategic decision from leadership.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Update Asana: Update the project management board to reflect the current backlog and remaining work. Ensure all recent additions are included for full project visibility.
+* [Kobi Kunasekaran] Document requirements: Consolidate the list of new requirements and items identified during the meeting. Organize these into a clear task list for review.
+* [Kobi Kunasekaran] Draft integration specs: Outline the technical requirements and process for the deal and deal rep assignment integration. Detail the connection steps needed between the systems.
+* [The group] Consult Emily: Discuss the UAT timeline and integration scope with Emily. Decide whether to proceed with UAT or adjust the go live plan based on current project requirements.
+
+
+
+Details
+* Project Status and Integration Needs: Waleed and Kobi invite Taryn to the meeting to discuss significant changes to the project. The team reviews the client's current CMS setup, and Kobi clarifies that while the client claims to have an existing object model, they appear to be using a table of users with a drop-down menu for country selection and entry fields for links, rather than a Salesforce-integrated architecture (00:00:00).
+* Integration Requirements for Deal and Rep Assignments: The team discusses the technical requirements for syncing deals and rep assignments between Salesforce and the client’s CMS. Kobi suggests that an upsert API call is the most efficient way to link deal information—such as the vertical, country, and Salesforce deal ID—to the CMS (00:03:02). It is established that while deal deactivation happens in Salesforce, the deal rep assignments are managed within the CMS, requiring the team to manage different payloads to sync statuses between the two systems (00:03:59).
+* Implementation Strategy and Resource Constraints: Kobi expresses concern regarding the timeline for developing API callouts from Salesforce to the CMS, noting it is a substantial undertaking. Kobi highlights that the team has other pending tasks, such as automating the signup logging process and addressing operator referrals (00:04:55) (00:08:42). Marc suggests using Apex for Salesforce-to-CMS communication and standard APIs for CMS-to-Salesforce interactions, though the team acknowledges that configuring these calls in Apex while Jester is busy presents a significant resource challenge (00:05:39).
+* Technical Implementation Details: The team explores how to trigger API calls for deal creation and updates. Kobi suggests using record-triggered flows in Apex to serve as the interface between the CMS and Salesforce. While Marc raises the possibility of scheduling periodic checks for updates, Kobi maintains that having the CMS call Salesforce via an upsert API whenever assignments are made is likely the simplest path (00:06:43).
+* UAT Deadline and Planning: Waleed emphasizes the need to finalize the schedule leading up to the UAT deadline on July 31st. Kobi expresses doubt about meeting this deadline if the API integration work must be completed simultaneously with other required automations. The team discusses the necessity of having a clear, transparent schedule of remaining tasks to ensure visibility for all stakeholders (00:07:42) (00:10:18).
+* Asana Board and Project Visibility: To improve project oversight, Kobi plans to update the Asana board by reconciling it against current documentation. Kobi mentions utilizing a tool built with Claude to streamline this approval and reconciliation process. Kobi also intends to begin scoping out the specific requirements for the deal and deal rep assignment integration to facilitate further team discussions (00:09:23) (00:11:09).
+* Risk Mitigation and Manual Workarounds: The team evaluates whether to push the UAT deadline or adopt a manual workaround while the integration is developed. Waleed and Kobi agree that pursuing a manual approach is preferable to delaying UAT, especially considering the current lack of end-user testing and the potential for "scope creep" from the client's product manager, Joyce (00:11:09) (00:14:36).
+* Operational Process and Stakeholder Management: The discussion touches on the transition of client operations staff from spreadsheets to the new tool, which represents a significant process change. Kobi notes the possibility of having Salesforce manage link storage entirely, bypassing the need for the CMS to handle it, though the client's current data model may not support this yet (00:12:46). The team concludes they will prepare to meet with Emily to align on V1 priorities, grounding the project scope and determining whether to power through for UAT while deferring the complex integration work (00:15:30).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 28, 2026
+Wagertech Debrief - Transcript
+00:00:00
+
+Kobi Kunasekaran: Yes.
+Waleed Alasadi: Um, should should we invite Taran here?
+Kobi Kunasekaran: Uh yeah, let's do it.
+Waleed Alasadi: Yeah,
+Kobi Kunasekaran: We get to our
+Waleed Alasadi: I know she has uh lunch booked, but I think just and maybe Jester even I don't know.
+Kobi Kunasekaran: point.
+Waleed Alasadi: I was just like, do you want to talk through the project real quick? I don't know. Up to you.
+Kobi Kunasekaran: Yeah,
+Waleed Alasadi: I don't know.
+Kobi Kunasekaran: let's let's add them in. Uh it'll be good cuz this is a pretty big change that they're asking for there is.
+Waleed Alasadi: And like there's still lots to go to be honest uh for this week
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: and Jester has um lum so I just want to see how that's
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: going. Like I mean I know I I have no idea how much how he's managing both to be honest.
+Kobi Kunasekaran: Okay, I sent him link. Um, yeah. No,
+Waleed Alasadi: But at first But first,
+Kobi Kunasekaran: he's Yeah,
+Waleed Alasadi: it looks good, man.
+
+
+00:01:02
+
+Waleed Alasadi: It looks really good.
+Kobi Kunasekaran: thank you. Thank you. He's he like Jester is doing great. Like I mean I'm doing a lot of the UI stuff and he's helping on the flows.
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: So that's that's how I'm like making use of his time because he doesn't have time to like go through all the iterations. But yeah, man. I'm learning a lot about Salesforce. Like all these emojis and adding logos and all these things. Not something I'm used
+Waleed Alasadi: Hey Taran.
+Taryn Reithofer: Okay.
+Waleed Alasadi: So sorry we I know we had a long meeting but this was a significant last like hey here you go.
+Kobi Kunasekaran: to.
+Waleed Alasadi: Okay. Bye. Um yeah.
+Taryn Reithofer: Mhm.
+Waleed Alasadi: Um, how how does she have she says when I asked her if she has it built in the CMS, she said yes. There's no way that we have that object model
+Kobi Kunasekaran: because that they have like they were using
+Waleed Alasadi: built.
+Kobi Kunasekaran: their CMS previously to manage the activations, right?
+
+
+00:01:59
+
+Kobi Kunasekaran: I think that's what she's talking about when she says they have it. They don't have the whole like Salesforce connection and the concept of like deals and stuff. What they have is they have a list of like they have a table of um users and there is a drop down for the country and um there's an entry field for the uh link that is going to be activated for that person. At least like last time we like went through their system they had that much. So that's how they're activating these uh books for different people. like there is a books object as well where where like I think it's very close to what they have in air table um where they're like linking it to the users and activating it. So I have a feeling that's what she's talking about that's like already built not necessarily anything new that they've added recently tied to Salesforce.
+Waleed Alasadi: like as I understand the requirements they have to like there I don't know about their books object but they may have to have like ad or like a deal object created in their CMS.
+
+
+00:03:02
+
+Waleed Alasadi: Um, so that's being kind of like communicated to with Salesforce.
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: This whole like active inactive has to like again be filtered in their CMS, not in like through the connection.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Um,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: so that's that. And then when that deal object is associated, they have to create again like they have to I guess I don't know how much like if you if like they're just going to send you an event uh API and say hey I did this association and then you make up this data into like a deal assignment object or they have to create that same record there and then sync it to us.
+Kobi Kunasekaran: I'm thinking the upsert is probably going to be the easiest way, right? Like we give them the parameters or like the fields that they need to create. Um, and assuming they have the deal ID from Salesforce captured in their system, which is that first part, right? Like they create the deal, the deal record, and we send that to the CMS and likely update their existing books object or whatever new object that they have.
+
+
+00:03:59
+
+Kobi Kunasekaran: So that will link the the deal information like the vertical uh state, country, um, and the deal the Salesforce deal uh together. And then when they add the rep assignment there, so now they have the rep ID and the deal ID. Those two are the minimum requirements to create a deal assignment. So they could just go in today and like create a do like a upstart API call uh or a post call to create those records just based off of those two because that's what's linking the deal and rep together in Salesforce. So they just create like a DRRA child record. Now the statuses themselves is where it get complicated. So it's not just like a single payload, right? They're not just creating the like so they create it and then they have to now manage it. So it is going to be like okay so when they change the status from activated to deactivated they now need to put together like another payload to send to Salesforce and that could be again another upsert because all the ids are uh like sync between the two systems.
+
+
+00:04:55
+
+Kobi Kunasekaran: So I don't think it's too complicated.
+Waleed Alasadi: I thought they're managing that in Salesforce.
+Kobi Kunasekaran: No the rep the the deal rep assignment is getting like basically what they're doing is moving that to the CMS.
+Waleed Alasadi: Sorry,
+Kobi Kunasekaran: So TMS is driving it.
+Waleed Alasadi: you was talking about the deal rep assignment deactivation. Okay.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: I thought you was talking about the deal deactivation.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Okay. Okay.
+Kobi Kunasekaran: No,
+Waleed Alasadi: You don't think you So, you're fine.
+Kobi Kunasekaran: the D activation they're doing that in Salesforce.
+Waleed Alasadi: You're fine with the Yeah. So, you're fine with that?
+Kobi Kunasekaran: I I I think we need to scope out how Salesforce is going to talk to the system. That's going to be like a big bigish undertaking. Um because we have to figure out authentication. I don't think I don't know if they know how much work that's going to be. Um the other other the flip side I'm not actually worried about like you know them sending the information I'm not actually worried about.
+
+
+00:05:39
+
+Kobi Kunasekaran: we just have to give them the fields to set and uh when to set each field for the behavior that we want. Um because they're already doing that for the SLC, right? So I don't know if that's going to be a problem,
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: but yeah, it's the other way around. That's going to be a bigger undertaking for us.
+Waleed Alasadi: Subjuster
+Kobi Kunasekaran: adjuster is busy and I don't like we need people that can set up uh these API calls in Apex that do do those call outs,
+Waleed Alasadi: Jester, how would you do it?
+Kobi Kunasekaran: right?
+Waleed Alasadi: How would you send like let's say that they want to send the deal? Um, so like when when it is it when a deal is created, I guess like when a deal is created, do you want to send it to like their CMS through an API call and then when it's updated,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: do you want to do the same? Um,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: how would you do that?
+Marc Cabantog: Yeah, for Salesforce to CMS like I think that's Apex and then if CMS can call out to Salesforce like we can use the standard um standard API Salesforce API if they can call
+
+
+00:06:43
+
+Waleed Alasadi: But then it would they will need to refresh, right? Like it won't be real time.
+Marc Cabantog: that.
+Waleed Alasadi: They'll be like call out every like hour or something for updated deals.
+Marc Cabantog: Yeah.
+Kobi Kunasekaran: Well, no. Like from the Salesforce side,
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: we can we can trigger those API calls whenever like similar to any record created flows, right? If we want to like let's say like they they create the uh create a record. Um, we could have the apex class like the apex class is basically the the interface between CMS and Salesforce, but we could trigger uh the actual callouts and pass the information from the deal through record triggered flows. That's kind of how we did it with uh uh what is it? I want to say knock or one of those tools. We did it kind of the other way around. Just pull data in, but it's possible to do it do it uh like reverse as well.
+Marc Cabantog: Yeah, but we we might need to schedule like to check for updates on CMS, right?
+
+
+00:07:42
+
+Marc Cabantog: And then apply it on Salesforce instead of CMS just calling Salesforce whenever it has some updates.
+Kobi Kunasekaran: Well, right now I think it sounds like we're scoping it out so that they are going to call Salesforce whenever there's an update. So as they're doing the assignments and stuff, I I I think that might be the simplest way is is for them to like use the obser API to do the like insert the deal wrap assignment records
+Waleed Alasadi: Okay.
+Marc Cabantog: Yeah.
+Waleed Alasadi: So, Kobe, I think like Yeah,
+Kobi Kunasekaran: directly.
+Waleed Alasadi: look, we gotta go back. Um, listen, if we're going live July 31st, h sorry, if we're going to UAT, sorry, u um at the end of the week, um it's Tuesday, so we have to have a walkback schedule right now.
+Kobi Kunasekaran: That could happen.
+Waleed Alasadi: And then implications like I think it makes sense if like the URL object or whatever like maybe we can
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: fit in but like maybe we do use Salesforce. I don't know but like maybe like we should do that this
+
+
+00:08:42
+
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: afternoon.
+Kobi Kunasekaran: I don't think I'm not confident that we can get the API call outs from Salesforce to CMS done in in a week.
+Waleed Alasadi: That's fair, right?
+Kobi Kunasekaran: Yeah. because we also have a lot of other stuff to do too,
+Waleed Alasadi: Like it's it makes sense.
+Kobi Kunasekaran: right? We have a lot of um automations to still hook up um for the signup logging process. and they haven't even started giving us feedback for uh the accounts like the operator referral or anything like that. So, we haven't even touched those.
+Waleed Alasadi: I haven't checked.
+Kobi Kunasekaran: So,
+Waleed Alasadi: Is the Asana board have you been Have you had a chance to update
+Kobi Kunasekaran: no, no, no,
+Waleed Alasadi: it?
+Kobi Kunasekaran: not yet. It's on it's on my to-do list for today.
+Waleed Alasadi: Um,
+Kobi Kunasekaran: We're working off of a different document if you want to see that document actually because it's a lot it's a lot
+Waleed Alasadi: is it? Well,
+Kobi Kunasekaran: faster. What double s***?
+
+
+00:09:23
+
+Waleed Alasadi: I I think it's key at this at this stage like the there's a lot of like still a lot
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: of ideas being thrown out like there's still work that's still open. Um so I think like we should like exercise the maximum visibility. We saw their CEO, you heard him, Chester.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Um I think we should protect ourselves and hey Taran, maybe it's not too early. like if like there's a way I don't know Kobe like if Taran can help like update Asana. Um but I don't know like there may not be context so like I'll leave it up to
+Kobi Kunasekaran: Um uh I'm going to work through it with claude.
+Waleed Alasadi: you.
+Kobi Kunasekaran: I have had it like build a HTML approval thing where it reconciles this document against Assada. It's really cool um because I can like approve and deny like make changes and then it'll do everything in one go. So that's how I did it when I created the stories. uh initially and um I started it yesterday but I I'm I need time to finish it.
+
+
+00:10:18
+
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: So I I'll do it. I'll get it reconciled but yeah man like I think if we have to do the API call out we're not going to hit the timeline for this um given everything
+Waleed Alasadi: Okay. Listen, I was really hoping that today like right like the Tuesday before like the the UAT is that we're like
+Kobi Kunasekaran: else.
+Waleed Alasadi: less about obviously updates of configuration and more like a status update of the remaining steps.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Um so if we are going to hit the 31st like we have to clarify the remaining steps. If you think Assan is too much, like I sorry I have not seen this,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: but maybe we we just need a simple like here's like the walk back from UAT and he's responsibility and
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: then you're right like the whole like and here's the extra things that you told us on Tuesday before go live before UAT,
+Kobi Kunasekaran: Yeah. Because we we have a laundry list of items from today as well to bake in,
+
+
+00:11:09
+
+Waleed Alasadi: right?
+Kobi Kunasekaran: right? So,
+Waleed Alasadi: Yes,
+Kobi Kunasekaran: I'll I'll create those.
+Waleed Alasadi: exactly.
+Kobi Kunasekaran: I'll get the setup board updated and then I'll I'll start specking out what the the connection and process could look like for the deal and deal rep assignment with their servers. Um, and then we we'll start the discussion. I don't think that they would be able to get it updated in time either based on how they've been going.
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: So,
+Waleed Alasadi: So, let me ask you something in like honest answer. Honest answer. If this was not brought up today, like let's forget this whole thing was not brought up today. Are we are we go were we going to hit the UAT go like deadline on
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Tuesday?
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Okay. So,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: I think if that is the case and I and I I knew that I just wanted to double check. Um, honestly, like I feel like if Your recommendation would be to like go the manual way while they're doing this.
+
+
+00:12:03
+
+Waleed Alasadi: I feel like that's better. No, like or or there's a push to pushing
+Kobi Kunasekaran: as opposed to like pushing it until everything's
+Waleed Alasadi: it. Yes.
+Kobi Kunasekaran: ready.
+Waleed Alasadi: Like they're they're again they're a different type of customer. Their CEO is unhinged.
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: Um, I feel like it's good to like there's been a lot of a lot of management putting the ideas like we still haven't seen sales reps like actually like come in and like use it. I don't know.
+Kobi Kunasekaran: Yeah. I mean,
+Waleed Alasadi: It just seems like Yeah.
+Kobi Kunasekaran: today was the first time they've seen it like those two
+Waleed Alasadi: And they're not even like sales reps.
+Kobi Kunasekaran: guys.
+Waleed Alasadi: You got the whole operations people, not the the end user end
+Kobi Kunasekaran: Yeah. Yeah.
+Waleed Alasadi: user.
+Kobi Kunasekaran: No, I agree.
+Taryn Reithofer: Is that who like Jay and Owen are?
+Kobi Kunasekaran: I agree.
+Taryn Reithofer: Is that who you're talking
+Waleed Alasadi: Yeah. Like Taran again, you'll get to know this beautiful organization,
+
+
+00:12:46
+
+Taryn Reithofer: about?
+Waleed Alasadi: but these people used to be uh like sales reps and then they moved into like operations roles, but they're all like players and they're all referers. Like he would also be a refer like you know what I mean?
+Taryn Reithofer: Good
+Waleed Alasadi: So, but there's 23 of them that are just sales reps.
+Taryn Reithofer: morning.
+Waleed Alasadi: Well, I guess Owen won't be a sales rep, right? Like Owen is is pure ops, so he won't also sell.
+Kobi Kunasekaran: I mean, he's going to be the main person that's managing a lot of the like the deal management,
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: prep assignments and stuff anyways, right? So, it's it's actually a huge process change for these guys as well. Like, yeah, the sales reps, you know, they're they're moving out of the uh spreadsheets and everything. It's actually I think we're making it a lot easier for them but uh these guys are getting like a new tool that they have to learn and then if we have to do this whole like uh syncing between CMS and
+
+
+00:13:42
+
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: Salesforce um like he's right to point out that it's it is two systems they have to maintain now. Um, like
+Waleed Alasadi: Which why does he need to be in the CMS then?
+Kobi Kunasekaran: I
+Waleed Alasadi: Because can we push back on that? like is there a need for him to be in the CMS?
+Kobi Kunasekaran: Yes,
+Waleed Alasadi: Yes.
+Kobi Kunasekaran: because like that's where they do the ultimate activation of the links to the reps uh so that it shows up on their website, right? I I was like I I was hoping we could actually transition towards Salesforce managing the whole thing end to end. So yeah, there's nothing stopping us from like we'll have like another object to store all the links. Uh right like they'll add all the links and then they could uh the same way as like when they create the rep assignments they could also have another step where they assign those links over it and then all of that could be technically pushed over to the CMS.
+Waleed Alasadi: I mean, it won't be a bad idea to suggest it.
+
+
+00:14:36
+
+Kobi Kunasekaran: But yeah, I mean that that we we did though.
+Waleed Alasadi: No.
+Kobi Kunasekaran: We did like that that was the initial plan. Like that's how I also uh mentioned it a couple times in the uh in the deal rep assignment combo we had a couple weeks ago. Um, but I in order for that to happen, they need to have their CMS data model matching Salesforce. I think they're not ready to do that yet.
+Waleed Alasadi: All right. Well, anyway, I'll leave I'll leave it to you guys if that's now thing. But just yeah, like I feel like my my only thing is July 28th,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: I don't think they have like Joyce seems to be like asking the right questions about urgency and um like quick steps,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: but it just Yeah, it I don't know that she knows the implications. It seems like to
+Kobi Kunasekaran: Yeah. I think this is more of a Emily conversation to ask her like where we should focus. So, we'll do all the due diligence.
+
+
+00:15:30
+
+Kobi Kunasekaran: I I'll get the ASA board updated and then add in all the other work that we need to do, get like bring a little bit of visibility into what's left before we can go live and then scope out what we need to do for this integration that they want. Um and and then we can have a conversation on whether we need to hold back UAT or do we power through for UAT and then work on this long on the side and push the actual go live until everything's ready. Um we could we could have that conversation with Emily. Yeah,
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: I think if you leave it to Joyce, he's going to keep asking for more things. He's typical product manager just like trying to squeeze in and scope creep just keeps going up. I mean, they're they're good ideas, but um we need Lena and Emily to kind of ground her to bring her back to like what's absolutely necess necessary for V1.
+Waleed Alasadi: All right. Thank you.
+Kobi Kunasekaran: Awesome. All right, thanks guys.
+Taryn Reithofer: See?
+Kobi Kunasekaran: We'll we'll chat soon.
+Waleed Alasadi: All right.
+
+
+Transcription ended after 00:16:58
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

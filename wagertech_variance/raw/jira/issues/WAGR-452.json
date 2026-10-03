@@ -1,0 +1,189 @@
+{
+  "id": "11433",
+  "key": "WAGR-452",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T17:49:43.485-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 3,
+      "key": "done",
+      "colorName": "green",
+      "name": "Done"
+    },
+    "resolution": {
+      "id": "10001",
+      "description": "This issue won't be actioned.",
+      "name": "Won't Do"
+    },
+    "resolutiondate": "2026-09-29T17:49:43.446-0400",
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-25T09:24:06.683-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-29T17:49:43.485-0400",
+    "status": {
+      "description": "",
+      "name": "Cancelled",
+      "id": "10066",
+      "statusCategory": {
+        "id": 3,
+        "key": "done",
+        "colorName": "green",
+        "name": "Done"
+      }
+    },
+    "description": "### Summary\n\nThe Deal's sync fields show only the latest result. When something goes wrong across several Deals, or the CMS disputes what was sent, the team needs the actual requests and responses. Cedrick proposed a CMS Sync Log (Sep 11). WAGR-361 parked a generic integration log. This task builds one small log that the later DRA inbound phase can reuse.\n\n_Optional: Kobi decides whether to build it now or defer it (see Open Questions)._\n\n### Work Required\n\n1. Create an object, for example `Integration_Log__c`, with these fields:\n\n    * Integration (picklist: \"CMS Deals Webhook\")\n    * Direction\n    * Started/Finished\n    * HTTP Status\n    * Deals in Call\n    * Outcome Summary (for example \"3 ok, 1 409\")\n    * Request Body and Response Body (Long Text, truncated at the field limit)\n    * Error\n    * Attempt #\n    * Correlation Id (the `sent_at` value plus a unique token)\n    \n2. The sync service writes one row per call, including failures and pre-validation-only runs.\n3. A scheduled purge deletes rows older than a set retention period (suggestion: 90 days).\n4. Read access for Admin and Ops. Create access for the integration user only.\n\n### Done When\n\n* Every call in a staging test run has a log row whose request body matches what the CMS received.\n* No row contains a key or password.\n* Rows older than the retention period are removed by the scheduled purge.\n\n### Open Questions\n\n* Build now or defer? The recommendation is to build now. It's small, it's the main debugging tool during the staging test, and Phase 3 reuses it.\n* Generic (`Integration_Log__c`) or CMS-specific (`CMS_Sync_Log__c`)?\n* What retention period?\n\n### References\n\n* Design doc (Confluence page to follow) §5.2, §8\n* Proposed to supersede WAGR-361\n\n",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [],
+    "summary": "CMS Sync — Integration log (per call) — optional",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11584",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Deferred/cancelled for V1 by the current design. V1 uses Deal-level sync state + Field History where useful + diagnostic notifications; a dedicated per-call Integration Log object can be reconsidered later if those mechanisms prove insufficient.",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-29T17:49:03.177-0400",
+          "updated": "2026-09-29T17:49:03.177-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i00873:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

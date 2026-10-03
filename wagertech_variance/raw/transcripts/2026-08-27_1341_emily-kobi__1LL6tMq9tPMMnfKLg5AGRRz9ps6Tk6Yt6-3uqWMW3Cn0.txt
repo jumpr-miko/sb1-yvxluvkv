@@ -1,0 +1,269 @@
+📝 Notes
+Aug 27, 2026
+Emily / Kobi
+Invited Kobi Kunasekaran emily@wagertech.bet
+Attachments Emily / Kobi
+Meeting records Transcript Recording
+
+
+Summary
+Strategy discussion regarding currency logic for deal systems and signup records to ensure accurate financial reporting.
+
+Currency Logic Definition
+Deal currency defines affiliate payments rather than signup payouts. It was decided that signup currency must be stamped directly on the record instead of using formula fields.
+
+Market Mapping Strategy
+Market countries dictate default payout currencies to ensure accurate regional handling. Payout structures remain based on USD with foreign exchange conversions applied for local disbursements.
+
+Player Financial Aggregation
+Player currency defaults to their country of origin and remains editable for address changes. Future financial aggregations will utilize historical conversion rates to display totals in base currency.
+
+
+Decisions
+Needs Further Discussion
+* Combined US and Canada deal logic Implementation of deals spanning both US and Canada requires further confirmation to determine if this configuration is supported or if separate records are necessary.
+
+
+Aligned
+* Default signup currency mapping Default signup currency is set based on the deal's market country, with the capability for operations to manually override the value as needed.
+* Default player currency mapping Default player currency is set based on the player's country, with the value remaining editable to accommodate future adjustments.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Update Signup Currency: Implement logic to default the signup currency based on the market country defined in the deal record. Ensure this field remains editable for operations staff.
+* [Kobi Kunasekaran] Set Player Currency: Assign the initial player currency based on the player country. Allow this value to remain editable for future updates.
+* [Emily Vandenberg] Verify Market Logic: Consult with Joyce to confirm if deals can span both Canada and the US or if they must be maintained as separate market records.
+* [Emily Vandenberg] Verify Payout Structure: Discuss the payout and foreign exchange conversion structure with Lena to ensure accurate financial tracking.
+* [Emily Vandenberg] Pass Country Data: Provide the player country information to the technical team to ensure it is correctly passed into the system.
+
+
+
+Details
+* Currency Definitions in Deal Commercial Terms: Emily Vandenberg explained that the currency field under commercial terms in a deal specifies how affiliates pay Wager Tech (typically in USD) rather than how Wager Tech pays out signups (00:00:49). Kobi Kunasekaran summarized their understanding that clicks currently all enter as CAD, and signup currency should not default to the deal's backend commercial currency (00:01:54).
+* Signup Currency Logic and Player Relocation Edge Cases: Emily Vandenberg and Kobi Kunasekaran discussed how the market assigned to a deal serves as an identifier for the signup currency. They identified an edge case where a player might initially sign up on a Canadian book and later move to the United States, allowing them to sign up for US books with referral payouts in USD (00:03:07). Kobi Kunasekaran concluded that formula fields based on the player should not be used automatically, and the currency must instead be stamped directly onto the signup record (00:04:35).
+* Deal Market Country Mapping and Multi-Country Deals: Kobi Kunasekaran proposed mapping deal market countries directly to signup payout currencies, where Canadian market countries map to CAD and US market countries map to USD (00:05:40). Kobi Kunasekaran raised a question about whether deals can span both the US and Canada simultaneously, prompting Emily Vandenberg to state they would consult with Joyce to confirm if combined market country options are viable or if they should remain separate (00:07:03).
+* Contract Payout Structures and Foreign Exchange Handling: Emily Vandenberg reviewed contract payout details, noting that success pay rates are structured in USD and converted into Canadian payouts via foreign exchange handling in the payout module. Emily Vandenberg stated they would confirm this payout structure and referral currency configuration with Lena (00:09:39). Meanwhile, Kobi Kunasekaran planned to set the default signup currency from the deal based on the market country while keeping it editable for operations, leaving room to add a separate payout currency field during future payout discovery (00:11:53).
+* Player-Level Currency and Redeposit Tracking: Kobi Kunasekaran and Emily Vandenberg discussed whether player records require a currency field for future financial aggregates, such as total amounts paid to a player (00:13:07). Kobi Kunasekaran proposed setting the initial player currency based on the player country, making it editable for address changes, while redeposits will follow the deal country's currency (00:14:08). Kobi Kunasekaran explained that future currency aggregations will apply historical conversion rates and display totals in the player's base currency (00:16:16).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 27, 2026
+Emily / Kobi - Transcript
+00:00:49
+
+Emily Vandenberg: Hey, Kobi.
+Kobi Kunasekaran: Hey,
+Emily Vandenberg: Thank you. This was just easier.
+Kobi Kunasekaran: I
+Emily Vandenberg: I was like typing and I'm like I feel like it it will just make it more confusing. Um we're matching with our peachy red. Yeah.
+Kobi Kunasekaran: Yes,
+Emily Vandenberg: Um okay.
+Kobi Kunasekaran: we are.
+Emily Vandenberg: There's a few. So just talking about currency. Um there's like a few things that I just want to talk through so you kind of understand what I was saying by the market country.
+Kobi Kunasekaran: Fore.
+Emily Vandenberg: So the commercial terms of the deal which would be labeled in the currency field don't always match what we would pay have the currency we would pay out to the sign up. So that's just telling you how they're going to pay like what funds they're going to pay us in. And typically they pay us in USDU and it's our affiliates. So that can't be assumed. Currency to currency can't be assumed. But what I was trying to say is that the market country set by the deal can be like a currency um assumption.
+
+
+00:01:54
+
+Emily Vandenberg: So if you're in Canada, the deal's in Canada, we're going to pay out the sign up in Canada, Canadian currency. So the deal can infer the currency at the signup level, but it's not at not how we define it in the currency
+Kobi Kunasekaran: Uh, okay. So,
+Emily Vandenberg: field.
+Kobi Kunasekaran: let me see if I understand correctly. So, you you have your deal and the deals are set up with the currency. Um, and then you have the clicks that come in. Um, and those clicks would be uh for like whether it's a US deal or Canadian deal, doesn't matter. Um, right now they're all coming in as CAD for all of those clicks. Um, and when we create the signup record from that lick that comes in, um, the currency for that signup, uh, shouldn't be the one from the deal.
+Emily Vandenberg: No, because the commercial terms is just telling like how like that for that deal how we will get paid like on our back end but not how we'll forward like we'll
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: pay out.
+
+
+00:03:07
+
+Emily Vandenberg: So it the market um that the deal is assigned
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: to will be the identifier if you can like create logic around it. Um but not the currency cuz they're
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: just they're just using currencies for two separate um
+Kobi Kunasekaran: So, so um if a deal is for Canada and we
+Emily Vandenberg: Thanks.
+Kobi Kunasekaran: have signups coming in from like various regions um and not well when I say Canada like the market for the deal is Canada um your payout regardless of where the player comes from is going to be Canadian.
+Emily Vandenberg: The player can only come from Canada.
+Kobi Kunasekaran: penalty pump from Canada. Okay. So then
+Emily Vandenberg: So then that takes me to my next thing in which it is a bit of an edge case,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: but we technically could have a player in our ecosystem that has like that they come in as a Canadian like on a Canadian book like the book really defines currency from a payout perspective. um and then maybe two years down the road they move to the US which they're then eligible to sign up for books in the US they would come through and if they signed
+
+
+00:04:35
+
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: up then the rep's payout would be uh you and like um and the referral
+Kobi Kunasekaran: in USD that title.
+Emily Vandenberg: USD
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Uh okay. So that means we shouldn't just uh automatically use formula fields based on player. We need to stamp it on the sign up.
+Emily Vandenberg: That's the
+Kobi Kunasekaran: Uh and so the Okay,
+Emily Vandenberg: uh
+Kobi Kunasekaran: I think I think it makes sense. So the deal you you have a currency on the deal, but that's actually like what wager tech is getting paid for the
+Emily Vandenberg: Unless you want to create a new field which is
+Kobi Kunasekaran: deal
+Emily Vandenberg: like sign up, you know what I mean? Sign up currency.
+Kobi Kunasekaran: like pay out currency or sign up currency.
+Emily Vandenberg: But the way you currently have currency,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: it's under commercial terms and it's just not Yeah.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: going to work that way.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: You can Yeah, I guess you could solution it a few different
+
+
+00:05:40
+
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: ways.
+Kobi Kunasekaran: So, it sounds like I we depending on if the deal market country is Canadian or US, that's what's going to determine the currency for the payout for the signups.
+Emily Vandenberg: Say it again. Sorry.
+Kobi Kunasekaran: So the market currency for The deal determines the payout currency for the sign
+Emily Vandenberg: The market country.
+Kobi Kunasekaran: up.
+Emily Vandenberg: Yes. For the deal determines the payout
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: currency.
+Kobi Kunasekaran: And then not necessarily the deal currency. So yeah. Okay. So I think what we'll do is like we'll do like a mapping, right? It's simple like if it's Canadian uh sorry if the market country is Canadian or Canada then uh currency is CAD and if market country is US currency is USD uh do we are are we going to have deals where uh the country could be both and in that case should we make it selectable
+Emily Vandenberg: But the deal is defined by market by the combination of market, country and state.
+Kobi Kunasekaran: Yeah. But one of the options for market country um we have is US and Canada because I think that that that was supposed to be one of the options.
+
+
+00:07:03
+
+Kobi Kunasekaran: You might have deals that span both.
+Emily Vandenberg: Okay, I think I need to talk to Joyce about that cuz I didn't like I thought like the unique like what made it a deal was like the um unique market country market um state combination.
+Kobi Kunasekaran: Yeah. And it is like I think that's the case for most for the most part. Um but she wanted that option for deals that span both countries. So we have like an option for market country to be Canada and US at the same time.
+Emily Vandenberg: Yeah. I just don't think that would work though cuz like let me take that back with her just to make sure I'm not missing something. But like if I think of it, it would break break everything if you if you put them
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: as like combined. They should be separate. Like that's how we treat them.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: And then they have separate links. And um yeah,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: let me just confirm with her.
+
+
+00:08:16
+
+Kobi Kunasekaran: Okay. If Yeah. If we don't need that option, then it becomes simple like we just map we have like a payout currency or something like that on the deal that's based on the market country and then that's the currency that we would stamp on the signup. Um and then for the player ideally like it we would do the same thing based on the player country. So if we get the player country we can just set the currency based on that and then that could be changed later, right? Um, and then for future signups,
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: if that same person goes to the US and signs up, presumably the deal payout currency would be US. So that's that would be uh what the new signups would be logged under for the same
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: player.
+Emily Vandenberg: And then Okay, let me just confirm. Yeah. Um I'm because we now I'm like like tripping. Um let me go into contracts here. Um I just need to make sure cuz like we do a we pay out in USD but then yeah cuz then we said we have like the logic to there's like then we would apply and we we'll get there in the payout.
+
+
+00:09:39
+
+Emily Vandenberg: Let me just quickly look at something. Sorry, I don't want to
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: um say sign up by the manager. Um, yes. Okay, hold on.
+Kobi Kunasekaran: That's
+Emily Vandenberg: US contractors referring referral pay
+Kobi Kunasekaran: good.
+Emily Vandenberg: referring. Oh my, US clients Canadian referral pay contractor um brand manager success USD 40 Canadian Santa for quality. Yeah. Um the success pay rate for each is in USD and they have a Canadian which is a conversion. Yeah. like the I think the payout module has to handle the like like that when we get there. So it's like we pay $25 you or um yeah we pay USD $25 USD per sign up and then they like it gets converted into Canadian which like translates into but like that's how the structure is set. So market um country indicates like the currency we pay out or the I guess not the currency because
+Kobi Kunasekaran: Okay, I feel it.
+Emily Vandenberg: um but the payout structure because right which equals so like that equals 25 US and then FX handles whatever that means in can in Canadian payout.
+
+
+00:11:53
+
+Emily Vandenberg: I can confirm that with Lena.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Um
+Kobi Kunasekaran: Cuz like there's also like the concept of like referrals as well, right? And the referral currency that determines the payout or
+Emily Vandenberg: yeah and we'll set that we will set that um and that will stay
+Kobi Kunasekaran: referrals. Yeah.
+Emily Vandenberg: yeah at a referral
+Kobi Kunasekaran: Okay. Okay. So maybe like uh for now since it sounds like we'll
+Emily Vandenberg: Double.
+Kobi Kunasekaran: revisit payouts when we start like going through the discovery for it and we can come back and update that. So maybe what I can do for now in uh for the currency for the sign up is uh make it I mean we already have the field to set it and I will set it from the deal based on the market country um as a default and then uh it is surface for ops.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: So if you do need to change the default currency on the signup, you could. And then when we implement payouts and if that needs like a separate field to track payout currency or anything like that in addition to like the base signup currency, uh we could we could add that in uh at that
+
+
+00:13:07
+
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: point.
+Emily Vandenberg: And then player like I don't know if you just cuz I don't really know if you need the concept of a currency at a player like um but because it really rolls up under like the book um or the deal but you tell me if you need something
+Kobi Kunasekaran: Right.
+Emily Vandenberg: passed. I going to look into why it's not passing, but we will have it in the we will have it to pass you like where they've signed up from the the country that they've signed up with as like the country they belong
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: to. I just don't know if you need currency at a player
+Kobi Kunasekaran: Okay. I mean,
+Emily Vandenberg: level.
+Kobi Kunasekaran: right now we don't I'm just like future thinking because uh we're probably going to have like, you know, total amounts paid paid to the player and things like that added later. So those are the like currency fields that are governed by the player record at least as far as like what's being displayed, what's being added up.
+
+
+00:14:08
+
+Kobi Kunasekaran: So like the payout objects is separate like whatever currency we set on those records is what going to show up there.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: But then when we like if we want to start doing aggregates, right? Like right now we just have like total signups. So it's just a flat like number of signups. So accounts there's no currency concept. But if we want to start adding up the amounts that we paid to a player or redeposits or things like that, that's when the currency field comes into play. So I mean if we don't need it right now, we can we can leave it out. Um or once uh I can do the same thing as we're doing for deal um where we set the player country based on the the sorry where we set the player currency based on the player country for now and then it can still be editable so you can change it later if they if they move or change addresses or anything like that. It's not going to have any implications on signups or any other record at this time.
+
+
+00:15:01
+
+Kobi Kunasekaran: So it's just it's just like a currency field for now. I just want to make sure there's there's some value and that it's not all default to
+Emily Vandenberg: Yeah. Yeah. Okay. Yeah.
+Kobi Kunasekaran: Canadian.
+Emily Vandenberg: I think um we definitely shouldn't default to Canadian. So, you can assume based on the country that they sent up, I'll get that sorted. So, we're sending. But it's just the cases of like it really is the the like total should come from like whatever the current like whatever we're um tracking from the
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: deal cuz like at the redeposit
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: level you're just going back you're just redepositing against a deal right and so then you would assume the same currency.
+Kobi Kunasekaran: correct. Yeah.
+Emily Vandenberg: So like the redeposit will follow the deal
+Kobi Kunasekaran: Yeah, that that makes sense.
+Emily Vandenberg: country.
+Kobi Kunasekaran: So I I I think like what I meant by like the player country governing the currency field on the player is like if we do have a person like in that edge case where they were initially Canadian and then move to state so they could have uh payouts in both currencies we would add them up and store it in like a currency field.
+
+
+00:16:16
+
+Kobi Kunasekaran: So when it's being added up it's going to respect each currency's conversion rate at the time that we do the uh the aggregation. And then when it's displayed on the player record, uh it's going to be displayed with the base currency of the player. So if if they're set to Canadians, then you'll have everything convert to Canadian and show up uh in the those currency fields.
+Emily Vandenberg: got
+Kobi Kunasekaran: Um so yeah,
+Emily Vandenberg: it.
+Kobi Kunasekaran: I think let's let's use the player country for now um and set the currency. It can always be changed and then if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: point.
+Emily Vandenberg: for sign up then you'll go with market country um from the deal and then I
+Kobi Kunasekaran: Yeah. Yeah.
+Emily Vandenberg: will figure out passing the country to you.
+Kobi Kunasekaran: Yeah. And then let me know about the Canada and US deals if that's still a thing or if we don't need to worry about that case
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: anymore.
+Emily Vandenberg: I'm going into a meeting right now um with Joyce, so I'll ask her.
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: Cool.
+Kobi Kunasekaran: awesome.
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: All right,
+Emily Vandenberg: thank you.
+Kobi Kunasekaran: this is good. Thanks,
+Emily Vandenberg: All right.
+Kobi Kunasekaran: Emily.
+Emily Vandenberg: Thanks.
+Kobi Kunasekaran: Talk to you later.
+Emily Vandenberg: Bye.
+Kobi Kunasekaran: Bye.
+
+
+Transcription ended after 00:17:56
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

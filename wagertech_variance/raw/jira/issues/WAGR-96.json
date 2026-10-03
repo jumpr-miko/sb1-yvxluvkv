@@ -1,0 +1,179 @@
+{
+  "id": "10310",
+  "key": "WAGR-96",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-09-01T11:14:47.804-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:47.950-0400",
+    "status": {
+      "description": "",
+      "name": "Ready",
+      "id": "10059",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "**PLACEHOLDER — raised 2026-09-01, needs design before build.**\n\n## Requirement\n\nA rep-facing \"My Assignments\" view on Deal Rep Assignment, scoped to the running user's own assignments. Under each assignment the rep should see:\n\n* the Sign-Ups attributed to that assignment\n* affiliate link(s) for the assignment\n* key Deal info — whatever is permissible for reps to see\n\n## Design note — this is not a plain list view\n\nA standard Salesforce list view is flat: it cannot nest child Sign-Ups under each parent assignment row. Three ways to deliver the requirement:\n\n* **Option A — list view + record page (smallest change).** A \"My Assignments\" DRA list view filtered to _My records_ (or Rep = current user) with the key assignment/deal columns, and the Sign-Ups + Affiliate Links related lists on the DRA record page. Rep drills in one click to see children. Config only.\n* **Option B — grouped report.** Summary report on Sign-Up grouped by Deal Rep Assignment, filtered to My Assignments. Shows parent and children on one screen, but reads like a report, not a workspace.\n* **Option C — LWC on the Rep Home Page.** Accordion of assignments, each expanding to its Sign-Ups and links. Best UX, most build, and overlaps the existing Rep Home Page POC.\n\n**Recommend starting with Option A** and only building C if reps say the drill-in is too slow — A is config, ships this phase, and the columns chosen for it are reusable by B or C later.\n\n## Open questions\n\n* Which Deal fields are rep-permissible? Needs the same field list as the rep read-only work (see BUILD-256).\n* Filter by record owner or by an explicit Rep lookup on DRA? Ownership model on DRA is still open.\n* Does the rep need Sign-Up counts/status rollups at the assignment level, or the individual Sign-Up records?\n* Sizing TBD once the option is picked.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-257 — Rep \"My Assignments\" view: assignments with Sign-Ups and key assignment/deal info",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-384"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218061422373283"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001jb:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218061422373283"
+      }
+    }
+  }
+}

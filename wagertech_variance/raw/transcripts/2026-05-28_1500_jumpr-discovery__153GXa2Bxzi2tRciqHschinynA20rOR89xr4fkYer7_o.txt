@@ -1,0 +1,982 @@
+📝 Notes
+May 28, 2026
+Jumpr: Discovery
+Invited Miko Sumagang lina@wagertech.bet joyce@wagertech.bet Waleed Alasadi emily@wagertech.bet owen@wagertech.bet jay@wagertech.bet fred@fireflies.ai
+Attachments Jumpr: Discovery
+Meeting records Transcript Recording
+
+
+Summary
+The team reviewed business workflows and referral processes for designing a Salesforce solution to centralize operations.
+
+Signup and Referral Workflow
+The team utilizes a referral-based acquisition model requiring strict documentation and 24-hour wagering proof. Business Ambassadors manage high-volume signups using proxy methods and detailed internal tracking sheets.
+
+Operational Fraud and Payouts
+Fraud is mitigated through strict validation, performance incentives, and documentation checks. The company uses specific payout structures and redeposit strategies to maintain retention and partnerships with gaming operators.
+
+System Implementation Goals
+Leadership decided to integrate WhatsApp communications directly into Salesforce to streamline administrative logging tasks. This centralization aims to reduce manual reporting burdens and enhance financial audit capabilities.
+
+Rate this Summary: Helpful or Not Helpful
+
+
+Decisions
+ALIGNED
+* Fraud flagging requires exception handling The fraud flagging system will include specific exception handling and defined reasons for flagging signups to allow for association with the linked player.
+* Deal management functionality moved to Salesforce The deal management functionality, currently handled via external spreadsheets, will be integrated into the Salesforce implementation.
+* Payout preferences set at referral level Payout preferences will be set to a default at the referral level, with the functionality for representatives to override these settings per individual sign-up or commission.
+* WhatsApp integration included in recommendation The team aligned on including a WhatsApp integration as a feature in the system recommendation.
+* V1 foundational scope defined The V1 release scope for the new system is set to include the foundational data structure, signup flow, redeposits, and payouts.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Waleed Alasadi] Review PRD: Review the Project Requirements Document provided by Joyce.
+* [Waleed Alasadi] Validate Salesforce Login: Validate the Salesforce login process at the appropriate time.
+* [Waleed Alasadi] Build AI Extraction: Develop an automated AI process to extract metadata such as sign up and deposit timestamps from player screenshots.
+* [Jay] Detail Tactics Process: Provide a high level summary of the Tactics platform and its workflows to support future system integration.
+* [Waleed Alasadi] Prepare Project Plan: Analyze the provided data and prepare a plan for conversion that aligns with the existing PRD.
+* [Waleed Alasadi, Joyce Kiddell] Align Data Mapping: Collaborate with the data architect to ensure the mapping of data with operators aligns with the planned Salesforce structure.
+* [Waleed Alasadi] Schedule Followup Meeting: Reach out on Monday to schedule a meeting for Tuesday or Wednesday to discuss the project next steps.
+* [Waleed Alasadi] Propose WhatsApp Integration: Include a WhatsApp integration recommendation in the project proposal to address the communication disconnect.
+
+
+
+Details
+* Meeting Purpose and Scope: Waleed Alasadi convened the meeting to analyze the business process flow, specifically focusing on the lifecycle of user signups and referrals, with the goal of using a Product Requirement Document (PRD) to guide the development of a Salesforce solution (00:00:00). Waleed Alasadi requested a direct, transparent walkthrough of the entire signup workflow, starting from initial affiliate link generation through to the final logging process (00:00:55).
+* Signup Acquisition Methods: Jay clarified that the team relies exclusively on a referral system rather than working from pre-existing lead lists, as they prioritize individuals referred by trusted parties to ensure credibility (00:01:46). This referral-based approach utilizes bonus structures to incentivize the expansion of the user base (00:02:48).
+* Communication and Signup Protocol: The team primarily utilizes WhatsApp for sales and Business Ambassador (BA) communications, citing its versatility over other messaging platforms (00:01:46). For new signups, a standard procedure involves the BA initiating a group chat, sending a templated script, and requesting specific documentation, including welcome email screenshots, survey confirmation, and E-transfer email details (00:03:45).
+* Documentation Standards and Turnaround: Jay emphasized the importance of following a strict format for logging purposes, which includes the full name, E-transfer email, and casino details (00:04:44). A 24-hour turnaround is expected for users to provide proof of wagering—specifically transaction history—in the casinos, with reminders sent at 24 hours and a potential cutoff for future opportunities after 48 hours of non-responsiveness (00:05:42).
+* Managing High-Volume Referrals: For high-volume participants who generate 200 to 300 signups weekly, individual chats are unmanageable. In these cases, a proxy method is used where the referrer acts as the point of contact in an operations chat, though they are still required to maintain group chats with individual signups for direct contact if necessary (00:06:44) (00:09:43).
+* Business Ambassador Workforce: The company currently employs approximately 23 to 24 full-time Business Ambassadors (BAs), though their actual "full-time" status is dependent on the volume of signups they successfully manage (00:10:39).
+* Validation and Scam Mitigation: To prevent fraud, BAs validate signup documentation by checking for anomalies, such as inconsistent dates, missing or incorrect usernames, and placeholder text in emails (00:11:34). If a scam is detected, the BA adds the individual to a ban list, informs the referrer, and alerts the sales chat so other BAs are aware of the fraudulent actor (00:12:41).
+* Requirement for Fraud Controls: Joyce Kiddell identified a need for enhanced functionality in the planned Salesforce system to handle fraud, requesting both signup and player-level flagging capabilities. There is a specific need for exception handling in the system to accommodate cases where potential fraud might be a misunderstanding or a language barrier issue (00:15:41).
+* Performance-Based Incentives: Owen Scott explained that BAs are incentivized to identify scams because they face strict consequences for poor performance, including potential loss of book access, reduced pay, and termination, which serves to minimize fraud within the network (00:17:46) (00:19:46).
+* Allocation Logic: Allocation involves determining the amount sent to a user, which is based on the total payout received by the company for that specific signup. BAs receive guidance on distribution ranges—typically between $50 and $230 per book—to ensure profitability and tracking accuracy (00:21:43).
+* Deal Management and AirTable Usage: The team uses AirTable to track deal parameters, including deposit ranges and averages, which are updated when books are opened or closed (00:25:21). Operations team members, including Owen Scott, Jess, and Ilas, determine which books are open for each BA based on affiliate caps and the specific BA's capacity to deliver volume (00:27:00) (00:28:52).
+* Volume Tracking and Reporting: Tracking occurs through reports from affiliate sites, where data is cross-referenced with BAs' logged signups to ensure they stay within established caps (00:31:07). Joyce Kiddell noted that integrating operator data remains outside the current Salesforce implementation scope due to the complexity of the required data cleaning and matching process (00:31:56).
+* Logging Procedures: BAs log signups into internal sheets, recording details such as customer email, BA name, signup date, referral name, and casino book (00:34:45). This process includes uploading proof of welcome emails, deposit amounts, and wagering activity to Dropbox for verification (00:36:50) (00:42:46).
+* Payout Preferences: Payouts are generally made via E-transfer, though there is flexibility for providing $25 cash or $40 in bet credit (00:37:51). Joyce Kiddell recommended creating default preferences at the referral level in Salesforce, while allowing BAs the ability to override these settings for specific signups (00:39:53).
+* Workflow Bottlenecks and Mobile Constraints: Jay and Owen Scott noted that BAs primarily conduct work on their mobile devices, making manual logging on a computer tedious and time-consuming. This administrative burden can detract from sales activities, which is a primary motivation for the desired Salesforce implementation (00:50:47).
+* Redeposit Strategy: Redeposits are assigned by the operations team to boost retention numbers, with BAs responsible for contacting previous signups within specified date ranges to offer further bonuses for continued casino play (00:52:31). These redeposits require the same rigorous proof of deposit and wagering as initial signups, which are subsequently verified and moved to a master sheet (00:54:49).
+* Redeposit Tracking Process: To track redeposits, reps add the client's name and send the money simultaneously. Proof of the deposit is uploaded to Dropbox, and the link is added to the sheet with the date. A team member in charge of redeposits confirms the transaction, moves it to a master sheet, and highlights it in yellow to indicate it is resolved (00:58:54).
+* Redeposit Restrictions and Usage: Reps are ideally restricted to two or three redeposits per person, though exceptions occur for activities like sweepstakes where they may allocate $100 to top referrers (00:59:47). Each rep utilizes a BMO account with a unique user and customer ID, which is audited at the end of every month to ensure transactions align. Jay expressed that utilizing a Salesforce API to handle these transactions would be preferable to the current BMO banking process (01:00:41).
+* Additional Redeposit Budgeting: "Additional" redeposits are specific to certain books, such as BetMGM, which demand high retention and brand reinvestment. For these signups, reps receive a budget range, such as $30 to $80, and choose the specific amount to send. These are labeled as "additional" because they represent a profit loss for the company, and they must be tracked accurately for financial calculations (01:01:35).
+* Strategic Necessity of Redeposits: While reps may initially find the amount of money being given away confusing, redeposits are an investment for long-term deal retention. Without these incentives, providers like BetMGM would likely terminate partnerships due to poor retention numbers. By reinvesting $40 to $45 into a signup that yields $200 in profit, the company maintains the deal while still netting $160 (01:02:55). Reps are eager to handle these because they receive bonuses for completing them (01:03:54).
+* Tracking Systems Beyond Redeposits: Reps manage several tracking sheets including BLH entries for signups, BetLab transfers, and referral payments. BetLab transfers document bank movements to facilitate monthly audits (01:04:45). Referral payments, such as the $2,600 paid to Tiffany, are logged in a separate referral payment sheet. Cash payments are rarely used because they offer a lower incentive ($25) compared to standard payouts ($40) (01:05:54).
+* Tactics (TT) Platform Overview: Tactics (TT) is an AI-powered sports prediction platform partner. Reps sign users up for packages ranging from Tier 1 to Tier 7, and in return, the company provides bonus redeposits. For example, a $50 subscription package earns the user a $150 redeposit (01:07:10). Reps must calculate the math to ensure the redeposit value aligns with the signups, with the goal of keeping company-provided additional funds at zero (01:08:18).
+* Financial Management and Auditing: Reps maintain "inflow/outflow" sheets to track funds in their bank accounts, which is audited against bank PDFs to ensure totals match, such as the example total of $584,000 (01:09:20). Losses from banned accounts or unresponsive users are tracked as "write-offs". During audits, if any sent money cannot be found on a rep's sheet, they must correct the entry with specific notes (01:10:27).
+* Operations Management and Reporting: The operations team manages 23 individual sheets, and there is a consensus that a centralized system would be highly beneficial (01:11:29). Everything regarding signups is currently automated and moved to a master sheet for backend P&L reporting (01:12:31).
+* Reporting Frequency and Challenges: Reports are generated every Wednesday to coincide with BA paydays (01:12:31). The team faces roadblocks due to inconsistent reporting timelines from operators and affiliates, which sometimes require manual follow-ups (01:13:37). Stephanie from the operations team manages these CPA versus logs reports, which take approximately one to two hours to compile (01:14:30).
+* Retention and Completion Reporting: Operations reports include deposit data, redeposit reports, and completion percentages for books. For books like BetMGM, which require re-engagement within one to three days, the team tracks the timeline of redeposits (01:14:30). Currently, the team lacks direct integration to verify operator-side signups and must rely entirely on the proof provided by the reps (01:15:37).
+* Referral Payment Bundling: To save time, reps bundle multiple referral payments into single, large transfers rather than sending frequent, small amounts (01:16:23). For instance, a client who brings in multiple signups across four books may accumulate these payouts until a designated day to streamline the workflow for busy salespeople (01:17:18).
+* Payment Prioritization and Grace Periods: The company identifies priority books—such as DraftKings, CTM, and Proline—for referral payments to maximize the benefit for the business. While smaller payments are expected to be wagered or deposited immediately, larger transfers have a longer grace period to accommodate potential card limits or e-transfer failures (01:18:26). Operations follows up quickly if these significant transfers are not logged (01:19:24).
+* Future Steps and Project Scope: Joyce Kiddell noted that the PRD includes payout flows but currently excludes tracking for player payouts, which requires further discussion for a comprehensive dashboard (01:19:24). Waleed Alasadi plans to return by Tuesday with a roadmap for converting current processes into the new system, including sessions with the data architect to ensure alignment with Salesforce structures (01:20:43).
+* Recommended WhatsApp Integration: Waleed Alasadi recommended integrating WhatsApp into the Salesforce build to bridge the gap between where reps communicate and where they log information. The objective is to make logging and communication a single, simultaneous action. Joyce Kiddell agreed, confirming that while the V1 build will prioritize foundational data capture for signups, redeposits, and payouts, the integration can be part of the recommendation (01:22:40).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+May 28, 2026
+Jumpr: Discovery - Transcript
+00:00:00
+
+Jay: Nice to meet
+Waleed Alasadi: seeing you as well. All right. Um, are we good to get
+Emily Vandenberg: Yes. Can I just ask that you send us the recording after?
+Waleed Alasadi: started?
+Emily Vandenberg: I couldn't get our record to work and that way we just have this as a reference.
+Waleed Alasadi: Is that um, Fireflies?
+Emily Vandenberg: Yeah. Do you have to admit it?
+Waleed Alasadi: Yes. Hold on one second. It's in here. But I'm also happy to obviously share the recording with you.
+Emily Vandenberg: There we go. Thank you.
+Waleed Alasadi: Okay. No worries. Okay. Um, perfect. Well, thanks uh thanks again for joining us. So, Joyce, I did I did receive the PRD. I like I said, I will go through that. Um, and Emily, I'll validate the kind of Salesforce login at the time. Uh, but then with Owen and J here today, um, the intention of what we're trying to do is really understand kind of the business process flow um, from kind of from each of you.
+00:00:55
+
+Waleed Alasadi: And I'm looking for as much as we can to screen share like talk about like how how it is like don't sugar coat it for me today. Um and I'm hoping to run through like an entire life cycle, right? So like starting from um signups like when when you generate the affiliate link, how does that go? And we'll walk through the process. Um my intention is again for you to walk me through that. Show me your screen and then I'll ask questions as as we go through. Um, and then for Joyce and Emily, is there if there's like some context that you would like to add that it relates to as you're thinking about the project, um, that would be helpful as
+Owen Scott: Sure. Jay,
+Waleed Alasadi: well.
+Owen Scott: do you want to start with the signup flow because I guess that's the first step of
+Jay: Yeah, sure. Uh, here let me just share my screen
+Waleed Alasadi: And Jay, as you as you're doing this,
+Jay: here.
+Waleed Alasadi: like um information about like how do you get the how do you get the signups?
+00:01:46
+
+Waleed Alasadi: How do you know when to prioritize them? Like that that information is also
+Jay: Yeah, I got you. Um so hold one second.
+Waleed Alasadi: helpful.
+Jay: I'll just share this uh Chrome uh tab here. So um you can see my screen in a second here. So this is uh we primarily use WhatsApp for uh most signups. Some people use iMessage. I just think uh WhatsApp is is better because iMessage limits you to only iPhone clients. So most people uh operate in and out of WhatsApp. All the BA chats are on WhatsApp and our sales chats are on WhatsApp. So, this is like our our hub for like all of our uh information. So, um how this would work, this is just my other phone. I'm just talking to myself here. But how this works is like um I I would have a referer,
+Waleed Alasadi: Okay.
+Jay: right? Because we we only really work with people who refer other people. So, we don't work with absolute strangers because then um you can't really trust like the most randomst people.
+00:02:48
+
+Jay: So,
+Waleed Alasadi: Okay,
+Jay: um,
+Waleed Alasadi: Jay,
+Jay: let's just
+Waleed Alasadi: I'm gonna first of all pre-applize for interrupting you now for the whole meeting. Um, so so you mentioned that is it can I assume that like there are no lists that you go after otherwise
+Jay: Yep.
+Waleed Alasadi: that you're trying it's always coming from referers or is that not true?
+Jay: Um, sorry, what? Uh, can you repeat the
+Waleed Alasadi: Like are you do you ever get like here's a list of hundred potential players that we might want you to kind of connect with
+Jay: question?
+Waleed Alasadi: and sign up? Um do you get that?
+Jay: I no because um we we go off like a like a referral system like there's bonuses so people often want to bring their people so that they get paid right
+Waleed Alasadi: Yeah.
+Jay: like that's kind of how we we do we like the referral system is like tried it it's been working so I don't think anyone's ever explored out of it but yeah uh I've never experienced that maybe other other people have but I have never done that personally No worries.
+00:03:45
+
+Waleed Alasadi: Well, that helps. Thank
+Jay: Uh so how this would work is like usually this group this this chat would be called like
+Waleed Alasadi: you.
+Jay: um uh like let's say that let's say uh this person signing up like let's say my name was like Sam. I would or in this case I used Owen as an example. So let's my name is Owen, right? Uh this chat would be called um Owen signups for example and uh Owen I'm Owen here. So I I say hello and then this is my script I send people. So I kind of explain to them like how to sign up uh what uh how to do the survey uh what surveys we have available and like the entire process and I try to make it as as clean as possible because often people if it's too long they don't read it. So then the steps get missed. So this is uh first step is send screenshots of welcome emails. The reason why we do this is if we don't get a screenshot of a welcome email, we can't confirm that that email is or is that sign up is actually new.
+00:04:44
+
+Jay: Um, send screenshot of survey confirmation. This is so that uh we can actually confirm they went through our links to sign up. If they if they if they did the survey, they most like followed through the whole process. Send EMT email. That means they're they're e transfer email and this is just so uh we can get them the money and then admin would be the BA. We'll send you the money and amounts and then then no hedging. This is for player value. And then we tell them this little line here. So make sure you don't sign up in the apps. You sign up properly because if you sign up properly then it means uh we track we get we get uh paid for the sign up. And then I tell them here, please send. And I I want it in this format because when I go back to actually doing some logging, when I log on to like Excel, if it's in this format, it's really easy for me to just log it. So full name, ET email, and what casinos they signed up for.
+00:05:42
+
+Jay: So then they see this and they would reply to me with like this. So this is um some guy named Zachary signups, but uh he would give me his full name. So Owen Scott, that's Owen's email. and then which casinos would be Caesars, Bet Rivers, Bet MGM, and OG. I would then take his email um and I would break it down for him. So, I would tell him like uh the amounts for each casino. Then I'd come here to BMO and I would just send off. And that that's basically my process. Um after I I send off, I I like to tell them that they have 24 hours maximum to get me back the um the videos. Otherwise, like proof um and the proof is like uh transaction history in the casinos because we want to confirm that they actually met the casino requirement. So, they actually have to wager it. So, if they don't send it back in 24 hours, um I take note of it. I send them like another message just like reminding them. If I don't get it back in 48 hours, I don't consider them for like redeposits or any other sites.
+00:06:44
+
+Jay: But other than that, like that that's just basically the signup process. And like everybody follows this exact process I find in this company except like extremely high volume people. Those are the guys that are doing like 200 300 signups a week. They can't do this method because it would just be way too many group chats. So they have like um this would be called like for example uh Owen's operations chat. And if Owen was the referer, he would be the proxy here. he would be sending signups like so he would be he would send this information and these signups and he would send another one with another person's signups and another person's signups and so on and so on. It wouldn't be me in contact with each person individually. It'd be the refer is kind of doing my job and bringing them to me. And that's because sometimes when you have too many people signing up it's impossible to like uh get to all the chats. So that those would be like your Nikils and John Voos.
+Waleed Alasadi: Okay. Okay. So, I have a I have a few questions on this.
+00:07:46
+
+Waleed Alasadi: So, in this case, this is like in the first example, that was Owen,
+Jay: Yeah.
+Waleed Alasadi: that was the player. You don't know who Owen is at this point. It's just you know that he got your number somehow from a referral. Is that true?
+Jay: Uh yeah, that's true. Uh yes.
+Waleed Alasadi: And do and then do you ask him like is there like this is a sample chat.
+Jay: Yes.
+Waleed Alasadi: Is there like a back and forth usually as well to ask him who the referer is and that kind of
+Jay: No, because the referer has to make the group chat.
+Waleed Alasadi: thing.
+Jay: So you you would know like this group chat would be made by let's say uh my refer is um Emily. Emily would have made this group chat. So Emily Emily would be like,
+Waleed Alasadi: I'm just
+Jay: "Hey, meet my friend Owen." And then I'd be like, "Hey, Owen, like this is my script here." I'd be like, "Welcome uh Owen and whatnot." And then I'd say, "Please send this." And then Owen would send back this information here and these
+00:08:35
+
+Jay: screenshots. And then I would do I I would then uh allocate and send out for him. That would be basically uh how it
+Waleed Alasadi: Okay. Um I I want to ask about the allocation step for a moment,
+Jay: works.
+Waleed Alasadi: but then before we do that, how many So you said that there's some some um BM BMS, right? Like that's what the title is.
+Owen Scott: BA brand ambassador.
+Waleed Alasadi: Business manager BA brand investor.
+Jay: Yeah, that's correct.
+Waleed Alasadi: Thank you. Um, so some high transaction ones and I'll ask questions about those. But for you, like what's how many chats are you kind of working on every day
+Jay: Um,
+Waleed Alasadi: on
+Jay: I'm I'm not a BA personally. I do something else. So, it's uh but I do do referrals and I'm a higher volume referral.
+Waleed Alasadi: Oh.
+Jay: So, for me, I probably deal with like eight to nine group chats a day. But some of these guys would be dealing with like 20 20 like 20 a day. That's kind of where it gets a little hard because when you have 20 a day, you by the time you wake up the next day, you already have another 20, but you have to go back to your old 20 and make sure that those are done and logged and whatnot.
+00:09:43
+
+Jay: So,
+Waleed Alasadi: I see. Okay.
+Jay: yeah.
+Waleed Alasadi: And then so for the high when it's when the referer is actually doing your work, um the player themselves are not part of the chat group chat, correct? Like they don't invite all these players into like the same group chat.
+Jay: Um yeah, like the higher volume guys, some of them do do that. I personally don't do that because I I I I always tell them just make the group chat, but you can forward me the information into like a a different chat like like I would call it like an operations chat and they would just forward it there. But I would tell them they still have to make a group chat with that one person. That way I can always have contact with them. Like let's say they run away or they don't do the the signups properly and the referer is not able to fix the problem, I'd want to contact them directly. So I I force people to always put me in a group chat with with their signups even if I never talk to them.
+00:10:39
+
+Jay: But uh a lot of people don't do that because it's just too many chats to manage.
+Waleed Alasadi: Okay. How many BAS are there?
+Jay: Uh 20 something I want to say like 20 23 now.
+Owen Scott: Yeah, I think it's 23 or 24.
+Waleed Alasadi: Um, all fulltime.
+Jay: Uh, yes. Yes. Like it depends on volume to be honest if they're full-time or not. Um, majority of them, yes, they put in long hours,
+Waleed Alasadi: Sure.
+Jay: I would
+Emily Vandenberg: Yeah,
+Jay: say.
+Emily Vandenberg: I think like full-time for this would be just like volume.
+Owen Scott: Yeah, the more signups you have,
+Waleed Alasadi: I see what I say.
+Owen Scott: the more time you have to allocate to this.
+Waleed Alasadi: Okay. And okay, cool. Um, and then so you said so you get these um images and then you're you're validating them you mentioned or you're allocating them.
+Jay: Uh I I do both. So like um yeah,
+Waleed Alasadi: What what does that mean if you don't mind?
+Jay: so like because um of how easy it is to like use chat GPT and stuff,
+00:11:34
+
+Waleed Alasadi: Yeah.
+Jay: some people will kind of like manipulate these images. will they will uh change the dates like for example um when I when this person signed up they signed up on May 11th so this actually this is this is a um it's good right but sometimes somebody will will have signed up in like January and then they would edit this to be May but like there's little nuances you can see like um if if something is fake like um for example a long time ago but MGM didn't put uh usernames now they do but before they didn't. So if we saw a username, we would know that that's a old sign up. So we use kind of like small things like that to kind of tick us off. Like here's another one. Like this is his email, Zack mcccoall@gmail.com. But a lot of the times people are signing up um people that don't exist. Like this would be like, "Hi Mary," and they wouldn't realize that they need to change the email down here. And when they don't line up, I would I would know that they're trying to trick me.
+00:12:41
+
+Jay: Um so that's the validation part. And then the allocation part is like we have like limits to each casino. So we try to stay within those limits like Yeah.
+Waleed Alasadi: how how two questions from that is what like on the first point is what do you do if
+Jay: Y
+Waleed Alasadi: you do find that something is like off what are your next steps there um and then yeah go ahead
+Jay: uh if if something is off, I just um I just uh uh I I I just basically ban them. I put them in the band list and I go uh I and I tell my referral like hey this
+Waleed Alasadi: Okay.
+Jay: guy's this guy's scamming and then I get some more information from them like how they know this person and sometimes they'll be like oh I just you know I met this guy at the gas station I'll be like okay well there's not much credibility there right but if they say like that's my best friend then it's a little it's a little strange right
+Waleed Alasadi: So there's a band list that you add them on.
+00:13:36
+
+Jay: Um,
+Waleed Alasadi: Is that something that you would have checked them from in the first place?
+Jay: no, no. Um, we kind of cuz the signups come at the most randomest hours of the day. So, like if we were to access the ban list to check, it would take a lot of time. like it would uh Yeah,
+Waleed Alasadi: like respond back and for your spawn back. You mean?
+Jay: exactly. So for uh for that time like it it just it just becomes
+Waleed Alasadi: Okay.
+Jay: like a uh um it just becomes a little like messy. So like that definitely I would say like we don't do that. But what we do do is if we if we do notice notice a scammer is scamming, we go into like our sales chat and we we tell uh the other uh brand ambassadors will be like, "Hey, this guy's a scammer. Look out for him." And then everybody's kind of up to date. But um scamming to be honest, it doesn't happen very often. Like people aren't really It does happen, but it doesn't happen very often enough for us to like at least check the sheet before we
+00:14:43
+
+Waleed Alasadi: Okay.
+Joyce Kiddell: Jay, I have a question. Um, is there ever a situation where you might end up like flagging multiple signups against one person before you outright ban them? Like is it ever a graduated process like that or like as soon as you notice any hint of like shady behavior, you're like, you know, this this guy's
+Owen Scott: It's right away. Like they're just banned immediately and then you investigate anyone who is like associated with them.
+Joyce Kiddell: gone
+Jay: Yeah, exactly. Like sometimes sometimes like my my my friend Ally likes to say there's context to everything. So like uh sometimes like I'll be like, "Hey, what's going on here?" Right? And they'll be like, "Oops, like sorry, I I I didn't realize it had to be new account." And then and then I'll kind of gauge it. Like I'll be like,
+Joyce Kiddell: Yep.
+Jay: you know, maybe like I've I've I've run into people with language barriers who ended up just being genuinely good people. They just, you know, made a mistake. In in those cases, I'll practice a little bit of caution.
+00:15:41
+
+Jay: But like if it's obviously fake, like I see a watermark logo for like chat GBT at the bottom. Yeah. It's just like Owen said, it's done from there. And then you investigate like who the refer referer was and you look into their recent signups and sometimes like some people will go as far as asking operations like how am I tracking so that they can see if like you know they've been scammed and
+Joyce Kiddell: Got it. Um,
+Jay: yeah.
+Joyce Kiddell: sorry, just a bit of context there, Willie. Like in in the requirements doc, I did spell out like the the capability to flag at both a signup and uh player level, but I didn't really spell out like the relationship between like those types of like fraud flags. So, I do think we need like a little bit of like um like I think we need both capabilities in the event there's like some flexibility around like the reason why we're like flagging
+Jay: Clear.
+Joyce Kiddell: um a specific signup like what Jay was saying like the the person could have just been um not sure if they created an account before like you know played stupid kind of thing.
+00:16:48
+
+Joyce Kiddell: So, as long as we have exception handling and like reasons why we're like flagging specific signups, then that could tie back to like the attached player, if that makes sense.
+Waleed Alasadi: Yeah, for sure. It's I think my and we don't have to answer all the questions today,
+Jay: Yeah.
+Waleed Alasadi: right?
+Joyce Kiddell: Okay.
+Waleed Alasadi: Like but I think like there's always so what's next? What's next choice? So like the investigation piece like who is actually doing the investigation? Are they banned for life, right? Like um that these are like always like come come next here.
+Joyce Kiddell: Yeah, I think like the the escalation step like it would just be flagged for the operations team which is like a separate user type and I don't think I have that even spelled out in the doc but um we need to make sure that the operations members have different visibility and workflows than reps.
+Waleed Alasadi: That makes sense. Absolutely. Okay. Um the last question I'll ask and then we can move on from kind of the scams.
+00:17:46
+
+Waleed Alasadi: Um I understand that everyone's supposed to do their job um to to their best, I guess. But what motivates the VAS in actually not going through with the signups and catching scams early on?
+Owen Scott: they get punished if they don't like if someone's tracking poorly or they're getting scammed constantly and there's never any fix or there's never any like uplift in their numbers then
+Waleed Alasadi: Okay.
+Owen Scott: they just get restricted like they won't get access to books their network will probably end up dying because of that because they aren't able to offer people anything so it's all basically incentivized for them to find these things because otherwise uh they'll be a direct uh they'll be a direct victim when we punish them. like we'll be able to shut them down, we'll be able to close books, and we'll be able to fire them. So, that's the reason they do that.
+Waleed Alasadi: Okay, that makes sense. That's a good reason. All right. Go ahead,
+Joyce Kiddell: But having visibility over like their number
+Waleed Alasadi: J.
+00:18:46
+
+Joyce Kiddell: of like flagged players for example like um Owen as someone on the ops team like how easy is it for you today to see like how often these scammers actually come up.
+Owen Scott: It's honestly not as common anymore since we've experienced so many issues before.
+Jay: Yeah, 100%.
+Owen Scott: Like everyone's kind of aware. Like before it was more we would go back and look at screenshots and it would be visible that someone
+Joyce Kiddell: Okay.
+Owen Scott: had edited them. Uh whereas now everyone's aware of that. So there's much less of that. The only way we actually know if people are getting scammed, which is like 99% of the time, is when we actually look into the tracking numbers. So like if we're looking at OOLG reports, we're able to see exactly who deposited what and then identify who didn't deposit or who didn't track and see that they scammed us. Or maybe they didn't scam us, they just didn't go through the link. But that's kind of more so how we identify that now. And it's usually just throughout a month whenever we do tracking reports.
+00:19:46
+
+Joyce Kiddell: Got it. Okay. So I I do think like although you guys have done a great job of minimizing risk with our current workforce, it's like if we were to scale and bring on more reps, it's something that we should have more controls around within the technology.
+Jay: Yeah, I I agree with that because I think the current reps are not getting scammed because of like Owen said experience and then on top of that a while ago we threatened to take their pay if they or cut their pay if they get scammed, right? because then their performance drops, pay drops. And so what we saw was people were paying a lot more attention when there was actually an incentive on the line. So or decent. So they started paying a lot more attention. So um we had like record low erosion numbers. Everything was good. Um, so like you said though, if yeah, if we bring on like a bunch more reps, then yeah, they need to unfortunately they they would have to in order to be at these guys level, they would have to get scammed a few times, but ideally we wouldn't want that want them to be scammed yet.
+00:20:52
+
+Waleed Alasadi: Okay. Well, let's maybe now go down the happy path. And hey, Mo, thanks for uh joining us. Um, okay. So, the happy path is you mentioned that every casino has its own different limits. Um, how how do you know that, right? Like so I understand that maybe you're an experienced rep so you know some information off hands but I would love to know like your process of like the
+Jay: Um,
+Waleed Alasadi: allocation
+Jay: probably better question for all in to be honest.
+Owen Scott: I'm so sorry. I was reading the message. What did you just say,
+Waleed Alasadi: all good I I think we said so as soon as like it's validated it's not a scam the next step is to
+Owen Scott: Willie?
+Waleed Alasadi: allocate um is to go through the allocation step and that happens before logging is that correct
+Owen Scott: Exactly. Are you referring to like allocating how much money they're receiving or Yeah,
+Waleed Alasadi: I I guess yeah I'm trying to understand what allocation is and how it's and how it's done.
+00:21:43
+
+Owen Scott: no worries. Uh, so with specific books, um, the total range,
+Waleed Alasadi: Yeah.
+Owen Scott: so the amount of money we send them and the average is strictly based on how much we're paid for that signup. So we obviously have a different budget with each book. And we have different uh, media companies that we deal with. So for example, if we just take a generic app like Bet MGM, we have that through GDC. So then we have books that are logged BM MGM GD and we also have it through CINA, which would be BMGm CTM. So both of those companies pay us differently, which is where we decide how much we're going to send out for those books. So it's literally just a reference between total spend versus total profit. So, for example, if a company's paying us $50 for a signup, we're going to send out 10 or 20 bucks for that. So, we're guaranteed to make money. And the range is different for everyone. It'll be very wide. So, per book it'll be anywhere from $50 to $230 and the average will be like $150 or something.
+00:22:45
+
+Owen Scott: And that's up for the rep to decide how they'd like to distribute that. So, we advise everyone to send out a different amount for each book. Uh and it's literally just for the purpose of tracking because on certain uh reports we're able to actually see how much people deposit. So if everyone's depositing a different amount, we can actually identify who is who in the reports. And also because it's variation, you don't want a company like BMG to see a thousand people depositing $100 each because that just doesn't
+Waleed Alasadi: Yeah.
+Jay: Yep.
+Owen Scott: make sense.
+Waleed Alasadi: Okay. So then in this case like there are four screenshots. So I'm assuming there are four with the terminology that I would use there are four books. Is that correct terminology?
+Owen Scott: Exactly. And those will all have different ranges.
+Waleed Alasadi: Okay.
+Owen Scott: So for example, OOLG and this is all nothing that we uh give out to the client. This is all something our BAS have access to. So if they have proine GD for example and this say we have this book open on their link we'll
+00:23:35
+
+Waleed Alasadi: Yes.
+Owen Scott: tell them when we open it up this is your range for signups and this is your average. So every client who signs up for this book you will distribute an amount within these
+Waleed Alasadi: Where do they open that,
+Owen Scott: parameters.
+Waleed Alasadi: Owen? So where do I see like what OG's rates are or parameters
+Owen Scott: Uh it's literally just what we send to them.
+Waleed Alasadi: are?
+Owen Scott: So here for example Jay do you want to pull up like a generic message when we open a book?
+Waleed Alasadi: Yeah.
+Jay: No
+Waleed Alasadi: I just just so that I'm clear on what I'm like looking after is I'm trying to understand here like what would
+Jay: question.
+Waleed Alasadi: like Jay's next steps be like he's an experienced rep so maybe he knows the information off heart but otherwise is he going back to the same sources somewhere to try and find out the the rates
+Owen Scott: Exactly. So here this is a good example. So whenever we open up a book, this is what we'll say to the BA.
+00:24:29
+
+Owen Scott: So for example, DraftKings D is opened up. The range is $50 to $150 and the average is $90. So he then has this information when anybody signs up for DraftKings through his link. He knows that this is the specific book they signed up for. So then he can craft whatever his own generic message may be to the client and say sending you X amount of money for DraftKings. So say he sends them $90, he can say, "I sent you $90 for DraftKings. I need proof you deposited the full amount and I need proof that you wagered the full amount. And if it's a casino book, we need proof they wagered it in the casino. If it's a sports book, we need proof they wagered on a sports bet and vice versa. So, as far as it goes with the BA and client contact, uh, everyone has their own individual message, but it's all pretty much the same, just worded
+Joyce Kiddell: Owen.
+Owen Scott: differently.
+Joyce Kiddell: Um, sorry if I can jump in. Uh this is the message that you're sending Jay as a rep,
+00:25:21
+
+Waleed Alasadi: Okay.
+Joyce Kiddell: but is there anywhere where you're actually saving these ranges as
+Owen Scott: Yeah,
+Joyce Kiddell: like So can you potentially open up Air Table and show us
+Owen Scott: it's in it's all in air table. G, do you have access to it on your computer since you already screen
+Joyce Kiddell: that
+Waleed Alasadi: Thank
+Owen Scott: shared?
+Jay: Uh, I don't think on this
+Waleed Alasadi: you.
+Owen Scott: Okay, no worries.
+Jay: computer.
+Owen Scott: Here, let me load up Air Table. I'll share my screen.
+Waleed Alasadi: Thank you. Yeah. And I'm interested. Thanks, Joyce. That's actually my question. And if there's like start dates, end dates, like how do you control the parameters of when this is active as a because I see opened up, so it has to close down as well.
+Jay: Oh,
+Owen Scott: Yeah.
+Jay: never mind. I'm good. If you want me to share
+Owen Scott: Oh, yeah. Yeah, feel free to. That would be great. Yeah. So, we keep track of everything in Air Table.
+00:26:04
+
+Jay: one
+Owen Scott: So, whenever we're opening up books for people, closing them, uh we have everything organized here for the most part. Uh and this will actually show deposit range,
+Jay: just
+Owen Scott: uh and average. Some of them will be blank. you'll see just just strictly because we're not working with them right now. So, it's not uh necessary for us to add
+Waleed Alasadi: Okay.
+Owen Scott: them.
+Waleed Alasadi: So in your example you mentioned that bet MGM can come from Canina, right? Am I saying it right?
+Owen Scott: Yeah. So, as you can see here,
+Waleed Alasadi: Yeah.
+Jay: Yes.
+Owen Scott: you'll actually see a bunch of different ones.
+Waleed Alasadi: Yes.
+Owen Scott: So, you see on line 19 there's BMGMCTM. Line 15 BMGmd. Line two BMGMC. Those are all different companies that we're working with and they all give us a set amount of volume and pay us
+Waleed Alasadi: Okay.
+Owen Scott: a set amount of money per signup that we bring
+Jay: They're sorry.
+Owen Scott: them.
+Waleed Alasadi: So if Go ahead.
+00:27:00
+
+Jay: They're they're basically all affiliated with Ben MGM and then they give us their volume.
+Owen Scott: Yeah.
+Waleed Alasadi: So if if there's like three books open from BET MGM, how do you as a rep decide which one to offer?
+Owen Scott: So they actually don't have uh the opportunity to do that. We decide for them because we're the ones our our operations team.
+Waleed Alasadi: We as in who? Who are you?
+Owen Scott: It'll be myself, it'll be Jess or Ilas.
+Waleed Alasadi: Yes.
+Owen Scott: Yeah, we we decide what book is open for each rep just strictly based on how much volume
+Waleed Alasadi: I see.
+Owen Scott: they bring and how many players were capped at for the affiliate.
+Joyce Kiddell: So will bring this back to the P like this is essentially like the deal management
+Waleed Alasadi: Interesting.
+Joyce Kiddell: work right um that we're also hoping to bring into Salesforce.
+Owen Scott: Exactly.
+Joyce Kiddell: Um, and I'd say like this is kind of where it all starts because uh once we have the deals
+Waleed Alasadi: Mhm.
+Joyce Kiddell: configured, then we have like specific tracking links that live in a different system that Owen I'm hoping or Jay can someone walk us through play can admin.
+00:28:00
+
+Owen Scott: Yeah, I can I can share my screen for
+Joyce Kiddell: Okay.
+Owen Scott: that.
+Joyce Kiddell: Um, but a deal would be the permutation there that they he has between operator which is what I called it but it's the same thing as book and the partner combined. um they just have it as like a concatenated like DraftKings C versus like two split out fields if that makes
+Waleed Alasadi: Okay. Yeah. No, that that today's conversation so far has been like very helpful to bring life to the PRD.
+Joyce Kiddell: sense.
+Waleed Alasadi: So, this is great. Um I I think where I'm a little lost still is this like how do you as operations decide which one to open and and you explained it to me like very well right now with the like with the metrics and I can see how Salesforce can demonstrate that for you. Uh but I am still I have to admit a little lost on like how you still decide is it like Santina or like GD for example.
+Owen Scott: here. Let me share my screen.
+00:28:52
+
+Waleed Alasadi: Yeah.
+Owen Scott: I give you a small little breakdown here.
+Joyce Kiddell: What's that?
+Owen Scott: Yeah, perfect. Can you guys see my screen?
+Waleed Alasadi: Yes, the whole thing by the way.
+Owen Scott: Lovely. Okay, so these are affiliates. So this is one of our affiliates.
+Waleed Alasadi: Yeah.
+Owen Scott: This is GD. So any book we have that ends with - GD uh comes directly through GDC. Um so we get links from them obviously very apparent. And we also have targets. So we get capped by each affiliate. It's very rare we have a book where we're able to get unlimited volume. And even then we usually don't get unlimited volume just because there are tracking issues tracking things that we have to monitor. But just for reference so they give us MGM casino. So BMGmd they give us a thousand players in a month. We have to distribute that to each of our BAS while also keeping in mind that we have MGM through cipher who then also has caps as well that we have to monitor.
+00:30:04
+
+Owen Scott: So for example they give us for BEMGM a total of 100 clients. We have a thousand through GD through Cina. We have give or take like I think around 750 but we had to shut that down recently. So from there we distribute it to each rep. So we have to keep in mind how much volume each person can bring. So if someone usually brings in anywhere from 200 to 300 signups a month, we have to monitor how many MGM signups they get. So we don't go over cap. So we distribute it anywhere from like 50 signups for MGM specifically in a month to each rep. Sometimes more, sometimes less, just depending strictly on how much volume they bring and vice versa for all the other sites.
+Waleed Alasadi: Oh, are you in?
+Owen Scott: So it's literally just a matter of viewing how much cap we have on a book and then deciding
+Waleed Alasadi: Yeah.
+Owen Scott: who deserves volume and who will be able to actually complete it.
+Waleed Alasadi: And you do that all in Excel, right?
+00:31:07
+
+Waleed Alasadi: trying to monitor volumes like seeing performance that sort of thing.
+Owen Scott: Exactly. So, we have a bunch of different views. I don't know why my air table isn't loading.
+Waleed Alasadi: Okay.
+Owen Scott: We have a bunch of different views that we see throughout a month that basically just show us total signups for each book. Uh Stephanie actually created a nice report recently. Jay, do you have that? The one that shows like our cap and where we're at.
+Jay: Yep, I do. Yep.
+Owen Scott: Can you pull that up for him?
+Waleed Alasadi: And what's the data source for that?
+Owen Scott: uh we just literally take the data from each affiliate site.
+Jay: Yes.
+Owen Scott: So for example, everything through GD their master data is here. So it shows us how many signups we brought in a month and then we reference that with how many signups each BA has logged.
+Waleed Alasadi: Sorry. Is there a ID on this one?
+Owen Scott: So we're able to see
+Waleed Alasadi: Like how do I know the player ID, the the
+00:31:56
+
+Owen Scott: uh some of them it's all promo code.
+Waleed Alasadi: rep?
+Owen Scott: So the campaign that's how you're able to see specifically which link it's through.
+Waleed Alasadi: Okay.
+Owen Scott: Whereas some of them we actually don't have that. It's just one generic link or two generic
+Joyce Kiddell: Well, I'll say right now that pulling in operator data and joining that with our internal logging data is
+Owen Scott: links.
+Joyce Kiddell: like a whole other beast that we're like scoping outside of the initial Salesforce implementation. Um because I think there's a whole like cleaning process that needs to happen to match the data. So, um, it's good for you to know and I think we we can definitely dive deeper into it, but just for the sake of your proposal,
+Waleed Alasadi: Don't go there.
+Joyce Kiddell: I wouldn't go too far down the operator data hole.
+Waleed Alasadi: Okay. No, that's fair. That's a fair warning. Thank you. Okay. Um lastly then on the BA side are they like do they have their own sheets to understand how much of their cap have they
+00:32:50
+
+Jay: Yeah, they do. They have um they have to log all their signups.
+Waleed Alasadi: consumed
+Jay: So, we go off their logs sometimes to see how much uh signups they've done and then we know how close we are to the cap. And then it's on the operators to tell us sometimes for some books when we don't have like direct ability to track they will tell us how many CPAs have come in. So that's how many um signups have actually tracked properly and came in and then we compare that to how many logs we have and then we adjust volume accordingly. So sometimes the actual limiter is more on their end. It's on the operator's end because sometimes they don't update us as frequent as we need.
+Waleed Alasadi: How like what's that time frame that we're talking about for like when when a player is referred when like how fast are we moving?
+Owen Scott: very fast like as fast as
+Jay: And yeah. Yeah. Like we we've encouraged multiple times like reps to implement 24-hour policy,
+Owen Scott: possible.
+Jay: but there will be some people that take like four or five days sometimes.
+00:33:51
+
+Waleed Alasadi: to respond and set them
+Jay: But
+Owen Scott: So like when you send someone money, ideally you want them to finish everything as quickly as possible.
+Waleed Alasadi: up.
+Owen Scott: not only because we just sent them money, but also because we want to make sure it tracks. We want to make sure we're getting paid. Uh but sometimes there's restrictions and that is impossible. Like for example, if someone signs up for a casino site, say Caesars for example, sometimes they'll experience verification issues. So when we send them money, they try to deposit, they can't. They just have to wait a few days. Uh that's one kind of roadblock that people experience. That's just nature. It's not anything we can change. Uh but for the most part, whenever someone signs up and we send the money, ideally we want them to finish everything as quickly as
+Waleed Alasadi: Okay. All right.
+Owen Scott: possible.
+Waleed Alasadi: Maybe this is a good segue segue into logging then. Um I appreciate that we spent a lot of time and we haven't logged anything yet, but this has been helpful to give us the context.
+00:34:45
+
+Owen Scott: Yeah, no worries. J, do you want to show them what like a log looks like? Literally just a sign
+Jay: Uh yeah,
+Owen Scott: up.
+Jay: just go on go on Don sheet. I think he's like the best
+Owen Scott: That's a great example.
+Jay: one. Okay, so somebody's on a sheet. It's going to be nice and confusing. Okay, so uh this would be like a sample sheet. So this is one of our reps. His name is John Vu. Arguably probably our best rep. Um he he tracks well. So his his logs are pretty good. So these are all signups he's done in this week alone. So um you can see here like this is a good example like see here this one's from May 6th, right? for Andy Gami. It's for a pro line. So, in this case, like Owen said, maybe this guy's pro line was not uh verified. Therefore, um that's why he's not done yet from May from all the way from early May. But you can see here like this would have been yesterday.
+00:35:53
+
+Jay: This one's already done May 27th. Um BM MGM. So, I I we'll just do a quick example. Um, if I was going to like log, uh, if I was going to log like, um, really quickly, let's just do. So, um, we'll start here. So, actually, I should show you what the the tabs are. So, up here, this one would be customer email. This would be a sales rep is like the same thing as BA. Signup date would be the date they deposited. Um, referral name is who's the who's the person bringing the uh bringing the client to you. So that'd be referral name. I have no idea why.
+Waleed Alasadi: I'm sorry. Referral name is always a person. Referrals are never companies. Correct.
+Jay: Yeah, it's always a person. It's always a um and then what is the customer's first name?
+Waleed Alasadi: Okay.
+Jay: That would be like so uh that that'd be like in this case would be Owen. And then last name would be Scott. Full name Owen Scott. Sports book and casino.
+00:36:50
+
+Jay: So we're going to do one line. Like you see here Brian was done twice. It's because he signed up for two casinos. So DraftKings and then Bet MGM. And like Owen said, you can see GD at the end here, right? It's because uh GDC was our um affiliate that gave the volume in in this time period. So he puts GD here. Um Ontario, Canada, and then the amounts and then the welcome email. Proof that they deposited and proof that they wagered. If we don't collect either one of these, we can't be sure that they actually followed the process, then uh what happens is people just end up scamming us. So we collect these um and we upload it to Dropbox. Um, so I'll just do like a sample one with you really quickly. So let's just start here. Um, so if I was John Vu, I'd put Oops. I'd put John Vu here. So this would be the date. So let's say today. Um, the referral always gets paid 40. This never really changes unless it's USA, but um, for Canada it never really changes.
+00:37:51
+
+Jay: So this will always be 40. Um, so this would be where we put Owen's email. So, we're going to put Stemmail
+Waleed Alasadi: If it changes, it's always the same for a referral,
+Jay: uh
+Waleed Alasadi: right? Like if for whatever reason there's a refer that like negotiated 50 with you, then there'll always be 50 for that
+Jay: uh No,
+Waleed Alasadi: referral.
+Jay: it's always 40. There's no negotiation. It's always 40.
+Waleed Alasadi: Okay.
+Jay: Yeah, it's 40. So, like um if you see here, it's 40 for everybody regardless.
+Waleed Alasadi: I saw sometimes in the PRD like you do like e transfer versus credits sometimes or they're not. Is it true that they're not all the
+Owen Scott: It's always e transfer,
+Jay: Correct.
+Waleed Alasadi: same?
+Owen Scott: but sometimes it's 25 cash if the client wants that or sorry, the referral wants that or it's $40 in vet credit,
+Jay: Yeah.
+Waleed Alasadi: Okay.
+Owen Scott: which just means that they have to deposit that $40 and wager it.
+Emily Vandenberg: Oh, isn't Oh,
+Waleed Alasadi: Listen
+Emily Vandenberg: and is it different for us though?
+00:38:47
+
+Owen Scott: Uh, yes it is.
+Emily Vandenberg: I think that's probably the what the PRD was listing out the
+Owen Scott: Yeah, probably just show different metrics.
+Emily Vandenberg: differences and pay,
+Waleed Alasadi: where okay I I
+Emily Vandenberg: but that's a regional split.
+Waleed Alasadi: guess like where I'm getting with this choice is would this be a default setting regardless of the referer or would we just like each referral would have a like their payout preferences and then it would load into
+Jay: I I think it
+Joyce Kiddell: So,
+Waleed Alasadi: it.
+Joyce Kiddell: it would um we would specify what the payout preference is.
+Jay: be
+Joyce Kiddell: Like you're talking bet credit versus cash.
+Waleed Alasadi: Yeah. Or amount even, right? Like especially if you're saying the US is
+Joyce Kiddell: So, they can't um choose the amount because that's uh based off of the
+Waleed Alasadi: different.
+Joyce Kiddell: payout matrix. Um but like if they're choosing us, then the matrix should or like the the automated amount should be different. Um, so if we have like a table that maybe like admins can edit in the background potentially, but um, the person actually, you know, uh, setting up the payout can't edit it within the system.
+00:39:53
+
+Joyce Kiddell: Um, but we should be able to change the preference for that refer. So, uh, I'm recommending we have like a default preference at a referral level because they generally tend
+Emily Vandenberg: Eat that.
+Joyce Kiddell: to, you know, prefer the same kind with each commission that they earn. But um with each signup/commission like the rep should have the ability to either like override that and specify like bet credit when they typically want crash cash just to like account for those edge cases.
+Waleed Alasadi: Okay. Okay, that makes sense.
+Joyce Kiddell: Is that fair?
+Waleed Alasadi: Yeah, that's fair. Sorry.
+Jay: Yeah. Yeah.
+Joyce Kiddell: Okay.
+Jay: Makes sense. Makes sense. So, um because it's it's Canada, um we're going to be it would always be 40 here. And then I put the referral's name right here. So, here I'll put like um Joyce. So, Joyce would get paid for referring this person. And then we'd come. That's funny. They're watching me. Um, and then I'd come here. I'd set it to Canada. So, this is where I would put the person's f sorry, first name, last name.
+00:40:54
+
+Jay: So, it' be Owen Scott. And then this is where we list the books. So, I just wanted to show you this really quickly. Like, we have a lot a lot of books here. Like a lot, right? So, if I just type in bet MGM alone, um there's like multiple options, but like Owen said, the rep should be aware of what book they're on because they would have been allocated it in their chat. So, in this case, Bed MGM GDD because we actually are not working with any of the other partners right now for BMGm except C, I think.
+Waleed Alasadi: so in this case like this is only John's sheet correct so like he's
+Jay: All right. Yeah.
+Waleed Alasadi: responsible for when like you and operations are saying here's we opened up another book he's responsible for coming and adding that to like the available um books is that correct
+Jay: No, all the all the books are always listed here. I'm sorry. All the books are always listed here. He just needs to select the correct book when he's logging. So,
+00:41:55
+
+Waleed Alasadi: But who's sorry who's listing
+Jay: um uh it's just listed here by default.
+Waleed Alasadi: them?
+Jay: All the books like uh do you see them all listed here?
+Waleed Alasadi: So I guess yeah those are set of books. You don't introduce new books all the time. It's just a matter of opening and closing them.
+Jay: Yeah. Yeah. We we barely ever introduce new books and if we do,
+Waleed Alasadi: Okay.
+Jay: we make sure we add it on the sheet, otherwise they can't log it. So,
+Waleed Alasadi: understood.
+Jay: we always make sure it's updated. And then um here we would put the amount.
+Waleed Alasadi: Okay.
+Jay: So, let's say uh Owen's a good friend, so I send him $200. Um and then we we put 200 again. And the reason for that is this one is asking how much did we send them? This one is asking how much did the company cover. So it will always be the same basically. Um I could show you that really quickly up here. So it says um deposit amount and how much money did play can cover.
+00:42:46
+
+Jay: So that would be 200 bucks um in this case. So for both. And then here I would start uploading like screenshots. Um and the reason for this is because this actually has nothing to do with tracking. what you log has nothing to do with how many CPAs you're going to get. But it does matter if the CPAs aren't coming in cuz if if for example it's not tracking, then we need to come and check his stuff to make sure that he's not getting scammed, right? So like we can look through some of his stuff just for fun quickly. So we can look at this one, Amamira MGM. So if I click here, my computer is um this is how I expect the welcome email to look. So, this is fine. I can see the date, May 22nd. It looks good. Um, we'll move on. And then here's a video of and this is the type of videos we ask people to give us. Um, the reason why I wanted to show you John is because he starts his MGM videos here where you can actually see the username.
+00:43:46
+
+Jay: Nobody else does this. So, like I can confirm that that correct person actually played with the money. And so, I'm just skipping all the way to the end here so I can show you. So we can see the deposit right um when this side of the logging it's asking for proof of deposit and the reason for that is because if we send 115 we expect 115 to be played. So, um, here you can see he sent 115, right? Um, if we didn't collect this, people would just do like $10 and pocket the rest and then it would hurt it would hurt our our statistics. Like we have um statistics with with the casinos and it would look like we're we're not bringing high like value players in. So, um, and then this person wagers it through because we asked them to wager wager it through. So they wager it through and you can see here they end with nothing 10 cents. So they finish their video and they send it to us. Um and then we can then log that here which is asking us so this is asking for welcome email the first one which we saw the second one's for deposit proof and the third one is um proof that they were actually wagered it.
+00:44:57
+
+Jay: So they want the full transaction history and that's what was provided. So that's an example of like logging and we make them do this for every single um signup they do. So somebody like John who has currently all this to log it's it takes a long time. So I I yeah it it's kind of why like Salesforce is needed.
+Waleed Alasadi: Okay. And John still gets it in
+Jay: Yeah.
+Waleed Alasadi: WhatsApp.
+Jay: Everything everything is done on WhatsApp. Our our communication hub is on WhatsApp. His BA chats on WhatsApp. Some people use iMessage um but their communications are like to us and most of their communications are done on WhatsApp.
+Waleed Alasadi: Okay,
+Jay: I think like two reps use that
+Waleed Alasadi: Joyce, have you guys looked into like integrating WhatsApp with Salesforce as
+Jay: message.
+Waleed Alasadi: well?
+Joyce Kiddell: Not yet.
+Waleed Alasadi: Okay.
+Joyce Kiddell: Uh yeah, that that can come later
+Waleed Alasadi: Okay.
+Joyce Kiddell: potentially.
+Waleed Alasadi: It just seems like it's such an important part of the workflow, right? Like their their proficiency workflow.
+Joyce Kiddell: Totally.
+00:46:09
+
+Waleed Alasadi: Okay.
+Joyce Kiddell: Yeah.
+Waleed Alasadi: All
+Emily Vandenberg: And the only other thing, maybe we talked about it yesterday,
+Waleed Alasadi: right.
+Emily Vandenberg: but the API like when with what we were able to kind of solution in our first build was like pulling in some of these things automatically. wasn't a perfect system here, but it was like pulling in the name, the user, the email address, the book, um, date
+Waleed Alasadi: Where were you pulling them from? From the signup link.
+Emily Vandenberg: from like the API was pulling from the agency websites from the study links.
+Waleed Alasadi: Okay. So then like in the flow that we just looked at, um Jay sent like the referral like added the group chat. Hey, here's my chat. like here's the link to sign up. So when they go perform the sign up, the API like sends that information. Is that
+Emily Vandenberg: Yes, there's like a couple sends, but it matches like Yes.
+Waleed Alasadi: correct?
+Emily Vandenberg: the sign up and then the um survey completion and then the book like the player sign up plus the book click as like a path a happy path to like a sign up if you
+00:47:24
+
+Waleed Alasadi: Okay. So like in a perfect world,
+Emily Vandenberg: will.
+Waleed Alasadi: the signup record is kind of what you described and that's what the status is about. It's about like actually getting all these three checks done through the signup
+Emily Vandenberg: Yes.
+Waleed Alasadi: process.
+Emily Vandenberg: Right. Joyce, just the three. I'm trying to think if I'm
+Joyce Kiddell: Sorry, which checks?
+Emily Vandenberg: missing.
+Joyce Kiddell: I
+Waleed Alasadi: the uh so we we're talking about like when you're signing up first of all like you have completed the survey um the name of the account I believe it was
+Emily Vandenberg: Oh yeah, the like account sign up with the information that we pull the uh
+Waleed Alasadi: Yeah.
+Emily Vandenberg: survey completion, the book um click which is like what we we bring in and then obviously the validation that Jay just walked you through with the deposit wager
+Waleed Alasadi: And where do you bring that validation
+Emily Vandenberg: validation.
+Waleed Alasadi: from?
+Emily Vandenberg: Those screenshots Not.
+Waleed Alasadi: So the the API grabs it from Dropbox.
+Emily Vandenberg: No, the API doesn't handle that at all.
+00:48:34
+
+Waleed Alasadi: Oh, okay. Okay. I thought it does. Okay. Um, cool. So, we just logged. Anything else about logging?
+Jay: No, no, not really. It's just um Yeah, that's basically it.
+Waleed Alasadi: Okay. Um, are reps paid based on logging or is there metrics down the line for
+Jay: Yeah, they're paid based off of logging. So if they've logged I want to say like let's say they logged 100 signups.
+Waleed Alasadi: that?
+Jay: Um Jess is very nice. So he pays based off of logging, not based off of tracking. So he will pay the 100
+Waleed Alasadi: Okay. Um,
+Jay: signups.
+Waleed Alasadi: so tracking is pretty straightforward right now because you have the sheet and you can just look at how much you've logged and how much you've made that way.
+Jay: Correct.
+Waleed Alasadi: Okay. All right.
+Joyce Kiddell: Yeah, there are some peripheral uh use cases like you know the screenshot proofs they're getting like
+Jay: Yeah.
+Waleed Alasadi: Cool.
+Joyce Kiddell: we want to build um an AI process that will extract like uh metadata like the sign up date um and time the uh deposit date and time and the first wager deposit date and time.
+00:49:54
+
+Joyce Kiddell: Um I'm not sure if like that would have to be you guys building the AI extraction piece of it, but it's something that we've already kind of discussed
+Waleed Alasadi: Yeah, we can.
+Joyce Kiddell: internally.
+Waleed Alasadi: We've uh actually like built a variation of this for like contracts for our customers to be able to extract some data. Um yeah, we don't have to. I think like right now phase one is about building the the the infrastructure to capture whatever information we want.
+Joyce Kiddell: Yes.
+Waleed Alasadi: Um,
+Joyce Kiddell: Yeah.
+Waleed Alasadi: but definitely, yeah, like it's very common to do that.
+Joyce Kiddell: Mhm.
+Waleed Alasadi: Well, I say it's very common.
+Joyce Kiddell: Okay.
+Waleed Alasadi: I know it's like right now. I wouldn't have probably said that six months ago, but hey. Um, okay. So,
+Joyce Kiddell: Mhm.
+Waleed Alasadi: should we do you think we can move on to redeposits or is there anything else that we would like to I guess just more on the day-to-day management like are your reps busy? Like what would be there's a question I always often like to ask in the situation.
+00:50:47
+
+Waleed Alasadi: If I was a rep um here and I have a magic wand to make things like a lot easier, I can do whatever I want. What would it
+Jay: um remove uh sorry make logging as simple as possible because essentially
+Waleed Alasadi: be?
+Jay: they they are sales they are sales driven like the BAS um and they put their sales on hold to do admin work which is logging and um they get paid for that of course so they you know they should but at the same time uh logging is consuming timeconuming and also like tedious so some of them fall behind and then their sales fall behind and it's a delicate space to be in because if you ignore like one two people that bring you a lot of volume because you're doing something else uh they sometimes get annoyed and stop working and then your network dies and then everything's gone from there, right? So, um, if I can wave a magic wand, it would just be to let the be focus solely on sales
+Waleed Alasadi: Is this a desk job or are they on their phones doing the logging
+00:51:51
+
+Owen Scott: phones.
+Jay: for sure.
+Waleed Alasadi: phones?
+Jay: Yeah,
+Owen Scott: Yeah,
+Jay: nobody is really on their desk.
+Owen Scott: desktop, I guess,
+Waleed Alasadi: Okay.
+Jay: Uh,
+Owen Scott: when they're logging, but for the most part, when you're doing sales, you don't want to be on a computer for 10 hours straight.
+Jay: yeah,
+Owen Scott: They can do it on their phone,
+Jay: some of the Exactly.
+Owen Scott: so they can do it basically wherever they are at all times.
+Jay: I I do most of my um communication for sales through my phone and the only time I switch to my laptop is if I want to send out because the bank sucks. Other than that, that's just the only
+Waleed Alasadi: Okay.
+Jay: time.
+Waleed Alasadi: And did do you open that Excel sheet or that Google sheet on your phone to do logging or do you keep it all at the end of the
+Jay: Oh, no, no, no,
+Waleed Alasadi: day?
+Jay: no.
+Waleed Alasadi: So like the end of the day you sit down and like you do your
+Jay: Yeah. Yeah.
+Waleed Alasadi: logging.
+Jay: Exactly.
+00:52:31
+
+Jay: Yeah. You have to do it on the computer, I think. like one or two reps at the most log with their phones and they don't do more than like 20 30 logs and I think that's why that's even possible. But sometimes like when they have bigger weeks like they're closer to 30 end they will actually be behind on logging because they say it's too much to be able to log on their phone. So I I definitely think everybody loss on a on a laptop on the go even
+Waleed Alasadi: Okay. Um, cool. Redeposits. Is that a good
+Jay: yes uh redeposits.
+Waleed Alasadi: transition?
+Jay: Okay. So redeposits I'll share screen again for that. Um start here. So okay. So redeposits is it's on the same sheet for the BA. So it's just here instead of signups, you'd be looking at redeposit tracker here. And um here's a prime example of redeposits. So these are assigned by the company. Like sometimes Owen or Alli or myself will arrive and put these on the person sheet. So these are all um these all these BEMGM GDS for example.
+00:53:45
+
+Jay: Actually that's a bad example. I'll start here. This is better. So, you see how it says assigned on the in the corner here. Assigned. Assigned means that um operations assigned it to to the sheet,
+Waleed Alasadi: Yeah.
+Jay: right? So, so Alli would have shown up and put DraftKings D um DraftKings CTM, DraftKings GD. So, these are all different versions of DraftKings like we were we were talking about earlier.
+Waleed Alasadi: Mhm.
+Jay: And he puts down these uh these certain amounts like 35 35 35 45. These are all like there's a little bit of randomness to it, but at the same time like these are set out um there's like a certain budget. So let's say like two grand, right? We break the two grand into like these little segments. And what John is supposed to do is he's supposed to take clients that fall into this um time frame. So DraftKings D March to April, right? He'd come back to his signup sheet. He'd look for DraftKings D users from March to April. So he'd be looking for uh let's just say this person Anna Corala, right?
+00:54:49
+
+Jay: He'd then come back and he would put Anna Corala here. And now Anna Cora for de DraftKings D, she would be allocated $35. He'd let her know that he's sending her $35 and he'd ask her to play it in the casino. And the reason for that is because it makes our retention look really good. Um, it makes it it shows that we have players that are coming back and playing. So, it lets us keep our deals with the casinos. It makes it it makes us look pretty strong. So, that's why we do that. Um, and it's on him to basically give out all of these uh redeposits that are assigned to him. The ones that are highlighted yellow are are done. There's a video attached and they've been moved to our master sheet. It basically means it's been approved. It's been checked and approved. So, um, here's another example. Like Proline, Roshella Palmer, right? She must have signed up for OOLG with him. She falls within this, uh, date frame for when she signed up. Um, so he sent her $70.
+00:55:52
+
+Jay: And here's the video. So, what she would do is deposit $70 into OG. So, she's showing she's showing two things for us here. Um, she's showing the $70 was deposited and she's showing us transaction history to prove that it was wagered. So, $70 deposited here. Wagered, wagered, wagered, wagered. So, that's a good video. He puts it here and then he puts the date she deposited and that's the end of the redeposit. So, like again,
+Waleed Alasadi: Okay.
+Jay: these redeposits are just to boost your retention, boost our retention numbers.
+Waleed Alasadi: And so like the fact that he selected Anna here um as he kind of put in an example um is just because he knows Anna, right?
+Jay: Yep.
+Waleed Alasadi: like he went back and he saw that he gave Anna some some time. So just based on his knowledge there's no real method of how we decide to distribute
+Jay: Correct. Like correct. You just want to you just want to give it to as many uh players as you can.
+Waleed Alasadi: these
+Jay: So like for example um every month we change these out, right?
+00:56:55
+
+Jay: He has until the end of the month to finish all of this. Um, and he gets a bonus for doing that. So, when he's done finishing all of these, I might show up and I might show up and reassign him all of these. I might give him this again, but obvious uh June, right? So, pro Proline, he would have to send for Proline.
+Waleed Alasadi: Mhm.
+Jay: Now, this might now be from February to June. Um, is the only time frame he can send them, right? Or February to May, sorry. So then he'd go in his sheet,
+Waleed Alasadi: Okay.
+Jay: he'd filter this sheet, he'd look for Proline signups. So he'd be looking probably up here. So he'd find Alexandro Karan signed up in March 18th. He It's his job now to take this name, go into his WhatsApp history, find this person, message them, say, "Hey, I have um um I have $80 for you." Right? He'd be like, "Hey, I have $80 for you, Alex uh Alexandro. Um would you mind playing it in the casino? you just have to send me back the video.
+00:57:56
+
+Jay: And they'd be like, "Yeah, sure." They send him back a similar video to this one where again, like you can see the deposit and all the transactions. And then he would stamp it away. And yeah, that's it. That's all we ask. And it's it's and this basically all these redeposits are an investment on um the company's end to boost our
+Waleed Alasadi: Okay.
+Jay: retention.
+Waleed Alasadi: So he doesn't like John wouldn't know that or remember. He'd have to remember that that he sent him one last month for example,
+Jay: Uh no. So, so for example,
+Waleed Alasadi: right?
+Jay: um what I like like what every BA does is like I'm sending Nathan Quatchin. Bam. GMCTM, right? Or Nathan Quatchin. I'm going to send him for Proline. I would put that here.
+Waleed Alasadi: Yeah.
+Jay: Uh Nathan Quadin. I put it here, right? Because there's no video here because he put the name here. He should come like for example he should come on his sheet right now and be like okay I must have sent George Chesac and Schubam Singla money because otherwise there shouldn't be a name here.
+00:58:54
+
+Jay: So that's how he knows that he he he's he must have sent them the money. So like if you put a name here you should at the same time also be sending the money away that way. Yeah. Some some people do this.
+Waleed Alasadi: Yeah.
+Jay: I do this sometimes. Sent I put it like this. Um,
+Waleed Alasadi: And you're just now waiting to be to for the proof.
+Jay: correct. And then when the proof comes in, I remove the scent. I take I take the link. Uh, I uploaded the Dropbox. I take the link. I put uh I put the date. And then what will happen is tomorrow um a very uh great man uh will come on the sheet. Um he's in charge of the redeposits. he will confirm this redeposit and then he'll be like, "Okay, I'm going to change this." Uh, it gets moved. It gets moved to a master sheet. When it gets moved, it gets turned yellow like that. And now John knows he no longer needs to worry about this because it's yellow.
+00:59:47
+
+Waleed Alasadi: Okay.
+Jay: And that's kind of how it works.
+Waleed Alasadi: So, how does two two questions on that first of all like from the name so you saw George,
+Jay: Yeah.
+Waleed Alasadi: right? Like that George name it showed up a few times in here. Are there restrictions or like who if we keep giving the same kind of person um redeposits or
+Jay: Yeah, ideally we don't want to give more than two,
+Waleed Alasadi: something?
+Jay: sometimes three to the same person. U it it does happen like sometimes you have to do it like like for example um I know um John he does like sweep stakes like he'll tell his main referers like whoever is number one this week will get like a $100 and then he pays them through the redeposit. So he he'll look for them where they fit in this criteria and he'll allocate them $100. So that that's like examples of like for example you can see Gia and Ho co twice,
+Waleed Alasadi: Okay.
+Jay: right?
+Waleed Alasadi: Yes.
+Jay: He sent their 105 bucks and it happens like Yeah, it
+01:00:41
+
+Waleed Alasadi: Okay.
+Jay: happens.
+Waleed Alasadi: And then as far as like the actual sending of the money, does do the reps send the money.
+Jay: Yeah. Each rep has access to a BMO account with their own user ID and their own customer ID and then we audit
+Waleed Alasadi: Okay.
+Jay: that bank account at the end of every month to make sure all the other transactions line up.
+Waleed Alasadi: Okay.
+Jay: But if there was like an easier way where like Salesforce could do it through an API, that'd be amazing because BMO sucks. The bank is
+Waleed Alasadi: I feel like it's going to be a little bit before we touch the banks. But there is actually there is a way.
+Jay: Yeah.
+Waleed Alasadi: But that will be a while.
+Jay: Yeah. Fair enough.
+Waleed Alasadi: Okay. Um Okay. Is that it on the deposits?
+Jay: Yeah, that's basically it. Like there's uh it's just the the like you can see like the vast majority of them. Oh,
+Waleed Alasadi: Okay.
+Jay: sorry, one more things. The these additional ones. Um so there's assigned these again like we we come and drop on their sheets so they know ex we we made the budgets.
+01:01:35
+
+Jay: Additional means that and you'll only see additional for some books like Bet MGM especially. Um, and that's because Bet MGM for us, they want us to give them crazy retention. They want a reinvestment into their their their brand. So for each person we sign up for Bet MGM, so for example, Jacob Glassic had wagered and finished Bet MGM on his sign up within 3 days, we'll come here and put him as an additional and we have to send him out like anywhere from four like I think it's $30 to $80. So in this case, Hang chose to give Huang is John Buu. Sorry, John V sent chose to send him $40. Um, this could easily be like 60 70. It's up to him. We give him access like we give them the range and then um they choose. But you mark those as additional because that's profit that when we do our calculations, that's profit loss for the company.
+Waleed Alasadi: Okay. Um, I think I'm good on this I guess.
+Jay: Definitely.
+Waleed Alasadi: Sorry, last question. It seems to me from how you're describing it, is it a challenge for reps to give I'm saying this money away every month?
+01:02:55
+
+Jay: um I think at first they don't believe it. They're like, "What the heck?" Like, "Why are we giving out this much money?" Right? This is a lot of money we're giving away. But um when you peel back the layers of it,
+Waleed Alasadi: Yeah.
+Jay: you realize that like uh for for for for example like if we don't do this, right? Like we don't do this bad MGMGD will will reach out to us and tell us hey um your your retention numbers are really bad. Therefore, we're no longer doing business with you. And then we lose the we lose the signup. Right? So, if we're making 200 in profit per per user that's signing up for BetM and we re
+Waleed Alasadi: Yeah.
+Jay: and we're reinvesting like $40 to $45, we're losing we're now making 160, right? The way we kind of see it is we'd rather make 160 than lose the entire deal. So, that's why we we have this redeposits. We have to take away from our profits to keep the deals. It's like an it's like an investment for longevity,
+01:03:54
+
+Waleed Alasadi: No,
+Jay: basically.
+Waleed Alasadi: sorry that that makes absolute sense as to why you do it. I guess my question is do you have to be more direct? Is there a challenge in assigning the deposits to players that your your reps have?
+Jay: Uh,
+Owen Scott: No,
+Jay: no,
+Waleed Alasadi: It's easy like it's easy like for them.
+Jay: no,
+Waleed Alasadi: It's not like I have to track and see. It's just they're fine doing that.
+Jay: no, no. Because they get paid a they get paid a bonus if they finish this. So, they they're they're more than happy. Like,
+Waleed Alasadi: Okay.
+Jay: sometimes reps will reach out to us and beg us for more because the more you have, the more money you get in the end as a bonus for finishing. So, uh they they don't have trouble,
+Waleed Alasadi: Okay.
+Jay: I would say.
+Waleed Alasadi: Okay. Um, what else do reps do?
+Jay: Um aside from that, uh let me just go through these really quickly. So, they have BLH entries. This is basically everybody who signs up through the through the link.
+01:04:45
+
+Jay: It records their name, their email, then their time, the time they signed up. Bet lab transfers.
+Waleed Alasadi: This is the API like plugs into into
+Jay: Correct. Yeah. From playan admin.
+Waleed Alasadi: here.
+Jay: It's it's uh reporting back here. And then this would be betab transfers. So this is basically everything in the bank. So if I was to go right now and send out an ET for like two grand to Owen, I would have to come here, write Owen Scott um MGM GD because this is the book I'm sending in the two grand on. I would then write redeposit. I would put $2,000 there and I would put today's date. So now um now Owen knows or sorry now it's it's it's logged on my sheet, right? So when they come to do my audit at the end of the month, they can see that um $2,000 transfer went to Owen. Similarly, I can also write uh Owen Scott. Um I can put I can leave this empty and put cash. Um, but so you wouldn't log it as a BLAB transfer, but you would just put here like $200 and you would put cash, but there's another another place you can put that and I'll show you that real quickly.
+01:05:54
+
+Jay: So this is the redeposit. This is referral payments. So you remember how like I was saying like they all get paid 40. So Stuart Ko is one of his bigger referrals. So you can see in the referral payment Stuart probably gets paid for. Yeah. Your wager for Steuart Kale. So, this person's getting paid for Stuart, Tiffany. She got paid $2,600. So, we we basically all referral payments get logged here. And I don't think anyone's ever Yeah. So, in Hang's history of being here, no one's ever taking cash. It's cuz it's $25 versus 40. They don't want to they don't want to like lose the uh extra money. This is uh just This is I Nobody uses this.
+Waleed Alasadi: Okay.
+Jay: This is random. This is for tactics. Uh I don't think we're we're going into TT, right, Joyce? Um okay.
+Joyce Kiddell: Not yet.
+Jay: So I can skip
+Joyce Kiddell: I I think we should have it in the system because it's like a core
+Jay: this.
+Joyce Kiddell: process. So maybe you can speak to it like kind of high level, but um I'm not sure if we'll have it in the initial build out yet.
+01:07:10
+
+Joyce Kiddell: Um that was the original thought is that we would,
+Jay: Yeah.
+Joyce Kiddell: but anyway, yeah, just go through it high level.
+Jay: Okay. So, so TT, uh, we call it TT, short for Tactics. Tactics is a, um, AI kind of like sports prediction platform that we're partnered with. We ask users to sign people up on TT and in return uh, we provide them like bonus redeposits. So like for example, Ashwin Cananan got signed up. We record his phone number. Um, we record the referral because we also pay the referral for this as well. their email, the package type. So there's multiple packages here. There's t tier one to tier 7. Um tier one is what most people push as you can see. And then date subscribed, subscription, end date. So um this is done like this because it's a monthly thing. So you you this is basically a resub um price package. This is how much they paid. So, if they paid $50, we give them $150 for signing up for the $50 package. So, you can see like why people would be very inclined to sign up.
+01:08:18
+
+Jay: They're like, "Yeah, I'm so down." Um, and then the uh unassigned basically means how much money is the company shelling out for you to like additional money are they shelling out for you to get this sign up. Ideally, we want this number to be zero because if we already have the redeposits, we shouldn't be using more money. Um, and then the redep book name. So, it's kind of confusing, but I'll try to make this very simple. So, like Ashman Kanan, right? He wants to sign up for tier one. Tier one's going to cost him 50 bucks. Uh, we as a company have decided that if you sign up for that, we'll give you 150 bucks. So then we go to the redeposit tracker and we find $150 to give him for books he signed up for worth worth uh worth that much money. And that would uh
+Waleed Alasadi: And you're having to do a math as rep. You're having to do the math as a rep here,
+Jay: sorry
+Waleed Alasadi: right? Like trying to add up come up with 150 from a collection of redeposits.
+01:09:20
+
+Jay: correct. Yes. Correct. Correct.
+Waleed Alasadi: Okay.
+Jay: Yeah. Uh and that would basically be that that that's basically Tech Takes. Tech Takes is a little bit more um new like as a company we're still like reps are starting like a lot of new reps are pushing it like John Vu is new to Tech Takes as well. Um, and then this here, uh, I think this was the, um, uh, I think this is John's, this is John's own sheet. We don't really provide this, uh, this inflow outflow. This basically means um, uh, how much money we've added to their bank accounts and how much money has left their bank account. So like for example, um, $6,000 inflowed, 6 $3,000 inflowed. So they would go to their like WhatsApp chat and be like, "Hey, I'm running low on money. Can you refill me?" And then we would refill them and they would have to log it here. So at the end of the month, we come here and we look at this and it adds up to $584,000 and we go look at the bank uh bank PDF and if it lines up, then it makes sense.
+01:10:27
+
+Jay: Um and then write offs. This is basically we signed somebody up but they either their accounts banned or they ran away like some of the reasons here are noted but he has about three three write offs. Um or no he has more they're over here sorry. Um so you can see here he put the reason no response is the reason. So they just stopped replying to him like he sent the money they stopped replying. This is our way of tracking our losses. He only has three which is kind of crazy. And then uh this is basically an audit we do. So if um for example he sent out money $210 to this person, we couldn't find it on his sheet. So we have him correct it and fix it for us on and he'll write like notes here like corrected deposit amount. So yeah, I would say like the most important ones are just the redeposit tracker, the Bellab transfers and the signups. Everything else isn't really that uh that important.
+Waleed Alasadi: Okay. So, you in operations provide John with the sheet once a
+01:11:29
+
+Jay: Correct. Yeah. Owen Owen Owen makes a
+Waleed Alasadi: year? Once a year,
+Jay: sheet.
+Waleed Alasadi: Owen.
+Owen Scott: Yeah.
+Waleed Alasadi: Okay. And you're managing everybody's sheet, like all 23 sheets.
+Owen Scott: Uh, it's a little bit of everybody. Like everybody on operations uh at some point in time throughout a day will be dealing with some of their
+Waleed Alasadi: Um,
+Owen Scott: sheets.
+Waleed Alasadi: so like we're it's very fair to say that like operations is also going to benefit greatly from like having a centralized system to manage this, right? Like that's Yeah.
+Owen Scott: Yeah. Absolutely. 1000%.
+Waleed Alasadi: Okay.
+Owen Scott: Yeah.
+Waleed Alasadi: Okay. Um just cuz seeing kind of the time maybe Owen like on the operations side is there anything that's like the different view that we need to consider that we haven't considered here from the rep view I I guess like signups
+Owen Scott: uh just strictly for signups.
+Waleed Alasadi: logging um anything really
+Owen Scott: Not really to be honest. Like other than our P&L which we all use that's all just on our back end.
+01:12:31
+
+Owen Scott: Uh, it's literally just this like this is automated. Everything here once it's complete is brought over to a master sheet which is literally just this without the screenshots just so we can get a sense and then use that data for our reports. So when we're comparing how many signups they've got for each book versus what our cap is and how many CPAs, how many things have tracked, that's all we do on the back end primarily just strictly numbers wise. But as for this, this is basically like not really. There's there's nothing else really that you're missing.
+Waleed Alasadi: And like when you talk about reports Um, so what what I want to look at like profitability either by signup, by player, by operator, by campaign, book, whatever it is, like are you guys like do you have preset like Excel or BI reports that maybe you're looking at off of Excel? Um, how frequent, how real time is your current
+Owen Scott: reporting is usually like our main report is usually every Wednesday.
+Waleed Alasadi: reporting?
+Owen Scott: So it's literally just because reps so every BA gets paid on Wednesday.
+01:13:37
+
+Owen Scott: So that's when we know for sure every complete sign up they have will be logged by that. So, at that point, that's when we build our reports because that's the most up-to-date data that we have. Uh, and it also one thing that might hinder us sometimes is the reporting uh timeline of some of the operators in some of the affiliates we deal with just because they all don't uh update their reports or their data at the same time. That would be very convenient, but it's a little scrambled. So, sometimes we have to request, hey, can you update this? Hey, these books aren't updated. We don't see any tracking. Uh, so there are a couple roadblocks, but for the most part it's every Wednesday just because we'll be able to see the most accurate view of how many logs each BA's done.
+Waleed Alasadi: How long does it take you to set up reporting?
+Owen Scott: Uh, it usually takes no more. It's usually Stephanie. She's on our operations team for specifically CPA verse logs.
+Waleed Alasadi: Okay.
+01:14:30
+
+Owen Scott: And those reports don't take very long. Maybe like an hour, two hours max.
+Waleed Alasadi: Okay. Um, are there other reports that like we're using for this
+Owen Scott: Uh there are some other reports.
+Waleed Alasadi: data?
+Owen Scott: It's literally just sometimes it'll be deposit data. Uh sometimes it'll be redeposit reports. We have specific time frames and requirements for some of the books. Uh as Jay mentioned, we have immediate redeposits. So for BetMGM, they care quite a bit about retention, but they care about timely retention. So if people sign up, they want to see people or players re-engaging no more than within like one to three days. So we have reports that outline the timeline of redeposits. So any books that we care about, uh as well as reports that show completion percentages for things, completion percentages for books, uh where we're at for targets, where we're at for cap. Literally just any general data that's important to us is what we report on.
+Waleed Alasadi: Okay. The just quick question on this automatic predeposit.
+01:15:37
+
+Waleed Alasadi: I I did read this actually in the PRD, but like just now seeing your process, does the rep have to like as soon as they sign them up add another entry? That was the additional that you were telling me about,
+Owen Scott: Yes,
+Waleed Alasadi: Jay. That's what that is, right?
+Owen Scott: exactly. It's on the rep to make sure that they uh follow that timeline and make sure that the clients receive a redeposit very quickly and complete it and then we then build our reports based off
+Waleed Alasadi: Okay.
+Owen Scott: that.
+Waleed Alasadi: Okay. And we have no clue, like we can't look into, and I know this is like farfetched maybe, but we have no idea that the player actually signed up on Bet MGM except for their proof. Like that's our only way to find out.
+Owen Scott: Yeah,
+Waleed Alasadi: And then later on the reports.
+Owen Scott: pretty much.
+Waleed Alasadi: Yeah. Okay.
+Owen Scott: It would be very convenient if we had access to that, but that is Yeah.
+Waleed Alasadi: imagine.
+Owen Scott: Yeah, we don't
+01:16:23
+
+Waleed Alasadi: Okay. Um,
+Owen Scott: unfortunately.
+Waleed Alasadi: is there anything else that I should have asked about today that I didn't ask about?
+Owen Scott: You have anything, James? I don't have anything off the top of my head.
+Joyce Kiddell: Sorry, I I um was kind of working on something else at the same time, but did we go through uh the whole like payout flow?
+Waleed Alasadi: We did not
+Owen Scott: Oh, like referral payments.
+Joyce Kiddell: Yeah. And how you guys kind of like bundle like um you're not sending out a you know transaction for
+Owen Scott: Yeah.
+Joyce Kiddell: every single individual signup they send. It's you can bundle them and and then kind of package that into like one you
+Owen Scott: Yeah.
+Joyce Kiddell: transfer.
+Owen Scott: Jay, can you go to referral payments on John's page? So,
+Jay: Yes.
+Owen Scott: as we mentioned, uh, clients receive reposits. So, it'll be bet credit. If they choose the $40 bet credit, then they get paid for each client they bring. Sorry, for each clients and book they bring.
+01:17:18
+
+Owen Scott: So, if someone if they bring us one person and they complete four books, that's technically four signups. So, in which case, they get paid $160 uh in bet credit. what the reps or the BAS do. Uh it wouldn't make sense to consistently be sending out $40 transfer, $80 transfer. They kind of let it accumulate just because they have so many salespeople who are bringing them such high volume. They usually end up paying them out on a specific day. So you'll see all these transfers, there are basically none that are $40. It's because these people bring so many clients, they just decide to let it accumulate and they send it in one gigantic transfer. Uh strictly for convenience, also for time, just because a BA is extremely busy and they don't have time to constantly be sending out transfers for this on top of redeposits on top of signups. Uh so this is how they're paid out and very very similar to redeposits, we just require proof they deposited it and proof they wagered it. As far as the book goes, we have a system where we basically just show what books are priority.
+01:18:26
+
+Owen Scott: So, what books uh clients should be using for referral payments uh just because we get the most benefit out of them. Uh whereas if they were to pay on a different book that doesn't really pay us, it would be useless and it wouldn't make sense. Uh so that's why uh it's primarily DraftKing CTM Proline C here a little bit of BMGMGD and then a few odd ones but for the most part we decide what books they are. Each salesperson is aware and that changes constantly based on how much we're paid and what deals we have active.
+Waleed Alasadi: Okay. Um and that's analysis that you're doing right now off of this data essentially still like the Yeah.
+Owen Scott: Exactly.
+Waleed Alasadi: Okay. Um just a quick question on this. Is this does this follow the same time frame as well in that like if I sent like someone $2,000, are we expecting them to like wager it or deposit and wager it within 24 hours
+Owen Scott: Absolutely.
+Waleed Alasadi: still?
+Owen Scott: It's a little different for uh much higher transfers obviously just because of strictly limits that people will
+01:19:24
+
+Waleed Alasadi: Yeah.
+Owen Scott: encounter uh whether it's a card limits that they're trying to deposit with e transfers that fail things like that. Uh these ones have a little bit more of a grace period, but we still require them to be done pretty pretty quickly because uh if we ever notice that people haven't been logging these, these are pretty significant transfers. So we get on them pretty quickly.
+Waleed Alasadi: Okay, I think
+Joyce Kiddell: Um we'll the PR just for some context um we have uh that flow
+Waleed Alasadi: yeah.
+Joyce Kiddell: scoped where it's like um the payouts to refer and how you would like bundle kind of completed leads into like a new type of record called payouts. Um, but it doesn't include the payouts that we give to players and um, tracking that piece of it cuz I think we can infer it based off of the actual like sign up process. Um, but just something to flag for us to maybe discuss later and that like in uh a payout like dashboard for example, we want to see all money flowing out of the company to both refers and players for like either a sign up or a redeposit
+01:20:43
+
+Waleed Alasadi: Okay.
+Joyce Kiddell: incentive.
+Waleed Alasadi: Yeah, I know that makes sense. Okay.
+Joyce Kiddell: Cool.
+Waleed Alasadi: Um like I said yesterday, we're going to sit with this information or consume this information over the next um couple of days. Um I think by Tuesday we'll be able to come back to you with like what our next steps would be including like you've asked for like a high level of cost like time frame. Um but also like more importantly for us like what is our plan on how we would convert this like aligning with your PRD.
+Joyce Kiddell: Okay, great. If you can bake into that too, just like um like steps taken with our data architect like the the senior engineer that we just brought in. We want to make sure that whatever he's mapping um for eventually like being able to uh match our data with like the operators downstream.
+Waleed Alasadi: Good morning.
+Joyce Kiddell: We want to make sure it aligns with what you guys are planning for like structure within Salesforce. So there might be some sessions there where where you guys collaborate, but like I don't see it being in conflict at all.
+01:21:49
+
+Joyce Kiddell: like um he he's very easygoing and uh I think like it'll it won't it won't create a lot of friction, but I just want to make sure it's
+Waleed Alasadi: Okay. Yeah, I know that makes sense. Um,
+Joyce Kiddell: aligned
+Waleed Alasadi: would you is it okay if I reach out on Monday to ask for time to meet because it maybe Tuesday, maybe Wednesday, like they'll just kind of get through it. But I'll reach out on time on Monday and by then I'll have a clear understanding of when it will be completed like from our side.
+Emily Vandenberg: Yeah, that works.
+Waleed Alasadi: Okay.
+Emily Vandenberg: And then we'll make ourselves available. That's pretty like top priority for us. So, the sooner we can reconnect,
+Waleed Alasadi: Yeah,
+Emily Vandenberg: the better.
+Waleed Alasadi: we're we're on it. We just really want to like again take in the data, make sure
+Emily Vandenberg: Totally. And plus with you having access now um let me know if you don't and we'll make sure we kind of get that but
+Waleed Alasadi: um
+01:22:40
+
+Emily Vandenberg: then um it'll be you I think there's some context that lives within the initial build that we'll probably you can probably glean
+Waleed Alasadi: Okay. I was to be honest with you, I'm glad that I didn't get access before because in a way like this like I I'm trying to stay away from what was built or what the PRD and focus a lot on like the user experience. So like one thing that I'll tell you 100% for sure whether you want to do it now or later a WhatsApp integration is definitely going to be part of our like recommendation because that's where your reps are spending most of the time. So like inherently it seems like there's a disconnect between what they're doing and where they need to log
+Joyce Kiddell: right?
+Waleed Alasadi: information. And if we are truly trying to save them time, then I think that we need to that to have that action be one and the same, right? Like I'm logging and communicating at the same time. Um definitely can be phased but it definitely has to be I think part of the
+01:23:35
+
+Joyce Kiddell: Yeah.
+Waleed Alasadi: recommendation.
+Joyce Kiddell: Have you built them
+Waleed Alasadi: Uh WhatsApp specifically? No.
+Joyce Kiddell: before?
+Waleed Alasadi: Uh but I know that they're available. Like there's tools out there that are like already integrate WhatsApp with Salesforce that we'd be leveraging.
+Joyce Kiddell: Okay, great. Yeah, feel free to um build it into the recommendation.
+Waleed Alasadi: Yeah.
+Joyce Kiddell: Um but we can talk about like sequencing and and where that would make sense.
+Waleed Alasadi: Okay. Yeah. For sure. I think I think there's like I hope that we give you enough to say yes, we're aligned with you with your vision jumper. We agree high level on the financials but like we are too like you agree that this has to be phased um as we get adoption that we're adding more functionality on um to make lives
+Joyce Kiddell: Yeah. And just to reiterate like when we talk about like what's our like V1 of this again it's like the
+Waleed Alasadi: easier.
+Joyce Kiddell: foundational data structure capturing the signup flow redeposits and payouts. Um, and then the rest of it, like we can talk about whether it makes sense to pull it into like that that initial release or whatever you want to call it, um, kind of as we build this out, but uh, we just know that those four things have to be accounted for.
+Waleed Alasadi: That makes sense. All right. Well, thank you so much for being very open and transparent in today and like answering all my questions and interruptions. Um, and then yeah, until next week. Thanks so much.
+Owen Scott: Yeah,
+Joyce Kiddell: Thank you.
+Owen Scott: no worries. Thanks,
+Emily Vandenberg: Thank you.
+Owen Scott: guys.
+Jay: Okay. Yes.
+Emily Vandenberg: Bye.
+Transcription ended after 01:27:25
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

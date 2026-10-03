@@ -1,0 +1,197 @@
+{
+  "id": "10318",
+  "key": "WAGR-114",
+  "fields": {
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-07-30T16:44:37.515-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:26.127-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "Build the file container once, generically, instead of adding proof-specific fields.\n\nWhy: three proof URL fields on Sign-Up means EXACTLY THREE FILES, FOREVER. It cannot hold a second attempt at a proof, and it cannot hold anything that is not one of those three things. Payouts and deposits are obvious next candidates.\n\n* Cloud_File__c — one record per uploaded file regardless of what it relates to. Fields: Category (Welcome/Deposit/Wager Proof, Other, extensible), Drive file ID (permanent path-independent handle), File link, File name/size/type, Uploaded by, Uploaded at, Status (Active/Superseded so a replaced proof keeps its history), Storage provider (Google Drive/Dropbox so both coexist during transition), Sign-Up\n\n* RECORD TYPES FROM THE START — 'Sign-Up File' now. Retrofitting record types onto an object with live records means reclassifying every one of them: \\~1h of config now vs a data cleanup exercise later\n\n* Three lookups on Sign-Up point at the current Welcome, Deposit and Wager proof so the page still shows 'here is the deposit proof' at a glance; replaced proofs and everything else appear in a related list below\n\n* THE EXISTING PROOF URL FIELDS STAY and are populated automatically on upload. The URL field is the fast path for viewing (one click), the file record is the system of record. This is why current screens, proof indicators and Completion % keep working untouched, and why Dropbox and Drive links coexist with nothing downstream needing to know the difference\n\n* Two consequences of a generic container, both priced in: each file record carries its own visibility setting rather than inheriting the parent's (D6), and deleting a parent does not remove its files — needs cleanup of orphans\n\nAdding the next parent later (payouts, deposits, deals) is a new record type, a relationship field and a related list — \\~1-2h each, not a redesign.\n\nEffort: 8h. Dropping this saves 8h but caps WagerTech at three files per sign-up permanently.\n\nSource: Drive Storage doc §2.1, D2.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-95 — Cloud_File__c generic file container (8h)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10288",
+          "body": "On Hold until POC Completed",
+          "created": "2026-08-10T16:13:42.450-0400",
+          "updated": "2026-08-10T16:13:42.450-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Proofs File Storage"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-206"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "On Hold",
+          "id": "10033"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "2",
+          "id": "10084"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Sign-Up Proofs & Storage",
+          "id": "10069"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217037388907883"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001l3:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217037388907883"
+      }
+    }
+  }
+}

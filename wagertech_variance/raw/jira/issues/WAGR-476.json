@@ -1,0 +1,138 @@
+{
+  "id": "11553",
+  "key": "WAGR-476",
+  "fields": {
+    "statuscategorychangedate": "2026-09-28T12:41:01.357-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-28T12:39:56.540-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T12:41:01.357-0400",
+    "status": {
+      "description": "This issue is being actively worked on at the moment by the assignee.",
+      "name": "In Progress",
+      "id": "3",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "**Background**\n\n* In Postman, we sent a `deal_updated` payload for deal `BETMGM-GD-AB-CAS-WT` with 2 links (1 existing, 1 new).\n* The expected response has a `links` block (`created: 1`, `unchanged: 1`) and `outcome: \"updated\"`.\n* The actual response is `outcome: \"unchanged\"` and has no `links` block.\n* Wagertech gave Postgres access. We can see only `playcan_sf_accounts` and `playcan_sf_deals`.\n\n**Scope**\n\n* Test the CMS Deal payload in Postman and record the sent payload, the expected response, and the actual response.\n* Set up and confirm the Postgres connection.\n* Find which tables and data we can see, and if the link records are available.\n* Report the results and open questions to Wagertech.\n\n**Acceptance criteria**\n\n1. The Deal payload test is complete, and the sent payload, expected response, and actual response are attached to this ticket.\n2. The Postgres connection works, and the connection is confirmed in the ticket (no credentials in the ticket).\n3. The ticket lists the tables and objects we can see, with a short note on the data in each.\n4. The ticket states if link records are available in Postgres or not.\n5. The questions about link support and link-table access are sent to Wagertech, and the Slack thread is linked in the ticket.\n\n**Current status (from Slack)**\n\n* Payload test: done. The actual response does not match the expected response.\n* Postgres: connected. Visible tables are `playcan_sf_accounts` and `playcan_sf_deals`. No link tables seen.\n* Wagertech question: posted to Strah on Sep 29, 00:30 CST. No reply yet.\n\n**Dependencies**\n\n* Wagertech (Strah) to confirm if the CMS Deal endpoint supports links now.\n* Wagertech to give access to link tables, or tell us where link records are kept.\n\n**Source:** Slack threads in C0BRW5L8SUA (Kobi/Cedrick, Sep 28) and C0BBC05C2HG (Cedrick to Strah, Sep 29).",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "CMS Deal Sync – Test Deal payload and confirm Postgres connection and data access",
+    "creator": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i008xb:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

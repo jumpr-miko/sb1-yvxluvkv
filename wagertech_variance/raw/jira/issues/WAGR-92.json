@@ -1,0 +1,305 @@
+{
+  "id": "10308",
+  "key": "WAGR-92",
+  "fields": {
+    "statuscategorychangedate": "2026-09-14T14:15:27.010-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-08-27T23:29:51.969-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:28.678-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<p>CONTEXT</p><p>Person Account uniqueness for Players and Referrers is enforced by Account.Email_Record_Type_Unique__c (Text 255, unique index), stamped by the flow &quot;Account - Before Save - Set Unique Email Address for Person Accounts&quot; as:</p><p>RecordType.DeveloperName + &quot;:&quot; + LOWER(TRIM(PersonEmail))</p><p>This is what allows a Player and a Referrer to legitimately share an email address (different keys) while blocking two Players on the same address — including the async race where a batch of Study Link Clicks for the same person creates duplicate Players.</p><p>If PersonEmail is blank, no key is stamp185ed and the record sits outside the duplicate guard entirely.</p><p>The SLC flow already blocks blank emails on the integration path (Has Email decision before the email match, sets Processing Status = Review Required with reason &quot;Blank Email Address&quot;). This ticket closes the manual UI path.</p><p>ACCEPTANCE CRITERIA</p><p>1. Saving a Player or Referrer Person Account with a blank PersonEmail is blocked, on both create and edit.</p><p>2. Operator and Partner (business) Accounts are unaffected.</p><p>3. Error displays on the PersonEmail field.</p><p>IMPLEMENTATION</p><p>Rule name: Player_Referrer_PersonEmail_Required</p><p>Formula:</p><p>AND(</p><p>OR(</p><p>RecordType.DeveloperName = &quot;Player&quot;,</p><p>RecordType.DeveloperName = &quot;Referrer&quot;</p><p>),</p><p>ISBLANK(PersonEmail)</p><p>)</p><p>Error message: Email is required for Player and Referrer records.</p><p>Error location: PersonEmail field</p><p>TEST NOTES</p><p>Create Player with blank email -&gt; blocked</p><p>Create Referrer with blank email -&gt; blocked</p><p>Create Operator / Partner with no email -&gt; allowed</p><p>Edit existing Player, clear email -&gt; blocked</p><p>Reprocess an SLC with a valid email -&gt; still completes normally</p><p>DEPLOY NOTE</p><p>Assumes zero existing Player/Referrer records with a blank PersonEmail (confirmed by Kobi 2026-08-27). Re-confirm with a count in the target org before promoting past Partial SB — if any exist, every subsequent save on those records will fail. If legacy blanks turn up, add a grandfathering clause:</p><p>OR(ISNEW(), NOT(ISBLANK(PRIORVALUE(PersonEmail))))</p><p>Validation rules also apply to Flow DML, so this doubles as a backstop if a blank ever slips past the SLC guard.</p><p>RELATED</p><p>BUILD-194 — Referrer: Dedup-on-Create (hard block)</p><p>BUILD-230 — Player: Manage Duplicate Player</p><p>BUILD-03 — Player/Referrer matching, duplicate prevention, and cross-linking</p><p>Created 2026-08-27 from the SLC duplicate-Player race review.</p>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10197",
+        "filename": "Screenshot 2026-09-14 at 2.07.32 PM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T14:15:22.326-0400",
+        "size": 114536,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10197",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10197"
+      },
+      {
+        "id": "10198",
+        "filename": "Screenshot 2026-09-14 at 2.09.22 PM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T14:15:22.655-0400",
+        "size": 302123,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10198",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10198"
+      },
+      {
+        "id": "10199",
+        "filename": "Screenshot 2026-09-14 at 2.09.50 PM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-14T14:15:22.967-0400",
+        "size": 292938,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10199",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10199"
+      }
+    ],
+    "summary": "BUILD-240 — Player & Referrer: Require PersonEmail (Validation Rule)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10549",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<figure data-local-id=\"a88ac980e2bd\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"453\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"d65550eb-e2ba-47b6-a8ab-03597e3592a7\" data-alt=\"Screenshot 2026-09-14 at 2.07.32 PM.png\" data-width=\"920\" data-height=\"310\"></div></figure><figure data-local-id=\"ebe728ddc1bd\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"453\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"d4409eea-f571-4a06-af18-5b7c1cf0aafa\" data-alt=\"Screenshot 2026-09-14 at 2.09.22 PM.png\" data-width=\"686\" data-height=\"1115\"></div></figure><figure data-local-id=\"4ebe587848f6\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"453\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"bbaaad19-f05f-4101-bea5-4b36daaf8984\" data-alt=\"Screenshot 2026-09-14 at 2.09.50 PM.png\" data-width=\"633\" data-height=\"1101\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-14T14:15:23.323-0400",
+          "updated": "2026-09-14T14:15:23.323-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-366"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217948152635278"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001hf:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XXS (1-2 Hours)",
+          "id": "10043"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217948152635278"
+      }
+    }
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "id": "10286",
+  "key": "WAGR-28",
+  "fields": {
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10284",
+      "key": "WAGR-27",
+      "fields": {
+        "summary": "Epic D — Players & Referrers (Person Accounts)",
+        "status": {
+          "description": "This issue is being actively worked on at the moment by the assignee.",
+          "name": "In Progress",
+          "id": "3",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-07-04T11:24:54.900-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:22.405-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Objective\n\nBlock duplicate Players and duplicate Referrers by email while allowing one email to exist once per record type, and auto-link the Player and Referrer profiles of the same person.\n\n## Implementation Requirements\n\n* Before-save flow populating Email_Record_Type_Unique__c (RecordType.DeveloperName + email) on Player and Referrer\n* Matching and duplicate rules scoped per record type across Primary/E-Transfer/Secondary email\n* After-save flow maintaining Related_Referrer_Profile\\__c / Related_Player_Profile_\\_c cross-links\n\n## Acceptance Criteria\n\n* A second Player with an existing Player email is blocked\n* A Referrer sharing an email with a Player saves successfully\n* Cross-links populate automatically when both profiles exist\n\n## Testing Notes\n\nDuplicate-scenario suite per design doc story D-03.\n\n---\n\nEstimate: L · \\~24h · Dependencies: POC-08 · Ticket BUILD-03 (approved 2026-07-04)",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-03 — Build Player/Referrer matching, duplicate prevention, and cross-linking",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10338",
+          "body": "NOTE — 2026-07-28 reconciliation: scope unchanged and still required; nothing in the Additional User Stories doc touches this. Two flags: (1) this ticket is UNASSIGNED and is a dependency of BUILD-04; (2) it is a prerequisite for BUILD-38 (Sign-Up Owner = Brand Ambassador) working cleanly on Player records.",
+          "created": "2026-07-28T15:19:39.185-0400",
+          "updated": "2026-07-28T15:19:39.185-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-86"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Needs More Info",
+          "id": "10029"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1216276753994685"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001dz:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-27"
+      },
+      "Asana Parent Task ID": {
+        "id": "customfield_10240",
+        "value": "1216276753501091"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "L (16-32 Hours)",
+          "id": "10044"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1216276753994685"
+      }
+    }
+  }
+}

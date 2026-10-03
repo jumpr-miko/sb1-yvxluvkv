@@ -1,0 +1,466 @@
+{
+ "doc_id": "1J9VPuHqXT-7VAvnJxUdn20Yt_AgmNnG-TxackaQbV4Y",
+ "title": "Marc / Kobi - 2026/06/15 10:01 EDT - Notes by Gemini",
+ "meeting_date": "2026-06-15",
+ "meeting_time": "10:01 EDT",
+ "doc_link": "https://docs.google.com/document/d/1J9VPuHqXT-7VAvnJxUdn20Yt_AgmNnG-TxackaQbV4Y/edit",
+ "meeting_type": "internal sync",
+ "tier": "tier2",
+ "screen_verdict": "include",
+ "screen_reason": "Pre-kickoff internal sync with a Transcript section; contains WagerTech scope and design discussion (person accounts, duplicate rules, referrer-per-bank modelling, payment gateway deferral, bank file import options, WhatsApp integration, client data model and CRD, build from scratch) and WagerTech action items.",
+ "delivery_line_ranges": [
+  [
+   168,
+   168
+  ],
+  [
+   179,
+   179
+  ],
+  [
+   184,
+   184
+  ],
+  [
+   187,
+   187
+  ],
+  [
+   192,
+   227
+  ],
+  [
+   230,
+   235
+  ],
+  [
+   236,
+   276
+  ],
+  [
+   286,
+   292
+  ],
+  [
+   299,
+   324
+  ],
+  [
+   394,
+   394
+  ]
+ ],
+ "evidence_grade": "transcript",
+ "raw_copy": "gdoc_html2txt.py from Drive text/html export",
+ "attendees": [
+  "Marc Cabantog",
+  "Kobi Kunasekaran"
+ ],
+ "lines_total": 401,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-06-15-1001-01",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "WagerTech kickoff set for Wednesday",
+   "statement": "Kobi states the WagerTech kickoff meeting is on Wednesday (2026-06-17 by the meeting date).",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:09:27",
+   "line_start": 168,
+   "line_end": 168,
+   "quote": "Kobi Kunasekaran: Um we have the kickoff on uh what is it Wednesday.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-02",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Client CRD is input, not spec",
+   "statement": "Kobi says the client-written CRD was their attempt at solutioning; Jumpr will not follow it exactly and will review it and flag issues while preparing for discovery and before proposing designs.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:10:13",
+   "line_start": 179,
+   "line_end": 179,
+   "quote": "Kobi Kunasekaran: they put together the CRD and we're not necessarily going to follow it to a tea, but like this was their attempt at like solutioning what they wanted. Um, but like let's go through it, flag anything.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "\"to a tea\" = \"to a T\"",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-03",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Review CRD and prep discovery questions",
+   "statement": "Kobi will go through the whole CRD today; the team is preparing for discovery to learn what else is needed from the client before starting and before proposing designs.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:10:13",
+   "line_start": 179,
+   "line_end": 179,
+   "quote": "Kobi Kunasekaran: I I'm I haven't gone through the whole thing yet. I'm going to do that today. Um and then basically we're trying to prep for the discovery and get an understanding of like what else we need from them uh before we can get started and before we can propose the designs.",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran (Marc to review and flag as well)",
+   "due": "2026-06-15 (today)",
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-04",
+   "type": "status-update",
+   "firmness": "discussed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Phase 1 focuses on infrastructure",
+   "statement": "Kobi says the client wants a lot of things across later phases, but the current focus (Phase 1) is the infrastructure.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:11:32",
+   "line_start": 184,
+   "line_end": 184,
+   "quote": "Kobi Kunasekaran: They do seem to want a lot of things. Um, but obviously like right now there's only like we're we're focusing on the infrastructure.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-05",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Client license change to Platform",
+   "statement": "Marc reports that in a prior recorded call the client discussed changing their license from Sales Cloud to a Platform license, and asks if the build will use a custom approach for leads and person accounts.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": "00:11:32",
+   "line_start": 187,
+   "line_end": 187,
+   "quote": "Marc Cabantog: um there's a conversation wherein they are they want to change their license from safe cloud to platform license. So are we doing like the custom approach for the lead and um yeah for the what's that for the lead and person accounts or",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": "\"safe cloud\" = Sales Cloud [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-06",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Player",
+   "topic": "Custom approach with person accounts",
+   "statement": "Kobi leans toward a custom approach (contacts and person accounts) because the client has no traditional leads, contacts or opportunities, but says he has no design opinions yet and will build a recommended approach after review.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:12:35",
+   "line_start": 192,
+   "line_end": 223,
+   "quote": "Kobi Kunasekaran: I I think we are I think that makes the most sense based on what they're trying to do, / Kobi Kunasekaran: right? Like because they don't really have traditional leads or traditional contacts or traditional opportunities, / Kobi Kunasekaran: so it doesn't make sense to really stick with the uh like the standard approach. I think the contacts and person accounts probably make sense. / Kobi Kunasekaran: Um, but like I don't have any opinions on the design yet.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-07",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Player",
+   "topic": "Research person account trade-offs",
+   "statement": "Kobi will research the drawbacks and trade-offs of person accounts and ramp up on them.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:12:35",
+   "line_start": 200,
+   "line_end": 200,
+   "quote": "Kobi Kunasekaran: So, uh I I don't know what the drawbacks are or the like trade-offs are, but uh I'm going to I'll look into it and try to get ramped",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-08",
+   "type": "risk-blocker",
+   "firmness": "discussed",
+   "feature_area": "Player",
+   "topic": "Duplicate handling in custom model",
+   "statement": "Marc flags that with a full custom model the out-of-the-box lead duplicate handling will not apply and must be replicated; both note contact matching rules would still work if contacts are used.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:12:35",
+   "line_start": 203,
+   "line_end": 215,
+   "quote": "Marc Cabantog: So since we're doing it full custom, so maybe we need to flag like the the duplication like since we do we need to do it custom some of those rules, right? For example, the lead uh the duplication flow is out of the box, / Marc Cabantog: but we need but we need to replicate it as part of the / Kobi Kunasekaran: Wouldn't it still work for contacts though? The duplication. / Marc Cabantog: I think for contact the contact matching rules still would still works.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-09",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Referrer / Brand Ambassador",
+   "topic": "Person can refer for multiple banks",
+   "statement": "Kobi says the team must decide the smallest record that represents a person, because one person can be a referrer for multiple banks and he wants each tracked separately (as separate people or deals), likely using junction objects.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:13:30",
+   "line_start": 218,
+   "line_end": 218,
+   "quote": "Kobi Kunasekaran: I think like we're going to have to figure out what that uh what that smallest record is to represent a person because like a person can be a referer from uh for like multiple banks and I want to track all of those separately as like separate separate people or separate deals, right? So, I think it's going to be like a mix of like joint objects and things like that.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": "\"joint objects\" = junction objects [ASR?]",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-10",
+   "type": "deferral",
+   "firmness": "proposed",
+   "feature_area": "Referral and Payouts",
+   "topic": "Payment gateway not in Phase 1",
+   "statement": "Kobi says a payment gateway for bank integration is a later phase and he does not think it was part of Phase 1, because a gateway adds cost to the client; Jumpr will leave it for last and see how the client wants to do it.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:14:19",
+   "line_start": 224,
+   "line_end": 235,
+   "quote": "Marc Cabantog: Yeah. Uh yeah. And then I think the bank integration if we're open to like use a payment gateway like to to support multiple banks at once that would be easier, right? / Kobi Kunasekaran: Yeah. That one's going to be like a later phase. I don't think that was part of phase one. / Kobi Kunasekaran: So that's that's why like yeah, we're going to we're going to leave that for last and uh see how they want to do it.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-11",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Referral and Payouts",
+   "topic": "Bank file load via app/SFTP",
+   "statement": "Marc suggests loading monthly bank transaction files (SFTP or a Salesforce app) and transforming them into payment records, with Jumpr controlling the file format; Kobi calls it an interesting idea. Marc will look up the app name.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:15:13",
+   "line_start": 236,
+   "line_end": 257,
+   "quote": "Marc Cabantog: you can just simply load it on Salesforce and then that app transforms it to their uh records like / Marc Cabantog: will control the format. / Kobi Kunasekaran: Interesting. Okay. That's that's a interesting idea.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-12",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Referral and Payouts",
+   "topic": "CSV import fallback for transactions",
+   "statement": "Kobi says the worst-case free option is a CSV export from the bank and an import infrastructure in Salesforce, so the client does not enter each transaction by hand.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:16:07",
+   "line_start": 257,
+   "line_end": 257,
+   "quote": "Kobi Kunasekaran: I mean worst case like they could always do like CSV export so you can give them away to like import it and transport. Like that's that's a free option, right? like it takes like maybe 5 minutes 10 minutes of like manual work but we can set up like an infrastructure to support them doing that instead of manually entering each transaction as well.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-13",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Referral and Payouts",
+   "topic": "Pull transactions; sending money stays manual",
+   "statement": "Kobi says sending money is likely to stay manual for now, so a tool that only pulls bank transactions may be enough, without a full fee-charging gateway.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:17:21",
+   "line_start": 264,
+   "line_end": 264,
+   "quote": "Kobi Kunasekaran: Uh which I'm sure they probably want to at some point, but for now I think that's going to be manual. So we could we just need a tool that can pull the transactions, right? We don't necessarily need uh a full gateway integrated that charges them fees for using it and stuff.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-14",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Other (WhatsApp Business integration)",
+   "topic": "WhatsApp Business integration feasibility",
+   "statement": "Kobi raises WhatsApp Business integration; neither has done it; they will need to see what the API looks like given end-to-end encryption.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": "00:17:21",
+   "line_start": 267,
+   "line_end": 276,
+   "quote": "Marc Cabantog: but if there's if if it if there's an existing API like we can power through / Kobi Kunasekaran: API endpoint that we can call out. We have to see what that looks like because technically it's supposed to be end to end encrypted and everything too, right? / Kobi Kunasekaran: So, I don't know how it works, but we'll have to see what that looks like.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-15",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Client data model as starting point",
+   "statement": "Kobi says the data model docs from the client's data engineer need not be followed exactly; Jumpr should raise issues or concerns, and otherwise it may be a good starting place that speeds the build.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": "00:19:35",
+   "line_start": 288,
+   "line_end": 289,
+   "quote": "Kobi Kunasekaran: Um, I think it's up to us to like get back to them on like any any issues, concerns or anything like that. But um, uh, if not like this is this might be a good starting place for us. / Marc Cabantog: Yeah, like we we can really use this data model like if it makes sense, we can use this to speed the the",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-16",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Build from scratch vs reuse client code",
+   "statement": "The client's own build (about 8,000 lines of code) does not work. Kobi first says the reuse-or-restart decision is still to be made; Marc recalls Mo saying in a client meeting it would be done from scratch; Kobi then leans to a clean slate because the client is not yet using Salesforce.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:20:35",
+   "line_start": 303,
+   "line_end": 324,
+   "quote": "Marc Cabantog: Yeah, I I heard that on on the meeting like there already 8,000 lines of code and nothing works. So / Kobi Kunasekaran: I I don't know what the decision is like whether we're going to like just start scratch or if we're able to reuse some of it, but uh well, / Kobi Kunasekaran: we'll we'll make that decision. / Kobi Kunasekaran: Yeah, that's true. That's true. Like especially because like they're not necessarily using Salesforce yet, right? Like this is still like version one, / Kobi Kunasekaran: so we might as well start with a clean slate.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no",
+   "asr_note": null,
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-15-1001-17",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Send discovery next steps for Wednesday",
+   "statement": "Kobi owes the client discovery next steps (what to discuss on Wednesday) and will try to send them today; he starts a shared doc for questions to send as client prep.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:27:04",
+   "line_start": 394,
+   "line_end": 394,
+   "quote": "Kobi Kunasekaran: I owe them I owe a type like discovery next steps like what we're going to talk about on Wednesday. So, uh, I'm going to try to power through that today and, uh, have that sent over. If you have any questions or anything that you can think of, um, you know what? Let's let's start a document. Let's start a doc and then we can put that in there and then we can send that over as like prep for them.",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran (Marc to add questions to the shared doc)",
+   "due": "2026-06-15 (today), before Wednesday meeting",
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "\"a type\" = WagerTech [ASR?]",
+   "quote_verified": true
+  }
+ ],
+ "gemini_disagreements": [
+  {
+   "summary_text": "Wager Tech architecture strategy The Wager Tech Salesforce implementation will utilize a custom approach incorporating Person Accounts rather than standard lead/contact objects.",
+   "transcript_quote": "Kobi Kunasekaran: I think the contacts and person accounts probably make sense. / Kobi Kunasekaran: Um, but like I don't have any opinions on the design yet.",
+   "line": 25,
+   "why": "Summary lists this as an Aligned decision; transcript shows a tentative lean (\"probably make sense\") with Kobi saying he has no design opinions yet and still needs to research person accounts. Summary also says \"rather than standard lead/contact objects\" while Kobi names \"contacts and person accounts\"."
+  },
+  {
+   "summary_text": "Payment gateway integration scope Payment gateway integration is designated for a later project phase and is excluded from the initial Wager Tech scope.",
+   "transcript_quote": "Kobi Kunasekaran: Yeah. That one's going to be like a later phase. I don't think that was part of phase one. / Kobi Kunasekaran: So that's that's why like yeah, we're going to we're going to leave that for last and uh see how they want to do it.",
+   "line": 26,
+   "why": "Summary is firmer: Kobi gives his understanding (\"I don't think that was part of phase one\") in an internal call, with no client confirmation, and says they will see how the client wants to do it."
+  },
+  {
+   "summary_text": "Wager Tech development approach The development strategy for Wager Tech is set to a clean-slate build to avoid complications with existing, non-functional code.",
+   "transcript_quote": "Kobi Kunasekaran: I I don't know what the decision is like whether we're going to like just start scratch or if we're able to reuse some of it, but uh well, / Kobi Kunasekaran: we'll we'll make that decision. / Kobi Kunasekaran: so we might as well start with a clean slate.",
+   "line": 27,
+   "why": "Summary says the approach is \"set\"; transcript shows Kobi saying the decision is still to be made, then an internal lean (\"might as well\"). Marc recalls Mo stating it in a client meeting (hearsay); not confirmed in this meeting."
+  }
+ ],
+ "rule5_redactions": 3,
+ "secret_exposed": false,
+ "notes": "Jumpr-internal pre-kickoff sync (kickoff scheduled for Wednesday 2026-06-17). Read all lines. Quotes come from the Transcript section and were checked programmatically against the local file. Items are internal Jumpr views before discovery; none is a client-confirmed decision, so design/scope items are capped at proposed. Passages on internal resourcing/prioritization, hours budget and time-tracking/billing were skipped under rule 5; passages about non-WagerTech work and general onboarding/tool access were skipped as out of scope. \"Mo\" is named by Marc as having said, in an earlier client meeting, that the build would start from scratch (hearsay; check the client kickoff/discovery transcripts)."
+}

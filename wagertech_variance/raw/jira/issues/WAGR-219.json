@@ -1,0 +1,281 @@
+{
+  "id": "10238",
+  "key": "WAGR-219",
+  "fields": {
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-07-28T15:28:48.947-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:eee79857-319d-43b4-b3a4-1d52b39207b1",
+      "emailAddress": "marc@jumpr.io",
+      "displayName": "Marc Cabantog",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.327-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Objective\n\nA returning player should land back in the existing Sign-Up queue, not create a duplicate record.\n\nImplementation Requirements\n\n* When a new Study Link Click arrives for an existing Archived Sign-Up, and the click occurs AFTER a defined grace period has elapsed since archival, reactivate the Sign-Up instead of creating a new one\n\n* Grace period stored in a CUSTOM SETTING so admins can change it without editing automation. Set to 2 days for now\n\n* Archived Sign-Up is defined as Status = Archived AND not flagged for fraud\n\n* Fraud-flagged archived Sign-Ups are NEVER auto-reactivated\n\n* On reactivation: Status -> In Progress; clear Archive Reason and Other Reason (Archived)\n\n* Auto-reactivation applies ONLY when the click matches an existing Sign-Up on BOTH Player AND Deal. No match -> create a new Sign-Up as normal\n\nAcceptance Criteria\n\n* Click inside the grace period does not reactivate\n\n* Click outside the grace period reactivates and clears archive reasons\n\n* Fraud-flagged archived Sign-Ups are skipped\n\n* Non-matching clicks still create new Sign-Ups\n\nDependencies / ARCHITECTURE NOTE\n\nBUILD-04 (production Study Link Click resolution flow). This is a NEW BRANCH of that flow, not a standalone automation. Do NOT build a second record-triggered flow on Study Link Click — scope it into BUILD-04. See the pinned note on BUILD-04.\n\nEstimate: M · \\~10h (within BUILD-04)\n\nSource: Wagertech Additional User Stories, July 2026 — item 41.",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10179",
+        "filename": "image.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-17T15:19:25.149-0400",
+        "size": 153298,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10179",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10179"
+      },
+      {
+        "id": "10174",
+        "filename": "image.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-08-11T23:49:14.072-0400",
+        "size": 300855,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10174",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10174"
+      }
+    ],
+    "summary": "BUILD-51 — Auto-reactivate archived Sign-Ups on new click activity",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10487",
+          "body": "**SIMPLIFIED — Open Questions Q11 resolved. The grace period is gone.**\n\nDecision: \"If a click comes in for an archived sign up, it should be pushed back to **New** regardless of the elapsed time.\"\n\nSource: Lina via Emily Vandenberg, 2026-08-04 14:53 — \"spoke with Lina, there is no time window.\"\n\n**Changes to this card:**\n\n* **Strip the 2-day placeholder** and any custom setting / custom metadata holding a configurable window. No date maths at all.\n\n* Any click on an `Archived` Sign Up → Status = **New**, unconditionally. Not \"In Progress\".\n\n* Asymmetry to preserve: `Archived` reactivates, `Completed` does **not** (Q10 — log to Click History only, see BUILD-04).\n\n**⚠️ Undecided:** does reactivation clear `Archive_Reason__c` or retain it for history? Not covered by Q11 and it affects reporting. Recommend retaining the reason and stamping a reactivation timestamp, so the archive→reactivate cycle stays auditable. Needs a yes from Emily.",
+          "created": "2026-08-10T13:08:42.564-0400",
+          "updated": "2026-08-10T13:08:42.564-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10488",
+          "body": "[SLC - After Save - Auto-reactivate archived Sign-Ups](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ00000zwetIYAQ)",
+          "created": "2026-08-12T00:18:53.290-0400",
+          "updated": "2026-08-12T00:18:53.290-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10489",
+          "body": "Hi [@Kobi Kunasekaran](https://app.asana.com/1/1202721605677544/profile/1203115293332591) this is now ready for review.\n\nJust noting the order of flows so that we can recreate it in Prod",
+          "created": "2026-08-17T15:19:37.168-0400",
+          "updated": "2026-08-17T15:19:37.168-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 3,
+      "total": 3,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Marc Jester Cabantog"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-155"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "SLC & Sign-Up Intake",
+          "id": "10060"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1216965814011739"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0013b:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1216965814011739"
+      }
+    }
+  }
+}

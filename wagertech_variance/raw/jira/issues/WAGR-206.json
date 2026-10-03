@@ -1,0 +1,232 @@
+{
+  "id": "10232",
+  "key": "WAGR-206",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:35:50.513-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:30.204-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Partner core identity field set, with Partner Type relocated into a new Partner Details section.\n\n=== FIELDS ===\n\n* Partner Name — Name\n\n* Partner Type — Picklist, single value to start: Affiliate Network. Joyce: 'we'll start with just the affiliate network.' Deferred candidates: SaaS business, influencer/publisher.\n\n* Status — Picklist: Active; Inactive — automation is BUILD-147\n\n* Website — URL\n\n* Parent Company — Text, free text, no lookup\n\n* Primary Contact — Lookup(Contact), lands in Partner Details per Joyce\n\n* Billing Contact — Lookup(Contact), lands in the Billing block\n\n* Primary Contact Email / Phone — cross-object relationship fields off Primary Contact, read-only\n\n* Partner Portal — URL\n\n* Operational Notes — Long Text Area. Joyce: 'there's a lot of nuances when we work with partners, so you want to give them space to leave notes.'\n\n* Logo — see BUILD-145\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Create a Partner Details section and put Partner Type in it. Kobi: 'I think partner type, I would actually put it under a partner details section.' Joyce: 'It makes more sense, right? It's an attribute of the partner.'\n\n* Secondary Contact is CUT — same decision as Operator. Taryn's PT-1 story lists it at bullet 11; that bullet came from the stale PRD. Also verify 'Target Tier', which was named in the same breath on the Aug 17 call and never discussed — it may be equally stale.\n\n* No Partner Owner custom field — Joyce confirmed removal on both objects (Slack Aug 14 15:10: 'Yeah'). Standard OwnerId only.\n\n* No 'Active Status' duplicate — Joyce: 'my active status is down there. So I would remove that.'\n\n* No Asset Library field.\n\n* Partner has no equivalent to Operator's Management Details section — confirmed asymmetry, not a gap.\n\n* Do NOT add a 'Direct' value to Partner Type. Decided 2026-08-17: 'let's leave this one out for now unless we have a requirement that comes up for this.' Direct is modelled as a Partner RECORD named Direct, not a type value — consistent with Joyce on Aug 13: 'it's not a type, it's not a value on the direct page.' Taryn's PT-1 story lists Direct as a picklist value; ignore it.\n\n* Do not mark any field required on the page layout. No validation rules are being built yet — decided 2026-08-17.\n\n=== OPEN QUESTIONS ===\n\n* Marc's related thread: is 'Direct' one shared Partner account or one per operator? Currently a single shared account pending client confirmation (Slack Aug 13 23:37).\n\n=== NOTES ===\n\n* PARTIALLY BUILT. The Partner Lightning page was converted to Dynamic Forms on the morning of Aug 17 — Taryn: 'I did that to partner this morning because I noticed it wasn't dynamic. Operator was already dynamic.' The fields themselves are still outstanding: 'I still have some partner fields that I need to create and then add into the page layout.'\n\n* Provenance: PT-1.\n\n=== SOURCE ===\n\n* Taryn doc PT-1\n\n* Aug 13 call\n\n* Slack Joyce Aug 14 15:10\n\n* Aug 17 call — page converted, fields outstanding, Secondary Contact cut\n\nDependencies: None — foundational\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-136 — Partner: Core Details + Partner Details section",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10483",
+          "body": "Partially built, per this ticket's own notes: Spec calls for Partner Name, Partner Type (picklist: Affiliate Network, in a new Partner Details section), Status (Active/Inactive), Website, Parent Company, Primary/Billing Contact lookups, Primary Contact Email/Phone as relationship fields, Partner Portal, Operational Notes, and Logo.",
+          "created": "2026-08-24T17:19:37.723-0400",
+          "updated": "2026-08-24T17:19:37.723-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-273"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563605775573"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0011z:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563605775573"
+      }
+    }
+  }
+}

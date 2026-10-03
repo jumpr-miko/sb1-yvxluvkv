@@ -1,0 +1,643 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech <> Jumpr: Weekly Sync
+
+Sep 11, 2026
+lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi Taryn Reithofer Cedrick Infantado strah@wagertech.bet strahinja.vladetic@gmail.com
+
+Release updates and deal lifecycle discussion with technical integration planning
+
+System and automation updates
+* Kobi confirmed the player lifecycle is active, automatically activating players upon signup and marking them inactive after 90 days of inactivity.
+* Implemented ban automation ensuring banned players remain inactive until manually unbanned, regardless of signup flow.
+* Added signup screen validation requiring data entry to transition records to an in-progress status.
+
+
+CMS integration and sandbox strategy
+* Team agreed to utilize the staging environment for CMS integration testing.
+* Strahinja confirmed the team has access to the Postgres database to query results directly outside of API calls.
+* Salesforce will drive deal external IDs; the CMS will trust and reference the incoming identifiers.
+* Integration will proceed in 3 phases: initial deal information, affiliate links, and then deal rep assignments.
+* Strahinja noted the CMS will retire its internal operator and partner tabs, deferring to Salesforce as the system of record.
+
+
+Deal lifecycle and commercial terms management
+* Kobi proposed adding a 'retired' status to handle deal creation mistakes and allow future re-use of unique deal makeup.
+* Emily and Joyce emphasized the need to track evolving commercial terms, such as CPA and caps, to report on historical payouts.
+* Kobi recommended snapshotting commercial terms onto the signup record upon completion to preserve historical payout context.
+
+
+Future scheduling and discovery
+* Scheduled a discovery meeting for next Wednesday, 3:00 PM to 4:30 PM, to discuss redeposit logic.
+
+
+Next steps
+* [Emily Vandenberg] Review Documentation: Review operator and partner pages documentation to validate closed updates.
+* [Emily Vandenberg] Provide Feedback: Loop back on remaining items requiring feedback.
+* [Emily Vandenberg] Compare Logs: Perform a cloud comparison between click logs and Salesforce records to ensure data integrity.
+* [Strahinja Vladetic] Draft Link Document: Draft a document outlining the link fields and expected unique identifiers for the link object.
+* [Strahinja Vladetic] Investigate Reporting: Investigate if commercial terms need to be passed into the CMS for reporting purposes.
+* [Kobi Kunasekaran] Propose Design Options: Propose options for handling deal versioning and snapshotting commercial terms on signup records.
+* [Kobi Kunasekaran] List Snapshot Fields: Compile a list of specific deal and commercial term fields to capture as snapshots on signup records.
+* [Strahinja Vladetic] Share Database Connection: Provide the Postgres database connection details to the team to enable sandbox testing.
+* [Strahinja Vladetic] Update API Payload: Define the necessary fields for affiliate links, operators, and partners. Update the API payload structure to accommodate this information.
+* [Kobi Kunasekaran] Send Meeting Invite: Distribute a calendar invitation for the discovery meeting scheduled next Wednesday from 3:00 PM to 4:30 PM.
+* [Kobi Kunasekaran] Configure Invite Permissions: Grant invitees permission to add additional participants to the meeting invite.
+* [Kobi Kunasekaran] Share Action Items: Send a summary note of all action items discussed during the meeting to the team.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 11, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi Taryn Reithofer Cedrick Infantado strah@wagertech.bet strahinja.vladetic@gmail.com
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Release updates and deal lifecycle discussion with technical integration planning
+
+Release updates and deal errors
+System updates reviewed and deal error codes addressed. Data flow continuity confirmed.
+
+Deal lifecycle and terms modeling
+Deal lifecycle design decisions finalized with new retired status and commercial terms table. Signup reassignment automation discussed.
+
+Integration plan and data synchronization
+Staging environment access approved and phased integration plan outlined. Salesforce data synchronization established for operators and partners.
+
+
+Decisions
+Needs Further Discussion
+* Commercial terms tracking and versioning strategy Final approach for tracking evolving commercial terms and their relationship to deal versioning and signup records was deferred pending design options.
+
+
+Aligned
+* Salesforce driving deal external identifiers Salesforce will drive the deal external identifier, and the CMS will trust and reference whatever ID is sent.
+* Addition of retired deal status A retired status will be added to deal records to prevent duplication errors and handle reactivations or corrections.
+* PostgreSQL database access for sandbox Strahinja will provide direct PostgreSQL database connection access for the CMS sandbox environment.
+* Integration phasing and workflow structure The integration will proceed in phases starting with deal information sent to the CMS, followed by affiliate links and deal rep assignments.
+* Salesforce as source of truth for partners The CMS will completely trust Salesforce as the source of truth for operators and partners, overwriting existing records from deal messages.
+
+
+
+Next steps
+* [Emily Vandenberg] Review Documentation: Review operator and partner pages documentation to validate closed updates.
+* [Emily Vandenberg] Provide Feedback: Loop back on remaining items requiring feedback.
+* [Emily Vandenberg] Compare Logs: Perform a cloud comparison between click logs and Salesforce records to ensure data integrity.
+* [Strahinja Vladetic] Draft Link Document: Draft a document outlining the link fields and expected unique identifiers for the link object.
+* [Strahinja Vladetic] Investigate Reporting: Investigate if commercial terms need to be passed into the CMS for reporting purposes.
+* [Kobi Kunasekaran] Propose Design Options: Propose options for handling deal versioning and snapshotting commercial terms on signup records.
+* [Kobi Kunasekaran] List Snapshot Fields: Compile a list of specific deal and commercial term fields to capture as snapshots on signup records.
+* [Strahinja Vladetic] Share Database Connection: Provide the Postgres database connection details to the team to enable sandbox testing.
+* [Strahinja Vladetic] Update API Payload: Define the necessary fields for affiliate links, operators, and partners. Update the API payload structure to accommodate this information.
+* [Kobi Kunasekaran] Send Meeting Invite: Distribute a calendar invitation for the discovery meeting scheduled next Wednesday from 3:00 PM to 4:30 PM.
+* [Kobi Kunasekaran] Configure Invite Permissions: Grant invitees permission to add additional participants to the meeting invite.
+* [Kobi Kunasekaran] Share Action Items: Send a summary note of all action items discussed during the meeting to the team.
+
+
+
+Details
+* Release Notes and System Updates: Kobi Kunasekaran shared release highlights, including player lifecycle automation where signups automatically activate players from pending status, and inactive automation for no signups in 90 days (currently set to 2 days for testing). Ban automation ensures signups flow through but players remain banned until manually unbanned, and signup screens require input to move from new to in progress (00:03:12). Integration groundwork has started, and deal external identifier and deal name logic now include sources (00:04:14). Taryn Reithofer updated documentation for operator and partner page rollups. Emily Vandenberg committed to reviewing feedback and remaining object items (00:05:18).
+* Deal Error Codes and Data Flow Validation: Emily Vandenberg noted that multiple deals lack assigned deals, generating error codes, but confirmed that study link clicks and data flows are functioning properly (00:06:13). Kobi Kunasekaran agreed that errors stem from unconfigured deals in the Content Management System and suggested proceeding to send deals from Salesforce to the Content Management System to resolve the issue automatically. Emily Vandenberg will run a cloud comparison against click logs to ensure data flow continuity (00:07:18).
+
+
+* Affiliate Links Management and Payload Structure: Strahinja Vladetic and Emily Vandenberg discussed deal deletion retire-and-replace functionality and link management (00:08:20). Strahinja Vladetic explained that editing a link applies changes at face value, deleting deactivates it for reporting, and inserting a new link will use a new endpoint. Kobi Kunasekaran asked about expected fields and unique identifiers for links, prompting Strahinja Vladetic to agree to draft a document outlining an array of links with identifiers (00:09:31). Strahinja Vladetic confirmed they will use a single endpoint and handle processing on their side (00:11:14).
+* Deal External Identification and De-Duplication: Strahinja Vladetic and Kobi Kunasekaran agreed that Salesforce will drive the deal external identifier, trusting whatever Salesforce sends back (00:11:14). Kobi Kunasekaran raised concerns about deal creation mistakes and duplicate makeups, introducing concepts like retire-and-replace and incremental counters for external identifiers (00:12:14) (00:16:04). Emily Vandenberg and Joyce Kiddell discussed historical deal errors (such as the Bet MGM direct jersey deal) and confirmed that creating a new deal is necessary when unique makeups change (00:15:00). Kobi Kunasekaran proposed adding a retired status to deal makeups to prevent de-duplication errors when recreating mistakenly created deals (00:17:03).
+* Commercial Terms Tracking and Signup Snapshots: Emily Vandenberg and Joyce Kiddell emphasized the need to track evolving commercial terms such as Cost Per Acquisition, caps, deposit ranges, average deposits, and payout models over a deal's lifecycle (00:18:04) (00:20:31). Joyce Kiddell explained that signups represent conversions tied to deal-level terms, which dictate payout amounts (00:19:27). Kobi Kunasekaran proposed snapshotting relevant deal fields (like Cost Per Acquisition) onto the signup record upon completion to preserve historical reporting accuracy, while currency changes can be handled via new deals (00:20:31).
+
+
+* Reporting Architecture and Salesforce Data Integration: Strahinja Vladetic raised concerns about whether commercial term history needs to flow into the Content Management System for reporting purposes (00:24:13). Kobi Kunasekaran recommended against pushing all historical deal data through the API for reporting, suggesting instead to use data warehouse tools or platform connectors (like Snowflake's Salesforce connector) to join data at the reporting layer unless required for Content Management System logic (00:25:19). Emily Vandenberg and Strahinja Vladetic agreed to investigate this approach (00:27:21).
+* Deal Lifecycle Design Decisions and Commercial Terms Modeling: Kobi Kunasekaran summarized consensus that deal makeups remain unique for active deals, and a new retired status will be added to handle inactive or mistaken deals (00:27:21). To handle changing commercial terms, Kobi Kunasekaran proposed a related object table for commercial terms with effective start and end dates, allowing the active terms to stamp onto completed signup records (00:31:28). Emily Vandenberg noted the need to handle backdated Cost Per Acquisition changes, and Kobi Kunasekaran confirmed they could automate updates to related signups when past commercial terms are updated (00:32:38).
+* Automated Signup Reassignment for Corrected Deals: Emily Vandenberg asked how historical reporting would be managed if a deal was created in error and needs to be corrected, prompting a discussion on merging or reassigning past signups to a fixed deal (00:35:09). Kobi Kunasekaran suggested using a superseded field and automation to reassign existing signups to the new fixed deal so reporting reflects correct data (00:37:40). Emily Vandenberg asked Kobi Kunasekaran to evaluate the scope and effort for this merge functionality, and Kobi Kunasekaran agreed to provide design options and a signup snapshot field list (00:38:47).
+* Sandbox Environment and Phased Integration Plan: Strahinja Vladetic and Kobi Kunasekaran discussed sandbox access, where Strahinja Vladetic explained that the staging environment can be used instead of production to isolate test traffic (00:41:28). Kobi Kunasekaran requested and received approval for direct read access to the PostgreSQL database for the staging environment to verify data loading independently of API calls (00:42:48). Kobi Kunasekaran outlined a three-phased integration plan: first, sending deal information to the Content Management System; second, adding affiliate links; and third, handling deal rep assignments (00:43:43).
+* Affiliate Links and Deal Rep Assignments Workflow: Strahinja Vladetic confirmed they will expand the link endpoint to accept an array of identified links (00:44:46). Kobi Kunasekaran and Emily Vandenberg discussed the two-way communication required for deal rep assignments and link changes, noting that assignments change frequently (00:45:57). Kobi Kunasekaran clarified that new links will continue to be created in Salesforce first before assignment in the Content Management System (00:47:06).
+* Operators and Partners Data Synchronization: Kobi Kunasekaran raised questions about handling unknown operator and partner errors and whether a new endpoint is needed (00:48:08). Strahinja Vladetic and Emily Vandenberg noted that operators and partners can be managed entirely by Salesforce data (00:49:17). Strahinja Vladetic agreed to update the payload to let Salesforce fully drive operators and partners by provisioning them or assigning them automatically in the Content Management System, eliminating these errors (00:51:44).
+* Next Steps and Upcoming Meeting Scheduling: Kobi Kunasekaran committed to providing design options for commercial terms and a signup snapshot list, and requested sandbox credentials to begin testing (00:52:59). Joyce Kiddell proposed scheduling a discovery meeting for next week to discuss redeposits and payouts (00:54:18). The team agreed to meet on Wednesday from 3:00 PM to 4:30 PM, with Kobi Kunasekaran taking responsibility for sending the calendar invite to the participants (00:55:21).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 11, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:01
+
+Kobi Kunasekaran: Hey,
+Emily Vandenberg: Hey.
+Kobi Kunasekaran: Emily.
+Emily Vandenberg: Hey, Kobe. How's it going?
+Kobi Kunasekaran: Good. How are you?
+Emily Vandenberg: Good. Sorry you were lost in a tab. I couldn't see you. I looked like I aimlessly.
+Kobi Kunasekaran: No worries. We've all been uh busy this week.
+Emily Vandenberg: Yeah, we had a last minute kind of trip that ended up coming up. So, I do apologize. this meeting might feel a little bit messy, but I think the important thing is just we break into what's needed.
+Kobi Kunasekaran: I'm dead.
+Emily Vandenberg: Um, get a line. Straw's going to join as well and then next week will be much better. Like we just I just got back late last night.
+Kobi Kunasekaran: Oh no.
+Emily Vandenberg: I'm like I am dialed in on Salesforce but it was just kind of hard with like meetings all day all week.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: So
+Kobi Kunasekaran: Where did you all uh travel to? Was it just you or like the the team as well?
+
+
+00:00:50
+
+Emily Vandenberg: yeah, I was um we were in Chicago, so there was like not Straw wasn't there, but like Joyce, Selena, I'm trying to think of who else you interact with. Jay and Owen, um Jess.
+Kobi Kunasekaran: Nice.
+Emily Vandenberg: Yeah, there was like a a big kind of group of us, which was good, but you know how travel goes was like and I was off a couple days kind of leading into that.
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: My I'm just hot mess mess right now. But we're getting back in there.
+Kobi Kunasekaran: Okay. It's Friday. Friday. You just have to power through today and then you got a couple of days to step back.
+Emily Vandenberg: Yeah. First back to school like just mess.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Yeah, chaotic week for sure.
+Emily Vandenberg: Yes. Honestly, I know. Let's give Straw a minute. Um Joy Lena is still traveling so she might not be there. And I think Joyce is coming, but um I think we just kind of use the time with Straw to kind of get aligned on the deal and the link.
+
+
+00:01:49
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I was chatting with him before. So, we'll get that kind of nailed down and then um we can kind of just like set the expectations of like what we want to cover next week.
+Kobi Kunasekaran: Okay. Yeah. I think the the main thing I want to go through today was like figuring out the the CMS integration pieces and the open questions and uh and like the questions that have uh or the kind of worms that have opened up with the deals and their unique makeup as a result. I think if we can sort through that then um and sandbox access for CMS we will be unblocked and we have uh we can power through setting up the
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: integration and everything and then uh come back to all of the other open items later on.
+Emily Vandenberg: Yeah, I'm thinking too that was kind of on my list. Um, and I and Straw was like I was on with him and then he Let me just confirm
+Kobi Kunasekaran: I guess like while Sorry,
+Emily Vandenberg: I think Oh,
+
+
+00:03:12
+
+Kobi Kunasekaran: Brian.
+Emily Vandenberg: is that him? Um I Yeah, I think he should be good. But yeah, hit me with kind of anything else.
+Kobi Kunasekaran: Yeah, I was just going to give you a couple of like quick updates on some of the big things that have gone out or like big chunks of work. Um, then as per usual, like I did add like the full I guess we can call it like release notes. Um, that's what this is turning out to be of all the things that we worked on uh or a summary of it. But then in terms of highlights, the player life cycle should be good now. So when a signup is completed, it'll activate the player automatically from pending status. Um, we also added the automation to move them to inactive if it's been if there's been no sign up for the last 90 days. Um, I believe right now it might still be set to like two days just for testing purposes. So, do you want to try it out? Um, and then the ban automation, like if you ban somebody, uh, the signups will still flow through.
+
+
+00:04:14
+
+Kobi Kunasekaran: Uh, it none of that is going to get blocked, but it won't it won't necessarily move the player to an active status. So they'll still remain banned until they're manually unbanned. Um, and the ban pause reactivation logic is also there for the referers as well. Um, same thing like it's it's not necessarily going to prevent any signups from coming in. Um, but uh it will it'll uh prevent statuses from moving when they're banned. Um, and then the signup has also been updated so that you have to enter some information in the log signup screen for it to move to in progress. Um, otherwise there's a warning that says like, you know, nothing's been filled out. So, it's not it's going to remain as new. Um, started the integration groundwork. So, I think you already know about that one. Um, the deal electional ID and deal name logic to include the sources is in place. Um but we're going to talk through some of the deal uh issues that have come up uh in a bit.
+
+
+00:05:18
+
+Kobi Kunasekaran: Um there are a number of updates done to the operator and partner pages as well like the rollups and everything. Um I believe Taryn updated the document to reflect what's been closed off. So um just go through those whenever we have time.
+Emily Vandenberg: Yeah, I will kind of go back through everything that we like sent feedback on and kind of validate and then we can close out.
+Kobi Kunasekaran: Awesome.
+Emily Vandenberg: No, that sounds good. Perfect. So, yeah, that's great. I will I'll loop back to that and I know that there's still a few objects that we owe you feedback on and that's like high in my priority as well. So that will, you know, be coming in today into next week.
+Kobi Kunasekaran: Unskip.
+Emily Vandenberg: And then I think we're like good to just yeah kind of keep moving forward. I think part of my kind of like you know hope for next week is that we can start some of the discovery around the next phase.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I know we've been you know we were hoping this week with everything kind of like moving around.
+
+
+00:06:13
+
+Emily Vandenberg: So let's just like agree that like we we start that next week. Otherwise I think time's just kind of going a bit too fast that we could be a little bit
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: underwater.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: The only thing Yeah.
+Kobi Kunasekaran: We're already like
+Emily Vandenberg: The only thing I want to say too just before we jump into kind of some more technical stuff on the deal is like I know there's a lot of deals that are coming through right now that are like not having the the deals assigned um and you're getting a lot of kind of error codes. I think we know we know that the study link click is working like we know that the data is coming through. There is so much fluidity in these deals and like the on and off and the nature of kind of keeping them up. Like I think we just need to do a batch import of like everything and then we get the endpoint and like the communication between the deals working um Salesforce to the CMS and then when we have these reasons like I care.
+
+
+00:07:18
+
+Emily Vandenberg: But right now, like to manually kind of like have Owen keep me updated and whatnot, it's just like it's just too much of a moving target.
+Kobi Kunasekaran: Yeah, that's okay. Like I I think we've uh we know that you know if you have the deal set up and the deal rep assignment set up uh and the information comes from uh from CMS uh everything is working smoothly. I think that was like the main point of the sole testing. So, we validated that. So, I'm good with this. We don't necessarily need to resolve every single error because I I the errors that are coming in is because we don't have those deals set up. And that's okay. Like, we already we're good with this. We can move on to the next stage, which is getting the deals sent from Salesforce to CMS. That'll uh that'll plug up this uh these issues automatically. Anyways, once you get that up and running,
+Emily Vandenberg: Yeah, I'll do another like cloud comparison against like the records from our click logs versus this just to like, you know, make sure that we're still everything's still flowing through for those two reps.
+
+
+00:08:20
+
+Emily Vandenberg: But I think we're good.
+Kobi Kunasekaran: awesome.
+Emily Vandenberg: Um all right so with that joy straw like a big kind of part of the discussion and just like us working through is like the deal deletion kind of retire and replace functionality that we were talking about and then um sorry um I think straw based on the conversation we were having before this just like the link what you what's needed what's going to be sent from a link perspective so that you can kind update and manage that on the CMS side accordingly. Okay.
+Strahinja Vladetic: Uh yeah, I think that was just missing from the payload. So um Emily was saying along with the deal, you guys are going to be sending the links that are uh representing that deal, which is fine. Um and then we had a small conversation about sort of in the similar vein as this, like what happens when you insert new links or edit existing links. And I don't think it's the same sort of we were just saying it's not really the same sort of comparison because the the links don't really um aren't aren't like composed from other sources.
+
+
+00:09:31
+
+Strahinja Vladetic: So they're not going to really collide with anything. I think I feel like if you added a link, you probably just made a mistake and you want the data that's been associated to to that link so far um to be associated to the new edit that you made. Um so the it's It should be a lot simpler than this flow. Like you can just edit a link, we'll take out face value. If you delete it, we'll deactivate it so we can keep uh keep it around for tracking reporting purposes.
+Kobi Kunasekaran: I see it. Okay.
+Strahinja Vladetic: And then if you insert a new one, you can just send along the we'll probably add a new uh endpoint for that. Um
+Kobi Kunasekaran: Okay. Yeah. For the links, I think the initially what we were thinking is like we'll send it all in a uh in like one payload, right? Like you have the the deal and then you'll have a like a subarray underneath it for each link. But for the links, uh it would be helpful to know what you're expecting in terms of fields like is there like a unique identifier?
+
+
+00:10:28
+
+Kobi Kunasekaran: uh is uh is there URLs like uh if you can do me like something similar to this table for the for the deals and then we can set up our links object to match make sure we have all the information captured in the object and we can set it up in the payload.
+Strahinja Vladetic: Oh yeah, I should be able to do the same. I think I think the main thing would be just to have the links so that we can support that workflow if if if the links could have uh ids along with them so that if you do addit them
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: um we can track that and makes makes communication between us easier. So yeah,
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: I'll uh but I'll I'll draft up another document similar to this one for that and that'll be sending the same payload,
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: right? just an array of links.
+Kobi Kunasekaran: Yeah, that's what I assume. But we can also do a separate one if that makes sense. Um it's it's up to you how the endpoint is set up.
+
+
+00:11:14
+
+Strahinja Vladetic: Okay.
+Kobi Kunasekaran: Um, like we could do it so every time there's like a new link added to an existing deal, it just sends the entire payload and then you just process it on your end. Or we could just send that particular link with the the electional ID um in like a separate endpoint if that's easier. Whatever makes sense.
+Strahinja Vladetic: Yeah, to keep it simple, we'll probably just stick with the with the one endpoint and I can do the processing on my side to figure out what's changed.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: Um,
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: but yeah. Yeah, seems seems okay for for you guys.
+Kobi Kunasekaran: Okay. Um, okay. So, we'll wait on the links for that. For the delectional ID, are we good with um Salesforce driving the ID? So, whatever we send is what we end up using to send back with the SLC clicks.
+Strahinja Vladetic: Yeah, 100%. I I think um this was done because right now it's almost backwards where Salesforce is being seated with data from the CMS and it's being created in the CMS first.
+
+
+00:12:14
+
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: So I needed this as like a guarantee that we're going to follow the same conventions so that we can actually do the the the messages are linked properly on on your side. But once you guys take um take control of that, we'll just trust whatever you send back as the ID and then that's what we'll yeah that's how we'll reference it going forward.
+Kobi Kunasekaran: Okay. Awesome. Uh and then so with the de-electional ID, maybe we can talk about the uh deal process like deal deletion, retire, replace because one of the enforcements that came out of the endpoint was if we send the same makeup, we're treating that as the same deal. Um so that means like we're locking that to whatever deal that we've created in Salesforce. So um and that that's probably fine except there are going to be scenarios that we've already come across where it doesn't work right like if we create a deal by mistake there are already signups created and then we have to change it later then the deal external ID doesn't change um for the existing deal there's going to be a new deal uh but then we won't be able to have the same makeup format so this is where the whole concept of like riff and replace we using the makeup combination and potentially figure out how to support deals that might have the same makeup but are like retired and reactivated at different uh time periods.
+
+
+00:13:40
+
+Kobi Kunasekaran: Um we just want to talk through what that looks like and if there what what are those possible scenarios and how do we handle that and set it up on our end.
+Strahinja Vladetic: Yeah, I think it's going to be more of a main question, so I'll probably defer to Emily and Joyce, but I like the option B um along with Vegas.
+Kobi Kunasekaran: Okay. So I I guess the first question is um Emily and Joyce like is this a scenario that happens aside from like the mistakes, right? Like you know we create a deal by by mistake, we have some signups and then we have to create it uh again. Um, but could you have a uh like the betm direct shy deal uh like this year it's going to be at a certain CPA certain like specific commercial terms uh specific assignments and then it terminates this year like whatever contract is done and then next year you have the same deal but with like completely new terms um but the makeup and everything is exactly the same. Is that something that happens today or was the expectation that we just reactivate the existing deal, update all the commercial terms information and all the signups like historicals and the new ones just flow into that same same deal?
+
+
+00:15:00
+
+Emily Vandenberg: Like I think when the like the example of commercial terms like you know something deactivates it comes back with like new commercial terms like I would treat that as like just a reactivation and you're logging the change and you kind of like know but it's essentially the same deal. But the example that we went through last week with Sherzy, like that was a that was an error. I haven't seen it. It is because we're adding in some, you know, kind of new makeup to like what is is a deal. So like I don't want to say that could never happen, right? Like because in the future we will need to go potentially and have and assign a bet MGM direct jersey deal like that that will be
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: a scenario. And if we would have like been operating off of you know not having this kind of sorted and like it being not being able to create a new um deal for that because it was once deleted from like that unique makeup perspective like we would have been completely blocked.
+
+
+00:16:04
+
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: So that's where Yeah.
+Strahinja Vladetic: Also just want to mention just depending on what you guys decide,
+Emily Vandenberg: Go ahead.
+Strahinja Vladetic: we also could do option A and it doesn't have to be a manual process at least on not on the CMS side. Um it's a it's a little more risky and and destructive the only
+Kobi Kunasekaran: Yeah,
+Strahinja Vladetic: problem but it can be done automatically. It's just once you do it, it's going to be hard to kind of undo.
+Kobi Kunasekaran: I I think there's like there there's two parts here. One is the delectional ID, which is easy enough. Like if Salesforce is the one that's going to drive it and you're not calculating the external ID on the CMS side, we already have logic built in to add in like an incremental counter if somebody creates the same deal with the same makeup um that results in the same ID. So if it's going to be like, you know, BMGm direct- uh s-001 if there's a duplicate one. Um so that that's easy enough to handle.
+
+
+00:17:03
+
+Kobi Kunasekaran: And then uh with Salesforce driving the external ids, as long as CMS is able to accept those as is, we're good there. Um where it could become a problem is when we do the dduplication. So while right now we don't have we're not enforcing any dduplication, when we do uh add in the logic to say okay, if it's the same makeup, you can't create another deal with the exact same makeup. Um that's where we need to understand if there are going to be scenarios like this is a good example right like we created by mistake the historicals are there we don't want to mess up the data so we want to create another one so in that case like maybe uh we can add like a versioning field this is where that version field actually came from initially from our original designs so you have the option to say okay this is the same deal but it's like a new version or that's going to supersede the previous one either that or like you know having a status on the old ones that's specifically like retired that it's never going to be used and then uh we're allowed to reuse the same makeup.
+
+
+00:18:04
+
+Kobi Kunasekaran: So, for anything that's like a mistake, I think like we we could do this like add the retired uh status and you lock that down and then that'll allow you to create a a new deal with the same makeup without uh throwing errors. Um, but the question is like what happens when it comes to like the commercial terms and stuff? Like if if the CPA or some of the details on the deal does get changed, is it are we good with the deal just representing the latest information on the deal itself or do you need to be able to keep uh keep track of the changes throughout like the life cycle of the deal?
+Emily Vandenberg: Yeah. My I know I was kind of going back a little bit with Lena on that. Like my my thinking Joyce here is that like we need to be able to track the commercial terms and it needs to like be start kind of like end right and then anything I think of signups as an example. So like within so when you're reporting like it's holding the terms that were applied within that period of time and it continues they can continue to change against the same deal but the system needs to be able to like um compute on kind of like the the date ranges that it was applied to and then the flow of of the signups.
+
+
+00:19:27
+
+Kobi Kunasekaran: And when you're saying like it needs to keep that information, would that like when you're reporting it, are you saying like you're reporting on the signup record and we need to know the deal makeup at the time the signup record was like created or completed?
+Emily Vandenberg: Yeah, cuz right like a sign up has like like maybe Yeah.
+Joyce Kiddell: associated deal, right?
+Emily Vandenberg: and your paid word on it.
+Joyce Kiddell: So,
+Emily Vandenberg: So if you're want Oh,
+Joyce Kiddell: it's like each Sorry,
+Emily Vandenberg: sorry.
+Joyce Kiddell: no, I'm just tying it back to like each each signup h is represents um a CPA for us, right? Like a conversion where we get paid and that conversion amount can only tie back to the terms set out at the deal level.
+Kobi Kunasekaran: but only like the the commercial terms that were set on the deal at the time the signup was like completed or uh I guess completed because you wouldn't necessarily want to do it when it's
+Joyce Kiddell: Correct.
+Kobi Kunasekaran: created but right so then that way like let's say like this one for example if we if
+
+
+00:20:31
+
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: we close this off and the CPA was like I don't know like $100 $1 today. And then that that same deal uh for auto casino, we're upping the CPA to 120 or whatever. And then any new signups that are coming in, we want to make sure that the signup is captured as 120 instead of 100. Okay. Uh, Um, okay. And is it just a CPA or are there any other fields here that could potentially change throughout the life cycle of the deal that we need to keep track of
+Emily Vandenberg: Yeah, like the cap's going to change and we're going to need to track that. Caps are kind of always um up for change. the deposit range and um average deposit and the deposit range and average deposit target like that can change um I don't
+Joyce Kiddell: I would say basically anything in this box, right? M like payout model. I don't know how often this happens, but I feel like we should be prepared for like the possibility of it shifting from like a rev share to a flat.
+
+
+00:21:46
+
+Emily Vandenberg: think that was in question um is like the ability Like if you change currency, does that should that become a new deal or
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: do we want the ability to change currency within a deal makeup?
+Joyce Kiddell: you're asking me
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Yeah,
+Joyce Kiddell: uh because it's like market specific like do we think that's really a possibility?
+Emily Vandenberg: I don't know. I think I Yeah,
+Joyce Kiddell: Yeah, we might have to validate that one with Lena.
+Emily Vandenberg: I pinged her. Yeah, I think like for now it would be fine, but
+Joyce Kiddell: Yeah, maybe it's something that we don't deal with until we have to deal with it.
+Emily Vandenberg: yeah.
+Kobi Kunasekaran: I think you always have the option to create a new deal with the new currency. So I I don't know if it necessarily need to make or break. If you want the same deal, like if you want the ability for the same deal to change the currency, that's when we'll have to have a chat. But uh we're okay with creating a new deal.
+
+
+00:22:57
+
+Kobi Kunasekaran: I think that'll be that won't be a problem.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Uh
+Strahinja Vladetic: So for all these these changes, would would it make sense for the deal to just be like versioned and then you'll just know for like which version was connected to which signups?
+Kobi Kunasekaran: potentially. Um so like the the commercial terms information that could change like the deal makeup. we know that it's not going to change um because that's like once that's set for the deal, it's it's unique and but the throughout the life cycle the monthly cap the deposit change um I think we also have like the start and end dates on the deal that could potentially change as well. Um are these information are you expecting this data to also come into the CMS or is this just living on Salesforce from like a reporting perspective?
+Emily Vandenberg: just Salesforce.
+Kobi Kunasekaran: itself first. Okay. Because what we could do then is um the
+Strahinja Vladetic: I think I think it might need to come into the CMS if you guys wanted to report on it like
+
+
+00:24:13
+
+Emily Vandenberg: the commercial terms. Strong
+Strahinja Vladetic: yeah I guess depending on where you're looking for data or how much of the CMS data ends up going into Salesforce Um, but if you wanted to understand that this deal was at a CPA of $100 for like this amount of time and was linked to these these pieces of information that come from the CMS and then it was changed to 120, we wouldn't have that understanding unless that was passed back to CMS. Yes.
+Emily Vandenberg: And are you saying to bring it into the CMS because like your kind of like the M master data base Strahinja needs that for reporting?
+Strahinja Vladetic: That's that's that's what I'm saying. It depends on how much of the data ends up being in Salesforce. So, if you guys are going to use Salesforce for the majority of the reporting and we end up exporting a bunch of the data that you need from the CMS into Salesforce, then it should be fine. like if you if you don't use the CMS data for that use case, then it doesn't need to know.
+
+
+00:25:19
+
+Strahinja Vladetic: I'll I'll do a I'll just do a quick investigation to see where you would benefit from that in in the data and the potential reporting and then you guys can tell me if that is it going to end up in Salesforce or if you care about those scenarios.
+Emily Vandenberg: Yeah, I think we definitely need it Strahinja in our data, but like whether you push it through the CMS
+Kobi Kunasekaran: like my my recommendation would be like if the if you need these fields to drive some sort of automation filter or any logic on the CMS or the agency website, let's push it through on the object. Otherwise, if you need it for reporting purposes, you don't necessarily like we don't necessarily need to use the API to send all the information back and forth because then you not have to replicate the same data model that's in Salesforce like the object model and everything and it might not be necessary if you're not using it for any logic. So, the alternative way and this is what I would recommend if you want to report on the Salesforce data and tie it to like everything else.
+
+
+00:26:21
+
+Kobi Kunasekaran: Um, assuming you know you're collecting all this uh or you're feeding all this into like a data warehouse or like a BI platform. Um there are uh v various tools that will just replicate the Salesforce object model or make it available to you to just join in your external tools like Snowflake for example has a connector. Uh most data tools have a connector to Salesforce. You don't necessarily need to send the data through an API um just to have it for reporting. You just do it at the reporting layer afterwards. That would be my recommendation because you there are like limited API calls as well with silver.
+Emily Vandenberg: Okay. Yeah.
+Kobi Kunasekaran: I don't think we're going to hit them to be honest at this point unless like you know we turn on turn on the floodgates to all the signups and we start to see that there are like thousands of signups an hour that are coming through. But um it's probably not uh something that's going to happen. But if yeah if you need it just for reporting I would tackle that separately as opposed to feeding it through the API.
+
+
+00:27:21
+
+Emily Vandenberg: Yeah. Okay. We We'll take that away and SH will take a look,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: but and and we'll get back to you.
+Kobi Kunasekaran: Okay. So, I guess the design implications that um we're trying to understand here is so we're we're concluding that a deal makeup remains the same. Like you're not going to have multiple deals with the same makeup unless we retire a previous one. So, there's always going to be like one active deal that's going to have the same makeup um at any given time. So, we can add like an additional status for like right now we have active, inactive, closed. We can add like a retired status which will help us in the case of like you know we created a deal by mistake with the makeup that we later need to use at another time or even if you do have a scenario where you want to retire a deal as a old contract and like two years later um you're signing up a new contract with the same operator partner deal CPA combination you want to treat that as a new deal it'll give you the option to do that as well so you're not completely blocked off but um what what I'm getting out of the conversation we're having though is that these commercial terms are not static to the deal.
+
+
+00:28:30
+
+Kobi Kunasekaran: Like these could evolve over time and there are two places where we need to capture that change. One is on the signup records themselves. Right now we're not stamping anything from the deal like the deal information that comes in is all like essentially formal fields that relate to what the or display what is currently on the deal itself. So once like if for example like I changed this uh deal that the the signup is associated to and change the market to Ontario, this is going to show Ontario. It's not going to show that it was previously Alberta. So uh
+Emily Vandenberg: But you do that. You could never change. Those are like the locked in fields. That would be a new deal.
+Kobi Kunasekaran: sure sorry like I I use Michael as an example but like let's say CPA uh is one of the fields that we probe from the thing like that could change. And the way we have this set up is that it's it's not it's not a snapshot of the deal at the time the signup is completed or anything like that.
+
+
+00:29:23
+
+Kobi Kunasekaran: It's just showing what's related at the time. So what I'm thinking is we need to start taking snapshots of the fields that are relevant from the deal onto the sign up and maybe put it behind the completed date. So once the signup is marked as completed, we pull CPA and anything else that's relevant from the deal and save it in the signup record itself. So you'll be able to report on what the deal was at the time the signup went through in terms of CPAs. Um, anything else? Maybe like we might have to do the same for like payouts and redeposits. We can talk about that next week. But any anything else that needs to come from the deal, we'll capture it on the signup record. And then on the Sorry, before I continue.
+Emily Vandenberg: Now question about that like the idea of what like Strahinja said about versioning would
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: that be more simple and then you're just like applying a version that like a version of the deal to the sign Huh?
+
+
+00:30:23
+
+Kobi Kunasekaran: So the versioning, the tricky part of versioning is you're now going to have like depending on how often like the CPA and stuff change, you're going to have the same deal uh multiple times in your deals list that are related to different signups. It could like I think there there are pros and cons to both. I can I can maybe like do like a uh run the pros and cons of both and show you the options of and then we can decide on which way to move forward. But yes, it could work. So we could version it so that the deal and the commercial terms stay static. We never change this once it's set on a deal. If we need to change any of this information, it's going to be a new deal with the new version um that's going to be active. And then presumably that would mean that the previous version is retired or deactivated or something. So we don't have DRAs going into it or signups going into it anymore. But like we'll have to think about like what happens to any signups that have come through that haven't closed yet during that transition.
+
+
+00:31:28
+
+Kobi Kunasekaran: Um and a couple of other things. So I can I can think through it and show you the options. But yeah, versioning is one way. The other way is we just stamp the information when the signup is completed. Um and that'll solve it for the signup reporting. Um but on the deal level in place of versioning the alternate is we have a related uh related list for the commercial terms. So whenever the commercial terms change um it's actually like a a table of uh maybe dated like what are the effective start and end date for those terms and what was the payout uh what was the payout model what was the CPA uh uh whatever it is like whatever those informations are um in that particular record and then there's only going to be one that's active and the active one is going to be the one that gets passed on to the signup record. That way you can keep changing this as much as you want. Um it's not gonna it's not static. Um you'll just have like similar to like the deal rep assignments, you'll have a table of like commercial terms with start and end dates, what was the effective CP at the time, uh and so on and so forth.
+
+
+00:32:38
+
+Kobi Kunasekaran: And then you can use that to compare what's on the sign up and like report and anything like that. And that way the deal record and the deal rep assignments all stay exactly the same. They don't necessarily have to change or get redone when you create a new version.
+Emily Vandenberg: Okay. I think yeah, just as long as they're not just like timestamping based on the change and that you can like so if I go to an example that happened yesterday is like we found out 10 days into the month that a CPA changed but it's they're backdating it to the first so you have to be able to go in and then like mark when the new
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: one um you have to have the ability should probably default you know to like the the dates of you know when you're kind of like changing it but then the ability to edit
+Kobi Kunasekaran: Yeah. And that's actually a good example like if you do need to backdate um a CPA for uh for signups that already come through um we could add that functional like we if we do the commercial terms related object we could have it so when you update the CPA for an existing commercial term any related signup for that commercial term also
+
+
+00:33:45
+
+Emily Vandenberg: Mhm.
+Kobi Kunasekaran: gets updated with the latest CPA do it that way so you don't have to manually update Okay, I think this this answers the questions that we had around the deal retirement. So decisions we're making is like ideally the deal remains the same even if it gets deactivated and reactivated at a later time. commercial terms can change and we do need to keep track of the commercial terms. Um we do need to keep track of uh those commercial terms from the deal on the signup records so that it we're able to determine what the uh what the payouts and whatever uh was for those signups at the time the signups were completed. Um and then we've already decided that Salesforce is going to drive the the electional ID. So, if we do need to add some counters to account for like the uh shzy direct error cases where we had a deal incorrectly created and we're creating a new one that we're not going to be blocked from sending that deal with the same makeup uh as long as we have a new ID with like a counter or something passing it.
+
+
+00:35:09
+
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: I think I just so I just want to go back. I'm just looking at your from the perspective of the like retire and and replace. Um, so we're saying that we'll have the status of retire and then it will release or it will create a version of the deal.
+Kobi Kunasekaran: So the makeup, so the dduplication we will do based off of like the five fields that we talked about. um but only against active deals. So if a deal is retired, then it's not going to flag that there's already another deal with the same makeup.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: But if if there is another deal with the same makeup, up that's active or in any of the other statuses, then when you try to create that deal, it'll block you from creating the deal and say that there's already an existing deal. Go look at that and see if you need to add like assignments to that um or retire it before creating a new one.
+Emily Vandenberg: But if you retire it and you like created it in kind of like an error as an example.
+
+
+00:36:21
+
+Emily Vandenberg: So we using that to like correct a mistaken deal from a historical reporting perspective. How do you if it was like the example of what we just said, right? Bet MGM S was actually bet MGM CTMS this whole time. In the future when we have a bet MGMs deal and we pull it for historical data and it pulls the CTM version in like that how would we manage that where it shouldn't like it it should
+Kobi Kunasekaran: Hey, saying like the signups that have come in in the direct version uh sorry in the old version should be reallocated to the new version so that when you report on it everything looks like it came from the new deal
+Emily Vandenberg: Yeah. Which Yeah. new deal,
+Kobi Kunasekaran: um the fixed version yeah
+Emily Vandenberg: which was just a like corrected deal.
+Kobi Kunasekaran: um yes so the the retirement status helps with the dduplication. Um, and we could add in logic. I think we talked about like a superseded field. So, if you mark that this deal takes over for another deal, um, you just relate it back.
+
+
+00:37:40
+
+Kobi Kunasekaran: We could have an automation that'll re uh reassign all of the existing signups over to the new deal. And that way I think we have to kind of think through what what the implications of that are. But uh we should be able to so that when you report on it later on all of the signups look like they came in from the fixed deal.
+Emily Vandenberg: Yeah, like it's definitely maybe think it through and like explain the how much of a scope um kind of build it.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: It's just an example that like is current. So like never seen it happen before, not sure how often it will, but in the example of that it would really and you know we're kind of like up and operating and we've caught something that needs to be fixed like it could really impact reporting.
+Kobi Kunasekaran: Mhm. On the CMS side, like when this change happened, what did you have to do? Like did you have to set up like a new deal record with the correct uh correct makeups and links and everything?
+
+
+00:38:47
+
+Emily Vandenberg: Yeah, we had to create a new setup. Um, and then we had to go back into all of our logs and update all of the logs with the Um, new new partner
+Kobi Kunasekaran: new IDs. Okay. Yeah, I guess like we're kind of doing the same thing on the Salesforce side too then, right? It's just we're the only thing is like we're removing the dduplication enforcement when that happens. But But we can automate it to a certain degree. Like if if it's just like a matter of like reassigning everything over, we can automate it so that you don't have to do it manually.
+Emily Vandenberg: Yeah, for me like what I was saying is like a quick functionality to merge. Like if it was an error, like you know what I mean? You can like merge. But maybe like think it through and just like kind of let us know what option and like effort looks like and we can take it from there.
+Kobi Kunasekaran: Okay. Yeah, I think like we'll have to try it out because it there's like multiple relationships that play here.
+
+
+00:39:57
+
+Kobi Kunasekaran: Like there's the deal makeup, there's the deal rep assignment makeup and then once we start introducing the links, that's another layer that we have to see like how that translates in from like an old deal to a new deal and how that links back to the signups. So, um yeah, I I'll think it through. I'll provide the option and we can go from there. But this gives us enough context I think to move forward. Um and then I'll also uh follow up. I'll probably want to know like what information we want to capture on the signup records like a snapshot of the deal or the commercial terms. So, I I'll make a list and I'll I'll send it over and you can just confirm and we can get that added as well. Okay.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Was there anything else that was open?
+Emily Vandenberg: Sandbox straw straw are you there?
+Strahinja Vladetic: Yep.
+Emily Vandenberg: Are we able to create a sandbox in the CMS for Kobe so that we can like and teams so we can start testing
+
+
+00:41:28
+
+Strahinja Vladetic: Yeah, we do have the staging environment. We've just been using production. Um, I think that was because you guys wanted to see the data flow in sort of as it would on prod and have the data in the sandbox be related to prod. But using staging would mean that you wouldn't get the production traffic.
+Kobi Kunasekaran: I think that's all.
+Strahinja Vladetic: So you'd have to go there and run tests.
+Kobi Kunasekaran: I think that's okay for now because like we're we're trying like a as part of like this process of setting up the integration. So we're sending data from uh Salesforce to CMS. We can do that independently. Are we able to get access to like query the results not through the API but like uh like some sort of crowd interface so we can see what's actually landing on this EMS or like in the sandbox.
+Strahinja Vladetic: Sorry. Um, when that like when you start sending the deals over or
+Kobi Kunasekaran: Yeah, like so we'll we'll set up the API uh API interface and everything like I I definitely don't want to use the production uh instance here to do the implementation, right?
+
+
+00:42:48
+
+Kobi Kunasekaran: Like to set it up. We'll swap it out after we're good with the process and everything as we're kind of working through it. So if we can get a sandbox to send data from Salesforce to CMS, that's that'll be helpful. Um we'll set that up. We can test uh test a few different things. Um but in addition to that, are we able to get access to the sandbox? Not just the API uh secret or API code, but uh like is there like a database that we can query to see what's actually landing on it uh outside of the API calls and can we get access to that?
+Strahinja Vladetic: Uh yeah, definitely. Yeah, it's it's stored in a Postgress database. So I can just give you guys the connection.
+Kobi Kunasekaran: Perfect. Yeah.
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: Okay. That way we're not just looking at what the results of the API. We can actually query the database to see if it's actually making it there and what what it looks like there.
+
+
+00:43:43
+
+Kobi Kunasekaran: Great. So yeah, we we'll we'll pin the production share for now. Um I think once we're good with how the data goes into the sandbox or or your staging environment then we can swap it out when we're ready to do the full test right like from deals to uh to the SLC's coming in. U but I think uh we also talked about phasing this. So first phase is like sending the deal information to the CMS. Second one is adding the affiliate links. So Strahinja if you uh if you get back to me with like what are the fields and the information that you're expecting from a links perspective um that you're going to need so that reps can go in and activate those. And then the third step will be the DRRA assignments that come from the CMS to Salesforce. Um so we can scope that out once the links come in. Um and we have all of that done.
+Emily Vandenberg: Yeah, like Strahinja, you were saying you're just going to expand the end point for the links so that we can I think it'll that will come quite quickly here.
+
+
+00:44:46
+
+Emily Vandenberg: But what did you need from um jumper to like know what's needed there?
+Strahinja Vladetic: It's really just going to be by the sounds of it an array of links that are IDed. That's That's pretty much it, I think.
+Emily Vandenberg: Right, Kobe.
+Kobi Kunasekaran: Yeah, I would think so. I mean, it's like what whatever you need to set up those like or rather assign those links to the reps on the CMS side, right? Like if you tell me what we need uh to send, we can make sure we have it on the Salesforce side and send it over. All
+Strahinja Vladetic: Yeah, that should be it. And then the deal rep assignment will handle after that, right?
+Kobi Kunasekaran: right,
+Strahinja Vladetic: You'll you'll send the actual rep ID and deal
+Emily Vandenberg: Well,
+Strahinja Vladetic: and then Yeah.
+Emily Vandenberg: that back
+Strahinja Vladetic: And Yeah.
+Kobi Kunasekaran: cuz we're still assuming that the process is like Salesforce, we set up the deals and the links get sent to CMS and on CMS side, you're assigning those links. for those deals to the reps that you already have.
+
+
+00:45:57
+
+Kobi Kunasekaran: And when those assignments are done, that gets sent back to Salesforce, which kind of closes the loop and creates the deal rep assignment records and the signup records based off of the SLC's. Right? That's the process from a high level.
+Strahinja Vladetic: Yep.
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: that's what we were trying to and then it and then maybe there's like kind of more to think through there, but we have a meeting booked Monday. Just like those are going to change. Those are assignments can change quite frequently. Um, so just managing those messages and and sends from the CMS to back to you guys and I guess how you'll handle that from like a version or
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: from just like a logging perspective.
+Kobi Kunasekaran: Yeah, I I think we we'll have to talk through that once uh once we have the links in place and I'll because that's going to be essentially like a two-way communication, right? Um because we need to set up the DRAs. Uh actually, no, it doesn't necessarily need to be two-way communication.
+
+
+00:47:06
+
+Kobi Kunasekaran: So long as we get the rep and deal assignments from CMS, we can map we can create the DRAs on Salesforce and map it to the signups. Uh yeah, we we can talk through it when we get to that base. Uh but right now I think focus is deals and affiliate links and that'll get us to the next step.
+Emily Vandenberg: Yeah. Yeah. I think you're right though. We do need to chat through that. And then also just the fact that we can add new links. So you'll set it up and then the record and like the links can change. and just making sure there's like kind of two-way communication around that
+Kobi Kunasekaran: Are you expecting reps to be able to add links in CMS directly or would they still go to Salesforce to add the links before they assign it in CMS?
+Emily Vandenberg: like a brand new link. So we get we would follow the process of adding the link in sales.
+Kobi Kunasekaran: Salesforce. Okay. Okay. All right.
+
+
+00:48:08
+
+Kobi Kunasekaran: Yeah. We'll we'll we'll move forward with with that assumption and then if we if we need to enable a way for them to do it from CMS as well, if it's easier, then we can talk through what that looks like. That was an impact to next steps. Uh okay, last thing I just remembered was uh there was one error for the uh unknown operator and unknown partner. Is this uh so do we right now the assumption is that the operators and partners are created in Salesforce first. We don't have anything pushing that information to CMS. Do we want is that going to be like a new endpoint? How fre Sorry. Okay. Is that going to be a new endpoint? How frequently does this happen to warrant a new endpoint or are we good with just sending it as part of the deal makeup and uh we can like Strahinja you can process that and create the records as needed in CMS.
+Emily Vandenberg: I think if you scroll down Strahinja could land on All right.
+
+
+00:49:17
+
+Kobi Kunasekaran: Yeah, I think he said like might need more information. uh or like what additional details you might need from the payload versus send for partner and operator.
+Strahinja Vladetic: Um, Yeah, I can take another another look at that one. I if if operators and partners aren't like materially represented in the CMS really, then we don't really need to care.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: Um
+Kobi Kunasekaran: Okay, I have a feeling like this probably came out of the current logic of the CMS making the or formulating the deal IDs based off of the information. So, if you're not doing that, uh, this might not be relevant and then we don't have to worry about it.
+Strahinja Vladetic: Yeah, the thing is right now we do have an operators tab in the CMS.
+Kobi Kunasekaran: I see. Okay.
+Strahinja Vladetic: Um I don't know if that's just like temporary and then that's going to be
+Emily Vandenberg: which is
+Strahinja Vladetic: moved. If if sales if Salesforce is going to be like the thing that manages that then we can just retire that in the CMS Yes.
+
+
+00:50:27
+
+Emily Vandenberg: Strahinja. Let me just pull I feel like it's um although it's labeled I'm just pulling it up here. Although it's like labeled as operator, it's like and it's really because it's pulling in the full kind of like code like short code which like is actually deal like how we have CMS set up as like an operator perspective is really like the first version of like kind of like deal makeup.
+Strahinja Vladetic: Okay.
+Emily Vandenberg: If you take a look, you'll see. But I think I think receiving it on the deal and then like it's just kind of creating a new partner name and a new operator name as like fields right within your deal is all that you really need.
+Strahinja Vladetic: Yeah, that could be, you know, so maybe it's a similar situation to the links. We just trust Salesforce completely and they send along the operator and partner along with their IDs and whatever information you guys want to keep in in the CMS and then the deal. So whatever comes through from that deal message, we just Yeah, we just trust completely from Salesforce.
+
+
+00:51:44
+
+Strahinja Vladetic: We just overwrite whatever we have um existing. Yeah, in that scenario, this should never happen.
+Kobi Kunasekaran: Okay. Okay. So, we can cross this one out. Um,
+Strahinja Vladetic: I'll I mean it should never happen, but I mean we could have an exceptional case where we didn't receive the deal or something and then you guys are trying to or no, sorry, in that scenario that wouldn't happen. Yeah. Yeah, that that that's right. So regardless of what you guys send us, either we provision the operator and partner if they don't already exist or we just assign it to the ones that are already there. So yeah that this this error would would just not
+Kobi Kunasekaran: should happen.
+Strahinja Vladetic: happen yet.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: So I'll update the payload with basically the to give you guys room to send me links and then send me the operators and partners with some basic information for now.
+Kobi Kunasekaran: Okay, sounds good. All right, I think that's all we need from a CMS integration perspective.
+
+
+00:52:59
+
+Kobi Kunasekaran: I think we're good to get started. So yeah, as soon as send us like the information for sandbox uh and access um we can start setting this up. Uh and once we have the info for what the new payload should look like, we can start structuring it on our end.
+Emily Vandenberg: Yeah, I know there was like sorry a lot of back and forth on this this week partially just based on the nature but I think we're good on
+Kobi Kunasekaran: I think we're good. Yeah, and I'll get back to you on options on how we're going to design like the deal with the commercial terms changing and what that could look like, but I think I don't think that's going to block the CMS integration based on what we talked about like with Salesforce driving the IDs, it sounds like whatever direction we go is going to be fine in terms of sending information from uh Salesforce to CMS.
+Emily Vandenberg: Okay, perfect. And then next week we we kind of get back I'll keep reviewing the objects that are in play and we'll get re I would say you know if like in the back part of next week Kobi just going to take a reook at the scope for kind of the next phases start of the week.
+
+
+00:54:18
+
+Emily Vandenberg: If by the back half of next week we're kind of focused on discovery or getting any meetings booked that you need to kind of like start scoping out that read the space first
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: priority, right Joyce?
+Joyce Kiddell: Yeah, for sure. Do you think we could actually just go ahead and book something either Wednesday or th or sorry, not Thursday, Wednesday or Friday of next week? Does anyone have a preference? I just I feel like I need a meeting to kind of work towards as my deadline, you know?
+Emily Vandenberg: I feel like my preference would be Wednesday just to like keep moving on this and
+Joyce Kiddell: Yeah, that's it.
+Emily Vandenberg: like us kind of make some progress next week.
+Joyce Kiddell: Yep, that works. Um, what time are we thinking?
+Kobi Kunasekaran: I'm pretty open all day, so whatever works for you all. And sorry, just to make sure I'm on the same page. So, we're going to talk about payouts and redeposits on the Wednesday meeting or
+Joyce Kiddell: probably just redeposits to start and then pay out like a separate discovery
+
+
+00:55:21
+
+Kobi Kunasekaran: anything new.
+Joyce Kiddell: discussion.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Okay. Uh um do you have a preference on timing Wednesday?
+Emily Vandenberg: Um I the only thing I have that's like more kind of like hard locked is two a two to 245 with Jess.
+Joyce Kiddell: Okay. So, if we do is like an hour going to be enough time
+Kobi Kunasekaran: We can start with an hour.
+Joyce Kiddell: or maybe an hour and a half potentially.
+Kobi Kunasekaran: That works.
+Joyce Kiddell: We can just block that. I'll do 3 to 4:30 if that works.
+Kobi Kunasekaran: Do you 4:30? Okay.
+Joyce Kiddell: Okay.
+Emily Vandenberg: And is that on your side, Kobe? Is there
+Kobi Kunasekaran: I can I can send the invite over. So, yeah.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: And that's that's going to be like everyone that's usually in the weekly sync like you,
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: Joyce, Emily, and Lena.
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: Sample fan.
+Emily Vandenberg: Rita. Yeah. Um, yeah. Do we want to bring in Owen or Jay?
+Joyce Kiddell: Uh maybe you just give us the ability to invite people.
+Kobi Kunasekaran: Yeah. Yeah, I'll do that.
+Joyce Kiddell: Okay, great. We all good.
+Kobi Kunasekaran: We need to be 30. Yeah. Yeah.
+Taryn Reithofer: Thank
+Kobi Kunasekaran: All good from my end. Um, yeah, I'll I'll I'll send you a quick note on like what some of the action items we talked about so we can keep track of it, but otherwise we're good.
+Emily Vandenberg: Yeah,
+Joyce Kiddell: Great. Thank you.
+Kobi Kunasekaran: Awesome. Thanks everyone.
+Taryn Reithofer: you.
+Kobi Kunasekaran: Have a good uh weekend.
+Taryn Reithofer: Fine.
+Joyce Kiddell: Okay. Okay.
+Kobi Kunasekaran: Later. Bye.
+Emily Vandenberg: Okay.
+
+
+Transcription ended after 00:57:36
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

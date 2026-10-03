@@ -1,0 +1,245 @@
+{
+  "id": "11395",
+  "key": "WAGR-446",
+  "fields": {
+    "statuscategorychangedate": "2026-09-24T12:58:37.658-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 2,
+      "isWatching": false
+    },
+    "created": "2026-09-24T10:01:33.801-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.038-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h3>Summary</h3><p>Salesforce has no working outbound connection to the CMS today. The org has no Named Credential. The External Credential <code>Webhook_Ext_Cred</code> exists, but no permission set grants access to it. No user has read access to all the fields the payload needs. This task creates the connection and the configuration that every other ticket in this epic uses.</p><h3>Work Required</h3><ol><li><p>Create Named Credential <code>CMS_Deals_Webhook</code> on <code>Webhook_Ext_Cred</code>.</p><ul><li><p>Sandbox URL = CMS staging host (from Strah&#039;s 2026-09-23 message).</p></li><li><p>Callout path <code>/api/salesforce/deals</code>.</p></li><li><p>&quot;Allow formulas in HTTP header&quot; on.</p></li><li><p>Generate Authorization Header off.</p></li></ul></li><li><p>Check the External Credential&#039;s custom header <code>X-Webhook-Key</code>. Its value is written <code>{$Credential…}</code>, without the <code>!</code>. Confirm that the real key is sent, not the literal text.</p></li><li><p>Enter the staging key in the principal <strong>directly in Setup</strong>. It goes nowhere else (see WAGR-445, &quot;Secure and rotate CMS webhook and database credentials&quot;).</p></li><li><p>Integration user:</p><ul><li><p>Choose the running user for callouts (see Open Questions).</p></li><li><p>Create permission set <code>WT_CMS_Integration</code>:</p><ul><li><p>External Credential principal access</p></li><li><p>Read on Deal (including <code>External_Deal_ID__c</code>, <code>Region_Code__c</code>, <code>Source__c</code>, the Market fields, <code>CurrencyIsoCode</code>, the Effective dates, <code>Superseded_By__c</code>, <code>Test_Deal__c</code>)</p></li><li><p>Read on Account Operator/Partner names and external IDs</p></li><li><p>Read on <code>Links__c</code> (all payload fields plus the VIP and Test flags)</p></li><li><p>Edit on the CMS sync fields</p></li><li><p>Create on the integration log (if built)</p></li><li><p>Access to the Apex classes</p></li></ul></li></ul></li><li><p>Create the Custom Metadata record <code>CMS_Integration_Setting__mdt.Deals_Webhook</code>:</p><ul><li><p>Enabled</p></li><li><p>Include Links</p></li><li><p>Include Test Records</p></li><li><p>Batch Size</p></li><li><p>Timeout (ms)</p></li><li><p>Max Auto Retries</p></li><li><p>Retry Delays</p></li><li><p>Named Credential</p></li><li><p>Alert Recipients</p></li></ul></li><li><p>Define the production Named Credential (production CMS URL) in metadata <strong>without</strong> a key. The key is entered at cutover.</p></li></ol><h3>Done When</h3><ul><li><p>A test call from the sandbox (Postman first, then Salesforce) to staging returns a non-401 response.</p><ul><li><p>An empty <code>deals</code> array should return 400.</p></li><li><p>This proves that the key is sent and accepted.</p></li></ul></li><li><p>A call with a wrong key returns 401. This proves the header isn&#039;t being ignored.</p></li><li><p>The retrieved metadata contains no key value.</p></li><li><p>The integration user can read every mapped field and nothing it doesn&#039;t need.</p></li></ul><h3>Approved Design</h3><ul><li><p>A CMS-hosted endpoint that Salesforce calls (Aug 18).</p></li><li><p>An <code>X-Webhook-Key</code> header, with keys exchanged by password manager only (v2 contract §2).</p></li><li><p>Build against staging. Use production only for the final end-to-end test (Sep 11, Sep 16).</p></li><li><p>The callout timeout is 60 seconds, because staging scales to zero and the first call can take 10–20 seconds (Strah, Sep 23).</p></li></ul><h3>Implementation Recommendation</h3><ul><li><p>Run callouts as <strong>one integration user</strong>, through a platform-event subscriber (<code>PlatformEventSubscriberConfig</code>), not as the user who saved the record.</p></li><li><p><strong>Why:</strong></p><ul><li><p>Only one user then holds the webhook credential.</p></li><li><p>Sync writes are clearly attributable to that user.</p></li></ul></li><li><p>Reuse the existing CMS integration user (WAGR-34) unless a license exists for a dedicated one.</p></li><li><p>Put the settings in Custom Metadata. <strong>Why:</strong> Phase 2 can then be switched on, or sending paused during data loads, without a deploy.</p></li></ul><h3>Open Questions</h3><ul><li><p>Running user: an integration user via platform event (recommended), or the editing user with credential access in the WT PSGs?</p></li><li><p>Reuse the WAGR-34 integration user, or create a dedicated outbound one?</p></li></ul><h3>Dependencies</h3><ul><li><p>WAGR-445: the staging key must reach Jumpr through a password manager.</p></li></ul><h3>References</h3><ul><li><p>Design doc (Confluence page to follow) §4.1, §5.2, §5.3, §8</p></li><li><p>Proposed to supersede WAGR-123 (disposition pending Kobi)</p></li></ul>",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [
+      {
+        "id": "10386",
+        "filename": "Screenshot 2026-09-26 at 1.04.28 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-25T13:08:05.512-0400",
+        "size": 106025,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10386",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10386"
+      },
+      {
+        "id": "10387",
+        "filename": "Screenshot 2026-09-26 at 12.59.23 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-25T13:08:05.878-0400",
+        "size": 195803,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10387",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10387"
+      }
+    ],
+    "summary": "CMS Sync — Configure the webhook connection, integration user and settings",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11336",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"c768699f51a7\"><strong>Changes made:</strong><br></p><table data-local-id=\"d4dc373d-8b27-4498-a995-d94764abbda9\"><tbody><tr><td data-local-id=\"380d909e6313\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"0c0e7fa77f7e\">Metadata Name</p></td><td data-local-id=\"a5ccc271b181\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"fbfe995d5f8b\">Metadata Type</p></td><td data-local-id=\"fcf9c9e4bd03\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"0c8554987d4b\">Action</p></td><td data-local-id=\"adcbcc37e4da\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"d39aa078bc9b\">Notes</p></td></tr><tr><td data-local-id=\"94a816878c39\"><p data-local-id=\"d1c6bf843ef7\">CMS_Deals_Webhook</p></td><td data-local-id=\"8aa532d173bc\"><p data-local-id=\"49a609acae4a\">NamedCredential</p></td><td data-local-id=\"576ef730e81f\"><p data-local-id=\"240f93434cc9\">New Component</p></td><td data-local-id=\"5eab1f9bea2b\"><p data-local-id=\"61d8f234fb9d\"></p></td></tr><tr><td data-local-id=\"257eb3a22cea\"><p data-local-id=\"29ad42aab5f0\">Webhook_Ext_Cred</p></td><td data-local-id=\"203808daeced\"><p data-local-id=\"a106b748f01b\">ExternalCredential</p></td><td data-local-id=\"ec3a7384880d\"><p data-local-id=\"476ab88dde1a\">New Component</p></td><td data-local-id=\"90ef4f02b30a\"><p data-local-id=\"a367abb392ad\"></p></td></tr><tr><td data-local-id=\"555c832dfb5e\"><p data-local-id=\"484e050fe6d2\">WT_CMS_Integration</p></td><td data-local-id=\"9dcc2cc6481a\"><p data-local-id=\"db6cb71e5584\">PermissionSet</p></td><td data-local-id=\"f22bb4ccab19\"><p data-local-id=\"08e980260264\">New Component</p></td><td data-local-id=\"5e4532149c1d\"><p data-local-id=\"69e77b0d36ad\"></p></td></tr><tr><td data-local-id=\"bd27ed781a31\"><p data-local-id=\"231158e72aa0\">CMS_Integration_Setting__mdt</p></td><td data-local-id=\"b83983c5f3d9\"><p data-local-id=\"4ce01f090929\">CustomObject</p></td><td data-local-id=\"b0ceab6930b1\"><p data-local-id=\"3ac8531978eb\">New Component</p></td><td data-local-id=\"ec4f8125fb6e\"><p data-local-id=\"104967eae160\"></p></td></tr><tr><td data-local-id=\"8019eeab32fc\"><p data-local-id=\"f132ad507b5e\">CMS_Integration_Setting__mdt.Alert_Recipients__c</p></td><td data-local-id=\"56826c6fc51d\"><p data-local-id=\"dbc09a614bb1\">CustomField</p></td><td data-local-id=\"cab52162ff00\"><p data-local-id=\"53a4ec33948b\">New Component</p></td><td data-local-id=\"56741d752df2\"><p data-local-id=\"52b9863c08b2\"></p></td></tr><tr><td data-local-id=\"3c7e3e4c1c0c\"><p data-local-id=\"014eb730502a\">CMS_Integration_Setting__mdt.Batch_Size__c</p></td><td data-local-id=\"761c73a63d8a\"><p data-local-id=\"80fabc492e46\">CustomField</p></td><td data-local-id=\"7734c98cfa19\"><p data-local-id=\"9f38aa0c9da0\">New Component</p></td><td data-local-id=\"6d2e27a1a063\"><p data-local-id=\"72b07ce2d339\"></p></td></tr><tr><td data-local-id=\"356ec7ba307b\"><p data-local-id=\"93a92486ca78\">CMS_Integration_Setting__mdt.Enabled__c</p></td><td data-local-id=\"6b6a6f77052a\"><p data-local-id=\"839fcb197133\">CustomField</p></td><td data-local-id=\"91300ba13438\"><p data-local-id=\"ff6c31454b57\">New Component</p></td><td data-local-id=\"31d6b446f22c\"><p data-local-id=\"67d20714f446\"></p></td></tr><tr><td data-local-id=\"9aa40c331de4\"><p data-local-id=\"e927b354238c\">CMS_Integration_Setting__mdt.Include_Links__c</p></td><td data-local-id=\"081e7065c4ad\"><p data-local-id=\"86819f1582ea\">CustomField</p></td><td data-local-id=\"b6f22b87e572\"><p data-local-id=\"fe6d35394a7a\">New Component</p></td><td data-local-id=\"b3fae281eb42\"><p data-local-id=\"d3e2af6457fd\"></p></td></tr><tr><td data-local-id=\"e37f02e29219\"><p data-local-id=\"4f40a7b54217\">CMS_Integration_Setting__mdt.Include_Test_Records__c</p></td><td data-local-id=\"da44ef0f21e0\"><p data-local-id=\"bad656fb9d1e\">CustomField</p></td><td data-local-id=\"6099169b40a7\"><p data-local-id=\"a3f4337f7b50\">New Component</p></td><td data-local-id=\"24860bb39f80\"><p data-local-id=\"d618f4d66165\"></p></td></tr><tr><td data-local-id=\"f3b285d5bf66\"><p data-local-id=\"ae5344e35944\">CMS_Integration_Setting__mdt.Max_Auto_Retries__c</p></td><td data-local-id=\"ffaf187901c6\"><p data-local-id=\"a27cfa395201\">CustomField</p></td><td data-local-id=\"c88c97052e5f\"><p data-local-id=\"3ce8b8ce9ccd\">New Component</p></td><td data-local-id=\"3e1d29e53860\"><p data-local-id=\"90a5e62e4000\"></p></td></tr><tr><td data-local-id=\"7e7d8809e4dc\"><p data-local-id=\"5aeaeaea008f\">CMS_Integration_Setting__mdt.Named_Credential__c</p></td><td data-local-id=\"441f88532fea\"><p data-local-id=\"92d9fdd8dbb5\">CustomField</p></td><td data-local-id=\"5ec7db13b5f6\"><p data-local-id=\"89156bec8a5b\">New Component</p></td><td data-local-id=\"485eb340c15a\"><p data-local-id=\"af5c73321197\"></p></td></tr><tr><td data-local-id=\"24437e6f63cb\"><p data-local-id=\"01c395f592ee\">CMS_Integration_Setting__mdt.Retry_Delays__c</p></td><td data-local-id=\"8503651cbf1a\"><p data-local-id=\"37804ea80fa3\">CustomField</p></td><td data-local-id=\"34a88a713977\"><p data-local-id=\"c422c16bd0e7\">New Component</p></td><td data-local-id=\"4d4ef8f85685\"><p data-local-id=\"eeaad5671e9e\"></p></td></tr><tr><td data-local-id=\"b4c29584f985\"><p data-local-id=\"d618b787153a\">CMS_Integration_Setting__mdt.Timeout_ms__c</p></td><td data-local-id=\"0263f0b74ff5\"><p data-local-id=\"701f07c4d8b3\">CustomField</p></td><td data-local-id=\"237bf7f20f65\"><p data-local-id=\"81828c6d3ad0\">New Component</p></td><td data-local-id=\"7f8eece4c799\"><p data-local-id=\"277b2fb06939\"></p></td></tr><tr><td data-local-id=\"90993e872fa6\"><p data-local-id=\"daab79abe692\">CMS_Integration_Setting__mdt-CMS Integration Setting Layout</p></td><td data-local-id=\"28feb96c1971\"><p data-local-id=\"ed31c990c470\">Layout</p></td><td data-local-id=\"efe681bb0b30\"><p data-local-id=\"625922a23ac2\">New Component</p></td><td data-local-id=\"774c1f604b7a\"><p data-local-id=\"b08f3f04adba\"></p></td></tr></tbody></table><p data-local-id=\"51d8903f9f13\"><br><strong>Testing:</strong> Validated in sandbox &amp; postman. Working as expected.<br></p><figure data-local-id=\"1e267864431c\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"559\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"cdf9df10-0b9c-4302-a871-450ce9436806\" data-alt=\"Screenshot 2026-09-26 at 12.59.23 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"2a892fa097d9\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"559\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"0f06b972-fd1b-4efe-b947-34f7d1358646\" data-alt=\"Screenshot 2026-09-26 at 1.04.28 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-25T13:08:06.229-0400",
+          "updated": "2026-09-25T13:08:06.229-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000hm:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

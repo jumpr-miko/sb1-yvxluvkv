@@ -1,0 +1,1296 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech <> Jumpr: Referral and Payouts Discovery
+
+Sep 25, 2026
+Cedrick Infantado lina@wagertech.bet Taryn Reithofer Kobi Kunasekaran joyce@wagertech.bet emily@wagertech.bet Waleed Alasadi
+
+Workflow alignment meeting focused on referral payouts and Salesforce integration rules.
+
+Primary referral payout processes and tracking
+* Primary referral payouts operate through separate cash and bet credit streams that cannot be combined into a single payout record.
+* Cash payouts require tracking the date sent and the BMO ID for auditing purposes.
+* Bet credit payouts require chunking the bulk amount into smaller deposit allocations across specific operators.
+* Payout records are restricted to a single currency at a time, inherited directly from the signup currencies.
+* Completing a payout record automatically updates the associated signups to remove them from the active payment queue.
+
+
+Secondary referral thresholds and discretionary management
+* Secondary referral bonuses trigger after reaching 10 eligible signups, offering 100 in cash or 200 in bet credit.
+* Secondary referral payouts are managed at the discretion of the rep using an eligibility flag on the referer account.
+
+
+Financial reporting scope and system integrations
+* Financial reporting tracks overall cash flow, encompassing player deposits, redeposits, and BA commissions.
+* Phase 1 prioritizes Salesforce for data collection while maintaining existing internal tools for commission calculations due to the hard November 1 deadline.
+
+
+Salesforce workflow and player payout tracking
+* Handled player payouts outside of Salesforce for the current phase without separate complex workflows.
+* Tracked deposit and signup records directly on individual signup entries within Salesforce.
+* Captured actual deposit amounts, dates, and screenshots only when players submitted their deposit information.
+
+
+Fraud management and payout batch adjustments
+* Blocked confirmed fraudulent signups from being added to active payout batches while keeping them visible.
+* Locked payout records once marked as paid to prevent modifications by representatives.
+* Permitted representatives to remove unconfirmed or flagged signups from unpaid payout batches.
+
+
+Minimum thresholds for referral commissions
+* Established that primary referers have no minimum signup thresholds before qualifying for commissions.
+* Required BAs to achieve a minimum of 30 signups initially and during each payout run.
+
+
+Incomplete redeposits and exception handling
+* Tracked incomplete or failed redeposits at the individual redeposit record level rather than modifying payout statuses.
+
+
+Next steps
+* [Kobi Kunasekaran] Verify data pull: Review notes to confirm if existing functionality pulls default referral payout type and amount onto signups.
+* [Joyce Kiddell, Emily Vandenberg, Lina Ceniccola] Discuss integrations: Convene offline to determine the best path for integrating Salesforce with third party tools.
+* [Kobi Kunasekaran] Diagram payout flow: Create a visual representation to clarify how primary referral payments are handled across different currencies.
+* [Kobi Kunasekaran] Design Guided Workflow: Design a guided workflow for the payout process that includes redeposit allocation. This system will enable users to create records and manage allocations within a unified interface.
+* [Kobi Kunasekaran] Design Secondary Referral: Develop the secondary referral payout process to trigger after 10 signups. Include an eligibility flag on the referer account to allow for discretionary payout management.
+* [Kobi Kunasekaran] Implement Fraud Logic: Implement a selection gate to prevent users from adding fraudulent signups to payout records. Ensure that signups confirmed as fraud remain visible for record keeping but are blocked from batch payments.
+* [The group] Schedule Reporting Session: Schedule a separate scoping session to discuss financial reporting needs and total payouts.
+* [Kobi Kunasekaran] Share Design Documents: Prepare and share the design documents for the referral payout workflow by the middle to end of next week.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 25, 2026
+Wagertech <> Jumpr: Referral and Payouts Discovery
+Invited Cedrick Infantado lina@wagertech.bet Taryn Reithofer Kobi Kunasekaran joyce@wagertech.bet emily@wagertech.bet Waleed Alasadi
+Attachments Wagertech <> Jumpr: Referral and Payouts Discovery
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Workflow alignment meeting focused on referral payouts and Salesforce integration rules.
+
+Workflow Scope and Integration
+Salesforce will provide data to external tools for commission calculations rather than configuring complex internal rules. Referral payouts require batching processes for multiple signups into separate records.
+
+Payout Rules and Batching
+Brand ambassadors cannot mix primary and secondary referral signups within the same batch payout. Payout records will use a single currency derived from selected signup records.
+
+Fraud Handling and Thresholds
+Confirmed fraud signups remain visible within the record with a clear visual cue for investigation. Business Associates must achieve 30 eligible signups per payout after their initial run.
+
+
+Decisions
+Aligned
+* Integration of Salesforce Data with Jay's Tool The team agreed to set up the November 1 launch so that Salesforce provides the raw data while Jay's tool handles internal commission calculations.
+* Default Payout Type Population on Signups The signup process will automatically populate payout types and amounts from the referral's default settings, while allowing brand ambassadors to override them when necessary.
+* Currency Restriction for Payout Batches Payout records will be restricted to a single currency, prohibiting the grouping of signups with different currencies into a single payout batch.
+* Bet Credit Payout Redeposit Allocation Workflow Bet credit payouts must be broken down and related to individual redeposit records assigned to the referrer following the standard redeposit verification process.
+* Secondary Referral Eligibility Account Flag The system will include a flag on the referrer account indicating secondary referral bonus eligibility to be processed at brand ambassador discretion rather than forced automation.
+* External handling of payment matrix The payment matrix is handled outside of Salesforce for the current phase.
+* Payment restriction for fraudulent signups Referrers with signups flagged or confirmed for fraud are blocked from receiving payouts.
+* Removal of fraudulent signups from unpaid batches Representatives can remove fraudulent signups from payout batches as long as the payout is not marked as paid.
+* Record-level tracking of incomplete redeposits Incomplete redeposits are tracked at the redeposit record level instead of changing the payout status.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Verify data pull: Review notes to confirm if existing functionality pulls default referral payout type and amount onto signups.
+* [Joyce Kiddell, Emily Vandenberg, Lina Ceniccola] Discuss integrations: Convene offline to determine the best path for integrating Salesforce with third party tools.
+* [Kobi Kunasekaran] Diagram payout flow: Create a visual representation to clarify how primary referral payments are handled across different currencies.
+* [Kobi Kunasekaran] Design Guided Workflow: Design a guided workflow for the payout process that includes redeposit allocation. This system will enable users to create records and manage allocations within a unified interface.
+* [Kobi Kunasekaran] Design Secondary Referral: Develop the secondary referral payout process to trigger after 10 signups. Include an eligibility flag on the referer account to allow for discretionary payout management.
+* [Kobi Kunasekaran] Implement Fraud Logic: Implement a selection gate to prevent users from adding fraudulent signups to payout records. Ensure that signups confirmed as fraud remain visible for record keeping but are blocked from batch payments.
+* [The group] Schedule Reporting Session: Schedule a separate scoping session to discuss financial reporting needs and total payouts.
+* [Kobi Kunasekaran] Share Design Documents: Prepare and share the design documents for the referral payout workflow by the middle to end of next week.
+
+
+
+Details
+* Meeting Agenda and Vacation Coverage: Emily Vandenberg, Joyce Kiddell, Lina Ceniccola, Kobi Kunasekaran, and Taryn Reithofer met to discuss referral and payout workflows, confirming that during Kobi Kunasekaran's upcoming vacation, team members Wy, Taryn Reithofer, and Cedric would step in to cover the build and discovery phases (00:00:12).
+* Payout Workflow Scope and Objectives: Joyce Kiddell outlined the implementation goals for the referral and payout workflows, noting that referral payouts are the least progressed work block and requiring a brainstorm to establish processes for batching payments across multiple signups into separate payout records (00:01:45).
+
+
+* Comprehensive Payout and Commission Categories: Joyce Kiddell, Lina Ceniccola, and Emily Vandenberg reviewed all payout types to include in business reporting, encompassing primary and secondary referral payments, player first-time deposits and redeposits, personal redeposit incentives, and brand ambassador commissions (00:04:20).
+* Brand Ambassador Manager Pay Structures: Lina Ceniccola and Emily Vandenberg detailed brand ambassador manager compensation structures, explaining that manager pay can be a flat rate, a volume-based deal, or a tiered structure in Alberta based on the number of representatives, alongside monthly US manager pay and business-to-consumer representative pay (00:07:20).
+* Commission Calculation and Salesforce Integration Strategy: Emily Vandenberg, Joyce Kiddell, and Lina Ceniccola agreed that for the hard launch date of November 1, Salesforce will primarily capture and provide data to external tools (such as Jay's tool) for commission calculations rather than configuring complex internal Salesforce calculation rules (00:08:39).
+* Future HR System Integration Plans: Joyce Kiddell and Lina Ceniccola discussed exploring future integrations with Rippling, an HR information system, for brand ambassador commissions, noting potential use of Excel file uploads or direct integrations post-launch (00:10:17).
+* Write-off and Clawback Processes for Fraudulent Signups: Emily Vandenberg and Lina Ceniccola raised the need for processes to handle write-offs and clawbacks when signups are later identified as fraudulent, ensuring that brand ambassador pay, deposits, and associated referral payments are adjusted and tracked correctly in Salesforce (00:12:47).
+* Primary Referral Signup Logging and Default Payout Types: Joyce Kiddell and Kobi Kunasekaran established that when logging a primary referral signup, the system should automatically populate the payout type and amount based on defaults from the referral record, while allowing brand ambassadors to override these settings per signup (00:16:52).
+* Referral Payout Terminology and Separation of Payment Types: Lina Ceniccola, Joyce Kiddell, and Kobi Kunasekaran confirmed that internal teams will continue using the term "bet credit" for referral payments that function operationally as redeposits, and agreed that cash and bet credit payouts must be kept as separate payout records rather than combined (00:18:49) (00:21:29).
+* Cash Payout Batching and Tracking: Lina Ceniccola, Emily Vandenberg, and Joyce Kiddell discussed cash referral payments, noting that brand ambassadors prefer batching multiple signups together, and agreed to add fields for the date sent and the BMO transaction identifier to facilitate auditing without requiring screenshots (00:20:11) (00:22:34).
+* Primary and Secondary Referral Payout Separation: Emily Vandenberg, Joyce Kiddell, and Kobi Kunasekaran established that brand ambassadors cannot mix primary and secondary referral signups within the same batch payout, keeping primary and secondary payout streams distinct (00:24:56).
+
+
+* Payout Currency Rules and Restrictions: Kobi Kunasekaran, Lina Ceniccola, and Joyce Kiddell defined currency handling rules, establishing that payout records will be in a single currency derived from the selected signup records, and brand ambassadors will be blocked from combining multiple currencies into a single payout batch (00:28:19).
+* Primary Referral Payout Execution Workflow: Kobi Kunasekaran, Joyce Kiddell, and Emily Vandenberg outlined the end-to-end primary referral cash payout workflow, where representatives view unplayed signups, filter by currency, create an aggregated payout record, and mark it as complete to update the underlying signups and remove them from the payment queue (00:35:12).
+
+
+* Bet Credit Payout Bulk Handling and Operator Allocation: Joyce Kiddell, Kobi Kunasekaran, and Lina Ceniccola detailed the bet credit payout process, where bulk amounts (such as $500) generated from batched signups are broken down by brand ambassadors into specific deposit amounts across different gaming operators (such as Proline and MGM) that the referrer uses (00:37:55) (00:41:03).
+* Linking Bet Credit Payouts to Redeposit Records: Kobi Kunasekaran, Joyce Kiddell, and Lina Ceniccola discussed connecting bet credit payouts to redeposit records, agreeing to build a guided workflow where representatives allocate the bulk payout into individual redeposit records that follow standard deposit proof and completion tracking (00:43:15) (00:48:52).
+* Secondary Referral One-Time Bonus Parameters: Joyce Kiddell, Lina Ceniccola, and Kobi Kunasekaran established that secondary referrals yield a one-time bonus after reaching a threshold of 10 completed signups ($100 cash or $200 bet credit), with no recurring bonuses for subsequent milestones like 20 or 30 signups (00:50:55).
+* Secondary Referral Payout Discretion and Account Flagging: Emily Vandenberg, Lina Ceniccola, and Kobi Kunasekaran agreed that secondary referral payouts are optional based on representative discretion, and decided to implement a flag on the referrer account indicating eligibility that disappears once paid out, preventing automated payout creation unless manually initiated (00:54:28).
+* Salesforce Payment Matrix and Initial Payout Workflow: Kobi Kunasekaran, Joyce Kiddell, and Emily Vandenberg discussed the payout side and whether to include the payment matrix in Salesforce for the current phase. Emily Vandenberg and Joyce Kiddell agreed that the payment matrix should be handled outside of Salesforce for now, noting that player payouts will rely on signups and redeposits without requiring a separate background workflow (00:58:10). Joyce Kiddell and Kobi Kunasekaran noted that reports will pull data from the signup deposit field if completed, defaulting to expected deposit amounts otherwise (01:00:32).
+* Signup Tracking and Payout Proof Process: Kobi Kunasekaran walked through the signup record flow in the sandbox, noting that the system does not initially track outgoing money (01:02:37). Kobi Kunasekaran explained that the process assumes the representative sends the funds and later captures proof, amounts, and dates based on player feedback. Joyce Kiddell confirmed that capturing specific details like Beimo IDs is unnecessary because managing them manually would be too difficult (01:03:47).
+
+
+* Fraud Handling in Payout Eligibility: Joyce Kiddell raised questions regarding whether referer signups flagged for fraud should be paid out. Lina Ceniccola and Emily Vandenberg clarified that signups under review may be paid later if cleared, but confirmed fraud must block payments (01:05:50). Joyce Kiddell, Kobi Kunasekaran, and Emily Vandenberg debated whether confirmed fraud signups should be removed from the representative's selection list to prevent noise or kept with a visual indicator. They agreed to keep confirmed fraud signups visible within the record with a clear visual cue so representatives can investigate further before proceeding (01:08:15) (01:12:59).
+
+
+* Minimum Thresholds for Referrers and Business Associates: Joyce Kiddell inquired about minimum thresholds required before referrers qualify for commissions. Lina Ceniccola stated that there are no minimum thresholds for primary referrers, but Business Associates must achieve a minimum of 30 eligible signups per payout after their initial run (01:13:57). Kobi Kunasekaran noted that since commission logic is not being implemented in this phase, these thresholds can be ignored for now (01:14:55).
+* Handling Incomplete or Rejected Redeposits: Joyce Kiddell and Emily Vandenberg discussed scenarios where redeposit split proofs are rejected or incomplete, with Emily Vandenberg pointing out that such instances lead to financial erosion and write-offs (01:16:13) (01:18:45). Kobi Kunasekaran, Joyce Kiddell, and Emily Vandenberg agreed to track incomplete redeposits at the redeposit record level rather than altering the parent payout status, allowing metrics to bubble up appropriately (01:20:10).
+* Managing Fraud Status Changes Within Payout Batches: Kobi Kunasekaran and Joyce Kiddell addressed how to handle signups marked as fraud after a payout record has been created (01:22:24). Joyce Kiddell stated that if a batch has not yet been paid out, representatives should be able to remove the flagged signups, whereas paid batches must be locked and treated as write-offs (01:23:21). Kobi Kunasekaran explained that representatives will mark the payout record as paid using a completion button, which will automatically update the linked signups at the referral level (01:24:07) (01:26:00).
+* Reporting Scenarios and Design Document Timeline: Joyce Kiddell and Kobi Kunasekaran touched upon future financial reporting sessions, agreeing that establishing the core object model is the primary priority for automation and reporting, while UI refinements can be iterative (01:27:09). Emily Vandenberg emphasized that workflows must remain simple, logical, and easy for representatives to navigate (01:28:25). Concluding the meeting, Kobi Kunasekaran committed to completing and sharing the design documents by mid-to-end of the following week (01:29:24).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 25, 2026
+Wagertech <> Jumpr: Referral and Payouts Discovery - Transcript
+00:00:12
+
+Lina Ceniccola: Hi, how are you?
+Kobi Kunasekaran: Good morning. Good. How are you?
+Lina Ceniccola: Good, thanks.
+Kobi Kunasekaran: Funny Friday.
+Lina Ceniccola: I know it's been quite the week.
+Kobi Kunasekaran: sweep feels like a blur,
+Emily Vandenberg: Morning.
+Kobi Kunasekaran: but I'm glad we're we made it, Emily.
+Emily Vandenberg: Sorry, my computer muted. How's it going?
+Kobi Kunasekaran: Okay, it's going well. It's going well. How are you doing?
+Emily Vandenberg: Oh, good. It's Friday.
+Kobi Kunasekaran: Yeah, I'm just talking about
+Emily Vandenberg: We've made it.
+Kobi Kunasekaran: Sorry.
+Emily Vandenberg: I said we've made it.
+Kobi Kunasekaran: Mhm. Feels like the sweet is just going to blur. Just a lot happening, but it's good.
+Emily Vandenberg: Totally. Morning, Lena.
+Joyce Kiddell: Morning.
+Taryn Reithofer: It's
+Emily Vandenberg: All right, we all here. Wait, is he joining us?
+Kobi Kunasekaran: Uh, no. I don't think he's going to be able to join this call.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: conflict. But we can get started.
+Emily Vandenberg: Just to confirm though, Kobe, just in terms of lead and his engagement, kind of like with your vacation, um he'll be able to kind of step in like you'll be able to have him completely step in and kind of cover off where anything you've you're leaving off with.
+
+
+00:01:45
+
+Kobi Kunasekaran: Correct. Yeah. My goal is like make sure everything's like designed and scoped out for the team and it I'm hoping it's just a matter of like powering through the build. So between uh Wy Taran and Cedric, they should be able to go through. Um so that's why like I want to make sure all the discoveries are done because it also takes me some time to think through all the nuances and if I have any questions um you know clarify uh before we finalize the designs for the build. So um yeah the the sooner we can do all the discoveries um I can make sure that the team is set up to continue the work.
+Emily Vandenberg: Okay, perfect. All right, so today we're going to power through referral um flow and payout flow.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: So, I can share my screen. Um, and just a quick disclaimer on this one. I would say like you can definitely refer the documentation I sent over but um in terms of kind of pre-existing scope and definition.
+
+
+00:02:58
+
+Joyce Kiddell: It's probably like the least progressed out of all our big out of all of our big blocks of work. So, um I'm hoping to make this conversation into more of like a brainstorm versus like me telling you exactly what the requirements are. Make sense?
+Kobi Kunasekaran: Yeah, as long as we get like the the workflow like the process and stuff hashed out um enough information for us to scope out the design, we should be good.
+Joyce Kiddell: Okay, let me share the diagram I sent over. So in my mind there are a couple of pieces to this uh part of our implementation where it's like we need some sort of workflow. uh to support um like the batching of payments. If you remember us talking about that previously,
+Kobi Kunasekaran: I don't care.
+Joyce Kiddell: we need a way of um ensuring that like refer referers um can get uh paid across multiple signups and it's kind of up to the BA to um collect signups together and then convert that into what I would assume is a separate record type of um payout.
+
+
+00:04:20
+
+Joyce Kiddell: We've talked about this before, right? Briefly.
+Kobi Kunasekaran: briefly. Yeah, I think the the batching and stuff maybe. Yeah, we just need to like dive into it a bit more.
+Joyce Kiddell: Okay. I'll just give you a quick high level of each though.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: So my mind it's like the primary and secondary refer flow where it's like there's certain thresholds they need to hit and there's like a sense of like okay like you know it's cross multiple signups. group them together and then creates a payout record that then gets kind of sent through. And then um typically if they choose the redeposit flow then they have to follow the same process that we do for signups and redeposits. But technically if we're talking about this in terms of like the overall payout reporting process. This also includes um tracking all of our signups against player payouts, signups and redeposits because they do get paid right essentially for like all those activities and then our uh commission spec specific to BAS. So, um, Emily and Lena, before we get into like the granular path of each of these, I I'm just wanting to make sure that I didn't miss any other payout types because in my mind, the ultimate goal of this is like, let's have a dashboard that kind of like tracks all of our like cash flow that's going in and out of the business.
+
+
+00:05:55
+
+Emily Vandenberg: Yeah.
+Lina Ceniccola: I don't think you're missing Primary, secondary.
+Joyce Kiddell: That's it, right?
+Lina Ceniccola: Yeah, I was just looking at this chart here real quick. Yeah, I mean, we only have primary and secondary referral payments, so
+Joyce Kiddell: But yeah, so I agree that those are the only ones that require kind of a separate like work stream like probably like screens in Salesforce. But like from a reporting perspective, we probably want to see like all payouts together and that would be inclusive of what we send players for like deposit like first time deposit and redeposit money. um as well as like the commissions are sending VAS, right?
+Lina Ceniccola: right?
+Emily Vandenberg: Yeah. And like obviously my like I'm like including redeposit incentive as like everything including personal.
+Joyce Kiddell: Yes.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: I guess that would also be tied to BAS instead of just players.
+Emily Vandenberg: Yeah. That's like just that just an interesting view.
+Kobi Kunasekaran: Nice.
+Emily Vandenberg: But yes.
+Joyce Kiddell: Yes. Yeah. because players would have sign up, redeposit, and then VAS would have their typical commission that has like its own payout matrix similar to what referers have.
+
+
+00:07:20
+
+Joyce Kiddell: Um, but then they also get these like personal redeposit budgets that are more or less like their their bonuses. I think we talked about that in our last discovery session.
+Emily Vandenberg: Oh, I think the only thing I would add here is although it would be a part of BA commission, the manager pay stream.
+Joyce Kiddell: Oh yeah. f***. Okay, that's Yeah, another one I didn't have. So that would be under BA. So it's like BA has three, right? Cuz like I'm trying to tie it back to like existing objects.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: So there would be weekly commission pay. And then Kobe, if you're a BA manager, you get a certain is it percentage of what your team receives or um gets through signups.
+Lina Ceniccola: It can be different that one. So, it's either a flat rate or we have one rep who has a very specific deal that's based on volume and and another like in Alberta, we have it set up as if you have X amount of reps, then your manager pay increases by the amount of reps you have.
+
+
+00:08:39
+
+Lina Ceniccola: So there's like there's a few different types and then you have like monthly US manager pay for the US specifically and then there could be B TOC manager pay or I sorry B to C rep Hey.
+Joyce Kiddell: because that looks different than their typical commission.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: So,
+Kobi Kunasekaran: Is the intention that like all of these are calculated within Salesforce or Salesforce provides the the data to calculate these outside of Salesforce?
+Emily Vandenberg: the way that I'm kind of feeling right now. Joyce, correct me if I'm wrong, but for a launch target,
+Lina Ceniccola: Crap.
+Emily Vandenberg: it might just be the data
+Joyce Kiddell: I think so.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: because then I'm also thinking about like deduction although right which we have to we will
+Lina Ceniccola: What do you mean by the data verse? What was the other thing?
+Kobi Kunasekaran: like data versus us like implementing the rules for Salesforce to calculate the commissions and like it outputting like a report of like what you have to pay each person.
+Joyce Kiddell: I think if we're able to just create reports knowing how much they've contributed, then we can infer their commission amounts after.
+
+
+00:10:17
+
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: So Lena, the way I would kind of see that is like an integration with um Jay's tool where now just like the data would be coming from like kind of Salesforce and then his tool still kind of doing the the magic in like the first phase.
+Lina Ceniccola: Yeah, let's set it up that way because we do have a lot of nuances there.
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: think we can handle it internally just because like the this November 1 date is a pretty hard date.
+Emily Vandenberg: Yeah.
+Lina Ceniccola: So I would rather spend less time configuring everything
+Joyce Kiddell: Mhm.
+Lina Ceniccola: on that because it's we have a system for it internally anyway. So that can be a later thing.
+Joyce Kiddell: Um, and something to flag that I don't think is a right away thing, but as we're moving towards RIP Lane, which from my understanding is going to handle pay, is that right?
+Lina Ceniccola: just on yeah the VA commissions. So say if we get like if we get an Excel file that we can use to upload the amounts to Ripling that's fine.
+
+
+00:11:35
+
+Joyce Kiddell: Kobe, do you know if there's like an out of the box integration that exists between Salesforce and Ripling? Do you know what Ripling is?
+Kobi Kunasekaran: No, I haven't used playing. I'd have to look into it.
+Joyce Kiddell: It's like a HR um information system.
+Lina Ceniccola: I think they do. I asked them.
+Joyce Kiddell: Okay, let me sec cuz Uh yeah, we could just end up using that like after and maybe we like I don't know let's talk about offline in terms of the integration phase tool because it might be faster to go to rippling
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: directly but okay so for the purpose of what we need to build as part of this release um do we want to just focus on the refer payout batching process Emily?
+Lina Ceniccola: Yeah.
+Emily Vandenberg: I think so. And then yeah, just like the reporting to support like the yeah the I'm thinking through this so maybe this is a bad idea but like the concept because it was going to we said it was going to come in I think within the payout module of like write offs.
+
+
+00:12:47
+
+Emily Vandenberg: So being able to, you know, like typically we kind of handle some of that write off within the payment um processing portion, Lena, to be able to like put it back and like actually write off signoffs in Salesforce. I feel like we should solve for that and we'll have to have a process that kind of supports it. But at least we can start um with that data like collecting that data through the system. Do you know what I mean?
+Joyce Kiddell: when you say write off, do you mean like a It's not like a won't do. It's something financial related.
+Emily Vandenberg: Yeah. It's like I guess it would maybe be handled through like the fraud process, but like within that review, we have to like move be able to move those signups down into like a write off category so that it would be like it would have gone through for kind of like you know your batch payun but excluded from like more of a writeoff perspective or retroactively applied. cuz sometimes
+Lina Ceniccola: You're saying basically that if a referral payment might be made,
+
+
+00:14:04
+
+Joyce Kiddell: Hello.
+Lina Ceniccola: but then you'll want to like claw back later as part of our reporting.
+Emily Vandenberg: I was thinking more on the BA side, but I guess that would happen on the referral as well if
+Joyce Kiddell: Like if we realize that a signup's not real or like what?
+Emily Vandenberg: Yeah. and we've already paid them for it.
+Joyce Kiddell: Uh
+Emily Vandenberg: We have to claw back.
+Lina Ceniccola: Then
+Emily Vandenberg: So Lena handles that right off and clawback process.
+Lina Ceniccola: yeah, cuz you're not all referral not all fraud signups have referral payments tied to them because it's a delayed process. So like sometimes the write off just includes the BA pay and the deposit and then sometimes it includes the referral payment if that referral payment was made. If it wasn't, then you just don't include it as part of the erosion. But um in this case like we would have access to info theoretically like if it it said paid for that specific sign up and then we later went back and changed it to a fraud sign up.
+
+
+00:15:31
+
+Lina Ceniccola: There'd have to be something to point to that like that the referral payment was also paid out for that sign up specifically.
+Joyce Kiddell: Yeah, like this way you'll be able to see specifically which signups were part of which payment like if we batch them and create a new record.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: So I think like
+Lina Ceniccola: Like in my mind, every sign up should have like some indication if it was the referral payment was paid out or not. But from like what would help the brand ambassador is that they have kind of a running tally that automatically calculates like how much that person is owed. But on a signup level, it's like it's paid or it's not.
+Joyce Kiddell: Let's let's get into the the flow discussion and then I think that'll be covered as part of it.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um,
+Lina Ceniccola: Yeah.
+Joyce Kiddell: so like let's start with primary refer and Kobe like it's already captured at the signup stage, right?
+Kobi Kunasekaran: What?
+Joyce Kiddell: Like when they're logging and they're choosing like the um payment type for refers, right?
+
+
+00:16:52
+
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: And do we have it set so like when you add a refer there's like a default selection but then at a signup level you can kind of override it. Is that still a thing?
+Kobi Kunasekaran: Um I think we talked about this on Wednesday.
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: Uh from my understanding they have to choose the payout type and the amount gets populated onto the signup automatically.
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: But I don't recall building anything that pulls information from the referral that's added. Um, so if that's needed, like would I I'll go back through my notes and confirm if that was like if there's something already there. If not, we should be able to build that out assuming, you know, we have the right fields on the referral
+Joyce Kiddell: Yeah, I'm pretty sure we do. Um, so, uh, do you guys like Emily and Leah, do you think it's helpful if like when you're going to log and you pick like a refer who typically gets paid in bet credit or redeposit that it autopop populates and you don't have to like pick between the two?
+
+
+00:17:54
+
+Lina Ceniccola: Yes.
+Kobi Kunasekaran: Like this would come from the default. called payout type from the referral, right? Okay.
+Joyce Kiddell: Yeah, but we would want the BA to have the ability to change it if for like that sign up for whatever reason.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: It's different.
+Kobi Kunasekaran: Okay. So,
+Joyce Kiddell: And are we still Yeah,
+Kobi Kunasekaran: when they Sorry,
+Joyce Kiddell: sorry.
+Kobi Kunasekaran: I just wanted to like read that back. So when uh when a PA goes in to log a signup um and they select a referral or create a referral um the payout type or the signup should pull from the default payout type that's on the referral. Um and but they should be able to change that um to like bet credit or cash um if if they don't want to go with the default.
+Joyce Kiddell: Yes, if they're an existing refer obviously,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: but if they're not then you have to fight at that time.
+Kobi Kunasekaran: Correct.
+Joyce Kiddell: Um,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: we're we're still calling it bet credit, right?
+
+
+00:18:49
+
+Joyce Kiddell: Like that hasn't changed.
+Kobi Kunasekaran: Credit this will be hub in Salesforce.
+Joyce Kiddell: Yeah. I mean more like operationally like Emily and Lena
+Emily Vandenberg: Hey there.
+Joyce Kiddell: like are are we still clinging at credit because it's like technically a redeposit.
+Lina Ceniccola: We do internally. We call it bad credit for referral payments.
+Joyce Kiddell: Just keep it like that.
+Lina Ceniccola: Yeah, I say keep it consistent.
+Joyce Kiddell: Okay.
+Lina Ceniccola: Even though yes, it's technically a redeposit. It has its own special name.
+Joyce Kiddell: And like Kobe, as long as you understand that it just follows the reposit flow where it requires proof, you know, the same stages of like any we'll get into it. Okay. Um, so when they're at the signup logging stage, that's selected cash or yeah, cash or credit. Um, and it's logged against that signup and the refer, right? Like I'm assuming you'd be able to see it at a referral level if you like go to their object screen
+Kobi Kunasekaran: Um, when you mean like see it They would be able to see the signups where they are the primary
+
+
+00:20:11
+
+Joyce Kiddell: associated sign.
+Kobi Kunasekaran: referral. Yes.
+Joyce Kiddell: Okay. Um, okay. And then this is just saying that like the sign up is reviewed and approved blah blah blah. So if the sign up is complete, thumbs up. Um then uh if they choose cash, we need a way for the rep to um collect I think it's like multiple ca or Lena and Emily. Do they just pay like one to one if it's cash or do they still batch cash uh payments?
+Lina Ceniccola: They go back to cash payments.
+Emily Vandenberg: They can do onetoone, right, Lena? If it's like an odd, like it's not that they couldn't, but they typically batch
+Lina Ceniccola: They could. But it's just more work for them, too. So,
+Emily Vandenberg: Yeah.
+Lina Ceniccola: they strategically they prefer to badge. Work-wise, they prefer to badge. But if someone does one sign up and they're like, I want referral payment, they could do it.
+Emily Vandenberg: Heat.
+Kobi Kunasekaran: Is it possible for a player to have one sign up as cash and one as bad credit?
+
+
+00:21:29
+
+Lina Ceniccola: Yes.
+Joyce Kiddell: a refer. You mean you said
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Sorry.
+Lina Ceniccola: like if they it's I mean it doesn't really happen but
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: I would rather leave the door open or you know
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: they're I have seen it where someone's like I want paid half cash half bet credit and then the rep just indicates like half of them
+Joyce Kiddell: Yeah,
+Lina Ceniccola: allocates half of them as cash half of them as bet credit. It's probably like 1% of people, but leave it open.
+Joyce Kiddell: but I I wouldn't like within a single payout record if we are creating a separate record type or object type whatever it's called. Um I would not combine cash and redeposit into one, right? Because like those could still be just separate
+Lina Ceniccola: Yeah.
+Joyce Kiddell: things.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Do you understand?
+Lina Ceniccola: You would have to then create like two different payout records.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: So yeah,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: you can only batch one of the same kind of touch.
+
+
+00:22:34
+
+Joyce Kiddell: Like cash cash rate deposit or by credit and by credit by credit.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Yeah.
+Lina Ceniccola: Yeah. Yeah.
+Joyce Kiddell: Yeah. Yeah. Makes sense. Um so then once they like this is what I'm envisioning. And let me know if you guys are aligned, but some sort of screen where the rep can go into like a referral level, see all of the signups against that referral and be like, I'm going to select, you know, all the cash ones like 1 2 3 4 and then there's some sort of button that that allows them to batch payout and then it creates a separate record where all of those are collapsed into one and then we have to create like a bit of a logging process there where it's like I forget exactly what they do today, but like date sent for cash for example. Um, what else are they tracking when they send out cash deposits? I don't remember.
+Lina Ceniccola: What are they tracking? Nothing.
+Joyce Kiddell: Cash payouts just that it was sent
+
+
+00:23:41
+
+Lina Ceniccola: Yes.
+Kobi Kunasekaran: This is in their spreadsheet, right, that they're tracking these payouts and redeposits.
+Emily Vandenberg: Should
+Joyce Kiddell: Yeah,
+Lina Ceniccola: Yeah.
+Joyce Kiddell: for CAT it's it's a lot more straightforward like they have to track like the same kind of flow when it's they're paying out in bad credit But um with cash I think they just need to know what
+Emily Vandenberg: they put the should they put the Beimo transaction in there?
+Lina Ceniccola: Uh, no, that's fine cuz we audit
+Emily Vandenberg: Okay.
+Lina Ceniccola: it anyway. So, it's it's okay.
+Joyce Kiddell: like what if they put in ID or something just so you can quickly refer to Beimo for auditing purposes.
+Lina Ceniccola: Yeah, let's we could add that
+Joyce Kiddell: Like I'm assuming I haven't been in Beimo, but like when they send something out, there's probably like some sort of like ID or quick number they can grab and then just like relate it back so that if you're in their bank account, you can be like boom, this one's tied to this one.
+Lina Ceniccola: Yeah, we can add that field for sure.
+
+
+00:24:56
+
+Kobi Kunasekaran: You
+Joyce Kiddell: Okay.
+Emily Vandenberg: could make yeah some automation easy. Um
+Lina Ceniccola: I just want to avoid another screenshot.
+Joyce Kiddell: Yeah. Not
+Lina Ceniccola: The I the ID is good.
+Kobi Kunasekaran: can leave it off show. Just have the field there and then if it makes sense, you can add it later.
+Lina Ceniccola: Perfect. in.
+Emily Vandenberg: Um, sorry. In terms of batching, did we say this? Like you can only batch like your primary, you can't cross like secondary and primary referral.
+Joyce Kiddell: Oh,
+Emily Vandenberg: Um,
+Joyce Kiddell: yeah. I didn't call that out, but I I I'm we're only talking in context of primary right now.
+Emily Vandenberg: okay.
+Joyce Kiddell: But yeah, it's a good flag. Just in case that wasn't clear, Kobi.
+Kobi Kunasekaran: is that one one payout per payout type per uh I guess referral type like primary versus secondary. Okay.
+Emily Vandenberg: Do we want to put that like I don't know if how they do it today but do we want to put that limitation was more kind of my
+
+
+00:26:12
+
+Joyce Kiddell: Um, I thought with secondary refers it's like a very explicit amount that they have to send. and like uh against a refer like you'll be able to see which ones are the primary referrals and their secondary.
+Emily Vandenberg: Mhm.
+Joyce Kiddell: So it's almost like separate like logs or
+Emily Vandenberg: Okay.
+Joyce Kiddell: whatever entries
+Kobi Kunasekaran: I think because the secondary has also has like it's not like one to one in terms of the number of sides. ups versus the amount of payout, right? So, it might be better to keep it separate at least for the initial layers and then if we do need a additional combination, maybe we can layer that in afterwards.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: That might keep it simpler.
+Emily Vandenberg: Okay. Sorry.
+Joyce Kiddell: No, no, that's good. So for cash payments, all we really have to track is the date sent. Um, do we need to like add a field for e transfer email or do we assume that we already have that on file for the player or refer refer?
+Lina Ceniccola: Yeah.
+
+
+00:27:09
+
+Lina Ceniccola: Assume it's on file for player.
+Joyce Kiddell: Yeah. Okay.
+Kobi Kunasekaran: before
+Joyce Kiddell: Um, so yeah, date sent and the BMO ID. That's it.
+Kobi Kunasekaran: and the the amount would be aggregated based on the payout amounts from the signups that are being rolled up into this payout transaction.
+Joyce Kiddell: Yep. But there's there's a matrix,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: right? Like um so if you're attached to something as a prim primary referral um then we have like a grid that's in the documentation somewhere where it's like per refer that you do you get X dollars. Um, Lina,do you remember what some of the amounts are ever?
+Lina Ceniccola: 100 or 200 up to 10 signups. 100 cash. 200 bet credit.
+Joyce Kiddell: Is that for secondary?
+Lina Ceniccola: Yes.
+Joyce Kiddell: What What about for primary though?
+Kobi Kunasekaran: Okay,
+Joyce Kiddell: Like how much do you get for There's like a whole
+Lina Ceniccola: Oh. Um,
+Joyce Kiddell: matrix.
+Lina Ceniccola: yes, I Kobihas it.
+Joyce Kiddell: Yeah. Yeah.
+
+
+00:28:19
+
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: that was the one like that was based on the currency and uh Okay.
+Joyce Kiddell: Yeah. Yeah. Yeah.
+Kobi Kunasekaran: Okay. Uh Okay.
+Joyce Kiddell: Yeah. So,
+Kobi Kunasekaran: But speaking of currency,
+Joyce Kiddell: just make sure that lock
+Kobi Kunasekaran: how does how does a payout work in terms of currency? Like is is it possible to have signups in multiple currencies that need to be put into a single payout or is it like generally just one currency all the way through?
+Lina Ceniccola: One the referral is one currency or actually
+Kobi Kunasekaran: Let's see.
+Lina Ceniccola: well yeah it would be
+Kobi Kunasekaran: Okay. And I guess it would it would be based off of the default referral currency that comes from the referral record, right? That determines the currency that we're going to pay out to them in.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Is there ever a situation where like a referer would want to get paid in a different currency like just for random signups like ad hoc. Yes.
+
+
+00:29:31
+
+Lina Ceniccola: Um, if we can leave it open-ended again, it's like who knows what could happen in the future if you have like a dual citizen for example. But I personally have I don't think I've seen that, but who knows? Like maybe it happened and someone else figured it out. But if we can Yeah. Just leave it like able if we can have the ability to change it if needed.
+Joyce Kiddell: So, Kobi,maybe it's one of those fields that the BA can customize at a signup level if they want, similar to payment type. Um, but it's inherited from the record as like the default.
+Kobi Kunasekaran: Okay. If if they do need to get paid out in different currencies, is it okay if those those are going to be like two separate payout records? So the payout record itself is going to be like one currency. Uh but then you are welcome to have like you know if uh if a referral has 10 signups in Canada and 10 signups in USD the restriction would be you can only group the 10 USD together.
+
+
+00:30:45
+
+Kobi Kunasekaran: You can't group uh US and Canada into a single payout.
+Joyce Kiddell: I think that makes sense. What about you guys?
+Emily Vandenberg: Yeah, I think so. I think yeah, we won't run into it off the hop,
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: but it's a good kind of project to go forward with.
+Joyce Kiddell: So, the currency of the payout will just be inherited based off of the currency of the signups.
+Kobi Kunasekaran: correct. Yeah.
+Joyce Kiddell: the refer I guess.
+Emily Vandenberg: It's like we assign a currency for the refer right upon creation and that's
+Joyce Kiddell: Yeah. Yeah.
+Emily Vandenberg: the default and with the ability to override right Kobi.
+Kobi Kunasekaran: Yeah, but the the way the flows it looks like it's going to work though is you have your signup that comes in. It could be in whatever currency, right? It could be US or Canada. And that's where the matrix comes in that determines the actual payout based on the referers payout type and the referer's currency. Um, and the payout, sorry, the signup records, payout information itself will be set to a specific currency based off of that matrix.
+
+
+00:31:59
+
+Kobi Kunasekaran: So, it's going to be like $50 USD. Um, so that's what's going to be on the signup record. Now, when a BA goes to put together the batch to pay the refer, they would see a list of all of their signups, um, but somehow se segregated by the currency. So if the same referral has USC and Canadian refer uh sorry USC and Canadian signups, they will be able to select the Canadian signups and that payout will default to Canadian because they chosen signups that have payout currency set to Canadian. They won't be able to choose multiple currency. We would block that out entirely. So depending on what type of signups they se they they select in terms of what the payout currency on the signup is would be the payout currency on the sorry on the payout record itself. So not necessarily from the referral but indirectly yes it kind of feeds in but when we create the payout record. We pull it. We'll pull the data from the payout uh from the signup itself.
+
+
+00:33:10
+
+Emily Vandenberg: What do you think? I It's kind of confusing and I'm like wondering if
+Kobi Kunasekaran: I'll I'll I'll draw it out. I'll draw it out. I think it's uh sometimes I wish we had a whiteboard. It makes it a lot easier to have these conversations. But yeah,
+Emily Vandenberg: I just am like,
+Kobi Kunasekaran: like
+Emily Vandenberg: do you even if we're going to always pay out based on the sign up as the default, does it even make sense to have a currency associated to the refer a default? Like what does it even drive?
+Joyce Kiddell: It drives the different payout amounts because in the matrix there's different rules for US versus
+Emily Vandenberg: But at a referral,
+Joyce Kiddell: Canada for
+Emily Vandenberg: like assigning a currency to a referer
+Joyce Kiddell: per sign up.
+Emily Vandenberg: the sign up currency at the signup. Yes.
+Joyce Kiddell: Yep.
+Emily Vandenberg: But like
+Joyce Kiddell: It's so the the current the currency for the signup is specific to the refer payment preference. There's two concepts of currencies if I'm correct um with each signup where there's a currency for
+
+
+00:34:06
+
+Kobi Kunasekaran: Yeah. Yeah.
+Joyce Kiddell: how you pay the player and then there's a currency associated with the the refer
+Kobi Kunasekaran: All right.
+Joyce Kiddell: and we need to know that in terms of how much the refer is going to get paid right so if we know that a referer lives
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: in like the Ontario versus like New Jersey then might as well like kind of automatically feed in their typical currency so that it's just one less thing they have to like choose from when you're logging. Does that make sense?
+Emily Vandenberg: Okay. Yeah, it's blurry, but it's fine if you guys got it.
+Joyce Kiddell: No, it's confusing because we were like talking in terms of currency per sign up, but like there's really two currencies and there's two amounts.
+Kobi Kunasekaran: There's two currencies. Yeah.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: Okay.
+Joyce Kiddell: Um, sorry, this is not the screen that I should be looking at. Okay. Uh um so we're good on currencies. Does that make sense?
+Kobi Kunasekaran: Makes sense for me.
+
+
+00:35:12
+
+Kobi Kunasekaran: So we're talk. So in terms of primary refer the processes is essentially we have these signups that come in um rep goes in uh logs the signup adds a wage proof and all of that information adds in the refer for that signup um and we pull the default referral currency and payout amount for that sign up from the referral data and then the rep still has the ability to override those if they need to. But assuming they go forward with whatever comes from the refer all of this uh sorry then they mark the sign up as complete um and then uh we would have that relationship between the signups and the referral records. They they then go to the refers when they need to do the payout. outs, they'll be able to see all the list of signups that haven't been paid out yet. Um, select those. Um, and they'll be restricted to just one currency at a time. So, if if a referral has multiple currencies, they can only choose one or the other for each payout transaction.
+
+
+00:36:12
+
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: they they pick a bunch uh click like create payout or something like that and that creates a payout record that links back to all of the signups um and aggregates the payout amount based on what the payout amount was in each of those uh signup records. And then since we're talking about like um we need to be able to close off the signups, right? So they don't keep repaying the same ones. I think we'll need some sort of status on the payout record as well to indicate that it's been paid.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: So that would be the trigger to go back to the signup records and to mark that they've already been paid out.
+Joyce Kiddell: Yeah. Yeah. Good call.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: So, just paid. Yeah. Paid and paid.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Those are the two kind of payments that
+Kobi Kunasekaran: So that's for cash. And then for bet credit, is it the same process or anything different?
+Joyce Kiddell: Sorry. What you going to say?
+
+
+00:37:04
+
+Emily Vandenberg: I'm just thinking through like what we said from like a payout like Salesforce just being able to kind of like report and then obviously mark as paid here. So just like for scoping of phase one, right? Because really what the rep would do like there's they're still going to handle they're going to get a list of everything and they're going to kind of handle everything thereafter but it'll give you like the converted amount into their currency kind of thing. It'll just do all of that calculation. Is that we're saying Kobi?
+Joyce Kiddell: It's like if you batch these together, the bill will pop up and it'll say like this is amount is X dollars based off
+Emily Vandenberg: It's gonna and then
+Joyce Kiddell: of Yeah.
+Emily Vandenberg: they take it from there. They they handle it and they and then it just marks as complete. Okay.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: like he they have to come in and hit a button to say complete which then automatically updates the signups and takes them out of the payment queue.
+Emily Vandenberg: Yeah.
+
+
+00:37:55
+
+Joyce Kiddell: I would assume yeah
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Yeah. Yeah. Otherwise, like there there's no way like the the same signups are going to still be in the list, right, when the referral keeps bringing more people in. So, we need to tie that loop.
+Joyce Kiddell: we definitely can't double pay or triple pay stuff. So yeah,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: it's a good call. Yeah. So the primary um or sorry the bet credit path is the same but instead of um you know when they're completing that like logging process for for um payouts uh they have to um so this is a bit complicated. Uh they they like batch signups together right and then it could be an amount of like 500 bucks let's say. Um, and then when they go to create a payout record for bet credit, they then have to piece it out into smaller um, deposit amounts similar to what we do for redeposits. You know how like when we assign redeposit, it's like 40 bucks here, 60 bucks here, blah blah blah.
+
+
+00:38:54
+
+Joyce Kiddell: Um, typically they would have to chunk it out so that when go to um assign the bet credit to that refer. It like still looks like typical deposit behavior with the operators that those referers have already signed up with. Does that make sense?
+Kobi Kunasekaran: Yes. So in the the process is more or less the same up until we get to the payout record. So now the payout record is an aggregate of all the bet credits as opposed to the cash payments. Um but now this is like they can't just mark this as closed. Um this is basically uh a bucket of uh money that is can now be reassigned to the referer to then distribute in terms of deposit amounts to like I'm assuming players or uh somewhere else
+Joyce Kiddell: to to refer. So refers are players in this instance.
+Kobi Kunasekaran: first. Yeah.
+Joyce Kiddell: So like I don't know like we were talking about referers and players having like we have the concept of joining those two records as like one person, right?
+
+
+00:40:07
+
+Joyce Kiddell: So, I don't know if it makes more sense to when they pick bet credit, you're like assign it to the player record version of that same person or like
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: um
+Kobi Kunasekaran: They're just signing to themselves. It's just in the form of a bad credit instead of cash. I see. Okay.
+Joyce Kiddell: they're they're sending it to the refer,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: right? Um,
+Kobi Kunasekaran: Right.
+Joyce Kiddell: but then that referral can only So when they get it those um smaller amounts like Emily, like are they they don't ever send like 500 bucks and then tell them like you got to like kind of deposit it across these four places and chunk it out yourself or are we sending like multiple microtransactions? You know what I mean?
+Emily Vandenberg: I stand. Yeah, maybe Lena, you just go so I don't mess it up.
+Lina Ceniccola: Are you sorry you're asking if the reps Yeah.
+Joyce Kiddell: When Yeah.
+Lina Ceniccola: Maybe just reword the question.
+Joyce Kiddell: Yeah. Yeah.
+
+
+00:41:03
+
+Joyce Kiddell: So when a BA goes to pay a refer in but credit from my
+Lina Ceniccola: Yeah.
+Joyce Kiddell: understanding it's like they can batch a bunch of signups and then that payment is like a a bigger amount right but then there has to be an exercise of um taking
+Lina Ceniccola: Yeah.
+Joyce Kiddell: that big amount and then breaking it down into like real realistic deposit amounts across the
+Lina Ceniccola: Yeah.
+Joyce Kiddell: operators that refer can play with.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Right.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Um my question is does the um does the BA send smaller micro transactions like 60 bucks, 40 bucks, 50 bucks or do they send like the full like let's say 500 and then it's on the refer to split it up according to the instructions.
+Lina Ceniccola: Yeah. Yeah, the rep would typically send 500 and then say, "Okay, 200 on Proline or 250 on Proline, 250 on MGM." If it had to be split up,
+Joyce Kiddell: Okay.
+Lina Ceniccola: But usually they just try to both like onto one book
+Joyce Kiddell: Oh,
+Lina Ceniccola: um on like a priority payment.
+
+
+00:42:09
+
+Lina Ceniccola: But they in theory they could split up the referral payment, but they will send it out in one bulk payment.
+Joyce Kiddell: got it. So pay up record,
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: I would
+Joyce Kiddell: they could still like log the total amount and then if we just had fields like we'd have to like verify that that refer is signed up with specific books through the system ideally um and then we just manually log like this is how much I'm going to tell the referer
+Kobi Kunasekaran: Bye.
+Joyce Kiddell: to spend on DraftKings 40 bucks here, Caesars 60 bucks like whatever. Um,
+Lina Ceniccola: Yeah.
+Joyce Kiddell: but we don't have to take that payout record itself and make many payout records. It's like just one big bulk one with some like logging on it.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Does that make sense?
+Lina Ceniccola: Yeah.
+Emily Vandenberg: cuz then that like logging of the book has to like fall into the redeposit like be pushed into the redeposit um
+Lina Ceniccola: What's the Yeah.
+Emily Vandenberg: track because it's
+Lina Ceniccola: Like there should be like a Okay.
+
+
+00:43:15
+
+Lina Ceniccola: Okay, if that's one book, then they'll indicate the book and then maybe like a little checklist that's like if multiple books, then you click it and then it drops down to give you two options or three options, you know,
+Joyce Kiddell: Mhm. Mhm.
+Lina Ceniccola: so that way it can clean. Oh my god, sorry. Stop.
+Joyce Kiddell: Um
+Lina Ceniccola: Accessed some toilet paper. Oh my god.
+Joyce Kiddell: Um Yeah. So Kobi,I think once the the BA kind of does that chunk chunking like within the payout record, we it each uh deposit amount per operator still needs to follow the same flow of like tracking the proof that comes with that deposit.
+Kobi Kunasekaran: So does does this then turn into a redeposit allocation against the player record for the referral? Is that what I'm hearing?
+Joyce Kiddell: Yeah, like if there's a way to do that without it being super clunky and having to navigate to a bunch of different spots.
+Kobi Kunasekaran: That's uh a lot to see. I'll have to think through this.
+
+
+00:44:38
+
+Kobi Kunasekaran: But but it sounds like okay the the payout record for the bet
+Lina Ceniccola: Let's
+Kobi Kunasekaran: credit then needs to be related to redeposit records that we create and assign to the player.
+Lina Ceniccola: go.
+Kobi Kunasekaran: Uh and in this case the player is a referer but the player record of the referer.
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: Um and Then that redeposit record then follows the re redeposit process where they have to send proof that they've deposited and then close it off.
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: That's right.
+Kobi Kunasekaran: The distribution is still going to be done by the rep, right? So when like they're going to do the batch and then let's say they have the $500 like you said and um then the rep is going to now go in and create redeposit records against the player uh based on whatever the split that they decide from that 500 Okay.
+Joyce Kiddell: Like, yeah, we can. I just want to make sure it's not like them having to close that record, bind those players, tie the records together manually.
+
+
+00:45:39
+
+Joyce Kiddell: You know what I mean? Like, we have to really tighten up the workflow if that's the direction we take.
+Kobi Kunasekaran: I mean, if we need to track it to that level, I I think we like I don't know if we can avoid that process, right? Does somebody still has to provide that split? Like how do we split that 500 uh into like you know how many records
+Joyce Kiddell: Is there is there a way to bring fields from other objects
+Kobi Kunasekaran: and things like that?
+Joyce Kiddell: into a screen?
+Kobi Kunasekaran: Uh like what objects
+Joyce Kiddell: Like if there's one modal and then they click a button and they're like add redeposit in that same screen and then like the fields from the redeposit object are then like available within that that model for creating a payout.
+Kobi Kunasekaran: Yeah, but like we could create like a guided process within the screen like maybe not it won't be all on one screen but it could be like okay
+Joyce Kiddell: Sure.
+Kobi Kunasekaran: first you generate the redeposit and then click next and it goes to a screen that says okay how do you want to allocate or something like that it could still be part of the same process like uh not saying like you know they they need to now create the payout record and then go to the redeposits tab and find the redeposit and things like that.
+
+
+00:46:57
+
+Kobi Kunasekaran: We can uh we can potentially like build a guided workflow. So, it's still all part of that same process. But I think I'm just trying to understand like what that process looks like. So, I can come back to you with with that design.
+Joyce Kiddell: Yeah. Yeah. No,
+Kobi Kunasekaran: So,
+Joyce Kiddell: you you nailed it. that that's correct. They would have like there's a tracking flow that needs to happen with each amount that comes from that payout.
+Kobi Kunasekaran: okay. So uh the bet credit then effectively like it it does get broken down into redeposit records which in this case are going to be created by the uh by the rep as opposed to like ops or BM in the redeposit conversation we talked about last uh earlier this week.
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: Uh and then the rep does the split and assigns it uh and presumably it's all to the same player, right? Like like the same record because it's it's going back to the referer, right? So they they shouldn't need to select other people.
+
+
+00:47:50
+
+Emily Vandenberg: No.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um, and then going back to our last discussion of redeposits, like I know we walked through like all the different types of redux, But I feel like having like referral payout as like or refer payout whatever um having that as like a type just in terms of like when we go to like report you know like overall redeposit budgets and how it's being you
+Kobi Kunasekaran: Right. Okay. Okay. So, I think I think I get this out. So, yeah, the the payout record creation is the same for both cash and bad credit. It's just from uh what we do once the payout record is created. Um in the cash scenario, it ties to a bank transaction, right? Or one or more bank transactions. Uh not necessarily like, you know, required as part of the SP, but uh conceptually like it ties to a bank transaction versus the bet credit, it ties to redeposit records, which are essentially those transactions.
+Joyce Kiddell: Yes,
+Kobi Kunasekaran: And then once those are created,
+
+
+00:48:52
+
+Joyce Kiddell: but I think they said it.
+Kobi Kunasekaran: it Sorry, go ahead.
+Joyce Kiddell: Yeah, sorry. um just when the they go to create the record, I think the redeposit version of the payout record is the same in terms of like you still have to capture date the money was sent the BMO ID um and the currency,
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: right? And then we're just adding fields for the redeposit on top of that. I just want to make sure that we're aligned there.
+Kobi Kunasekaran: Adding fields for the redeposit as in like to differentiate.
+Joyce Kiddell: Like adding that next that that next stage of attaching to Yes.
+Kobi Kunasekaran: Yes. Yeah. Yeah. Like they they wouldn't have all this information during the payout stage anyways, right? So either way, it's just going to be like they they create the payout and then they break that down into redeposits. Uh let the let the player know or refer know and then and then it's like every other redeposit process like as they come back and say, "Hey, I deposited this some money approved." they find the player or refer and find
+
+
+00:49:55
+
+Kobi Kunasekaran: that uh redeposit allocation and mark it as complete and put the proof.
+Joyce Kiddell: Mhm. Yep.
+Kobi Kunasekaran: Okay. Okay, I think that makes sense.
+Joyce Kiddell: Um, cool. And then the other one that we have to support with some sort of workflow is the secondary referral process. Kobe, your notetakeris like flashing in my um Yeah.
+Kobi Kunasekaran: It's doing that for me, too. Okay. I thought it was just me.
+Joyce Kiddell: Why is it doing that?
+Kobi Kunasekaran: I have no idea.
+Joyce Kiddell: That's so weird.
+Kobi Kunasekaran: Looks like it like Yeah, I've never seen this. Okay.
+Joyce Kiddell: Like give me
+Kobi Kunasekaran: If you if you click on the three dots, you can uh there's an option for don't watch, and that somehow stops it from blinking.
+Joyce Kiddell: Oh. How do I uh three knots?
+Kobi Kunasekaran: If you hover over the noteaker, there's like a little menu that comes up. I' I've never seen a blink before, and it was annoying me this whole call, too, that it wasn't just me.
+
+
+00:50:55
+
+Kobi Kunasekaran: But it's weird.
+Joyce Kiddell: I can't find the three times. Uh, oh,
+Emily Vandenberg: Excuse
+Joyce Kiddell: whatever. Okay. Um, so for the secondary refer, it's what Lena was saying before where it's like if you hit 10 signups and it's like just a global rule,
+Emily Vandenberg: me.
+Joyce Kiddell: um, then you get some sort of bonus. Uh, it's 200 bucks in redeposit or 100 bucks um in cash and it's a onetime thing. So to be clear, that means Lena and Emily that like after the first 10 signups, they're not getting like another bonus at 20 signups and then 30 and 40. Or are they?
+Lina Ceniccola: Yes. No. No. 10. They're done.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um,
+Kobi Kunasekaran: So, secondary refer. So, uh in terms of workflow, um I open the referral record. I see the number of uh signups where they're marked as a secondary um and they're eligible for one time bonus after they hit 10 and then that's it after that. No more
+Joyce Kiddell: yeah, because it's such a like defined like parameters, I'm wondering like is there a way to just like through the system automatically create payout records for this.
+
+
+00:52:15
+
+Kobi Kunasekaran: potentially. Yeah. And I think like we can mark that this has been paid out even at the refer level as opposed to like the child objects because if it's just going to be the one time that might that might make sense. Yeah, I think I think we can do that.
+Joyce Kiddell: Um, but then to be clear, it's like once they hit that threshold, it then the payout flow begins again. Same as what we just talked about for primary where it's like you have to track if they um if there it's the one or the $100 cash amount then the rep still needs to log that the payment was sent and the BEIMO ID right and then the 200 bucks redeposit would
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: follow the same kind of uh bet credit path as the primary
+Kobi Kunasekaran: Gotcha. Okay. Um, in this case though it doesn't like we don't care about whether the signup has a preference on the payout type, right? Okay. And we just count all the all the I guess eligible signups like things that have been completed and and all of that.
+
+
+00:53:27
+
+Kobi Kunasekaran: uh everything that's eligible, we just count 10 regardless of the payout type or anything like that on the sign up. And then the moment they get 10, we can create a payout record uh and leave the payout type, maybe do default the payout type based on what's on the referral. And then the rep will then just have to confirm before they distribute it and however which way.
+Joyce Kiddell: Yeah, they would confirm with the the refer.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: I mean we decided on like we uh a status right on the payout. So for cash payment before they mark it as complete they should they have to fill out what what type of payout type it is for the bet credit they would have to create the redeposit records in the next step. So I think that will kind of feed into the status. So yeah I we can do that.
+Emily Vandenberg: And then anything after like 10 would have like just a status that indicates it just like wasn't paid out because it's past the something,
+
+
+00:54:28
+
+Joyce Kiddell: like not applicable or Yeah.
+Emily Vandenberg: right? It would just like So you could do we want like a push of
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Not payable.
+Emily Vandenberg: notification in any way or a push of anything or a flag on the referral of like secondary like because it I I feel like that might be one that you know it's quite manual for them to keep track
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: of where it's like bubbling it up to them like hit 10 eligible for secondary referral payout. Do you know what I mean? And then they could
+Lina Ceniccola: Another thing too um about the secondary referral payments like I I don't think all of the guys even use that incentive. So like having the option to like if they're to pay
+Emily Vandenberg: Yeah.
+Lina Ceniccola: um you could I don't know like um what I'm trying to say is like it doesn't necessarily need to be paid out. It's more if they want to
+Emily Vandenberg: So,
+Kobi Kunasekaran: Okay. So,
+Emily Vandenberg: like if refer like bugged them and they went on and then they could quickly see that it's available and then they could make a decision.
+
+
+00:55:48
+
+Lina Ceniccola: Yeah.
+Emily Vandenberg: But like it's kind of one of those things you're saying you don't have to like be kind of like pushing it um to close out. It's at their discretion.
+Lina Ceniccola: Yes.
+Emily Vandenberg: That makes sense. So I think then just like a flag on the referer.
+Kobi Kunasekaran: that on the referral or on the payout that gets generated for the refer for the secondary referrals. Just mark that like we're not going to pay that.
+Emily Vandenberg: I was thinking like a flag at the referer account like just that eligible to and then it would come off like once it's paid out. Um, but like you don't have to like be kind of like pushing it to action. It's it's a bit of discretion. Like they'll kind of do it, but then they have a quick reference of if that person's bugging them for it,
+Lina Ceniccola: Yeah.
+Emily Vandenberg: they can quickly see, oh, okay, cool. Batch it, follow the flow, and then you record it as we discussed.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Mhm.
+
+
+00:56:51
+
+Kobi Kunasekaran: Yeah, I think we can do that. So, we could have a flag on the refer and then that flag could prevent the auto creation of the payout record once the 10 eligible ones are created. Um, but if they do want to go back and like pay the refer then they would do it manually like they just
+Joyce Kiddell: Good luck.
+Kobi Kunasekaran: pick use 10 similar to the primary uh and then pay it out. Yeah, I think we can do that. That could work.
+Joyce Kiddell: Cool. Um, any other questions on secondary
+Emily Vandenberg: just um more just like thinking through as a whole. So like when you're thinking of building out redeposits, you're going to be like bolting them on to the like if you look up player like at a player or like whatever refer you can kind of see all the redeposits and the different statuses that are sitting there for that player. So,
+Kobi Kunasekaran: Yeah, like uh as long as there's like a lookup field or like we're relating something to another object, generally speaking, yeah, we can create that related list on either or, right?
+
+
+00:58:10
+
+Kobi Kunasekaran: So on the payout side, if we're tying it back to the refer,
+Lina Ceniccola: Come on.
+Kobi Kunasekaran: we can see all of the referers or signups and vice versa.
+Lina Ceniccola: Come on.
+Emily Vandenberg: okay.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Sorry.
+Kobi Kunasekaran: quies. Okay, this sounds good. Um, so just send for the secondary refer after that's sent out. We're not doing anything else.
+Joyce Kiddell: Uh-uh.
+Kobi Kunasekaran: Okay, what's next?
+Joyce Kiddell: Um, so I mean we talked about the other streams not really being needed as like a separate workflow in Salesforce. So for player payouts, um I think all we'll need is to be able to see how much uh they have gotten in terms of like signups and then do we want to include any sort of like the payment matrix uh within Salesforce or just like handle that outside of the system for this phase? All right, there's a
+Emily Vandenberg: Yeah, my gut is sorry. I'm like feeling like for this phase it's handled after. But what are you thinking?
+Joyce Kiddell: Yeah, I'm aligned for sure.
+
+
+00:59:41
+
+Joyce Kiddell: It'd be great to have it in there eventually, but there's no need to like batch s***,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: right? Like there's not like a a workflow to support necessarily. It's more like like there would be automation and algorithms and s*** in the background, but it's not like someone having to click through. So, it's not as important to me right now.
+Kobi Kunasekaran: the player payouts. Is it payouts uh payouts to the player that's doing the signups
+Joyce Kiddell: Oh my god.
+Kobi Kunasekaran: or
+Joyce Kiddell: Sorry. I was thinking commission already. I was jumping straight to the bottom. Um yeah, I have a baby so I'm very tired. Um but the uh so what I said apply that to VAcommission.
+Kobi Kunasekaran: missions?
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Okay. So,
+Joyce Kiddell: And then and then the player payouts,
+Kobi Kunasekaran: we're not doing commissions right now. What's that?
+Joyce Kiddell: that's just like basically whatever they're depositing um with
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: signups and redeposits is typically what we send them.
+
+
+01:00:32
+
+Joyce Kiddell: Um I do know there's some occasions like edge cases where we send them more or like we send them not more. It's usually we would send them the core amount that we want them to deposit but they might deposit more of like their own money on top of that. Is that right, Emily?
+Emily Vandenberg: I don't think so. But maybe like I don't think so.
+Joyce Kiddell: Because at one point in our tracker we had two separate fields. It was like deposit and how much we sent them, right?
+Kobi Kunasekaran: I think we have that on the signup record now.
+Emily Vandenberg: Oh yeah.
+Kobi Kunasekaran: Like we have the option for them to specify the uh a deposit amount and an actual deposit amount.
+Emily Vandenberg: Yes, sometimes. Sorry, I thought you were talking about the um on the refer. No, on the sometimes that that happens and then we just quickly identify and kind of like um call it out.
+Joyce Kiddell: So,
+Emily Vandenberg: Yes.
+Joyce Kiddell: I think when we're going to make the report, Kobe, it would just be like a requirement of um pulling from that field um if it's completed.
+
+
+01:01:33
+
+Joyce Kiddell: And if it's not, then you can default to the deposit amounts for both signups and redeposits.
+Kobi Kunasekaran: Okay. But so for the player payouts, we don't need to track this separately, right? Uh outside of just on the signup records themselves. Okay.
+Joyce Kiddell: sign up deposit because we're we're sending them money also during redeposits, right? So
+Kobi Kunasekaran: Right. Right. Right. Yeah. Um Okay. it there's no batching or anything like if a player signs up for like multiple sites you're not sending
+Joyce Kiddell: nope.
+Kobi Kunasekaran: okay just one to one okay
+Joyce Kiddell: Yeah. No, no separate workflow required. It's more like just um pulling from the correct fields when we go to surface this in terms of reports
+Kobi Kunasekaran: so the signup process uh do you send the money first or do they sign up first and then like do they get paid for the that initial sign up.
+Joyce Kiddell: there.
+Emily Vandenberg: They sign up,
+Joyce Kiddell: No.
+Emily Vandenberg: register first,
+Kobi Kunasekaran: Yeah.
+
+
+01:02:37
+
+Emily Vandenberg: but then they don't deposit until we've sent the money.
+Kobi Kunasekaran: Okay. But we don't we're not we don't need to track that we're sending the money in this process. So I'm hearing
+Emily Vandenberg: currently. Oh, oh,
+Lina Ceniccola: It in what process?
+Emily Vandenberg: sorry, Galina.
+Kobi Kunasekaran: like Don't. If I go to the signup record, uh just get logged into the sandbox.
+Emily Vandenberg: You're talking about the signup record like flow, right, Kobe?
+Kobi Kunasekaran: So the signup flow. Yeah. Um so just going to pick any random person. So let's say this person, right? Um they just they registered. So we have a signup record in the system. Am I sharing my screen? Yeah. Right. Okay. Uh yeah. So they've registered. Now I'm going to go log uh log sign up and I'm just going to put something here just to move this along. Oh no, let's do 20. Okay, I just said the deposit amount is 20. Um but there's no proof or anything.
+
+
+01:03:47
+
+Kobi Kunasekaran: Um we are not we uh my question was we don't need to track that we've sent them this amount in in in the system right now. We're just assuming that by virtue of them signing up that the rep is going to send that amount and then only capture the proof and put in the amount if like from whatever
+Emily Vandenberg: Okay.
+Lina Ceniccola: f***.
+Kobi Kunasekaran: they send us back.
+Joyce Kiddell: Correct. Yeah, we don't have to capture like um like the Beimo ID or anything as they're sending these deposits.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: It's would be just way too hard to um manage that manually.
+Kobi Kunasekaran: Okay. So, we're only capturing it like so when the player sends the information on like, okay, I deposit like $20 or $30 or whatever it is, that's when we capture the screenshot and the amount and the date. Uh, if the actual deposit amount is different than what was expected, they would put that in here and then call the date.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Okay. Okay, that seems straightforward. Okay, so payouts really is just for referrals uh or referers uh based on the
+
+
+01:04:59
+
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: signups that they're bringing in.
+Joyce Kiddell: for sure. Hence why we combine the two flows.
+Kobi Kunasekaran: Makes sense.
+Joyce Kiddell: Um yeah,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: and there's probably more stuff that we can do to automate like the player and VA commission calculation for like you know audit trails around like bank account activity blah blah blah but like for right now f*** it. Let's just do
+Kobi Kunasekaran: Okay. Yeah, commissions tend to be a big thing just because it's like a lot of rules and they generally change. I mean, from my sales experience, it usually changes often enough that uh might be better to make sure we have the data uh coming out of Salesforce first and then we can start layering in bits and pieces to automate that later.
+Joyce Kiddell: Okay, I do have a couple questions here at the bottom um that I think are pretty straightforward. Um but Claude, help me generate just uh Wait, are you sharing? Okay. Yeah.
+Kobi Kunasekaran: Yes,
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: I'm sh
+
+
+01:05:50
+
+Joyce Kiddell: I'll stop.
+Lina Ceniccola: It's coming.
+Joyce Kiddell: Um but let's just talk it through to make sure. Um where did you go? Find the S. So, uh, to be clear, if a refer's signups are flagged for fraud, they should not be paid. Right? Everyone aligned.
+Emily Vandenberg: I feel like when they're Oh,
+Lina Ceniccola: They No,
+Emily Vandenberg: go ahead.
+Lina Ceniccola: you can go away.
+Emily Vandenberg: Yeah, like they if depending on I guess like the confirmed like if it's in review, they might be able to be paid down the road if it turns out they're not, but in a flag status like we shouldn't pay them.
+Joyce Kiddell: Yeah, if they're confirmed fraud. That makes sense.
+Emily Vandenberg: Yeah. Does that align, Lena, with what you would say?
+Lina Ceniccola: Yeah, I was going to say it just depends on what part of the fraud review process that they're in or like they could be paid and then it was find out later it was fraud. So, as long as it's flagged beforehand, it should block that payment.
+
+
+01:07:06
+
+Joyce Kiddell: Oh, okay. So, this is bringing up a good point that the the two next questions. If a referral is flagged after it's paid out, has already been batched but not yet sent. Next one's if a referral is banned mid batch. Like basically like if you're in the middle of the um referral flow and then some something comes in, we're like, "Oh s***, like this signup is is flagged for fraud or confirmed for fraud or um there's some sort of shady behavior happening at like a referer level.
+Lina Ceniccola: Mhm.
+Joyce Kiddell: Um you should be able to take signups out of that batch,
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Kobe. Um, and you should be able to cancel um, obviously or delete that same payout.
+Kobi Kunasekaran: Okay. So, going back to the process like um they they do the batching at a referral level. Um if if signups are marked for fraud um regardless of the status, do we just want to hide them from the list of eligible signups that they can choose for the payouts record?
+
+
+01:08:15
+
+Joyce Kiddell: It has to be confirmed for fraud, right? Like um ops would would have to have confirmed that it was fraudulent.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um,
+Kobi Kunasekaran: So, the ones that are like under review or suspected, we still allow them to add them to a payout.
+Joyce Kiddell: we I wouldn't allow them to be added to a payout, but have it still be like visible and like you can circle back to it later kind of thing.
+Emily Vandenberg: I agree.
+Joyce Kiddell: Um,
+Kobi Kunasekaran: Okay. So, they still see it on the list, but they just can't add it to the payout or like when they're creating that payment.
+Joyce Kiddell: yes.
+Kobi Kunasekaran: That's um
+Joyce Kiddell: And if it's Yeah.
+Emily Vandenberg: And if it like that would be their cue if like something didn't get cleared that they would go Um, ops be like, "This is still sitting in a flag.
+Kobi Kunasekaran: I drop back.
+Emily Vandenberg: We've gone through this like please release so that I can pay it out or yeah, it's not eligible.
+Joyce Kiddell: even if it is confirmed as fraud, my gut is leaning towards like keeping it in the queue, but just like not allowing them to add it at all and then have like a big like X or like some sort visual cue to be like this is fraud and then like then they're like oh s*** like should I really be paying them anything right now like it could lead to a deeper investigation you know what I mean
+
+
+01:09:38
+
+Kobi Kunasekaran: um if we leave the ones that are confirmed fraud um that that could like start building up right over time.
+Emily Vandenberg: We'll
+Kobi Kunasekaran: Is that going to be a problem?
+Joyce Kiddell: I don't think there will be Not many to be worried about. I could be wrong. Lina
+Emily Vandenberg: definitely want like a report where ops is kind of like managing that to like confirm them.
+Kobi Kunasekaran: Yeah, that'll be separate. But I'm talking about more uh in terms of a rep choosing signups for a payout. like if uh if we don't have a way to clear the ones that are confirmed for fraud from that list, those those could add up over time if that is a scenario that could happen. So, uh like let let's say like the happy path, right? Um as I choose signups to be paid out, once they're added to a payout record, uh those signups will be removed from the list of signups that are eligible for the next batch that they create. Uh in the same way if they have um like anything that's a confirmed fraud um but it never goes out of that queue because confirm fraud is a last status for fraud for a signup.
+
+
+01:10:52
+
+Emily Vandenberg: It should though. It should clear out if it's confirmed,
+Kobi Kunasekaran: So okay like
+Emily Vandenberg: right?
+Kobi Kunasekaran: Joyce was just saying she wants to still have those show.
+Joyce Kiddell: if it's confirmed.
+Lina Ceniccola: I think can we have it?
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: All
+Lina Ceniccola: There's like a confirmed um flow and then there's kind of there's two layers to it. It's either confirmed like success or confirmed fraud.
+Emily Vandenberg: right.
+Lina Ceniccola: Do you know what I mean?
+Kobi Kunasekaran: Confirm success as in like it's not fraud.
+Lina Ceniccola: Yeah. And it it moves to that confirmed status and then
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: it's like it remove it moves to confirmed.
+Kobi Kunasekaran: The the
+Lina Ceniccola: I'm talking for the payouts.
+Kobi Kunasekaran: the confirmed would be like it's confirmed fraud.
+Emily Vandenberg: Goodness.
+Kobi Kunasekaran: Dismissed is would actually just remove the fraud flag. So then it just reopens the signup record. So those would be eligible either ways. But uh I just want to make sure that the ones that are confirmed fraud
+
+
+01:11:50
+
+Lina Ceniccola: I mean for the referral payment like if you're you pay out a referral it goes to confirm. confirmed, but it it's uh like a successful payment. It was supposed to happen. It's not fraud, whatever. Or if it's it's paid and then it's fraud, it's still confirmed, but it's confirmed fraud. So, it's not in the queue because you're saying that the queue is going to add up a lot over time. So, you want to move the payments to a confirmed status.
+Kobi Kunasekaran: uh not the payments, the signups. So like uh I'm talking about the scenario of like like when they're creating the
+Lina Ceniccola: I miss animal.
+Kobi Kunasekaran: payout record like the they're choosing the signups to add to the payout record. um they're going to see a list of what's going to be eligible to be paid out, right? And that's going to be, you know, all the eligible completed signups. And then, uh we said anything that's flagged for fraud, as long as it's not confirmed flawed still shows up in the list, but they just can't select it to add to the payout.
+
+
+01:12:59
+
+Kobi Kunasekaran: Um so they that's like a gate for them to check with OBS on what's going on with it. But then for the ones that ops has already confirmed as fraud, uh do we still do we want them to also be in the list or remove it? And the trade-off is if we leave it in the list, there's no other indicator to remove it from the list eventually.
+Emily Vandenberg: Right.
+Kobi Kunasekaran: So it's if if they have like multiple again I don't know if this is a scenario so you tell me but if they have multiple those like let's say 10 broad uh signups will still always be there adding noise to the selection for the reps.
+Joyce Kiddell: So, my only concern is like if we make the fraudulent signups go away, like are the BA still going to have some sort of visual indicator when they go to pay that that that refer? You know what I mean? So, like
+Kobi Kunasekaran: they would see that on the player record as oppo uh sorry not player but the referral record as opposed to like the screen where they select the batches is what I'm thinking.
+
+
+01:13:57
+
+Joyce Kiddell: Okay. And that's fine as long as it's all visible in the same view. You know what I mean?
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: That's okay. Uh, so something that came up that I didn't know if it was like something we actually talked about back in the day because it's been so long or if like Claude hallucinated.
+Emily Vandenberg: Fantastic.
+Joyce Kiddell: All right. Is there some sort of minimum thresholds for primary referers before they qualify for commission?
+Lina Ceniccola: No.
+Joyce Kiddell: Okay. All right. I didn't think so. So, I don't know. Um, what about for BAS? This is separate, but like do they have to do a certain number of signups before they get paid?
+Lina Ceniccola: Yeah.
+Joyce Kiddell: How many?
+Lina Ceniccola: Um 30.
+Joyce Kiddell: the 30. Okay. Yeah. Yeah, that's where I came from. So,
+Emily Vandenberg: What?
+Joyce Kiddell: I think I took the note down wrong where it's like
+Lina Ceniccola: I think it might be different in Alberta though.
+
+
+01:14:55
+
+Joyce Kiddell: Okay.
+Emily Vandenberg: 30. And like initial because you're starting to like hit but then like each week like you have to like if you don't accumulate 30 then you have to like wait to till you hit 30 like within the next pay run right so it's like at the start yes and then thereafter it has you have to hit a minimum of 30 eligible per payout
+Joyce Kiddell: got it. Yeah. Yeah, I don't know that it's logic we have to build in Kobe, but just for your own reference um when we go to LA build reporting. So,
+Kobi Kunasekaran: I mean, we're not doing commissions right now,
+Joyce Kiddell: ignore.
+Kobi Kunasekaran: so I don't think this needs to be added in yet.
+Joyce Kiddell: Yeah, ignore then that next question and the question after uh if a redeposit split proof is rejected, does the whole payout return is sent or just one split? Um yeah, basically like if we're doing like a redeposit flow off of payouts. Uh but then one of those redeposits is like won't do or like fraudulent or something like what happens to the payout?
+
+
+01:16:13
+
+Joyce Kiddell: Any thoughts? Like basically if if the redeposits associated with the payout are like f***** up in any way like what happens to the payout? Do we need another status?
+Emily Vandenberg: So, we've paid it know they don't complete it the way that we wanted them to do. So when the proof comes back in that moment, do they send us the money back? Is that like kind of what you're thinking? Or we have to flag it in some way.
+Joyce Kiddell: Yeah, just some sort of flag. Like I don't know operationally if it makes sense to do a clawback. Um but in the system we should probably have some sort of indicator.
+Emily Vandenberg: Well, we because we do receive funds back when it can't complete.
+Joyce Kiddell: Okay. Yes.
+Emily Vandenberg: So yeah, I think like if we progress it and then like the ability to mark it as as such like where it kind of ended in the process funds are turned in complete. Okay.
+Kobi Kunasekaran: Is this on the B deposit? Like you need to be able to mark that.
+
+
+01:17:22
+
+Joyce Kiddell: So on the redeposits, it would just follow the same statuses that a typical redeposit has.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: But I'm thinking in terms of the KO that it's associated with where like before we were just kind of like there's in progress and complete kind of thing, right?
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: But if um a redeposit does not end the way that we want it to and we get the money back, then we need a status on a payout level for something like can't I don't know can't complete or won't do or uh blocked or I don't something that indicates that the redeposit Hey. flow wasn't completed successfully.
+Kobi Kunasekaran: So what what would happen after that? Like let's let's say like uh that $500 example from earlier that turns into let's say 10 redeposits for the same same referral/player um and out of the 10
+Joyce Kiddell: Uh,
+Kobi Kunasekaran: one of them they can't complete. What happens to that $50?
+Lina Ceniccola: If they can't complete the referral payment,
+Joyce Kiddell: they can't if the referer can't if the referer can't do a redeposit as part of the overall amount they were given.
+
+
+01:18:45
+
+Lina Ceniccola: Why would that happen? Oh, like I guess you're saying if they were sent money to do a redeposit and then some I don't know, maybe they go to jail and they can't finish it.
+Joyce Kiddell: Yeah.
+Lina Ceniccola: I would just say have the ability to cancel or like either write it off or if they get the funds back then they can just cancel it.
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: like they cancel the redeposit, right? Do they need to update the payout as well to like reduce the amount or like remove remove something like remove a sign up from it or something like that or like
+Joyce Kiddell: I think the they would just have to edit the redeposit in my mind. Um,
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: and then it should automatically just change the status of the payout or add a note or do something that indicates that like there was something that happened downstream.
+Kobi Kunasekaran: the redeposit wasn't completed or like not all redeposits Okay then.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: cuz like at the redeposit level it's like it can in be incomplete and there's two things and I know we're not there but like it's going to end up being erosion and a write off because we've lost that money because they didn't send it back but we knew it no it didn't complete.
+
+
+01:20:10
+
+Emily Vandenberg: So you kind of have to track both or it cannot complete and we get the money back. So there's like a a record that will come back into us, but to be able down the line, right, to pull that, you know, more of the payment flow in, it's just like two separate statuses of incomplete.
+Kobi Kunasekaran: So,
+Emily Vandenberg: It
+Kobi Kunasekaran: should we track this at the red deposit level then and then maybe roll up any amounts that was like not completed uh to the payout as opposed to changing the payout status?
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: Like I'm assuming like once the read once the redeposit records are created like let's say like the full
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: $500 has been allocated to like 10 redeposit records. The payout the responsibilities for the payout record is done. The rep has no need to go back to that payout record to do anything because it's already been distributed as as like the redeposit records.
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: Same as like you know they they've already sent out the money in the cash example and then they they don't need to go back to the uh payout record anymore.
+
+
+01:21:18
+
+Kobi Kunasekaran: They marked it as I've already paid them and then that's it. So if there's like if after the payouts have been allocated and something doesn't uh like the player or refer doesn't actually deposit or do anything with it. Uh I I think we just mark it at that we deposit record level and then figure out like what happens from there. like do we do we need to send that back to the pool of $500 that's now available for additional work we deposit um or I think that's like we that's what we need to figure out if this is like a common scenario
+Joyce Kiddell: I think it doesn't have to go back to the pool cuz if in the scenario of them going to jail, you're just like not going to continue to pay them.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um typically
+Kobi Kunasekaran: Wait. So, can we like just mark it on the redeposit level for now?
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: Um because then we can still report through the payout what happened to the V deposit.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Yeah, exactly.
+
+
+01:22:24
+
+Kobi Kunasekaran: So,
+Joyce Kiddell: As long as there's some sort of bubble up of Yeah,
+Kobi Kunasekaran: instead of Okay. So,
+Joyce Kiddell: it's fine.
+Kobi Kunasekaran: maybe we'll we'll start with that and then if we do need to add additional layers and complexities around like how to handle the payout with incomplete redeposits, maybe you can come back around to that later.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yep. And the rest of the questions are not relevant to refers. So I I'm good unless other people have questions.
+Kobi Kunasekaran: um for the for the payouts like the uh question two and three actually. Um so we talked about like you know what what to do when they're creating the payout record. If something is flagged for fraud, they won't be able to select it. Um they need to reach out to ops and the flag status needs to be cleared. Um, but let's say they've already picked pen signups and a payout record is created. Um, they either paid out the payout or it's still pending payment.
+
+
+01:23:21
+
+Kobi Kunasekaran: Um, as in like they haven't sent out the money yet or it's so um or they've already sent it out. Um if in during that time they one of those signups gets marked as fraud. Um do we need to do anything or is is that like this is where the write off like where we just write off the uh the signup as being fraud and we call it a day.
+Joyce Kiddell: Yeah. And like that goes back to what I was saying about if it's already in a batch, then we need the ability to take it out.
+Kobi Kunasekaran: But only if the batch isn't already paid. Right.
+Joyce Kiddell: Yes. Yeah. If it's already been paid,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: then it's like Yeah. Uh, I think Anything that we kind of lose,
+Kobi Kunasekaran: Can we lock it down?
+Joyce Kiddell: we eat the cost on essentially,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: then we're moving that into like a write-off category.
+Kobi Kunasekaran: Okay. So, once a payout for cash is already marked as paid,
+
+
+01:24:07
+
+Emily Vandenberg: Good.
+Kobi Kunasekaran: um then we lock that record. So, reps can't do anything with it. But if it's still not marked as paid, then they have the option to remove signups that are marked as flawed from that batch.
+Joyce Kiddell: Huh?
+Emily Vandenberg: And because because you're not handling payment like in this kind of flow with signups, how will you mark as paid just by like because we're going to be able to run a report and then we'll feed
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: into something, but how are you going to mark something as like truly paid?
+Kobi Kunasekaran: The rep would have to mark the payout record as paid and then we can feed that into the individual signups.
+Joyce Kiddell: It's like a button like kind of when like they're done logging,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: they hit complete like that.
+Emily Vandenberg: or you're talk but I are we talking about signups?
+Kobi Kunasekaran: No, no, on the payout.
+Joyce Kiddell: And then it automatically makes those signups paid like labels as paid,
+Emily Vandenberg: Got it.
+Joyce Kiddell: right?
+Kobi Kunasekaran: So, the signups will roll up into like a payout record.
+
+
+01:25:14
+
+Kobi Kunasekaran: So, that's going to be its own record. It's going to be related to like let's say 100 signups and the amount will be rolled up. Um and
+Emily Vandenberg: BA level. So you're going to roll like you're going to do that at a BA level versus like a week like a whole kind of like ops view.
+Kobi Kunasekaran: uh it would be at the referral level, right? So like let's say like for an example, if I go to this refer I don't know if you have all of the things
+Emily Vandenberg: Oh, sorry. I thought we were talking about sign up payout.
+Kobi Kunasekaran: here.
+Emily Vandenberg: You're just talking about referral payment payout.
+Kobi Kunasekaran: Yes. Yes. That's that's all we're tracking with the payouts here, right?
+Emily Vandenberg: Okay. Okay.
+Kobi Kunasekaran: We're not tracking the sign up yet.
+Emily Vandenberg: No. Yeah. Yeah. That's I saw you were bringing back signups.
+Kobi Kunasekaran: Okay. Okay.
+Emily Vandenberg: I was like, "No, no, no." Like, yeah. Okay.
+
+
+01:26:00
+
+Kobi Kunasekaran: So,
+Emily Vandenberg: Go.
+Kobi Kunasekaran: the like the referral payments are based off of the signup payments. So,
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: we're marking the sign up as paid, but paid for like I think we'll separate like uh primary referral payment or and secondary referral payments just so we can keep track of uh both. But yeah, ultimately the signup record will be marked as paid for the referral commission or referral payout. Um, but it's the payout record that the rep will go in to say that they've paid the $500 for all these signups.
+Emily Vandenberg: Yeah. Okay.
+Kobi Kunasekaran: Okay. Okay, this makes sense. Um, so none of this has any any uh any data or anything coming in from the deal though, right? Like we talked about like the uh commercial terms on the deal and stuff. Those are all at the like ops level reporting. Like this has no implication on any like referral payouts or anything like that, right?
+Joyce Kiddell: No,
+Kobi Kunasekaran: Okay. Okay. Uh
+
+
+01:27:09
+
+Joyce Kiddell: this
+Kobi Kunasekaran: Okay. Yeah, I think I think that makes sense. I don't I don't think I have any questions right now. Um, it just it sounds like it like the the interface and the the workflow is going to be like the the biggest parts here. And then um like yeah, we're going to have like a payout record. We're going to have some um some relationships and we need to figure out a way to connect all the signups into it. Um I think we talked through all the nuances that could come up. Um so this is good.
+Joyce Kiddell: Yeah, I think we'll need a separate scoping session on just like reports in general. Um, but that would be the only other piece to this is like the financial reporting like understanding total payouts across everything.
+Kobi Kunasekaran: Okay. Usually like reports um if there's anything we need to build to facilitate reports, we should like talk through them. But if it's based off of like the the objects and fields that we've already built, uh then yeah, we can usually just bolt that on afterwards.
+
+
+01:28:25
+
+Kobi Kunasekaran: Doesn't need to be it. It doesn't create a dependency at this stage unless you know we have to build something to track
+Joyce Kiddell: Mhm. No, no. Yeah. Yeah.
+Kobi Kunasekaran: additional layers.
+Joyce Kiddell: No, no. Yeah. I mean down the line for sure.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Okay, cool.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Thanks everybody.
+Emily Vandenberg: Yeah, Kobi.The only thing I'll say is just like keeping in mind like very simple kind of like workflows for and like it really making sense for the reps as they're kind of going through this. Like I it's you know we've like we're bolting on and you can access but like for adoption and like launch like it's just going to have to be very logical in terms of
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: like thinking through like okay like how they work through this and like they're going to be doing multiple things in a given you know at the given time and to be easily able to navigate from like logging a redeposit to going back and logging signups and you know they're just kind of continuously bouncing between all of these these different things within their kind of workflow as stuff comes
+
+
+01:29:24
+
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: in. So, yeah, just making sure that it's very cleanly kind of pulled together
+Joyce Kiddell: Mhm.
+Emily Vandenberg: and that it it's logical and simple is better.
+Kobi Kunasekaran: Yeah. I think the hard part is just like the the nuances, right? like the edge cases and the uh the exception handling that has been uh challenging. Um that that's where like we have to start adding in additional layers. But uh but yeah,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: overall like uh we'll we'll try to keep it simple. Um but it's also like an iterative process. So, you know, we V1 doesn't necessarily need to be the final version, right? So, we could get feedback and improve on it over time, too. Um as long as we nail the object model because that's ultimately what's going to drive automation and your reporting. So, that's going to be the most important thing. And then we can start refining and cleaning up the interface afterwards.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: The UI is it's just how much time and money do you want to spend on it? There's a lot we could do,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: but that's that's where it becomes expensive. But the object model is going to be the most important for reporting.
+Joyce Kiddell: I just have to bounce to another meeting. So, Kobi,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: can we confirm when you're going to be able to like come back to us with design documents?
+Kobi Kunasekaran: Uh I'm going to target next week because I have a couple more uh some of the other ones to do as well. Redeposits um and commercial terms as well. So, uh, by mid to end next week is going to be my target.
+Joyce Kiddell: mid would be great. Thank you.
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: Bye.
+Kobi Kunasekaran: I'll try it.
+Emily Vandenberg: Five.
+Kobi Kunasekaran: Thanks everyone.
+
+
+Transcription ended after 01:31:22
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

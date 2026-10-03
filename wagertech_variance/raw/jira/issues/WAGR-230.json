@@ -1,0 +1,228 @@
+{
+  "id": "10374",
+  "key": "WAGR-230",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:33:39.067-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.653-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Billing Details on Operator. Identical field set to Partner's, relocated — not an independent design.\n\n=== FIELDS ===\n\n* Billing Relationship — Picklist: Direct; Via Partner — the controlling field for BUILD-130. Always visible.\n\n* Billing Entity — Text, free form\n\n* Payment Terms — Picklist: Net 7; Net 30; Net 45\n\n* Billing Contact — Lookup(Contact) (created in BUILD-126, Accounts_Billing)\n\n* Invoicing Cadence — Picklist, single value: Monthly. Joyce: 'we keep it as like a pick list, but with only one value for right now.'\n\n* Billing Email — its own custom field on Account, NOT a relationship field off Billing Contact. Already exists — Kobi confirmed it live: 'can you search if there is a billing email address already on the— There is. Okay. Perfect.'\n\n* Invoicing Currency — standard CurrencyIsoCode, NOT a custom picklist\n\n* Payment Method — Picklist: Wire Transfer; ACH\n\n* Tax / GST / VAT ID — Text, free form\n\n* Billing Address — native Account/operator field, free form. Added live on Aug 17: 'Let's add the address field there because that's going to be specific to the operator.' Explicitly NOT pulled from the Contact.\n\n* PO Required — Picklist: Yes; No. No separate PO Number field — Joyce: 'that's sufficient... You can always add that in the billing notes.'\n\n* Remittance Reference — Text, free form\n\n* Billing Notes — Long Text Area. Always visible, regardless of Billing Relationship. Also the catch-all for PO detail and partner-pays-us arrangements (Lina: 'We can put that in the notes').\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Why Billing Email is a custom field but Primary Contact Email is a relationship field — worth recording, it will get questioned. Kobi, Aug 17: 'that person might have their own company email that's going to be different from a finance email. So for billing, it helps to have a separate email address just to capture an accounts payable email... for billing it could be either or and we'll go with the custom field, but for primary contact it's usually the same email as the contact information.'\n\n* Every picklist here is informational — no automation depends on any of them. Start with the values above and extend on request. Reaffirmed Aug 17: 'picklist values we already made a decision that we'll start with whatever we know and then we can always change it later.'\n\n* Do not mark any field required on the page layout. No validation rules are being built yet — decided 2026-08-17.\n\n=== ACCEPTANCE CRITERIA ===\n\n* Billing Relationship and Billing Notes are visible under BOTH Direct and Via Partner. Every other field in this set is Direct-only — see BUILD-130.\n\n=== NOTES ===\n\n* ALREADY BUILT — confirmed on the Aug 17 Kobi/Taryn call. Ticket is retroactive documentation.\n\n* Provenance: OP-4 field list, resolved against PT-2. Taryn's doc flagged the hidden-field list as unverified ('came from an earlier automated read of the page'); the Aug 13 call resolved it as an identical set.\n\n=== SOURCE ===\n\n* Taryn doc OP-4 + PT-2\n\n* Aug 13 call — full spec\n\n* Aug 17 call — billing email confirmed existing, address added\n\nDependencies: BUILD-126\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-129 — Operator: Billing Details field set (mirrors Partner PT-2)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10497",
+          "body": "Built per spec: added the Operator Billing Details set — Billing Relationship (picklist: Direct/Via Partner, always visible), Billing Entity (free text), Payment Terms (picklist: Net 7/Net 30/Net 45), Billing Contact lookup, Invoicing Cadence (picklist: Monthly), Billing Email (own custom field), Invoicing Currency (standard CurrencyIsoCode), Payment Method (picklist: Wire Transfer/ACH), Tax/GST/VAT ID (free text), Billing Address (native field, added live on Aug 17), PO Required (picklist: Yes/No, no separate PO Number field), Remittance Reference (free text), and Billing Notes (Long Text Area, always visible). No fields are marked required on the layout.",
+          "created": "2026-08-24T17:19:57.235-0400",
+          "updated": "2026-08-24T17:19:57.235-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-264"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563695622437"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001xj:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563695622437"
+      }
+    }
+  }
+}

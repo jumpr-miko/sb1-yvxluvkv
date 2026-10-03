@@ -1,0 +1,185 @@
+{
+  "id": "10449",
+  "key": "WAGR-367",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-11T12:58:36.484-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:35.567-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "Bonuses are configured at Partner level because they roll up across every Deal under that Partner. Relocate the four Deal bonus fields.\n\n=== FIELDS ===\n\n* Fields Kobi named on the call: Bonus Progress / Bonus Requirement / Bonus Requirement Type / Bonus Status\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Joyce's rationale: 'You originally had bonuses being configured at a deal level, but we wanted to make it clear that that should be configured at a partner level, and it's actually across all deals associated with that partner. So you have to roll up into the overall target.'\n\n* These already exist but are hidden — Kobi: 'these were in the PRD and we created them and then we hid them after the initial feedback that it wasn't necessary.' So it's un-hide-on-Partner + delete-on-Deal, not net-new.\n\n* No automation. The fields carry no logic and the rollup is deferred — 'right now there's no logic tied to them.'\n\n=== OPEN QUESTIONS ===\n\n* Set to On Hold. The Aug 13 call replaced the whole bonus design: the Partner-level Bonus Configuration section is deleted and bonuses become one rolling-total child record per partner + market (BUILD-172). Moving these four fields onto the Partner layout now is likely throwaway work. Kobi also told Taryn in Slack Aug 13 to create no bonus fields at all, and Kobi is doing the bonus tracker off Joyce's spreadsheet this week. Wait for that.\n\n* When it proceeds: do the fields land on the Partner record, or on the new bonus child object?\n\n=== NOTES ===\n\n* The deferred rollup requirement is the substantive open piece — Kobi: 'when we get to automations, anything tracked against the deals need to then ladder up to the bonus view.' That belongs in BUILD-172, not here.\n\n=== SOURCE ===\n\n* Aug 11 call — Joyce 42:50, Kobi 43:35\n\n* Aug 13 call — bonus redesign supersedes\n\n* Slack Kobi Aug 13 16:21\n\nDependencies: BUILD-172 (Bonus Model Design)\n\nRemember to update the requirements documentation as part of this change.\n\nPolished 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-162 — Move bonus fields from Deal to Partner — HOLD until the bonus model lands",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "On Hold"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-255"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "On Hold",
+          "id": "10033"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217352996632489"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002e7:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217352996632489"
+      }
+    }
+  }
+}

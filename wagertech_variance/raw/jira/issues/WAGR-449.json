@@ -1,0 +1,171 @@
+{
+  "id": "11398",
+  "key": "WAGR-449",
+  "fields": {
+    "statuscategorychangedate": "2026-09-24T12:03:02.393-0400",
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10037",
+        "type": {
+          "id": "10007",
+          "name": "migration_parent",
+          "inward": "is a parent of",
+          "outward": "is a child of"
+        },
+        "inwardIssue": {
+          "id": "10530",
+          "key": "WAGR-393",
+          "fields": {
+            "summary": "BA: Provision WagerTech Email Addresses for Salesforce Login",
+            "status": {
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "issuetype": {
+      "id": "10000",
+      "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+      "name": "Epic",
+      "subtask": false,
+      "hierarchyLevel": 1
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-24T12:03:01.870-0400",
+    "updated": "2026-09-29T18:25:57.802-0400",
+    "description": "## Purpose\n\nCross-cutting container for WagerTech Salesforce access and permission requirements that surface during feature work.\n\nIndividual feature tickets remain the source of the business requirement. This Epic is used to consolidate those requirements, reconcile the persona/access model, and implement the approved Salesforce metadata changes in a controlled pass rather than redesigning Profiles / Permission Sets / layouts ticket-by-ticket.\n\n## Intake rule\n\nWhen WagerTech asks for access such as \"Rep can view but not edit\", \"Ops can edit\", \"only Managers can perform this action\", or \"normal users cannot delete\":\n\n* capture it in the feature Jira ticket where the requirement arose;\n* include persona + object/field/action + expected access + reason/context;\n* if it is a standalone security/access ask with no natural feature ticket, create a child task under this Epic;\n* do not select Profile vs Permission Set vs layout vs Dynamic Forms unless that implementation decision is already approved.\n\n## Working baseline\n\n* No broad Delete access for normal WagerTech personas unless explicitly required.\n* `Edit Read Only Fields` should be reserved for deliberate admin access, not Rep / Manager / Ops users.\n* No day-to-day WagerTech user should need System Administrator for normal work.\n* Existing guided Screen Flows may require underlying Edit CRUD/FLS where Record Field components are used, so FLS changes must be tested against those flows.\n* Profile / Permission Set / Permission Set Group / layout design will be reconciled from the full requirement set before bulk implementation.\n\n## Planned consolidation\n\n1. Agent reviews Jira access requirements and current Salesforce security/layout metadata.\n2. Agent produces a current-state + proposed desired-state access matrix with source Jira references.\n3. Kobi / Taryn review and approve the matrix.\n4. Agent generates metadata changes and validation diff.\n5. Deploy to PartialSB and regression test Rep / Manager / Ops / Admin personas.\n\nWorking plan: https://jumpr.atlassian.net/wiki/spaces/JK/pages/268730374/WagerTech+Access+Permission+Model+Working+Plan",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Access and Permissions",
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "customFields": {
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Issue color": {
+        "id": "customfield_10017",
+        "value": "dark_purple"
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0086f:"
+      },
+      "Epic Status": {
+        "id": "customfield_10012",
+        "value": {
+          "value": "To Do",
+          "id": "10016"
+        }
+      },
+      "Epic Color": {
+        "id": "customfield_10013",
+        "value": "ghx-label-8"
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

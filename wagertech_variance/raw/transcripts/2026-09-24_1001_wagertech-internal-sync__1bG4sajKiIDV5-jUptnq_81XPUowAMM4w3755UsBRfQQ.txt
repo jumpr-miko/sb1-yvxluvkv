@@ -1,0 +1,1278 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech Internal Sync
+
+Sep 24, 2026
+Cedrick Infantado Taryn Reithofer Kobi Kunasekaran Waleed Alasadi
+
+Integration setup reviewed and affiliate links demonstrated via backlog refinement and prioritization.
+
+Project timeline and go-live strategy
+* Targeting a November 1 go-live date despite recognizing the timeline as highly unrealistic.
+* Prioritizing efficient time management and eliminating non-essential tasks to meet deadlines.
+* Logging Wagertech feedback via cards for deferred review rather than immediate action.
+
+
+CMS integration and sandbox setup
+* Acquired sandbox credentials to initiate the critical CMS integration process.
+* Plain text sandbox credentials shared in Slack will be rotated and cleaned up prior to production.
+
+
+Affiliate link management
+* Cedrick demonstrated functional affiliate link creation, editing, and activation features.
+* The affiliate form supports link management without implementing complex deletion validation logic.
+* Overriding standard UI borders via LWC introduces unnecessary complexity and remains an optional enhancement.
+
+
+Referral layout and record type restrictions
+* The new referral screen flow incorrectly displays the legacy classic page layout.
+* Restricting user profile access to specific record types simplifies the referral creation view.
+
+
+Backlog grooming and operator supported markets
+* Taryn closed 14 obsolete backlog tickets originating from Asana.
+* The operator supported markets field presents UI display challenges using multi-select picklists.
+
+
+Permissions and access management
+* Deferring brand manager permission cleanups avoids testing blocks during initial development phases.
+
+
+Referral and reporting backlog updates
+* Ticket 75 requires updating to focus solely on reporting banned referrers rather than signup flow logic.
+
+
+Project scope, budget, and timeline evaluation
+* Current project hours are reaching the upper limit of the allocated budget scope.
+* Kobi plans to discuss project hours with Emily following the completion of discovery.
+* Target timeline decisions for the live date are scheduled for the following week.
+
+
+Client communication and documentation workflow
+* Tracking resolved items directly within the feedback document improves progress visibility.
+* Video walkthroughs shared via Slack effectively communicate completed workflows to clients.
+
+
+Next steps
+* [Kobi Kunasekaran] Update Credentials: Move the sandbox credentials currently in Slack to the secure 1Password vault.
+* [Cedrick Infantado] Connect Sandbox: Configure the sandbox credential connection to enable integration.
+* [Cedrick Infantado] Test Payload: Send a sample test payload to validate the connection.
+* [Kobi Kunasekaran] Update Integration Ticket: Add information about the integration user to the relevant ticket.
+* [Cedrick Infantado] Remove UI Border: Remove the hardcoded border from the affiliate link component.
+* [Cedrick Infantado] Test Affiliate Functionality: Test affiliate link functionality and row deletion from the perspective of a user profile.
+* [Cedrick Infantado] Update Auto-number Prefix: Change the object auto-number prefix to Link.
+* [Cedrick Infantado] Update Link Layout: Expose the link code field on the link information layout.
+* [Taryn Reithofer] Clean Backlog: Close the obsolete backlog tickets that are no longer relevant.
+* [Cedrick Infantado] Fix Referral Layout: Investigate and resolve the referral creation issue where the old page layout appears instead of the new lightning layout.
+* [Cedrick Infantado] Test ticket access: Test the ticket functionality by removing access for creating operator, partner, and player record types. Verify that the screen behaves as expected with these restrictions.
+* [Cedrick Infantado] Test profile access: Remove specific permissions during testing to ensure that the test user profile cannot access restricted record types. Validate that the security controls function correctly at the profile level.
+* [Taryn Reithofer] Clarify market requirements: Consult with the client to clarify if the supported markets field requires manual maintenance or an automated synchronization process. Resolve the ambiguity to determine the implementation approach.
+* [Taryn Reithofer] Create sample market list: Assemble a sample set of Canadian and US market options for the supported markets picklist. Limit the selection to a handful of entries to demonstrate the display format effectively.
+* [Kobi Kunasekaran] Queue tickets: Queue the remaining project tickets for the upcoming work schedule. Send a notification to Taryn once these items have been added to the tracker.
+* [Taryn Reithofer] Test search functionality: Login as the user Joyce to verify the search functionality and ensure the correct record pages are visible. Confirm whether the expected results appear as intended.
+* [Taryn Reithofer] Implement related list: Build the operator relationship related list on the partner record page. Implement this feature by mirroring existing patterns used for partner assignments.
+* [Taryn Reithofer] Create permissions epic: Create a new epic for permissions and access in Jira. Include the deal assignment control and link editing tasks within this category for future resolution.
+* [Taryn Reithofer] Link fraud ticket: Append the fraud flagging ticket information to the existing feedback document. Link the ticket properly to close the loop on this requirement.
+* [Taryn Reithofer] Communicate task completion: Send Slack updates or short video walkthroughs to the client upon completing workflow tasks. Provide these demonstrations to confirm functionality and close out open tickets.
+* [Kobi Kunasekaran] Finish discovery: Complete the discovery phase for the project.
+* [Kobi Kunasekaran] Document requirements: Compile all project requirements and user stories into a workable format.
+* [Kobi Kunasekaran] Discuss budget: Talk to Emily regarding the current project budget and project hours.
+* [Kobi Kunasekaran] Decide live date: Determine the official project live date by next week.
+* [Taryn Reithofer] Address feedback: Review the feedback from yesterday and implement any straightforward tasks.
+* [Taryn Reithofer] Post technical questions: Share technical questions in the team channel to receive support from the team.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 24, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran Waleed Alasadi
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Integration setup reviewed and affiliate links demonstrated via backlog refinement and prioritization.
+
+Integration and Affiliate Links
+Customer Management System sandbox credentials were assigned for connection setup and testing. Affiliate link update and creation functionality met expected mockups.
+
+Layout and Access Control
+Field management practices were addressed to avoid unexpected layout changes. Affiliate link creation access was restricted to business managers and operations.
+
+Backlog Cleanup and Budget
+Out-of-scope tickets from old project plans were removed from the working board. Project budget limits and live date adjustments were noted for next week.
+
+
+Decisions
+Aligned
+* Protocol for handling client feedback Create a tracking card for incoming client feedback and evaluate it against existing requirements rather than actioning it immediately.
+* Affiliate link custom styling deferral Defer custom LWC styling for affiliate link borders and treat it as a future enhancement rather than addressing it currently.
+* Field creation page layout standard Uncheck automatic page layout addition for all new fields and intentionally place them later to prevent unintended client bug reports.
+* Closure of out-of-scope working board tickets Close out the legacy out-of-scope tickets on the working board since they are no longer relevant to current development.
+* Permission management approach during build Rely on permission sets for feature deployments during the build phase while postponing a full profile review and bulk cleanup until go-live.
+* Deprecate Brand Manager Visibility Requirements The team agreed to place the brand manager deal and deal rep assignment visibility ticket into the permissions and access epic to tackle later.
+* Rework Banned Referer Ticket Scope The team agreed to rework the banned referer ticket to focus on surfacing signups instead of adding logic to the signup flow, placing it in the backlog.
+* Adopt Line-by-Line Document Tracking The team agreed to use the feedback document by crossing off items line by line as they are built or resolved to maintain a clear loop.
+* Classify Appointment Absence as Well-being Leave Taryn will mark her upcoming appointment time off as well-being leave since she cannot make up the hours elsewhere.
+* Post Technical Questions in Channel The team agreed to post technical ticket questions in the shared team channel rather than direct messaging individual members.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Update Credentials: Move the sandbox credentials currently in Slack to the secure 1Password vault.
+* [Cedrick Infantado] Connect Sandbox: Configure the sandbox credential connection to enable integration.
+* [Cedrick Infantado] Test Payload: Send a sample test payload to validate the connection.
+* [Kobi Kunasekaran] Update Integration Ticket: Add information about the integration user to the relevant ticket.
+* [Cedrick Infantado] Remove UI Border: Remove the hardcoded border from the affiliate link component.
+* [Cedrick Infantado] Test Affiliate Functionality: Test affiliate link functionality and row deletion from the perspective of a user profile.
+* [Cedrick Infantado] Update Auto-number Prefix: Change the object auto-number prefix to Link.
+* [Cedrick Infantado] Update Link Layout: Expose the link code field on the link information layout.
+* [Taryn Reithofer] Clean Backlog: Close the obsolete backlog tickets that are no longer relevant.
+* [Cedrick Infantado] Fix Referral Layout: Investigate and resolve the referral creation issue where the old page layout appears instead of the new lightning layout.
+* [Cedrick Infantado] Test ticket access: Test the ticket functionality by removing access for creating operator, partner, and player record types. Verify that the screen behaves as expected with these restrictions.
+* [Cedrick Infantado] Test profile access: Remove specific permissions during testing to ensure that the test user profile cannot access restricted record types. Validate that the security controls function correctly at the profile level.
+* [Taryn Reithofer] Clarify market requirements: Consult with the client to clarify if the supported markets field requires manual maintenance or an automated synchronization process. Resolve the ambiguity to determine the implementation approach.
+* [Taryn Reithofer] Create sample market list: Assemble a sample set of Canadian and US market options for the supported markets picklist. Limit the selection to a handful of entries to demonstrate the display format effectively.
+* [Kobi Kunasekaran] Queue tickets: Queue the remaining project tickets for the upcoming work schedule. Send a notification to Taryn once these items have been added to the tracker.
+* [Taryn Reithofer] Test search functionality: Login as the user Joyce to verify the search functionality and ensure the correct record pages are visible. Confirm whether the expected results appear as intended.
+* [Taryn Reithofer] Implement related list: Build the operator relationship related list on the partner record page. Implement this feature by mirroring existing patterns used for partner assignments.
+* [Taryn Reithofer] Create permissions epic: Create a new epic for permissions and access in Jira. Include the deal assignment control and link editing tasks within this category for future resolution.
+* [Taryn Reithofer] Link fraud ticket: Append the fraud flagging ticket information to the existing feedback document. Link the ticket properly to close the loop on this requirement.
+* [Taryn Reithofer] Communicate task completion: Send Slack updates or short video walkthroughs to the client upon completing workflow tasks. Provide these demonstrations to confirm functionality and close out open tickets.
+* [Kobi Kunasekaran] Finish discovery: Complete the discovery phase for the project.
+* [Kobi Kunasekaran] Document requirements: Compile all project requirements and user stories into a workable format.
+* [Kobi Kunasekaran] Discuss budget: Talk to Emily regarding the current project budget and project hours.
+* [Kobi Kunasekaran] Decide live date: Determine the official project live date by next week.
+* [Taryn Reithofer] Address feedback: Review the feedback from yesterday and implement any straightforward tasks.
+* [Taryn Reithofer] Post technical questions: Share technical questions in the team channel to receive support from the team.
+
+
+
+Details
+* Project Go-Live Target and Feedback Management: Kobi Kunasekaran opened the meeting by discussing their weekly sync at discovery, stating that the target go-live date of November 1st is highly unrealistic. Kobi emphasized the need to prioritize ruthlessly, cut optional elements, and focus on efficiency. Regarding feedback from Wagertech, Kobi instructed the team not to action feedback immediately, but instead to create a card and evaluate its importance and fit later (00:00:28).
+* Salesforce API Credentials and CMS Integration Setup: Kobi Kunasekaran announced that the team finally received the sandbox credentials for the Customer Management System integration and assigned a ticket to Cedrick Infantado to set up the connection using credentials shared in Slack, which Kobi plans to move to OnePassword later (00:01:48). Kobi noted that testing the payload should use random data based on documentation to ensure connections work independently of slow turnaround times from the external development team (00:02:47). Additionally, Kobi discussed reusing the existing integration user for sending data out or determining if a separate one is needed, while noting that security rules regarding plain-text sandbox credentials in chat can be ignored for sandbox environments (00:05:20).
+* Affiliate Links Functionality Demonstration: Cedrick Infantado shared their screen to demonstrate the update and creation functionality for affiliate links, showing how users can click an edit button to view, add, or activate links with a toast notification upon saving (00:07:16). Kobi Kunasekaran and Cedrick Infantado discussed that link codes currently lack uniqueness validation, and while direct row deletion is straightforward, adding confirmation logic would increase complexity (00:09:01). Kobi confirmed that current functionality meets expected mockups without requiring complex deletion validations (00:10:01).
+* Affiliate Links User Interface and Spacing: Cedrick Infantado and Kobi Kunasekaran reviewed the UI layout of the affiliate links, noting that hardcoded borders and white space padding between cards could be adjusted (00:11:10). Cedrick mentioned that overriding CSS using Lightning Web Components could match mockups more closely, but Kobi decided against it to avoid unnecessary complexity (00:13:01). Kobi concluded that the current implementation is functionally great, and any Lightning Web Component styling adjustments should be treated as a future enhancement (00:14:19).
+* Page Layout Field Management and Client Expectations: Kobi Kunasekaran addressed an unrequested completion date field added to a page layout by Cedrick Infantado, advising the team never to automatically add new fields to page layouts by default (00:15:22). Kobi explained that Wagertech representative Emily frequently checks the system at random times and raises unexpected layout changes as bugs (00:17:27). Kobi instructed the team to keep necessary backend fields hidden or place them under a dedicated system admin tab rather than exposing them on main user interfaces (00:16:29) (00:18:20).
+* Affiliate Link Object Prefix and Layout Redundancy: Cedrick Infantado and Taryn Reithofer identified that the auto-number prefix for the affiliate link object was incorrectly set to "TL", which Taryn and Kobi Kunasekaran agreed to update to "lnk" to match mockups (00:20:17). The team also discussed whether link codes and deal fields shown in the highlights panel were redundant if omitted from the link information section, with Taryn explaining they were intentionally omitted to reduce clutter, though Kobi noted they are easy to add back if requested (00:21:31).
+* Access Control and Permissions for Affiliate Links: Kobi Kunasekaran clarified that sales reps should not have access to create or edit affiliate links, which should be restricted to business managers and operations (00:23:34). Taryn Reithofer proposed profile-based visibility rules, but Kobi explained that permission sets and permission set groups are preferred for deployments to avoid manual profile updates (00:24:29). Kobi instructed the team to implement temporary visibility restrictions based on sales rep profiles for now, planning a full security review of permissions prior to go-live (00:25:58).
+* Backlog Cleanup of Out-of-Scope Tickets: Taryn Reithofer and Kobi Kunasekaran discussed backlog maintenance, noting that roughly 14 out-of-scope tickets created from old Asana project plans are no longer relevant. Kobi instructed Taryn to close out these tickets with a note explaining they are being removed from the working board, streamlining the backlog (00:30:25).
+* Referral Creation Layout Bug Investigation: Kobi Kunasekaran highlighted a bug where clicking new referral from a screen flow displays an old layout instead of the updated Lightning record page (00:32:17). Cedrick Infantado explained that this is a known challenge stemming from the transition from Aura to Lightning Web Component frameworks, suggesting they may need to update the classic page layout (00:36:22). Kobi suggested that restricting sales rep profile access so they cannot manually create operator, partner, or player records might naturally resolve the screen display issue, and Cedrick agreed to test this solution (00:38:13).
+* Test User Configuration and Task Hand-off: Kobi Kunasekaran and Cedrick Infantado reviewed test user setups, noting that Jared serves as a test user with three of the four permission sets assigned (00:39:20). Kobi directed Cedrick to drop off the call to focus on testing affiliate links, checking the referral creation bug, and configuring the Customer Management System integration, while Kobi prepared to queue up the remaining tasks (00:40:41).
+* Operator Supported Markets Field Requirements: Taryn Reithofer and Kobi Kunasekaran discussed the operator supported markets picklist field, addressing whether it should be manually maintained or autosynced (00:43:25). Kobi questioned the necessity and complexity of having a massive multi-select list of roughly 70 global market options on operator records. Kobi instructed Taryn to clarify the business intent directly with Emily via a quick call, suggesting they use a small sample of picklist options rather than manually inputting all values unless explicitly required (00:49:43) (00:53:45).
+* User Perspective Testing via Salesforce Inspector: Kobi Kunasekaran demonstrated to Taryn Reithofer how to test system functionality from a specific user's perspective, such as Joyce, by using Salesforce Inspector to launch an incognito session logged in as that user, ensuring accurate troubleshooting without manual workarounds (00:56:21).
+
+
+* Partner Page Operator Relationship List and Ticket 392: Kobi Kunasekaran confirmed that searching for Lena's record page from Joyce's account worked properly. Taryn Reithofer stated an intent to add the operator relationship related list on the partner page, mirroring prior work done by Cedric. Regarding ticket 392 concerning brand manager visibility of deal and deal rep assignment records, Kobi Kunasekaran explained that brand managers currently lack sharing rules to view these records tied to reps (00:58:22). Taryn Reithofer identified this as client feedback. Kobi Kunasekaran recommended moving ticket 392 to the backlog under a permissions and access epic rather than testing immediately, because setting up a brand manager user with correct credentials would delay testing and create unnecessary work (01:00:05).
+
+
+* Brand Ambassador Players Related List Deprioritization: Taryn Reithofer mentioned waiting on Emily to determine if the brand ambassador players list is needed on the record page, noting that search functionality is not possible due to a fancy layout. Kobi Kunasekaran and Taryn Reithofer agreed to deprioritize this list before launch and categorize it under the permissions and access epic (01:01:27).
+* Signup Flow Banned Referrals and Reporting: Kobi Kunasekaran clarified that users can already select a banned referral in the signup flow without being blocked, meaning no extra logic changes are required (01:02:29). Addressing ticket 75 regarding banned referrers, Kobi Kunasekaran proposed deprioritizing it and reworking the ticket to focus purely on surfacing a report or notification for signups with banned or paused referrers, as Emily noted it creates a signal. Taryn Reithofer confirmed they had not started the ticket yet, and Kobi Kunasekaran suggested placing it in the backlog for categorization following discovery (01:03:48).
+
+
+* Fraud Flagging Status and Google Document Feedback Tracking: Kobi Kunasekaran confirmed that ticket 165 enabling fraud flagging at the new status should be closed off, as Cedric already implemented it in a separate ticket based on Emily's documents. Taryn Reithofer agreed to append and link it to ticket 165 (01:06:27). To manage ongoing feedback, Kobi Kunasekaran and Taryn Reithofer agreed to cross items off line-by-line directly in Emily's Google Doc rather than relying solely on comments, ensuring a clear record of resolved items (01:07:50).
+
+
+* Client Communication and Workload Management: Kobi Kunasekaran advised Taryn Reithofer to use short Loom videos shared via Slack to communicate completed functionalities to clients, replacing heavy documentation for smaller updates (01:10:47). Taryn Reithofer expressed feeling overwhelmed by Jira tasks and missing parts of company meetings, prompting a discussion on time management (01:11:52). Kobi Kunasekaran recommended reviewing completed items after morning standups, sending communications immediately, and reserving afternoons for maker time (01:12:46). Taryn Reithofer shared their typical schedule of morning building and afternoon administrative tasks (01:15:00).
+
+
+* Personal Schedule and Consulting Work Hours: Taryn Reithofer noted a personal appointment in Burlington requiring absence from their desk from 1:45 p.m. to 2:30 p.m. and discussed logging it as well-being or vacation time since hours outside 9:00 a.m. to 5:00 p.m. are physically unavailable (01:16:05). Kobi Kunasekaran acknowledged the realities of consulting hours and client demands across different time zones (01:18:18) (01:20:18). Taryn Reithofer reflected on the startup nature of the consultancy, while Kobi Kunasekaran mentioned ongoing scaling efforts such as Q4 24-hour support teams (01:21:09).
+* Project Budget and Live Date Review: Kobi Kunasekaran raised concerns that the project has reached the top end of the budget for Wagertech due to continuous additions, with weekly hours increasing from 40 up to 60+ (01:23:08). Kobi Kunasekaran stated they plan to address potential adjustments to the live date by next week after completing discovery and organizing user stories (01:24:12).
+* Post-Meeting Workflow and Technical Ticket Collaboration: Kobi Kunasekaran directed Taryn Reithofer to post technical tickets into the shared Slack channel rather than messaging Cedric directly, ensuring team visibility and preventing interruptions to Cedric's maker time (01:25:12). Kobi Kunasekaran noted that Lita understands the business context from early on, and documentation efforts will help team members pick up tasks smoothly (01:26:06).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 24, 2026
+Wagertech Internal Sync - Transcript
+00:00:28
+
+Taryn Reithofer: Morning.
+Kobi Kunasekaran: All right. How you doing?
+Taryn Reithofer: I am good. How are you?
+Kobi Kunasekaran: I'm doing all right.
+Cedrick Infantado: Little rain.
+Kobi Kunasekaran: Morning. Okay. Lots to talk about today. Um, so we had our weekly sync at discovery yesterday. Um, I think you were all there. So,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: um, I don't need to go too much into it, but essentially we're still targeting a November first uh, go live, which is, uh, highly unrealistic. Uh, but we're going to we're going to see what, uh, how how close we can get to it. Um, and it just means we just going to have to be like very efficient with our time and uh where we focus and like prioritize ruthlessly. Uh, cut out anything that's like optional or not necessary. So, um, just heads up like that that just mean like you know that like Wagertechis going to keep asking and providing feedback, but we don't need to start actioning any of it right away.
+
+
+00:01:48
+
+Kobi Kunasekaran: um just create a card uh and then we will we get back to them once we have a chance to like see how it fits in with the rest and if it's like a dealbreaker or anything like that. Um and that's generally what you want to do is like you want to just confirm those information when the feedback comes in like is it like how important is it? Um if it's not already like you know you can't determine that from whatever they're asking for. So, um yeah, and then we did finally get the credentials for uh for the sandbox so we can start doing the CMS integration. So, that's going to be a pretty critical piece. Um so, Cedric, I'm actually going to cut the call with you because I I'm still working on all of the other tickets. There's like 40 or so that um need to work through, but I want to get the at least getting the connection and sending some test payload and making sure that's unblocked out of the way because that has a dependency on their team.
+
+
+00:02:47
+
+Kobi Kunasekaran: Um so let me just open up this ticket and then that way can get you going with it. Okay, I I kind of went through uh quite a bit of this, but like feel free to not follow this exact design um in terms of like what it's suggesting, but I think uh I'm I'm no expert on how Salesforce does the API calls and stuff um as in like from a developer perspective. So, I leave that to you. Um but it looks it looks roughly correct like what we should be doing. Um, so this is the first one I'm going to assign over to you um to pick up. We'll go through like what's on your plate um after this, but um this is the first one um essentially to set up the uh set up the credential with the sandbox key and everything that they've shared in Slack. I'm going to move that to uh one password um later today. Um but yeah, just for now like let's we can work off of Slack. Um but essentially this is to get the connection.
+
+
+00:04:00
+
+Kobi Kunasekaran: Um and I think I don't think I pushed the ticket. There's another one to test the payload payload as well. Um if like the payload what should be in it is defined in their uh in the document that they shared. Um so you can just make up some random data to test it to make sure that there's a connection. even if it like errors out or something at least it's not erroring out because of credentials it's airing out because like the value isn't correct that's okay. So um if you're able to validate that um all of that is good then um I'll start queuing up the rest uh throughout the day today and uh we can work through that to get uh get the integration going and start pushing deals over to CMS.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Okay. Um, did you have any questions or anything from the call yesterday or what uh anything about the CMS integration uh so far from like the initial investigations and stuff that you did?
+Cedrick Infantado: Um actually I don't have question because I I think uh once I've uh gone through this user stories and started to work on this that's where I would find um the things that we need to uh clarify with them.
+
+
+00:05:20
+
+Cedrick Infantado: So yeah,
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: red no don't
+Kobi Kunasekaran: Okay. Um, okay. For the integration user, um, I I'll update the ticket to include that, but we are using, uh, we already have an integration user set up which they're using to send the SLC clicks into Salesforce. let me know if we can just reuse the same one to send data out because that integration user should have all the access anyways. Um if for whatever reason we need a separate one then we can talk about it but uh uh but yeah for now just make sure that it it's working. able to send data uh send a sample payload and then we can start hooking it up to the actual deals object. and everything afterwards. Um, pod always freaks out about anytime there's like open credentials in black or in plain text.
+Taryn Reithofer: Amen.
+Kobi Kunasekaran: So,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: if you see that throughout the tickets, just ignore it. It's fine. We're working with sandbox stuff. It's not a big deal.
+
+
+00:06:23
+
+Kobi Kunasekaran: Um, we'll we'll we'll clean it up later. Uh, we're going to rotate them anyways. And uh when you go to production, maybe we need to tell Way to send it to us through a more secure way.
+Cedrick Infantado: Heat.
+Kobi Kunasekaran: But I don't think they care.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: So long as we do our due diligence,
+Cedrick Infantado: dispersing a lot of flags a credential on the chat. So yeah.
+Kobi Kunasekaran: it keeps like creating so many tickets just to address that. Like every time I keep telling it like, "Don't worry about it. It's just sandbox." But it's like no, no, no. It's part of the rules. So I'm like, "All right, fine." Um yeah, so this is going to be your main one. Um but let's go through like your backlog and what you have going on and what we were able to do yesterday and then uh we can see how if we need to adjust any priorities and sorry if I didn't mention this earlier like I want to get this out of the way because like we are dependent on them.
+
+
+00:07:16
+
+Kobi Kunasekaran: So if we are blocked if something's not working um I like the turnaround time is very slow with them on the development side. So, I just want to get that out of the way so we can uh it's on us to complete the rest rather than the waiting on them.
+Taryn Reithofer: I'm just going to be right back really quick.
+Cedrick Infantado: I think okay
+Taryn Reithofer: I'm still going to listen though.
+Cedrick Infantado: uh for my uh uh for me sorry my voice not here uh for affiliate links. Um uh for this one I've already done this the update and creation of the uh affiliate links.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: Um let me just quickly share my screen so that I could show that functionality. Okay. Uh so here my uh here is my screen. So right now for this deal we have three links existing for this one. Uh and when we click the edit links or the button here it would show up all of those uh links. Then we could add some links here like they two say cup of one then uh activate.
+
+
+00:09:01
+
+Kobi Kunasekaran: Nice.
+Cedrick Infantado: So once I click next there would be a toast a field link link saved or change something like that and after that um the links will be uh will appear here and when they click again the edit links all of the links will be here or existing links but we don't have any remove button for that one. So even if I remove this,
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: so there's no prevention for you to add and remove new uh additional rows for this one.
+Kobi Kunasekaran: Nice. Okay. And then sorry while you're doing the edit like you are able to activate the previous ones
+Cedrick Infantado: Yeah. If you want to activate,
+Kobi Kunasekaran: like are there any? Yeah.
+Cedrick Infantado: do you want to see this? Sure.
+Kobi Kunasekaran: Nice. Okay. Goes all active. Uh and then on the link code is there any validation right now for it to be unique or no?
+Cedrick Infantado: No,
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: there there's none.
+Kobi Kunasekaran: I don't Okay.
+
+
+00:10:01
+
+Cedrick Infantado: It is just a required field for for this form based on the
+Kobi Kunasekaran: I think that's that's I think that's what's expected.
+Cedrick Infantado: mockups.
+Kobi Kunasekaran: Uh but that I just want to confirm with them before we do it. So this is this is great actually. This is awesome.
+Cedrick Infantado: Yes. Yes.
+Kobi Kunasekaran: Uh, okay.
+Cedrick Infantado: I think the complexity will come in if uh if we if they decided to include the deletion part on this um this compiler.
+Kobi Kunasekaran: Yeah, cuz like what we went through yesterday was that Yeah. If they go to edit and then if they click on remove, I guess it's easy enough to delete if there's no confirmation needed, right? It's only if we need to do a confirmation that becomes complicated.
+Cedrick Infantado: Yeah. Yeah. If they want to straight up delete here uh remove the row here and then just
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: um commit it to the database then there's no any complexities on that that can be done easily. But yeah if we need validation that's when we need to iterate all of the lead of the um deleted rows and then confirm it with them.
+
+
+00:11:10
+
+Kobi Kunasekaran: Okay. And then this like this I guess obviously like preloads whatever is in the related record. So if you do edit the related record, it's going to update here as well, right?
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: You want to see it. Okay. Uh okay, nice. And then for the related records, we are able Yeah, I guess that was already like covered by Taryn.So the links themselves should be editable.
+Cedrick Infantado: Yeah. I think for no links it would just show up like this. A blank form single row width.
+Kobi Kunasekaran: Yes. Okay, this is awesome. Is there like I guess like the the little borders that we have the the boxes inside, we can't get rid of those, right? Like that's Yeah.
+Cedrick Infantado: This one that Yeah, of course. Um, I can actually it's hardcoded on the end. I just I can turn it Wait so that it won't show up.
+Kobi Kunasekaran: Yeah. And then that that way it'll be closer to like their actual mockup, right?
+
+
+00:12:09
+
+Kobi Kunasekaran: If we can.
+Cedrick Infantado: Okay, sure.
+Kobi Kunasekaran: If it's if it's not possible,
+Cedrick Infantado: I'll try. I'll try.
+Kobi Kunasekaran: then it's okay. Yeah.
+Cedrick Infantado: Maybe Salesforce prevents something. I'm not sure.
+Kobi Kunasekaran: Yeah. It's okay. It's not the end of the world.
+Cedrick Infantado: You know sales first
+Kobi Kunasekaran: Don't spend too much time on it. Not the end of the world because like functionally this is great, but if if possible, it'll be good.
+Cedrick Infantado: got
+Kobi Kunasekaran: Um, I don't see if we need to add the cuz they add some text there as well, but maybe we don't need to do anything with the text. That's just instructions in the mockup. Yeah, I think it's fine.
+Cedrick Infantado: something.
+Kobi Kunasekaran: I think Yeah, but I think the only feedback is like maybe the border if we can get rid of it. But again, not a big deal. Not the end of the world. Functionally, this is good. Um, right now if they want to delete, they can still go down to the list and delete from there.
+
+
+00:13:01
+
+Kobi Kunasekaran: Right, we didn't remove the button.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Perfect. Okay, so there's still a path for them to delete. If they want it added to the flow, then it's just going to add complexity and uh we'll have to decide on priority. Nice. This is awesome.
+Cedrick Infantado: Just to take note of this, even if I deleted the border here, um the layout would still come through like this or the spacing or put padding between them still would still like this separated. So, I'm not sure. uh I just take a a screenshot of it and let me know your feedback on that. But I I'm thinking right now it would feel like um it is uh there's a lot of space in between of our Yeah.
+Kobi Kunasekaran: white space. Uh, okay.
+Cedrick Infantado: And they might say they might say
+Kobi Kunasekaran: Okay. Let let me know.
+Cedrick Infantado: that
+Kobi Kunasekaran: Let me know what we can do to like make it make the UI a bit like visually pleasing. If not um then yeah like this is still like in terms of functionality and like for them to easily manage the links I think this is still uh meets the requirements
+
+
+00:14:19
+
+Cedrick Infantado: Yeah. Um, previously I I'm not sure because we need to prioritize things. Uh I'm not sure if I want to do that right now because uh we have we can pull in some LWC component to um change the CSS of this or to uh
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: override the CSS. Then we can make it uh the white space much smaller and then um remove the padding between the cards or the repeater. We can do that. But right now from the uh from what they uh they want to target I think this this important for them.
+Kobi Kunasekaran: Yeah, I I think so too. Right. I think like If we went the LWC route, we can probably mimic exactly what they have in their mock cut. But um it does add complexity. Uh so let's not let's not do that now. Let's treat that as like an enhancement for later if they want to uh if they want to go forward with it.
+Cedrick Infantado: Okay, sure.
+Kobi Kunasekaran: So this is good.
+
+
+00:15:22
+
+Kobi Kunasekaran: Um is there anything else left in terms of like the updating the records or anything that you think we need to do?
+Cedrick Infantado: Um I just need to test it on the users user perspective I think so that uh we can assure that it's working fine with them as well as the deletion on the row level here.
+Kobi Kunasekaran: Okay. Like log in as like uh one of the reps like the Okay,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: awesome. Yeah, that's a good idea because I don't know how much of the the object permissions are there for for the permission set. So yeah, let's do that. Uh, the other thing I actually want to mention because I noticed this yesterday. Um, can you go to a signup record, Cedric? Uh, and then yeah, just click on any one of them. Um the completion date that's there um was that part of uh was that in a ticket to add it to the layout or was this just added because um like we just went through creating the field and did an uncheck add to the layout.
+
+
+00:16:29
+
+Cedrick Infantado: Yeah. Uh, it's not on the story. I just added this for audit. So,
+Kobi Kunasekaran: Okay. Oh yeah, that's fine. So yeah, just I just want to mention like uh when we're adding new fields and stuff just by default, I know like we're used to just leave adding it to the page layout automatically, but I I do that all the time.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Um but with widget because they're so picky on the interface, um I don't I uncheck all of the like the page layout page and purposely and intentionally add it in afterwards as a an extra step. It is an extra step, but um it's better than uh unintentionally adding new
+Cedrick Infantado: What's
+Kobi Kunasekaran: fields to pages and then they're like, "What's going on? Why did this get added?" If you're doing testing though,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: uh you can put it under like more info so that it's hidden away from like the main user uh UI if that helps.
+Cedrick Infantado: Okay. Sure. Actually, I put it in intentionally.
+
+
+00:17:27
+
+Cedrick Infantado: So, my bad. I I Yeah, I'm used to also to uncheck everything on while creating fields. So, yeah. and then put it in the flexi page or like in record page. So yeah,
+Kobi Kunasekaran: It's it's it's not for every client like act and stuff like I I just leave it and then I go and like reorganize it later. But uh with wage tech because they're like testing at random times. It's not like a hey we're doing this and then here here's the handoff here's the testing. Uh Emily goes in at random times with the data test. So if uh she sees like things that are not supposed to be there, she'll raise it as like a bug as opposed to uh realizing that it's just temporary. So that's why I want to be mindful.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: So just general feedback for everyone,
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: but it's cool otherwise.
+Cedrick Infantado: I've also added some of the fields that I've created previously on the layout. Or should I remove that as well?
+
+
+00:18:20
+
+Cedrick Infantado: I think um
+Kobi Kunasekaran: Um yeah, if it's not like usually I try and call it out in the ticket uh if it needs to be added to the layout. So if it's not called out in the ticket um but the field is necessary for functionality generally just keep it behind the scenes. If you need it to quickly help with troubleshooting um honestly the best way is like maybe create a new tab hidden just for like our system admin user and then you can dump all the fields that we want in there. So then they won't see it only we will see it. Um, and we don't have to worry about like going back and cleaning it up cuz that can just be our view.
+Cedrick Infantado: Okay. uh like for example uh for player um system tab I've seen a lot of fields that that are technically for tracking so I've just added the uh some of the dates here because uh for me it makes sense to add it here but yeah I'm not sure if you think the same
+
+
+00:19:22
+
+Kobi Kunasekaran: I let's remove those and we'll add it back because the other fields they they were actually part of their
+Cedrick Infantado: thing
+Kobi Kunasekaran: mockup that's why they are there. So yes they are track like system fields but it was added intentionally from their mockup.
+Cedrick Infantado: or
+Kobi Kunasekaran: So like the status set date and all those things let's hide it for now.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: there is like if they want to see that uh we'll add it back in like whatever appropriate place um that makes sense which
+Cedrick Infantado: Okay. s***. I removed them.
+Kobi Kunasekaran: might just be here but again yeah I just don't want them to and I think less is better for Wagertechthan the other way around.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: Got him. Take photo of that.
+Kobi Kunasekaran: Uh but yeah, if if it's called out in the ticket, then obviously like add it to where it's called out in the ticket. Um but yeah, and like if you're not sure, just uh shoot a message.
+Cedrick Infantado: Okay.
+
+
+00:20:17
+
+Kobi Kunasekaran: Okay, awesome. Um love the progress on the edit links. I think that's a that's a really good uh really good win. Um, I believe Karen that wraps up affiliate link object, right? Is there anything else that's left either on your plate, my plate uh in terms of the record page or the functionality?
+Taryn Reithofer: Let me double check.
+Cedrick Infantado: actually for the link uh are we using the TL um prefix for this? I'm not sure if that's
+Taryn Reithofer: I don't know where that came from.
+Kobi Kunasekaran: as just the like the auto number field for the record that's like unique. I don't remember what they had in their mockup. Let me see what they had in their mockup.
+Taryn Reithofer: I think it was like link.
+Cedrick Infantado: It's L nk.
+Taryn Reithofer: Yeah. What does TL even stand for? Something like
+Kobi Kunasekaran: Is it is it a lot of work to change that
+Cedrick Infantado: No, we just need to update the object.
+Kobi Kunasekaran: object? Okay. Uh yeah, let's let's change it then.
+
+
+00:21:31
+
+Kobi Kunasekaran: I don't know where the other one came from cuz we created this object a while
+Cedrick Infantado: Uh and on the layout of the link uh for this one
+Kobi Kunasekaran: ago.
+Cedrick Infantado: as well for uh we don't have the link code exposed on the layout right now. I'm not sure if we want to do that, but yeah, little observation that I've seen yesterday.
+Kobi Kunasekaran: It's in the highlights, but I'm also looking at the mockup and yeah, it is it is showing in the mockup underneath the link ID as well. So, we should add that in. Active is good. The deal, can you go back to the other page?
+Cedrick Infantado: Sorry.
+Kobi Kunasekaran: Yeah, maybe both of them. Let's add them down below unless like that was intentional when the layout was updated.
+Taryn Reithofer: Sorry. Which one?
+Kobi Kunasekaran: So in the mockup um the link code and deal are also in the link information
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: section whereas here it's only in the highlights section and not in the link information.
+Taryn Reithofer: Uh yeah,
+
+
+00:22:36
+
+Kobi Kunasekaran: Was that intentional?
+Taryn Reithofer: I did that on purpose because I thought that that was redundant to have them stated so closely together.
+Kobi Kunasekaran: Okay, that's fair. Like that's what I figured. But uh
+Taryn Reithofer: Um, yeah, because mostly what what I'm gathering from our meetings is that the highlights panel is just like a quick glance type of check for, you know, the reps um when they're doing a lot of high volume work and working
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: fast. But I think with this nature is there's not a lot of fields to begin with to like get confused or you know so I think this should be fine.
+Kobi Kunasekaran: Okay,
+Taryn Reithofer: I mean either way if they want it back I think it's easy to put back.
+Kobi Kunasekaran: it's a quick fix.
+Taryn Reithofer: So
+Kobi Kunasekaran: Yeah. Okay, then. Yeah, Cedric, we can leave it as is. Um, I should actually mention another thing. We're talking about reps. U, technically reps aren't supposed to be creating or editing links in the first place.
+
+
+00:23:34
+
+Kobi Kunasekaran: So,
+Taryn Reithofer: this
+Kobi Kunasekaran: the testing we actually need to do is make sure that reps can't edit those links and can't access any of those functionalities. it is going to be uh I think it's a business managers. So I don't think we have a profile set up that's specifically for business manager but as long as ops can do it
+Taryn Reithofer: You're
+Kobi Kunasekaran: that's good enough for now. So, um, it's really like a negative test, like make sure that reps can't edit any of these things. And then uh you can we can wrap up the edit link functionality.
+Taryn Reithofer: But they can see it, right? Just not edit.
+Kobi Kunasekaran: They can they should be able to see the links. Yeah. Um they don't necessarily need to see the interface that you have Cedric for editing the links. Um so we can just hide the button for them. Um but like they they should be able to see the related list. They should be able to see the links u all of the information for the links under the deal.
+
+
+00:24:29
+
+Kobi Kunasekaran: Um but they shouldn't be able to edit any of those things. Okay. So like if you guys remember like we have the four permission sets. So whatever like edit access uh we just assign it to like the I think it was business manager and above should be okay. Uh,
+Taryn Reithofer: for visibility. I was just doing if the profile profile name does not equal Wagertechsales
+Kobi Kunasekaran: that's also okay because we we haven't like we haven't relied on uh profile very much. Like it is it is common for us to create like a profile for managers, profile for sales reps, profile for um like admins. Like there's the one that comes out of the box for system admin. Uh permission sets tend to be a bit easier when we're building features on top of whatever build um because it's easier to deploy than updating profiles. The profile update tends to be a manual process. uh part of deployment.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Whereas we can just update the permission set and sorry we can we can have a permission set group and create a new permission set specifically for like a new functionality and add it to the respective group and then call it a day.
+
+
+00:25:58
+
+Kobi Kunasekaran: We don't have to go through and add uh review all the profiles and uh manually add functionality. So that tend tended to work a bit better. So for visibility perspective like leave it as it is for now. Like I think just if it's not sales trap hide it that's okay. U we just have to remember that when we start preparing for go live like we're going to go through all these permission do do a full review. Um and at that time we can we can clean all these up and make sure that uh reps don't have any access to edit any of these fields that they shouldn't have or visible visibility access to things that they shouldn't have. We can we can clean it up at that point.
+Taryn Reithofer: manager. Oh, I see there's description brand. That's confusing.
+Kobi Kunasekaran: I think the best way it's going to be like we'll we'll we can set up like a profile for each role and then we'll just go through the all the functionality and make a list of things that we need to change and then do a big bulk range in the permissions and permissions.
+
+
+00:27:02
+
+Kobi Kunasekaran: sense. Okay, so that'll be like think of that as like a cleanup that we'll do with them. Uh but for now, let's work with the permission sets that we have as we're building so that uh I I want to make sure that they don't raise it as a bug. So whatever we can do to prevent that for now, that'll be good because then that's just ongoing conversation about things that's already released.
+Taryn Reithofer: Yep. get the Okay,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: so um going back to your question on what's left for affiliate link. Um Oh, I just had it. Where? Um, so there's wager 83 waiting on Oh, it says requirements. Oh,
+Kobi Kunasekaran: That's major 83
+Taryn Reithofer: pausing on this for now until CMS Epic is built. That's what I had my note two days ago.
+Kobi Kunasekaran: deal rep assignment related list.
+Taryn Reithofer: Um,
+Kobi Kunasekaran: Okay. Yeah,
+Taryn Reithofer: yeah.
+Kobi Kunasekaran: that one we don't need to do right now.
+Taryn Reithofer: And then my date.
+
+
+00:28:23
+
+Taryn Reithofer: I'm just in the backlog right now cuz there's nothing in our script one. Uh that's out of scope. Oh. Oh, this one's add a VIP flag.
+Kobi Kunasekaran: Which one are you talking about?
+Taryn Reithofer: That one came out of yesterday's feedback.
+Kobi Kunasekaran: So, you're not sharing your screen.
+Taryn Reithofer: Um,
+Kobi Kunasekaran: If you want to share screen, the VIP stuff, uh, we don't worry about for now. So, we'll treat that as a as an epic on its own.
+Taryn Reithofer: yeah.
+Kobi Kunasekaran: So,
+Taryn Reithofer: Mhm. Yeah. So,
+Kobi Kunasekaran: I'm just uh I just want to know about like anything that was like from the original mockup and any
+Taryn Reithofer: that's it then?
+Kobi Kunasekaran: feedback that they might have given us since.
+Taryn Reithofer: No, that's it.
+Kobi Kunasekaran: That's it.
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: Okay,
+Taryn Reithofer: Oh, right. In progress. Yeah. Oh, for the for the feedback, all the feedback came from yesterday because I haven't done a walk through document.
+Kobi Kunasekaran: that's fine.
+Taryn Reithofer: So,
+
+
+00:29:25
+
+Kobi Kunasekaran: Yeah. Uh but I think I don't think they went into affiliate links yesterday. I was I was talking about like if there was anything else before yesterday that might have come through.
+Taryn Reithofer: no.
+Kobi Kunasekaran: Okay, then that's fine.
+Taryn Reithofer: No.
+Kobi Kunasekaran: Okay, so then affiliate links is good. Um, I think we just need to do a pass on the deals. Um, I know we talked about like the retire and replace. That's I'm actually scoping that as part of the CMS integration changes. So, I think it makes sense to wait until some of those are scoped out and then let them know about like the whole deal and edit links experience is what I'm thinking. So, we can just put this one in review whenever you're done, Cedric. and uh we'll come back and kind of package that all together as a functionality and share it with them.
+Taryn Reithofer: Um,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: also I this morning I noticed that you had built um or whoever uh made the out of scope um tickets that just have like one sentence, you know, descriptors.
+
+
+00:30:25
+
+Kobi Kunasekaran: This is me.
+Taryn Reithofer: So I Yeah.
+Kobi Kunasekaran: Oh yes. Yeah. This is actually from Asana. We had this at like a section at the bottom.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: right,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: June. Okay. Do you want to keep these then or just get rid of them because I just made an an epic to hold them all?
+Kobi Kunasekaran: Uh honestly, just just close them off because it's no longer relevant.
+Taryn Reithofer: Beautiful.
+Kobi Kunasekaran: Like affiliate link generation, subscription workflows,
+Taryn Reithofer: Yeah. Yeah.
+Kobi Kunasekaran: like we're doing that already.
+Taryn Reithofer: Yeah. Okay. Awesome.
+Kobi Kunasekaran: So yeah.
+Taryn Reithofer: So, that'll that was that's 14 tickets that are going to leave our backlog, which is nice.
+Kobi Kunasekaran: Amazing. Okay. Yeah. The reason like we treated the Asana project as like the project plan um and that's how we showed them at the timeline. So these were added there to explicitly call out things that were out of scope from our uh backlog.
+
+
+00:31:12
+
+Kobi Kunasekaran: But I think we're we've since started changing a lot of scopes.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: So um you don't have to delete it.
+Taryn Reithofer: I don't have permission to delete.
+Kobi Kunasekaran: Just close it. Close it.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: And um if if it asks for a message um just say removing it from the working board or something like that.
+Taryn Reithofer: Okay,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: easy. Okay, so uh yeah, this morning I just I was doing a lot of grooming. Um
+Kobi Kunasekaran: Okay. Sorry. Before before I get to you because I I want to talk about the feedback from yesterday. Um Cedric, did you have anything else?
+Taryn Reithofer: yeah.
+Kobi Kunasekaran: Uh any other updates or anything else you're blocked on?
+Cedrick Infantado: Um no I think uh I've got another ticket for the bug of the uh for creation on your referral. So uh I think I will be looking at that uh after testing the affiliate link. So yeah then pro proceed to CMS integration or the the configuration of that part of the CSM integration.
+
+
+00:32:17
+
+Cedrick Infantado: So yeah,
+Kobi Kunasekaran: Oh,
+Cedrick Infantado: I don't have anything right now.
+Kobi Kunasekaran: this is this This for the uh the add new right turn.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: Yeah, actually uh honestly I feel like this is something that we cannot do because of the out of the box of Salesforce. We've tried to override this the same thing before but the bottom but yeah we've tried this
+Kobi Kunasekaran: So there's there's two parts to this Cedric. One is um uh I think it might just be like a setting or something. So, uh I don't have the way to check.
+Taryn Reithofer: It was fixing the active status and then and then it creeped into P. layout being different entirely, right?
+Kobi Kunasekaran: Yeah. Like so the remember yesterday when we went through and uh when we we tried to create the new referral from the uh from the related list sorry not related list from the signup page like here uh when we went to new account and created the referral it was showing us a different layout like the old layout with the
+
+
+00:33:30
+
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: account and everything. So, we fixed this in the call yesterday, but then I noticed like during our demo,
+Taryn Reithofer: there.
+Kobi Kunasekaran: if I go to the screen flow and then click on new, this one is still showing the old one. So,
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: this is the one I like this is the primary goal of the investigation like
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: what's going on with this and how do we update this?
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: So, this also shows the correct layout.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: And then if if there's a way to get rid of this screen to auto default to refer somewhere, that's a bonus. But I I like we don't need to spend a lot of time on it. I I just want to ask because from your experience like because this is not a first time issue like I'm sure a lot of people run into this issue. So
+Cedrick Infantado: Yeah. And this is some of the weird things about Salesforce.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: cannot configure that one actually unless it is invoked from a button or something that wherein
+
+
+00:34:19
+
+Kobi Kunasekaran: yeah.
+Cedrick Infantado: we can define the pre um the default values for that one. I'll check if we have something on the back end for that that can override. Um I have um some experience that we can override it through apex class def defining everything on that.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: But let me check if we have similar on this one.
+Kobi Kunasekaran: Okay. the I guess the the button approach the question about the button approach like yes like we can disable this altogether I believe right in the lookup field where they don't go through and then we can
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: create a button but if I create a button for like ad referral here like I can't do that through the screen flow in a seamless way right it's like it's going to be janky like it's going to be somewhere
+Cedrick Infantado: Yes.
+Taryn Reithofer: Why do they if there's so many other different avenues of adding a new refer we just disable it in this view and then just
+Kobi Kunasekaran: because it's it's seamless, right? Because if I if I do it here, um so as I'm logging the sign up, I create the referral here and then once I create the refer, it should technically link it back to the record as well.
+
+
+00:35:31
+
+Taryn Reithofer: right?
+Kobi Kunasekaran: God damn it,
+Taryn Reithofer: But we have to change the active status issue.
+Kobi Kunasekaran: this is not going to work. No, no. Yes. Yes. That that we still need to fix. I think that one we have to see because uh may maybe like that's just something that needs to be updated on the layout. But I'm talking about like why do they need to create a new referral as part of this workflow? Uh it is because like the other way is you go you go click like new referral somewhere else and then you have to create And then you have to come in here and usually you have to re refresh the page and then search for it so it shows up which is a long process whereas they can just seamlessly do it in
+Taryn Reithofer: Okay.
+Cedrick Infantado: Done.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: line.
+Taryn Reithofer: So, I'm confused where that So, when you go to log sign up and then new refer, where does that live in the back end to edit?
+
+
+00:36:22
+
+Kobi Kunasekaran: Yeah. This I don't know.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: I don't know.
+Taryn Reithofer: okay.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: This is what I'm hoping Cedrickcan figure out.
+Taryn Reithofer: Okay. Okay.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Cool.
+Kobi Kunasekaran: So that that this is the primary thing we want to make sure that this when we go click on new referral and uh go through this flow it shows the lightning record page this new referral instead
+Taryn Reithofer: Yeah. Yeah.
+Cedrick Infantado: Yeah, I I feel like this is something that um that that was
+Kobi Kunasekaran: of this one.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: left out during the migration from Aura framework to LWC framework. So yeah,
+Kobi Kunasekaran: Oh, you're saying like this might be like a hard limit at this point because of that
+Cedrick Infantado: I feel like if if that's the case,
+Kobi Kunasekaran: transition.
+Cedrick Infantado: then we have to update the classic page layout for this one. I'll check.
+Kobi Kunasekaran: Okay,
+Cedrick Infantado: I'll check.
+Kobi Kunasekaran: which is also an acceptable solution by the way like if if if we can't avoid it
+
+
+00:37:08
+
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: showing the create new uh and the page layout is just the the classic page layout. Um, and all we need to do is re like update the classic page layout to match the lightning page layout. Like that is also an acceptable solution.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: The point is we need to make sure these fields are showing up when we create a new refer from all
+Cedrick Infantado: I feel like it's
+Kobi Kunasekaran: avenues.
+Taryn Reithofer: Mhm.
+Cedrick Infantado: Okay, sure. I'll check that out.
+Kobi Kunasekaran: Okay. Awesome. Okay. Yeah. And if the the whole like uh removing the record page selection, that's a bonus. like if you can do it, if there's a way, like a quick search. If not, don't worry about it. We'll just document it and uh we'll let them know that it's not possible. Um and then uh it's honestly, man, it's it's not that hard to but users like I get it.
+Cedrick Infantado: Maybe they were
+Kobi Kunasekaran: I get the concern like you you actually like if we prevent reps or not reps.
+
+
+00:38:13
+
+Kobi Kunasekaran: Yeah, reps would be the ones creating referrals if we remove access for them to create operator, partner or player. Do you think the screen will disappear?
+Cedrick Infantado: Yep.
+Kobi Kunasekaran: Okay, maybe that's that's the way we do it cuz technically they shouldn't be creating any of these things manually anyways,
+Cedrick Infantado: Yeah. Yeah.
+Kobi Kunasekaran: right? Okay.
+Cedrick Infantado: Cool.
+Kobi Kunasekaran: Can you can you test that out as part of the ticket or like break it off into a separate ticket if possible?
+Cedrick Infantado: Yeah, I think I can do it in the same ticket. I'll just uh test that out.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: But I'm around 90% sure that it would work. It would be directed to the repair if uh if that's the only record type that they have.
+Kobi Kunasekaran: Okay. Yeah, that I I think that that would be a that that'll work. That'll work. Then we don't need to do any like hack or anything like that. Um from a customer perspective, like from a ops and everybody else, they still have the option to choose uh different record types, but I think like we just say that's a hard limit.
+
+
+00:39:20
+
+Cedrick Infantado: Yeah. But uh but those uh the record dev should live on the profile level or that that one I'll check because we're you are reusing the the permission set for other users, right? So we have to control it on the per uh profile side of things. Yeah.
+Kobi Kunasekaran: Yes. Yeah. Because we have even for the test user that we've set up for Jared, um I think we actually gave him three out of the four permissions. So if uh you can remove these two during testing if you need to like test to make sure that they're not able to access it.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Um and if that means like you know removing access to creating uh creating records for those three record types from the Wagertechsales rep profile um I think that's fine and then we can just make sure that these people have access to create it from the per permission set.
+Cedrick Infantado: Okay,
+Taryn Reithofer: It's Jared.
+Cedrick Infantado: thanks.
+Kobi Kunasekaran: just random user that we picked as the as the test user.
+
+
+00:40:41
+
+Kobi Kunasekaran: Okay, cool. Sorry. Uh so you have this one. Was there anything else? Are are you clear on the requirements for this so that it's not like you know you don't have to spend too much time on the Yeah.
+Cedrick Infantado: Yeah, I'm good with this.
+Kobi Kunasekaran: Anything else? Any anything else? You're blocked on any other questions.
+Cedrick Infantado: Um I think um no I don't have any questions there or bloggers on the
+Taryn Reithofer: Hey,
+Cedrick Infantado: end.
+Taryn Reithofer: let's go.
+Kobi Kunasekaran: Okay, awesome. Okay, so feel free to drop off then. Um, I will shoot you a message as I add the other other tickets to Q. Um, but I think I have a feeling the CMS integration and these things will probably be all you might not plan for today. Um, and then yeah, I'll cube the rest so we can power through it uh over the next uh next few days.
+Cedrick Infantado: Okay,
+Kobi Kunasekaran: Awesome. Thanks,
+Cedrick Infantado: thank you.
+Kobi Kunasekaran: Cedrick.
+Cedrick Infantado: Thank you.
+
+
+00:41:41
+
+Taryn Reithofer: Have a good day,
+Kobi Kunasekaran: Um,
+Taryn Reithofer: Cedric.
+Cedrick Infantado: Bye-bye.
+Taryn Reithofer: Or night.
+Cedrick Infantado: Good luck.
+Taryn Reithofer: Thank good luck. Thanks. Bye.
+Kobi Kunasekaran: good luck.
+Taryn Reithofer: I love that.
+Kobi Kunasekaran: All right, Taryn.Thanks, Cedric. I mean, feel free Oh, I was gonna say feel free to stick around if you want to, but figured I'll save time.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um, Okay. What are what are we what are we going to turn? What do we have up next? What do we wrap up yesterday?
+Taryn Reithofer: Um, okay. So, as you know, I created uh all those tickets minus one yesterday. Right now, they're all not assigned.
+Kobi Kunasekaran: Okay,
+Taryn Reithofer: Um,
+Kobi Kunasekaran: that's fine.
+Taryn Reithofer: okay. That's good to just leave them unassigned for now.
+Kobi Kunasekaran: leave it unassigned because I actually want to go through it with you to see which ones we can queue up for this week and uh which ones like how to assign them so that uh we can maximize like everyone's uh skill sets.
+
+
+00:42:42
+
+Taryn Reithofer: Oh, okay. Oh, okay. Yeah, cuz I already grabbed one because I was like, "Oh, okay. Hide camp for phase one launch." Easy, right? So,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: you're thinking
+Kobi Kunasekaran: Like if if you if you see anything that's like straightforward, easy, and you can whip it out and like uh like you know, you don't have to do too much research for it, just pick it up and go for it.
+Taryn Reithofer: Yeah. Yeah.
+Kobi Kunasekaran: By all means,
+Taryn Reithofer: Well, well,
+Kobi Kunasekaran: go for it.
+Taryn Reithofer: not go for it now, right?
+Kobi Kunasekaran: I mean, go for it now if you have the time, right? Like, but that's why I want to talk about like what's in your queue and what we have outstanding in terms of feedback.
+Taryn Reithofer: Oh, okay. If I have the time. Yeah.
+Kobi Kunasekaran: So then we can start queuing up the rest.
+Taryn Reithofer: Yeah. Okay. Okay. Okay. Um, so I still need to take care of this damn operator added supported markets pick.
+
+
+00:43:25
+
+Taryn Reithofer: Oh, am I sharing? Oh, you're sharing here. Let me share.
+Kobi Kunasekaran: I'm sure this one that you chatted with them about, right?
+Taryn Reithofer: Yes, but I had to ask another question because I didn't want to bombard her with like three big questions at once. But the issue with that is that it's taking longer for a response.
+Kobi Kunasekaran: Close it off.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: So, it's just this one sitting here. Basically, I'm just being like, is it are you okay with this being manually maintained uh rather than autosyncing? Because that the first the if if they're okay with it being manually maintained, then it's quick and easy for us to implement. Um
+Kobi Kunasekaran: Um, oh wait, can can we take a step back on this field? So this is coming from is this in their mockup first of all. Uh so operator or is Yeah,
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: this is operator right. Okay,
+Taryn Reithofer: it's not operating um supported market.
+Kobi Kunasekaran: let me open it up mockup.
+
+
+00:44:29
+
+Taryn Reithofer: So, initially it was in the header, but then we're like, okay, that doesn't make sense because some operators have like 12 supported markets. So, that would just like that would be stupid. So, then we were going to move it to a separate section. Um, and then from there it was going to be a picklist. And then from there, uh, I wonder if I saved it. That was is when you directed me to make a spreadsheet to show them all the different um market codes. And then you were like you were like, "Oh, I I think if they see it then they're just going to say never mind." But she never actually looked at it.
+Kobi Kunasekaran: Okay, I I think I was what I wanted to show them not wasn't necessarily a spreadsheet, but um what it could look like on the mockup. So, I'm trying to find the conversation cuz Patrick posted uh an example, right? Like that he tested.
+Taryn Reithofer: internally.
+Kobi Kunasekaran: Which one was this in? Oh, this was in the other way internal channel.
+
+
+00:45:53
+
+Kobi Kunasekaran: Yeah, in the internal channel like remember like when we were initially talking about this um on Slack and uh wanted to
+Taryn Reithofer: Oh yeah.
+Kobi Kunasekaran: see where that was. I think it was a while ago.
+Taryn Reithofer: It was a big thread though.
+Kobi Kunasekaran: August Maybe that's
+Taryn Reithofer: This So, he did two versions, their full names and their codes.
+Kobi Kunasekaran: I got Okay.
+Taryn Reithofer: And Emily said codes,
+Kobi Kunasekaran: So,
+Taryn Reithofer: but she didn't see this.
+Kobi Kunasekaran: we could show this. Okay.
+Taryn Reithofer: No, we didn't show her this.
+Kobi Kunasekaran: Okay. Let's uh hang on. I want to open up this. Where's my Chrome? There you go. Okay. Hard Rock is the example. I think we should pick like one operator and use that as the example for like any anything testing we do. So it's consistent. You don't have to go finding test data.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay, this is good.
+Taryn Reithofer: Off.
+Kobi Kunasekaran: Okay, so we have supported markets which is just a multi-pick list and it has the full text for I guess presumably all of the options.
+
+
+00:47:24
+
+Kobi Kunasekaran: And then the short code is it looks like he's generating it based off of the supported markets. Um, okay. I don't like that generation because this is not consistent with our naming convention and everything that we're doing for market. So, let's
+Taryn Reithofer: You're saying cuz we have it if it doesn't cuz I saw there was some rule where if I think it was only the country was stated then it said multi-state like autopop populate.
+Kobi Kunasekaran: the multi- saying is going away. Yeah, like the multisail is actually part of their initial thing, but this we we talked about yesterday. Uh we're going to get rid of that.
+Taryn Reithofer: Oh
+Kobi Kunasekaran: Technically, what this should say is the CA for Canada-b blah blah
+Taryn Reithofer: yeah,
+Kobi Kunasekaran: blah.
+Taryn Reithofer: that one.
+Kobi Kunasekaran: And then if it's US only, it'll say US-BMG blah blah blah. Um but then there's also like if it's California, uh this is wrong. Technically, this should say US-CA-BMGm.
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: Uh,
+Taryn Reithofer: right.
+Kobi Kunasekaran: but if it's the Canadian province, we're just using a Canadian province like two-letter code.
+
+
+00:48:35
+
+Kobi Kunasekaran: We're not doing CA dash.
+Taryn Reithofer: with the Yeah, with the market in the header in the highlight panel. Um, I think that was the formula I was referencing.
+Kobi Kunasekaran: This is a formula, but the formula is based on two fields. One is a market country and uh the other one's a market state. Um, so what what we Okay,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: so to move this along because I honestly I don't think this is I I I get the like the initial intention was like, hey, we're going to we're going to choose the markets that is going to be supported and then uh when somebody creates a deal, it checks against what the operator is capable of or partner's capable of and then potentially restricted. But honestly, I think that's a very heavy-handed way to do something that presumably only like ops or management is creating like those deal records. So, I don't think that level of complexity um is necessary or that level of validation is really necessary. Uh so there's there's two lenses, right?
+
+
+00:49:43
+
+Kobi Kunasekaran: One is I want to know all of the markets that an operator has deals under, which is a very different conversation from I want to choose the markets that are supported for a deal and then have that restrict um what kind of deals can be created. So, one, we should clarify which of those it is. Um, and two, if they want the ability to choose like the like the list of supported markets from a list. Um, and we we said like we're going to do the short list. Um what we can do is create a sample set of uh like Canada, US, a couple of US provinces and a couple of Canadian state sorry god damn it US states and Canadian provinces as pick list options.
+Taryn Reithofer: We need
+Kobi Kunasekaran: You don't need to do the full set just like four or five. And then in just the same way as uh we have this multi collect pick list uh instead of like the full text it'll just be like a list of short text and then uh might honestly just be ask her to book like a 15-minute call with her or just shoot her a message to jump on a call.
+
+
+00:50:57
+
+Kobi Kunasekaran: store what the app what it actually looks like and then make a decision. as opposed to the back back and forth. Are you following me?
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Because creating the that multi select pick list like or actually you don't even need to create it. You can just reuse this one. Just remove and change the values.
+Taryn Reithofer: Right. And then,
+Kobi Kunasekaran: Right. Right.
+Taryn Reithofer: okay,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: but you only you want me only want me to do a handful because there's so many to input.
+Kobi Kunasekaran: Exactly. I don't want you to go through like the manual effort of putting the full set like but if you already have a spreadsheet and it's just a matter of copying and pasting then that's fine too. That's okay.
+Taryn Reithofer: Well, I think there's another field that has it already, too, where I saw like a formula, a field with a formula, and it had an array of the short codes.
+Kobi Kunasekaran: It's in the deal. Yeah.
+Taryn Reithofer: Yeah.
+
+
+00:51:48
+
+Kobi Kunasekaran: Those are the ones I I built.
+Taryn Reithofer: So wouldn't that just be copy and pasteable?
+Kobi Kunasekaran: Uh but it the formula you you can't copy the formula, right?
+Taryn Reithofer: No,
+Kobi Kunasekaran: Because all the values from the formula.
+Taryn Reithofer: but I mean the the at least the Yeah.
+Kobi Kunasekaran: Um not without doing some work first. I mean cloud can probably do the work for you but because a formula remember it's it's
+Taryn Reithofer: Yeah. True. True. Okay.
+Kobi Kunasekaran: building the output based off of two input fields. Here what you need is a list of the output values for them to choose uh and display on the record page
+Taryn Reithofer: Why wouldn't this field autopop populate from the CMS information
+Kobi Kunasekaran: there. This is an operator record page. This is not coming from the CLS.
+Taryn Reithofer: right here?
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Because I was thinking of deals.
+Kobi Kunasekaran: Yeah. So that that's that's why like I this I don't think this is as big of a deal in terms of why the field needs to be there.
+
+
+00:52:50
+
+Kobi Kunasekaran: So that's why again I I think if we show her because like we have all of these right and this is what it's going to look like for the full text. So now imagine if you have like a deal that's supported in like uh like all the states or not all the states
+Taryn Reithofer: My Volume.
+Kobi Kunasekaran: but like all but one state or something like that. This is going to be a long list. So that's where I want to like I want them to be aware like this what it's going to show up. So does that make sense or are we thinking of a different behavior that they're trying to get to? Just want to clarify the why behind the field so that we can advise them on the right option and then prioritize what what makes sense.
+Taryn Reithofer: Okay. Yeah, I'll just call her.
+Kobi Kunasekaran: Yeah. So and yeah for like replace the values you have you said you already have a spreadsheet with like something like this already, right? So, you might just be able to copy and paste that in, then call it a day if it's if it's already built up.
+
+
+00:53:45
+
+Taryn Reithofer: I do. The state and province are in two different columns though. But uh again I can get Claude to do it and it's 70 options.
+Kobi Kunasekaran: Yeah. Which is a lot, right? and Saki. searchable in the pick list. It's uh like literally she they they'll have to go down that long list to choose those options.
+Taryn Reithofer: right? Yeah. Okay. So, it's going to be manual regardless.
+Kobi Kunasekaran: Yeah. And it's going to be manual if the intention is for them to on the on the operator define what markets are supported for the operator. And if the intention is that that then feeds into like reports or anything like that to validate that a deal is actually correctly allocated to an operator that supports that market. Right.
+Taryn Reithofer: How often are they adding operators?
+Kobi Kunasekaran: If it's not very often.
+Taryn Reithofer: Right. So maybe they would not mind.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Um Yeah. And if if the intention is that they just want to see a list of all of the active deals, for example, uh sorry, a list of the markets that they have active deals in for a particular operator.
+
+
+00:55:20
+
+Kobi Kunasekaran: That's a whole completely different ask. So I think that's what we need to clarify with this cuz this is ambiguous on what this is supposed to be. And I have a feeling like this is one of those things like goat as part of her mockup and uh might not necessarily have a functional reason for it.
+Taryn Reithofer: with that or else
+Kobi Kunasekaran: If it does, great. Let's let's document and then we'll prioritize it separately. But uh if not like let's challenge the ask and confirm before we
+Taryn Reithofer: 9.
+Kobi Kunasekaran: build. Okay.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: So you good with the next steps for this?
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: Okay. And yeah,
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: she's she's pretty good like if she's available like she's down to jump on a call. Sometimes it it gets faster and if you have a few things to knock out it's it's it's way faster than back and forth on Slack.
+Taryn Reithofer: Yes. Yeah.
+Kobi Kunasekaran: Oh,
+Taryn Reithofer: Okay. Cool.
+Kobi Kunasekaran: okay.
+
+
+00:56:21
+
+Kobi Kunasekaran: So,
+Taryn Reithofer: Um Yes.
+Kobi Kunasekaran: you got that.
+Taryn Reithofer: Um, I pulled in, um, what was it? Wager 63. Um, because I feel like that's also an easy one just to, um, bang out.
+Kobi Kunasekaran: Uh, this one might already be done,
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: but double check like if you log in as Joyce, I think Joyce was the one that was not able to.
+Taryn Reithofer: Let's
+Kobi Kunasekaran: And what what the problem was like from here if I look for Joyce, it might actually be like everybody. Um, I think they wanted to be able to see the user record from here which notice like it's not showing me the user record. It's showing me like leads and stuff. Actually, no, no, never mind. Never mind. It just show me people. People is the one. That's the right one.
+Taryn Reithofer: go.
+Kobi Kunasekaran: It's done for this account, but just confirm like login as Joyce
+Taryn Reithofer: How did you How do you do that
+Kobi Kunasekaran: through what?
+Taryn Reithofer: in his strolls?
+
+
+00:57:27
+
+Kobi Kunasekaran: Uh you can do it through inspector. Um, if you click on inspector and go to users and then choose the user, this is this is you can like there's a longer way through Salesforce, but uh this is my go-to right now. Um, yeah, search for the user you want to login as and then there's a button that says login as. Don't click on that button. Click on the arrow next to it and it'll drop down to incognito. And what that does is it opens in incognito tab and logs you in as that user. So at the top you'll see a banner that says you're logged in as Joyce. So now everything you see like the Salesforce interface will be updated as if you were Joyce as if you were logged in as our account. Um and then if you're trying to do the search uh or like you know whatever functionality you're trying to test
+Taryn Reithofer: Well,
+Kobi Kunasekaran: out um this is how you test it as the user to confirm if it's an issue or not.
+
+
+00:58:22
+
+Kobi Kunasekaran: Yeah. And I think like I'm I'm searching and looks like it's good. Like I am able to search Lena as a person and I see her record page from Joyce's account.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: So try it anyways. I think like so you can see like what it looks like. Um and then just confirm uh and then we close that off. Okay. What else?
+Taryn Reithofer: Okay. Um, I still need to do the um operator relationship related list on the partner page.
+Kobi Kunasekaran: Okay,
+Taryn Reithofer: Let me get that in.
+Kobi Kunasekaran: this is like mirroring what subject did for partners.
+Taryn Reithofer: Yeah. Yeah. So, it should be easy enough. Um, I'm done. Uh 392 is the control visibility to deal and deal wrap assignment records which I think I
+Kobi Kunasekaran: both our brand managers should see deal and build up assignments tied to a rep alongside
+Taryn Reithofer: missed.
+Kobi Kunasekaran: signups. confirm fine for brand managers see your deal in DRS under the stick ones availability currently no sharing rules so brand manager object record models in place extend sharing so brand manager can view the deal and do your assign record side to reps does this come up as like a bug or was this
+
+
+01:00:05
+
+Taryn Reithofer: I think it was feedback. Um, see what this goes
+Kobi Kunasekaran: Okay. I think what I would say is like let's
+Taryn Reithofer: to.
+Kobi Kunasekaran: actually put this in the backlog. Can we create an epic for uh or we might already have one that's like permissions and access. Uh can we add this to that and tackle this later when we set up like a specific user for brand manager? The reason being because we don't we don't have a user set up with the right credentials or right access or permissions to be just a brand manager. So the testing is going to take a while and it's safe to assume that right now they're going to have access to everything. So it's we have to go work backwards and reduce access once we build everything. Um but if we try to do that now it's just going to block us from testing and it's just going to add like a lot more work. So we can bucket all of that together at the end like we'll capture the feedback in terms of what they want who who wants to show who sorry who needs access to what and things like that but um we can clean up the actual permissions uh in like in one go later on.
+
+
+01:01:27
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Okay. So create an epic or find one. I I I feel like I there might be one already, but if not, just let's create one for permissions and access and then we'll add this one in.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Um like the other ones that we talked about with Cedric uh about like the whole edit being able to edit links only like reps should not be able to do that.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Those are all things that we can start capturing underneath that ticket and uh we'll we'll whip it out all at once.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Okay. So that's 392. This is brand ambassador players related list.
+Taryn Reithofer: Uh, this one, this was the one that we talked about yesterday. Waiting on Emity to see if she even cares for this list to be on that record page at all.
+Kobi Kunasekaran: Yeah. This only said like cuz they wanted to be able to search but we can't do a search because it's a fancy layout.
+Taryn Reithofer: Yeah. Yeah.
+Kobi Kunasekaran: Okay.
+
+
+01:02:29
+
+Kobi Kunasekaran: Okay. So, hopefully you can dep prioritize that. Um, we just talked about this this we're going to dep prioritize.
+Taryn Reithofer: Same with that one. This one we're it's going to be before launch.
+Kobi Kunasekaran: Exactly. Yeah. This can go into like permissions and access as well.
+Taryn Reithofer: Uhhuh. And then this one was I believe we talked about it yesterday as well, but I just haven't I didn't have time to um update it and I'll have to review again what we said about
+Kobi Kunasekaran: Okay. Yeah. I don't remember what
+Taryn Reithofer: normally gets like her ops review instead of being blocked. Oh yeah, we were talking about reporting, right?
+Kobi Kunasekaran: Yes. Okay. This is like if when they're going through the signup flow or Yeah. when they're logging the signups. Basically, we need to make sure that um they can still choose like a referral that's banned and it's not going to block the user from doing it, which is already the case. So, um I don't think we need to do anything extra for that.
+
+
+01:03:48
+
+Kobi Kunasekaran: Um, but the followup is potentially creating a report or a way for them to see a list of um, signups with banned referers. Um, I would dep prioritize this to be honest with you. I don't think it's critical right now unless you've already started on
+Taryn Reithofer: deep part 75.
+Kobi Kunasekaran: it.
+Taryn Reithofer: No, I haven't.
+Kobi Kunasekaran: Yeah. and I would be prior but let's leave a note that like it's the expectation because this the as the ticket is written right now it's misleading it it makes it seem like we need to do uh we need to add some logic in when selecting the referral but really we just need to surface a way for them to see signups against uh bad referers
+Taryn Reithofer: and paused or just been
+Kobi Kunasekaran: Unless it was like specific specific requirements around it, but uh based on what I know from our conversations, it was just like they just needed a way to see it. Pause and like both.
+Taryn Reithofer: Yeah, Emily just said it creates a signal. So to me that can be a report.
+
+
+01:05:00
+
+Kobi Kunasekaran: Yeah. Yeah. Yeah, support. It could also be an notification. Um, but we can Yeah, let's rework the ticket so that it doesn't seem like we have to do anything in the signup flow for now. Um, and then we will tackle it later.
+Taryn Reithofer: Um, dep prioritize meaning like make a deep prioritize epic for stuff like this or just ship it back to the backlog.
+Kobi Kunasekaran: It doesn't have to be a depp prioritize epic, but if this is not part of an epic already, um, let's put it under an epic. What epic would this be? Um, No, Let's just put it in the back hog for now. We we'll categorize it later. Part of me is like maybe we create an epic for reports and dashboards, but this is technically not like a report and dashboard. It's it's around referrals and the referral behavior. Um if we have an epic for referral behavior, add it to that. If not, um it's I think it's going to be like part of our discovery tomorrow to dive into the referral logic and everything.
+
+
+01:06:27
+
+Kobi Kunasekaran: Uh we can add it to that epic after our competition tomorrow.
+Taryn Reithofer: Okay. Um, did we talk about this one?
+Kobi Kunasekaran: Enable fraud flagging at new status. This should be closed off. I think we uh Cedric already updated this uh in a different ticket. Um was there any any other new
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: feedback?
+Taryn Reithofer: No, I think that you're right. Um, and I think that came from answers for Emily
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: documents.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: I do remember that when I was going through that and um Okay.
+Kobi Kunasekaran: Because if I go to new,
+Taryn Reithofer: So,
+Kobi Kunasekaran: I do have the ability to flag the fraud,
+Taryn Reithofer: yeah.
+Kobi Kunasekaran: which wasn't the case before.
+Taryn Reithofer: Yeah. Okay. I offer 165. I will um append it somehow to that equals off to just so they're together.
+Kobi Kunasekaran: Yeah. You can just like in the comment just link to the ticket. Like if you put the ticket number, it usually auto links and then that's good enough.
+
+
+01:07:50
+
+Taryn Reithofer: Oh, okay.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: Um, and then in the answers for Emily, um, I think I I mentioned it as a something that was queued up or something. So, just let let's let her know in in in there to close it off so that it's also part of that document in the document where this
+Taryn Reithofer: Sorry. What? Yeah.
+Kobi Kunasekaran: came from.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: um just close the loop like let her know in there that it's it's already been uh sorted and then we can cross it off like she's I think she's doing like the check boxes or maybe I'm doing the checkboxes.
+Taryn Reithofer: Yeah. That's what I was doing yesterday.
+Kobi Kunasekaran: I don't know who did it, but I think we can start crossing things that are already built or
+Taryn Reithofer: Oh, line by line,
+Kobi Kunasekaran: resolved.
+Taryn Reithofer: not just the comments.
+Kobi Kunasekaran: Not just Yeah, because then otherwise like if you if I look at this,
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: I don't know what's already been resolved, right?
+
+
+01:08:36
+
+Taryn Reithofer: right.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay, we can just
+Kobi Kunasekaran: Especially only because like we we seem to be using this as like a feedback document. So, let's let's let let's go all the all the way and just cross things off or mark
+Taryn Reithofer: Let's go all the way.
+Kobi Kunasekaran: them with a check mark.
+Taryn Reithofer: And then she added more at the bottom. No, I just want to kill this document off. Okay. Yeah, that makes sense.
+Kobi Kunasekaran: It's okay. I like this better than like a spreadsheet that was a maintain.
+Taryn Reithofer: True.
+Kobi Kunasekaran: But I think the comments in Google Doc is a lot easier to work with than comments in Sheets because it gets buried. So I I'm fine with this. But if we're going to use this like yeah, we just need to close things off so that there there's there's a
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: loop.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay. So Okay.
+Taryn Reithofer: Okay. That's it then.
+Kobi Kunasekaran: So I think we just talked about like getting rid of a bunch of the stuff on your to-do.
+
+
+01:09:28
+
+Kobi Kunasekaran: Um and then we have the operator relation related list. Um this one should be done. Um the support supported markets you'll chat with and uh close that off. Um this one is is more ongoing but like don't worry too much about it yet. Um it's more I think I think you're already doing it.
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: Um but just intentionally doing it.
+Taryn Reithofer: currently Okay.
+Kobi Kunasekaran: So like even for some of the things that Cedric is building, if there's anything that you know we can let them know that it's been complete and here's how you can check. Um it's yeah it's just a way for us to just go through close things off um close off any open loops and feedback around those items and move them from the backlog or move them forward.
+Taryn Reithofer: when I tell them because historically, you know, we did we did the um walkthrough document and telling them that way that it's been built. You're saying like when let's say for instance if Cedric figures out how to um well no not the bug because she already reported on it but let's say the um affiliate links the uh modal he's working on when that's done you're saying to just throw them like a Slack message to say that it's Come see.
+
+
+01:10:47
+
+Kobi Kunasekaran: Yeah. Like so what works really well is honestly like a quick Loom video uh walking them through what's been uh like the functionality showing what works um and share that on Slack and that's good enough um that way you know we don't have to spend a lot of time on
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: document like it the documents make sense for um for larger pieces that we might need uh we might need more feedback and like for operators and like the the mockups because we had to validate the design too right it wasn't just hey we built it was also hey we built it but because of this reason we had to do it this way versus that. So you could do it in a in a video too whatever is easier.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Um but like what I do uh usually is like as functionality is done so not just like one story but like something that they can test right and they can see. Um,
+Taryn Reithofer: like a full workflow.
+Kobi Kunasekaran: so exactly. Yeah. So like the being able to block, sorry, being able to uh flag fraud on you.
+
+
+01:11:52
+
+Kobi Kunasekaran: This is like an example of like a full functionality,
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: right? It's just one one piece they can easily test and then they can call it a day. So this could be this could have been literally like a 5minute video to show them that this is done. Show an example, call the day and boom and share that on Slack and close it off uh from the tickets.
+Taryn Reithofer: Okay. So, yes, I will do that. I'm finding a hard time to do this sort of stuff with everything else on the go.
+Kobi Kunasekaran: Yes.
+Taryn Reithofer: Um like and even like yesterday like I missed the first part of our company meeting because I was just so sucked into Jira because there's just so much to do.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: I feel like I I need to like I need to block time in my calendar so I'm like reminded to just stop what I'm doing and just like to get a couple of these videos done or something cuz like there's just so much that like it's hard to
+
+
+01:12:46
+
+Kobi Kunasekaran: Heat.
+Taryn Reithofer: prioritize little nuance tasks like this that aren't in you know as your word per se.
+Kobi Kunasekaran: Yeah, it is it's a balance, right? Like and like you're just working on wage effect, but wait till like after all sort starts asking for things. It's it is a juggling act. What what I recommend or what might be helpful is um so usually like we'll we'll go through what's been completed in our standups, right?
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: So after the stand up, you'll know like what everyone's everyone has finished and if there's anything that's ready to be communicated. Um and then block off like whatever time needed afterwards to send things out to the client and then um and then reserve like the afternoon for maker time to start do any build work. That way, you know, it's like a like once you get into like a habit, it's okay, you got to work through whatever maker maker time stuff, uh, anything that you need to build, anything that you need to like, you know, write requirements for to hand off to somebody that's going to be like in the afternoon.
+
+
+01:13:56
+
+Kobi Kunasekaran: Um, first thing in the morning, you're going through what you did yesterday, prepare for the standup, uh, and then review. In the standup, you're going through like what everyone has done. And then immediately after the standup, uh, close the loop on anything that's already, uh, like caption it, right? Like or, uh, inform the client, move the tickets over to done, and then, um, if there's any questions or anything uh, for them. Usually getting it out first thing in the morning is better than the other day for them to respond. So, that might help. It's not going to be perfect. It's not going to happen every single time because we're going to get pulled like right and center.
+Taryn Reithofer: Oh my god.
+Kobi Kunasekaran: But uh that might be a helpful way to like kind of reserve the time or uh prioritize the time. I'm saying it's not like I do it exactly like that. Um sometimes like I especially if there's like bugs and stuff to investigate. Um, usually after the meetings I'll go into like the high impact stuff or urgent stuff and then I'll work through the backlog of items later on.
+
+
+01:15:00
+
+Kobi Kunasekaran: So, that's why like I'm I'm known for sending like product updates like at 10 p.m. when I'm able to get to it if it's like something I just want to get out of the way. But, uh yeah, f like it is going to be like a balancing app. So, it's usually prioritizing anything that's like urgent bugs and then try to get things off your plate that is like getting it to the client so they can start doing the review while we then have the space to do actual maker time work.
+Taryn Reithofer: Yeah, I'll try that. Try that out. What I was doing before is doing like head down build in the morning
+Kobi Kunasekaran: It's
+Taryn Reithofer: um and after our meetings because that's when I'm not disturbed. Um, and then after like 3 to 5 doing more of admin work where I can context switch more and get pulled away to like troubleshoot the TV or open a
+Kobi Kunasekaran: s***.
+Taryn Reithofer: snack and then um come back and, you know, not have to spend 10 minutes uh like getting back into productivity work.
+
+
+01:16:05
+
+Taryn Reithofer: So, I'll try.
+Kobi Kunasekaran: That's also fine too. Like what whatever works for you,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: right? And whatever works for like how your energy levels are throughout the day.
+Taryn Reithofer: before I clock into my untaged second shift from
+Kobi Kunasekaran: It Yeah.
+Taryn Reithofer: 3 to 900 p.m. f***.
+Kobi Kunasekaran: That usually tend to be my makeup time. That's when like there's no Slack messages. I I'm not a I I know I'm not going to be actually I do have clients that do message me at odd times sometimes,
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: but like when I know Slack is not going to go off,
+Taryn Reithofer: yeah. I think that's Yeah.
+Kobi Kunasekaran: I can actually like shut down my brain.
+Taryn Reithofer: Yeah. I Yeah. Like I know I asked you like Okay. Also speaking of I have an appointment later today. Um so I'm I'm going to try and mesh my lunch together with it, but I'll be out like I'll be away from my desk from like quarter to 1 to 2:30 because it's all the way in Burlington.
+
+
+01:17:06
+
+Taryn Reithofer: But um when I had asked you like in client like what to uh mark that under and you had said well like don't do a vacation if you can make up the time elsewhere. I think I'm going to have to because I don't physically have the time outside of 9 to5 to make up the time basically unfortunately. So yeah,
+Kobi Kunasekaran: Hat.
+Taryn Reithofer: like I I guess I'll just like if I can't overlap it with my lunch, then I'll just mark it as like an hour and a half of vacation time.
+Kobi Kunasekaran: Uh yeah, I don't know if we have like any other like time off uh things to put it
+Taryn Reithofer: There's just like uh on the Elwell.
+Kobi Kunasekaran: under.
+Taryn Reithofer: I forget what it's called. It's like when you're on well Oh, it's well-being for I think that was the sick leave and then the other one is
+Kobi Kunasekaran: Yeah, honestly,
+Taryn Reithofer: vacation.
+Kobi Kunasekaran: if if it's a one-off, you can put it under like well-being. That that's fine, too. Um Yeah.
+Taryn Reithofer: Okay.
+
+
+01:18:18
+
+Kobi Kunasekaran: Yeah, I think I think that should be okay. It's Yeah. For us, like again, this is the the world of consulting is there are no set hours. Not necessarily. you kind of work when clients work. So, um adjust where you can.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um but obviously like the there are priorities and there are like you know life uh life is uh more important. So uh if you can't you can't right.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So it is what it is.
+Taryn Reithofer: I mean, like I I would like to, but I like I've tried to break down my schedule outside of work to see where I can, and I I like physically can't.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: But um like I guess I didn't know like this is obviously a part of the consulting job but when I was interviewing at least with my discussion with the lead I was really candid on working um 9 to5 and they seem to be okay with it. So um I do I did actually download Slack on my um phone though.
+
+
+01:19:25
+
+Taryn Reithofer: So, when I'm like, let's say up for a walk or at an appointment like this, I can check to see if someone just like needs a good answer or something or like wears this or whatever. But like,
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: but like yeah, other than that, it's it's really hard for me to um do
+Kobi Kunasekaran: Yeah, honestly that's fine.
+Taryn Reithofer: anything.
+Kobi Kunasekaran: That's fine. Yeah,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: like um and there might be like client requests that come in later on, but you know, our usual like um turnaround is like we say, you know, one one business day for anything urgent, right?
+Taryn Reithofer: Right.
+Kobi Kunasekaran: If like somebody messages because they're locked out of Salesforce at 9 p.m. like one of us will be like like between me uh Mo and DK like we are all kind of keeping an eye out on Slack but like I'm not going to respond to like somebody asking a question at 9:00 p.m.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: if it's not urgent.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Like I'll do it the next day.
+
+
+01:20:18
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: But if if somebody's locked out and I am in front of a computer then yeah I'll go in and like unblock them,
+Taryn Reithofer: there.
+Kobi Kunasekaran: right?
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: uh because that that does happen because yeah we work with clients not just in Eastern time unfortunately or fortunately I don't know uh but uh because of that like I last year it was two clients from Vancouver so my shift actually ended up being closer to like I still had to start at 10 because that's when I do like the standup that was overlap with like the Philippines team but um I would get messages and sometimes even like calls up until like 7 p.m. So, I had to set up like certain days where I'll be like, "Okay, you're allowed to book on like a Monday or a Wednesday, but I'm not doing 7 on a Friday. So,
+Taryn Reithofer: Mhm. Mhm.
+Kobi Kunasekaran: we we set those boundaries and it's usually it usually works out. As long as you have a good relationship with the clients, they're not too fussy.
+
+
+01:21:09
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I think that's what matters.
+Taryn Reithofer: Yeah, I guess this is the part of, you know, not only consultancy but also being a part of a startup as well that I didn't really account for when envisioning the type of work um you know where there's less of us and that means that everyone's
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: taking care of more and you know there are going to be people who are working outside of 9 to5. So yeah, it's just different.
+Kobi Kunasekaran: Yeah, we we just got our like like mentioned in our uh company meeting yesterday, we just got our first like 24-hour support for Q4, right? Uh we have the two people working around the clock. The eventual vision is that we can scale that team to not just work on Q4 but other things too. But we're not in a place where they can just jump in on anything for Wagertechyet.
+Taryn Reithofer: Oh no.
+Kobi Kunasekaran: That's where the whole like you know having the knowledge base and confluence having uh enough information making the tickets have enough context that they they might be able to pick it up.
+
+
+01:22:14
+
+Kobi Kunasekaran: That's kind of what we are working towards so we can get out of the startup mentality and move to being more larger scale.
+Taryn Reithofer: Away.
+Kobi Kunasekaran: Um but it it's a it's a transition unfortunately like it's going to take us time.
+Taryn Reithofer: Again,
+Kobi Kunasekaran: we're not going to be able to do it overnight. And like the landscape changes so much like like our a lot of our clients like sometimes a three-month project, sometimes it's six months, sometimes it's ongoing, right? Like do you really invest all the time for like a like a three-month implementation? Um if there's no like intention or signed engagement to continue. So yeah,
+Taryn Reithofer: red.
+Kobi Kunasekaran: it's it's a balance.
+Taryn Reithofer: True. Oh,
+Kobi Kunasekaran: But no,
+Taryn Reithofer: which has Raj mentioned that they would like that or
+Kobi Kunasekaran: no. And even like in terms of budgets and stuff, like I I I don't know how to talk to Emily to bring it up yet, but I think like after we finish all the discovery, I think that's a good time to chat through because they haven't raised any red flags.
+
+
+01:23:08
+
+Kobi Kunasekaran: But man, we are pretty much at like like the top end of the budget for like the overall project, but then they keep adding more things. So, but they haven't asked for like,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: hey, what is this going to cost? Uh, so we've been working at like whatever velocity that we're able to, but last couple weeks we've been doing a lot more than usual. Like I think even at the beginning we said we're going to do about like 40 hours a week and that's been pretty consistent. But then yeah like with all these new additions and stuff we're getting closer to like 60 and this week we might even end up being more. Um so we're going to need to chat through them because if if they tell us like you know they're going to continue and this is a this is the hours it does make planning a lot easier. like we can we can if we need to pull more resources we can say for sure okay I need this person for this many hours and we can figure out how whether we need to hire somebody or um if there's someone available that can chime in and it makes sense for us to onboard them because of the commitment right but yeah
+
+
+01:24:12
+
+Taryn Reithofer: Yeah. At what point are you going to ask to push the live date? Like when are you going to make that call?
+Kobi Kunasekaran: Um I it's I think it's going to be by next week for sure. Um finish the discovery tomorrow and then um I'm hoping to get caught up on all the requirements and use stories so that we have an idea of like what's still left. A lot of this is still in my head. So I need to get that out of my head and into something that we can work with.
+Taryn Reithofer: Okay. Okay. Cool. Let's let's call it meeting adjourned. We're so far over time and we need so much we need to do so much.
+Kobi Kunasekaran: Yes. Yes. Okay.
+Taryn Reithofer: So So yes, I will do everything that we just talked about right now.
+Kobi Kunasekaran: Okay. Work through this and then if you have any additional time um from the feedback from yesterday, if anything like straightforward and clear, just feel free to pick it up and uh work through it.
+
+
+01:25:12
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Um if there's anything that like needs input or decisions, um shoot me a message. I'm happy like I think the Slack messages are working really well um for like questions and directions.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: So we can keep doing that and then I can I can fill it in.
+Taryn Reithofer: I agree. And then um uh the tickets that have are becoming more technical. you're okay with me sending them to Cedric, sending him a message, and seeing if he can take a look.
+Kobi Kunasekaran: Yeah, I I would actually like just put it in the channel because then between me and him um so we're not also
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: breaking his maker time, right? Um so generally yes,
+Taryn Reithofer: Wait.
+Kobi Kunasekaran: like yes, use the team. Um but put it in the channel because also with there um he might be able to chime in as well and unblock you,
+Taryn Reithofer: Yeah. Okay.
+Kobi Kunasekaran: right? So um yeah, post it on the channel. You can direct it to either of us.
+
+
+01:26:06
+
+Kobi Kunasekaran: Um, and then yeah,
+Taryn Reithofer: Okay,
+Kobi Kunasekaran: one of us will answer and that way like he like everybody also kind of gets ramped up on
+Taryn Reithofer: cool.
+Kobi Kunasekaran: context because it's I feel like there's a lot of explanation in these uh Slack messages.
+Taryn Reithofer: True.
+Kobi Kunasekaran: So,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: it's good for everyone just
+Taryn Reithofer: Like I don't know how Lita is supposed to be able to just pick up from here, but
+Kobi Kunasekaran: he's like he was there part of like the project from early on. So, he understands the business and everything.
+Taryn Reithofer: right
+Kobi Kunasekaran: It's just I think a lot of the nuances and like the technical stuff that we might have built he might not know. Um, but that's why we're trying to like document everything along the way, right? So, um, it'll be fine. It's two weeks.
+Taryn Reithofer: trying to Yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay. Okay. All right. I'll let you go.
+Kobi Kunasekaran: All right.
+Taryn Reithofer: Thanks for the chat.
+Kobi Kunasekaran: Okay. All right. Thanks, Taryn.Talk to you later. Bye.
+
+
+Transcription ended after 01:27:06
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

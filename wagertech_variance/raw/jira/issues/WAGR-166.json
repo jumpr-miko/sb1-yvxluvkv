@@ -1,0 +1,319 @@
+{
+  "id": "10344",
+  "key": "WAGR-166",
+  "fields": {
+    "statuscategorychangedate": "2026-09-28T13:30:43.640-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 3,
+      "key": "done",
+      "colorName": "green",
+      "name": "Done"
+    },
+    "resolution": {
+      "id": "10001",
+      "description": "This issue won't be actioned.",
+      "name": "Won't Do"
+    },
+    "resolutiondate": "2026-09-28T13:30:43.577-0400",
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-08-20T13:44:36.246-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T13:30:43.640-0400",
+    "status": {
+      "description": "",
+      "name": "Cancelled",
+      "id": "10066",
+      "statusCategory": {
+        "id": 3,
+        "key": "done",
+        "colorName": "green",
+        "name": "Done"
+      }
+    },
+    "description": "# BA-9: Players Related List\n\n_Players currently assigned to this BA._\n\n### FIELDS\n\n* Players currently assigned to this BA\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Not confirmed in the transcript\n\n* Sourced from the prototype only.\n\n### NOTES\n\n* Provenance: BA-9 (Brand Ambassador Record User Stories doc).\n\n### SOURCE\n\n* [Taryn doc BA-9 — Brand Ambassador Record User Stories](https://docs.google.com/document/d/1MsJXwt3oY-DyQuAdMzNYlyPenKUQl7g8mHzMmeRaVHs/edit?tab=t.g64hrhse8pog)\n* Dependencies: [BUILD-202 — Brand Ambassador: Object + Core Status](https://app.asana.com/0/0/1217693577680227/f/), [BUILD-173 — Player: Core Details fields](https://app.asana.com/0/0/1217684264652851/f/)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-20 from Brand Ambassador record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-210 — Brand Ambassador: Players Related List",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10522",
+          "body": "Built off the existing Brand Ambassador (Rep__c) lookup already used on Player, Referrer, and Sign Up records, rather than a new field — required adding the related list separately to the Brand Ambassador Lightning Record Page, since it isn't inherited from the classic User Profile Layout\n\nThe related list is called “Accounts (Brand Ambassador)” for now.",
+          "created": "2026-08-31T15:51:55.516-0400",
+          "updated": "2026-08-31T15:51:55.516-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10523",
+          "body": "There's no automation at the moment, to test you need to manually alter the players assigned BA",
+          "created": "2026-08-31T15:52:35.922-0400",
+          "updated": "2026-08-31T15:52:35.922-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11290",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Emily's Sep 15 follow-up asked two things about the \"Accounts (Brand Ambassador)\" related list: will it be renamed, and will it be searchable.\n\nSearchable: confirmed it isn't currently. The Related List - Single component on the Brand Ambassador page only exposes Related List Type = Default or Enhanced List, no direct search toggle. Enhanced List is the variant that would add search/sort/filter, but Brand Ambassador is built on the standard Salesforce User object (unlike Operator/Partner/Referrer), which has more restricted Lightning App Builder customization — needs to be tested in sandbox to confirm Enhanced List is even supported here before committing to it.\n\nRenamed: label is driven by the Rep__c field's Child Relationship Name (currently \"Accounts\" on Account, with \"(Brand Ambassador)\" auto-appended to disambiguate) — not the Field Label, so the field's other layout usages (Sign Up, Referrer, Player, User Profile) aren't a blocker. But Child Relationship Name is an API identifier, not just display text — renaming it would break any existing SOQL subquery, Apex, Flow, or report type built against \"Accounts\" as the relationship name. Needs a check with Cedrick on dependencies before scoping this as a quick change.\n\nReplied to Emily flagging the searchability constraint and asking whether that changes if the BAs would use this list at all — **holding off on investigating the rename until we hear back, since her original note was \"not sure if BAs would even use this.\"**",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-22T16:13:30.638-0400",
+          "updated": "2026-09-22T16:18:51.443-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11408",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Met with Emily 09/28 and we’re not going to build this related list as she doesn’t find it to be useful to the BA’s with the lack of customization",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-28T13:30:08.596-0400",
+          "updated": "2026-09-28T13:30:08.596-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11409",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Client has mentioned this build will not be useful for the user",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-28T13:30:43.604-0400",
+          "updated": "2026-09-28T13:30:43.604-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 5,
+      "total": 5,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-328"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217693523448690"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001qv:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XXS (1-2 Hours)",
+          "id": "10043"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217693523448690"
+      }
+    }
+  }
+}

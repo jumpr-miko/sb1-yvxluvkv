@@ -1,0 +1,155 @@
+{
+  "id": "11435",
+  "key": "WAGR-454",
+  "fields": {
+    "statuscategorychangedate": "2026-09-25T09:24:51.838-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-25T09:24:51.279-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-10-02T09:19:49.807-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## v0.13.1 lifecycle contract amendment\n\n* Draft is never sent to CMS.\n* Published Deal Status values are Active, Paused, Inactive, Closed and Archived. Review Required/Retired are obsolete.\n* Active means Salesforce has activated the Deal; CMS Sync Status independently shows whether CMS accepted the latest state.\n* Inactive is informational only and must not cause Link deactivation/hiding or DRA changes.\n* Pause/Close/Archive lifecycle actions may change Link active state before the parent snapshot is built; send the resulting current Link snapshot.\n* Archived predecessor/successor sync replaces Retired wording in successor activation gating.\n* Source and Partner are independent. Do not implement a mapping that assumes Source = Direct implies Partner = Direct.\n\n## Source of truth\n\n<custom data-type=\"smartlink\" data-id=\"id-0\">https://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition</custom>\n\n## Outcome\n\nOne Queueable Apex service builds and sends the current Salesforce Deal + eligible Affiliate Link state, handles CMS response semantics safely, and records the correct per-Deal result.\n\n## Architecture\n\n* **Queueable Apex is the single outbound sender.**\n* Flow/record automation may request sync; it does not maintain a second JSON/callout implementation.\n* Existing External Service / Deal CDC metadata must not become a competing outbound path. Verify external CDC consumers before production; if none exist, treat CDC as legacy/reference configuration.\n* Automatic, manual, bulk and full re-sync all converge on this service.\n* Timeout = **60 seconds** unless the external contract changes.\n* Sending on/off and retry limits are configuration-driven.\n* Sync/request/result timestamps use **DateTime** because multiple requests/responses can occur on the same day and ordering matters.\n\n## Responsibilities\n\nThe service owns:\n\n* current-state payload construction;\n* byte/count batching;\n* Named Credential callout;\n* per-Deal result mapping;\n* retry/backoff;\n* stale-response/watermark protection;\n* sync bookkeeping;\n* Link publication-marker updates after confirmed successful sends.\n\n## Deal mapping\n\nSend only contract fields, including:\n\n* `sf_deal_external_id` ← External Deal ID.\n* `sf_deal_id` ← 18-char Salesforce Deal Id.\n* Deal Name.\n* Operator/Partner external IDs and names; Direct uses `PT-DIRECT` / Direct.\n* `region` ← `Region_Code__c`.\n* full-name Market Country / State.\n* Vertical, Source, Deal Status API values.\n* **Currency ← Deal** `CurrencyIsoCode` as the working V1 assumption.\n* Effective Start / End dates.\n* `superseded_by` from the predecessor/successor relationship.\n* event/sent_at envelope.\n* Links per WAGR-456 when enabled.\n* Commercial Terms are not sent.\n\nKeep the currency-source decision visible in WagerTech Open Questions so it can be deliberately confirmed later.\n\n## Batching / validation\n\n* CMS hard limits: ≤200 Deals and ≤1 MB.\n* Operational serialized-body ceiling: approximately **800 KB**.\n* Start a new batch when either limit would be exceeded.\n* Validate before callout where deterministic:\n\n    * URL ≤2,048;\n    * other outbound strings ≤254 unless final contract says otherwise;\n    * required/allowed values.\n    \n* Never truncate `links[]`.\n* If one Deal alone cannot fit safely, fail it clearly for remediation.\n\n## Response behavior\n\n* 2xx: apply successful result only if the request watermark is still current.\n* 503 / retryable 5xx / timeout / network: retry to configured max, then Failed.\n* 409: per-Deal business rejection; do not auto-loop.\n* 400: entire request rejected/nothing committed. Map returned errors to bad Deals when reliable; retry unaffected Deals once. If mapping is unsafe, fail/alert the batch rather than guessing.\n* 401/route/config errors: alert immediately; no infinite retry.\n* Read current Deal/Link values at send/retry time.\n* Sync-result writes must not queue another send.\n* Link First/Last Published markers update only after a confirmed successful response for a payload that actually included the Link.\n\n## Watermark/source-event rule\n\n* Request watermark changes only when a legitimate sync request is created.\n* Last Attempt changes only when an HTTP attempt is made.\n* First Synced is write-once on first confirmed success.\n* Last Synced changes only on confirmed applicable success.\n* Next Retry changes only when a retry is actually scheduled.\n* Unrelated record saves do not restamp any of these fields.\n\n## Successor activation\n\nDo not rely on batch ordering to avoid makeup conflicts. Successor activation is blocked until the predecessor's latest Retired/successor state is confirmed Synced.\n\n## Acceptance criteria\n\n1. Current Salesforce values arrive correctly in CMS.\n2. 201 queued Deals are split by count/bytes with no duplicates or truncation.\n3. Direct Deal maps correctly.\n4. Currency uses Deal `CurrencyIsoCode` under the working assumption.\n5. Mixed 409 affects only the rejected Deal.\n6. 503/timeout retries with configured backoff and ultimately succeeds/fails visibly.\n7. Edit during in-flight request leaves newer state pending.\n8. Sending-off switch leaves work queued.\n9. Invalid pre-send value fails the specific Deal without poisoning unrelated batches.\n10. Sync result updates do not create new outbound requests.\n11. Link publication markers change only after confirmed successful inclusion.\n12. Apex tests use `HttpCalloutMock` for response branches, idempotency and batch boundaries.\n\n## Dependencies\n\n* WAGR-446 connection setup — leave reviewed ticket unchanged.\n* WAGR-451 sync fields.\n* WAGR-493 config/permission follow-up.\n* WAGR-456 Link payload rules.\n\n",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [],
+    "summary": "CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0087j:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

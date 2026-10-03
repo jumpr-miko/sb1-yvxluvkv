@@ -1,0 +1,533 @@
+{
+ "doc_id": "11856Oryn2K0tlDGPF3NZz6DGMhT02PNsShyRHbybR3Q",
+ "title": "Marc / Kobi - 2026/08/13 09:59 EDT - Notes by Gemini",
+ "meeting_date": "2026-08-13",
+ "meeting_time": "09:59 EDT",
+ "doc_link": "https://docs.google.com/document/d/11856Oryn2K0tlDGPF3NZz6DGMhT02PNsShyRHbybR3Q/edit",
+ "meeting_type": "internal sync",
+ "tier": "tier2",
+ "screen_verdict": "include",
+ "screen_reason": "Gemini notes hold WagerTech delivery content: SLC flow status, duplicate handling, CMS external IDs, auto-archive ticket 155, partner/operator modeling, November 1 go-live move and scope expansion, file design, PRD vs user stories, suspension button.",
+ "delivery_line_ranges": [
+  [
+   12,
+   12
+  ],
+  [
+   15,
+   15
+  ],
+  [
+   18,
+   18
+  ],
+  [
+   23,
+   23
+  ],
+  [
+   27,
+   31
+  ],
+  [
+   41,
+   45
+  ],
+  [
+   55,
+   57
+  ],
+  [
+   60,
+   61
+  ],
+  [
+   64,
+   68
+  ]
+ ],
+ "evidence_grade": "gemini-notes-only",
+ "raw_copy": "converted-from-html-export (gdoc_html2txt.py)",
+ "attendees": [
+  "Marc Cabantog",
+  "Kobi Kunasekaran"
+ ],
+ "lines_total": 74,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-08-13-0959-01",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "SLC sign-up flow mostly ready",
+   "statement": "Per Gemini notes, Marc reported the Signup/Login/Conversion (SLC) flow is mostly ready, but full testing of negative scenarios is not yet done.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 55,
+   "line_end": 55,
+   "quote": "Marc Cabantog reported that the Signup/Login/Conversion flow is mostly ready, though they still need to complete full testing for negative scenarios.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-02",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Test remaining SLC negative scenarios",
+   "statement": "Per Gemini next steps, Marc is to test the remaining negative scenarios for the SLC flow.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 41,
+   "line_end": 41,
+   "quote": "[Marc Cabantog] Test SLC Flow: Perform comprehensive testing on the remaining negative scenarios for the SLC flow to ensure system stability.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Marc Cabantog",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-03",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "SLC duplicates flagged for review",
+   "statement": "Per Gemini Decisions ('Aligned'), SLC duplicates will be flagged and reviewed by management rather than fixed programmatically at this time. No transcript confirms this.",
+   "speakers": [],
+   "timestamp": null,
+   "line_start": 27,
+   "line_end": 27,
+   "quote": "SLC duplicate handling strategy The team will flag and review SLC duplicates for management rather than implementing a programmatic fix at this time.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-04",
+   "type": "status-update",
+   "firmness": "discussed",
+   "feature_area": "CMS Integration",
+   "topic": "CMS to own deal and rep assignment",
+   "statement": "Per Gemini notes, Kobi expected duplicates to drop once the CMS integration is live, because the CMS will handle deal and representative assignments.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 55,
+   "line_end": 55,
+   "quote": "Kobi Kunasekaran expressed confidence that duplicates would be minimized once the CMS integration is fully operational, as the CMS will handle the deal and representative assignments.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-05",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "CMS Integration",
+   "topic": "External IDs on both systems",
+   "statement": "Per Gemini notes, the planned approach to prevent duplicates between CMS and Salesforce is unique external IDs on both systems. Gemini lists it as 'Aligned'; Details call it the 'planned approach' while API design clarity is still awaited.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 28,
+   "line_end": 56,
+   "quote": "External ID implementation The project will implement external IDs on both systems to prevent record duplicates. / Kobi Kunasekaran emphasized that while they are currently waiting for further clarity on the API design, utilizing unique external identifiers is the planned approach to maintain data integrity.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-06",
+   "type": "open-question",
+   "firmness": "proposed",
+   "feature_area": "CMS Integration",
+   "topic": "CMS API design not yet clear",
+   "statement": "Per Gemini notes, the team was still waiting for further clarity on the CMS API design as of 2026-08-13.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 56,
+   "line_end": 56,
+   "quote": "Kobi Kunasekaran emphasized that while they are currently waiting for further clarity on the API design",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-07",
+   "type": "change-to-earlier-decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Auto-archive grace period removed",
+   "statement": "Per Gemini notes, the grace-period requirement on the auto-archive flow (ticket 155) was removed; records archived but not flagged can be reactivated immediately. Auto-archive feature area is inferred (likely sign-up records); the doc does not name the object.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 29,
+   "line_end": 57,
+   "quote": "Auto-archive grace period removal The requirement for a grace period on the auto-archive flow is removed. / Regarding the auto-archive flow, identified as Ticket 155, Kobi Kunasekaran and Marc Cabantog confirmed that the requirement for a grace period has been removed. The current consensus is to allow immediate reactivation of records if they are archived but not flagged",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [
+    "WAGR-155?"
+   ],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "Grace period was an earlier requirement; now removed.",
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-08",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Auto-archive change completed",
+   "statement": "Per Gemini notes, Marc confirmed the auto-archive (ticket 155) change was completed.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 57,
+   "line_end": 57,
+   "quote": "Marc Cabantog confirmed that this work has been completed based on project updates.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [
+    "WAGR-155?"
+   ],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-09",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Signup completion not started",
+   "statement": "Per Gemini notes, Marc had not yet started the signup completion component; Kobi recommended an AI tool ('Clad') to help generate the formula fields. Next steps assign the signup completion logic to Marc.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 42,
+   "line_end": 60,
+   "quote": "[Marc Cabantog] Update Signup Completion: Implement the signup completion logic using Clad for assistance with complex formula fields. / Marc Cabantog has not yet started work on the signup completion component",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Marc Cabantog",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true,
+   "asr_note": "'Clad' is likely Claude [ASR?]"
+  },
+  {
+   "item_id": "2026-08-13-0959-10",
+   "type": "open-question",
+   "firmness": "proposed",
+   "feature_area": "Operator & Partner",
+   "topic": "Partner/operator: junction vs lookup",
+   "statement": "Per Gemini notes, the structure for partner and operator relationships (lookup vs junction object) was debated; Kobi suggested a junction object is likely needed to relate deals, partners and operators. Gemini Decisions place it under 'Needs Further Discussion', deferred pending a client meeting.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 23,
+   "line_end": 61,
+   "quote": "Partner and account architecture The team deferred finalizing the partner object structure (junction object versus lookup relationship) pending a client meeting to confirm requirements. / Kobi Kunasekaran suggested that a junction object is likely the necessary solution to correctly handle the relationships between deals, partners, and operators.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-11",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Operator & Partner",
+   "topic": "Scope contact logic and junction object",
+   "statement": "Per Gemini next steps, Kobi is to scope the contact management logic and the proposed junction object for partner and operator relationships.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 43,
+   "line_end": 43,
+   "quote": "[Kobi Kunasekaran] Scope Contact Logic: Scope out the contact management logic and the proposed junction object for partner and operator relationships.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-12",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Operator & Partner",
+   "topic": "Partner contact roles and automation",
+   "statement": "Per Gemini notes, partner contacts include primary and billing roles, and automation is needed to manage contact association with operators: when a user updates a lookup field, the system prompts the user and manages the contact relationship without fragmenting related lists.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 64,
+   "line_end": 64,
+   "quote": "The team addressed the complexities of managing contacts, including primary and billing roles. They identified the need for automation that manages the association of contacts with operators, ensuring that if a user updates a lookup field, the system prompts the user and manages the contact relationship correctly without creating fragmented related lists.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-13",
+   "type": "change-to-earlier-decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Launch moved to November 1",
+   "statement": "Per Gemini notes, Kobi told Marc the official launch date had moved to November 1st.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 30,
+   "line_end": 65,
+   "quote": "November 1st launch target The go-live date is officially moved to November 1st to accommodate expanded scope. / Kobi Kunasekaran informed Marc Cabantog that the official project launch date has been moved to November 1st.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "Earlier go-live date (not stated in this doc) replaced by November 1st.",
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-14",
+   "type": "change-to-earlier-decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Scope adds CMS, payouts, redeposits",
+   "statement": "Per Gemini Details, the moved launch date expands scope to include CMS integration plus the build-out of payout and redeposit objects. The Gemini Summary lists only payout and redeposit objects.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 15,
+   "line_end": 65,
+   "quote": "The project launch was officially moved to November 1st, expanding scope to include payout and redeposit objects. / This delay expands the project scope to include CMS integration, as well as the build-out of payout and redeposit objects.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "Scope expansion tied to the November 1st date.",
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-15",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Storage / Proofs",
+   "topic": "File storage: URL vs file object",
+   "statement": "Per Gemini notes, the team discussed storing file attachments as URL links or as records in a separate object, possibly with a junction object linking file records to both signup and account records.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 66,
+   "line_end": 66,
+   "quote": "The team discussed how to handle file attachments, specifically considering whether files should be stored as URL links or as records via a separate object. They acknowledged that they may need a junction object to link these file records effectively to both signup and account records",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-16",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Storage / Proofs",
+   "topic": "Update file design and object model",
+   "statement": "Per Gemini notes, Kobi agreed to scope file handling and update the design/object model to support file lookups related to partner and operator records.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 44,
+   "line_end": 66,
+   "quote": "[Kobi Kunasekaran] Update File Design: Update the design and object model to support cloud file lookups related to partner and operator records. / Kobi Kunasekaran agreed to scope this out and update the design.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-17",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "User stories replace outdated PRD",
+   "statement": "Per Gemini notes, because the build has moved beyond the original PRD and there is no updated version, the team will use user stories as the source of truth to verify picklist values and design.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 67,
+   "line_end": 67,
+   "quote": "Kobi Kunasekaran and Marc Cabantog noted that because current developments have evolved beyond the original Product Requirements Document, they lack an updated version. Consequently, they agreed that they would rely on user stories as their source of truth to verify picklist values and ensure the design aligns with current needs.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "User stories supersede the original PRD as source of truth.",
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-18",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Verify picklists against expanded scope",
+   "statement": "Per Gemini next steps, the group is to verify all picklist values and requirements against the expanded scope.",
+   "speakers": [],
+   "timestamp": null,
+   "line_start": 45,
+   "line_end": 45,
+   "quote": "[The group] Verify Requirements: Verify all picklist values and requirements against the expanded project scope to confirm final data sets.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "The group",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-19",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Other (suspension button; record type not stated in doc)",
+   "topic": "Suspension: layout first, automation later",
+   "statement": "Per Gemini notes, for the newly added suspension button, the team will first build the layout and page information, and define edge cases before any automation (for example auto-deactivating related deals).",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 31,
+   "line_end": 68,
+   "quote": "Suspension module build approach The team will prioritize developing the suspension module layout first before addressing the automation logic. / Discussing the newly added suspension button, Kobi Kunasekaran and Marc Cabantog agreed to focus initially on the layout and page information. They expressed a need to carefully define the edge cases before implementing complex automation that might involve automatically deactivating related deals.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-08-13-0959-20",
+   "type": "open-question",
+   "firmness": "proposed",
+   "feature_area": "Other (suspension button; record type not stated in doc)",
+   "topic": "Suspension edge cases undefined",
+   "statement": "Per Gemini notes, edge cases for suspension automation, including whether related deals are deactivated automatically, are not yet defined.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 68,
+   "line_end": 68,
+   "quote": "They expressed a need to carefully define the edge cases before implementing complex automation that might involve automatically deactivating related deals.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  }
+ ],
+ "gemini_disagreements": [],
+ "rule5_redactions": 2,
+ "secret_exposed": false,
+ "notes": "Doc holds only Gemini notes (Summary, Decisions, Next steps, Details); no Transcript section. All items capped at 'proposed' (or 'discussed'), quotes come from Gemini text, summary_agreement is null (cannot be tested without a transcript). Gemini is internally inconsistent on partner/operator modeling: Summary (line 15) says the team 'determined' a junction object is necessary, Details (line 61) say 'likely', and Decisions (line 23) say deferred pending a client meeting; item 10 treats it as open. Summary (line 15) lists scope expansion as payout and redeposit objects only; Details (line 65) also add CMS integration. An MFA/login troubleshooting topic (lines 12, 39-40, 51-52) was not extracted because the doc does not tie it to the WagerTech org. One clause naming another client's work (line 60) and one Jumpr-internal capacity/prioritization passage (line 69) were skipped under rule 5 / client separation. Ticket '155' recorded as WAGR-155? (not verified against Jira)."
+}

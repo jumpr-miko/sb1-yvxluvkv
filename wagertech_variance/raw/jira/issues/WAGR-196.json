@@ -1,0 +1,282 @@
+{
+  "id": "10365",
+  "key": "WAGR-196",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T11:09:01.993-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10031",
+        "type": {
+          "id": "10007",
+          "name": "migration_parent",
+          "inward": "is a parent of",
+          "outward": "is a child of"
+        },
+        "inwardIssue": {
+          "id": "10540",
+          "key": "WAGR-403",
+          "fields": {
+            "summary": "Player: Surface Fraud Flag and Blank Primary Email Banner",
+            "status": {
+              "description": "",
+              "name": "Cancelled",
+              "id": "10066",
+              "statusCategory": {
+                "id": 3,
+                "key": "done",
+                "colorName": "green",
+                "name": "Done"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.719-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# PL-5: Ban Status + Banner (simplified)\n\n_Simplified ban handling on the Player record — a manual status flip plus a top-of-record banner, with no persisted restriction-detail fields._\n\n### FIELDS\n\n* Player Status — Picklist (existing field, already covered under PL-1/BUILD-173)\n\n* Set to Banned manually by Ops. No separate ban-reason fields get persisted on the Player record.\n\n* Ban Banner — Page component, not a stored field\n\n* Shown at the top of the record when Player Status = Banned, e.g. \"This player is banned — see Sign Ups for details.\"\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Do not build the Restriction Detail fields\n\n* Restriction Reason, Restricted On, Open Sign Ups Flagged, Payouts Placed on Hold, Restriction Notes — confirmed cut, Joyce/Kobi, 08/18: \"so those fields, are we saying like we don't need those like restriction detail fields for now?\" — \"Correct.\"\n\n* Restriction reasoning is inferred from Sign Ups already flagged for fraud\n\n* Not re-typed on the Player record — Joyce, 08/18: \"the goal was that it would be, like, inferred from the signups that were flagged for fraud... I think it just says banned, and then... some banner that says, like, see signups for more details.\"\n\n* Banner text should point to Sign Ups for details, not store a reason on Player\n\n* Confirms the banner is informational only — no new field backs it.\n\n### NOTES\n\n* Provenance: PL-5 (Player Record User Stories doc).\n* Open question carried from the doc: whether the Ban action modal should still capture a Ban Reason + required Notes at the moment of banning, now that persistent fields are cut — not re-confirmed in the transcript. Flag before building PL-6 (Ban Automation).\n* Also depends on the Sign Up, Redeposit, and Payout objects existing (per the story map) — no Asana tickets for those yet.\n\n### SOURCE\n\n* [Taryn doc PL-5 — Player Record User Stories](https://docs.google.com/document/d/1OSqt7ilS1feVS7aVxAYSsBZIcTrc1J31_WnQiVucEJg/edit)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 1:25:27 (restriction detail inferred from flagged Sign Ups, not re-typed on Player)](https://fathom.video/calls/787411922?timestamp=5127)\n* [Aug 18 Weekly Sync — Kobi Kunasekaran, 1:28:00 (“Correct” — persistent Restriction Detail fields cut)](https://fathom.video/calls/787411922?timestamp=5280)\n* Dependencies: [BUILD-173 — Player: Core Details fields](https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217684264652851)\n* Owner (proposed): Taryn Reithofer\n* Remember to update the requirements documentation as part of this change.\n* Created 2026-08-20 from Player record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-175 — Player: Ban Status + Banner",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10434",
+          "body": "**Addition:**\n\nAdded the Inactive Banner (90-Days per Emily) & Pending Banner alongside Banned banner. All have Player Status filtering not yet logic tied to each",
+          "created": "2026-08-20T15:56:42.617-0400",
+          "updated": "2026-08-20T15:56:42.617-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10436",
+          "body": "Built per spec: Ban Banner component added to the page, using a Component Visibility filter for Player Status = Banned, with banner text pointing to Sign Ups for details (informational only — no new field stores a reason on Player, per spec). A blank Restriction Detail field section was added to the layout, shown only when Player Status = Banned. Per spec, the actual Restriction Detail fields (Restriction Reason, Restricted On, Open Sign Ups Flagged, Payouts Placed on Hold, Restriction Notes) are confirmed cut and were not built. Automation/logic tying banner display to status changes is not yet built — flagging this as outstanding, not done.",
+          "created": "2026-08-24T17:18:53.273-0400",
+          "updated": "2026-08-24T17:18:53.273-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-293"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217686087320935"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001vj:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217686087320935"
+      }
+    }
+  }
+}

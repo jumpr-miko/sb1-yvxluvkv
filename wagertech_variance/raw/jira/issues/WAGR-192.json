@@ -1,0 +1,239 @@
+{
+  "id": "10361",
+  "key": "WAGR-192",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T13:36:05.560-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:32.937-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# RF-1: Referrer Object + Core Status\n\n_Foundational Referrer object — the status picklist and the counts/BA lookup everything else on this record depends on._\n\n### FIELDS\n\n* Referrer Status — Picklist: Active, Inactive, Paused, Banned\n\n* Swaps Player's Pending for Paused — Joyce Kiddell, [1:29:26](https://fathom.video/calls/787411922?timestamp=5366): “Because you can't pause a player, but refer would have active, inactive, paused, banned.”\n\n* Assigned Brand Ambassador — Lookup to Brand Ambassador, required\n\n* No BA means this referrer is invisible to BA-level and Manager-level reporting.\n\n* Primary Referrals — count flow?\n* Secondary Referrals — count flow?\n\n### IMPLEMENTATION REQUIREMENTS\n\n* BAs see only their own assigned Referrers, plus Referrers of BAs below them in the manager hierarchy\n\n* Sharing-rule/permission design, not a field — Kobi Kunasekaran, [1:39:48](https://fathom.video/calls/787411922?timestamp=5988): “as long as the BA is assigned to the referrer, they can see it.” Lina Ceniccola, [1:39:56](https://fathom.video/calls/787411922?timestamp=5996): “Unless they're a manager of the BA, then they can see.”\n\n* Missing-BA banner copy not re-confirmed\n\n* Not confirmed in the transcript — sourced from the prototype's help text only.\n\n* Primary Referrals / Secondary Referrals counts need Flow-based automation, not a native Roll-Up Summary field\n\n* The Sign Up → Referrer relationship uses Lookup fields, so Roll-Up Summary is not available. See [BUILD-238 — Referrer: Primary/Secondary Referrals Roll-Up Automation](https://app.asana.com/0/0/1217870569060418/f/) for the automation build.\n\n### NOTES\n\n* Provenance: RF-1 (Referrer Record User Stories doc).\n\n### SOURCE\n\n* [Taryn doc RF-1 — Referrer Record User Stories](https://docs.google.com/document/d/1MsJXwt3oY-DyQuAdMzNYlyPenKUQl7g8mHzMmeRaVHs/edit?tab=t.lh55xwl5syhi)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 1:29:26 (status swap)](https://fathom.video/calls/787411922?timestamp=5366)\n* [Aug 18 Weekly Sync — Kobi Kunasekaran, 1:39:48 (BA visibility)](https://fathom.video/calls/787411922?timestamp=5988)\n* [Aug 18 Weekly Sync — Lina Ceniccola, 1:39:56 (manager hierarchy)](https://fathom.video/calls/787411922?timestamp=5996)\n* Dependencies: [BUILD-238 — Referrer: Primary/Secondary Referrals Roll-Up Automation](https://app.asana.com/0/0/1217870569060418/f/)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-20 from Referrer record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-185 — Referrer: Object + Core Status",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10417",
+          "body": "Built per spec: Referrer Status (Picklist: Active, Inactive, Paused, Banned), Assigned Brand Ambassador (required lookup to Brand Ambassador), Primary Referrals (Count), and Secondary Referrals (Count).",
+          "created": "2026-08-24T17:19:17.756-0400",
+          "updated": "2026-08-24T17:19:17.756-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10421",
+          "body": "Please see dependency BUILD-238 for Primary and Secondary Referral flows",
+          "created": "2026-08-26T14:20:44.941-0400",
+          "updated": "2026-08-26T14:20:44.941-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-304"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217693311564006"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001un:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217693311564006"
+      }
+    }
+  }
+}

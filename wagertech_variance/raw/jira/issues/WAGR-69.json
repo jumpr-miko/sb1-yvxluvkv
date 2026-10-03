@@ -1,0 +1,196 @@
+{
+  "id": "10191",
+  "key": "WAGR-69",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:38:09.316-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-14T03:31:02.466-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "PLACEHOLDER. The design work sits with Kobi, off Joyce's spreadsheet. Everything below is the requirement context gathered from the Aug 13 client call and Slack, so the design does not have to be reconstructed from transcripts later. DO NOT BUILD FROM THIS CARD.\n\n=== REQUIREMENT CONTEXT ===\n\n* WHY THE MOCKUP'S BONUS DESIGN IS DEAD. It was Claude-generated from an export Emily made, never validated by WagerTech and never seen by Ilyas. Joyce: 'This is what Claude recommended we solution it as, but I have no idea if it's the right way to do it.' Kobi: 'Did Ilyas or anyone from the team give you this?' -> 'No.'\n\n* WHAT IS BEING REPLACED. Per-tier child records — one record per 15K/30K/45K rung of the ladder — AND the Bonus Configuration section on the Partner page layout. Both are gone.\n\n* SHAPE AGREED ON THE CALL. ONE rolling-total record per Partner + market/region, with the tier ladder as fields inside that single record, surfaced as a related list. Kobi: 'you would have two records, you wouldn't have one for every single tier, you would have one that's like GDC, ON, US.' Joyce: 'Got it. But just not the tiers broken out.' Why more than one per partner: 'that's the same partner, but the bonus tiers, this roll-up is applicable to different markets.'\n\n* NO PARALLEL BONUSES. Joyce: 'It's just tiers. So there's no parallel bonuses... It's like a total that keeps adding, rolling total or whatever.' Kobi's stated fallback condition for needing a real child object — overlapping structures with different conditions running in parallel — does not apply.\n\n* FIELDS JOYCE NAMED AS REQUIRED: the total target, the steps in the ladder, how much each bonus is worth, the date range, and the applicable deals.\n\n* QUALIFYING CRITERIA FOR A SIGN-UP TO COUNT. Status = Complete, within the bonus date range, and for some partners market-specific. Joyce: 'if a sign-up is complete, we count it against this. There's no other pre-qualifying it.' Emily: 'Within the date range and complete.' Joyce on the market dimension: 'for some partners, it's market specific — so be able to count the number of CPAs going against Ontario under that partner.'\n\n* HARD CONSTRAINT: PHASE 1 CAN ONLY FORECAST, NOT REPORT ACTUALS. The real metric is CPAs, meaning operator-confirmed conversions, which Salesforce cannot see. Joyce: 'what we log is basically forecasted, and what they confirm on their end are the actuals. So this is based off of actuals.' Actuals need an operator data feed, which Joyce put 'down the road'. Anything built now is a forecast off Sign-Ups.\n\n* DEAL-LEVEL EXCLUSION ALREADY COVERED. BUILD-153 adds an Exclude from Partner Bonuses checkbox on Deal. It is a global exclusion across all of that partner's bonuses — per-bonus exclusion was explicitly ruled out as too complex (Kobi: 'some bonuses for the same partner, but other deals don't count, that might get tricky').\n\n* OUTPUT SURFACE IS A DASHBOARD, separate from the config record. Joyce: 'I imagine this is just a config page, right? So there'd be like another view, like a dashboard that shows us how we're trending against like the 1,000 number.' Emily confirmed.\n\n* OPEN DESIGN QUESTION KOBI FLAGGED ON THE CALL: where the tier targets and payout amounts actually get configured — fields on the bonus record, custom metadata, or a report. He listed all three; nothing was chosen.\n\n* BOTH SIDES WANT IT SIMPLER THAN THE MOCKUP. Joyce: 'I would prefer not to be, for sure. Like just counting the number of signups that meet a certain criteria is easy enough, right? That's just a roll up of the signups.' Worth holding them to that.\n\n* OWED TO EMILY: she asked 'can you just flag scope and like effort?' on the bonus module. Not yet delivered.\n\n* INPUT: Operator Bonus Tracker.xlsx, sent by Joyce in #ext-wagertech-jumpr on 2026-08-17 09:55 'per our last meeting'.\n\n=== NOTES ===\n\n* Blocks BUILD-162 (moving the four bonus fields from Deal to Partner), which is On Hold pending this.\n\n* Provenance: collapses Taryn's PT-3 (section deleted) and PT-11 (object redesigned).\n\n=== SOURCE ===\n\n* Taryn doc PT-3 / PT-11\n\n* Aug 13 Joyce call — full redesign discussion\n\n* Slack Kobi Aug 13 16:21 — no bonus fields to be created\n\n* Slack Joyce Aug 17 09:55 — Operator Bonus Tracker.xlsx\n\n* Aug 17 Kobi/Taryn call — bonus tier named as a remaining open item\n\nDependencies: Operator Bonus Tracker.xlsx (Joyce, 2026-08-17); Sign-Up object\n\nOwner (proposed): Kobi Kunasekaran\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-172 — Bonus Model Design — PLACEHOLDER, design to be filled in by Kobi",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-287"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Needs More Info",
+          "id": "10029"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Decision",
+          "id": "10050"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Reporting & Dashboards",
+          "id": "10067"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563697287123"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000sv:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563697287123"
+      }
+    }
+  }
+}

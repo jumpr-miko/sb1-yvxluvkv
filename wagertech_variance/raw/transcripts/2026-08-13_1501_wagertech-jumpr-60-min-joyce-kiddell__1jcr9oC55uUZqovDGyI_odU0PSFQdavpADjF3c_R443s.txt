@@ -1,0 +1,1289 @@
+📝 Notes
+Aug 13, 2026
+Wagertech <> Jumpr - 60 Min (Joyce Kiddell)
+Invited Kobi Kunasekaran joyce@wagertech.bet emily@wagertech.bet lina@wagertech.bet Taryn Reithofer
+Attachments Wagertech <> Jumpr - 60 Min (Joyce Kiddell)
+Meeting records Transcript Recording
+
+
+Summary
+Team finalized data models for Salesforce deal configurations and established manual integration workarounds for CMS systems connectivity.
+
+Refining Data Model Configurations
+Standardized deal and partner field requirements include the removal of junction objects and the transition of agreement storage directly into Salesforce for improved record accessibility.
+
+Addressing Integration and Limitations
+Limited CMS API availability necessitates an interim manual data synchronization process to ensure testing can proceed without full system connectivity.
+
+Establishing Implementation Timelines
+Finalized deal object configurations and field mapping requirements will support broader system readiness ahead of impending project milestones.
+
+
+Decisions
+Aligned
+* Traffic source field added to deals The traffic source field is added to the deal object as a mandatory configuration.
+* Partner type field configuration established The partner type field is created with 'affiliate network' and 'SAS' options, located within the partner detail section.
+* Lookup fields chosen for contact management Primary and billing contact management will use lookup fields instead of a related list.
+* Junction object not required for relationships No junction object is required between partners and operators as billing information will inherit from the partner level.
+* Payment terms and invoicing cadence set Payment terms are set to Net 7, Net 30, and Net 45, with invoicing cadence fixed at monthly.
+* Salesforce selected for agreement file storage Agreement files will be stored directly in Salesforce rather than in Google Drive.
+* Partner and operator status inferred automatically Partner and operator status fields will be automatically inferred based on the presence of active deals.
+* Pitch document storage moved to deals Pitch documents and related agreement information will be stored at the deal level.
+* Manual CSV exports for interim sync Manual CSV exports are adopted as the interim synchronization method for operator and partner records between Salesforce and CMS while awaiting the completion of the API endpoint.
+
+
+Shelved
+* Suspension feature deferred to later release The development of a suspension or 'kill switch' feature for partners and operators is deferred to a future release.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Update Deal Object: Add a mandatory traffic source dropdown field to the deal object. Position this field within the deal information section of the page layout.
+* [Joyce Kiddell, Emily Vandenberg] Provide Logo Files: Send the required logo image files for operators to Kobi Kunasekaran for system implementation.
+* [Kobi Kunasekaran] Upload Operator Logos: Upload the provided logo files to the system and update the corresponding operator records.
+* [Joyce Kiddell] Update Partner Page: Remove the asset library link from the partner page layout.
+* [Joyce Kiddell] Share Bonus Spreadsheet: Provide the bonus tier documentation spreadsheet to Kobi Kunasekaran for analysis.
+* [Kobi Kunasekaran] Analyze Bonus Design: Evaluate the bonus module requirements and determine the technical design. Outline the project scope and estimated effort for implementation.
+* [Kobi Kunasekaran] Review Bonus Arrangements: Review the bonus arrangement object construction and determine the necessary build requirements.
+* [Kobi Kunasekaran] Prepare ID Export: Prepare a list of partner and operator IDs from Salesforce and send it to the team for CMS upload.
+* [Joyce Kiddell] Define Deal Fields: Define the specific fields required from the overall deal view to be passed to the CMS.
+* [Joyce Kiddell] Define Link Fields: Determine the required fields for the link records in Salesforce and identify those that must be passed to the CMS.
+* [Joyce Kiddell] Coordinate Sync Meeting: Schedule and coordinate a meeting with Straw and relevant team members for Monday at 3:00 PM to discuss the CMS and Salesforce data sync.
+* [Kobi Kunasekaran] Implement Deal Updates: Update the Salesforce deal configurations based on the feedback provided during the Tuesday meeting.
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Traffic Source Field for Deals: Joyce, Kobi, and Emily discussed the need to add a "Traffic Source" field to the deal object to replace the current redirect website process. They agreed this field should be a mandatory dropdown menu placed in the "Deal Information" section of the page layout, distinct from the redirect site configuration (00:00:02) (00:02:52).
+* Partner Type Definition: Joyce and Emily debated the necessity of a "Partner Type" field and decided to retain it (00:04:24). They identified potential categories such as "Affiliate Network," "SAS," or "Influencer," which will be placed in a "Partner Detail" section on the partner record (00:06:25).
+
+
+* Partner Status Automation: Kobi, Joyce, and Emily determined that "Partner Status" (Active, Inactive, Paused) should not be manually set (00:09:39). Instead, the status will be automatically inferred by the system based on the existence of associated active deals (00:08:37).
+* Partner Logo and Link Configuration: Joyce and Kobi agreed to configure logo fields for partners, which will involve a one-time file upload to generate a URL (00:10:41). They decided to remove the "Asset Library" field as it was deemed unnecessary, keeping only the field for the portal link where reports are downloaded (00:11:39).
+* Managing Partner Contacts: Joyce and Kobi discussed the configuration of contact records (00:12:40). They agreed to use lookup fields for primary and billing contacts rather than creating a complex related list, which simplifies the UI while still allowing for necessary oversight (00:14:51).
+* Billing Relationship Configuration: Kobi and Joyce discussed the billing setup for "Direct" versus "Partner" relationships (00:16:32). They agreed to hide billing fields in the operator view when the relationship is managed via a partner, and only display them when the relationship is "Direct" (00:17:29).
+
+
+* Evaluation of Junction Object: Kobi requested clarification on the relationship between partners and operators to determine if a junction object was necessary (00:18:41). Lina confirmed that all billing terms and payments are determined at the partner level regardless of the operator, so a junction object is not required (00:20:01).
+* Billing Detail Implementation: Kobi and Joyce agreed that billing information should be accessible via a related list view on the partner page (00:21:03). Billing fields, such as payment terms and invoicing cadence, will be set up as picklists to ensure consistency and prevent manual input errors (00:22:09).
+* Billing Detail Values and Automation: Lina, Joyce, and Kobi finalized the values for billing details, including payment methods (Wire, ACH) and terms (Net 7, Net 30, Net 45) (00:23:05). Kobi noted that these fields are informational, have no current automation, and can be updated as needed (00:23:56).
+
+
+* Invoicing Cadence: Regarding invoicing, Lina, Joyce, and Emily confirmed that the default cadence is "Monthly" (00:24:58). Kobi agreed to set this as a picklist value, noting that while it is currently static, they can adjust the options if requirements change in the future (00:26:06).
+
+
+* Bonus Configuration and Tracking: Joyce and Kobi discussed the requirement to track bonus tiers against actual CPA signups (00:28:04). Kobi suggested creating a separate object for bonus tiers rather than attempting to store them on the main partner record, which will allow for better scalability (00:31:45).
+* Bonus Criteria and Exclusions: Joyce, Kobi, and Emily agreed that bonus criteria must be time-bound and market-specific (00:32:41). Kobi proposed adding an "Exclude from Partner Bonuses" checkbox at the deal level to easily manage specific cases where deals should not count toward bonus targets (00:34:58).
+* Bonus Structure Modeling: Kobi and Joyce agreed that the bonus structure should be a related list of records rather than multiple sections on a single page (00:38:57). This approach allows for multiple bonus schemes for one partner, ensuring the data model remains flexible (00:37:57).
+
+
+* Agreement Documentation: Joyce and Kobi decided that signed agreements will be stored directly as files in Salesforce, eliminating the need to use Google Drive for this specific documentation (00:39:49).
+* Partner and Operator UI Cleanup: Joyce and Kobi agreed to consolidate various administrative fields into an "Additional Information" tab to keep the record pages clean (00:41:38). They also decided to remove the "Partner Owner" and "Operator Owner" fields, as they were not required for tracking purposes (00:40:53).
+* Emergency Suspension Functionality: Joyce and Kobi discussed a "kill switch" feature to suspend activity for a partner or operator (00:42:28). They agreed to defer this to a future release, but reached a consensus that the functionality should originate on the Salesforce side and trigger downstream updates to deals (00:43:33) (00:45:48).
+
+
+* Operator Level Configuration: Joyce and Kobi agreed to move the redirect URL configuration from the operator level to the deal level, as this value can vary by market (00:46:39). They also decided to infer operator status based on active deals, consistent with the partner status logic (00:48:55).
+* Pitch Documentation: Joyce and Emily determined that pitch or agreement documentation should be uploaded at the deal level rather than the operator level. This ensures that specific promises or pitches made for different markets/deals are correctly associated with the relevant record (00:49:38).
+* Tracking Benchmarks and Compliance: Joyce and Kobi agreed to add a "Tracking Benchmark" percentage field and a "RG Language" notes field to the records. These fields will be used for monitoring CPA forecast trends and ensuring compliance with website regulations (00:50:44).
+* CMS Integration and Audit Logging: Kobi and Joyce noted that the exact mechanism for syncing data between Salesforce and the CMS—including audit logs and data flow—needs further definition (00:56:03). They agreed to schedule a follow-up meeting early next week to address these integration specifics (00:57:09).
+* CMS and Salesforce Integration Scope: Kobi Kunasekaran explains that the current deal record sends all information to Salesforce, but the CMS only requires specific fields, including the name, external ID, deal representation, and study links. Kobi Kunasekaran indicates that no additional callouts from the operator or partner are needed at this stage unless specific requirements emerge later (00:58:02).
+* API Documentation and Workflow: Joyce Kiddell reviews the ID naming conventions and confirms they are acceptable. Kobi Kunasekaran notes that while the current API documentation lists the external ID field, it lacks the actual IDs, and clarifies that auto-numbering is not suitable as it changes between sandbox and production. Joyce Kiddell requests documentation covering the deal flow and operator/partner flows, as the existing materials focus on signups and study link clicks (00:59:01).
+* CMS API Endpoint Development Status: Kobi Kunasekaran clarifies that while CMS to Salesforce communication is straightforward using Salesforce REST APIs, the reverse path is currently blocked because the CMS API endpoint is still in progress (00:59:57). Emily Vandenberg and Joyce Kiddell confirm that the CMS API endpoint development is ongoing, meaning there is currently insufficient information for Salesforce to communicate with the CMS (01:00:59).
+* Interim Data Sync Workaround: To enable testing in the coming weeks, Kobi Kunasekaran proposes a workaround to upload the operator and partner list into Salesforce and export a report for Straw to upload into the CMS. Kobi Kunasekaran notes that although deals and assignments created in Salesforce will not immediately push to the CMS due to the lack of an endpoint, this method ensures that study click links can be related to the correct deals (01:02:01).
+* Defining API Endpoint Requirements: Regarding the future API endpoint, Kobi Kunasekaran requests clarification on the specific fields required from Salesforce deal records to activate deals on the CMS side. Joyce Kiddell and Kobi Kunasekaran acknowledge that these will be two-way connections, requiring them to determine the exact payload needed when a deal is created to support agency websites or representatives (01:02:53).
+* Salesforce Deal Object Configuration: Emily Vandenberg inquires about the status of the deal object configuration, specifically noting that the link module appeared incomplete. Kobi Kunasekaran states that the updates discussed on Tuesday should be implemented by the following Monday (01:03:44). Kobi Kunasekaran clarifies that the fields currently in the mockup are placeholders and that the final fields in Salesforce will be determined based on the requirements gathered from the CMS (01:04:42).
+* Documentation of Field Requirements: Joyce Kiddell commits to finalizing the list of fields from the overall deal view needed in the CMS and refining the fields within the link record. Kobi Kunasekaran intends to provide the export of operator and partner lists by the following day, allowing the team to review the data (01:05:36).
+* Meeting Scheduling and Data Validation: The team agrees that the IDs for operators and partners, which originate from AirTable, are not set in stone and can be updated later if necessary as they work within the sandbox environment (01:06:40). Joyce Kiddell schedules a follow-up meeting for Monday at 3:00 p.m. to discuss the data sync (01:07:36). This meeting will include Lina Ceniccola, Premier, Kobi Kunasekaran, Karen, Taryn Reithofer, and Straw. Kobi Kunasekaran commits to updating as much as possible before the Tuesday meeting, noting that while deals should be ready, some relationships may require additional time (01:08:37).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 13, 2026
+Wagertech <> Jumpr - 60 Min (Joyce Kiddell) - Transcript
+00:00:02
+
+Kobi Kunasekaran: Hey, Joyce. Is it Joyce?
+Joyce Kiddell: I just called someone on our Shrek.
+Kobi Kunasekaran: Is
+Joyce Kiddell: So like you know walking HR flag
+Kobi Kunasekaran: Joyce
+Joyce Kiddell: sometimes. Um okay. What are we doing? I booked this deals.
+Kobi Kunasekaran: deals?
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: I thought I thought we're talking about operators or partners, but we can also talk about deals.
+Joyce Kiddell: Oh. Oh yeah. Yeah. that too. Okay. Okay. One quick note. I'm going to put it in our Slack so that we both don't forget it, but we need to add traffic source to deals.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Yes.
+Joyce Kiddell: Deals. Um that'll essentially replace our um redirect website.
+Emily Vandenberg: No, we still want to keep that
+Joyce Kiddell: separate.
+Emily Vandenberg: because they're separate.
+Joyce Kiddell: Why?
+Emily Vandenberg: You're thinking Sherzy, Vectic, Wagertech versus like the actual redirect sites that we we signed the contract with. Like it's a few layers that we need to
+Joyce Kiddell: Yeah, yeah, yeah.
+
+
+00:01:23
+
+Kobi Kunasekaran: Wait, is this like
+Emily Vandenberg: track.
+Joyce Kiddell: So shy vectic because these
+Kobi Kunasekaran: are
+Joyce Kiddell: are properties that live outside of our core agency flow.
+Emily Vandenberg: A deal's going to come in.
+Joyce Kiddell: So
+Emily Vandenberg: Yeah, actually it's we need to break it open a bit more because a deal is going to come it's it's a new configuration uh value for a
+Joyce Kiddell: yeah,
+Emily Vandenberg: deal.
+Joyce Kiddell: so vectic agency
+Emily Vandenberg: Yeah. Wager check. Yeah. Wager check.
+Joyce Kiddell: What would be under wager tech?
+Emily Vandenberg: everything right now outside of Jersey.
+Joyce Kiddell: Yeah. Yeah.
+Emily Vandenberg: No agency would be wager check.
+Joyce Kiddell: So agency would do Wagertech though. Yes.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: And then predictive x. Might as well throw that in there. Okay,
+Emily Vandenberg: And yeah, something we need to track,
+Joyce Kiddell: cool.
+Emily Vandenberg: but then also a value in a deal configuration. And it's assigned at a partner level. So you'd assign it at the partner level.
+
+
+00:02:52
+
+Emily Vandenberg: No, cuz Tina or direct could
+Joyce Kiddell: Mhm.
+Emily Vandenberg: be.
+Joyce Kiddell: Wouldn't it be a deal cuz
+Emily Vandenberg: Yeah. Okay.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: Sorry.
+Joyce Kiddell: No, no, just Yeah, that's it for now. It's just a field Kobi with that as like a drop down. The values I just
+Emily Vandenberg: Oh, you're muted.
+Joyce Kiddell: did.
+Kobi Kunasekaran: Sorry we go.
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: So this is a field on the deal object um which just those drop down
+Emily Vandenberg: sorry.
+Kobi Kunasekaran: values.
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: Okay. Uh okay. Yeah it's fine. That's straightforward. And I'm assuming it's just going to be set when like whoever is creating the deal is going to pick the pick whichever one. Okay. All right. Easy enough.
+Emily Vandenberg: man has to be mandatory, right?
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: Uh
+Emily Vandenberg: mandatory and then yeah, you don't have to show it within the like code
+Joyce Kiddell: Yeah.
+Emily Vandenberg: deal code or whatever, but
+Kobi Kunasekaran: just in the page layout like probably under deal information or something.
+
+
+00:04:24
+
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Okay. So, for operators and partners, um, should I go through the mockup or have you guys had a chance to update anything on the real Salesforce?
+Kobi Kunasekaran: No, we haven't updated anything yet. Um, so we can go through the mockup and have uh we have a few questions along the way that maybe we can
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: clarify and then um go ahead and start making the updates.
+Joyce Kiddell: Okay. Find the link. One sec. Okay. Uh let's start with partner. So partner type. Um, I don't know if we still need this. Actually, did we say if we needed this or not, Emily? I remember.
+Emily Vandenberg: I don't I think so. Is that your direct versus
+Joyce Kiddell: No, cuz we won't have a page for direct, right? like it'll just be um it'll just be like a a option. Sorry. There will be a page for direct, I guess, cuz it has to be but it's uh like an option to pick from similar to Kina you know what I mean like it's not a type it's not a value on the direct page so I think partner type could be like affiliate network and then you know if we end up working with like um like a SAS company or like publisher or like you know what I mean like it'd be more what type of partner are they like their business
+
+
+00:06:25
+
+Joyce Kiddell: model.
+Emily Vandenberg: I think we can. Yeah. What's your thoughts? Keep or let go and
+Joyce Kiddell: I would say keep.
+Emily Vandenberg: default.
+Joyce Kiddell: Yeah, it'll just be like a value of two. Maybe it would be like affiliate network like SAS business or influencer or like Icy Pix like whatever the f*** that is, right? We'll figure no maybe that's not a partner but sorry talking through some of this real time.
+Emily Vandenberg: Oh,
+Kobi Kunasekaran: I'm Not
+Joyce Kiddell: Um but yeah this is a drop down value that would have to live somewhere else.
+Kobi Kunasekaran: easy.
+Joyce Kiddell: So the only thing that this doesn't reflect is what we talked about and that like this um Adam I didn't realize this but like these have to also live down here like they're just like highlights from s*** that lives below.
+Emily Vandenberg: and hide them.
+Joyce Kiddell: Can you hide them below here Kobi?
+Kobi Kunasekaran: We can we can Yeah. Yeah.
+Joyce Kiddell: But if we do that like can we wouldn't be able to configure it like if this had to change right.
+
+
+00:07:32
+
+Kobi Kunasekaran: You can you can still configure it by clicking on edit. Um yeah,
+Joyce Kiddell: Oh up here even though this is
+Kobi Kunasekaran: you just won't have the field with the pencil next to it for like quick edit.
+Joyce Kiddell: okay.
+Kobi Kunasekaran: like operate like the operators and active deals though those are accounts like you wouldn't edit them anyways I'm assuming those are
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: driven by related like relationships so the only one is partner type
+Joyce Kiddell: Yes. Yeah. Yeah.
+Kobi Kunasekaran: and I would like I think partner type I would actually put it under like a partner detail section it makes more sense right it's it's an attribute of the partner
+Joyce Kiddell: Sure.
+Kobi Kunasekaran: u so So the values for that right right now we're just saying it's going to be affiliate network and um you said the other one was SAS.
+Joyce Kiddell: Yeah. Let let me get you an actual
+Kobi Kunasekaran: Okay. Okay. Well, we'll start with just the affiliate network. Um for direct,
+Joyce Kiddell: list.
+Kobi Kunasekaran: the way we're we're talking about direct is you're going to have a partner called direct that's going to be attached to any direct deals.
+
+
+00:08:37
+
+Kobi Kunasekaran: That's still that's still consistent, right? or are we just going to have operators without any partners for the direct deals?
+Joyce Kiddell: No, that's still correct.
+Kobi Kunasekaran: Oh, correct. Okay. Um, so would like should we have a partner type that's direct as well? So it'll like if it's if it's a direct if the partner is direct the partner type is also direct. And you can still use it to filter if you need to.
+Joyce Kiddell: Let's talk about it after we jump to the operator view because there is a bit of a dependency there in terms of like
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: which billing details you choose to surface.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Okay. So like let's park that. Um, so operators is straightforward and then active deals,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: right? Like those would just be um things that show up below.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um, and then if if there's a way to configure like only showing active up
+Kobi Kunasekaran: Yep.
+Joyce Kiddell: here.
+Kobi Kunasekaran: So we would just count any deals that are related to that partner that is in an active status.
+
+
+00:09:39
+
+Joyce Kiddell: Okay. Um,
+Kobi Kunasekaran: Yep.
+Joyce Kiddell: so status, this one I was thinking could be like inferred by the deals. So if they have like a deal that's active, then their overall partner status would be active as well.
+Kobi Kunasekaran: Okay. So, this is not going to be like manually set. Like you're not planning on deactivating partners manually or anything like that.
+Joyce Kiddell: We have like a potential kill switch button which I'll get into.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Let me park that
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: too.
+Kobi Kunasekaran: So what what would be the values for status otherwise like active inactive?
+Joyce Kiddell: Paused.
+Kobi Kunasekaran: Pause.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um parent company. So, this is more of like a like admin type thing to consider. Logo you already had in terms of like being able to upload their logo file. Um, the ones here seem to be broken. So, I don't know
+Kobi Kunasekaran: there only some I only updated for I think a couple of uh operators specifically I think
+
+
+00:10:41
+
+Joyce Kiddell: if
+Kobi Kunasekaran: VMGM and there was another one DraftKings that had a logo um that we use for testing but for everything else like I'll show you the process but um we may need your help to populate those logos when we're ready to go
+Emily Vandenberg: Do we logo at the partner level? Do we
+Joyce Kiddell: No. If it's a pain in the ass to upload,
+Emily Vandenberg: care?
+Joyce Kiddell: then I would just not care.
+Kobi Kunasekaran: It's a couple of steps like you you have to upload the file somewhere and then get the link and put it in the logo URL and
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: that will basically show it as an image in the image file or image field.
+Joyce Kiddell: Okay. Well, why don't we send you the files and then ideally it's like not something we ever have to configure. And then we just
+Kobi Kunasekaran: Yeah, it's usually like you do it once and it's once and done and then anytime you have a new operator,
+Joyce Kiddell: like
+Kobi Kunasekaran: it's part of like setting up that operator, right?
+
+
+00:11:39
+
+Joyce Kiddell: Yeah. Yeah. Okay.
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: Um and then just a couple of like link fields. I'm hoping that's pretty basic to set up.
+Kobi Kunasekaran: these are just URLs, right? Like there's no there's no automations or anything. is somebody who's going to be post past placing these in as they're setting up these records.
+Joyce Kiddell: Yeah, I don't know why there's asset library. I think Claude added that. So, I'll take this out.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Asset library is not needed, but we will need a link to their portal, which is where we go in and actually like download their reports.
+Kobi Kunasekaran: Okay. Fine. Um, sorry. For the parent company before we move on,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: that that's just going to be like a text field for us, right? There's no relationship by anything. Okay, perfect.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Oh.
+Joyce Kiddell: Okay. And then their core website, primary contact, email, phone. So, I would wanted to ask like what how do we set up like contacts specific to uh partners, right?
+
+
+00:12:40
+
+Joyce Kiddell: Like are they their own child records?
+Kobi Kunasekaran: So there yeah like your partners and account or partners and operators their account records and accounts can have contacts related to them. Um but there's there's like two couple different relationships. There's the related contacts that um it's similar to like that related list that you're showing there. You could add any number of contacts. we could create um additional columns for like the contact role that you have there and to mark the primary. Um it doesn't necessarily drive the uh the lookup fields that you have above though. So you know like you have a primary contact field and then it's pulling in the uh email address and uh phone number. Um, so we we could add a contact there and we would have we can set up an automation so that if somebody creates a contact or links an existing contact to the primary contact field, it'll also related to the partner record. So then you'll see it in the related list below in one list. Um and and vice versa like if you add a contact as a like a related
+
+
+00:13:42
+
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: contact to the account or to the partner um and you set like the contact role or the primary flag then we can check if the partner already has a primary contact filled in and if it doesn't then we can use uh whichever new contact you added uh and fill that information in. Um if it already has a contact filled in um and you're adding another one and you're marking that as primary. Generally in those cases we would flag that for you to say okay there's already a primary contact do you want to deactivate and promote this person as primary or keep the other person and leave this this one as not primary. We can do something like that so that you know you don't have multiple primary contacts flagged.
+Joyce Kiddell: Is it to do that? Is that like a big lift?
+Kobi Kunasekaran: Uh it's it's it's yeah it's like it is additional work. Yes, there's flows and automations to build that.
+Joyce Kiddell: Is it fairly easy to just like link to their contact file? Like if I I don't think we need their email and phone number potentially here, but if we kept their name as something clickable at like a quick glance, is that easier?
+
+
+00:14:51
+
+Kobi Kunasekaran: So the I I guess the effort is if you want to see all of the you know like you have the billing contact the primary contact. Um I think there might be like another one as well. If you want to see all of them in a single list uh below in that related list, that's where the additional work comes in. If you just want a lookup field like the primary contact um where it also pulls in the email address from that contact record, that's that's just a straight up like lookup field. That's pretty easy.
+Joyce Kiddell: Oh, okay. So,
+Kobi Kunasekaran: It's the other automation.
+Joyce Kiddell: this the bottom is a lot of effort, but
+Kobi Kunasekaran: Yeah, because they're two separate things. Like a related list of all of the related contacts on an account record is its own thing,
+Joyce Kiddell: this
+Kobi Kunasekaran: but then the lookup field that you have above is a separate separate thing. So, we can link it together and we would have to add automations to link those together. Um, but if you don't necessarily need to see everything in one list, then lookup field is the easiest to do.
+
+
+00:15:44
+
+Joyce Kiddell: Yeah. No, I the lookup fields is probably all we need like because we have a section for partner details.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: So, we could do primary contacts being like this would be like our account manager essentially, right? And then if the different contacts for like billing, then we could put it here. Or if there's like more than one contact that we deal with on a day-to-day, it could be like primary and secondary. And then we wouldn't need the list at the
+Kobi Kunasekaran: Yeah. Yeah.
+Joyce Kiddell: bottom.
+Kobi Kunasekaran: Like if we don't need the like the full list at the bottom, we can we can we can always come back and add that in later too if we really need. So you start with the lookup field,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: see how it looks and if that's good enough
+Joyce Kiddell: Okay. As long as like once I get to like I don't know why they picked this name,
+Kobi Kunasekaran: there.
+Joyce Kiddell: but Elias's page, then it's clear that he's associated with Katina.
+
+
+00:16:32
+
+Kobi Kunasekaran: Yeah. Yeah. Like from Allias's contact page,
+Joyce Kiddell: Right.
+Kobi Kunasekaran: we can show the accounts uh or partners or operators that they're related to.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: And that's easy. Yeah. Did you hear that?
+Kobi Kunasekaran: Yeah. Yeah. Yep.
+Joyce Kiddell: Okay. Okay.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: And then this piece is just a big text fields like and like there's a lot of nuances when we work with partners.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: So it's just like want to give them space to like leave notes. Okay.
+Kobi Kunasekaran: Yeah. Now we can
+Joyce Kiddell: And then this is a bit nuancy and that so like billing details.
+Kobi Kunasekaran: do
+Joyce Kiddell: We want all these fields, right? Like it's it's all stuff that helpful for our finance team.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um actually I'll save it until we get to operators. But basically like this stuff if uh no we'll do it right now. Um if I go to let's say underdog is the example operator.
+
+
+00:17:29
+
+Joyce Kiddell: Um if it's a uh like if we specify billing relationship via partner then they would have the partner show up. uh it's not clickable but if it's a direct partner then we have to have the billing details at this level like within the operator view. Is that
+Kobi Kunasekaran: Okay. Yeah. I I think it would just be like the same field set in the operator.
+Joyce Kiddell: clear?
+Kobi Kunasekaran: um we would just hide it and it wouldn't be required or anything if uh if the billing relationship is yeah partner um and when it's direct then those fields will show up and people have to fill it
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: in
+Joyce Kiddell: Does it make more sense to just then only like not have a partner or an operator? I guess we need it for the configuration of a deal, right?
+Kobi Kunasekaran: Yeah, I think you you would still need that. The the one question I did have though is on operator when you when it's an operator and partner, right? Like you have the related list um there.
+
+
+00:18:41
+
+Kobi Kunasekaran: Um those values, the partner type, payment terms, invoice science, like any of those configurations, could they change between uh between different operators for the same partner? Because if they can, then we would like it would be a uh we call it a junction object, right? So there'd be another object that sits in between operator and partner and that's where this information would live because otherwise you would need a separate partner
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: record for every operator relationship which is not the right way to
+Joyce Kiddell: Lena, question for you.
+Kobi Kunasekaran: go.
+Joyce Kiddell: When we bill our operators, do they treat the the billing process for or sorry, when we bill our partners, is the process the same across all of the operators that they work with or can it be different between like but MGM and C users and they're both under GDC?
+Lina Ceniccola: Sorry, my my internet is extremely spotty, but you said do when it comes to invoicing, do the operators what?
+Kobi Kunasekaran: All
+Joyce Kiddell: So like let's say we know our our billing relationship is with GDC, right?
+
+
+00:20:01
+
+Joyce Kiddell: Like it's with the partner, not the operator. But do you have to treat every operator differently even though you're billing
+Lina Ceniccola: Yeah.
+Joyce Kiddell: GDC or is it the same across any operator that they work with?
+Lina Ceniccola: Do what part of the billing like the payment and stuff
+Kobi Kunasekaran: right.
+Joyce Kiddell: like yeah payment terms.
+Lina Ceniccola: that is all partner related.
+Joyce Kiddell: Um
+Lina Ceniccola: So all the operators fold up into whatever the
+Joyce Kiddell: okay.
+Lina Ceniccola: partner terms are.
+Joyce Kiddell: Okay.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: That's also
+Kobi Kunasekaran: So it wouldn't be different depending on like you know BMGM kina versus BMGm it would still be the same like it never changes.
+Joyce Kiddell: Yes. like the like if you have one operator across multiple partners,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: it'll be different,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: but it'll always be the same within that partner
+Kobi Kunasekaran: Partner. Okay. Okay. So then we don't we can get away without a junction object.
+Joyce Kiddell: network.
+Kobi Kunasekaran: A junction object is necessary if there are additional attributes or differences when one object is related to the other based on the relationship.
+
+
+00:21:03
+
+Kobi Kunasekaran: So if not and if they just inherit everything from the partner for the billing info that makes them
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: easier.
+Joyce Kiddell: Um, so these details would all have to be clickable from the operators, right? I don't know if it's like you show it all as columns in the operator view or you just like link out to this part of the partner page. Like I I don't know what the best way is to implement that, but
+Kobi Kunasekaran: Like you're saying like when you're looking at the operator and you see the list of partners are associated with, you want to be able to uh see the billing information, right?
+Joyce Kiddell: Yeah, either as like columns here and this is just reflecting what's already configured on the
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: um the partner page even though I know like based off this mockup it's not the same fields. So don't pay attention to that. But um yeah,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: it's either whatever is already configured or it like takes you to that part of the partner page or it pops up in a modal.
+
+
+00:22:09
+
+Joyce Kiddell: I don't I don't freaking know. Whatever you guys
+Kobi Kunasekaran: Yeah. That that that would be the way like you see that related list of all the list of the partners that they're related to and then we could uh
+Joyce Kiddell: think
+Kobi Kunasekaran: whichever fields you need highlighted. There is a I think there's a limit of how many fields we can show in this view, but then usually there's a view all button that you can click that shows you a few additional fields, but then you can always click on the partner and go to the partner page to see the full information.
+Joyce Kiddell: That makes sense.
+Kobi Kunasekaran: Um, for these billing detail fields, I think the the main thing is like we just need to know which ones are thickless versus
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: text fields. uh like payment terms typically we see those as thick list fields like you have a finite number of options and people just choose so it's consistent um same with like invoicing cad and things like that I think like which ones are pick list and which one like what the values are uh are I think the main thing otherwise like it's pretty straightforward for these
+
+
+00:23:05
+
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: fields
+Joyce Kiddell: let's talk through that. Um, so entity, contact, email, all just free form text,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: right?
+Kobi Kunasekaran: Well, contact will be look up, right? Because you're going to likely have a contact record.
+Joyce Kiddell: Oh, yeah. Yeah, yeah, yeah, yeah, yeah. um payment method. Uh um Lina,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: is it wire transfer um or EC? Like what are the options for payment?
+Lina Ceniccola: wire or AC. Can you hear me?
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Sorry.
+Joyce Kiddell: You're good on that. Okay. And then address,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: these three things,
+Kobi Kunasekaran: That's what's in the
+Joyce Kiddell: address, tax, billing, notes, those are all just free form.
+Kobi Kunasekaran: field.
+Joyce Kiddell: Payment terms. Do you know what our our different terms options are, Lina? Like net 30, net 45,
+Lina Ceniccola: Um yeah,
+Joyce Kiddell: any of those?
+
+
+00:23:56
+
+Lina Ceniccola: we have like net 7. net 30, net 45. How hard would it be if like something I else came up that we wanted to
+Kobi Kunasekaran: Not a big deal.
+Lina Ceniccola: add?
+Kobi Kunasekaran: As like the uh as far as I understand this is likeformational like there's no automation tied to these fields yet. So it's pretty quick to add additional options. So we can start with like a starter set whatever you know for now and then we can always add more
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: later.
+Joyce Kiddell: Anything we do with like invoicing and billing, like that's just static for right now. like yeah it's more for like the reference purposes for the finance team.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um so yeah let's do net 7 net 30 and 45 um invoicing
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: cadence um monthly and then do we ever have like quarterly or semianually or semionthly whatever
+Lina Ceniccola: on what
+Joyce Kiddell: um how often we have to pay them I guess it's the payment
+Lina Ceniccola: part.
+Emily Vandenberg: They pay
+Kobi Kunasekaran: Invoice
+Joyce Kiddell: terms yeah it's under payment terms already right so invoiceing
+
+
+00:24:58
+
+Kobi Kunasekaran: cannons.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: us.
+Lina Ceniccola: Yeah. Sorry, I was confused if you meant them paying us or us paying out cuz sometimes we pay
+Joyce Kiddell: answers,
+Lina Ceniccola: out if we have a deal. Don't worry. Yeah, just leave it as as that. That's
+Joyce Kiddell: but we don't Thank
+Lina Ceniccola: fine.
+Emily Vandenberg: We We invoice though, right? So we typically invoice every month, right, Lena? at the end like every 30 days.
+Joyce Kiddell: you.
+Lina Ceniccola: Yeah. I just because like sometimes we get invoiced for a particular
+Emily Vandenberg: Close.
+Lina Ceniccola: deal. So that's what I thought you were referring to on the flip side, but we don't have to include that here.
+Joyce Kiddell: Okay.
+Lina Ceniccola: There's like a deal.
+Joyce Kiddell: Um we can We can put that in the notes
+Lina Ceniccola: So this is fine for now.
+Joyce Kiddell: say like if that's something you want to keep track of.
+Lina Ceniccola: Yep.
+Joyce Kiddell: Okay. So when we invoice them back it's monthly and does that ever change?
+
+
+00:26:06
+
+Lina Ceniccola: monthly. No, that'll always stay as
+Joyce Kiddell: Okay.
+Lina Ceniccola: monthly.
+Joyce Kiddell: So maybe Kobi like we keep it as like a pick list but with only one value for right now
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: change and then currency would just be USD versus CD.
+Kobi Kunasekaran: Play again.
+Joyce Kiddell: I don't there's a need to do US dollar at the end of it because it's very clear what USD
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: is.
+Kobi Kunasekaran: Yeah. We would just use the standard currency field for this.
+Joyce Kiddell: Um,
+Kobi Kunasekaran: So it will just show um I think it just sold US or CAD.
+Joyce Kiddell: okay. And then PL required just a yes no pick list.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: And then Rebent's reference is just text fields.
+Kobi Kunasekaran: Okay. Do you need the additional like the PO number on every invoice like that additional X
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: anywhere or yes no is sufficient.
+Joyce Kiddell: I think that's sufficient.
+Kobi Kunasekaran: You could always add that in the billing notes as well,
+Emily Vandenberg: man.
+
+
+00:27:01
+
+Kobi Kunasekaran: right?
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Needed a um sorry before we move on just question on the billing
+Joyce Kiddell: Yeah. Bonus. Yeah.
+Kobi Kunasekaran: email. Sorry.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Uh so contact contact records can have like Sophia in this case um she's going
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: to have her own email uh as well, right? Um that you'll probably configure in the uh in like the email address. for the billing email. Is is this expected to come from Sophia's contact record or are we putting this in separately?
+Joyce Kiddell: I would say give the option of having it
+Emily Vandenberg: It should probably be separate if we'd like think of a world where you're
+Joyce Kiddell: separate.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: like routing like automating an invoice to send, right? And like typically that goes to finance with a CC,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: right?
+Joyce Kiddell: Yeah. Yeah. Yeah. And they usually do a generic email like that. Yeah.
+Kobi Kunasekaran: Yeah, like in those cases like we we've seen uh you know you'd create a contact for finance department for the company and that would be the contact.
+
+
+00:28:04
+
+Kobi Kunasekaran: So that would be the contact in the lookup field and the billing email address would be just the email address of that contact. Um, so if there are two separate things, we could have a second field on the contact record for a billing email and then we'll feed that in or we can just keep the billing email field just its own email field. Uh when you're configuring the operator and
+Joyce Kiddell: Yep. Okay.
+Kobi Kunasekaran: part
+Joyce Kiddell: Uh so getting into the really fun one uh bonus configuration. So if you remember from our last conversation around deals, we have to configure it actually at a partner level. But any activity that comes in through the deals has to ladder up into this like overall bonus view by partner. Okay. Um,
+Kobi Kunasekaran: Okay,
+Joyce Kiddell: this is what Claude recommended we solution it as. Um, but I have no idea if it's the right way to do it. Did they Did I or anyone from the team give you this?
+Kobi Kunasekaran: no,
+Joyce Kiddell: Okay.
+
+
+00:29:15
+
+Emily Vandenberg: No.
+Kobi Kunasekaran: no, we haven't seen this before.
+Joyce Kiddell: So I just exported it. I'll send it to you. But uh basically within each partner we have different tiers that we aim to hit within a given time frame in order to get like an additional like flat fee of like 15k 45k or no sorry this is status. So the al is that yeah
+Emily Vandenberg: Yeah.
+Joyce Kiddell: potential. Yeah.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Right over here.
+Emily Vandenberg: The earned unlocks like
+Joyce Kiddell: Yeah. Yeah. So yeah 555 30 15.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: So if we hit all of these targets right this is a number of CPAs
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: signups in in our speak.
+Emily Vandenberg: No,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: but it's actually
+Joyce Kiddell: Yeah,
+Emily Vandenberg: CPAs.
+Joyce Kiddell: like CPAs are sorry what tracked like what is confirmed in terms of it registered as a playable conversion event on the operator side like they signed up through our agency agency site and then they signed up on their site did a deposit did the wager.
+
+
+00:30:32
+
+Joyce Kiddell: It's like what we log is basically forecasted and what they confirm on their end are the actuals. So this is based off of
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: actuals.
+Kobi Kunasekaran: Um uh when how how are we going to know the actuals in Salesforce against those signups?
+Joyce Kiddell: I think all we can do within Salesforce right now is create a forecast around how we're trending on the the bonuses.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: We will that doesn't unlock until we bring in the operator data which is like four like down the road.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Uh okay. So for now then uh what we need to do is it sounds like for for the partner we need to set up like a timebound record to track the number of
+Joyce Kiddell: What?
+Kobi Kunasekaran: signups that are meeting whatever certain criteria and count those at the partner level. Am I understanding that
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: right?
+Joyce Kiddell: Yeah. Like I don't no idea if this is correct but um they suggested creating bonus tiers as like child records and then it
+
+
+00:31:45
+
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: like it you can qualify targets like number of CPAs and how much money we would get with it. And then I imagine like this is just a config page, right? So there'd be like another view like a dashboard that shows us how we're trending against like the 1,00
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: number.
+Kobi Kunasekaran: it sounds like the bonus tiers are like it is it's it's another object related to the partner and um so you when you add the bonus tier related to the partner um configure the target the amount whatever it is um we just need to align on the conditions for that a signup needs to meet for to be considered part of that bonus tier and then so then When you click on like bonus save for example, it takes you to a page that's shows you all of the signups that meet the criteria. And then from there, we can get the total count of like how many we're at for the forecast.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: That sound about
+Joyce Kiddell: So, when we talk criteria though,
+
+
+00:32:41
+
+Kobi Kunasekaran: right.
+Joyce Kiddell: I think um correct me if I'm wrong, but I feel like we kind of have to just like if a signup is complete, we count it against this. like there's no other way of pre-qualifying it.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Um,
+Emily Vandenberg: within the date range and complete.
+Joyce Kiddell: yeah.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: So, it has to hit within a time frame, right? Like I think a lot of these are like monthly cadences. Um, and for some partners, it's market specific, right? So,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: it's like have to be able to count the number of um CPAs
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: going against Ontario under that partner for that
+Kobi Kunasekaran: Okay. Yeah,
+Joyce Kiddell: month.
+Kobi Kunasekaran: if we would need to make sure that's captured in the bonus definition um so that we can tie that together like that's part of that the conditions right of how we know to allocate it to the right tier. Can you have overlapping bonuses for the same partner where like the record could go like count towards
+
+
+00:33:49
+
+Joyce Kiddell: It's just tears.
+Kobi Kunasekaran: multiples?
+Joyce Kiddell: So there's no parallel bonuses. So it's like a total that keeps adding,
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: rolling total, whatever.
+Kobi Kunasekaran: I see.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay. Is there so if it's just a rolling total um do we need to break it up into separate records like we see
+Joyce Kiddell: I have no idea.
+Kobi Kunasekaran: there?
+Emily Vandenberg: We
+Joyce Kiddell: Is this something that we can maybe leave with you to take
+Emily Vandenberg: have
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: away?
+Kobi Kunasekaran: maybe send me the spreadsheet and I'll I'll d like drill down into it and uh let's say I have a better understanding and come back to you with like what we can design around it.
+Joyce Kiddell: Okay, the main thing is that we're tracking against the total target,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: but then also the the steps in that ladder, right? Like graduated targets, um,
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: and how much each bonuses, date range, um, the applicable deals. So, most partners, well, all deals will apply, right?
+
+
+00:34:58
+
+Joyce Kiddell: Like that's kind of the default rule. But um I think there's that one case right under Kina where it's like there is a deal between Kina and OG but that particular deal does not apply to the overall bonus for Cina. Is that
+Emily Vandenberg: I don't know, Lena.
+Joyce Kiddell: right?
+Emily Vandenberg: I don't know.
+Lina Ceniccola: bonus. The bonus is what was the question?
+Joyce Kiddell: Is there any bonus that excludes a specific deal or operator from like that partner network? And the specific example that I've heard of and I don't know if it's true is like under Kina I think we
+Lina Ceniccola: Um,
+Joyce Kiddell: weren't counting OG signups against the bonus.
+Lina Ceniccola: I would leave that as something that could
+Joyce Kiddell: Okay. Like configure
+Kobi Kunasekaran: exclusions from a deal level. I think we can like just add a check box on the deal to say exclude from partner bonuses and if checked it
+Lina Ceniccola: Then
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: doesn't count towards the bonus tiers. I think it it could be pretty easy if you have to do like,
+
+
+00:36:07
+
+Joyce Kiddell: What is
+Kobi Kunasekaran: you know, some deals count um for some bonuses for the same partner but
+Joyce Kiddell: happening?
+Kobi Kunasekaran: other deals don't count. That might get tricky. But if we're just excluding it overall, that's pretty easy to do
+Emily Vandenberg: Okay. I think um Chloe,
+Kobi Kunasekaran: that.
+Emily Vandenberg: of course, like we'll send this over, but if this becomes like a pretty like a big build like the bonus module, can you just can you flag scope and like
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: effort?
+Kobi Kunasekaran: Yeah, like I I don't know if we need it to be like this complicated in the way that it's described.
+Joyce Kiddell: I would remember not to be for
+Kobi Kunasekaran: Um like yeah, like just just counting the number of signups that meet a certain criteria is easy enough,
+Joyce Kiddell: sure.
+Kobi Kunasekaran: right? Like that's just a rollup of the signups um and we would put the criteria around it. So that's where like if if there are overlapping like if we could have multiple bonus tiers, sorry, not tiers but multiple bonus structures.
+
+
+00:37:04
+
+Kobi Kunasekaran: is that I don't know how to call it like you know it's not just a rising number where it jumps into
+Joyce Kiddell: like in parallel. Yeah.
+Kobi Kunasekaran: another in parallel.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah. Like like if with like different conditions that's when we would need like a like a separate object.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: But if this just we're just counting all of it towards uh one giant number and then depending on which number you hit your uh payout or bonus that you're getting changes. That doesn't I don't think it needs to be like a separate record like how it's displayed here.
+Joyce Kiddell: I wonder if we it makes sense to split it out when it's grouped together like this, right? Because like GDC, GDC, that's the same partner, but the bonus tiers like this rollup is applicable to different
+Kobi Kunasekaran: I see.
+Joyce Kiddell: markets. You know what I mean?
+Kobi Kunasekaran: Yeah. Yeah.
+Joyce Kiddell: So for these
+Kobi Kunasekaran: So, yeah. I think in this case, like you would have two records.
+
+
+00:37:57
+
+Kobi Kunasekaran: You wouldn't have one for every single tier.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: You would have one that's like DDC and US. We would just count the number of uh signups that meet the criteria. Uh, and then depending on where we are with the number, we would display like how much you've earned based on the potential. We could we could do something like that. I think that's pretty simple and
+Joyce Kiddell: Okay. Okay.
+Kobi Kunasekaran: straightforward.
+Emily Vandenberg: Is it just become like logic that feeds into like a dashboard? Is that like
+Kobi Kunasekaran: Uh, yes. Like so the the potential amounts that you have here, if that needs to be mapped to a target, um, there's a couple of ways we can do it. um like at somebody has to configure that somewhere whether that's in like a report or in like a metadata or in a uh in a series of fields.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Uh whoever's setting this up to track on the deal would need to set it up somewhere and then we can take that information and use it either at the report level or at the record level when you're uh when you're opening that partner or bonus tier u to show you what the value
+
+
+00:38:57
+
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: is.
+Joyce Kiddell: But what you're saying is that like maybe it's just like two sections on the same record. Like it could be like bonus 01 plus AB configuration then bonus AB or whatever plus US and then AB like you know I mean like could those just be separate sections on GDC's
+Kobi Kunasekaran: No, I I wouldn't do separate sections because that's not scalable,
+Joyce Kiddell: record?
+Kobi Kunasekaran: right? Like what if you have three different bonus schemes for the same partner? Then we now have to have a had a whole new uh section, right? So the related list is the better approach. So it would be like another object. Um so you wouldn't have this section at all. Um because it will just be okay. Yeah, you have the list of bonus bonuses and then within there we can have all these fields in that record.
+Joyce Kiddell: got it. Okay. But just not the tears broken out. Okay. Yep. Makes sense.
+Kobi Kunasekaran: Exactly.
+
+
+00:39:49
+
+Joyce Kiddell: Okay. Agreement. Um on Yeah. So all of these things I think are helpful. I don't know introduced by I would take this out. This is this is weird. Um but uh I think we should have like a file field here that will allow us to actually either link to or upload the agreement we have signed.
+Kobi Kunasekaran: that that file list like do we do we need that stored in Google Drive or is it okay to store it in Salesforce.
+Joyce Kiddell: Salesforce
+Kobi Kunasekaran: Salesforce fine. Okay. That simplifies things a lot.
+Emily Vandenberg: What's that, Kobi?
+Kobi Kunasekaran: That simplifies things a lot. Uh because I mean we're already building the GCP for proofs, but um we're building it within the scope of the signup. So if we need to extend it to other objects, it's we can definitely do it. But um the out of the box files, it's a lot easier to work with for these cases.
+Joyce Kiddell: Yeah. Yeah. Yeah.
+
+
+00:40:53
+
+Joyce Kiddell: there like the amount of agreements are not like so huge that we need to solution otherwise.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Okay. And then additional information, I don't know, this is like a catch all for like other s***
+Kobi Kunasekaran: Sh.
+Joyce Kiddell: that I don't even know why active status is down there. So, I would remove that. But, um it's like anything that is maybe necessary to just have visible on the record, I would just buck it under additional information.
+Kobi Kunasekaran: So the active status here is the same as the status that we had up top, right?
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: It's not necessarily true.
+Joyce Kiddell: I don't know why that's it's Yeah.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: Um and then for partner owner um and same question for operator owner.
+Joyce Kiddell: Also take that. No,
+Kobi Kunasekaran: You don't need it.
+Joyce Kiddell: no,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: It just like would capture like the trail of who inputed it,
+Joyce Kiddell: no.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: but you probably don't need it. Can happen behind the scenes.
+
+
+00:41:38
+
+Kobi Kunasekaran: Okay. Yeah. There's always going to be an owner record or owner field for every object,
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: but uh generally that's a user, right? So it is usually the person that creates a record. Um, but if you need to start like assigning non-user employees to these owner fields, then it gets tricky. Um, but if you don't need that, then yeah, we we'll just leave it as a default
+Joyce Kiddell: Yeah, I think there's just like a couple things like partner ID,
+Kobi Kunasekaran: field.
+Joyce Kiddell: partner code, all this stuff where I was like, "Oh, I don't know where to put it." Um, so like if we have to keep it in any place and put it under additional information, don't worry about system. Both of these I think can be squashed.
+Kobi Kunasekaran: Okay. Some of those like behind the scenes stuff we can put it in a different tab. Like I I'd recommend that over like a separate section because sections usually are open. It creates a long uh long page to read through whereas like
+
+
+00:42:28
+
+Joyce Kiddell: UI.
+Kobi Kunasekaran: breaking it up into like a separate tab. Um and you only go there when you need to edit those things. And it's generally admin. So we can hide it over there.
+Joyce Kiddell: Yep. Agreed for sure. Um, okay. So, something that I don't think we need to solution for right away.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: um but we are talking about it is the ability to turn off all activity related to a partner or an operator.
+Kobi Kunasekaran: The suspension.
+Joyce Kiddell: So yeah,
+Kobi Kunasekaran: Yes.
+Joyce Kiddell: it should be like oh emergency break let's like you know turn everything off like go nuclear like whatever you got to do. Um, so if someone with like a very high permissions that clicks that button, then the ideal would be that like any associated deals just turns off and is no longer available for configuration on the CMS side. However, we're talking about like that potentially happening on the CMS side and then getting updated in Salesforce still. So, I feel like that's something we just need to figure out internally and then we can get back to you.
+
+
+00:43:33
+
+Joyce Kiddell: If you have any strong feelings,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: let me know. Okay.
+Kobi Kunasekaran: I I I think for me this is like the suspension the way I I read it it's it's a pretty big uh pretty big build in that we need to figure out whether the suspension is driven from this record uh like the partner or the operator and has to trickle down into the deals and any other related records or um do we use the status of those related records as a gate to determine if somebody can click on the suspend button here and in in the latter cases suspend button All it does is like flip some fields on the partner record. It doesn't actually do any of the other actions. So it it sounds like if you're driving the suspension like you're deactivating all the deals and everything from the CMS, then really like this button is just going to flip the record information to say suspended as opposed to actually deactivating the deals in Salesforce and CMS.
+Joyce Kiddell: Yeah. No, I I think the the action either way would be like one button where you can change the status but then also make sure that any associated deals are no longer available for anyone to click on in our our agency sites.
+
+
+00:44:38
+
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: Right? So if that triggers from here, like it would it would do all of those things. And if it triggered on the CMS side, then it would just like give you a heads up and then automatically deactivate all of the associated deals also and change the
+Kobi Kunasekaran: Yes.
+Joyce Kiddell: status. So either way,
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: that button has to do that like function. I just don't know what's best in terms of where it originates.
+Emily Vandenberg: Yeah, we
+Kobi Kunasekaran: The way we talked about how the deal is being configured like the deal itself is being configured in Salesforce.
+Emily Vandenberg: can't
+Kobi Kunasekaran: I would say like we we the suspend button drives the deal statuses in Salesforce and that would update uh CMS. That'd be the most straightforward way,
+Joyce Kiddell: Yeah,
+Kobi Kunasekaran: right?
+Joyce Kiddell: I think you're
+Kobi Kunasekaran: And because we haven't talked about the CMS updating deal information so far,
+Joyce Kiddell: right.
+Kobi Kunasekaran: we the CMS is only sending back the deal rep assignments and uh things like that.
+
+
+00:45:48
+
+Kobi Kunasekaran: So, I mean, we we can always add that other like that other connection.
+Emily Vandenberg: Could
+Kobi Kunasekaran: But if if that's not there and we're going to add it just for this, uh we can just do it the other way around.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: we also push this feature out to like after like as like a
+Joyce Kiddell: Yeah.
+Emily Vandenberg: launch?
+Joyce Kiddell: Yeah. Yeah. For
+Emily Vandenberg: Okay. Just to make sure. Yeah.
+Joyce Kiddell: sure.
+Emily Vandenberg: Because like at this point I think it's like we really do want to think through like what is necessary like you're getting kind of full kind of context and visibility but like what's necessary versus
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Yeah. Yeah.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: So let's park this for like you know next phase or whatever next release
+Kobi Kunasekaran: Yeah. Okay.
+Joyce Kiddell: but I I directionally I think I agree with you that it should originate on the Salesforce side. Okay. Um and then operator uh it's very similar, right?
+
+
+00:46:39
+
+Joyce Kiddell: And that like uh I just want to kind of get more granular in terms of verticals and markets when you get down to the operator level. So you can see K sports book regions number of active deals. Um status again would be reflected based off of active or not active deals. I don't know, maybe it's not even necessary. Um but then a lot of the same contact related information and uh again in terms of lookups like do the easier solution versus like what we talked about on the operator or in the partner side um management details or whatever we want to call
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: this um redirect oh yeah so this is like that redirect website like that middle layer what's the URL um and then I
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: think uh cuz that is typically con or uh configured or set at like a operator level. And then when we get down link by link, that's where um the operations team can override it sometimes or
+Kobi Kunasekaran: So the default redirect like whenever you're configuring the operator you'll put that value in and then when they set up a
+
+
+00:47:52
+
+Joyce Kiddell: sorry
+Kobi Kunasekaran: deal for the operator they can change it at the deal
+Joyce Kiddell: the deal level and and of Yeah.
+Kobi Kunasekaran: level.
+Joyce Kiddell: I wonder um if it's better to just go straight to deal and not operator.
+Emily Vandenberg: this. Yeah,
+Joyce Kiddell: Yeah.
+Emily Vandenberg: because the that's like if it's like Canada versus US, I think that they is different.
+Joyce Kiddell: Yeah, I don't even remember adding this. So, I feel like it might have been based off of like a notes that we had in a meeting or something. So, let's take this part out.
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: Pick it up.
+Emily Vandenberg: think through the like status.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Best.
+Emily Vandenberg: I don't even know if we need a status at an operator because it's like at a deal,
+Joyce Kiddell: Yeah.
+Emily Vandenberg: right?
+Kobi Kunasekaran: I think it's always good to have like a status field on the main records. Like let's say like you there's no active deals uh at all on an operator. The status field could just go to inactive and it it helps you easily separate that in reports if that ever happens.
+
+
+00:48:55
+
+Kobi Kunasekaran: Usually a good good practice
+Emily Vandenberg: I think it's like if it was automated maybe like if it was just like automated
+Kobi Kunasekaran: have
+Emily Vandenberg: based on the deals like if there's no active deals with that then you could but nobody's going
+Joyce Kiddell: Yeah.
+Emily Vandenberg: to like no user is going to go and update at the operator
+Joyce Kiddell: Yeah.
+Emily Vandenberg: level.
+Joyce Kiddell: Even even with like partner that could be the same case like just infer status based off deals
+Kobi Kunasekaran: right
+Joyce Kiddell: for both partner and
+Kobi Kunasekaran: like the number of active deals. Okay. Yeah, let's let's do that.
+Joyce Kiddell: operator.
+Kobi Kunasekaran: that I think that it'll just be helpful when you're like separating them in list views and things like
+Joyce Kiddell: Yeah. Yeah.
+Kobi Kunasekaran: that.
+Joyce Kiddell: Yeah. If you have like zero active deals, then you're inactive.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Okay,
+Joyce Kiddell: And if you have one or more deals,
+Kobi Kunasekaran: you can do that.
+Joyce Kiddell: then you're active. Okay.
+
+
+00:49:38
+
+Joyce Kiddell: Um and then same thing, it says,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: yeah, operator portal. This like just the website that we go to like download reports. Um so this one's a bit different in terms of um like information we want to save against the operator. Typically when we go to like land an agreement with an operator, there's like some sort of pitch in terms of like what did we promise them? Right.
+Emily Vandenberg: But that also needs to live at the deal
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: level
+Joyce Kiddell: I don't know why I updated here. Okay. Sorry. Is that not on?
+Kobi Kunasekaran: We don't have this on a deal right now,
+Joyce Kiddell: All right.
+Emily Vandenberg: just because right because it like Alberta's pitch was
+Kobi Kunasekaran: though.
+Emily Vandenberg: different than Ontario's pitch though was different than
+Joyce Kiddell: sometimes because when I did the BMGM1,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: it included both Alberta and Ontario, but we can always just upload it twice. So, basically, when we go to enable a deal, Kobe, like we we want this as a reference to be like, what did we actually promise the operator, right?
+
+
+00:50:44
+
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: So I think yeah makes more sense to upload it to the deal and this would just be
+Kobi Kunasekaran: Yeah. Especially if they can have like multiple depending on the deal.
+Joyce Kiddell: like yeah
+Kobi Kunasekaran: That that makes more sense.
+Joyce Kiddell: okay um and that should be uh a file that you save in Salesforce not Google.
+Kobi Kunasekaran: Crap.
+Joyce Kiddell: Okay. Um and then tracking benchmark.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: So this is something that someone will have to manually monitor and update because we don't have the operator data yet. But internally we have a sense of how well are we doing against the forecasted logs and
+Kobi Kunasekaran: Got it.
+Joyce Kiddell: the actual confirmed CPAs we get on the affiliate side.
+Kobi Kunasekaran: Okay. So, it's just going to be a percentage field for now.
+Joyce Kiddell: Yeah. And then a date from like whenever we last reviewed it.
+Kobi Kunasekaran: Cool.
+Joyce Kiddell: Uh and then should we say like who last reviewed it? M does it matter?
+Emily Vandenberg: I don't think it's
+
+
+00:51:55
+
+Joyce Kiddell: Yeah.
+Emily Vandenberg: necessary.
+Joyce Kiddell: I don't but it would be good to know like how how recent is this data I guess. Is it?
+Emily Vandenberg: Whoever updates it'll be like tracked right on the back end.
+Joyce Kiddell: Yeah. Yeah. Um and
+Kobi Kunasekaran: Do you want this populated or updated every time like the tracking benchmark number
+Joyce Kiddell: then
+Kobi Kunasekaran: changes? Okay. Yeah, we could do that. But like if if it stays the same though,
+Joyce Kiddell: cool
+Kobi Kunasekaran: it's like it's going to show the previous date unless you know whoever like reviews it uh consciously like goes in and edits that date field.
+Joyce Kiddell: this one.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Yeah. Um the RG language. So this is like just a a specific notes field that we need to be able to use for like
+Kobi Kunasekaran: Thanks.
+Joyce Kiddell: uh updating our websites to make it compliant. And then operational notes is more like internal purposes in terms of like what do we need to know in dealing with like
+
+
+00:52:47
+
+Kobi Kunasekaran: Sure.
+Joyce Kiddell: underdog for example. Um and then this is the whole billing partner direct relationship that we already went through. Deal currency ignore all of this. I think um I do think though that I I don't have it here. Um but if the relationship is direct then we should also have the same agreement information on operators that we did on partners, right?
+Kobi Kunasekaran: the billing detail information,
+Joyce Kiddell: Like no,
+Kobi Kunasekaran: right?
+Joyce Kiddell: here it's like the contract related stuff or like we we had the ability to upload the
+Kobi Kunasekaran: Oh, right,
+Joyce Kiddell: contracts.
+Kobi Kunasekaran: right, right.
+Joyce Kiddell: That make sense?
+Kobi Kunasekaran: Where was that in the agreement
+Joyce Kiddell: It was in the partner one down
+Kobi Kunasekaran: sign notice exclusivity?
+Joyce Kiddell: below.
+Kobi Kunasekaran: Yeah. Okay. Yeah, that's fine. I think those fields are already on the operator anyway. So,
+Joyce Kiddell: They're not not for the
+Kobi Kunasekaran: it looks Oh,
+Joyce Kiddell: agreement.
+Kobi Kunasekaran: like I if you click on the direct toggle, it shows up.
+
+
+00:54:01
+
+Kobi Kunasekaran: But I'm looking at it when I click on the direct toggle and showing up.
+Joyce Kiddell: Oh, yeah. Yeah. Yeah. Yeah. Yeah. Sorry,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: I completely forgot I was in the thing. Yep. Yep. Then yeah, I would ignore the additional information. And then I don't know why file I think files was already there. Maybe that's why.
+Kobi Kunasekaran: I think it's because like uh we have the pitch and positioning shown up as a file. So cloud probably added the related list because of that. So we're moving that to deals.
+Joyce Kiddell: got it.
+Kobi Kunasekaran: So you probably won't have any files. I mean it doesn't hurt to have a file section for the operator anyways.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: You might have things that you might want to save later. it it doesn't really cost anything to add the notes and attachments to records. Um, so we can add that in if you like and just you use it, you use it, you don't you
+
+
+00:54:53
+
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: don't
+Joyce Kiddell: Yep. So, does that kind of cover off the two pages, two
+Kobi Kunasekaran: it does. Yeah,
+Joyce Kiddell: screens?
+Kobi Kunasekaran: I think uh yeah, I think we're good. Taryn, anything else that's like big that we flagged in the in the
+Taryn Reithofer: Um,
+Kobi Kunasekaran: document.
+Taryn Reithofer: I don't think so unless I I miss something with the back and forth. But, um, if if so, it can just be sent in
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Slack.
+Kobi Kunasekaran: I think we're good. I think the main one we want to make sure that there's no like junction object between partner and uh operator and we resolved that. um and we've resolved um how the uh what was it the bonus arrangement information. So I I'll take a look at that. I'll get back to you with what that looks like um or what we could build for that. Um everything else is pretty good. There may be some like pickless fields that may need some additional values, but it sounds like we'll start with whatever we have and then we can always add more later.
+
+
+00:56:03
+
+Kobi Kunasekaran: So uh there's no automations or anything tied to them. So not a big deal if you don't have the full uh value set right now.
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: Um there are some fields around like CMS sync that I noticed in the operator and partner. Um I'm assuming like these are fields that are going to be set by the CMS when we set up the
+Emily Vandenberg: Excellent.
+Kobi Kunasekaran: integration.
+Joyce Kiddell: Yeah. And they don't even have to live there. Like maybe in a separate tab to your point.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um I just want like uh visibility over like when was the last time it was updated based off of a CMS data like almost like a error log kind of view or audit log.
+Kobi Kunasekaran: Yeah. Yeah. I think that would be helpful. Like we we haven't talked about how operator and partner information is going to go into the CMS. Like this whole time we assume like they're going to be kind of uploaded separately and then we'll have the uh external ID to join them together when the links link clicks come But if we do need to send out the like if you create a new partner and we need that to send be sent from Salesforce to CMS then we'll need to scope that out as like a as like its own thing.
+
+
+00:57:09
+
+Kobi Kunasekaran: It's not a big thing in the grand scheme of things for the integration but it does need to be called out separately. Um and then as part of that is where these fields will come in like populating these fields who's going to populate it how it's going to get
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: updated. The error logging generally comes from that scoping.
+Emily Vandenberg: Joyce,
+Joyce Kiddell: Okay.
+Emily Vandenberg: are we going to send to the CMS from like at the partner operator level or at deal level.
+Joyce Kiddell: Well, they need to also send operator partner in order to like make a
+Emily Vandenberg: Yeah. But would we send it like Yeah.
+Joyce Kiddell: deal.
+Emily Vandenberg: Okay. I guess it's all going to kind of like happen at once. So I was just trying to think of the sequencing, right? like
+Joyce Kiddell: Yeah, I think it it's kind of getting into territory where I don't quite understand it.
+Emily Vandenberg: and
+Joyce Kiddell: So, I I think we need to um have that chat with Straw that you mentioned probably early next week.
+
+
+00:58:02
+
+Emily Vandenberg: yes. Yeah. Just of like how the the syncs and the communication and like the like
+Joyce Kiddell: Yeah.
+Emily Vandenberg: timing of of the communication goes and is that Yeah. Like I think the sooner the the better on that one.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: So hoping early next
+Kobi Kunasekaran: Okay. Yeah.
+Emily Vandenberg: week.
+Kobi Kunasekaran: Usually like the um initially how we scoped it is the deal record does send all the information but obviously you don't need all of these fields from operator and partner to go into the CMS, right? You only need like the name, the external ID, enough to map it to the deal and deal rep. uh and like the study link links and stuff. So um we can send that as part of that one one call and theoretically you should be able to have CMS create those records in the respective tables in CMS. So uh if that's enough then we're good. Uh we don't need to scope anything else extra um or like specific callouts from operator and partner uh to create into CMS.
+
+
+00:59:01
+
+Kobi Kunasekaran: But if we do then yeah we can have that conversation as well.
+Joyce Kiddell: I I took a quick look at your IDs. Like they all look fine to me. Um so we can pass that along. And I know you've made a bunch of docs related to our API.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: So like the Do any of them have that kind of listed in terms of like the payload and the flow and all that stuff?
+Kobi Kunasekaran: Uh we have they have the external ID field listed but not the actual ids. I think the previous iteration we talked about like auto number but the auto number is not going to work because when we move to like from sandbox to production the numbers are going to change. So having something that's like outside of auto number made more sense. So, I'll I'll update the docs, but I don't think it should matter uh because we're we're creating the uh records in Salesforce and
+Joyce Kiddell: two.
+Kobi Kunasekaran: uh I'm expecting like I'm just going to be sending straw CSV of those like the operator name and ids for them to upload into CMS.
+
+
+00:59:57
+
+Kobi Kunasekaran: So I don't think change anything
+Joyce Kiddell: Okay. Um, and then in that documentation though with like the flows being described,
+Kobi Kunasekaran: else.
+Joyce Kiddell: like the one that I saw was very detailed about signups and like study link clicks and stuff, but do we have one that describes the deal flow and then operators and partners as well? Or do I have to make I'm just wondering like what can I send him in advance of Monday for us to kind of like go in and just like rubber stamp the plan, you know?
+Kobi Kunasekaran: So for for the deal and like deal rep assignment links all of that um right now I think what we need is an endpoint on the CMS side for us to talk to um because for CMS to talk to Salesforce it's pretty straightforward right it's just a Salesforce REST APIs you just need to know the objects and the fields to update um just like we uh you're doing already for the study link clicks and the player survey completions and all of that. So all of that is documented.
+
+
+01:00:59
+
+Kobi Kunasekaran: Um but once we know what the API endpoint is that we are going to be touching on the CMS side and what the authentication is uh then we can design out like okay do we need anything else uh paired on the Salforce side before we can put together the payload. I don't know if you if we're ready for that or if that's still in progress on your side like the CMS API
+Emily Vandenberg: That's yeah,
+Kobi Kunasekaran: endpoints.
+Emily Vandenberg: still in progress.
+Joyce Kiddell: still in progress. Yeah, sorry. So, did I I had got distracted by something.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: So, we do have the documentation we need for the deal integration as well or no deal operator partner.
+Emily Vandenberg: We're not ready for it.
+Kobi Kunasekaran: So we have Yeah.
+Emily Vandenberg: Is
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: sorry.
+Kobi Kunasekaran: I was going to say like with uh there's enough information for CMS to talk to Salesforce. There's uh not enough information for Salesforce to talk to CMS yet. And that's still waiting on the API endpoint being created on the CMS side.
+
+
+01:02:01
+
+Joyce Kiddell: Okay, so we need an endpoint to be created with but then we also need to update a
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: bunch of tables with these ids, right? I'm just trying to understand like what are all the tasks that I need to assign
+Kobi Kunasekaran: Uh yes,
+Joyce Kiddell: up.
+Kobi Kunasekaran: but I think they can be done independently like the the CSV of but so what I'll do is like we'll up upload the this operator uh and partner list into Salesforce and then do a export or create a report and send it over uh to you all and STR can upload that uh for the time being and we can use this uh to send the study uh the sorry the study click links into Salesforce when we start testing the next couple weeks that should be enough.
+Emily Vandenberg: All right.
+Joyce Kiddell: And then I just
+Emily Vandenberg: Thank
+Kobi Kunasekaran: What we don't have is like we're not creating anything like anything any deals and deal assignments or anything that we create
+Joyce Kiddell: need
+Emily Vandenberg: you.
+Kobi Kunasekaran: in Salesforce is not going to push to CMS because we don't have an endpoint.
+
+
+01:02:53
+
+Kobi Kunasekaran: So whatever is created there,
+Joyce Kiddell: All right.
+Kobi Kunasekaran: I need an export of those IDs so that I can create the records in Salesforce. Um, and then when those study link clicks come, they're able to get related to the right deals.
+Joyce Kiddell: And do you know what you need from the API endpoint or do I need to document
+Kobi Kunasekaran: Uh,
+Joyce Kiddell: that?
+Kobi Kunasekaran: for the API endpoint, I need to know what fields you need from us like what are we setting on the CMS?
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: It's gonna show up basically in the UI.
+Kobi Kunasekaran: Yeah. and like what you need like from from the fields that we talked about uh on Salesforce right like you already know like
+Emily Vandenberg: Sorry.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: all the fields that's going to be in in Salesforce for the deals uh the deal links the deal rep assignments what do you need in the payload when a deal is created uh for CMS to activate that deal for an agency website or for a
+Joyce Kiddell: Okay.
+
+
+01:03:44
+
+Kobi Kunasekaran: rep
+Joyce Kiddell: And these are going to be like two-way connections, right? Okay. Okay.
+Emily Vandenberg: And sorry,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: but do we have you we've given all the feedback on the deal um object right cuz I and then you're still working through that feedback.
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: I when I checked yesterday I think like it didn't look complete like do we know when all of that will be
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: configured?
+Kobi Kunasekaran: The updates to the deal that we talked about on Tuesday, I I think by like Monday we should have those implemented.
+Emily Vandenberg: because like I know that the link module hadn't been completed.
+Kobi Kunasekaran: Thank you.
+Emily Vandenberg: There was a few things. So like Joyce maybe it makes sense. Okay. Like once we can see that we we bring it in.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: We show straw. Okay. like this is what we you know this is what we need to communicate with and then like we obviously need to build out CMS for what's it needs to handle and then talk through what the endpoint and then he
+
+
+01:04:42
+
+Kobi Kunasekaran: I think the fields for the link soul was they're just temporary fields.
+Emily Vandenberg: can
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: I I I assume like we're waiting on what's needed from the CMS for the final field list for the links.
+Emily Vandenberg: for the links
+Kobi Kunasekaran: Yeah, for the deal links uh object um based on our conversation on Tuesday, like the the fields that are in the mockup are just placeholder fields for the purpose of like the mockup, but they're not actually the final fields because the actual that we need to create in Salesforce to support what you need in CMS, uh we need those based on the requirements from the CMS.
+Joyce Kiddell: Yeah. Yeah. Okay.
+Emily Vandenberg: I don't know.
+Joyce Kiddell: I understand. So for deals,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: you have all the feedback in terms of what we want in Salesforce. Okay. Including the new source fields and then there are a couple changes from today's call,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: It doesn't like
+Joyce Kiddell: right? Like the the pitch document all stuff.
+
+
+01:05:36
+
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um and then I have to be specific now and give you what
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: um fields from the overall deal view we need in the CMS, right?
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: And then the same thing with links though and that like we need to go through in the link record what are all the fields we want in Salesforce but then also narrow it down in terms of what are we passing to the CMS.
+Kobi Kunasekaran: Exactly.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Like we have we have a few like placeholder field on the links right now that we can work off of, but I don't think that's going to be your final set, right? You you're going to have a lot more requirements or nuance requirements on the CMS side for the links. So for us is just making sure those fields are available for configuration.
+Joyce Kiddell: Okay. Yeah, I can get that done tomorrow. Um, and then uh let's aim to meet with Straw on like when can you do the export you think of the tables that we're going to need?
+
+
+01:06:40
+
+Kobi Kunasekaran: Uh, I can get that to you by tomorrow for the operator
+Joyce Kiddell: Okay. So if we meet withdraw like Monday or Tuesday.
+Kobi Kunasekaran: partner.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Yeah. Yeah, that's cool.
+Joyce Kiddell: Would Monday work?
+Kobi Kunasekaran: Yeah, be pretty
+Joyce Kiddell: Let's do Monday afternoons working
+Emily Vandenberg: Oh,
+Joyce Kiddell: session.
+Kobi Kunasekaran: open.
+Emily Vandenberg: sorry, this might be super loud because I'm picking up from camp, but the once we send over to straw the list like the IDs, then after the fact, those IDs will be created at a partner and operator level from the from Salesforce, right? Got it. and the CMS will just be updated like his list will just be updated from there. Okay, perfect because we haven't really validated that list
+Kobi Kunasekaran: Correct. Yeah, we can always change it. Like not none of this is set in stone, right?
+Emily Vandenberg: but
+Kobi Kunasekaran: Like we're still working in parts of sandbox. So if we need to change those IDs before we go into production, we just have to make sure we change it on both systems like CMS and Salesforce.
+
+
+01:07:36
+
+Kobi Kunasekaran: We can always change them.
+Emily Vandenberg: okay.
+Joyce Kiddell: There's there's nothing wrong with the um ID naming conventions that you put together. It's more like we might not need specific operators to be in the system period. You know what I mean? But or we might just need to change like the status of
+Kobi Kunasekaran: Gotcha. Okay. Yeah, that's that that's we can always update later,
+Joyce Kiddell: them.
+Kobi Kunasekaran: too, because we these two lists are from whatever was in Air Table. So, yeah, I imagine some of them are probably not active
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: anymore.
+Joyce Kiddell: Okay. All right. I got to bounce to another meeting. Um but uh wait, sorry. Monday afternoon. Um do you want to do 2 p.m.?
+Emily Vandenberg: Is that for the the data conversation?
+Joyce Kiddell: Wait. Oh, 3:00. Yeah.
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: Yeah, that works for
+Joyce Kiddell: Sorry.
+Emily Vandenberg: here
+Kobi Kunasekaran: me.
+Emily Vandenberg: buddy.
+Joyce Kiddell: Um Okay. I'll just call it CMS SF data sync.
+
+
+01:08:37
+
+Joyce Kiddell: Okay. Lena, I'm gonna put you as
+Emily Vandenberg: No sense for Kenzie.
+Joyce Kiddell: optional.
+Lina Ceniccola: Yep, that's fine.
+Joyce Kiddell: Um and then Premier and Kobe and Karen.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: T A R R Y N at
+Taryn Reithofer: at
+Joyce Kiddell: job.io. Okay.
+Taryn Reithofer: jumper.io
+Joyce Kiddell: And straw.
+Kobi Kunasekaran: Awesome.
+Joyce Kiddell: Okay. I booked it for an hour on Monday afternoon. Okay.
+Kobi Kunasekaran: Okay, good meeting.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: Um,
+Joyce Kiddell: Thank you.
+Kobi Kunasekaran: we'll we'll try and get as much as we can updated ahead of our Tuesday meeting.
+Emily Vandenberg: thanks.
+Kobi Kunasekaran: No promises we can get everything done, but uh the deals should be okay and I think most of these like straight up deals should be okay. Um, some of the relationships might need a little bit more time, but I'll let you know how we fare on Monday.
+Joyce Kiddell: Okay,
+Emily Vandenberg: Okay,
+Joyce Kiddell: thank you.
+Emily Vandenberg: perfect.
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: Thank you.
+Joyce Kiddell: Bye.
+Emily Vandenberg: Bye.
+Kobi Kunasekaran: thanks everyone.
+Taryn Reithofer: Thank
+Kobi Kunasekaran: I
+
+
+Transcription ended after 01:20:01
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

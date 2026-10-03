@@ -1,0 +1,255 @@
+{
+  "id": "10464",
+  "key": "WAGR-189",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-08-20T13:38:15.031-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-10-02T11:35:46.155-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# RF-4: Player Cross-Reference\n\n_Cross-reference fields linking a Referrer to their Player record, when the same person is both._\n\n### FIELDS\n\n* Related Player Record — Lookup to Player\n\n* Cross-reference only, never merges the two records.\n\n* Player Status — Formula, read-only\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Active Operators removed from this field list\n\n* Joyce Kiddell, [1:37:08](https://fathom.video/calls/787411922?timestamp=5828): \"...And then player record, so the same, like, on the flip side of what we saw. Remove active operators...\"\n\n* \"Convert Player to Referrer\" screen-flow is a Phase 2 candidate, not this build\n\n* Emily Vandenberg, [1:42:37](https://fathom.video/calls/787411922?timestamp=6157): \"This is probably like a down the line request...\" Kobi Kunasekaran, [1:42:57](https://fathom.video/calls/787411922?timestamp=6177): \"we could set up a screen flow that essentially pre-fills those fields from the player record.\"\n\n### NOTES\n\n* Provenance: RF-4 (Referrer Record User Stories doc).\n\n### SOURCE\n\n* [Taryn doc RF-4 — Referrer Record User Stories](https://docs.google.com/document/d/1MsJXwt3oY-DyQuAdMzNYlyPenKUQl7g8mHzMmeRaVHs/edit?tab=t.lh55xwl5syhi)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 1:37:08 (Active Operators removed)](https://fathom.video/calls/787411922?timestamp=5828)\n* [Aug 18 Weekly Sync — Emily Vandenberg, 1:42:37 (Phase 2 candidate)](https://fathom.video/calls/787411922?timestamp=6157)\n* [Aug 18 Weekly Sync — Kobi Kunasekaran, 1:42:57 (screen-flow concept)](https://fathom.video/calls/787411922?timestamp=6177)\n* Dependencies: [BUILD-185 — Referrer: Object + Core Status](https://app.asana.com/0/0/1217693311564006/f/), [BUILD-173 — Player: Core Details fields](https://app.asana.com/0/0/1217684264652851/f/)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-20 from Referrer record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-188 — Referrer: Player Cross-Reference",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10241",
+          "body": "Related Player Status field formula: \n\nTEXT(Related_Player_Profile\\__r.Player_Status_\\_c)",
+          "created": "2026-08-21T14:25:15.988-0400",
+          "updated": "2026-08-21T14:25:15.988-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11604",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Somehow Secondary Referrer field got added to this section, just removed it!",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-10-02T11:35:46.055-0400",
+          "updated": "2026-10-02T11:35:46.055-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-315"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217693254043028"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002hj:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217693254043028"
+      }
+    }
+  }
+}

@@ -1,0 +1,778 @@
+📝 Notes
+Jun 17, 2026
+Jumpr <> Wagertech: Project Kickoff
+Invited Miko Sumagang lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi strah@wagertech.bet strahinja.vladetic@gmail.com jess@bountysports.com jess@wagertech.bet Marc Cabantog
+Attachments Jumpr <> Wagertech: Project Kickoff
+Meeting records Transcript Recording
+
+
+Summary
+The project kickoff defined Salesforce integration objectives and established development phases while resolving team participation concerns.
+
+Project Objectives and Scope
+The team aims to centralize operations within Salesforce to replace manual data entry methods. Development will utilize sandbox environments and iterative testing to ensure system integrity.
+
+Implementation Strategy and Timeline
+A 3-phase project structure was outlined to achieve full operational integration. The project aims for a November 1st target to measure efficiency improvements effectively.
+
+Administrator Involvement and Configuration
+The team decided to delay administrator involvement until after the discovery phase to prioritize business requirements. Reviewing legacy configurations was requested to prevent repeating previous implementation errors.
+
+
+Decisions
+Needs Further Discussion
+* Spreadsheet connectivity requirements pending discovery Connectivity requirements between Salesforce and existing spreadsheets for redeposit and payout tracking require further technical review during discovery sessions to determine the best approach.
+
+
+Aligned
+* Phase 3 timeline planning established The team established November 1st as the planning date to begin measuring efficiencies for Phase 3, contingent on project progress and potential adoption bottlenecks.
+* In-person team project meeting scheduled An in-person team meetup is scheduled for the week of July 8th in Toronto to conduct a detailed review of the project plan.
+* Sandbox environment chosen for development The team decided to utilize a sandbox environment for all development work to prevent premature record generation in the production instance.
+* Data migration scope defined for Phase 1 The group aligned on including historical data migration for the foundational objects in the scope of Phase 1.
+* Salesforce administrator involvement deferred until post-discovery The team decided to exclude the Salesforce administrator from the discovery phase to focus on business stakeholders and mitigate potential conflicting opinions, with the plan to integrate them into the process at a later stage.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Jess] Add to GitHub: Grant user access to the GitHub repository.
+* [Joyce] Update Requirements Document: Revise the Project Requirements Document in Notion with latest information. Notify the team once the update is complete.
+* [The group] Coordinate In-Person Meetup: Arrange an in-person meeting in Toronto for the week of July 8 to discuss the project plan.
+* [Kobi] Propose Management Solutions: Research file management options for Dropbox and provide recommendations to the team.
+* [Joyce] Transform Historical Data: Process and format historical data into the required structure for migration.
+* [Kobi Kunasekaran] Schedule discovery meeting: Schedule a follow up discovery meeting to discuss API integration, technical implementation details, and the entity relationship diagram walkthrough.
+* [Kobi Kunasekaran] Update Asana access: Add all meeting participants to the Asana board.
+* [Kobi Kunasekaran] Create Slack channel: Set up a Slack channel for day to day communication.
+* [Kobi Kunasekaran] Schedule weekly sync: Send out a link for scheduling the weekly sync meeting.
+* [Kobi Kunasekaran] Configure sandbox: Set up a sandbox environment for Salesforce development.
+* [Kobi Kunasekaran, Strahinja Vladetic] Discuss data integration: Coordinate a discussion regarding the separate data store integration with Salesforce.
+* [The group] Participate in discovery: Prepare to provide feedback on the system design and workflows during the upcoming discovery sessions.
+* [The group] Plan for UAT: Ensure representatives are available for UAT during the first week of August.
+
+
+
+Details
+* Meeting Kickoff: The participants gathered to initiate the project and confirm attendee participation, with Lina Ceniccola, Kobi Kunasekaran, Waleed Alasadi, Jess Hodgson, Miko Sumagang, and Emily Vandenberg present (00:00:00).
+* Project Management and Team Introductions: Kobi Kunasekaran introduced themselves as the project manager and primary consultant, and noted the team includes Miko Sumagang as the solution architect and Jester as the implementation lead (00:01:24) (00:11:15). Wager Tech team members identified their roles: Emily Vandenberg (Director of Operations), Lina Ceniccola (COO), Joyce Kiddell (Head of Integration), and Strahinja Vladetic (Software Consultant) (00:14:06) (00:16:03).
+* Timeline for Salesforce Integration: Jess Hodgson requested clarity on project timelines to establish a plan for measuring business efficiencies (00:03:09). Waleed Alasadi outlined a three-phase structure: Phase 1 (signups) by mid-August, Phase 2 (payouts) approximately one month later, and Phase 3 (final components) an additional month to month and a half after that (00:04:18). The team aligned on aiming for a November 1st date to fully measure project efficiencies, noting this is subject to change based on adoption rates and potential bottlenecks (00:07:19).
+* In-Person Meeting Planning: Joyce Kiddell suggested an in-person meeting in Toronto around July 8th and 9th to discuss the project plan in detail, to which the group agreed (00:09:41).
+* Business Model and Project Objectives: Kobi Kunasekaran reviewed the current business model, which involves managing player recruitment via WhatsApp and tracking payments through Google Sheets, Airtable, and Dropbox. The primary objective of the project is to centralize operations within Salesforce to eliminate manual data entry and provide real-time data visibility (00:21:51) (00:24:02).
+* Phase 1 Scope: The first phase of the project focuses on solution design, establishing the data architecture, and creating core data models, including signup forms and API endpoints (00:26:07).
+* Development Environment Strategy: Kobi Kunasekaran confirmed that development will occur in a sandbox environment rather than directly in production to prevent auto-generated record IDs from triggering prematurely (00:30:52).
+* Iterative Testing Approach: The project will utilize an iterative testing model where logical components are validated throughout the build process, culminating in a final end-to-end testing period before go-live (00:30:52) (00:37:49).
+* Data Migration: Historical data migration is included in the Phase 1 scope (00:33:41). The team discussed using unique identifiers to link Salesforce records with existing systems and ensuring data transformation is handled to maintain integrity (00:34:38).
+* Maintaining System Connectivity: The group discussed the necessity of keeping Salesforce connected to legacy spreadsheets during the transition to ensure continuous data flow, potentially leveraging Google Sheets plugins until all processes are fully migrated (00:42:31).
+* Project Communication and Management: The project team will use Asana for task and user story management, Slack for daily communication, and a shared Google Drive for documents and meeting recordings. Weekly sync meetings will be established to provide updates and gather feedback (00:46:26).
+* Tentative Project Timeline: Kobi Kunasekaran proposed August 17th as a tentative go-live date, establishing this by working backward from the necessary UAT and training milestones (00:48:37).
+* Reporting and Analytics: While data migration and initial system usage take priority, the team will develop reporting and dashboards post-go-live once sufficient data has been generated in the new system (00:48:37).
+* Technical Integration of Data Store: Strahinja Vladetic identified the need for a future discussion regarding the integration of a separate data store with Salesforce to ensure it does not conflict with the planned architecture (00:58:20).
+* Coordination of Salesforce Development: Kobi Kunasekaran requests that any team members currently performing work on Salesforce communicate with them to avoid conflicting development or the unintentional deletion of existing work. Kobi Kunasekaran emphasizes the importance of collaborating rather than wiping out active components, as the team intends to build from scratch while ensuring no prior work is compromised (00:59:20).
+* Timing of Administrator Involvement: Waleed Alasadi asks why the team's administrator will not be involved until after the discovery phase, suggesting that early inclusion would provide valuable business context (00:59:20). Joyce Kiddell explains that the team is still identifying the specific individual, but the strategy is to wait until discovery is complete to bring them into the process. Emily Vandenberg and Joyce Kiddell clarify that the decision to exclude the administrator initially is intentional; they want to keep the current discussions focused on primary business stakeholders to avoid bias (01:00:14). They express concern that the administrator, being a developer, might impose strong personal opinions on the technical implementation, which could conflict with the specific pain points and needs identified by the business side (01:01:08).
+* Optimism for Project Success: Joyce Kiddell expresses excitement regarding the current effort to enhance the agency process, noting that this is the first attempt they believe will be truly transformative for the business. Kobi Kunasekaran reciprocates this sentiment, confirming their confidence that the team will successfully complete the project (01:02:06).
+* Review of Existing Salesforce Configuration: Kobi Kunasekaran requests a review of the current Salesforce implementation, particularly the reasoning behind existing custom built user interfaces. Kobi Kunasekaran explains that understanding the existing setup is necessary to identify what did not work from a business perspective, thereby ensuring the new solution avoids repeating past mistakes. Emily Vandenberg agrees with the validity of this request and suggests scheduling a separate call to address these details, allowing the team to proceed with the primary discovery session with the other stakeholders in the meantime (01:02:06).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jun 17, 2026
+Jumpr <> Wagertech: Project Kickoff - Transcript
+00:00:00
+
+Lina Ceniccola: Hello.
+Kobi Kunasekaran: Hi, how are you?
+Lina Ceniccola: How are you?
+Kobi Kunasekaran: I'm doing great, thank
+Lina Ceniccola: Me as well.
+Kobi Kunasekaran: you.
+Waleed Alasadi: hiding out very well
+Lina Ceniccola: Hey, how's it going?
+Waleed Alasadi: you
+Lina Ceniccola: Good. Excited to get this started.
+Waleed Alasadi: feel like we're starting in record
+Lina Ceniccola: Yes, I agree.
+Jess Hodgson: What's going on?
+Miko Sumagang: Hello everyone.
+Jess Hodgson: I'm in here. Who's on the call? Is anybody else on the call in? Hi everybody. By the way, I'm Jo.
+Waleed Alasadi: I
+Kobi Kunasekaran: I
+Jess Hodgson: Hi guys.
+Waleed Alasadi: Yes.
+Jess Hodgson: Yeah.
+Miko Sumagang: Yes.
+Lina Ceniccola: Jess is our CEO for anybody that doesn't know.
+Kobi Kunasekaran: guess.
+Lina Ceniccola: Joyce and Emily will be joining in a second, I assume.
+Kobi Kunasekaran: Very
+Waleed Alasadi: Anyway,
+Kobi Kunasekaran: slowly
+Emily Vandenberg: Hey team,
+Miko Sumagang: Hello.
+Emily Vandenberg: if we're just waiting for Joy,
+Kobi Kunasekaran: breathe. One more.
+Emily Vandenberg: she's couple minutes so we can get started without her. Um, and let me just ping one
+
+
+00:01:24
+
+Miko Sumagang: Thank you.
+Jess Hodgson: Oh,
+Emily Vandenberg: second.
+Jess Hodgson: I'll get I'll get him added to that GitHub thing right after this call. By the way,
+Emily Vandenberg: Ah, thank you.
+Jess Hodgson: I know I've been dragging my heels on that. I had a few other initiatives.
+Emily Vandenberg: That's all
+Jess Hodgson: I'm trying to fire all of our employees as we speak.
+Emily Vandenberg: right.
+Kobi Kunasekaran: That sounds a little ominous.
+Jess Hodgson: Yeah. Yeah. If you're one of them, should be
+Kobi Kunasekaran: Okay, I guess we can get started then. Um, I'm going to go through like introductions anyway, so uh Chris will probably join by then. Um, hello everybody. Uh, my name is Kobe. Um, I will be your project manager and primary consultant throughout this project. Um, super excited to get this project started. Um it's it's a unique uh business model like we've worked with a lot of like subscription management uh and revenue operations uh teams but it's always exciting to work with like a different different model different business and learning how it works.
+
+
+00:02:22
+
+Kobi Kunasekaran: So uh super excited. Um I'm going to we are going to start with um with introductions. Um it is my first time meeting a lot of you. Um before I dive into the agenda, um I'll start introducing our team and I'd love to get uh I'd love to get an intro from all of you. um you know who you are, how you fit into this project, uh what you're hoping to get out of this project, and then we'll jump into the agenda and I'll walk you through what we're going to do for the next uh next few weeks um as we get your Salesforce up and running. Does that sound good? Any question before I jump right
+Jess Hodgson: Yeah. Yeah. Can I can I jump in here quick?
+Kobi Kunasekaran: in?
+Jess Hodgson: I didn't grab your name, buddy. What's it called? Uh Kobe dope name. That's a cool name.
+Kobi Kunasekaran: Kobe?
+Jess Hodgson: I like that name.
+Kobi Kunasekaran: Yes. Thank you.
+Jess Hodgson: Um the Yeah, I don't think I need to really stay on the call for that long.
+
+
+00:03:09
+
+Jess Hodgson: Um trust me, this is great call. I don't have to really run through it, but um my my main question is just like um getting clarity and and we don't have to make it like right the second but ideally
+Kobi Kunasekaran: Hope you're breaking up. Is that just me or
+Jess Hodgson: I know say like oh we don't know because we don't know what we don't know but like if we can try to narrow down what we think those timelines will be because um that's really the launch point of when we can assume that we'll be able to at any if well most if not all uh efficiencies from the integration of Salesforce like if we have a halfbaked product default I'm not going to use the term excuse but uh what was the what was the term for excuse that you can use today Lena contextualize the problem to contextualize the problem um basically we'll have a lot of those if if if it's not fully done we I just want to get a sense of like when the when the integration will be fully complete that phase three outlined in your document so we know Okay, that's kind of like day one of us actually being able to like maximize those efficiencies so we can kind of build a plan around
+
+
+00:04:18
+
+Waleed Alasadi: Um, hi just sorry we'll leave here.
+Jess Hodgson: that.
+Waleed Alasadi: You you cut out the first part. So you're saying just to kind of summarize you're looking to um validate when we're going to be kind of completed with all three phases.
+Jess Hodgson: Yeah. When are we going to be done? Yeah.
+Waleed Alasadi: Um it's when when are you going to be
+Emily Vandenberg: Okay.
+Waleed Alasadi: like so like real realistically.
+Jess Hodgson: any one of
+Waleed Alasadi: So we've like outlined three phases. The first phase kind of getting you signups um in by mid August.
+Jess Hodgson: you.
+Waleed Alasadi: The second phase with like payouts um and and that kind of component. We pro probably another month on top of that. another month to month and a half on phase three. Now, I've said this to the team multiple multiple times like there's a lot of moving components and like Salesforce is kind of integrating with your API. You're changing at least 23 people how they work. Um we we don't like to kind of try mention that to say like this is when it's going to be done and you're going to be using it smoothly.
+
+
+00:05:20
+
+Waleed Alasadi: I think the smoothly part is what you should really anticipate. Um when we kind of think about change management and really gaining the efficiencies that you're looking for because like we have to be realistic about the like your your teams right now it is so easy to go into Excel or Google Sheets they know what they're doing it's just as easy as adding a row. So there is definitely a change management component that we have to consider when we're thinking about what does done really
+Jess Hodgson: Yeah. No, I I that totally makes sense to me. I'm And I'm not Look,
+Waleed Alasadi: mean.
+Jess Hodgson: I I totally understand adoption rates, you know, and the fact that I mean, if you need something and we take a week to get it to you and it's like a full a full bottleneck, you can't move on until you have it, like that adds a week to the project. And that kind of stuff happens all the time. And I'm sure then like you don't want to commit to a deadline and then or a timeline and then you know we don't do hold up our end of the bargain or you know we're slower our adoption rates are a lot slower than we anticipated.
+
+
+00:06:13
+
+Jess Hodgson: So you know this isn't like you know putting your feet your feet to the fire to be like when are we going to be done. It's more like, hey, we got to also build a business plan around when we can what when we can actually expect to um get efficiencies off this because like my challenge to the team is like okay, we're really good at spending money, but like obviously the the the the value of this there's a commercial value to it which is inherently you know economic and we have determined it to be a positive ROI event. in order to make to like validate that we're gonna have to measure when those efficiencies will basically come into play so that we can say hey yes this was a good decision or it was not a good decision or this is a great decision and we want to actually bring this product to you know 2.0 I know cuz and you know I I'm very familiar with CRM and you know there's always the like the art of the possible right it's like we always want to do more it's like it's a neverending project you guys know that as well as I do and that's fine that's okay but like we want to be able to measure success of phase one like well of this stage so that before we move on to the next and trust me we'll ideulate the next stage well before the end of this
+
+
+00:07:19
+
+Jess Hodgson: one. So um I'm sure that that that's all I'm trying to do is build a business plan around some of the measurable sides of things. So look, I think you made it pretty clear it's mid August phase one, mid, we'll call it end of October phase three and so November 1st and notwithstanding any kind of slowly expected adoption rates or bottlenecks on our side, November 1st, we can probably at least plan to start to be able to measure those those efficiencies and have it kind of fully ruled out again notwithstanding any delays on our side. Is that fair to say? High level, not holding your feet to the fire.
+Waleed Alasadi: So that that is that is absolutely fair to say. Here's here's what I'm going to suggest. So Kobe in throughout the today, I know you don't have you can't stay for this long, but he's going to present our project plan. The first I think week and a half to two weeks is really diving in with your team. Kobe, me, Jester, myself, like we you've got the top minds here to help kind of understand.
+
+
+00:08:11
+
+Waleed Alasadi: Remember this is day one for us essentially. Well, day three since we started Monday.
+Jess Hodgson: No.
+Waleed Alasadi: Um, so I think if you give us the the week and a half to two weeks that Kobe's proposing to really meet with your team, understand the system, be in the shoot, agree on the design, we can actually with a lot more confidence come and have this conversation and be like, here's what we think, here's what you should expect, and you will agree and align with us. No,
+Jess Hodgson: Let's
+Waleed Alasadi: no, no jumper team. I needed this to be part of like my first phase like uh success criteria. We can really have that kind of solid conversation with you once we've gone through the discovery and the uh solution design
+Jess Hodgson: call it the second week of July. We kind of circle back.
+Waleed Alasadi: phase.
+Jess Hodgson: We'll set a a very rough estimate of November 1st and we'll solidify that or at least have a lot more certainty around that particular date or if it's going to be amended in any capacity by the second week of July.
+
+
+00:09:00
+
+Jess Hodgson: Is that fair to
+Waleed Alasadi: That's fair to say.
+Jess Hodgson: say?
+Waleed Alasadi: And I'm hoping earlier than the second week, but that's that's a very fair fair statement.
+Jess Hodgson: Okay, great. Well, that's all I really need to be a part of. Yes,
+Joyce Kiddell: Sorry,
+Waleed Alasadi: Yes.
+Jess Hodgson: Joyce, you said it so sharply.
+Joyce Kiddell: I just Oh,
+Jess Hodgson: It was like you were like yelling at me.
+Joyce Kiddell: I mean, isn't that how we always communicate?
+Jess Hodgson: Yeah, but it's not in front of others. We like to keep our domestics behind closed
+Joyce Kiddell: Um,
+Jess Hodgson: doors.
+Waleed Alasadi: We try to be like your partners or like your employees. So feel free to do what you
+Jess Hodgson: Yeah. Firing all Yeah,
+Waleed Alasadi: need.
+Jess Hodgson: I'm firing all of our employees. today, but they're all fired except for the people on this call. Um,
+Waleed Alasadi: tomorrow.
+Jess Hodgson: what's up,
+Joyce Kiddell: uh, I was just going to suggest, uh,
+Jess Hodgson: Joyce?
+Joyce Kiddell: these guys are based out of Toronto and we're planning to be in Toronto like the week of July 8th, 9th anyways.
+
+
+00:09:41
+
+Joyce Kiddell: So, it would be kind of cool to have like an in-person meetup to talk through what you're describing around like the more detailed project plan.
+Jess Hodgson: Yeah, let's show you book a lunch or something.
+Waleed Alasadi: Yeah,
+Jess Hodgson: Sounds like fun.
+Joyce Kiddell: Yeah.
+Waleed Alasadi: we'd love to also have you over at our office too,
+Joyce Kiddell: Yeah.
+Waleed Alasadi: actually.
+Joyce Kiddell: Where
+Jess Hodgson: Where where's your office?
+Waleed Alasadi: Uh, Queen and Sina.
+Joyce Kiddell: are
+Jess Hodgson: Yeah, absolutely.
+Waleed Alasadi: Yeah.
+Jess Hodgson: Sounds like a lot of fun. Yeah. Circle,
+Waleed Alasadi: Yeah.
+Jess Hodgson: put in the calendar, second week of July, do it in person, kind of do the official after you guys have done your diagnostic work, then we can kind of plan to do a uh an official launch party, so to speak. Um, so that sounds like fun. We'll turn it into a party. We could definitely turn into a party. So, yeah, I'm cool with that. Everything's cool by me. Um, I'm good.
+Joyce Kiddell: We'll reach
+
+
+00:10:19
+
+Jess Hodgson: Lean up again.
+Joyce Kiddell: out.
+Jess Hodgson: Okay.
+Joyce Kiddell: He's kind of a hurricane.
+Waleed Alasadi: Thank you.
+Joyce Kiddell: We probably should have that
+Waleed Alasadi: I mean that's efficient.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: beforehand.
+Waleed Alasadi: We just consumed
+Lina Ceniccola: No,
+Waleed Alasadi: Sorry,
+Lina Ceniccola: I was just going to say there should have been a
+Waleed Alasadi: we we did I think Kobe like we just went through 20 minutes of the agenda like in the last five minutes.
+Lina Ceniccola: PSA.
+Waleed Alasadi: So there you go.
+Kobi Kunasekaran: basically
+Waleed Alasadi: Hi, Joyce.
+Joyce Kiddell: Hi. Sorry for being late.
+Kobi Kunasekaran: again. Okay. All right. So yeah, we kind of like jumped way further ahead than I thought we were going to by now. But uh let's let's maybe slow down a little bit, take a step back. Um I'll walk you through I mean I still want to do the introductions because it is my first time meeting all of you. Um it's your first time meeting me and Jester. I know I think most of you already met Nico and Wed.
+
+
+00:11:15
+
+Kobi Kunasekaran: So uh maybe we'll start there and then we'll go into uh the goals of the project, some of the challenges you're having today. Um, and then I'll walk you through how we're going to work together for the next uh, next few weeks. Um, and I put together like a highle project plan. By no means is it final or complete. Um, it's just all tenative placeholders. Um, once we wrap up the discovery, then we'll start filling it out with actual dates, actual uh, user stories and items. Um, but this it's enough to like get us started um, and just align the organization on the northstar and where we're trying to head to. Um, so yeah. So let me start with the introductions. Um I mean you've already met Mo and Wed. Um they are our co-founders. Um they're going to be working with us throughout the project. Uh you may not see both of them uh in every single meeting. Um but essentially Miko is our solution architect.
+
+
+00:12:06
+
+Kobi Kunasekaran: Um actually I have one more slide for this. Here we go. Okay. So Miko is going to be our solution architect. He uh he understands deep technical uh infrastructure of Salesforce and uh and systems. So, he's going to help with the implementation, make sure we're following best practices, uh, make sure we're building everything in a scalable manner. Um, u, his, he's going to be more of a strategic consultant. He's going to help us with the business processes, uh, make sure we're, uh, building everything uh, to answer your pain points. And he brings in like a user perspective. Every time we have like UAT, he like puts himself as a user and challenges all of the things that we build. So, it's always great to have that perspective. Um and then Jester uh he's going to be uh my right hand in the implementation uh he's going to help the implementation uh from configuration uh from you know communicating with you uh sharing updates demos and so on. Um he comes from uh a previous much larger consulting company where he was uh his entire role is like to learn new Salesforce technologies and teach to others.
+
+
+00:13:09
+
+Kobi Kunasekaran: So he knows Salesforce inside out to say the least. He's a guy I go to when I have questions about Salesforce. So, super excited to have this like pack team on this project. And I think like I don't want to jump ahead, but um we I have a feeling we'll be able to get get to that timeline uh maybe even sooner than we expected uh with the team. Uh but I think it's just going to depend on how much, you know, feedback cycles and uh changes and UI design and simplifications that we need. Um but anyways, we'll get to that in a second. Um but first like yeah I'd love to get to know all of you. Um can I get an introduction of who's on the call here and uh maybe if you can tell me a little bit about about what your role is um how you fit into this project and uh what's one thing you're excited about or looking forward to out of this project?
+Emily Vandenberg: I can go first. Um, so I'm my name is Emily.
+
+
+00:14:06
+
+Emily Vandenberg: Um, I am director of operations on the agency side reporting directly into Lena. Um, so relatively new to the um, company, but this is one of the first kind of initiatives I've been able to jump into. It's been great to be able to kind of like learn in such a fast pace. Um, seeing the value of um, this initiative from a scalability perspective and letting us kind of really grow as an organization. Um, I think that covers
+Lina Ceniccola: You can Oh,
+Waleed Alasadi: Um,
+Emily Vandenberg: everything.
+Waleed Alasadi: can I can I ask Emily a question very quickly just because of kind of your role?
+Lina Ceniccola: thanks.
+Waleed Alasadi: Do you do do you um are you technical? Do you anticipate that you're going to be kind of in Salesforce um like on the back end or is that not part of your role?
+Emily Vandenberg: I will not be on the back end.
+Waleed Alasadi: Okay. All right. So kind of as part of this project um it's really about kind of learning and but facilitating ensuring that
+
+
+00:14:56
+
+Emily Vandenberg: Yeah.
+Waleed Alasadi: the project is like kind of aligned with the business process. Is that the
+Emily Vandenberg: Yeah. kind of speak to some of the technical requirements in addition with Joyce like obviously leading from the product side but
+Waleed Alasadi: right
+Emily Vandenberg: managing the project on our side will be my kind of key focus and making sure we're kind of like delivering um to what your your expectations are and timelines and as well as like helping you kind of get the answers you
+Waleed Alasadi: Awesome.
+Joyce Kiddell: Yeah. Um,
+Emily Vandenberg: need.
+Joyce Kiddell: is it fair to say like you're essentially the project manager and primary point of contact like if they have questions?
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Not voluntio, but
+Emily Vandenberg: Yes,
+Joyce Kiddell: Lena,
+Emily Vandenberg: absolutely.
+Joyce Kiddell: are you next?
+Lina Ceniccola: Yeah. Um, I'm the COO at Wager Tech. I have been with the company since the beginning. So, overseeing our operations team. Um, have had my hands in kind of all areas of the business since day one.
+
+
+00:16:03
+
+Lina Ceniccola: But my my role for the Salesforce implementation I think is just maintaining like as a key stakeholder signing off on major milestones and um helping the team just guide those decisions to both of their points. I'm not technical but in terms of like the operations and process I will help on that side of things. Um, and what I'm most excited about is to retire Google Sheets. And that messy system that worked at one point and we've just outgrown
+Waleed Alasadi: Um, is it because it's hard to find data?
+Lina Ceniccola: it.
+Waleed Alasadi: Is it because you're spending a lot of time in Google Sheets?
+Kobi Kunasekaran: Oops.
+Waleed Alasadi: Is that like it you just want to see what the team is doing at an instance kind of
+Lina Ceniccola: Yeah. Like we we want live data.
+Waleed Alasadi: thing?
+Lina Ceniccola: We want it to be a clean as well. We rely on our brand ambassadors to input the data themselves which is not the most they're not the most reliable to start with um in terms of cuz like we want their job to be to sell and not to manage the data and admin side of it.
+
+
+00:17:18
+
+Lina Ceniccola: So I think that's I mean one of the goals of the project is again to actually drive them to sell and spend less time in Google Sheets and implementing new processes within the sheet to make it better when in reality it's just like maybe this isn't the best way to do it. So we'll I'm sure we'll get into that.
+Waleed Alasadi: Thanks. Yeah, I I just kind of want to know at the end like at the end of the project like how you all as like stakeholders in the project would would benefit, right? Like I understand totally like the efficiency, the the move, the live data. perspective like well I have this dashboard that I like now have a lot of the long time to have to go to like Google Sheets and be like how many signups did we have today versus I just see it in front of me kind of thing. But yeah, we will get to all of that for
+Lina Ceniccola: everybody too like managing their sheet in their own way and it's like a
+Waleed Alasadi: sure.
+
+
+00:18:20
+
+Lina Ceniccola: constant training session I feel like too um with like 25 employees so that uh that's a big
+Joyce Kiddell: Um so I'm Joyce. Uh I would say I serve more of a product management function within this project. Uh my title is head of integration. Um which is basically like a fancy way of saying that I I help um across multiple areas of the business. Uh so you know taking pain points requirements and then translating that into something technical that can actually come to life like that's kind of my jam.
+Kobi Kunasekaran: Excellent
+Joyce Kiddell: Um so that PRD is uh the result of a lot of discovery between the three of us and a few other key stakeholders. Thank you for the compliment by the way. Oh.
+Kobi Kunasekaran: PR.
+Joyce Kiddell: Uh,
+Lina Ceniccola: here.
+Joyce Kiddell: I will say though that there are a couple areas that we've even further fleshed out or added to the plan that isn't present in the parody since we sent it over.
+Lina Ceniccola: He
+Joyce Kiddell: So, I'm kind of wondering like do you want me to update that or are you just going to kind of pull that out of the discovery sessions that we have?
+
+
+00:19:42
+
+Kobi Kunasekaran: Um, I mean, if you have an updated version, yeah, free to send it my way and I can like I'll take a look. Um, but we can also talk through it and like through discoveries or weekly calls as
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: well.
+Joyce Kiddell: Yeah, it might be just good to have a point of reference. Um, and it helps to kind of guide agendas as needed.
+Kobi Kunasekaran: H.
+Joyce Kiddell: So, um, I'll update it. Just give me like a day and I'll I'll just shoot you a message when it's the most update version in
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: notion. Um, yeah, I think that covers my role. Straw, you're here too, right?
+Strahinja Vladetic: Uh yeah. Hey guys, I'm Straw. I just uh I'm a software consultant working with the company. Um my main role right now I think is the to work on the data warehousing side. So there's data coming from outside the system that's not user it's not inputed by users that comes from the operators and um possibly other data that we need to collect.
+
+
+00:20:43
+
+Strahinja Vladetic: I'll be working on a project to move that into a manageable data
+Kobi Kunasekaran: Nice.
+Strahinja Vladetic: store that we can then link up to Salesforce hopefully. Um, and
+Kobi Kunasekaran: Are like are these data sources like are we talking about just say Excel sheets um and whatever we might have in
+Strahinja Vladetic: yeah.
+Kobi Kunasekaran: Salesforce or are there other systems involved here? Just curious.
+Strahinja Vladetic: Uh these would be like third-party data from the other from the operators that they work with.
+Kobi Kunasekaran: Right.
+Strahinja Vladetic: So the casinos um to validate the the stuff being recorded by
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: their sales reps.
+Kobi Kunasekaran: Okay. Gotcha. Awesome. All right. It's it's great meeting all of you. Um lot of interesting points. Um I think we'll actually jump into my next slide which is actually talking about those points which I don't think I need to repeat any of this. You already know all of this. Um and I think we presented a version of this already as well in the pre-sale call pre-sales uh call uh if you're part of it.
+
+
+00:21:51
+
+Kobi Kunasekaran: Um but essentially a very oversimplified version of what we heard from the discovery calls um and uh and the PRD and stuff. um you essentially have reps referring or recruiting players through referrals uh primarily working on a WhatsApp um you're getting paid per uh per player that comes in. Um there are redeposits, there are uh recurring payments and things like that involved. Um, ops is primarily doing all of the distribution allocations. Uh, running mostly out of Google spreadsheets, Air Table, Dropbox. Uh, and they're doing all the logging manually. Uh, no real time view like Lena mentioned. Um, fraud control. I think this is also a challenging piece right now because it's really up to the reps to go in and investigate all these things instead of just having uh having alerts uh up and front as they're entering data. So all things we can absolutely fix with Salesforce. Um going into our objectives, um our goal for this project is to bring everything uh into a centralized system which is going to be Salesforce. Uh we are going to retire all those Google spreadsheets.
+
+
+00:23:08
+
+Kobi Kunasekaran: Um this is not my first time uh moving a business out of sheets into a CRM or a system. done it a few times and it's next few weeks it's going to be a lot of fun learning about uh the trade-offs and um how we're able to bring it in in a way that it's still going to be easy for the reps to use. Uh but we'll talk through all of that. Um but absolutely we're going to be able to bring all of that in. I don't think I saw any any red flags been in the videos that I've seen so far. um the Dropbox, the the uploads, uh those we're going to have to have some conversations around the best way forward. Um because obviously you want to keep the cost low as well. Um I think M already mentioned some some potential options. We'll do a deeper dive into what our options are and get back to you with uh with recommendations and we can pick whatever whatever works for you, whether it's like, you know, a temporary solution for now and then a better solution later on.
+
+
+00:24:02
+
+Kobi Kunasekaran: Um but one way or another, we'll bring everything into Salesforce. Um, that does mean we're going to be able to set up interfaces for your reps to uh log their signups uh in a much easier way with a way to flag those fraudulent uh users up front. Um, and I think one of the things that I've saw seen is like there are entering the data in multiple places as well. Um and through Salesforce, you know, one one of the biggest benefits is there might still be data entry, but it's one point of entry that's going to log everything that they need to log in one go. I think those are the efficiencies that you are going to be able to see from day one. Um once we get everything up and running, um all of this data in Salesforce does mean, you know, you do have access to uh all of it for reporting. You're going to be able to see those signup volumes, um the utilization rates, um the number of referrals that are coming in, uh number of players, all of those things in real time.
+
+
+00:25:03
+
+Kobi Kunasekaran: Um so we'll get into the details of what those data and reports look like, you know, as we flush out the design and the architecture. Um but it's going to be it's going to be thousand times better than what you have in Google Sheets or Air Table. Um, and as Willie mentioned, um, we're going to keep it simple, uh, from, uh, from the get-go. Keep it as native as possible, meaning like we make use of Salesforce functionality as much as possible. We're not going to dive right into customizations or Apex, uh, right away. Um, we'll plan for those if we need to, if we really need to customize it and simplify things. Um, but I think the key key part for this this first phase is going to be to get the data model in place. uh make sure that uh we're able to capture the right information in the right places and then we can start building on the uh nice user interfaces and uh easier uh easier access points and reporting uh on top of it uh throughout the next few weeks.
+
+
+00:26:07
+
+Kobi Kunasekaran: All right. So in phase one um this is more or less like what what was in the so uh what we're going to get done within this phase is the solution design and data architecture um this is you know finalizing the data model um not just for what we're releasing for this phase but also for like the payouts the deposits and everything where we are going to look at this project and uh during the discovery phase look at it as if it's like one big project holistically make sure we understand everything so that so that if there are decisions that we need to up front. We're going to we'll do it now. Um and then that way we don't have to go back and rework anything later on. Um we might, you know, build those objects that we need for later phases now. Um just so yeah, the relationships and stuff, but the automations, the interfaces and everything that we might need to build for those later uh later uh objects might just come in those later phases. So we'll plan those out after we do the discovery.
+
+
+00:27:02
+
+Kobi Kunasekaran: I think I'll have a better sense of like what uh what we need to pull up from the later phases and what we can push back. Um and then obviously everything is negotiable. So you let me know what you need. Uh you let me know if it's going to work for you and we can adjust the timelines uh accordingly. Um so yeah, in terms of phase one, we have the solution design and data architecture. That's going to be like the main thing. Um and then we'll set up the core data model. Um these are all the objects. Uh once we decide what those objects are going to be, what the workflows are going to be, um we're going to set up the attribution, um the deal tracking, um the intake and lead to player conversion. Um this is where your signup forms and API endpoints come into play. Um so we will need to dig into those um probably not today, but it sometime this week. Um so we can get an understanding of what's already working versus what we need to uh do more work on.
+
+
+00:27:55
+
+Kobi Kunasekaran: Um, the signup logging experience. I think that's probably going to be the most important part of this project because that's what we need to make sure it's easy enough for the reps to use on a day-to-day basis so that adoption is there. Um, this is where if we don't have this right in the beginning, I think it's going to be like we've worked with a lot of sales reps uh on the revenue side and this is where there's a lot of push back on any new tools, right? Like if we give them there there are going to be additional steps um with Salesforce and here what we do. Um, but it is going to reduce uh overall all of the data entries that they're going to have to make throughout the entire cycle of a signup. So, um, we're going to have to make sure that this is right from the beginning. Fart flags, exception handling, um, these are all also part of day one. Uh, pretty straightforward, I think, from what I've seen. Um, again, Joseph's PR is like has everything like that.
+
+
+00:28:49
+
+Kobi Kunasekaran: I think it's like maybe 80% there. Um I think we just want talk we just have to align on the actual design. Um you've already given us a great head start on the actual implementation. Um once we build everything we'll start talking about the reporting testing training and handover and how you're going to manage it moving forward. Um and like I said like the reason we build with uh Salesforce native first um you know prefer flows over Apex is any Salesforce admin can manage it. So you don't you're not necessarily stuck with us you know after this project. Anybody should be able to come in and uh as you as your processes change, which is going to happen inevitably um as you introduce new new things, it's going to be easy for whoever else that might come in to uh build on top of it. Um as you already know, so there are three phases kind of broken out uh from the PRD. Um we have the phase one which is a foundation and signups.
+
+
+00:29:45
+
+Kobi Kunasekaran: Um and then phase two deposits, caps, uh bank, uh bank transfer tracking, um and then payouts and reporting in phase three. Um again, I think this was just like estimated bucketed based on what we can deliver and what your users can start using. Um but after we go through the discovery, after we get an understanding of u the final design, we can look to change this up. Uh provided, you know, it still fits within your budget and timelines. I know I was like rambling. I do apologize. I just came back from a run, so I'm like really amped up. But, uh, I'm going to pause for a second and see if anybody has any questions, concerns, anything I missed, anything obvious, glaring that doesn't align with what you were expecting.
+Joyce Kiddell: Uh no question or sorry no concerns but a couple questions. Um for phase one um when it comes to testing on our
+Kobi Kunasekaran: Sure.
+Joyce Kiddell: end, will we receive some sort of like staging environment link or something that isn't like in production or are we going to treat like our our current instance as production?
+
+
+00:30:52
+
+Kobi Kunasekaran: So I I'm going to mention that in the next step but we are going to build everything in sandbox. Um and the reason for that,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: yeah, the reason for that is um there are certain fields like autogenerated ids and number fields that are going to start the moment we start adding records. And if we do that in production, then you know you're already starting the counter. Um so let's let's we'll spin up a sandbox.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Uh we'll build everything in in the sandbox. Um you are going to test throughout the build. Um so it's not like we're going to do everything and then hand it over to you to test. um as we build enough components for you to be able to test and validate. We'll do that over uh over our you know weekly cycles. Um and then uh we'll have like a full end to end testing near the end. We'll provide you the sandbox and I usually like to also provide like a guideline of what to test, what to look out for at least from our end.
+
+
+00:31:46
+
+Kobi Kunasekaran: Obviously I want you to break it u and let us know what else we miss but um I will provide you with like a guideline uh for your users to test and uh give us feedback.
+Joyce Kiddell: Perfect. Um,
+Waleed Alasadi: Um,
+Joyce Kiddell: and then when it comes to some of like the artifacts you're talking about building in phase one, um, like the data architecture, um, are you hoping to build something like different from our current erd that's more like Salesforce specific for the data model or could you use that and just make sure that your like feedback is incorporated as part of it? like we want it to be very collaborative, but I just don't know if we need like two separate documents if that makes
+Kobi Kunasekaran: Yeah. So I the data model. So it's going to depend on the decisions we make on the architecture.
+Joyce Kiddell: sense.
+Kobi Kunasekaran: Um I'm not going to try to rebuild everything from scratch. I think you're like like I said, you're like 80 90% there. Um, there are some some things off the top of my head that I think we should do differently, but I'm going to propose it.
+
+
+00:32:48
+
+Kobi Kunasekaran: You let me know if that makes sense for your process and then we can agree on it. Um, and Salesforce does have a few trade-offs, right? Like depending on uh how we want the relationships to be represented. We might have to have like master detail uh relationships versus lookup and that has implications on what the data model looks like. So, those are some things that we we might have to tweak uh from what you already have today.
+Joyce Kiddell: Perfect.
+Kobi Kunasekaran: Um, but honestly, I'm not expecting any major
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: changes.
+Joyce Kiddell: I just want to make sure we weren't like having to build something from scratch because like you said, like if we can just use a lot of whatever is there already and improve it and make it optimal.
+Kobi Kunasekaran: No.
+Joyce Kiddell: Um, okay. And then the last point I was going to make is like I don't know if this is in a later phase or we um account for it in phase one but there there needs to be a step where we actually migrate all of our historical data.
+
+
+00:33:41
+
+Joyce Kiddell: Um, so maybe like knowing we're doing process flows in phases, like if we could potentially import all of our signup related data in phase one and then do the same for like redeposits and uh payout tracking in the later phases. Um, is that something that we could include as part of the scope?
+Kobi Kunasekaran: So I did include data migration in this phase um at least for the objects that we go live with.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: But if we end up setting up all of the like the payout objects and stuff because like the relationships do need to be there. You do have lookups from like the signups and uh your player objects and stuff to those tables. So if we build all those tables um again this is just we're on time and material. So if it if it's going to take us a little bit of time but you have all the data from day one for the entire thing even if those uh those other objects from later phases don't have the automations or validation rules or anything supporting it um as long as the table spin up we could upload that data too but for this phase at the very least anything everything that you need I think the like the crux of what we're trying
+
+
+00:34:38
+
+Joyce Kiddell: Great.
+Kobi Kunasekaran: to deliver for phase one is like the base base objects um and the ability for your users to start entering uh entering signups and everything that's going to support that. We should we should be able to cover that in the data
+Waleed Alasadi: Kobe, I I do think that there still be especially when we talk about like the air table work um the
+Kobi Kunasekaran: import
+Waleed Alasadi: payouts and that side of things. I think that you may be like still missing some objects like you're saying like helper objects, rollup objects, there's going to be sometimes like when we talked about payouts, maybe line items. Um so there might be need a transformation of the data before we um actually preload it right. Um one one thing that we could do um is that for sure in phase one is the entities are going to be created. So the players will be created the bet MGMs will be created. um those will generate a unique ID and we probably can work with your team to take that unique ID back to your existing tracking systems so that when you're ready to push more data it's just like you're tracking it against what's um in the system and it's yeah you don't have to kind of remap
+
+
+00:35:46
+
+Joyce Kiddell: Yeah, I'm pretty confident that like if you tell us what needs to get done,
+Waleed Alasadi: situation
+Joyce Kiddell: we can actually handle the data transformation on our end. Um, and then you guys would just have to worry about like doing the import and making sure like everything lands within the structure you set
+Kobi Kunasekaran: Nice.
+Joyce Kiddell: up.
+Waleed Alasadi: Yeah. No, for sure. I'm just saying that the it's the the future phases like specifically payouts like payouts we do want to do payouts with payout lines. Um but we may not necessarily know exactly how payout lines will work until like I don't know phase two and may maybe not. I don't know. I'm just like kind of forecasting. Um so instead of just kind of importing payout lines um and then just and having to delete it um also having to maintain it right it's not going to be working which means that you will still generate new transactions even after we import it if you go live initially. Um so it's just a matter of like how we make sure that you kind of if we are not able to import it and like work with it, how we can keep it maintained and updated.
+
+
+00:36:45
+
+Joyce Kiddell: makes sense.
+Waleed Alasadi: Um or yeah that's it.
+Joyce Kiddell: Yeah, totally line.
+Kobi Kunasekaran: Okay. Any other questions? All good. Okay. All right. So, we kind of jumped into h how our delivery process is going to work. Uh but um essentially we we start all projects with our kickoff. Um and then we go into discovery. Um discovery and design arguably is the most important phase. This is where we learn about your business. Uh understand the challenges you faced uh pain points uh what your users are expecting, what you're expecting, uh what management uh executive levels uh are expecting in terms of data reporting because ultimately everything kind of converges on the data and reporting and analytics. um because you need to know how the business runs and then on the other end we need to make sure uh users have a system that's easy enough for them to enter data. Um so discovery is going to help us unravel or uncover all of that. Um and then once we have enough information, we'll go into the build phase.
+
+
+00:37:49
+
+Kobi Kunasekaran: Um and this is not your traditional like waterfall approach. We're not going to just go away for a couple months and come back to you with the solution. Um we are going to build in an iterative uh iterative way. Um, I'm going to do like two week uh sprint cycles, but we don't really do like thick sprints. Um, because I'd rather uh show you things as they're done um as there's something enough for you and your team to validate, test uh and then get back to us feedback so that we can keep uh we can keep fine-tuning so that by the time we get to UAT, everyone would have already seen 90 to 100% of what we're going to go live with. Um and this is just the last last mile check to make sure end to end everything is working properly. Um we also do our own internal UAT and this is where you know I have my team uh uh look at what we've built from like objective perspective and challenges on some of the decisions uh that we've made.
+
+
+00:38:44
+
+Kobi Kunasekaran: Um and then we'll usually do like a week or so of UAT. Um and then once we're all good, we'll start planning for the go live production deployment training. Um and then post go live support. Um like I've already mentioned, we are going to build in sandbox. I know you already have like bunch of things.
+Waleed Alasadi: Oh,
+Kobi Kunasekaran: Oh yes,
+Waleed Alasadi: sorry.
+Kobi Kunasekaran: please.
+Waleed Alasadi: Were you meant to be showing us?
+Kobi Kunasekaran: I'm going to go into asana after.
+Waleed Alasadi: Oh, sorry. Sorry. I thought you were you were show Never mind. Apologies.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: So is is sauna where we would have like release notes essentially.
+Kobi Kunasekaran: Uh yeah yeah yeah like user stories um uh all the all the cards all the tasks um and updates will be through Asana. I mean we also have like I'll go into it in the next slide but we're going to have our weekly sync as well and that's where uh I'll share updates progress how we're doing if there's any risk blockers or anything like that that comes up.
+
+
+00:39:38
+
+Kobi Kunasekaran: Um but you're also going to have access to a Slack channel where you can communicate with us on a daily basis.
+Joyce Kiddell: Cool,
+Kobi Kunasekaran: So it's not like you're just restricted to those meetings. Um, so as we have questions, it's going to help us just move
+Joyce Kiddell: cool, cool.
+Kobi Kunasekaran: quickly.
+Joyce Kiddell: Um, for the training phase, does that apply to like our entire team or like who are we training at that step?
+Kobi Kunasekaran: Um, that depends. Typically, we go with a train the trainer approach um where we train a few of you and then you train the larger team. That way you also learn the system inside out and you're able to support them so they're not entirely reliant on us. Um, but happy to also like obviously all of these things we're going to record so you can always just pass it along to your teams too. Um, but if you want us to do the training to your end users too, happy to do that as
+Joyce Kiddell: And in terms of the training and go live,
+
+
+00:40:25
+
+Kobi Kunasekaran: well.
+Joyce Kiddell: like that's for the entire phase one, right? Or are you talking about like the chunks of twoe releases?
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: I think we we need to have a something that they can start using. Did it did it ah sorry the data migration needs to be done and they could be basically moving off of the spreadsheets and into Salesforce. So it is going to be closer to the end. Yeah.
+Joyce Kiddell: Crap.
+Kobi Kunasekaran: But like you know the the testing um the demos um as we build logical chunks of components for you to like play around with and get get back to us with feedback. um like we'll do that as they're ready um throughout the whole like next few weeks. Um and feel free to bring in users, right? By all means, like we don't need to it doesn't need to be just this team that's here. Um it's always nice to have end users uh come in and start uh chipping in from the beginning. So, um that's why I say like by the time we get to UAT, everybody would have seen the system.
+
+
+00:41:22
+
+Kobi Kunasekaran: Uh it at least in chunks, um they would be familiar with it. So training isn't usually uh too complicated because you're already familiar with what you're
+Joyce Kiddell: Got it.
+Kobi Kunasekaran: getting.
+Joyce Kiddell: Um the Sorry, I lost my thought. Keep going.
+Kobi Kunasekaran: No
+Joyce Kiddell: Oh no, I remembered it. Um,
+Kobi Kunasekaran: worries.
+Joyce Kiddell: okay. So, the one thing that I think um I should call out that I think we discussed last meeting, but want to make sure you're aware is that because we're doing this in phases, um there has to be a little um work accounted for at the end of phase one to connect Salesforce into the other spreadsheets for like redeposits and payout tracking to ensure that like there's still some form of connectivity between the two systems. um in parallel to us building redeposits, they'll still have to use like the redeposit um flow and sheets. Does that make
+Kobi Kunasekaran: Okay. Yeah. Yeah. Yeah. Yeah. Um,
+Joyce Kiddell: sense?
+Kobi Kunasekaran: I think we need to double click on this during like one of our discovery meetings and see what that looks
+
+
+00:42:31
+
+Waleed Alasadi: Do you mind for my sake just repeat repeat repeating
+Kobi Kunasekaran: like.
+Joyce Kiddell: Yeah. So um you understand that there's like kind of three like sets of spreadsheets right like
+Waleed Alasadi: that?
+Joyce Kiddell: there's signup tracking there's like redeposit tracking and then referral tracking and like you know how we track like the referer secondary and primary
+Waleed Alasadi: Yes.
+Joyce Kiddell: um they are all so connected right now in that like if we migrate just signups into Salesforce and lose any sort of um data flow between the signup spreadsheet to the redeposit ones. And we kind of have to like make sure that Salesforce signups are talking to redeposits. So the users can still track them based off
+Waleed Alasadi: Okay, I see what you're saying. Oh, yeah.
+Joyce Kiddell: of
+Waleed Alasadi: That's I I sorry I I thought for a minute but I remember I us talking about this and like just not the solution right now Kobe but like I've worked with like for example a lot of Google um like plugins with Google Sheets and what it can do is it can pull the player signups that happen in Salesforce like right into like each like each Google sheet.
+
+
+00:43:38
+
+Waleed Alasadi: Um so that like that's complete and coming from Salesforce and then every other sheet kind of works off of that and it just refreshes. Yeah, we could talk about that more in discovery. That That's what I was
+Joyce Kiddell: Yeah, that's that sounds like basically all we'd
+Waleed Alasadi: thinking.
+Joyce Kiddell: need.
+Lina Ceniccola: We just want our system to stay connected until all flows are
+Waleed Alasadi: That makes sense.
+Lina Ceniccola: live
+Waleed Alasadi: It's like the the users will still go to Salesforce to do the signups, but then everything else they'll need to do in the sheet.
+Joyce Kiddell: Craft. Yeah.
+Waleed Alasadi: Yeah.
+Lina Ceniccola: because the other two flows are reliant on the sign up flow. Like you don't have a referral without a signup.
+Waleed Alasadi: makes sense.
+Lina Ceniccola: You don't have a redeposit without a sign
+Kobi Kunasekaran: Hey,
+Waleed Alasadi: Yeah, I know. Make makes a lot of sense. So, yeah, like we'll I think we'll be able to create a report of the signups.
+Lina Ceniccola: up.
+Waleed Alasadi: Um, so it looks like exactly like the signup sheet in but it's in Salesforce and then we'll have that report sync with
+
+
+00:44:34
+
+Kobi Kunasekaran: this is
+Waleed Alasadi: the signup sheet. Um, either like once a day, every once often. There's so many plugins like we can see which one works the most sense for
+Lina Ceniccola: Perfect.
+Kobi Kunasekaran: I think it's also worth having the conversation like you know after we do the discovery and kind of understand what are all the
+Waleed Alasadi: you.
+Kobi Kunasekaran: input points for those objects if it makes sense to pull some of those things into Salesforce from the beginning without obviously like any thirdparty integrations or anything like that um and kind of readjust the timelines. But again, after discovery,
+Waleed Alasadi: Yeah,
+Kobi Kunasekaran: I think it's too early to tell.
+Waleed Alasadi: I'll let I'll let you look at it all, but I do think it's important for the team to like and reiterate,
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: but like the the team at Wagert Tech has indicated that they are looking to kind of have that first like milestone as soon as they can um get some usage, get the feel of Salesforce and then add on more on top, right?
+
+
+00:45:30
+
+Waleed Alasadi: And I do think that if we look at the like each sheet is its own like world in a way. Um so like I don't think we can like migrate portion of redeposits but not like the whole
+Kobi Kunasekaran: Yeah, that's fair. It's also like if we don't phase it, it's a lot for reps to learn from day one as opposed to them picking up chunks of it over time, too. It's going to be it can be overwhelming if they have to do everything from Salesforce from day one, too. Okay. All right. So, jumping into the next slide. So, how we're going to work together? I think we've kind of covered this already. Uh, but uh I do have an ASA board set up uh with some place task and I'll I'll walk you through what I have um shortly. Uh but we're going to run the project through ASA. Um this is where you know all the user stories will go up uh once we break down the TRD into user stories.
+
+
+00:46:26
+
+Kobi Kunasekaran: Um and we'll start sharing updates. Um if there are any uh user story specific or task specific communication, we'll try to keep it within the uh within those Asana tickets just so that context stays within there. Um but we'll also have a Slack channel set up uh for day-to-day communication. If you have any questions, concerns, or anything that requires a larger discussion that we can't do over a setup, you know, we can do it over Slack. Um we'll also set up a shared Google Drive to dump like meeting recordings like this one. um any documents, deliverables or anything that you need to share with us um you can just drop it in there and everybody uh in the project can have access. Um I'll reach out I'm I'm assuming based on the roles that we've kind of defined or how you've been volunteuling for our weekly sync. Uh we'll start the first one next week. Um but probably won't have too much updates for you next week. We'll start with like 30 minutes for now and then as we get deeper into the project, this will probably extend into like an hour block so that we have enough time to demo, get feedback and things like that.
+
+
+00:47:30
+
+Kobi Kunasekaran: So I'll I'll reach out to you to uh coordinate that after the call. um we will send out a report of uh hours that we're using on a weekly basis so you're also up to speed on um how the project are progressing not just from like the ASAN deliverables perspective but how we're consuming hours so if we do need to rep prioritize anything um then we can do that uh we can do that as early as possible um in terms of our SLA um honestly I'm just putting this here uh uh to have it like level that, but we're generally like pretty real time. Um, but generally anything not urgent, it's like one to two business days and uh if it's urgent within within one day. Um, but usually like we're all on Slack uh for the most part. So, if you shoot us a message, as long as we're not in any other meetings, we'll we'll get to it right away. Um, any questions? Good. Okay. All right. So let me go into the Asana board and I'll give you like a quick walk through.
+
+
+00:48:37
+
+Kobi Kunasekaran: Um and I will add all of you to the board uh after the call as well. Um I'll I'll actually start with the timeline. So based on the email thread and what what we're trying to get to with phase one um we said like mid August in terms of uh go live. So I picked like the first Monday in mid August, August 17 as a tentative go live date. Uh and just work backwards on what we need to do. Um so August 17 go live date. Um this is uh this is after UAT is done after all the build is done um and you've signed up that we're ready to go live. Um we would have finished training by then. Um and um usually after go live is when we start doing the reporting and dashboards um because we need data in there, right? So until people start using it, until we do all the data migration, we won't necessarily have uh data in there. So we'll do the reporting and dashboards in that phase and then we'll be there um to support you from a go live support perspective.
+
+
+00:49:37
+
+Kobi Kunasekaran: Um before that date um specifically the week before um I'm bucketing about a week for UAT. um if we need longer um after you know we build everything we can adjust the timelines um but like I mentioned we are going to iteratively you know show you uh logical components throughout the throughout the development cycle so it's not like you're going to have you shouldn't have any surprises by the time we get to UAT so uh usually a week is uh plenty of time but again happy to uh happy to extend it or adjust it as needed um as you all start uh testing it internally and giving us feedback. We'll start working on the deployment prep uh you know get get things moving into production um the data migration um and all of that will happen in that in that phase. Um for data migration I am thinking like we might depending on what the data looks like um again too early to tell but usually I like to do like a sandbox deploy uh sandbox migration first just to test the data to see if there's any errors before we do it in production.
+
+
+00:50:39
+
+Kobi Kunasekaran: So if time permits and if the data is very complicated then we might do that um earlier on um and then that way we know exactly uh what we're going to do uh during production and honestly if we do all the prep prep work during the sandbox migration then the final uh final import shouldn't be uh complicated or take too long. So in terms of milestones, so 17th is the go live. Uh the week before, uh we're hoping for sign off on the UAT. Um so the week before that we'll have everything ready for UAT. Um these are just the main like large chunks of work that we need to do. By no means is it like actually chunked off. Uh once we do the discovery and break down the user story, I'll kind of map it out based on what we're going to work uh in what logical order. Um, but I'm expecting that by next Wednesday we should have all the information that we need, if not sooner. Um, again, the PR has everything uh already.
+
+
+00:51:39
+
+Kobi Kunasekaran: So, this is just us making sure that the workflows are going to make sense. Uh, finalizing on the data model uh and the approach and what we're going to ship in V1. Um, and once we're good with that, we'll start the build. Um, we have five weeks and I think it's a lot of time. Uh again, I don't want to shoot myself in the foot here and overpromise, but I think it if we're just building what's in the uh S so we we might be able to get it done sooner. But again, uh let's see. And if we get it done sooner, then I'll leave it up to you if you want to still wait until uh like mid August or if we want to ship earlier or if we want to move later phases up ahead. I saw you uh came back on camera. You're gonna say
+Waleed Alasadi: No, sorry. I I was off camera because I was delivering.
+Kobi Kunasekaran: something.
+Waleed Alasadi: No, I wasn't wasn't just uh I think I just call it out like right away.
+
+
+00:52:26
+
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: I think the reason why we keep calling out on the PRD is because um it is truly well defined. We do have different opinions. like Kobe's optimism about the timeline is different than mine on like actually translating the workflows to like usable user like I don't know user forward
+Kobi Kunasekaran: He's a
+Waleed Alasadi: or positive experience right um so I don't know just that's you'll get that from Jumper all the time I think that's
+Kobi Kunasekaran: friendly
+Waleed Alasadi: one of our strengths is like we're not shy about like showing you where or talking with you about where we like our conflicting opinion and like actually get your opinion as well um anyway it's too early to talk about the timeline but Like that's somewhere where maybe we're not necessarily super
+Joyce Kiddell: Hey, I respect that.
+Waleed Alasadi: aligned.
+Joyce Kiddell: You saw Jess and I is domestic, right? So, I think we have a similar internally
+Kobi Kunasekaran: Um, okay. So, I'll jump into the list for you quickly. Um, in terms of like next steps, um, again, you'll have access to the project.
+
+
+00:53:34
+
+Kobi Kunasekaran: Take a look. Um, let me know if there's anything glaring. Um, anything that you don't agree with or if the timelines don't make sense, um, we can of course like negotiate and, uh, update as needed. Um, the immediate things that, uh, we're going to work on for the next like week um, is this project kickoff, which we're already doing, and we're diving into the discovery session after this call. Um, this week we'll get a sandbox set up. Um, so we can start working in the uh in Salesforce. Um, I'll send out a link for scheduling the weekly uh weekly sync. Um, I'll set up that Slack channel and uh add you all to it as well. Uh, and get you all into the uh Asana board. Um, and then we have just the one discovery session book right now. Um, but I think we are going to need at least one more to dive into the API uh integration and uh and like the technical implementation uh of what's already in Salesforce. Um, and then from there I will let you know if I have any additional questions.
+
+
+00:54:34
+
+Kobi Kunasekaran: uh oftentimes we can just uh talk through it in slot um but if we need additional discovery sessions if there are still things that are unclear I'll let you know uh but again like going back to the PRD usually it takes us like four to five discovery sessions for most projects but you have all the answers in the PRD so I think we're going to cut down on a lot of the discovery and waiting for uh answers uh quite a bit and even on the uh when we start doing the design like you have all the fields and everything defined in the PRD. Those are things that usually take us a while to finalize. The actual build um I don't know if you've noticed or like you know from the experience with your cell phone developer, but building actual objects and fields, it doesn't really take us five weeks to do. Um it is making the decision about what's going to go in there, what the workflows look like, what the interface looks like. That is the bulk of the work.
+
+
+00:55:25
+
+Kobi Kunasekaran: Um so, um that's where we're going to spend like the next next week uh to make sure that we iron all of that down. And then you can leave the implementation with that. Any questions?
+Emily Vandenberg: I think you were talking about wanting to go kind of deeper on the erd as well and I know we said we would save time but probably won't get there today so we should just account for a
+Kobi Kunasekaran: Sure. Yeah. And I I think it doesn't need to be urgent either.
+Emily Vandenberg: followup.
+Kobi Kunasekaran: Um I think like once we understand the process we can if I have like specific questions um yeah we can reach out and set up another call.
+Emily Vandenberg: Perfect. Yeah. And now you've got the connection through straw. So we can open lines
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: there.
+Kobi Kunasekaran: Um okay we have like four minutes and I'm pretty much done. So um generally we need access to Salesforce and the license. You've already given us that. So uh thank you for that.
+
+
+00:56:28
+
+Kobi Kunasekaran: um the API. Uh we'll set up a another discovery call to dive into what this looks like, what you already have set up. Um and then uh we'll go from there if we need any other any additional information. Um reps for UAT this uh again during the build phase, it would be helpful to have uh people that are going to be use the system to chime in, at least see it, give us early feedback. Um, but at the very least during that last week in or first week in August when we go into UAT, you want to make sure you have a few uh few reps available to uh test it, you know, set aside that time to go through that. Um, so the sooner we get more feedback because there there may be things that we miss. So we want to make sure that we have enough time to uh make any updates that needed uh before we go live the week after. um for this next week, I'm going to say maybe two weeks actually.
+
+
+00:57:24
+
+Kobi Kunasekaran: Um we are going to need time from your teams um during discovery as we have questions as we form the as we finalize the design. Um I think it's going to be crucial for us to like keep the project moving forward. Um and uh and then after that after after we go into the build phase, we'll we'll talk through it in our weekly syncs if we need any additional time, but it should be okay. um for the data prep for the uh for the historical data import. Uh once we have a data model and kind of the approach that we're going to take um I I can set up some uh Google uh sorry spreadsheet templates for you to start filling out and uh we you can start putting the data together. Um probably won't have this until probably midway through July. Uh but I I think it should be fine like especially with AI and stuff we should be able to manipulate and map the data uh as needed. This is like a stark difference from like a year ago where we had to do all of that manually through SQL SQL queries and stuff.
+
+
+00:58:20
+
+Kobi Kunasekaran: So I'm confident that it's not going to be too complicated.
+Strahinja Vladetic: just from my perspective,
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: it would be nice to have a quick chat with you guys about the data store and how that integrates with Salesforce. And maybe that's for Joyce Unm as well. Um, just
+Kobi Kunasekaran: Are we talking about the data store for like the file like the photos and the files or just the objects and
+Strahinja Vladetic: No, this would be for the the the part that I'll be working on.
+Kobi Kunasekaran: records?
+Strahinja Vladetic: So, we're going to have a data store that's separate from Salesforce that potentially needs to pull in data from Salesforce and maybe in some cases push.
+Kobi Kunasekaran: Gotcha.
+Strahinja Vladetic: Um, we've we've done some work on on selecting one.
+Kobi Kunasekaran: Sure.
+Strahinja Vladetic: I just wanted to confirm with you guys that that won't get in your way or that it sounds like the right decision. Just tentatively out there.
+Kobi Kunasekaran: Yeah, maybe.
+Strahinja Vladetic: That's something else we might need to talk about probably
+Joyce Kiddell: Mhm.
+
+
+00:59:20
+
+Kobi Kunasekaran: Yeah, maybe when we set up the time for the erd walk through, we can go through that as well.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: That'd be good to know. Yeah. Yeah. And if there's anybody else like working on Salesforce like right now I'm assuming we're more or less starting from scratch and we're building everything from scratch. But if there is any ongoing work, anybody working on any uh any component whether it's like part of this project or other projects, let me know so that we're not stepping on toe and we can coordinate uh and work together.
+Waleed Alasadi: Actually,
+Kobi Kunasekaran: Um as opposed to, you know, us wiping everything and uh getting getting rid of work that somebody else might be already working on.
+Waleed Alasadi: Kobe, sorry, this is a good point. U I apologize. I forgot the name of the the person that you have, but you talked about kind of your administrator being with like to be able to take over from from us essentially. Is that correct?
+Joyce Kiddell: Yeah, I think we're still talking internally about like who exactly.
+
+
+01:00:14
+
+Joyce Kiddell: Um, but the plan would be once we get past discovery, um, we would want to bring in that person to kind of ride along through the process.
+Waleed Alasadi: Why why past discovery not from now? Just curiosity. I think it's it's like business context is like is good to to have as well.
+Joyce Kiddell: And I don't really have a great answer for that except that it like I kind of know the process already so I was trying to save
+Waleed Alasadi: Okay. Okay.
+Joyce Kiddell: time but no it's
+Waleed Alasadi: If they do that's anyway. Sorry, not to but just wanted to bring it up.
+Joyce Kiddell: fair like um do you have any thoughts
+Emily Vandenberg: Yeah,
+Waleed Alasadi: Yeah.
+Emily Vandenberg: we just kind of knowing we're still trying to kind of coordinate it was that they're so close to the process.
+Joyce Kiddell: Okay.
+Emily Vandenberg: We wanted to keep it to the main like business kind of like stakeholders in this in this round. We can bring him in. Um, we didn't want to kind of have him like blur the line of his
+
+
+01:01:08
+
+Joyce Kiddell: Because he's a developer and a rep,
+Emily Vandenberg: contribution
+Joyce Kiddell: right? So that causes like maybe a bit of a like conflict and that he has very strong opinions on certain
+Waleed Alasadi: Okay.
+Joyce Kiddell: things that might not be a painoint that the business cares about as
+Emily Vandenberg: and he does things in a certain way. So,
+Joyce Kiddell: much.
+Emily Vandenberg: we wanted to like talk through kind of like ideal at the top and then like yeah, bring in
+Waleed Alasadi: That's totally fair. For sure. It was just merely um usually I find the best system administrators are the ones that know what the users are looking for. So hence the suggestion, but if he knows the business and just about making decisions that that what you're saying makes a lot of
+Emily Vandenberg: We did have the debate before this.
+Waleed Alasadi: sense.
+Emily Vandenberg: So, it wasn't it wasn't a simple
+Joyce Kiddell: What I will say is,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: you know, there's been a couple iterations of trying to like enhance the agency process.
+
+
+01:02:06
+
+Joyce Kiddell: Um, but this is like the first time where I feel like really excited about it and that like we're actually gonna get it done and it's
+Waleed Alasadi: Awesome.
+Joyce Kiddell: going to be like transformative for the business. So, thank you for all the work you guys have put in already and we're very excited to kick things off.
+Kobi Kunasekaran: Yeah, likewise. I'm excited. I I think we'll get it done. We'll get it done. I I do want to go through uh like I mentioned, Emily, like talk through what uh what's been currently set up and what was the thinking behind it and uh why it is set up that way. like there are like some interesting UIs that were like custom built in there. Curious about it. Um totally get the point about you know not biasing our uh approach and build. Um so yes like we'll keep all objective. Um just want to know why uh what didn't work from a business perspective so that we can make sure we don't make the same mistakes, right? Because uh I don't want to come back to you with like the same solution and be like it it still doesn't work for you. So it will be good to know what you didn't like about what's already there.
+Emily Vandenberg: Yeah, fair and valid. And we can defin I'll probably just pull it into another um call if we can't get to it. But um we we should probably jump to the discovery and then
+Kobi Kunasekaran: Yes,
+Emily Vandenberg: the other stakeholders can join
+Kobi Kunasekaran: yes,
+Emily Vandenberg: us.
+Kobi Kunasekaran: yes. Thank you all for the kickoff. Uh yeah, I'll see you I think most of you in the other call.
+Emily Vandenberg: Thanks everyone.
+Kobi Kunasekaran: Thanks everyone.
+
+
+Transcription ended after 01:05:37
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

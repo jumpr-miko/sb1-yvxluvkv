@@ -1,0 +1,208 @@
+{
+  "id": "10309",
+  "key": "WAGR-91",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-25T11:24:37.551-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-14T03:31:22.144-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "# BA-1 (extension): Status Automation via User Active Checkbox\n\n_Keep BA Status in sync with the linked Salesforce user's Active checkbox, instead of relying on someone updating BA Status by hand._\n\n### AUTOMATION\n\n* When the linked User record's Active checkbox changes, update BA Status to match\n\n* Exact mapping not yet defined. BA Status (BUILD-202 / BA-1) has four values — Active, Paused, Inactive, Terminated — but the User object's Active checkbox is only a two-value boolean (checked/unchecked). Deactivating the user clearly maps to Inactive or Terminated; it's not defined which one, and Paused has no checkbox equivalent at all.\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Not confirmed — hold before building. The mapping between BA Status (Active, Paused, Inactive, Terminated) and the User object's Active checkbox (a two-value boolean) is undefined, and Paused has no checkbox equivalent.\n\n### NOTES\n\n* Provenance: none — new automation idea proposed directly by Taryn Reithofer on Aug 25, 2026, not sourced from the Brand Ambassador Record User Stories doc. The underlying uncertainty it addresses is corroborated in the Aug 24 Weekly Planning transcript (see SOURCE).\n* Overlaps with [BUILD-206 — Brand Ambassador: Termination Automation](https://app.asana.com/0/0/1217693578209162/f/), which already deactivates the user when a BA is terminated. These two automations touch the same User.Active ⇄ BA Status relationship from opposite directions — worth checking with Kobi whether they should be merged into one automation instead of built separately.\n\n### SOURCE\n\n* No user-story doc citation — created directly from Taryn Reithofer's request, Aug 25, 2026.\n* [Aug 24 Weekly Planning — Kobi Kunasekaran, 01:11:33 (status/Active-checkbox mapping flagged as open)](https://docs.google.com/document/d/1qB7cUeJGFs_SZba9NX5R9MWKzOj8yTetmWTWoqY3gw8/edit?ouid=111290854928580430080#heading=h.2df0ngshfjzy)\n* Dependencies: [BUILD-202 — Brand Ambassador: Object + Core Status](https://app.asana.com/0/0/1217693577680227/f/)\n* Related: [BUILD-206 — Brand Ambassador: Termination Automation](https://app.asana.com/0/0/1217693578209162/f/) (see overlap note above)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-25 directly from Taryn's request (side note, not sourced from a meeting or doc).\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-236 — Brand Ambassador: Status Automation (via User Active Checkbox)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10357",
+          "body": "Restructured IMPLEMENTATION REQUIREMENTS to the absolute-spec standard — removed the embedded citation. Confirmation history, for context:\n\nKobi Kunasekaran, Aug 24 Weekly Planning (01:11:33): \"There is no built-in status. There is the active field which is being used by the system to determine if somebody's active or not. Um I don't remember what we discussed in the call on uh where we want to go with these uh active pause terminators. So it's something to double check.\" Kobi is referencing an earlier call whose outcome isn't captured anywhere in our docs — needs a direct check with him on what was actually decided there.",
+          "created": "2026-08-26T15:05:32.171-0400",
+          "updated": "2026-08-26T15:05:32.171-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-362"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Not Started",
+          "id": "10030"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Development",
+          "id": "10055"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217832880216788"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001j3:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217832880216788"
+      }
+    }
+  }
+}

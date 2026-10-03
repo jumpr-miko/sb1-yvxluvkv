@@ -1,0 +1,860 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech Internal Sync
+
+Sep 18, 2026
+Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+
+Payout flows and affiliate link setups reviewed via comprehensive business model discussion
+
+Referral and payout workflow mechanics
+* Brand ambassadors earn fixed commissions while players receive promotional funds for initial signups.
+* Player signups are tracked uniquely per book, defined by operator, market, and time constraints.
+* Link assignments are managed on the CMS side rather than within Salesforce.
+
+
+Salesforce architecture and system updates
+* Cedrick implemented a before-save flag mechanism to handle operator partner relationship updates.
+* Taryn utilized Claude to structure the Miro board data into a narrative storytelling format.
+
+
+Phase 1 cleanup and design user stories
+* Target breaking down designs into user stories next week following phase 1 completion.
+
+
+Redeposit open questions discussion
+* Monday meeting addresses redeposit open questions prior to next week user story breakdown.
+
+
+Next steps
+* [Taryn Reithofer] Update Currency Formula: Set the signup currency formula field to reference the standard out of the box currency field to capture the player country of origin.
+* [Taryn Reithofer] Contact Emily: Send a message to Emily on Slack to follow up on the fraud flag banner and primary email banner feedback.
+* [Kobi Kunasekaran] Respond To Ticket: Address the comment on the brand ambassador ticket regarding the inability to surface the assigned link in the table and follow up with the requested information.
+* [Kobi Kunasekaran] Scope Screen Flow: Define the requirements for the screen flow component involved in the link record process to allow for future implementation.
+* [Kobi Kunasekaran] Prepare Meeting Materials: Organize and consolidate the identified issues ahead of the scheduled meeting with the ACTO representatives.
+* [The group] Update Miro Board: Create a legend for the Miro board to define the symbols used in the diagram.
+* [Taryn Reithofer] Verify Assignment Rollups: Verify the active assignment rollups task completion and mark as review.
+* [Kobi Kunasekaran] Check Link Management Ticket: Investigate if a ticket exists for editing and managing links.
+* [Kobi Kunasekaran] Create Link Management Ticket: Create a new task for link management if missing.
+* [Taryn Reithofer] Create Secondary Email Field: Add a new field to the user object layout for personal email capture.
+* [Taryn Reithofer] Add Field to Layout: Place the secondary email field onto the user object layout.
+* [Kobi Kunasekaran] Verify Signup Automation Tickets: Review existing tickets for signup processing to determine if updates are required.
+* [Taryn Reithofer] Close Decision Ticket: Connect the decision document to the ticket and set it to closed.
+* [Kobi Kunasekaran] Scope Commercial Terms: Create build tickets for commercial terms once feedback is confirmed.
+* [Cedrick Infantado] Build Update Flow: Develop the update feeling automation during current shift.
+* [Cedrick Infantado] Complete 411 Ticket: Finish build work on task 411.
+* [Taryn Reithofer] Update Partner Page: Ensure parity between partner and operator page configurations by reviewing ticket 364.
+* [Kobi Kunasekaran] Ping Emily: Check on the status of the requested sandbox key.
+* [Kobi Kunasekaran] Book Monday Meeting: Schedule the discussion regarding redeposit questions for Monday from 11:00 AM to 12:00 PM.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 18, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Payout flows and affiliate link setups reviewed via comprehensive business model discussion
+
+Payout and Affiliate Flow
+Cost per acquisition amounts route through Wagertech first. Brand ambassadors receive fixed commissions.
+
+System Configuration and Tickets
+Secondary email fields requested for user objects. Currency core fields near final review.
+
+Technical Flow and Updates
+Relationship key issues resolved via automated flows. Partner page updates assigned accordingly.
+
+
+Decisions
+Aligned
+* Adding Secondary Email Field to User Object The team agreed to create a secondary email field on the user object and add it to the layout.
+
+
+
+Next steps
+* [Taryn Reithofer] Update Currency Formula: Set the signup currency formula field to reference the standard out of the box currency field to capture the player country of origin.
+* [Taryn Reithofer] Contact Emily: Send a message to Emily on Slack to follow up on the fraud flag banner and primary email banner feedback.
+* [Kobi Kunasekaran] Respond To Ticket: Address the comment on the brand ambassador ticket regarding the inability to surface the assigned link in the table and follow up with the requested information.
+* [Kobi Kunasekaran] Scope Screen Flow: Define the requirements for the screen flow component involved in the link record process to allow for future implementation.
+* [Kobi Kunasekaran] Prepare Meeting Materials: Organize and consolidate the identified issues ahead of the scheduled meeting with the ACTO representatives.
+* [The group] Update Miro Board: Create a legend for the Miro board to define the symbols used in the diagram.
+* [Taryn Reithofer] Verify Assignment Rollups: Verify the active assignment rollups task completion and mark as review.
+* [Kobi Kunasekaran] Check Link Management Ticket: Investigate if a ticket exists for editing and managing links.
+* [Kobi Kunasekaran] Create Link Management Ticket: Create a new task for link management if missing.
+* [Taryn Reithofer] Create Secondary Email Field: Add a new field to the user object layout for personal email capture.
+* [Taryn Reithofer] Add Field to Layout: Place the secondary email field onto the user object layout.
+* [Kobi Kunasekaran] Verify Signup Automation Tickets: Review existing tickets for signup processing to determine if updates are required.
+* [Taryn Reithofer] Close Decision Ticket: Connect the decision document to the ticket and set it to closed.
+* [Kobi Kunasekaran] Scope Commercial Terms: Create build tickets for commercial terms once feedback is confirmed.
+* [Cedrick Infantado] Build Update Flow: Develop the update feeling automation during current shift.
+* [Cedrick Infantado] Complete 411 Ticket: Finish build work on task 411.
+* [Taryn Reithofer] Update Partner Page: Ensure parity between partner and operator page configurations by reviewing ticket 364.
+* [Kobi Kunasekaran] Ping Emily: Check on the status of the requested sandbox key.
+* [Kobi Kunasekaran] Book Monday Meeting: Schedule the discussion regarding redeposit questions for Monday from 11:00 AM to 12:00 PM.
+
+
+
+Details
+* Payout and Cost Per Acquisition Flow: Taryn Reithofer reviewed the Mirror board and used Claude to map out the business model storytelling. Taryn Reithofer raised a question regarding the payout flow, asking whether the cost per acquisition amount goes directly to the brand ambassador or through Wagertech first (00:09:58). Kobi Kunasekaran clarified that the cost per acquisition amount goes through Wagertech first, and brand ambassadors do not directly see cost per acquisition amounts; instead, initial referral links act like promotional links, and brand ambassadors receive a fixed commission model separate from player bonuses. Kobi Kunasekaran explained that players receive funds for initial signups and redeposits to use as betting capital, which requires proof of betting to stay in the system, while Wagertech receives payments from operators like BetMGM for player retention (00:11:46).
+* Deal Setup, Affiliate Links, and Representative Assignments: Kobi Kunasekaran outlined how deals are negotiated between operators like BetMGM and Wagertech, after which deals and affiliate links are assigned to brand ambassadors based on their reach (00:15:08). Brand ambassadors promote these links to players, who complete signups and place bets, providing proof to complete the process and trigger monthly commissions (00:17:24). Kobi Kunasekaran noted that redeposits involve brand ambassadors reaching out to players with additional funds to maintain engagement, and further discovery on payout tracking and commission layers will be conducted next week (00:19:35).
+
+
+* Player Referral Rules and System Constraints: Taryn Reithofer and Kobi Kunasekaran discussed the roles of operations and brand managers who manage brand ambassadors while potentially acting as brand ambassadors themselves (00:23:09). Kobi Kunasekaran clarified that players can qualify for only one signup per book—defined as a combination of a deal market, operator partner, and time period—using unique email addresses (00:24:21). Taryn Reithofer and Kobi Kunasekaran agreed on the need to add a legend to the process map for better clarity (00:27:58).
+* Daily Schedule and Jira Task Updates: Taryn Reithofer outlined their schedule for the day, which includes meeting with ACTO representatives to review workflows and participating in an active synchronization meeting with Lily, a finance manager filling in for Travis (00:28:48). Taryn Reithofer stated they plan to update the signup currency formula field in the Jira board to point to the out-of-the-box currency field capturing the player's country of origin, and followed up with Emily regarding feedback on fraud flag and primary email banners (00:29:57).
+* Brand Ambassador Feedback on Assigned Links: Taryn Reithofer brought up Emily's feedback questioning if surfacing the assigned link in the deal representative assignment table would be a low-effort task (00:31:14). Kobi Kunasekaran responded that it is currently not possible because link assignments are handled on the CMS side, and the current integration only sends deal assignment information without specific representative links (00:32:43). Kobi Kunasekaran noted that while link information and deal details are sent to the CMS, managing link assignments in Salesforce is not currently supported unless the integration scope is expanded (00:34:08).
+
+
+* Affiliate Link Object and Mockup Configuration: Kobi Kunasekaran and Taryn Reithofer reviewed tickets and mockups for the links object, confirming that core fields such as Salesforce link ID, link code URL, active status, and assignment cap should proceed. Kobi Kunasekaran advised skipping active deal assignments and rollups for now due to uncertain data availability from the CMS integration, while link history should utilize standard field tracking (00:35:30) (00:37:37). Taryn Reithofer noted that their currency core fields ticket is nearly complete and ready for final review after striking out unneeded scope (00:41:09).
+
+
+* User Email Field Configuration for Brand Ambassadors: Taryn Reithofer raised ticket 393 regarding Emily's feedback on creating Wagertech email addresses for brand ambassadors and adding a secondary email field on the user object for personal emails (00:42:05). Kobi Kunasekaran confirmed that creating a secondary email field on the user object to capture personal emails while keeping the primary email tied to the Wagertech login is straightforward and can be completed before going live, so Taryn Reithofer will add the field to the layout to close the comment (00:43:31).
+
+
+* Signup Processing and Commercial Terms Decisions: Kobi Kunasekaran and Taryn Reithofer discussed ticket 397 concerning signup processing automation, with Kobi Kunasekaran taking over the ticket to verify existing automation for first and last signup dates on player records (00:45:45). Regarding commercial terms, Kobi Kunasekaran noted that feedback was already sent to the client via a potential design document, and Taryn Reithofer will link the document to the decision ticket and close it off once Kobi Kunasekaran confirms client approval (00:48:46).
+
+
+* Operator-Partner Relationship Flow Implementation: Cedrick Infantado reported encountering issues with the operator-partner relationship solution discussed previously and resolved it by creating a flag triggered via a before-save flow that updates the relationship key through an after-save flow (00:50:46). Kobi Kunasekaran and Cedrick Infantado reviewed the technical implementation of the before-save and after-save flows, confirming how the flag checks and unchecks itself upon saving (00:51:57). Cedrick Infantado stated they are moving on to update field tickets (such as ticket 385 and 411), and Kobi Kunasekaran assigned related ticket updates to Taryn Reithofer to align with the partner page changes requested by Emily (00:55:23).
+
+
+* Partner and Operator Page Updates: Kobi Kunasekaran assigned Taryn Reithofer the task of ensuring that the partner page is updated to match the content being added to the operator page (00:58:41).
+
+
+* Commercial Terms and Sandbox Key Follow-Up: Kobi Kunasekaran stated an intent to scope out commercial terms information and assign those tasks to Cedrick Infantado. Furthermore, because Kobi Kunasekaran had not yet heard back about the sandbox key, they planned to ping Emily to check on the status of that request (00:58:41).
+* Redeposits Meeting and User Story Planning: Kobi Kunasekaran discussed setting up a meeting for Monday, tentatively scheduled from 11:00 to 12:00, to review open questions regarding redeposits. The team plans to break down the design into user stories the following week, with Kobi Kunasekaran noting that remaining tasks in existing pages and phase one should be closed out prior to starting that process (00:58:41).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 18, 2026
+Wagertech Internal Sync - Transcript
+00:00:47
+
+Taryn Reithofer: Hey, good morning. Good evening. You have a better time giving your kids a bed.
+Cedrick Infantado: still playing.
+Kobi Kunasekaran: Morning.
+Cedrick Infantado: He says it's Friday, so it'll play
+Taryn Reithofer: That's so funny. Good morning.
+Cedrick Infantado: turning.
+Kobi Kunasekaran: Everyone doing ready for the
+Taryn Reithofer: Good. Um,
+Kobi Kunasekaran: weekend?
+Taryn Reithofer: I'm hosting I'm hosting my nephew's first birthday party at our house tomorrow.
+Kobi Kunasekaran: Oh, that's fun.
+Cedrick Infantado: Oops.
+Taryn Reithofer: So, yeah, fun, but also a lot of work. So, going to have to decorate a lot tonight.
+Kobi Kunasekaran: How old is it?
+Taryn Reithofer: And it's his first birthday,
+Kobi Kunasekaran: First move.
+Taryn Reithofer: so it's I mean,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: he doesn't have friends technically, but it's mostly my sister's friends and her friends who have kids, but it's the most people that we've ever hosted before. So, um I have like two different grocery orders coming today and yeah, there's going to be a lot to do.
+Kobi Kunasekaran: That sounds chaotic. I mean, I think the first year's birthday party is like for the parents, right?
+
+
+00:02:11
+
+Taryn Reithofer: Exactly.
+Kobi Kunasekaran: For the kid,
+Taryn Reithofer: He doesn't know what's going on.
+Kobi Kunasekaran: like two young just shows up.
+Taryn Reithofer: Yeah. He doesn't give a s***. Yesterday I painted it's baseball themed. I think it's like Yeah, it's baseball themed. So, I painted some baseballs yesterday to post on the
+Kobi Kunasekaran: Oh, nice.
+Taryn Reithofer: wall.
+Kobi Kunasekaran: Nice.
+Taryn Reithofer: Yeah. So, that's what's going on with me this weekend. And then Sunday is just going to be recovery and cleaning.
+Kobi Kunasekaran: Yeah. From all the people.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I can imagine. That's exciting. Exciting.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: How about you,
+Taryn Reithofer: What do you guys got going on?
+Kobi Kunasekaran: Cedric?
+Cedrick Infantado: Yeah, as I was saying, my child's still playing. So, it's Friday for him, so he wants to play more. So, yeah, still running around.
+Kobi Kunasekaran: Nice. Oh. Almost the weekend. We're almost there.
+Cedrick Infantado: Yeah, it's perfect.
+
+
+00:03:05
+
+Cedrick Infantado: It's perfecting for the weekend.
+Kobi Kunasekaran: Yeah, that's
+Taryn Reithofer: Do you have any plans, Kobi?
+Kobi Kunasekaran: uh yes, I'm taking my uh niece and nephew out. Um it's her birthday. She turned three. Uh but we couldn't make it for the actual birthday because it was in the middle of the week. So, we're just taking them out um go like eat and uh do some activities um and then going out with some friends for her birthday which is also earlier in the week that uh we're just going to a restaurant to celebrate and then Sunday is going to be recovery like you said.
+Taryn Reithofer: Nice. Nice.
+Kobi Kunasekaran: I don't know how you guys do it with kids, but every time I hang out with like my niece and nephew, mind you, my sister has five kids. And so,
+Taryn Reithofer: Oh my god.
+Kobi Kunasekaran: sorry, five, four kids. Four kids. Four kids. I'm I'm starting to lose count. Uh, but they are so exhausting sometimes.
+Taryn Reithofer: Yeah.
+
+
+00:04:07
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Uh, so, uh, I always like feel like I need I need a whole day to like recover from that.
+Taryn Reithofer: Yeah, it's I don't know about you, Cedric, but like having to it's just like at that point like it like there's obviously moments of like a lot of enjoyment and there are moments that it it is easy, but it's for the most part, especially having two girls so close together, it's very over stimulating and very like exhausting and I'm definitely like in burnout right now with being a parent.
+Cedrick Infantado: It's difficult.
+Taryn Reithofer: Like there's just way too much going on right now in my life and I wish that it was more boring and nothing was happening. But it it is exhausting and how we do it is just at the expense of your mental
+Cedrick Infantado: Yeah. Yeah.
+Taryn Reithofer: health and you put yourself last basically.
+Cedrick Infantado: Yeah. Painting paint same painting. So yeah, it sometimes gets exhausting. But when actually when my uh son is sleeping, I want to wake him up sometimes just to play with him.
+
+
+00:05:15
+
+Taryn Reithofer: Yeah.
+Cedrick Infantado: But when he's awake, I want him to uh to sleep.
+Taryn Reithofer: Yeah. Yeah.
+Cedrick Infantado: Something like that. It's It's like a roller coaster of feelings for a parent.
+Taryn Reithofer: Yeah. I get that.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: like play with me.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Why? When I have energy, not when you have like unlimited energy.
+Taryn Reithofer: Exactly. On my time. Yeah. When I want to.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: That's funny.
+Cedrick Infantado: That's right.
+Kobi Kunasekaran: You think like, you know,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: when you have two kids, like they'll they'll tire each other out, but I don't think it works that way.
+Taryn Reithofer: Not at this age.
+Kobi Kunasekaran: They both want your attention at the same time.
+Taryn Reithofer: Maybe later. Yeah.
+Cedrick Infantado: Excellent.
+Taryn Reithofer: They're still so dependent. Um they still need us for everything. So until that chills out like I think that I don't know as they get older they are like keeping each other entertained for,
+
+
+00:06:01
+
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: but it's only for like an hour and then they're like,"Okay, what's next?" Like,"Let's go to the park.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Let's do this." Like, yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: So,
+Kobi Kunasekaran: I feel like kids these days don't know how to be bored.
+Taryn Reithofer: yeah.
+Kobi Kunasekaran: Uh like we grew up and like we didn't have all this technology and stuff. So, you know, you you you found ways to occupy yourself, like you do activities,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: you sit there. But, man, my my nephew,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: he's uh I think he's 11 now, but man, he's so he gets bored easily. Like, we we'll be going for a walk and gets bored of walking. Um he's like he always has to like constantly be doing some things.
+Taryn Reithofer: No.
+Cedrick Infantado: Yes. Mhm.
+Kobi Kunasekaran: And uh it's like trying to keep him entertained is like it feels like a full-time job sometimes.
+Taryn Reithofer: Oh jeez.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Maybe he has too much screen time.
+
+
+00:06:48
+
+Kobi Kunasekaran: Well, possibly. He's like hella smart, too. So, even if I like give him some like challenging things to do,
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: like he'll figure it out right away.
+Taryn Reithofer: I see.
+Kobi Kunasekaran: Um, so it's it's hard to like keep him busy.
+Taryn Reithofer: He needs a job.
+Kobi Kunasekaran: And the oldest Yes. Yes. Exactly. Exactly. Uh, the oldest is like she just turned 13, so she's a lot calmer now, right? Like she's uh taking care of the rest. And then the youngest is uh two. So now the two older kids are taking care of the two younger kids. So it does it does get easier as they get older.
+Taryn Reithofer: Okay, that's helpful.
+Kobi Kunasekaran: But yeah,
+Taryn Reithofer: Yeah,
+Cedrick Infantado: Um,
+Kobi Kunasekaran: but yeah,
+Taryn Reithofer: that is helpful.
+Kobi Kunasekaran: man, the energy level like I don't know how my sister and my brother-in-law do it like every
+Taryn Reithofer: Yeah, four is a lot.
+Kobi Kunasekaran: day. It's nuts.
+Taryn Reithofer: Yeah.
+
+
+00:07:31
+
+Taryn Reithofer: Some days I'm like maybe I can have a third and then like all hell breaks loose. I'm like no, absolutely not. Like Yeah.
+Cedrick Infantado: let's do that.
+Kobi Kunasekaran: I think you got to wait until they're older and then they will take care of the younger one.
+Taryn Reithofer: It Yeah. Yeah. Yeah.
+Kobi Kunasekaran: That's what like I think that's the only reason like they're still like sad. Uh because between the like after my nephew, my uh second youngest niece is she's five or six now. So they're like a few years apart. So the older two were old enough to like take care of her and uh you know babysit and stuff. So that definitely helped.
+Taryn Reithofer: Yeah, that's helpful. Yeah.
+Kobi Kunasekaran: Yeah, it's all chaos nonetheless.
+Cedrick Infantado: Yeah,
+Taryn Reithofer: Yeah.
+Cedrick Infantado: but for the meantime, we're on the same I'm both tired.
+Taryn Reithofer: Yeah, we are.
+Kobi Kunasekaran: Maybe we're just getting old,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: guys. This is the result of working too much.
+
+
+00:08:29
+
+Taryn Reithofer: Yeah. Maybe. Maybe. This is what our parents were thinking about. I remember growing up my mom would just be laying down all the time. And now I get it.
+Cedrick Infantado: That's
+Taryn Reithofer: I also want to just lay down.
+Kobi Kunasekaran: Uh anyh who, let's let's talk about work so we can hopefully try to wrap up the week and
+Taryn Reithofer: One more.
+Kobi Kunasekaran: uh rest of the weekend. Um, what do y'all have going on today?
+Taryn Reithofer: Um, for myself, um, this morning I was going over the mirror board that you made yesterday more, um, and I'm trying to just make sense of it all and how it fits into our existing build and just like their business model in general and everything like so I've gotten Claude to make me a story in a way that it's like like a storytelling like book with with with characters to remember and that and I and I think that that's going to help memorize it all and kind of work it through my brain.
+
+
+00:09:58
+
+Taryn Reithofer: So I did that this morning. Um, I did have a question from it that cropped up when I was reading. So, let me pull it up. Your deposit. Okay. So, the BA shares a link to a player. The player signs up. Let's say it's DraftKings, which is the operator, deposits $50, and then the $50 is inside the deposit range, so all is good. Then they bet on something like a hockey game or whatever. Um, and that's the qualifying action. So, both boxes get ticked and then DraftKing now owes let's say like $150 uh CPA.
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: Does that CPA go? So, there's a payout model and that's either like cash or like bet credit. Um, does the CPA amount go directly to the BB um the brand ambassador or does it go to wager tech to then they keep some and then give some to the brand ambassador
+Kobi Kunasekaran: uh it's the second one. So I don't think the VAS directly see like the CPA amounts.
+
+
+00:11:46
+
+Kobi Kunasekaran: Um, so the initial referral it's it's essentially like a like any referral link that you get from like like for example like if you sign up for like an app and it says like you know your friend gets 30 days free, you get 30 days free.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: It's something like that.
+Taryn Reithofer: the
+Kobi Kunasekaran: Um it's the equivalent of that for the initial link that they share. Um so at that point they may not necessarily send them money directly. Um not not I don't think in all cases they do. In some cases they do but u it's more like promotional link. You sign up uh you bet a certain amount and then um if they bet a certain amount um and send proof that they bet that certain amount then they will get paid additional money. um in terms of like a commission from Wagertech is how I understand it. So uh and then and then there's the redeposit so to keep the players in the system um because MGM will pay Wagertech uh for players that continue to engage with the platform.
+
+
+00:12:52
+
+Kobi Kunasekaran: So that's where the redeposits come in where they'll be like,"Okay, we're getting $100 from Adam GM for every person that stays for the second month. So out of the $100, we're going to allocate like X amount um that you can you can send to the player to put into BMGs. Um and then the players are getting commissions. I think the commissions we haven't even like started adding them, but they're they're like a whole other layer. I don't think they're actually tied to the CPA amounts yet. I think it's a fixed model for the commission. Uh, if I remember correctly.
+Taryn Reithofer: the player. The player gets permission and not the BA.
+Kobi Kunasekaran: No, no, no. The the BA, the commission for the BA, I think it's like a fixed model. So, I I believe that's separate. Um, the players get the money for the initial sorry, they get money for redeposits. Um I don't remember if they get any uh any bonuses when they do the initial signup completion.
+
+
+00:13:57
+
+Kobi Kunasekaran: I think it just makes them eligible for redeposits.
+Taryn Reithofer: So the money the money Okay. And the money that they're getting like in their eyes would be like a discount to the bet that they're going to make because they can put in more money than what they're given.
+Kobi Kunasekaran: Exactly. Yeah. Yeah. It's it's like they're they they're getting money to do the bet and whatever they get out of like like if it's a casino, right? Like if you win, you you keep whatever wage gave you and whatever uh whatever winnings that you might have had from betting that money. So, you just have to uh show proof that you actually bet the amount that uh Wagertech gave you as part of the sign up. Um, and then uh and then you're in the system and then they they might send you more money to continue uh continue betting.
+Taryn Reithofer: So in terms of the flow for deposit and then redeposit, it's pretty much the same thing or like what are the differences? is
+Kobi Kunasekaran: um the redeposit the main thing is the allocation process that we talked about the other day, right?
+
+
+00:15:08
+
+Taryn Reithofer: with their spreadsheet.
+Kobi Kunasekaran: Um so yeah, like the initial signups for the most part it's like each each player, sorry, not each player, each uh DA uh or refer because they could also have a middle person that also does the referring that also gets commission. Uh, I don't think we've even gotten to that point yet in terms of what the commissions look like for them, but um, the BAS, they're essentially marketing these affiliate links that they have access to, right?
+Taryn Reithofer: This is
+Kobi Kunasekaran: So, okay, let's take a step back. So, BMGm and Wager Tech have uh have a deal set up where for 100 signups, they're going to get X amount of uh, dollars in CPAs or commissions or whatever. So that's the starting point. That's what we see in in in the diagram. Actually, I'll show that. Let's see if we can validate whether this process is accurate from my understanding. Okay. So yeah, so the deal is set up. This is above the BA, right? This is um either you know, Lena, uh I forget their name, OMJ, uh or their CEO, uh whoever uh works with the actual company.
+
+
+00:16:23
+
+Kobi Kunasekaran: uh bet on GM uh what are the other ones like whatever whatever else like they'll set up the deal they negotiate uh what the commission structures and everything and then reps get assigned those deals um and the distribution of the rep assignment I believe it's like I I don't think there's any science to it it's like right now it's it's not arbitrary but it's it's also not like uh a structured process but essentially they're looking like you know how many deals they already have, how many people do they have access to, how quickly are they likely to uh get the number of signups that they need and all of that. And based on that, they'll assign those uh assign a deal to the reps. Um and when setting up the deal, like they get a certain number of links that they can use uh to send to
+Taryn Reithofer: Listen.
+Kobi Kunasekaran: the players to uh for them to sign up. Those are the affiliate links that we're talking about, right? So it could be like 10, it could be bunny, it could be five, it could be two.
+
+
+00:17:24
+
+Kobi Kunasekaran: So depending on that they'll uh from my understanding like each rep gets assigned one of those links. Um some reps might even share the same link. Um but that's how the deal rep assignment works. And then so now it's up to the BAS to promote get as many signups as possible against the target that they're trying to get. Uh,
+Taryn Reithofer: What's that?
+Kobi Kunasekaran: and then for each one they'll get a commission for each player that completes the signup process. Um, that commission I don't I think it's like a fixed model if I'm not mistaken. So, I don't I don't know if it actually varies by Um I I think it varies by region, but yeah, I don't know if it varies by deal. Um but yeah, so the DAS will get their own commission. Um the players I sign up to the affiliate link, I send uh I send you proof that I signed up. Um and I don't remember if at what point the players get sent the money for the deposit.
+
+
+00:18:26
+
+Kobi Kunasekaran: It might be, you know, when they're doing the actual sign up or um after they submit like some sort of proof, but um they they get sent like the $35 or $40 or $50 to put into Bed MGM. Um they're going to sign up, deposit that money that way gives them um and then send proof that they've deposited the money and uh did something with the money. So, not just deposit, but they also have to bet on something,
+Taryn Reithofer: Where is he?
+Kobi Kunasekaran: right? whether it's like playing whatever the casino games there are on their on the sites. They send all that proof to the to the BA or the referer. The referers will then mark those signups as complete. Um and then that kind of rolls up to the overall metrics for the deal.
+Taryn Reithofer: Perfect.
+Kobi Kunasekaran: Um and then at some point I guess like I don't know what the cadence is but um as uh let's just say like monthly for now like at the end of the month depending on the number of uh verified signup that they brought in um I believe the BAS or the reps will get paid commission uh for each of those clicks.
+
+
+00:19:35
+
+Kobi Kunasekaran: Um and then I don't remember if the players also get any additional payouts after that. Uh but when it comes time for redeposits um that's the time where they'll like the BAS will reach out to the players. He be like,"Hey, we need you to keep playing uh at BMGm. So here's another $20. Uh deposit the 20. Uh send me the proof." And then um I I want to say that they get some more bonuses from uh from Widget Tech, but I I need to verify that before I tell you for sure.
+Taryn Reithofer: Yeah. What's that? Yeah.
+Kobi Kunasekaran: And I think we'll those like the payout and whether the players get more money than the initial $35 itself will solidify and we'll dig into when we talk when we do the discovery for the payouts because we kind of briefly touched on it way back in like June uh when we kicked off the project but we we really go into detail about what that process looks like. So, so far it's just been about tracking the the signups, the um the bets, the uh the proofs.
+
+
+00:20:46
+
+Kobi Kunasekaran: Um and now we're moving into the redeposits. So, uh that other layer of when do the payouts happen, how do we track those? We'll probably find out, but we'll dig deep into that probably next week. Hopefully next week if we're able to squeeze that in.
+Taryn Reithofer: Mhm. and pay note touches the initial deposit and the redeposit.
+Kobi Kunasekaran: payout touches the initial sign up and the redeposit as I understand it. Yeah. But as far as I know I don't think like so for example if I if I send you the link and say like you know you have to go sign up I don't think that gets tracked as a payout yet. I think it's like if there are any additional money that I'm sending you for signing
+Taryn Reithofer: But who who care?
+Kobi Kunasekaran: up.
+Taryn Reithofer: Yeah. Who cares if they sign up if they don't actually deposit in some group
+Kobi Kunasekaran: Yeah. So I but I don't know if we track that as a payout. I think yeah, we'll have to see when we do the discovery whether, you know, during the sign up process if we need to track how many people we sent like the $35 to for the actual betting.
+
+
+00:21:58
+
+Kobi Kunasekaran: I don't know if they track that as like a separate thing or if that's baked into just tracking the sign up right now. Then I have to go back to the notes and confirm.
+Taryn Reithofer: Um right. Okay. Yeah.
+Kobi Kunasekaran: Yeah. Well, we we'll we'll dig deeper into it when we get to the payouts. I think that'll kind of close the gap of what else happens with this whole model and where and then there's there's that and there's also commissions which I don't think we actually really scoped in commissions in the initial designs but found like I think not the last call but the call before we talked about adding those in so it's somewhat back to scope that out and added it but um that part is coming I don't think we're doing like a separate object or anything yet for it from what I understand we just need to be able to track you know if a commission has been paid out or not for each each of those signups. So that is another layer that we need to do a little bit more bit more discovery to figure out in addition to the payouts
+
+
+00:23:09
+
+Taryn Reithofer: Okay. And we're going to yesterday I said we're going to be meeting with the BAS, but we would be we would meet with the the person who is figuring out who gets the redeposit
+Kobi Kunasekaran: Yeah, it's uh I think it was like J and Owen were like
+Taryn Reithofer: and what are their what's their role called them?
+Kobi Kunasekaran: their uh I want to say either ops or brand managers, one or the other.
+Taryn Reithofer: band managers and they just manage the BAS.
+Kobi Kunasekaran: Yeah, they manage your BAS. Yeah, but they can also be deferred in it. They can also be BAS. So, it's kind of a all all inclusive role.
+Taryn Reithofer: Yeah, I think that's what's tripping me up is that there's They're interchangeable. They can and they can be both or they can be either or.
+Kobi Kunasekaran: Yeah. Yeah. It gets confusing and that's why like you know when we do the player referral uh objects like there is like a section to track players who are also referers because they can also send
+
+
+00:24:21
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: themselves money and sign up to these betting sites and get commissions.
+Taryn Reithofer: Can then can they sell them send themselves money or does it have to be another BA that sends it to a BA that's now a player?
+Kobi Kunasekaran: Uh, you know, I don't know. I I I think they can send themselves money because remember like they could they can only qualify for
+Taryn Reithofer: That doesn't sound like right.
+Kobi Kunasekaran: one like they can only qualify for one sign up per like promotion, right?
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: So why not like they Wagertech is getting paid either ways and it's a fixed amount that's getting sent to the player. So, uh, like I can't send myself more than a single sign up worth of money.
+Taryn Reithofer: One sign up per deal rep assignment.
+Kobi Kunasekaran: No. Yeah. Yeah. Yeah. Yeah. I guess. Yeah. like technically one sign up per book and a book is defined as like that combination um of you know uh deal market uh what is it operator partner and then there's like the time period involved as well so um whatever the effective start and end date is so um if an if a deal is or if a book is open for this month you can only sign up uh for like the first time for that site uh only once.
+
+
+00:25:51
+
+Kobi Kunasekaran: Like Betam GM, you can only sign up once. You can't keep signing up to Betam GM with the same email address multiple times. They won't get credit for it. So, it has to be unique email addresses, unique uh I guess just email address. I don't know if they verify anything else. Um but yeah.
+Taryn Reithofer: Do they have to like give them their like government ID at all?
+Kobi Kunasekaran: I would think so. I'm sure there's some verification on the uh casino sites,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: right? Betting sites.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Actually, yeah. Obviously, cuz you have to be of age, right? So,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: okay.
+Kobi Kunasekaran: I think there are I want to say that there might be some instances where they're able to sign up again maybe like after like a year or two because a lot of sites they they only keep their data for a while, right? Um, so you might be reeligible for a promotion later, but from how I understand it, it's like you can only sign up for like one site once as a player
+
+
+00:26:55
+
+Taryn Reithofer: So, when I'm looking at a player record page and there's the signup related list, all of those signups are for a different operator.
+Kobi Kunasekaran: different operator or it could be for like a specific promotion within the operator too. Uh I I think there might be scenarios like that where you could like I want to say that you know you could uh bet on GM like let's say they have um like online slots and sports betting those two could be two separate uh deals for the same operator.
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: So you might have initially signed up for just the slots and then you can get a promo to sign up and wager for like the betting and that could be treated as two signups. I don't know.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: We'll have to see when when we see the data,
+Taryn Reithofer: So,
+Kobi Kunasekaran: but I think I would I think that is a possibility. So it's not necessarily one player per operator. It's one player per book.
+Taryn Reithofer: right it book not deal.
+Kobi Kunasekaran: Yeah.
+
+
+00:27:58
+
+Kobi Kunasekaran: I mean,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: a deal it should be the same as a book, but I I think it it goes a step above a deal.
+Taryn Reithofer: Okay. Okay. Okay.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Good.
+Kobi Kunasekaran: it's a little confusing.
+Taryn Reithofer: Okay. It's okay. I'm I'm It's coming together. So,
+Kobi Kunasekaran: Yeah, we'll piece it together.
+Taryn Reithofer: okay.
+Kobi Kunasekaran: I think I think maybe like we can work off of this diagram to keep adding to it and clarifying it so that we'll have like as we unlock all the other pieces um we can have an even way to keep
+Taryn Reithofer: Yeah. And we need like a table of contents.
+Kobi Kunasekaran: track of all the things that happen.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: We need a rubric. No, not a rubric. What is it called?
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Uh um a uh like the thing on the side on a map that tells you what every symbol means.
+Kobi Kunasekaran: Legend.
+Taryn Reithofer: A legend.
+
+
+00:28:48
+
+Kobi Kunasekaran: Legend.
+Taryn Reithofer: We need a legend.
+Kobi Kunasekaran: Yeah. Yeah.
+Taryn Reithofer: Okay. All right.
+Kobi Kunasekaran: Um,
+Taryn Reithofer: Sorry to derail. Um, what I got going on today is more of this discussion but in my head. Um, and then I'm meeting with two ACTO reps today. Um, for them to show me their workflow. Um, I've got my questions prepped. Um, and then we have our active call later today. Is this the weekly sync that you usually have with them?
+Kobi Kunasekaran: Uh it is except it's with Lily and uh it's usually with Travis. Uh Lily is pretty new to like the syncs. U she's a finance man finance manager I believe and she's kind of filling in for Travis. So I have a feeling today is going to be more just troubleshooting because like the issue from yesterday we derailed quite a bit of day. I found a bunch of other issues that were related as as a result.
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: So, I need to put all that together ahead of our meeting, but I have a feeling that you just talk through some of those today.
+
+
+00:29:57
+
+Kobi Kunasekaran: Um, I don't know if we'll get to any of like the ongoing initiatives, but yeah, we'll see how that goes.
+Taryn Reithofer: Okay. So, you usually just talk about what's happening in the
+Kobi Kunasekaran: Yeah, similar to like Widget Tech.
+Taryn Reithofer: moment.
+Kobi Kunasekaran: um go through like you know what's in the backlog, any new things that they need.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Um anything we can help with
+Taryn Reithofer: Okay. Okay. Cool. Um, okay. in terms of your tech jura board. Um today I'm going to make that um sign up currency formula field to point to the out of the box um currency field so that it captures the players country of origin.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Yeah. Yeah. Yeah. That's what we're talking through on Slack. yesterday. Um,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: so I got to actually action it now today. Um, and then yesterday I was able to send Emily a few more questions that would help me determine the solution for some of the ongoing um, feedback that she had for us.
+
+
+00:31:14
+
+Taryn Reithofer: um mostly on player um and that is about that fraud flag banner and primary email banner that she suggested. So I've gone back to her with some heavy questions. She hasn't responded yet, so maybe I'll ping her on Slack instead later today um just because it is blocking uh me closing out these pages.
+Kobi Kunasekaran: the plan. Yeah.
+Taryn Reithofer: Yeah. player at least.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Um I don't think she's looked at referral yet because there's nothing. I don't know if she missed it or if she just she'll get to it later, but um she hasn't given us anything back for refer yet. So that might inflate my backlog again. Hopefully not.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Um and then to close out BA feedback, I believe she had asked you a question um on the deal rep assignment related list if it would be easy lowift to surface the assigned link in this table. Um,
+Kobi Kunasekaran: assigned link for the VAS.
+Taryn Reithofer: yes. And I don't know what that means.
+
+
+00:32:43
+
+Kobi Kunasekaran: uh at the moment. No, I don't think it's going to be possible. I can follow up. Is is that uh in the document?
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: To comment on the BA one.
+Kobi Kunasekaran: Uh do we have a ticket for it? Is it one of the tickets that you created that uh haven't responded to yet?
+Taryn Reithofer: question. Did I there's a older ticket for the initial creation of that related list. I don't believe that there's a new ticket for this feedback. So,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: I think I delete that.
+Kobi Kunasekaran: Oh yeah, if you want to do that and assign it to me like you can put it in to-do under my name in the sprint. I will respond to our comment and just follow up in the pick it too. So we can keep track of the reason and the reason just so you're all aware is because the link assignment is going to be done on the CMS side and so far all we've scoped in terms of the integration is that the CMS is going to send the deal assignment information
+
+
+00:34:08
+
+Taryn Reithofer: Sorry.
+Kobi Kunasekaran: but not necessarily the links that are assigned to the refs as well. So at this point it's not possible but if they want to expand the integration to include that information we may be able to do it in the future. So and when she says like the links she's talking about the affiliate links and that's actually something I want to ask about because we put that we put a pin on it until we've heard back about the API and what they wanted from it.
+Taryn Reithofer: one.
+Kobi Kunasekaran: But I think we have enough information to move that forward. Um it's it's these links essentially like from the deals like they they're going to have uh links and these are the affiliate links that the reps would get assigned on the CMS um that they then share to their um to their prospect prospective players to sign up through. Um,
+Taryn Reithofer: Got it.
+Kobi Kunasekaran: so they're gonna add and manage the links in Salesforce, but we're not doing any of the assignments of the links in Salesforce. We're just capturing like the main information and then um the links and the deal info is getting sent to CMS and the CMS is expected to give us the deal rep assignment info.
+
+
+00:35:30
+
+Kobi Kunasekaran: Um so if it's like onetoone maybe it might be possible in the future but at this point we don't have any uh anything to do that right now.
+Taryn Reithofer: sense. Okay.
+Kobi Kunasekaran: Um, but speaking of links, um, so you have a few cards around affiliate links. Um, and I think uh based on what they gave us in the the design doc for the deals uh the deals web hook um all they're looking for in terms of the core fields are these ones like the Salesforce link ID which is just a social ID so we don't need to do anything and then link code URL um a status like whether it's active or not and assignment cap and I think those are the ones that are scoped out here um already as part of the mockup
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: so we should be okay to move forward with creating these um the active assignment I don't remember what we what we decided Uh, okay. So, roll up. Let's skip the active assignments for now. Again, same same reason.
+
+
+00:36:37
+
+Kobi Kunasekaran: We don't know if we're going to have the information. Not. Let me just edit this. Did you create this ticket? I created this ticket. I mean, Cloud created the ticket. But I will cancel out.
+Taryn Reithofer: client's created every single ticket.
+Kobi Kunasekaran: Not every single one. I I got tired of all the bulk that it did. So, like the ones I create the from yesterday,
+Taryn Reithofer: Uh
+Kobi Kunasekaran: that was like I just I made them.
+Taryn Reithofer: oh,
+Kobi Kunasekaran: cuz I hate all this like extra stuff that it adds.
+Taryn Reithofer: I know. Um, okay. So,
+Kobi Kunasekaran: Where's the strike out?
+Taryn Reithofer: what you're showing me is in the deal record, but there's an affiliate link record page. And that's what this ticket's talking about, right?
+Kobi Kunasekaran: There is a links object. I think we call it links. um not necessarily affiliate links. And yeah, and this is the affiliate link tickets are for what the link record should show.
+
+
+00:37:37
+
+Kobi Kunasekaran: Um I think there's another Yeah,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: this mockup has I guess it doesn't really have Oh,
+Taryn Reithofer: The other one.
+Kobi Kunasekaran: there we go. There we go. Yeah, that's one.
+Taryn Reithofer: Okay. Yeah.
+Kobi Kunasekaran: So, yeah, active deal, assignment cap, URL, link code, and link ID. Those should be all there. the deal context. These are your formula fields that come from the related deal. So, you shouldn't have to create any crazy logic. It's just formula that references and displays what's there.
+Taryn Reithofer: Just looking. Yeah. Yeah.
+Kobi Kunasekaran: Um, deal assignments I don't know if we're going to be able to do yet because we don't know if the link information is going to come back. So, we'll have to put a pin on this.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um, link history is just field history. So we just need to track um like you have to enable field history if it's not already enabled on the links object and make sure these fields are checked for tracking history and then this is just
+
+
+00:38:30
+
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: a history field or history related list that gets added. Um
+Taryn Reithofer: Okay. Um, and then there's the link list in the deal record page, and that one's the one that has the uh popup modal that Yeah. Um, yeah.
+Kobi Kunasekaran: So for now just add the related list. Um, There is a component of uh this like screen flow. I don't think I have this scoped out yet. Um so I'll scope this out. If you want to take it on, you can. I was uh actually added to Cedric's backlog.
+Taryn Reithofer: the Yeah,
+Kobi Kunasekaran: Uh think Okay.
+Taryn Reithofer: I see that.
+Kobi Kunasekaran: So,
+Taryn Reithofer: I mean,
+Kobi Kunasekaran: we'll do that.
+Taryn Reithofer: like obviously I can give it a shot,
+Kobi Kunasekaran: But it's Yeah,
+Taryn Reithofer: but it's going to take a long time.
+Kobi Kunasekaran: because like you have to like the whole repeater and everything.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: It's not a straightforward screen flow. So, um yeah, but I think everything else you should be able to do like the object, the formula fields, the record page and everything you should be able to do.
+
+
+00:39:44
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: U so the one thing I will cross out I I can't figure out where the cross out thing is. I don't like deleting, but uh you know
+Taryn Reithofer: Weird.
+Kobi Kunasekaran: uh yeah. Or you know what?
+Taryn Reithofer: Just Just make a note.
+Kobi Kunasekaran: Let's do this. Yeah. Yeah, I think everything else should be pretty straightforward.
+Taryn Reithofer: Oh, you wrap the text in single dashes. So like a dash before and then a dash after. Just one apparently.
+Kobi Kunasekaran: Oh.
+Taryn Reithofer: And then save and see. No, one at the front. Yeah, I want it back. Yeah, it's marked down.
+Kobi Kunasekaran: No,
+Taryn Reithofer: What? Okay, whatever.
+Cedrick Infantado: You can select it and click the B logo or it's under that one.
+Kobi Kunasekaran: it's under What do you like? Yeah,
+Cedrick Infantado: The the letter B the letter B right now.
+Kobi Kunasekaran: usually I can do like What
+Cedrick Infantado: Yes. Take that distract you.
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: the hell?
+
+
+00:41:09
+
+Cedrick Infantado: Uh it they hide it very well.
+Kobi Kunasekaran: Okay. Well, I I tried this just like a few minutes ago.
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: I didn't see anything there.
+Taryn Reithofer: I saw that. Yeah,
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: it didn't.
+Kobi Kunasekaran: I'm used to the shortcut being like command X.
+Taryn Reithofer: Weird.
+Kobi Kunasekaran: That's what I like for every other system. So, I kept trying that and it didn't work.
+Taryn Reithofer: Oh,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: But okay, thank you, Senator.
+Cedrick Infantado: And it's been happening to me as well.
+Taryn Reithofer: how many people does it take to strike through text?
+Cedrick Infantado: So the shortcuts are not working on sometimes frustrating thing.
+Kobi Kunasekaran: Uh, okay. So, I think you should be good to uh work through this as well, Taryn, and then we can close this off. This is This is your famine delay list.
+Taryn Reithofer: It's actually almost done the core fields one. Um,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: I just got caught up in the uh active assignment rollups. So now that that's crossed out, I think I can just bank like just I'll just re reverify what I did and then mark this to
+
+
+00:42:05
+
+Kobi Kunasekaran: It should be done. Yeah.
+Taryn Reithofer: review.
+Kobi Kunasekaran: Okay. And then I need to check if we already have a ticket for the the editing and managing the links. Um if not, I'll get that created uh and assigned as well. Then we we should be able to close we should be able to close deals, should be able to close uh the links. Then I think the other pages are almost there as well. So proceed to go through do one like final check. We'll see if there's any additional feedback and then uh yeah, we'll try to close those off. Uh
+Taryn Reithofer: Yeah. Okay. There's um Okay. There's one more that I wanted to ask you about really quick that's in my backlog. It is wager 393. Um, it's a feedback comment on the brand ambassador page that Emily directed towards you about um creating Wagertech email addresses for all VAS. Um, they currently have their own email addresses for Salesforce log loginins that they want to reallocate to a new Wagertech email if I'm reading that correctly.
+
+
+00:43:31
+
+Taryn Reithofer: So don't know entirely.
+Kobi Kunasekaran: Yeah. That's fine. I don't think we need to do this right now though. Um like this will be part of user activation when we start going live. We start adding everybody in now. They're not really going to use the system. Is is that is that what like she's asking for or is there that like something else?
+Taryn Reithofer: Um there given that can we add a secondary email field to capture their personal email address and keep primary email pulling from their Salesforce login.
+Kobi Kunasekaran: Gotcha. Okay. No. So the ask is can we have a second email address uh field to capture their personal email address because the main one so the email address that we set for
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: users will be like the wagite tech email. That's what they use to log in. So yeah, um you should be able to create a secondary like email field, but this would be under the user object,
+Taryn Reithofer: All right.
+Kobi Kunasekaran: right? So
+
+
+00:44:38
+
+Taryn Reithofer: Can I also save that for before we go live?
+Kobi Kunasekaran: uh I think the creating the field should be pretty quick. So I like just we can get that. We don't need to like add the email addresses or anything um or like fill it in, but create the field, add it to the layout, and then that way we can close out the comment. Yeah, it's just it's just an email field on the user. So, and then adding it to the layout. So, I think this should be pretty quick.
+Taryn Reithofer: Right. Oh, right.
+Kobi Kunasekaran: Um
+Taryn Reithofer: I think I got confused because we already have a secondary email, but I think that's for Yeah.
+Kobi Kunasekaran: player I think player and refer like the account object already has like a secondary email address but yeah this is for the player record so makes sense as long like and there's no automation
+Taryn Reithofer: Yeah, the user
+Kobi Kunasekaran: tied to it at this point so it's just creating the field to capture the information don't think uh should take too long.
+
+
+00:45:45
+
+Kobi Kunasekaran: Was there anything else that uh is blocking you? The sun you're working with are on default inter
+Taryn Reithofer: just uh just the questions that I asked um Emily about the supportive markets um the front flag banner and What That's really good.
+Kobi Kunasekaran: Okay, this one I think this is probably one of the tickets you asked me to help with and I can press sign on. Oh, maybe not. Um, but I think we have some of this already. So, I can verify and let you know. And then there there may be some other things that we still need to do from like the SLC automation or the signup processing automation. So, um, I we might have another ticket for this as well. Um, so we can we can come back around to this one.
+Taryn Reithofer: Okay, pause on 3 397.
+Kobi Kunasekaran: Yeah, I'll leave a comment for me. Yeah, actually during the first like signup completion, I believe the only thing that we set on the player record is like the first and last signup dates.
+
+
+00:47:45
+
+Kobi Kunasekaran: So I don't think we update any of the BA or refer information as far as I know. So we should either have cards for if not we can repurpose this one to be that card. I can check and verify and let you know.
+Taryn Reithofer: Okay. Yeah, the the other ones that I mentioned that I that I needed help with or thought that maybe was over my head, I I reassigned them into your name, not mine.
+Kobi Kunasekaran: Got it. Okay.
+Taryn Reithofer: So there's through there.
+Kobi Kunasekaran: Okay. Okay, that works. You know what? I'll Let's do the same for this one, too. Send it to me. I'll send it back to you once it becomes something to work on.
+Taryn Reithofer: Okay. Okay. Okay. I think that's it for me at least for what I can allocate for today.
+Kobi Kunasekaran: Okay. uh commercial terms. I think this one they've already gave us feedback. Um so we should be able to close this up.
+
+
+00:48:46
+
+Kobi Kunasekaran: I don't know. I don't think I had any other questions on this, but I do like I already sent them like a potential design and the trade-offs. Um so just need to confirm if they're good with it and I'll scope out the tickets.
+Taryn Reithofer: So when it's a decision ticket and we have a decision made, I assume we need to put the end result or solution in the comments and then close it off for
+Kobi Kunasekaran: um in this case. Yes. But uh I think we just refer back to the document that we sent them and and just close it off with that because
+Taryn Reithofer: has all the um Oh,
+Kobi Kunasekaran: the answer is in there.
+Taryn Reithofer: okay. All the discussion about it has been in the doc.
+Kobi Kunasekaran: Yeah. Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Because I don't think we did anything else outside of the document. So this one, yeah, I don't think you linked it here,
+Taryn Reithofer: I just did the um the field
+Kobi Kunasekaran: but yeah, like if you link the document and just confirm that it's uh it's been addressed in the document, that should be enough.
+
+
+00:49:47
+
+Taryn Reithofer: or I'm sorry. Did you want me to create a ticket off of that or you were going to
+Kobi Kunasekaran: Uh no,
+Taryn Reithofer: or
+Kobi Kunasekaran: you don't need to create a ticket for this one. Uh I mean, sorry, for the document like just link the document to this is decision ticket and close it off. Um, I have tickets drafted for the actual like commercial terms build. So, I'll add those in um after I confirm that they're good with it and there's there's no objections to that process.
+Taryn Reithofer: Okay. Okay. Cool.
+Kobi Kunasekaran: Yeah. Okay. All right. Um Okay. Let me know if there's anything else. I think I I still need to do a little bit of work for act this morning and then this afternoon I'm going to try and get caught up on widget tech. So if there's anything blocking or uh if you're commenting and I haven't responded, just shoot me a message on Slack. Yeah. Um Cedric, how are you doing with your tickets?
+
+
+00:50:46
+
+Cedrick Infantado: Uh for me uh for the um for the operator partner relationship uh I know we we've discussed it yesterday but I've tried that solution but it still doesn't work.
+Kobi Kunasekaran: Don't worry. Okay.
+Cedrick Infantado: So I I don't So especially for the created for the newly created deals. So it won't pass the check. So um I've resorted to just create a flag and
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: then trigger it from there. So yeah, finally I'm done with the ticket. So uh I'm moving on with the update feeling. I have read the um uh that or the updated version of it yesterday and uh I'll start building it today and uh hopefully I can uh touch as well the 411 before my uh my shift ends. So yeah, I posted the flow here as well. So I have one before flow just to check that and or uncheck it at the same time.
+Kobi Kunasekaran: So this this gets this sets the flag whenever the operator or partner is changed or set.
+Cedrick Infantado: Yeah. Yeah.
+
+
+00:51:57
+
+Kobi Kunasekaran: Okay. And then
+Cedrick Infantado: And and and also when the relationship field is black.
+Kobi Kunasekaran: Right. Okay, perfect. Are we unchecking that field once this process runs
+Cedrick Infantado: Uh um yes, but this is not where that gets unchecked. But on the before save as well. So once that uh this one changes the relationship field, this one will run after that or before committing it to the database because it's um before save. So it would uncheck itself. So we only have one place to check and uncheck it.
+Kobi Kunasekaran: Um sorry. So this this is the before save flow. this. So this gets triggered when um like either the relationship key is blank or the operator or partner are changed.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: So it checks it and then that should trigger
+Cedrick Infantado: this one the after safe.
+Kobi Kunasekaran: slow to yeah the after save to then fill out the relationship key um and or updated based on uh based on the new makeup.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: And then is there another flow that unchecks the check box so that we can track the change?
+
+
+00:53:20
+
+Cedrick Infantado: No, because we are changing a field here under the deal. Um that before save will re-trigger after this after uh after the async uh path. So because we're saving again the deal, so that flow will trigger again and it will uncheck itself.
+Kobi Kunasekaran: Oh, this is set up to check or uncheck. I see. I see. Yes.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Okay. Okay. Okay. Okay. Okay.
+Cedrick Infantado: So we don't have two places to configure after.
+Kobi Kunasekaran: Okay. Gotcha.
+Cedrick Infantado: So it's also
+Kobi Kunasekaran: Okay. Okay. Interesting. Interesting approach. Usually like the way I've seen those flags work is like you finish this process and then you uncheck it at the end. So it's also like uh verification that it went through. But yeah, this this makes this this works through an interesting way to go about it.
+Cedrick Infantado: Yeah, I'm thinking about uh there's a single place to modify uh for for it for the logic for one thing and then for another one.
+
+
+00:54:20
+
+Kobi Kunasekaran: Yeah, it makes sense. That makes sense cuz like yeah like you you have the other field um that's starting the process and then um it's that before save and uncheck itself. That works. It works. I mean I assume I've already tested this out so should be good.
+Cedrick Infantado: Yeah. Yeah. That's evidences are are touch.
+Kobi Kunasekaran: Um I like okay
+Cedrick Infantado: Yeah. Uh
+Kobi Kunasekaran: yeah like the the complicated path would only be for any of the existing deals. So anything new should be pretty straightforward like it shouldn't need big computing anyways. So the likelihood of us going down those paths should be low.
+Cedrick Infantado: yeah actually for yeah and for that one uh I've already uh I've also tested that one that if the relationship or if it is a historical data and we uh the user tried to update any of the fields it will it'll go through the uh that flow for both So any historical
+Kobi Kunasekaran: Perfect.
+Cedrick Infantado: data that has been updated or triggered to be updated, it would trigger as well.
+
+
+00:55:23
+
+Kobi Kunasekaran: Okay. Awesome.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Okay. So,
+Cedrick Infantado: So I think there
+Kobi Kunasekaran: yeah. Go ahead. Go ahead.
+Cedrick Infantado: Yeah, there's nothing more on my end for this unless you have um any comments or feedback on this one.
+Kobi Kunasekaran: No, I think this is good. I think it's good. This works. Um, we have like the existing deals already that probably don't have all the IDs. So, um, I can use that to like test it out and I'll let you know if anything comes up.
+Cedrick Infantado: Okay,
+Kobi Kunasekaran: Unless you already did that.
+Cedrick Infantado: sure.
+Kobi Kunasekaran: Like, did you already update the existing deals?
+Cedrick Infantado: No, I didn't.
+Kobi Kunasekaran: No. Okay,
+Cedrick Infantado: But uh but if you'll give me good,
+Kobi Kunasekaran: that's fine.
+Cedrick Infantado: I'll just trigger the update on on my inspector for all of
+Kobi Kunasekaran: Uh,
+Cedrick Infantado: the deals.
+Kobi Kunasekaran: it's okay. You don't have to like I I I can try it out and then I'm also curious to see like how it works.
+
+
+00:56:15
+
+Kobi Kunasekaran: So you do it after.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Uh okay.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: What else do you have going on?
+Cedrick Infantado: I think that's all for me. I I I'll be starting the 385. Um I'm checking it and seems straightforward to me as well as the 411 411. So,
+Kobi Kunasekaran: Okay. Yeah, these two Taran like I I flagged you in just so you're also aware of the changes that are happening because you're working on the you're communicating the changes to uh Emily on like the operator page and the partner pages. So, um, these are the feedback items that she asked. just about oh not in this page but in the other page. So once these are complete uh we just follow up and let them know um that this is like those have been closed off or added.
+Taryn Reithofer: Okay. Can when that happens, Cedric, can you tag me in the ticket or am I already taking the ticket?
+Kobi Kunasekaran: I think I I tagged you in the ticket so you should get notifications.
+
+
+00:57:25
+
+Kobi Kunasekaran: But yeah, like when we go through our stand up, I think that's that's like we'll talk to it and we'll make sure you're aware.
+Taryn Reithofer: Okay.
+Cedrick Infantado: Once I'm done, I also wors
+Taryn Reithofer: Okay. Okay.
+Kobi Kunasekaran: Uh yeah, I think there's like the ticket that's drafted for Cedric only covers the related list on the operator page.
+Taryn Reithofer: All
+Kobi Kunasekaran: So, um I tagged you in that ticket to create or update the existing one for the partner page and you can like build off of what Cedric does for the operator page. figured that way you can also practice.
+Taryn Reithofer: right.
+Kobi Kunasekaran: But like if it if you want to like update the ticket and assign to Cric that's also fine.
+Taryn Reithofer: Should
+Kobi Kunasekaran: I think it you can do it pretty quickly.
+Taryn Reithofer: that also not only live in the notes but in the related link ticket section of the ticket
+Kobi Kunasekaran: Yeah. Yeah, you can add it. Like I I didn't edit the Yeah,
+Taryn Reithofer: tri child of or whatever.
+Kobi Kunasekaran: I didn't edit the 364. I left it for you to edit so that you can see you can review the changes and be aware of like what's what's
+
+
+00:58:41
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: happening.
+Taryn Reithofer: Okay, cool. And that's 411.
+Kobi Kunasekaran: So I'll leave I'll leave that to you to like basically make sure that the partner page is also updated with the same stuff that's
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: being added on the operator page. Okay. All right. I think that's it. Um, I'm hoping to have the commercial terms uh info uh scoped out today. So, I'll likely assign those to you, Cedric. Um, and then we I haven't heard back about the uh sandbox key yet, so I'll I'll ping Emily and check in and see if uh if that's happening. Um and then we have the meeting for Monday to go through some of the open questions from redeposits. Um and then we'll go through the design and break that break those down into user stories next week. So ideally before we start that we should try to close off anything else that's like remaining in the existing pages uh or anything that's like considered phase one.
+Taryn Reithofer: Do you have that meeting booked on Monday?
+Kobi Kunasekaran: Uh not yet. She asked for 10 like 11 to 12. uh tentatively. So, I'll I'll do that after the call. Let's put it in the calendar.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Awesome. All right. Anything else? All good.
+Taryn Reithofer: All good.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Okay. All right. Well, have a good rest of the day and uh have a good weekend if I don't uh talk to you,
+Taryn Reithofer: Thanks.
+Kobi Kunasekaran: guys.
+Cedrick Infantado: Okay.
+Taryn Reithofer: You too. Bye.
+
+
+Transcription ended after 01:00:55
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

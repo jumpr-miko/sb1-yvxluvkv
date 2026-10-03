@@ -1,0 +1,222 @@
+{
+  "id": "10219",
+  "key": "WAGR-158",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-09-02T11:08:24.661-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.502-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "RF-15 (new): Reactivate Button (Clear Ban/Pause)\n\nA single Reactivate action on the Referrer record that reverses either a Ban or a Pause in one step — clears the relevant reason/notes fields and returns Referrer Status to Active.\n\nAUTOMATION\n\n* Trigger: Ops/Admin clicks Reactivate on a Referrer currently at Status = Banned or Paused.\n\n* Clears whichever of Ban Reason, Ban Notes, and Pause Reason are populated.\n\nSets Referrer Status = Active.\n\nIMPLEMENTATION REQUIREMENTS\n\n*  NEW screen flow + button, same pattern as the existing Ban button (BUILD-232/BUILD-196): confirmation step, finish button to close the flow.\n*  Restrict visibility to Ops/Admin users only — reps do not see this button, same restriction model as the Ban action.\n*  Turn on Field History Tracking on Referrer Status (and other high-value fields — financial fields, email — max 20 fields per object) so reactivations and prior bans/pauses are auditable.\n*  Add the History related list to the page layout (e.g. under a \"More Info\" tab) — it is a separate related list that must be added manually, not a dynamic related list.\n*  Ban Notes is long text, so field history tracking will show that it changed but not the prior value — acceptable for now per Cedrick's flag in the same sync; revisit with a separate tracking object only if the client asks to see reason history.\n\nOpen questions\n\nNo dedicated \"previous status\" field is being captured — Reactivate always targets Active regardless of whether the record was Banned or Paused. Confirmed acceptable in the sync (Taryn's suggestion, Kobi agreed) but not yet re-confirmed with the client.\n\nNOTES\n\nProvenance: none — raised directly by Kobi in the Sept 2, 2026 Wagertech Internal Sync, not sourced from the Referrer Record User Stories doc.\n\nSOURCE\n\n*  Sept 2, 2026 Wagertech Internal Sync transcript.\n*  Dependencies: [BUILD-232 — Referrer: Ban Button — Confirm Reason/Notes Capture](https://app.asana.com/0/0/1217801011390356/f/), [BUILD-235 — Referrer: Pause Button — Confirm Reason Capture](https://app.asana.com/0/0/1217800997934047/f/)\n*  Owner (proposed): Taryn Reithofer\n*  Created 2026-09-02 from the Wagertech Internal Sync transcript.\n\n",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10167",
+        "filename": "Screenshot 2026-09-03 at 11.18.17 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-03T11:18:21.763-0400",
+        "size": 129139,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10167",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10167"
+      }
+    ],
+    "summary": "BUILD-259 — Referrer: Reactivate Button (Clear Ban/Pause)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10451",
+          "body": "Referrer - Reactivate Button - V1\n\n[https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011G4EmYAK](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011G4EmYAK)\n\nConnected to reactivate button on referrer page, tested and works!",
+          "created": "2026-09-03T11:19:07.871-0400",
+          "updated": "2026-09-03T11:19:07.871-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-385"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218113561017135"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000z3:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218113561017135"
+      }
+    }
+  }
+}

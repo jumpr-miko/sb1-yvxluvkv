@@ -1,0 +1,213 @@
+{
+  "id": "10210",
+  "key": "WAGR-130",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-11T12:57:31.739-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-28T09:34:29.689-0400",
+    "status": {
+      "description": "This issue is being actively worked on at the moment by the assignee.",
+      "name": "In Progress",
+      "id": "3",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Re-add Deposit Range as two numeric fields plus a display formula, and add Avg Deposit Target. Deposit and Redeposit are different things and Jumpr conflated them — this is the fix.\n\n=== FIELDS ===\n\n* Deposit Range Min — Number/Currency\n\n* Deposit Range Max — Number/Currency\n\n* Deposit Range (display) — Formula(Text), renders 'min-max' for quick view\n\n* Avg Deposit Target — Number/Currency\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Two separate numeric fields, not text. The range must be measurable against actual logged deposits — Joyce: 'we will want to see, based off of the deposits mean logged, where we're landing within that range.'\n\n* Plus a formula field for display, same pattern as the Market short-code formula. Kobi: 'We can do the two separate fields for the actual configuration, and then I can have a formula field that converts that into something like this for quick view.' Joyce: 'Perfect. That's good.'\n\n* Layout: under Commercial Terms, above Redeposit.\n\n=== NOTES ===\n\n* Fields may already exist — Taryn on Aug 17: 'I have the new fields in deals here, but when I go to here it's not reflecting.' She created new Deal fields; the blocker was surfacing them on the layout. Verify which of these four exist before assigning.\n\n* Root cause worth recording: Kobi, Aug 11 — 'I thought the deposit and the redeposit was the same, at least based on the last PRD. I didn't see the deposit range anymore. So we'll add that back.' This is a Jumpr build gap, not a client change request — Deposit Range was in the client's original mockup and got dropped.\n\n* Naming split so Target is clearly a single value and only Range is min/max. The original card title said 'deposit target/range with min and max values'.\n\n=== SOURCE ===\n\n* Aug 11 call — Joyce 30:39-32:24, 50:56\n\n* Aug 17 call — new Deal fields created\n\nDependencies: None\n\nRemember to update the requirements documentation as part of this change.\n\nPolished 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-158 — Deal: Deposit Range (min/max) + Avg Deposit Target",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Progress"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-251"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "In Progress",
+          "id": "10026"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217352996632481"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000x3:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217352996632481"
+      }
+    }
+  }
+}

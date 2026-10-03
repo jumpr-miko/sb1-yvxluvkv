@@ -1,0 +1,156 @@
+{
+  "id": "11361",
+  "key": "WAGR-414",
+  "fields": {
+    "statuscategorychangedate": "2026-09-22T10:47:28.168-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-21T14:28:53.247-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.889-0400",
+    "status": {
+      "description": "This issue is being actively worked on at the moment by the assignee.",
+      "name": "In Progress",
+      "id": "3",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Description\n\n### Outcome and context\n\nThe Asana → Jira migration brought the original Phase 1 Epics across as-is. Thirteen are still open, all of them unassigned, and several have been overtaken by events: their scope is either finished, re-cut into narrower tickets, or superseded by a later design. The board therefore overstates how much Phase 1 work is actually outstanding.\n\nThe same is true of the review queue. 134 tickets sit in **Jumpr Review**, 92 of them under Kobi's name. The migration routed unfinished review items into Jumpr Review wholesale, so that status is a migration artifact on many of them rather than a record that a review was requested and is genuinely waiting.\n\nCleaning this up is worth doing for its own sake, and it doubles as the fastest route for Taryn to learn what has actually been built. Kobi is away from **2026-10-13**, so the queue should be in a state Taryn can run from before then.\n\n_(Counts verified on the live board 2026-09-21.)_\n\n### Proposed approach\n\nThree passes, in this order. Pass 1 and pass 2 are the pre-vacation target; pass 3 is ongoing.\n\n**Pass 1 — the 13 open Epics.** For each: read the children, decide whether the Epic's stated outcome is complete, and either close it or leave it open with a written reason naming what is still outstanding. Assign each Epic to yourself as you work it, so ownership is visible. Per the delivery handbook, an Epic is not Done because its most important child is — check the remaining children and any exclusions.\n\n**Pass 2 — triage the Jumpr Review queue.** Fast bucketing pass, no deep verification. Sort each ticket into one of three buckets using the label conventions below:\n\n* **Close** — evidence already on the ticket, or a two-minute check in the sandbox confirms it.\n* **Flag** — plausibly done, but you cannot confirm it. Label `phase1-cleanup-flag` and move on. These come to a 1:1 with Kobi.\n* **Genuinely still in review** — leave it alone; it is waiting on a real review.\n\nResist verifying as you triage. Bucketing 92 tickets is a few hours; verifying them one by one while triaging is a few weeks.\n\n**Pass 3 — verification and documentation, ongoing.** Work the Close bucket properly: confirm in the Partial Copy sandbox, add evidence, close. As you go, build out the Wagertech documentation in Confluence and Miro in whatever shape helps you and the team stay on top of the build. Kobi fills gaps you surface.\n\n### Evidence standard for closing someone else's ticket\n\nA ticket moves to Done only when the comment thread contains, or you add, **one** of:\n\n1. A screenshot or short written description of the flow, page layout, field or automation as it exists in the Partial Copy sandbox, matched against the ticket's acceptance criteria; or\n2. Evidence already in the comments that meets bar 1; or\n3. A link to the successor ticket that delivered the outcome, where that successor is itself closed.\n\nClient communication on its own is **not** sufficient. Telling the client something shipped and verifying it shipped are different claims, and the board should record the second one. If the only evidence is a conversation, that is a Flag, not a Close.\n\nUse **Close as Done → Resolution: Done**, with a one-line completion comment naming the environment. For a ticket that was re-cut rather than delivered, link the successor and close the old one the same way.\n\n### Completion criteria\n\n1. All 13 open Epics are assigned and have been decided: each is either closed with a completion comment, or left open with a comment naming what is outstanding and why.\n2. No Epic is closed while a child of it is still open, unless the Epic's comment explains why the remaining child sits outside its scope.\n3. Every ticket in the Jumpr Review queue carries one of the three triage outcomes — closed, labelled `phase1-cleanup-flag`, or explicitly left as a live review — with none unexamined. (I’m also good to just have a running spreadsheet instead of the flag if it’s eaiser so you can also leave notes, up to you) \n4. Every ticket closed under this task has evidence on it meeting the standard above; a reviewer can open any closed ticket and see what was checked and where.\n5. Every ticket closed as superseded is linked to the successor ticket, in both directions.\n6. `project = WAGR AND labels = \"phase1-cleanup-flag\"` returns the complete flag list, and every item on it has been walked through with Kobi or is scheduled to be.\n\n### Out of scope\n\n* Reopening or re-litigating design decisions. A ticket whose design you disagree with is a conversation with Kobi, not a rework transition.\n* Bulk relabelling migrated priority values (`Medium`, `Urgent`) — that needs a separate decision.\n* Editing or deleting the preserved Asana migration fields.\n* Any tests that require you to create new records/ update records/ etc that will take more than a few minutes per ticket should be flagged and deprioritized for the first 3 phases, we can come back to these as a separate phase. Ex. validating deduplication rules for example is not a quick test, so flag those and leave them for a deeper testing/review later. But checking if a rep only has permissions for certain actions should be easily doable by logging in as the Jared Ali test user, so those types of tickets should be checked and moved along. \n\n### Dependencies and unknowns\n\n* Working sessions with Kobi to clear the flag list. Kobi to schedule — targeting late this week or early next week.\n* Kobi to confirm whether a ticket re-cut into a narrower successor closes as **Done** or as **Duplicate**. This draft assumes Done, per Kobi's Slack note.\n\nBased on the number of tickest, I’m estimating 1-2 days worth of cleanup here (though many of the tickets in review are the record page ones that you may be able to quickly close off since you’re been the primary lead on those, and anything that’s highly technical you don’t necessarily",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "WAGR ticket: Phase 1 Epic & review-queue cleanup",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Story Points": {
+        "id": "customfield_10034",
+        "value": 10
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i007y7:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

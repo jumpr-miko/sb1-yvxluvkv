@@ -1,0 +1,196 @@
+{
+  "id": "10190",
+  "key": "WAGR-67",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:36:54.865-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-14T03:31:01.049-0400",
+    "status": {
+      "description": "",
+      "name": "Ready",
+      "id": "10059",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "Make Status system-derived on both objects: zero active Deals = Inactive, one or more = Active. No manual maintenance.\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Two-layer mechanism, per Kobi on Aug 17: 'It could be a mix of flows and DLRS... what DLRS will do, it'll maintain a count of active deals on the partner record or the operator record and then you would have a flow that triggers based off of that to set the status.' So: DLRS maintains the count (BUILD-148), a record-triggered flow sets Status from it.\n\n* Rule, verbatim from Aug 13: Kobi 'If you have like zero active deals, then you're inactive.' Joyce 'And if you have one or more deals, then you're active.'\n\n* Only Deals with Deal Status = Active count. Kobi: 'we would just count any deals that are related to that partner that is in an active status.'\n\n* Status becomes read-only to users on both objects.\n\n* OWNERSHIP SPLIT, agreed Aug 17: Kobi writes the scope into this ticket, Taryn builds it. Kobi: 'I would want to scope it out into a proper story first cuz it has different states. So let's create a ticket for it and we'll scope out the behavior and then you can build it out... I'll make sure all the information you need is in the story so that you know how to build it.'\n\n* Flow naming per BUILD-146's convention.\n\n=== OPEN QUESTIONS ===\n\n* SCOPE OWED BEFORE TARYN CAN START: enumerate the 'different states' referred to on the call. Active and Inactive are confirmed. Suspended is Phase 2 (BUILD-171). Is there anything else in Phase 1, and does a manual override need to exist for edge cases?\n\n* 'Paused' was floated as a third value on Aug 13 and never reconciled with a two-state automation. Drop it, or define what drives it?\n\n=== NOTES ===\n\n* Confirmed in scope per Kobi's instruction 2026-08-17: create the picklists, then add automations to keep them updated. This unblocks the rollup (BUILD-148) which comes back into scope because this depends on it.\n\n* Emily only accepted a Status on Operator on the condition it was automated: 'nobody's gonna, no user is gonna go and update at the operator level.' So this card is what makes the field trustworthy rather than decorative.\n\n* When BUILD-171 (Phase 2 Suspend) lands, this automation will need a guard so it does not overwrite a suspended record.\n\n=== SOURCE ===\n\n* Aug 13 call — Joyce/Emily/Kobi\n\n* Kobi Aug 17 — picklist + automation, DLRS + flow, scope then build\n\nDependencies: BUILD-148 (DLRS active-deal counts)\n\nOwner (proposed): Kobi Kunasekaran (scope) -> Taryn Reithofer (build)\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-147 — Operator + Partner: automate Status from active deal count",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-279"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Up Next",
+          "id": "10031"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Development",
+          "id": "10055"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563914728808"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000sn:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563914728808"
+      }
+    }
+  }
+}

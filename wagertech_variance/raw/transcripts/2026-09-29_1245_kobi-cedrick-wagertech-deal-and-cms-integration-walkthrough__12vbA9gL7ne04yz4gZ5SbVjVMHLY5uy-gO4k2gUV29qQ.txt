@@ -1,0 +1,730 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough
+
+Sep 29, 2026
+Cedrick Infantado Kobi Kunasekaran
+
+Salesforce migration and CMS integration planning with architecture alignment and error handling.
+
+ChatGPT voice evaluation for architectural design
+* Kobi recommended evaluating ChatGPT voice for brainstorming and architectural design tasks.
+* Discussed exploring ChatGPT access options alongside Claude for team usage.
+
+
+Deal lifecycle management and screen flows
+* Introduced a screen flow for deal creation defaulting to a new status.
+* Enforced standard 5 makeup fields to define a unique deal structure.
+* Locked core deal makeup fields after deal activation to prevent unauthorized edits.
+* Proposed using a retired status to release deal makeup keys for reuse.
+* Proposed tracking commercial terms using a dated child object to manage historical changes.
+
+
+CMS integration and synchronization workflow
+* Triggered an initial CMS sync upon successful deal activation and pre-check validation.
+* Configured subsequent deal status changes to automatically trigger CMS synchronization payloads.
+* Planned phase 2 to handle DRA data pushed back from the CMS.
+* Proposed generating a unique link external ID using the link code and deal ID combination.
+
+
+CMS integration error handling and retries
+* Responses with 400 error codes indicate payload issues and prevent automatic retries.
+* Timeout and network errors trigger automatic progressive retries up to 4 attempts.
+* Unresolved sync failures generate notifications to enable manual intervention.
+* Operations teams trigger individual or bulk retries via a checkbox without status changes.
+* Sync errors are stored directly on the deal record rather than a separate object.
+* Field history tracking records sync failures to maintain audit visibility.
+
+
+Technical architecture and payload limitations
+* Evaluating Flow versus Apex depends on API payload size limits and affiliate links.
+* Flow supports a maximum limit of 13 nested arrays within an object.
+* Payloads transmit the complete link list, treating absent links as CMS deletions.
+
+
+Implementation timeline and workflow priorities
+* The team targets October 9 for completing the project launch.
+* New and retired options require addition as deal statuses.
+* Cedrick prioritizes prerequisite field creations and tracking before implementing CMS integration.
+* UI validations are deferred until after core integration and testing.
+* Kobi transfers updated user documentation and stories from Confluence to Jira.
+
+
+Next steps
+* [Kobi Kunasekaran] Update Jira Stories: Reflect the final design changes in the existing Jira stories.
+* [Kobi Kunasekaran] Check ChatGPT Access: Confirm with Miko if ChatGPT access can be expanded to other team members.
+* [Kobi Kunasekaran] Update Documentation: Update the project documentation to explicitly define the retirement status as the solution for deal lifecycle management.
+* [Cedrick Infantado] Test ChatGPT Voice: Evaluate ChatGPT voice functionality for brainstorming and architectural design tasks.
+* [Kobi Kunasekaran] Assign Jira Tickets: Finalize the Confluence documentation and move the corresponding tasks to Jira for assignment.
+* [Kobi Kunasekaran] Map DRA Process: Create a diagram detailing the Deal Rep Association process after scoping the requirements.
+* [Kobi Kunasekaran] Add Link External ID: Add a link external ID field to the requirements using a combination of the link code and the deal ID as a unique identifier.
+* [Kobi Kunasekaran] Add Retry Stories: Create user stories providing an operations and management method to trigger CMS integration retries without status changes.
+* [Kobi Kunasekaran] Research Payload Limit: Analyze Airtable data to determine the maximum capacity for affiliate links and total characters allowed in a single API payload.
+* [Kobi Kunasekaran] Update Jira Stories: Review the CMS integration user stories on Confluence and move them to Jira by the end of the day.
+* [Cedrick Infantado] Develop Prerequisites: Implement the necessary field creations and tracking required for the CMS integration.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 29, 2026
+Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough
+Invited Cedrick Infantado Kobi Kunasekaran
+Attachments Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Salesforce migration and CMS integration planning with architecture alignment and error handling.
+
+AI tools and workflow
+Discussion covered ChatGPT Voice utilization and Confluence knowledge base setup for epic scope management.
+
+Deal lifecycle and CMS
+Review established deal creation screen flows, pre-activation validations, and post-activation synchronization triggers.
+
+Integration and timeline planning
+Team aligned on payload limits, error retry logic, and prioritizing backend prerequisites for the October 9 launch.
+
+
+Decisions
+Aligned
+* Deal creation screen flow implementation Deal creation must be executed using a dedicated screen flow instead of the standard button [14].
+* Default status for new deals Newly created deals must default to a newly introduced status called new [15].
+* Lifecycle status update controls Deal status transitions must be performed through controlled action buttons rather than standard record page edits [15].
+* Post-activation deal makeup field locks Core deal makeup fields must be locked down and rendered uneditable once a deal is activated [20].
+* Commercial terms child object structure Commercial terms must be structured as a dated child object to track historical changes [33].
+* Link external ID unique composition Link external IDs must be composed using the link code and deal ID and locked against edits once set [49].
+* Deal record storage for CMS sync errors The team agreed to track CMS integration errors directly on the deal record rather than building a separate error object.
+* Prerequisites and core CMS integration prioritization The participants aligned to prioritize prerequisites and core CMS integration tasks ahead of UI components and validation rules.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Update Jira Stories: Reflect the final design changes in the existing Jira stories.
+* [Kobi Kunasekaran] Check ChatGPT Access: Confirm with Miko if ChatGPT access can be expanded to other team members.
+* [Kobi Kunasekaran] Update Documentation: Update the project documentation to explicitly define the retirement status as the solution for deal lifecycle management.
+* [Cedrick Infantado] Test ChatGPT Voice: Evaluate ChatGPT voice functionality for brainstorming and architectural design tasks.
+* [Kobi Kunasekaran] Assign Jira Tickets: Finalize the Confluence documentation and move the corresponding tasks to Jira for assignment.
+* [Kobi Kunasekaran] Map DRA Process: Create a diagram detailing the Deal Rep Association process after scoping the requirements.
+* [Kobi Kunasekaran] Add Link External ID: Add a link external ID field to the requirements using a combination of the link code and the deal ID as a unique identifier.
+* [Kobi Kunasekaran] Add Retry Stories: Create user stories providing an operations and management method to trigger CMS integration retries without status changes.
+* [Kobi Kunasekaran] Research Payload Limit: Analyze Airtable data to determine the maximum capacity for affiliate links and total characters allowed in a single API payload.
+* [Kobi Kunasekaran] Update Jira Stories: Review the CMS integration user stories on Confluence and move them to Jira by the end of the day.
+* [Cedrick Infantado] Develop Prerequisites: Implement the necessary field creations and tracking required for the CMS integration.
+
+
+
+Details
+* ChatGPT Voice and AI Tool Utilization: Kobi Kunasekaran and Cedrick Infantado discussed efficient methods for generating user stories and designing architecture without spending excessive manual time (00:03:02). Kobi Kunasekaran noted that while Claude is effective for smaller user stories, it required more review time for larger architecture tasks like the deal life cycle (00:04:19). Kobi Kunasekaran recommended ChatGPT Voice, citing its updated high-level models and conversational capabilities as a game-changer that resembles brainstorming with a business analyst or tech lead (00:03:02) (00:07:13). Cedrick Infantado expressed strong interest in trying the tool and shared that they currently use text dictation on the browser cloud (00:03:02) (00:06:20). Kobi Kunasekaran suggested that Cedrick Infantado try the free version of ChatGPT Voice, noting that Kobi Kunasekaran uses it extensively for brainstorming and design workflows (00:06:20) (00:10:19).
+* ChatGPT Subscription Access and Company Tool Strategy: Cedrick Infantado inquired whether the company maintains an active ChatGPT subscription or if access is restricted to management. Kobi Kunasekaran explained that the company initially used ChatGPT before transitioning primarily to Claude to establish an official partnership with Anthropic. Kobi Kunasekaran noted that they retained their individual ChatGPT access through Miko and will check with Miko regarding the possibility of opening ChatGPT access to other team members (00:09:09). Cedrick Infantado stated that they are willing to pay for a subscription out of pocket if the company does not cover it, as the tool provides significant learning value. Kobi Kunasekaran advised trying the free tier first and confirmed that company budgets could potentially cover access if the utility is proven, while supporting Cedrick Infantado's willingness to self-fund if necessary (00:10:19).
+* Epic Scope and Confluence Documentation Setup: Kobi Kunasekaran reviewed discrepancies between AI-generated Markdown files and existing Jira stories, explaining that documentation is being migrated to Confluence to function as a live knowledge base (00:11:18). Kobi Kunasekaran outlined that the current epic encompasses two main components: a Content Management System integration and its prerequisite, the deal life cycle (00:13:11). Kobi Kunasekaran instructed Cedrick Infantado to utilize Confluence as a running knowledge base connected to AI agents or Slack for immediate reference when questions arise (00:12:12).
+* Deal Creation Workflow and Screen Flow Implementation: Kobi Kunasekaran reviewed the deal creation process, noting that creation will transition from the standard Salesforce new button to a screen flow containing key deal makeup fields, including operator, partner, market country, market state, vertical, and source (00:14:22). Kobi Kunasekaran stated that newly created deals will automatically default to a new status, and that deal IDs and status fields must be locked down as read-only to prevent direct record page edits (00:15:37). Kobi Kunasekaran and Cedrick Infantado agreed that commercial terms will be handled as a separate section in the screen flow that users can complete during deal creation or add later (00:16:44).
+
+
+* Deal Makeup Field Edits and Uniqueness Validations: Kobi Kunasekaran outlined that users are permitted to edit core deal makeup fields, such as partner, operator, and vertical, as long as the deal remains in the new status. Kobi Kunasekaran stated that validation rules must check the deal makeup key and deal external ID during these pre-activation edits to prevent the creation of duplicate deals with identical configurations (00:18:05). Kobi Kunasekaran confirmed that pre-activation modifications remain flexible, while commercial terms and affiliate links must be addressed prior to activation (00:19:18).
+* Deal Activation and Pre-Activation Validations: Kobi Kunasekaran explained that clicking the deal activation button will trigger a final validation check to ensure all required fields are populated before syncing to the Content Management System. Kobi Kunasekaran proposed tracking status transition dates by recording the first and last activation timestamps (00:20:27) (00:23:11). Kobi Kunasekaran stated that once a deal is activated, core makeup fields will be locked against UI edits for all users, while non-critical fields such as notes and redeposit requirements will remain editable. Cedrick Infantado asked whether fields outside the CMS dependencies remain editable post-activation, and Kobi Kunasekaran confirmed that non-critical fields can still be modified (00:21:56) (00:24:35).
+
+
+* Post-Activation Deal Statuses and CMS Sync Triggers: Kobi Kunasekaran detailed that post-activation status changes—including paused, inactive, closed, review required, and retired—must trigger a Content Management System synchronization using the latest deal makeup information (00:25:39) (00:42:47). Kobi Kunasekaran described automated status handling, explaining that deals with no signup records for a defined timeframe will automatically transition to an inactive status, while incoming signups will automatically reactivate inactive deals. Kobi Kunasekaran proposed implementing simple screen flows for operational status changes, such as pausing or closing deals, to ensure proper gating (00:27:00) (00:42:47).
+
+
+* Retired Deal Status and Makeup Key Release: Kobi Kunasekaran addressed Content Management System constraints preventing deal deletion, explaining that a retired status is required to release the deal makeup key for future reuse (00:28:17) (00:43:49). Kobi Kunasekaran detailed that retiring a deal appends a dash r and the Salesforce deal ID to the deal makeup key, while the deal external ID remains unique (00:29:48). Cedrick Infantado questioned whether appending a suffix would cause database insertion issues, and Kobi Kunasekaran clarified that the internal deal makeup key is unique and used for deduplication, whereas the external ID handles API integration. Kobi Kunasekaran and Cedrick Infantado agreed that the retirement process successfully releases the deal makeup key without creating foreign key database errors (00:30:59).
+
+
+* Deal Reopening, Closed Status, and Versioning Evaluation: Cedrick Infantado raised concerns regarding data integrity if closed deals are reactivated years later, noting that historical commercial terms stored on the Content Management System might be overwritten (00:33:37) (00:36:18). Kobi Kunasekaran explained that historically, the Content Management System reuses the same container or book without versioning, relying on Salesforce for historical records (00:37:24). Kobi Kunasekaran noted that commercial terms will be transitioned to a dated child object to track changes over time, and evaluated whether explicit deal versioning numbers are necessary (00:38:27). Kobi Kunasekaran concluded that versioning is unnecessary because the retirement status can handle the creation of net-new deals with the same makeup, reserving versioning only for scenarios requiring multiple active deals with identical markups simultaneously (00:43:49).
+
+
+* CMS Integration Architecture and Payload Error Handling: Kobi Kunasekaran reviewed the process diagram for the Content Management System integration, confirming that deal activation, status updates, and affiliate link modifications will trigger automated payload transmissions (00:46:10). Kobi Kunasekaran stated that the system must capture the response from the Content Management System and store the result directly on the deal record. Kobi Kunasekaran requested that email notifications containing the initial payload and response data be generated whenever an integration error occurs to facilitate troubleshooting. Kobi Kunasekaran and Cedrick Infantado confirmed that result capture and error notification mechanisms will be implemented for this integration phase (00:47:29).
+
+
+* Phase Two Plan: Deal Rep Association (DRA) and Staging Objects: Kobi Kunasekaran outlined phase two of the Content Management System integration, where the Content Management System will send deal rep associations detailing representative assignments for deals and affiliate links. Kobi Kunasekaran proposed utilizing a staging object to capture raw API calls rather than permitting direct upserts, enabling Salesforce to securely map external IDs and handle errors reliably (00:50:09). Kobi Kunasekaran decided to proceed with the staging object approach for phase two after the initial integration phase goes live and is tested (00:52:29).
+* Affiliate Links, Link IDs, and Unique External ID Logic: Cedrick Infantado asked whether affiliate links and deal rep associations are interconnected, and Kobi Kunasekaran confirmed they should be linked (00:53:34). Kobi Kunasekaran emphasized that signup records must include a link ID rather than just a URL to ensure accurate reporting by link (00:54:56). Kobi Kunasekaran identified that standard link codes might not be unique across different deals, leading to the decision to create a unique link external ID combining the link code and the deal ID (00:56:01). Kobi Kunasekaran instructed that a link external ID formula combining the link code and deal ID be implemented, with once-set immutability rules mirroring the deal external ID logic (00:58:42).
+
+
+* CMS Integration Error Catching and Retry Logic: Kobi Kunasekaran and Cedrick Infantado discussed error handling and retry mechanisms for the Content Management System integration, noting that business rejections and 400 payload errors will not automatically retry, whereas timeout or network errors will trigger automated retries (00:58:42). Kobi Kunasekaran proposed a retry window scaling from a couple of minutes to 10 minutes, and up to an hour for three or four attempts before notifying someone for manual intervention. Kobi Kunasekaran committed to adding a story for an individual and bulk retry checkbox that allows manual retries through an update without requiring status changes (00:59:55).
+
+
+* API Payload Limits and Selection Between Flows and Apex: Kobi Kunasekaran raised a potential technical constraint regarding the API specification accepting up to 200 deals per call, noting that upper limits for affiliate links per deal and total JSON payload characters are currently unknown (01:01:08). Cedrick Infantado noted that Salesforce flows have limitations on character counts and nested variables, specifically mentioning a constraint of 13 nested arrays within an object, which may influence whether flows or Apex should be used (01:02:22). Kobi Kunasekaran left the final technical approach up to Cedrick Infantado based on payload sizing and batching requirements (01:10:01).
+
+
+* Affiliate Link Payload Management: Kobi Kunasekaran highlighted that deals going through closed and active cycles over time accumulate growing lists of affiliate links, raising concerns about unpredictable payload sizes (01:03:33). While Kobi Kunasekaran suggested a future enhancement ticket to avoid syncing already-sent affiliate links in a closed status, they decided that the current design will send the entire link payload and treat any missing link as an instruction for deletion in the Content Management System. Kobi Kunasekaran took this away as a future enhancement card rather than altering the current design (01:04:35).
+
+
+* Error Storage Location and Timeline Constraints: Cedrick Infantado raised the question of whether errors should be stored on the deal record or a new custom error object. Kobi Kunasekaran proposed storing errors directly on the deals object using a dedicated Content Management System sync tab and field history tracking to avoid the administrative and build overhead of a new object (01:05:47). Given the tight project timeline targeting an October 9 launch, Cedrick Infantado agreed that building a separate error object was not feasible, and Kobi Kunasekaran committed to building reports and subscription dashboards to surface outstanding failed deals (01:07:20).
+* User Stories and Status Updates Delivery: Kobi Kunasekaran identified that "new" and "retired" need to be added as new deal statuses with corresponding user stories (01:10:01). Cedrick Infantado asked when they would receive the user stories, and Kobi Kunasekaran committed to reviewing and pushing the updated user stories to Jira by the end of the night so that Cedrick Infantado could pick them up the following day (01:11:13).
+* Implementation Prioritization of Prerequisites and CMS Integration: Cedrick Infantado inquired about prerequisites for the Content Management System integration, noting that field creation tracking needs to happen first. Kobi Kunasekaran agreed, prioritizing backend prerequisites and data synchronization over screen flows, guided paths, and UI components. Furthermore, Kobi Kunasekaran and Cedrick Infantado agreed to prioritize the major stories and automations first, deferring UI validations to a later stage to streamline testing (01:12:12).
+* Documentation Workflow Between Confluence and Jira: Kobi Kunasekaran outlined the documentation workflow, stating they will work out of the Confluence page and push organized user stories into Jira while adding Jira links back into Confluence (01:14:49). Kobi Kunasekaran explained that they separate design specifications and workflow diagrams from concise user stories to prevent stories from becoming overly lengthy (01:15:41). Cedrick Infantado expressed agreement with using Confluence as a reference source for overarching plans, and Kobi Kunasekaran promised to notify Cedrick Infantado once the tickets were pushed to Jira (01:14:49).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 29, 2026
+Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough  - Transcript
+00:00:00
+
+Kobi Kunasekaran: just talk for these Is that right?
+Cedrick Infantado: Oh, me.
+Kobi Kunasekaran: Sorry for the confusion. I My brain is really not working. That's all that I would like today.
+Cedrick Infantado: Sorry about that. You beat him so fast. Did you enjoy it or you just
+Kobi Kunasekaran: I Yeah. Yeah. Like I already heated up the food. It just like rice and curry. I just needed like some time to just stop it down before we chat.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: So it's good. It's good. It's sustenance. That's all I needed.
+Cedrick Infantado: Okay, that's
+Kobi Kunasekaran: Um Okay. All right. Uh let's go through this. Um I think uh I I still have Chachi Py kind of going through and um filling in because I noticed there were some things that were missing from our original document. So uh but I think it's fine. Like I think there's enough here for us to do the walkthrough. Um, and then, um, the stories that are in Jira right now, um, the one that you already did, I think that's fine, uh, because that was a prerequisite anyways.
+
+
+00:01:45
+
+Kobi Kunasekaran: Um, but for the rest of them, I think um I think based off of the uh the design conversations and um the final design that I've kind of uh worked together on um some of those are going to change. So, I will get those updated. Um but I want to make sure that you kind of have an understanding of like how the entire process kind of works and then um and then we can dive into each of the tickets. um as I cue those up for you. Okay. Is there anything in particular outside of that that you want to go over? Um just so we will sure to leave some time to talk through it and does not have to be specific to like deal life cycle and CMS integration. if there's anything else for widget tech in general that you think is still uh that would be helpful uh for this and just overall widget tech work.
+Cedrick Infantado: Um right now uh I think I'm focused on this one. So,
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: uh I don't have any but um yeah I've seen something uh earlier but um it is just a minor UA issue but yeah I don't I don't think it's worth our time right
+
+
+00:03:02
+
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: now.
+Kobi Kunasekaran: Okay. If if anything comes up, let me know. Um, so I'm I'm going to try and walk through this. Um, I guess I'll do it backwards. Uh, by the way, this is like like have you used chatpt voice? Uh, or have you tried that out?
+Cedrick Infantado: No, not yet. What I'm doing is on cloud. Uh, you have the microphone button. So, I just talk through what I'm thinking and then let it transcribe and then just send it after that.
+Kobi Kunasekaran: Great.
+Cedrick Infantado: I'm not sure
+Kobi Kunasekaran: If you haven't used chatd voice, try it out. It is a game changer. uh because especially the new version I I've tried the previous version and then they recently updated it to use like higher models and it actually has access to tools and skills and stuff too and uh and like basically for the whole like deal life cycle design like up until now what I've been doing um in an attempt to save time because we have so much work to do is you know I I feed the transcripts I feed my notes and try to get plot to put together like the design and stuff and then go back and correct it.
+
+
+00:04:19
+
+Kobi Kunasekaran: And it has it's been pretty good for the smaller stories and stuff, but like uh larger pieces like uh like the deal life cycle and things like that, it hasn't been uh it it's been taking me more time to go through a review uh than it would have if I had just sat down like the old school way, ran like just typed through the what I wanted and then flush it out to user stories. Like I feel like like we because we've been like you know let's go confluence or not confluence let's go claude and uh try to leverage claude to do all these things. I've been like reforcing myself to do it and honestly man it's it's it's great for a lot of things but uh the design and architecture work it has not been but what I did find that has been great
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: is catchy PT voice and specifically this new version because it's basically like having a BA uh tech lead developer like listening to you and like on a phone call and you just talk through the design as if like you were in front of a whiteboard specking it out with the U because it's it's like it's not just transcribing it's it's like a full conversation.
+
+
+00:05:27
+
+Kobi Kunasekaran: And so I'm like, "Okay, let's go through uh but like I did do some prep work where I fedit the the transcripts and like any information just so it has a bit of background context so I don't start from scratch." But what I was able to do is like actually talk through the design as if I would do it in front of my computer like the old school way of how I would do typing it, right? So it's like okay this is what I want. This is the process. Um and um this is what I want for this particular option. These are the things that we need to do and things like that. and it's able to like keep track of all those decisions, ask me for clarification if there's like something that I missed um because it's smart enough to know like bas it knows Salesforce and design the limitations right so it also tells gives me recommendations on hey like you
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: missed the status like we this is still undefined and things like that it has been an in like game changer for designing an architecture
+
+
+00:06:20
+
+Cedrick Infantado: I'd like to try that.
+Kobi Kunasekaran: man I highly recommend you try it And uh cuz I think even the free plan should give
+Cedrick Infantado: Is it
+Kobi Kunasekaran: you like um at least like an hour of voice time before it starts to like uh complain about my limits. I think I I don't remember. But um this one I think I have like 3 hours. So yesterday I went for like a 10 kmh walk. I first walked my dog for like 2k and then he kept tripping out cuz he's not used to me talking. So then dropped him back home and then just kept walking. And uh we did all of this like basically like yesterday from scratch like not not scratch scratch because I had the initial design and stuff fed into it so it has a little bit more information but yeah all of this was just through that and then this morning I had it send the output and put some diagrams together so that we can do the walk through game
+Cedrick Infantado: Yeah, that's amazing.
+
+
+00:07:13
+
+Kobi Kunasekaran: changing.
+Cedrick Infantado: Yeah. Um maybe after this call I try to do that but immediately so intrigued
+Kobi Kunasekaran: cried all that. Like I I
+Cedrick Infantado: I'm so intrigued uh by what you've done here and and the capabilities. Uh is that uh even a conversational uh is a um that
+Kobi Kunasekaran: It is
+Cedrick Infantado: GPD voice speaking with you asking questions and like in a meeting?
+Kobi Kunasekaran: exactly. Yeah, it it's like and it was on my phone,
+Cedrick Infantado: Oh,
+Kobi Kunasekaran: right? So, I just had headphones on and I walked through and you like not just for design. I actually use it as like if I need to think through or brainstorm things and I I do the same thing like I'll just turn on the voice and talk through it as if I'm on the phone with like you know whoever and we're just chatting through what we need to do and it's natural like it just and again the the recent updates
+Cedrick Infantado: matters.
+Kobi Kunasekaran: made it so real that like it has like it'll laugh if you say something stupid like just like a person would you know there's like reactions and stuff to it actually feels 100% natural not just like you say something and then wait for it to respond.
+
+
+00:08:15
+
+Cedrick Infantado: It's
+Kobi Kunasekaran: Like sometimes it does take time like it'll be like okay I'm thinking let me work on like I get back to you but it's yeah like it feels so good like you you can interrupt it while it's talking to you and um it'll it doesn't pause uh and wait to respond. It'll be like okay if it's something urgent like it'll stop and like kind of redirect and reanswer the question. Um otherwise it'll just keep telling you uh what it was already telling you and then add in whatever clarification at the end. I mean, you got you gotta try it out. You gota try it out.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: I think it's it's been an amazing experience.
+Cedrick Infantado: definitely. I'll try. I'll try.
+Kobi Kunasekaran: I I hope Claude I don't know if Claude has similar functionality, but I hope they start adding it. Otherwise, like I'm going to push for us to get chatp access again so that who can have access to
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: this.
+Cedrick Infantado: And actually that's my next question.
+
+
+00:09:09
+
+Cedrick Infantado: Do we have a a subscription right now for chat GPD or is it limited for um the management only?
+Kobi Kunasekaran: We we had it initially uh before Claude and then we decided as a company like we're going to use Claude primarily um just because we're trying to become like an anthropic partner as well. So that's why like everybody um has like access to cloud. Um but um I think I I'll check with Nico um because I I requested to keep my chat GPT access because chat GPT chat so it has also has it own like cowork uh component which I've been using and it's been helpful too. Uh but for me because like there's a lot of work to do I use up credits pretty quickly. So having chat GPD as an option because the chat function doesn't actually use up any any credits.
+Cedrick Infantado: Boom.
+Kobi Kunasekaran: Uh so even for the free version um you can like ask a lot of questions. I think after a while it might start throttling you but it's generally free. It's not like cloud where it consumes tokens for everything.
+
+
+00:10:19
+
+Kobi Kunasekaran: Um, so I use that if I need questions or quick things that I need uh that you know if I run out of credits on cloud um I as chat GPD. So for that like I asked to keep my access um and given all the improvements in chat GPD there's there's a possibility that we might uh open it up to anyone else that might want access. So I'll I'll check with Miko and let you know if we can add
+Cedrick Infantado: Okay, sure. Yeah.
+Kobi Kunasekaran: But even if we don't, like honestly just just try the free version too because I think you'll like it.
+Cedrick Infantado: Yeah, of course. I'll try it out.
+Kobi Kunasekaran: It's one of those things where I I told M like if he's not going to pay for it, I'm going to pay for it out of my own pocket because I think it's invaluable. Um,
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: and in a lot of ways I find it better than Claude.
+Cedrick Infantado: I have the same concept. If the if the company doesn't want to pay for it, I think like I'm I will learn something out of it and it would definitely help me.
+
+
+00:11:18
+
+Cedrick Infantado: I'm willing to pay out of my pocket as well.
+Kobi Kunasekaran: Yeah. So, but like try the freeborn, right? Like though I think for the for company budgets, as long as like if you use it and if it makes sense, then I don't see why we can't get you access. So, you should be fine. Um Okay. All right. So, let's go back to what we need to do here. Give me one sec. Okay, it's fine. Okay, so let's talk through the design. I um just a disclaimer like I haven't gone through every single thing. Um, initially it did give me a uh like MD files um that I was gonna see if we should put into Google Drive, but I realized like because we're trying to move forward with uh adopting Confluence um and track works really well with using confluence as a live document. So it's able to add it and stuff. So I noticed that there were some stories from the MD file that aren't here.
+
+
+00:12:12
+
+Kobi Kunasekaran: So it's working through updating this. So uh we'll go through what's here because I still want to talk through high level the process and then drill down into some nuances and then we can go into the user stories and make sure that there's coverage for everything that we talked about. Uh, and then um we'll be I what I'm thinking is I'm going to work here in the document first, flush it out, and then push it to Jira as uh as it's clean again. And then I'll assign it over to you. Um,
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: but if there's any questions or anything that uh you know you're not sure of, I would point your agents to this uh this folder and um have it check uh check Confluence for uh for the information in terms of like why are we doing a certain field. Um I I think the goal is to get uh get this integrated with Slack so that you can just post in the channel and it's able to respond. But like I said, we we don't I don't have time to do that yet.
+
+
+00:13:11
+
+Kobi Kunasekaran: So, in the meantime, just hook up Confluence as like a connector and uh uh have it processed and then if something's still not clear, like obviously Slack is always an option. So, feel free to post on Slack. But just as a quick way in case like you know I'm not able to respond to you right away, use this as like the running knowledge base of what to do.
+Cedrick Infantado: and connect that one once I'm working with the CMS integration or anything on the needles.
+Kobi Kunasekaran: Okay. Um, okay. So, for for the scope of this epic, it's actually two things. One is a CMS integration. Um, but the prerequisite for the CMS integration is a deal life cycle. Um, because the whole point of the CMS integration, at least the phase of the CMS integration is syncing the deals and affiliate link uh over to the CMS, right? So um I want to go through um what that deal life cycle process looks like at a high level. Um and then uh and then naturally we will go into where the CMS integration ties in and uh what are the prerequisites and things like that as we go through the process.
+
+
+00:14:22
+
+Kobi Kunasekaran: Okay. And if I talk too fast or uh if you have any questions feel free to stop me. We have a tendency to just uh running through again. Um okay first off uh deal creation so this entire thing process workflow starts when a new deal is created today new deal creation is a manual process uh where is my log in there we go okay so today the deal creation is um is a manual process in that they are expected to oh actually Oh, see all of this is signed up. So, let's go to deals. Uh, they're using the standard new button um to create the deals. Um, except I want to move away from this. So, we are going to do a screen flow um that uh it's mostly packed out um that they're going to use instead to create a new deal. When a new deal is created, uh slide. Okay. When a new deal is created, um if you recall from some of the tickets that you worked on, um there are uh those five fields that are considered the makeup fields for the deal.
+
+
+00:15:37
+
+Kobi Kunasekaran: Operator, partner, market country, market state, vertical, and source. I guess it's not five fields, it's more than five, but those are the deal makeup fields for a deal. That's what makes a deal unique. Okay. Um when we create a deal through the screen flow um we're going to introduce a new status called new. Um this is going to be the default status that every new newly created deal gets created as. Um there's going to be a jur ticket for this. Um because we don't have the new status right now in place. Um in that screen flow I also want to make sure that uh some of those things like the like the status and stuff isn't uh editable by users. I want them to update the life cycle of the deal through controlled uh actions. So whether to move from a new to activated uh activated to paused uh retired, whatever it is, we're going to make sure that they're all done through uh action buttons as opposed to standard record page edits.
+
+
+00:16:44
+
+Kobi Kunasekaran: Um so uh just general heads up like that and even like the deal ids and stuff like that um in a lot of areas right now it's user editable uh e even for admins and I want to make sure that uh those fields are locked down so they see just like a readonly version um and not an editable version out of the standard ones. Again, this is something that is in the stories. So, uh when you go through it, you'll kind of see it. Um so, okay. So, back to deal creation. So, we create a deal up uh up pops a streamflow. Uh streamflow is going to have the uh key fields that are needed uh that make up a deal. Um and we and then they they fill out those fields um and click create. Um there I'm thinking about an additional section for commercial terms uh which is a another design that I'm working on um that I will I still need to finish and add in um but we decided that on deals right now there's this there's a bunch of fields called commercial terms that uh is going to be its own section uh in that screen flow for the user to either choose to add it during dual creation or they can skip it and add it later on through a screen
+
+
+00:18:05
+
+Kobi Kunasekaran: flow. Um, but for now, don't worry too much about commercial terms. I'm going to treat it as like a bolt-on after we have the new deal creation logic. Um, so when a deal is created, until the deal is activated, we're going to allow the users to change anything that's here. Okay. Until the deal is activated, they can change the partner. they they can change the operator, they can change the vertical, all of those things. When they do those things, we need to make sure that um we are updating the deal external ID, the deal name, and the makeup key to match whatever the latest update is. Okay. um the deal makeup key and the deal external ID they are set up as unique piece because we're using that to prevent duplicates of the same makeup of a deal. So this is where you know we're we're going to clear it. Um, if if this deal, for example, is not active, it's still new, I can change the operator, save it. Uh, we need to make sure that the validation still pops up to say if another deal already exists with that same makeup.
+
+
+00:19:18
+
+Kobi Kunasekaran: Um, we need to make sure that it lets us know that another deal already exists. So, they can change that. Uh, but essentially, they can more or less update all of those fields up until the deal is activated. until the deal is activated nothing happens to the CMS. So next step after a deal is created um there are going to be two things that I expect the users are going to do. One is add or update commercial terms, right? If they didn't specify during the new deal creation, there's there should be a button to add the commercial terms. And then two is the affiliate links. Um, do we add the affiliate link button? Oh, there we go. So, you added the screen flow for creating and updating uh the links, right? So, this is something that they're going to do. I I want to say that they need to do it before they activate the deal, but that's a EBD to clarify with them. Um, but for now, let's just say that at least we need at least one link before we can push it to CMS.
+
+
+00:20:27
+
+Kobi Kunasekaran: Okay, so those are the things that they're going to do. And then they click on a button to activate the deal. Okay. When they click on the button to activate the deal, I want to uh trigger a validation. Uh one more final validation to check for uh anything that we may need to ensure that the deal is uh deal has everything we need to send it to CMS. Okay. Um alongside that, um I also proposed some date fields uh somewhere here where it is. We'll find it later. But basically like for each of the statuses um I'm proposing we create a uh date field to track Oh, there we go. um the first time uh it goes into those respective status actually not the first time every time it goes into the respective statuses um and then for activation I want to track the first time a deal is activated and last time a deal is activated okay um and when the deal is activated we set the dates and this basically locks the deal from any further edits for any of the core makeup fields of the Okay.
+
+
+00:21:56
+
+Kobi Kunasekaran: So, once the deal is activated, nobody should be able to edit any of those uh any of those makeup fields. Um whether it's ops, management, uh admins. Um I've I'm drafting a separate like manual override adminedit process where they may be able to do it through like inspector or something like that still with some validations. Um but in terms of the UI, um once a deal is activated, it's locked down. Nobody should be able to edit edit those makeup fields. Okay. Um when the deal is activated, um that's when the CMS integration uh parts that you are working on come into play. Um I don't know exactly uh what the like how we're triggering it. Um I had to go back on my notes. Uh but basically the deal activation is the starting point for the first sync to CMS. Uh you know put together the payload, sync it to CMS, capture the response and save uh save the response and handle it depending on what happened uh when you sent that request over.
+
+
+00:23:11
+
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Make sense so far?
+Cedrick Infantado: Yeah. So um once the deal is activated or first activated it that's the first time we will send um the payload to CMS or integrated to CMS and the pre-check would happen before the activation right the completeness of the data.
+Kobi Kunasekaran: All right. Yeah. If the day if that pre-check fails, then the deal should not move to the activated status. Okay. So, that's like a second gate. Um because I I'm guessing like you know when when they create a new deal um I I don't like ideally they should have there's going to be minimum required fields they need to set right so there's going to be a better validation when they create a net new uh deal. And then there's going to be another set of validation before they activate the deal to make sure that it's it has everything it needs uh to be able to be synced to CMS.
+Cedrick Infantado: Okay. And um once the deal is activated um are any fields or can the user edit some other fields than the key fields that you are uh that we we will identify.
+
+
+00:24:35
+
+Kobi Kunasekaran: Yes. So, great question and the answer short answer is yes. There are going to be other fields like redeposit required for example is not uh is not a dependency for the CMS. We're not sending this information to the CMS. Um commercial terms is not something we're sending to the CMS. Um effective start end date. Uh actually I think these we are sending um this is TBD but like notes for example is something that they are going to be able to edit. So uh short answer is yes there are going to be fields that they're going to be able to edit. Um the fields that they can't edit are things like the operator partner like the makeup fields and anything else that's mission critical.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Um again we we'll we'll define it in the in the definition but it's I think it's safe to assume that that might evolve over time as we flesh out the functionality. So um yeah but essentially yes there are going to be things some things that they're going to be able to change.
+
+
+00:25:39
+
+Cedrick Infantado: Okay. So, uh once uh so once activated, it would sync and uh if it is uh if the deal is activated and there's a change on the fields or the identified fields that we are syncing to CMS, it would try to sync again after the change or after update.
+Kobi Kunasekaran: Um, I don't know if I got to that part of the design yet, but essentially only the fields that are part of the payload that we're sending to CMS should trigger another sync. Right. So deal status changes is a valid uh valid update to the deal after activation. Right. So when a deal goes from uh the various statuses that we have um like active is the gate. Um but it could they could move it to paused, inactive, closed, review acquired, retired. All of these should trigger a CMS sync with the latest makeup of the deal information. And what happens when these statuses are set on the Salesforce side? Um, it I I actually defined most of those already. So, um, for the most part, honestly, nothing.
+
+
+00:27:00
+
+Kobi Kunasekaran: And the it's going to be uh visually or informational. Inactive, we're going to add similar automation to what you did for I think it was player where if there's no signup records for an x amount of time, uh then we move a deal to inactive but only if the pre the current status is active. Okay. Uh if it's any other statuses, then it doesn't go to inactive. And then we would need a counterpart to that um where if a deal is inactive but a signup comes in then we move that to active. Yeah. So it kind of closes that loop. um closed. It's supposed to be uh ops way to indicate that the deal is technically no longer uh like no longer alive or like not alive but like um they nobody should be sending any signups anymore. Um so we're going to have to give them a uh like a gated way to set these statuses. So what I'm thinking is just simple screen flows, right? And if there are uh specific requirements like if they need a reason to capture for pause, we'll include that in the screen flow.
+
+
+00:28:17
+
+Kobi Kunasekaran: Um but for now, I'm just thinking like a simple screen for for each one that just pushes it. There may be some validation and prerequisites to check for each one. Um so we'll do that and we'll allow them to uh move it to the respective statuses. uh but in at no point should they be able to just freely edit the status page directly. I think that's just like a constraint that we want to make across the board.
+Cedrick Infantado: Damn it.
+Kobi Kunasekaran: Um retired is another special case. Um the purpose of retire is let's say they create a new deal um and they've activated it sync to CMS um and based on the CMS documentation and uh expectations we said that once a deal is created it can never be uh it can't be deleted on the CMS right um so the actional ID and the makeup are effectively like used up already So to get around that, that's where we have the retired status. And I scoped this out as well. So when a deal is retired, um this is the only time where we update the deal makeup key uh to basically what I what I propose is we uh we append the deal makeup key with uh like a dash or it's somewhere in one of these stories.
+
+
+00:29:48
+
+Kobi Kunasekaran: Uh, okay. So, whatever the current deal makeup key is, once the deal is retired, we'll just add the Salesforce deal ID and a dash r to indicate that it's retired. This way it releases a deal makeup key or so that they can create a new deal with the same makeup of like the partner operator blah blah blah
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: makes sense I think we
+Cedrick Infantado: Yeah, makes sense.
+Kobi Kunasekaran: also talked about in the in the last meeting where stra was in uh we said that they he's like they're not going to do any enforcement of unique deal makeup. Um, they're just going to make sure that like we we're we're going to operate with the deal external ID specifically. So, as long as we keep the same deal ID on this retired deal, um, any changes to that deal is just going to upsert into uh the existing record. So, when we create a new deal with the same makeup, um, so you're going to have the deal makeup for the retired deal uh, which is going to have the additional characters, right?
+
+
+00:30:59
+
+Kobi Kunasekaran: So that means we can reuse that same makeup again uh in the in the normal process when we create the deal. The deal external ID formula I believe it's already built to add like a 001 at the end so that it's always going to be unique. So in that way you know we're we should never have multiple active deals with the same makeup. Um and there should be no conflicts like there should be no two records with the same external ID. um that could potentially mess up something on the CMS side.
+Cedrick Infantado: Yeah. Uh for the retired one, let me just check. So when we try to append the external ID or that with R with dash R dash the Salesforce ID if that's the uh if that's the uh foreign key for the for the database as well. Wouldn't that insert a new row on the database?
+Kobi Kunasekaran: No, because the uh the makeup ID, so there's two two ID fields on the deal. To go through these so I know exactly where everything is.
+
+
+00:32:36
+
+Kobi Kunasekaran: Um so the deal makeup ID is not something we send through the uh API. This is internal only. Uh and we use this uh to dduplicate deal creation. Okay, so this this field is set up as a unique field which means at a record level if you try to create one with the same uh same value it's going to reject it, right? It it throws an error. So, This is used internally. We are not sending this to the API payload.
+Cedrick Infantado: Okay. I thought that's the external ID. So for the external ID it would remain the same and for the new one that
+Kobi Kunasekaran: Correct.
+Cedrick Infantado: uses the same makeup value we will append the number or the increment where we at for that.
+Kobi Kunasekaran: Correct.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Correct. That way it releases it so it's no longer a duplicate. Right. if they try to recreate the same like a new deal with the same makeup.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Okay. So, okay.
+
+
+00:33:37
+
+Kobi Kunasekaran: So, those are the statuses.
+Cedrick Infantado: So yeah,
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: just one more clarification on the deals. Um because uh I think um since or I guess the question is uh I'm thinking about the number of permutations that we can have uh that the system can have for uh a certain amount of partnership between operators and partners uh that doing the same um let's say for they want to run for this year a deal on uh Ontario and the next year they want to have the same kind of deal or I'm thinking the same makeup fields for that for next year. Uh how how would it look like uh or the on the data standpoint how would it look like? because I'm imagining the uh the previous um deal would be closed by then but we are not releasing technically the makeup deal at that point. So how would it look like
+Kobi Kunasekaran: That is a great question and I think we tried to like uh talk through this with them and the best or the closest we got is um we this is where this close status comes.
+
+
+00:35:03
+
+Kobi Kunasekaran: comes in. So when a deal is in the closed status, it is allowed to be reactivated. Where's the deal statuses? Okay. Yeah. So when a deal is closed, the the expectation is that that means um the deal is closed from a affiliate perspective. Um, so nobody should be assigned to that deal and there should be no new um no new signups coming in for that deal. Um, if they resume that same deal a year later uh for that exact same partner, exact same combination, they are going to reactivate that deal um and reuse the same deal record um and it's going to keep feeding new signups into that same deal. It means this is where the deal rep assignments may get changed.
+Cedrick Infantado: Oh,
+Kobi Kunasekaran: like the deal rep assignment anyways as of now it's supposed to come from the CMS so presumably the CMS is going to send an updated deal assignment like we haven't figured out the handling for that yet um but yeah like what we talked about so far is that they're just going to reuse the same deal.
+
+
+00:36:18
+
+Kobi Kunasekaran: If that doesn't work the alternate solution which which is what I proposed to them is start
+Cedrick Infantado: I lost this.
+Kobi Kunasekaran: versioning the deals. So we create one more field um that's like a version number that they can add um and that gets added as a suffix to every everywhere that we make do the combinations right and then that's how we control a later version of the same makeup.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: But for now we haven't like we haven't had that need yet.
+Cedrick Infantado: Um,
+Kobi Kunasekaran: Uh, but I have a feeling there's a strong chance we we're going to have to start doing versioning once I start to see
+Cedrick Infantado: yeah.
+Kobi Kunasekaran: the numbers and reports
+Cedrick Infantado: Yeah. I I'm worried about the data integrity on that as well because if we will just technically we're just reopening a a closed deal. So if ever there's a changes on the commercial terms or um basically the details of that existing deal for for uh from the past year then we're overriding that on the CMS. So they don't have any historical um data on the CMS.
+
+
+00:37:24
+
+Cedrick Infantado: they would just go back into Salesforce for anything that they need to see.
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: Oh.
+Kobi Kunasekaran: I I I think the reasoning is today I think that's how their CMS is set up. So their CMS is set up to uh like they don't have the same data model as we have in Salesforce, right? So uh what they've done historically is they use the same container or they called it book, right? Um it's the same book and the book is like the equivalent of the makeups. Um and they just activate and reactivate that and add or remove assignments uh like users um and their links uh in the same one. So they never really had the historical like versioning or anything like that.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: So that's why like I think we've kept it that way for now, but there is a possibility that some of those things will change. For commercial terms though,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: great point. And for commercial terms, that's their like that's the other design that I'm working on.
+
+
+00:38:27
+
+Kobi Kunasekaran: Um we're going to turn this into a child object that is dated so we are able to track those changes. So that's why I was saying earlier like when we create a new deal, they can either choose to add it um or add it after they create the deal once they have all the information. Um and then there'll be on whether this is required before activation or not. Um but they will be allowed to change and update the commercial terms. Um, and if it's going to be like a new set of terms that's effective from like one day to another um it's going to be dated and there's going to be only like there should be no overlaps in the dates and uh and things like that. So that's how we control changes here. But then you know you just talked about like there are other things like redeposits for example we didn't talk about if this is going to change over the life cycle of the deal and it could right uh like a year later the redeposit requirements for the same deal makeup may no longer be relevant.
+
+
+00:39:25
+
+Kobi Kunasekaran: So um if if they that that happens again then I think those are the uh cases for requiring a net new deal uh with the same makeup but perhaps with like a version number or like an effective date or something like that to differentiate them.
+Cedrick Infantado: Yeah, because this is a common issue with kids uh with uh for the projects that I've worked on after a year and so or so they they are coming back that why is this like this the circle data is not um like um keep changing because uh these parts are uh are not discussed with them initially. So yeah,
+Kobi Kunasekaran: That's why we we try to bring it up as much as we can, but I I don't think um like some of the implications I I don't think they fully understand yet until they put into practice because especially for deals, we also have to make sure it works with their CMS. it's not just an independent process in Salesforce, right? So if it's an independent process in Salesforce,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: yeah, we can propose uh what we need.
+
+
+00:40:40
+
+Kobi Kunasekaran: But if if we end up adding a version here, then that means their their CMS also needs to be adopted and by extension their user enduser workflows need to be adopted to uh differentiate between the different version deals when they're looking at the list and they go to do the associations. So that's why like I think there are going to be scenarios where we're going to make sure we build enough for we um but leave enough room to expand it later if we need to and treat it as like a followup because I yeah
+Cedrick Infantado: Okay. Yeah.
+Kobi Kunasekaran: I think we need to get feedback and see how it works in practice before we like change it all from the beginning.
+Cedrick Infantado: Okay. Sure. I I'm just making sure that I understand this correctly. Oh.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: And the floor that they have
+Kobi Kunasekaran: No, it's it's a it's a very good call out and that that's exactly like uh those are the questions you should be asking because yes, it it doesn't impact the design, right?
+
+
+00:41:41
+
+Kobi Kunasekaran: So, um we we'll bring it up to them again because even for commercial terms, I need to confirm some things. So, I think part of that we can confirm. I'll make sure to confirm if there's anything else that could change on the deal that we might need to keep track of on a daily basis. Uh, and whether it just makes sense for us to add a version. If it makes sense for us out of version,
+Cedrick Infantado: Mhm.
+Kobi Kunasekaran: I don't think it's like a too heavy of a lift. Um there's going to be a bunch of areas where we need to add the like feed in the version number, but uh I don't think it changes the design by that much. Okay, so we talked about deal creation, deal activation. Um I don't know if I mentioned this but once the deal is activated it can't go back to new right uh by no user user method um all the other statuses are going to have a specific uh workflow or path um on what they can do and I think that is defined here.
+
+
+00:42:47
+
+Kobi Kunasekaran: Yeah. So each one has its own like what can be done what cannot be done. Um and then as far as the integration portion um once a deal is activated um they they will be able to edit certain things that are not uh that are not things that get synced to CMS. Um and then if they need to edit any of the makeup fields or anything like that, that's a whole other manual workflow. We're not doing any automations for that right now. Um so we're going to keep that as a manual process once the deal is activated. Um, every status change gets synced to CMS. Um, that includes like pause, close, review required. Um, we talked about the inactive status having that automation based on the timing to move it back and forth. This should also sync to CMS. What they do with these statuses, I think that's like we need to kind of coordinate with them. But, uh, as far as I'm concerned, it's a deal is either activated or not activated, right?
+
+
+00:43:49
+
+Kobi Kunasekaran: it's it's active or not active.
+Cedrick Infantado: Amen.
+Kobi Kunasekaran: And the other the retired status is the only one that completely locks a deal. So once a deal is retired, nothing should be editable because presumably it's been replaced by something else. So that's the ultimate like a terminal status, right? Um, closed means it's they're actively not pursuing that deal, but it could become reactivated later if they resume resume the deal with the partner or whatever for that same makeup. Um, okay. Uh, and actually I think that's it. So this is like the terminal status is um yeah it if a deal is no longer going to be used or they need to uh release that makeup for a new deal they would need to retire the previous one and then they are able to create a new deal with the same makeup that's going to be active. And actually as we're talking about this, that might be the solution for that the versioning problem because once we retire a deal and right now we're thinking about retirement for like any any deals created by mistake and things like that, but it could actually address the same same thing that you that you mentioned earlier where it could be that this version of the deal contract uh everything the affiliate links and everything uh as as a whole is no longer relevant.
+
+
+00:45:11
+
+Kobi Kunasekaran: Um we're going to completely shut it down. It releases the makeup. They should be able to create a new deal that is going to be for the same makeup but and but for that one they will create like new deal new DRA new uh everything. it's going to have its own unique uh external ID and a unique separate record on the CMS. So actually I think this the retirement status works for both without
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: necessarily needing another version. I think where a second version comes into play is if they could have the same makeup active sorry multiple deals with the same makeup active at the same time and
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: active meeting not retired at the same time.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Okay,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: I'm going to Okay,
+Cedrick Infantado: Makes sense.
+Kobi Kunasekaran: I'm going to I need to make sure to remember this after the call because I'm going to update the documents to say that explicitly. So I think that that way we don't need to I don't think we need to introduce versions.
+
+
+00:46:10
+
+Kobi Kunasekaran: I think we only introduce versions if they need multiple deals with the same makeup active at the same time.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Okay. So we talked about the deal like at a high level what the deal life cycle looks like and how that impacts the CMS integration. Um it's pretty simple, right? is just once it's activated send everything to CMS uh on every change to the status because I think status is really the only one that they change that we push to CMS keeps syncing the deal sorry no status and there's also affiliate links if they add remove changes status on affiliate links that needs to uh indicate somewhere that the deal needs to be synced so um those two things will trigger a reync every single time Um, and then yeah, and then that's it. That that's as far as what we need for the CMS integration. And then this diagram actually didn't fully go through this. Okay. Yeah, I think this this this is like a P diagram on how the integration is supposed to work.
+
+
+00:47:29
+
+Kobi Kunasekaran: So we have the ops options at the top. Um the life cycle automation so moving the statuses and link management. These are all the things that require a sync to the CMS. Um I don't know the exact mechanism on how we allow the system to trigger a sync. I I'm thinking it's just going to be like a check uh check box or like a date or something on the deal. like we'll confirm in the user stories. Um, but when a sync is requested, we're we're going to build the uh payload, send it to the CMS, and capture the response and save it to the respective field on the deal so we know what happened with it. Um, if there are any errors, um, I wanted email notification with the initial payload and the response so we can troubleshoot easily. Um, and we store those those payload information on the deal record as well so that we can use that for troubleshooting um, as much as possible. I don't know what the character limits are and how big these payloads are going to be.
+
+
+00:48:43
+
+Kobi Kunasekaran: So, we're going to have to see what that looks like. Um, yeah, actually, no. I don't think we capture the payload. Just a result. Um, and the result should be like whatever response it is. that comes back. Um if it times out then we might just be like you know time out but as much information as we're able to get so that uh it's easier to troubleshoot. Um okay what was left here? Um, okay. So, something that's not documented here. Um, but I'm going to add like a additional diagram once we map it out. But the eventual overarching vision is so we we create the deal, activate it, sync it to CMS uh with the affiliate links. uh CMS is going to take those uh the deal and affiliate link um and it's going to allow the I'm going to call it call the manager the manager to assign those affiliate links to reps in their CMS that deal affiliate link rep association gets pushed back into Salesforce so that's going to be phase two of the CMS integration um that we still need to spec account and get input from them.
+
+
+00:50:09
+
+Kobi Kunasekaran: But in phase two, they are going to be sending us the DRAS um which is like the deal rep association. Literally just who's the rep and what is the uh sorry what who's the rep and what's the deal and the effective to from and assignment status. So these are things that technically they should be sending us uh from CMS as they do the uh assignments. We haven't scoped this out. I don't know what this looks like in terms of uh what we need to do to set this up. whether we just let them upsert directly in the DR DRA record or we handle it the way we do with SLC's where we have the staging object to capture the raw uh raw API calls and then we have a process in Salesforce that does the mapping uh where it looks the external ids for the route, the deal, the affiliate link, and attempts to match it to an existing record and creates a DRA record. I'm leaning towards the second one um because I think that's the most reliable way uh because if there are errors, u we can we can restrict the access they need on the DRA objects directly and stuff.
+
+
+00:51:23
+
+Kobi Kunasekaran: So, I think that's the best way to do it. Um but we'll have to kind of sort that out in phase two. Okay,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: but going back to the process, so deal is sent, DRRA is sent back. Whether we process it or whatever, um the output of that that system is to create the DRAs. Once the DRAs are created, next step is um it just means the the affiliate links are published for the players or the prospects to click through, right? uh the assignment of the links to reps means that link is available on their agency site. So now me as a potential player I can go in and I can click on that link and when I click on that link it creates an SLC record and that closes a loop.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Okay, so that's at a high level like that's this entire process. So the SLC record then creates a signup record. signup record is related to the deal and then the reporting redeposits and other workflows kick off from that process.
+
+
+00:52:29
+
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: But for CMS integration for this this phase, it's it's strictly we send the deal and affiliate links over um and any of the related deal tickets that we just talked through like the additional status um the conditions, the screen flows, I think those are all kind of part of the same epic, right? Because it kind of involves those are the prerequisites for the CMS integration. So, go group it all together. We'll get it all done um at the same time. And then once that's live and we're able to create the deals and links here and test that out, um we will need to start picking up the DRA uh DRA design. And I I think I'm just going to like propose them what we need for VRA uh what their system should send and then we'll set up like a staging object to capture the raw requests and process it. I feel like that's going to be the most optimal method right now so that we're not waiting for them to tell us things.
+
+
+00:53:34
+
+Cedrick Infantado: Yeah. Um maybe a question on the affiliate links. Actually, I'm not sure um uh whether the affiliate links and the DRAs are interconnected um because I know that affiliate links are created on Salesforce then uh the plan is to send it to CMS. Um, when they send a DRA, are they related to the affiliate links Like for example, Alexander is related for the uh is assigned for this affiliate link or for for this specific affiliate link.
+Kobi Kunasekaran: So that's a great question. Um ideally yes. Um the only concern is that it might not be onetoone. Um so at least historically they used to share the same link to multiple reps. So depending on which website you go to um the slick attribution goes to one person versus the other. Um but I think in one of the recent calls they said that they're not doing that anymore that it's just one link per person. So, uh, based on what we talked about last time, I think we're going to try to capture the link somehow in when they send the DRA response.
+
+
+00:54:56
+
+Kobi Kunasekaran: So, when we scope out the DRA, uh, design, uh, we'll make sure to include it and then we can make a decision on whether it's going to be linked or not at that point.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: Just trying to understand the connection between the links.
+Kobi Kunasekaran: Technically that linkage should be more in likeformational and not like I don't think it should block any processes at this point.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: That's a good question. It's it technically yes it it should be related right like it is the the link is the thing that bridges the deal and the rep to the sign up
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: because the signup comes back with the deal sorry with the link but even for the SLC though today I don't think they're sending the the link uh right now
+Cedrick Infantado: Heat.
+Kobi Kunasekaran: so we should add the link ID or something like that here too so we're able to link the signups to the specific affiliate affiliate link too. I think that's going to be the best in terms of reporting because then now I can see number of signups by affiliate link,
+
+
+00:56:01
+
+Cedrick Infantado: Can't wait.
+Kobi Kunasekaran: right? And not not URL but the link ID because I think that's more important than the URL because that's going to help us keep it unique.
+Cedrick Infantado: Okay. And I think we're sending sending it anyway. the link the link code.
+Kobi Kunasekaran: Correct. Yeah. and link codes. It's supposed to be unique, right? That's how we set it up.
+Cedrick Infantado: No, it's only required. Uh there's no let just check on the field itself.
+Kobi Kunasekaran: Okay. If it's not unique, I think we need to provide a way for them to have a unique field that is not the out of the box link ID only because I don't like the out of- thebox synth ID because or like the standard record ID because if we do migration and things like that, we don't have control over it, right?
+Cedrick Infantado: Yeah. And it doesn't tell anything really.
+Kobi Kunasekaran: Mhm. that too. So the link code they wanted the uh ability to put like a short code instead of you know remembering the whole URL for what the link is.
+
+
+00:57:16
+
+Kobi Kunasekaran: I have a feeling this is not going to be unique. So I think what we end up doing is maybe link code plus like deal ID and that's going to be the unique external ID for the link,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: right? So that way it doesn't change. It's specific to the deal. So they could still use the same link code in another deal. Um but behind the scenes what we send them it's always going to be a unique ID.
+Cedrick Infantado: there.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: And
+Kobi Kunasekaran: So if actually so as we're talking about I'm just going to say this for AI to flag this as something to add but uh yes let's if we don't already have a link external ID in the JSON payload and the requirements let's add a link external ID and do the exact logic that we just talked about which is going to be the link code plus the deal and that becomes the unique identifier. Um however we need to make sure that similar to the electional ID once it's set it can't be changed even if they change the link code it doesn't change the link code ID if they want to change the link code ID it needs to be uh intentional admin task where they clear the existing uh link optional ID and that should trigger it to create a new one with the updated link code.
+
+
+00:58:42
+
+Kobi Kunasekaran: Okay. So, I'll I will scope that and add that in once I go through this call later.
+Cedrick Infantado: Hey, take it away.
+Kobi Kunasekaran: Yes. Okay. Does that make sense in terms of the overall process and what we're trying to do with deals and CMS integration?
+Cedrick Infantado: Yeah, actually yes. Um I think what we we weren't uh we are not able to talk about is the um error catching and retries for uh for the CMS integration. I'm not sure if it is scoped out on this document as well. I haven't got a chance to go deeper on the user source yet.
+Kobi Kunasekaran: It could be uh I think the way I remember it is there were specific responses that automatically retries and there were other responses
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: that doesn't do a retry and I think it was Oh,
+Cedrick Infantado: Yeah. For for timeout save.
+Kobi Kunasekaran: there we go. at it. Exactly. So, business rejection, no automatic loop, 400. I think 400 means something's wrong with the payload.
+
+
+00:59:55
+
+Kobi Kunasekaran: Um, so no retry but timeout network any of the other reason codes uh automatic retry but I think uh the original ticket might have this already but I think we said like we'll we'll set like a uh like a window right like do it like the first f I I don't know how it works with flows uh versus others but I think like in the past what we've done is like you know retry uh a couple minutes later if that fails retry 10 minutes later if that fails uh retry an hour later and up to like three or for retries before it gives up. Uh and once it gives up, it notifies somebody so that we can uh we're able to do a retry manually.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Okay. And I think there should be a story somewhere here that that also gives us ops slashmanagement a way to retry without status changes. So usually that's like a checkbox.
+Cedrick Infantado: So,
+Kobi Kunasekaran: Um and that's usually what we've done in the past because then we can also use that same checkbox update in bulk and trigger a bulk retry for multiple records at the same time.
+
+
+01:01:08
+
+Kobi Kunasekaran: So it gives us both the individual record level retry and bulk level. If it's not defined in these unit stories, uh I'll make sure to add that in so that when you're designing the uh automation, you factor that in as because it's going to be one of the entry criteria, right? Status change or this checkbox is true. Um the other thing I wanted to actually call out um as we're talking about the integration is yesterday we're talking about like whether you know we can do it all in flows versus apex. Um, one potential consideration, um, is right now we only have a handful of deals and the payload or the API spec, I think it says like it can accept up to like 200 deals per call, but it doesn't say if there was any limits to the number of affiliate links per deals or like the total number of characters that we can send in the JSON payload. So when we start looking into putting together the payload, batching, uh, multiple calls, and even the same deal, I don't know what the upper limit is for the number of affiliate links a deal can have.
+
+
+01:02:22
+
+Kobi Kunasekaran: So I'm going to try to see if we can find that out from the air table uh data that we have right now. Um, but when you're evaluating, you know, the approach to take, keep that in mind in terms of like how much how many characters we can store for like uh an API call because that might change flow versus
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Apex.
+Cedrick Infantado: Yeah. um in flow I think um there's really that there's a limit actually on how many characters and how many or how And it's
+Kobi Kunasekaran: Agus presume. like it's going to be like variables,
+Cedrick Infantado: nested.
+Kobi Kunasekaran: right,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: that you're building.
+Cedrick Infantado: How many? I think it's I'm not sure. I have to check. Uh on top of my mind, I'm thinking uh I think it's 13 nested um arrays within an object. So I I need to try that.
+Kobi Kunasekaran: Okay. Okay. So, I think that's what's going to be a constraint in terms of like what we're able to send and like which system to use potentially if nothing else.
+
+
+01:03:33
+
+Kobi Kunasekaran: Um, so I just want to flag that because right now like we don't have a lot of links configured. I'm going to see if I can find some quick data on what the upper limit is. Um, but affiliate links are URLs. So no, we like URLs can be, you know, like like a short one or something super long like this. So we can't I don't think that's going to be very predictable. So I think we have to assume that it's going to it could be a large like large number of characters because we're sending the same payload, right? Like if a like if they if I have a like if we have a deal that has been live for like two years and it it goes back and forth between like closed and active uh where uh every time they go uh they close a deal all of presumably I'm assuming all of the existing links will be deactivated uh not deleted but deactivated and then they're going to create a new set of links next time it's activated.
+
+
+01:04:35
+
+Kobi Kunasekaran: So that link list is going to keep getting uh
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: like bigger and bigger, right?
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: And maybe this warrants another bure ticket to not sync an affiliate link once it's already been sent to the CMS in a closed status um so that we can remove it from from the payload. But we also need to make sure that they interpret that same behavior uh and don't assume that if a affiliate link is no longer in the payload that is deleted because I think that's how it's being treated right now. So don't worry about this for now. This is note for AI to remember to spec this out and get additional scoping around this. Uh but for the time being we assume that we send the entire link payload. we never delete a link. If we delete a link, um the payload will just not have that link in the payload and that implies that the link is no longer uh sorry that implies that the link should be removed in the CMS.
+
+
+01:05:47
+
+Kobi Kunasekaran: So for current design, I don't think it should matter but uh I'm I will take this away as a card for uh future enhancement.
+Cedrick Infantado: Is it God?
+Kobi Kunasekaran: Okay. Anything else?
+Cedrick Infantado: Yeah. Uh for for the errors uh are we storing it on the deals record or do you want to create a new object for that?
+Kobi Kunasekaran: I think for simplicity, let's create it in the deals object. Um I like the idea of like an error object. We've done this in the past u for these things. Um I'm just worried that it's going to be another thing that we have to build and build processes around versus if we capture it in the deal directly. We just um so if if a deal if it errors out during the sync um we're not going to change the status. So we're decoupling the deal status from sync status. Um but we can easily create a report that surfaces any deals that failed as sync and are still in that failed status, right? And then if they retry it, um we would clear those uh error fields and then that way we don't need to uh we don't need to worry about it.
+
+
+01:07:20
+
+Kobi Kunasekaran: The problem with that is we lose historical uh metrics on like you know how many tails there were and things like that. Um, so I propose that we track field history as much as possible. We're not going to be able to track the long text of the payload and stuff, but that's okay. At least we'll know that it did fail. Um, in the past, like I don't know how I I don't remember the full retention period, but at least it's good enough. And then we can scope out a error object in later phases if it becomes a problem. think that worse or is there another are there any strong recommendations to do the object from the get-go?
+Cedrick Infantado: Sorry.
+Kobi Kunasekaran: Does like pushing out the air object as a potential feature enhancement, does that work or do you have any other reasons why we should prioritize that in the space?
+Cedrick Infantado: Yeah given the time constraint I don't think so that we can accommodate error
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: object and scope what what should be captured and typically it's just the payloads and all but still we have to communicate it back to the client and then take their opinion or suggestion on that and take their whatever they want to do with it.
+
+
+01:08:48
+
+Cedrick Infantado: So it would take time as well. So if we're targeting October 9, so that's not doable, I think.
+Kobi Kunasekaran: That's yeah, that's my concern too. like it's it's another object for them to monitor and maintain. Um, so it it makes sense from a technical admin perspective, but I I think we can start with just having the errors on the deal. Um, obviously not in the main tab, but like in like a CRM sync tab or something like that with all the CRM sync specific fields. Um, so that yeah, they're they're able to at least see it. We I can I can build some reports. we can subscribe to. They'll be able to see uh any outstanding deals that haven't synced yet. Uh I think that's good enough for for us to start.
+Cedrick Infantado: Okay. Yeah. And we can always expand the error handling after the fact. So
+Kobi Kunasekaran: Yeah. Okay. I think that covers all of the main components. This was that error object that we just talked about.
+
+
+01:10:01
+
+Kobi Kunasekaran: So I said for now we'll just keep it in the in the deal history status field history email like notification email that has the thing because we can use that for troubleshooting purposes. Um and then report and then we can talk about this later in a future phase if we need to. And then flow versus Apex. I'm going to leave this up to you. Um like we we talked about the main consideration which is like the payload size and if that's going to be a problem then it might make sense to work uh go with Apex. Um but if that's not going to be a problem and if there's a way for us to batch it and work with it without then I'm fine for now too.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: uh statuses. I think this is good. The only thing is the new and retired need to be added as new statuses. Um there should be us stories for that.
+Cedrick Infantado: And speaking of user stories, um would I get a user story by tomorrow?
+
+
+01:11:13
+
+Cedrick Infantado: At least for some things to start on for for this one.
+Kobi Kunasekaran: Yes. Yes. I'm going to push all of these. I think these are actually all good. Um I'm just going to go through them, make sure these are still like accurate that there's nothing else to amend and then I'll have these pushed over by tonight. You can pick them up tomorrow. Okay. Um some of it just says like just amend the existing one. So I might just do that too for anything that's like we groom the thing. So yeah,
+Cedrick Infantado: s***.
+Kobi Kunasekaran: I just I I'll go through it today. Um, and then we'll I'll get these pushed over and they should be good to go.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Okay. Yeah, I think that covers everything. Um, If there is something else that you think of as you work through this that it that we haven't talked about, let me know. Um, but in terms of the CMS integration, I think this is this is it.
+
+
+01:12:12
+
+Kobi Kunasekaran: This should cover everything. Any other questions? Anybody else?
+Cedrick Infantado: So, one uh one last question. I think uh there's a prerequisite before the CMS integration right uh like the field creation tracking of of those. So uh maybe I'll start with those uh by tomorrow first and then I'll proceed with the um with the integration itself.
+Kobi Kunasekaran: Yeah, I think that makes sense. Like all the deal updates that we need to do. Um the screen flows, I think we can do that a little bit later. um because it's like I I'm good that like what we're doing for testing and stuff to keep it within like user record page and then uh we just need to make sure that the screen flows and the guided paths are ready before they're able to test. So I would prioritize it as like anything that's prerequisite first and then CMS integration. Make sure we're sending the data over all of that and then uh the UI uh components that we need.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: Okay.
+
+
+01:13:33
+
+Cedrick Infantado: I'm doing the same thing.
+Kobi Kunasekaran: Okay. Awesome. um validations and stuff also TBD I think like I'm thinking when we do the UI we'll add a validation but if there are anything that is like blocking for the automations that's when we might have to consider something but I think the that plan should work
+Cedrick Infantado: Let's go uh first with the big with the big stories first
+Kobi Kunasekaran: yeah agreed
+Cedrick Infantado: then apply the uh the validations later on.
+Kobi Kunasekaran: Yeah, because otherwise it's going to get annoying when we do testing and stuff. So that's fine.
+Cedrick Infantado: Yeah, for sure.
+Kobi Kunasekaran: Okay. All right, Cedric. I think I think this is good. So I'm going to go through the user stories and I'll start pushing them over to Jira. If you uh I'm I'll try and order it in the order that I think makes sense. Um, but if you think we should pick up something else, uh, let me know. Um, but I'm going to want to make what I'm going to do is like work off of the the Confluence page for now.
+
+
+01:14:49
+
+Kobi Kunasekaran: Um, and as I create the Jira ticket, I'll add the Jira link in here. Um, and then once it's in Jira, we we just keep the JR ticket updated. Um, so we don't need to like we're not looking at two different sources. Does that make sense?
+Cedrick Infantado: Yeah. Yeah. Yeah.
+Kobi Kunasekaran: Okay. Okay.
+Cedrick Infantado: And if I ever uh we miss something, I'll just go back to the confluence as a reference anyway. So,
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: I'm good with that as long as as
+Kobi Kunasekaran: Like man did a good job. Like it everything that we talked about is here. It's just I don't know exactly where because there are so many pages, but it's here somewhere.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: So I think if you ask AI to the question, it should be able to tell you. So this is awesome.
+Cedrick Infantado: Yeah. As long as the user source in my back, I'll make I'll make it work. I'll find the answer.
+
+
+01:15:41
+
+Kobi Kunasekaran: Yeah. What I what I try to do is like like claude it tries to add all the context in the user stories and I I'm trying to separate it because like there's a there is a difference between like a design spec and like a workflow diagrams versus a user story, right? you use story like I could include all that information but then it becomes like each story becomes an essay. So trying to separate it where the user story is just like what we need to do. Um but if you need to understand the why and the overarching uh plan and stuff uh check back in confluence for the whole thing.
+Cedrick Infantado: Yeah, that makes sense.
+Kobi Kunasekaran: Um then this also becomes internal documentation when we need to troubleshoot later if we need to have builds on top of these things and we just keep this updated. So that's kind of where my head's at. Okay. All right then. I will let you go. Um let me know if you have any other questions. Um I'll give you I I'll send you a message as soon as these are all pushed to CMS. Sorry, not CMS to uh Jira and then um yeah, we we have our meeting in the morning so we can talk through it then.
+Cedrick Infantado: Okay, sure. Uh,
+Kobi Kunasekaran: Cool.
+Cedrick Infantado: I'll be right.
+Kobi Kunasekaran: Awesome. Thanks, Andre. Have a good night and uh yeah,
+Cedrick Infantado: Thanks.
+Kobi Kunasekaran: I'll talk you later.
+Cedrick Infantado: Yeah. Thank you.
+Kobi Kunasekaran: Bye.
+
+
+Transcription ended after 01:17:26
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

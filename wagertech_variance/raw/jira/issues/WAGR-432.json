@@ -1,0 +1,189 @@
+{
+  "id": "11381",
+  "key": "WAGR-432",
+  "fields": {
+    "statuscategorychangedate": "2026-09-23T14:47:50.662-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "11367",
+      "key": "WAGR-420",
+      "fields": {
+        "summary": "VIP Sign Up &amp; Player Workflow",
+        "status": {
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "Normal",
+          "id": "3"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-23T14:47:50.240-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10036",
+        "type": {
+          "id": "10000",
+          "name": "Blocks",
+          "inward": "is blocked by",
+          "outward": "blocks"
+        },
+        "inwardIssue": {
+          "id": "11380",
+          "key": "WAGR-431",
+          "fields": {
+            "summary": "Player: Add manual Sign-Up creation button for Ops (VIP)",
+            "status": {
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-09-23T14:48:19.304-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "**Context**\nOnce the ops \"New\" button exists (see linked ticket), ops needs a usable flow to manually enter a full VIP sign-up — including creating the Player record itself, since these players don't already exist in Salesforce.\n\n**Requirements**\n\n* Support creating the Player directly from the same lookup field used when creating a sign-up (mirror the existing Referrer lookup-create pattern: choose an existing player, or create one inline from the lookup).\n* All standard sign-up fields should be available, same as regular (non-VIP) intake, plus the VIP flag (see separate VIP flag/indicator ticket). Conditional fields (e.g. Fraud Details) stay hidden unless/until those options are actually selected, same as today.\n* Build as a restrictive custom screen flow (not the full Ops edit-view field layout) so only the relevant fields for manual VIP entry are shown, independent of the standard Ops edit view.\n* Status: on manual creation, default directly to \"In Progress\" — no \"New\"/pending state, since this isn't coming from automated intake. Move to \"Completed\" or \"Archived\" from there using the existing status values; no new status values needed.\n* Player ID / external ID should be left blank for VIP-created players — these don't flow through the CMS integration or receive CMS survey callouts, so there's no external ID to populate. Primary Email remains the fallback unique identifier if a lookup is ever needed later.\n* Sign-up must be relatable to an existing Deal (the deal will already exist by the time ops logs the sign-up) — confirm the related-list/relationship UX once the New button and flow are in place.\n* VIP sign-ups follow the same proof-collection flow as standard sign-ups (Joyce confirmed VIP sign-ups do collect the same screenshots/proof) — no differences needed there.\n\n**Constraints / Dependencies**\nDepends on \"Player: Add manual Sign-Up creation button for Ops (VIP)\" being built first. Volume is low (\\~30 sign-ups total under this program per Joyce) — not designed for bulk upload.\n\n**Source**\nFathom — WagerTech <> Jumpr Weekly Sync, 09/23/2026 (https://fathom.video/calls/831090060) — Joyce Kiddell \\~54:43–1:02:56, Kobi Kunasekaran \\~55:26–1:10:39, Emily Vandenberg \\~1:01:53–1:10:39. Also Taryn's notes, Joyce VIP section (full page).",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0082n:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-420"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

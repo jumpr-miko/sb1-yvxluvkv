@@ -1,0 +1,232 @@
+{
+  "id": "10227",
+  "key": "WAGR-184",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-24T13:50:18.460-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:28.972-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# PL-7b: Source System & Source Reference Fields\n\n_Split off from BUILD-177 — confirm purpose against Player External ID, then build the fields and the logic that populates them._\n\n### FIELDS\n\n* Source System\n* Source Reference\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Confirm with the client whether Source System and Source Reference serve a different purpose than Player External ID, or whether one of them is redundant, before building either.\n* Players are currently only created one way, so neither field is populated by any existing process today. Confirm what \"source\" means here (e.g. CMS vs. manual creation) and what should set a value, before building.\n\n### NOTES\n\n* Provenance: split from [BUILD-177 — Player: System / Integration Fields](https://app.asana.com/0/0/1217686867099622/f/) (PL-7) per the Aug 24 Kobi/Taryn Weekly Planning sync, from the open question of whether Source System / Source Reference serve a different purpose than Player External ID, or whether one is redundant.\n* Related open item (separate scope, flagged here since it came up in the same conversation about unpopulated system fields): the Possible Duplicate Flag field on Player also has no automation setting it. Remove it from the Player page layout for now (keep the field, just hide it) rather than building population logic yet — that work is expected to land in a separate \"Manage Duplicate Player\" ticket once the dedup approach is scoped. Worth its own ticket if one doesn't already exist — not in scope here.\n\n### SOURCE\n\n* Aug 24 Kobi/Taryn Weekly Planning — [transcript](https://docs.google.com/document/d/1qB7cUeJGFs_SZba9NX5R9MWKzOj8yTetmWTWoqY3gw8/edit), verified.\n* Dependencies: [BUILD-177 — Player: System / Integration Fields](https://app.asana.com/0/0/1217686867099622/f/)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-24 from the Aug 24 Kobi/Taryn Weekly Planning sync, split from BUILD-177.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-229 — Player: Source System & Source Reference Fields",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10467",
+          "body": "[https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1787595388887289](https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1787595388887289)\n\nRemoved the two fields from the player record.",
+          "created": "2026-08-24T14:16:37.597-0400",
+          "updated": "2026-08-24T14:16:37.597-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-355"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217798706703645"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0010v:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217798706703645"
+      }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "id": "10213",
+  "key": "WAGR-138",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-09-08T11:08:37.480-0400",
+    "priority": {
+      "name": "Medium",
+      "id": "10000"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:30.363-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Header stats derived from related Deals. Use DLRS. Deal to Operator and Deal to Partner are lookup relationships, not master-detail. Native rollup summary fields do not work on lookups.\n\n## FIELDS\n\n* On Partner: Associated Operators (distinct count of Operator across related Deals) / Associated Sources (distinct count of Source__c across related Deals)\n\n## IMPLEMENTATION REQUIREMENTS\n\n* Use DLRS. Do not use the native rollup summary field type.\n\n* Use DLRS CONCATENATE to build the distinct value list. Count the distinct values in a formula field. This matches the pattern already used for Supported Verticals and Supported Markets.\n\n* Use Flow as the fallback method only if DLRS hits a limit.\n\n* Use the correct child relationship on Deal for each rollup. BUILD-132 renamed these to Deals Partner and Deals Operator. Operator rollups read from Deals Operator. Partner rollups read from Deals Partner. A mix-up here causes a silent failure.\n\n* Place both new fields in the Dynamic Highlights Panel on each record page. Do not use the compact layout. Both Operator and Partner already use Dynamic Lightning record pages built with Dynamic Forms (BUILD-135). The Dynamic Highlights Panel accepts any field, including a roll-up field, without adding it elsewhere on the page.\n\n* Set both fields to read-only. No user gets edit access.\n\n## OPEN QUESTIONS\n\n* Scope the Deal population for each count. Decide if the count includes every related Deal, or only Deals with Deal Status = Active. The existing Active Deals rollup on both objects counts Active status only.\n\n* Decide the behavior when Source__c is blank on a Deal. Confirm if a blank Source counts as one distinct value or gets excluded from the count.\n\n## NOTES\n\n* The same ask appears on both the Operator and Partner feedback lists: \"# of associated partners and sources\" (Operator) and \"# of associated operators and sources\" (Partner). Combined into one ticket, following the same convention as BUILD-132 (OP-9 + PT-10) and BUILD-148 (Operator + Partner rollups).\n\n## SOURCE\n\n* Emily Vandenberg, Wagertech feedback — Operator & Partner Record Pages doc, WAGERTECH Feedback OPERATOR section: \"Add roll-up fields to header: # of associated partners and sources\"\n\n* Same doc, WAGERTECH Feedback PARTNER section: \"Add roll-up fields to header: # of associated operators and sources\"\n\nDependencies: BUILD-132 (Deals Partner / Deals Operator relationships), BUILD-135 (Operator Dynamic Highlights Panel), BUILD-148 (existing DLRS rollup pattern)\n\nOwner (proposed): Kobi Kunasekaran (scope) -> Taryn Reithofer (build)\n\nRemember to update the requirements documentation as part of this change.",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10156",
+        "filename": "Screenshot 2026-09-10 at 10.34.13 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-10T10:34:16.567-0400",
+        "size": 366100,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10156",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10156"
+      },
+      {
+        "id": "10161",
+        "filename": "Screenshot 2026-09-10 at 10.38.32 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-10T10:38:36.717-0400",
+        "size": 360449,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10161",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10161"
+      }
+    ],
+    "summary": "BUILD-265 — Partners: Header roll-ups — Associated Operators & Sources",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10439",
+          "body": "Deals - Partner Associated Operators\n\nField \"Associated Operators\" formula that returns a number\n\n```\nIF(ISBLANK(Associated_Operators_List__c), 0, LEN(Associated_Operators_List__c) - LEN(SUBSTITUTE(Associated_Operators_List__c, \";\", \"\")) + 1)\n```",
+          "created": "2026-09-10T10:35:55.982-0400",
+          "updated": "2026-09-10T10:35:55.982-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10441",
+          "body": "Deals - Partner Associated Sources\n\nField \"Associated Sources\" formula that returns a number\n\n```\nIF(ISBLANK(Associated_Sources_List__c), 0, LEN(Associated_Sources_List__c) - LEN(SUBSTITUTE(Associated_Sources_List__c, \";\", \"\")) + 1)\n```",
+          "created": "2026-09-10T10:41:00.052-0400",
+          "updated": "2026-09-10T10:41:00.052-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-404"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218276767546976"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Feedback",
+          "id": "10078"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000xr:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218276767546976"
+      }
+    }
+  }
+}

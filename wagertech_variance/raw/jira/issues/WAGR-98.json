@@ -1,0 +1,201 @@
+{
+  "id": "10312",
+  "key": "WAGR-98",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-09-08T17:54:04.240-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-30T00:20:42.645-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "> Open and non-blocking. BUILD-272 and BUILD-273 do not depend on the answer. Raise with WagerTech when there is a natural opening.\n\n## Decision needed\n\nThe CMS allows one deal per Operator x Partner x Region x Vertical x Source, and an Inactive deal keeps its combination because it can be reactivated. So when commercial terms change — CPA, commission, bonus requirement, redeposit terms — Salesforce cannot represent that as a second deal with the same makeup. Retire & Replace does not help: the replacement's makeup is identical, which the CMS rejects. Getting it wrong means either duplicate deals that fail to sync, or overwritten terms with no record of what a Sign-Up was actually paid under.\n\n## Options\n\n1. **Edit in place, rely on Field History.** No new objects. Cost: the Deal keeps no version record — partly mitigated by the stamp-don't-calculate rule, since Sign-Ups already carry their own stamped payout.\n2. **Child object with effective dates** (`Deal_Terms__c`). Proper versioning; payout automation resolves the row effective on the Sign-Up date. Cost: a new object that every terms-reading automation and report must traverse.\n3. **Ask WagerTech to release the makeup on Inactive.** Then Retire & Replace covers terms changes too. Cost: contradicts \"the CMS never deletes a deal\", and a retired deal could no longer simply be reactivated.\n\n**Jumpr's lean:** Option 1 now; Option 2 only if WagerTech needs historical-terms reporting — the Sign-Up already stamps its own payout, so Option 2 buys less than it appears to.\n\n## Questions for WagerTech\n\n1. When a CPA or commission changes, do you need to see what the terms _were_ on a given date, or is the current value enough?\n2. Does an Inactive deal ever come back with **different** terms, or does reactivation always mean \"resume as before\"?\n3. Confirm Inactive does not release the combination on the CMS side — this is our working assumption, and everything above depends on it.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "DECISION-07 — Deal versioning when commercial terms change",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10285",
+          "body": "**Forcing event: 2026-09-11 sync**\n\nThis is no longer waiting for a natural opening — it is on tomorrow's agenda. The description's opening line (\"raise with WagerTech when there is a natural opening\") is stale from 2026-09-08.\n\n**Build side:** [BUILD-276 — Deal: External Deal ID version suffix — remove, replace, or keep](https://app.asana.com/0/0/1218365315802809/f/) now holds the implementation scope and is blocked by this card. BUILD-272 was narrowed on 2026-09-10 to the dedupe key and duplicate block only, and the `-002` version suffix was left in place untouched, so nothing is built on an assumption this decision might overturn.\n\n**Ask question 3 first.** Of the three options on this card, two collapse without it:\n\n* A manual version or suffix selector only does anything if the version becomes part of `Deal_Makeup_Key__c` — and the moment it does, the Salesforce unique constraint stops mirroring the CMS rule, so Salesforce will happily save a pair the CMS rejects with `makeup_owned_by_other`.\n* Allowing a repeat makeup once prior deals are retired requires the CMS to actually release the combination. Our working assumption is the opposite, and that assumption is now written into the `Deal_Makeup_Key__c` field description and BUILD-272's AC 4 — so if it turns out the CMS does release it, both are edits, not additions.\n\nOnly \"delete the counter\" needs nothing from WagerTech.\n\n**Cost of leaving it open past the sync:** the counter is unreachable dead code the moment BUILD-272 deploys — one SOQL query per Deal save that never returns a row, on a path no test can reach. Someone reading the flow in a month will reasonably conclude versioning works.",
+          "created": "2026-09-10T10:59:34.948-0400",
+          "updated": "2026-09-10T10:59:34.948-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "Phase 1 Build"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-413"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Needs More Info",
+          "id": "10029"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Decision",
+          "id": "10050"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218291754974407"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Decision",
+          "id": "10072"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001jr:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218291754974407"
+      }
+    }
+  }
+}

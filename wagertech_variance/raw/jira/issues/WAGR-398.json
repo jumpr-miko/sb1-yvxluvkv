@@ -1,0 +1,194 @@
+{
+  "id": "10535",
+  "key": "WAGR-398",
+  "fields": {
+    "statuscategorychangedate": "2026-09-15T11:44:50.912-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-15T10:55:13.420-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:34.078-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nEmily flagged that \"Registration Date\" (as shown to her, likely via the prototype) looks like the same concept as Agency Sign-Up Date and should be renamed accordingly, with the field moved up on the page inline with Assigned BA and Secondary Referrer moved down. She's right that these describe the same thing — Jumpr has two fields on the Player record today that both mean \"the date this player signed up with the agency.\"\n\n## Current state\n\nBUILD-174 (PL-2, WAGR-43) defines Registration Date — \"the date this player signed up with the agency\" — as part of the Attribution fields. Separately, BUILD-12 (WAGR-341) built Agency Sign-Up Date with the same stated objective, and BUILD-30 (WAGR-283) built set-once automation to populate it from the Player's first Sign-Up. Both fields describe the same fact and currently coexist.\n\n## Proposed solution\n\n1. Confirm Agency Sign-Up Date (BUILD-12/30) is the field of record and retire/rename Registration Date so there's a single field for this concept — check for any list view, report, or automation referencing Registration Date before removing it.\n2. On the Player page layout, move Agency Sign-Up Date up so it sits inline with Assigned BA.\n3. Move Secondary Referrer down to accommodate the reordering.\n\n## Acceptance criteria\n\n1. Only one field on the Player record represents the agency sign-up date, and it carries the existing set-once automation (BUILD-30).\n2. Agency Sign-Up Date displays inline with Assigned BA near the top of the Attribution section.\n3. Secondary Referrer appears lower on the page after the move.\n4. No report, list view, or automation is left pointing at a retired Registration Date field.\n\n## Dependencies\n\nDepends on BUILD-174 — Player: Attribution fields (WAGR-43), BUILD-12 — Agency Sign-Up Date field on Player (WAGR-341), and BUILD-30 — Populate Agency Sign-Up Date on Player (WAGR-283).\n\n## Source\n\nWagertech Notes / Questions (Emily Vandenberg), Player record doc, reviewed Sep 2026: \"Registration Date = rename to Agency sign-up date (assuming that is what this is) and move field up, inline with BA and move secondary referrer down.\" https://docs.google.com/document/d/1mp3b1qpJkzKNDztEQpdnv-BYCgUgDdXe5jLuJi-ix1U/edit?tab=t.0",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10201",
+        "filename": "Screenshot 2026-09-15 at 12.10.37 PM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-15T12:11:55.257-0400",
+        "size": 193876,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10201",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10201"
+      }
+    ],
+    "summary": "Player: Reconcile Registration Date into Agency Sign-Up Date and Reposition Attribution Layout",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10551",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Confirming Field label was altered, API name stayed the same as it live in locating stated in screenshot",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-15T12:10:08.468-0400",
+          "updated": "2026-09-15T12:10:08.468-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vi:i"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

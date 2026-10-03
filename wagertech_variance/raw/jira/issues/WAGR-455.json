@@ -1,0 +1,155 @@
+{
+  "id": "11436",
+  "key": "WAGR-455",
+  "fields": {
+    "statuscategorychangedate": "2026-09-25T09:25:17.205-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-25T09:25:16.687-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-10-02T09:15:44.744-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nCMS receives the first Deal on activation and every later payload-relevant state change without duplicate sends for audit/system writes.\n\n## First send\n\n* Draft/pre-activation saves do not send.\n* Draft → Active creates one logical initial CMS request.\n* If the request fails, Deal remains Active; CMS Sync Status records the failure.\n\n## Later Deal sends\n\nOnce First Activated Date is populated, request sync when a CMS payload field changes, including:\n\n* Name;\n* Operator/Partner payload references/names;\n* Market/Region-driving values;\n* Vertical;\n* Source;\n* Deal Status;\n* Currency;\n* Effective Start / Effective End;\n* successor relationship;\n* approved payload fields.\n\nEvery post-activation Status change is relevant.\n\n## Status-specific rules\n\n* **Inactive:** send the status, but do not change Affiliate Links or DRAs.\n* **Paused:** the lifecycle action deactivates currently Active Links; the resulting state is included in the parent Deal snapshot.\n* **Closed:** the lifecycle action deactivates currently Active Links; Closed → Active does not automatically reactivate them in V1.\n* **Archived:** deactivate currently Active Links before/with the final snapshot until a separate Link Archived state is adopted.\n* Pause/Close/Archive do not alter DRAs from Salesforce.\n\n## No-loop rule\n\n* Lifecycle audit Dates / Previous Status do not independently trigger a second request.\n* CMS sync/result fields never trigger sync.\n* Status + Effective End Date in one transaction = one logical request.\n* Multiple Link changes for one parent Deal in one transaction collapse to one logical request.\n\n## Acceptance criteria\n\n1. Draft save → no request.\n2. Draft → Active → one initial request.\n3. Active + CMS Failed remains Active.\n4. Inactive status sync does not deactivate Links.\n5. Pause/Close/Archive Link changes coalesce into the parent Deal request.\n6. Audit-only/system-result edits do not create duplicate requests.\n\n",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [],
+    "summary": "CMS Sync — Queue automatically on activation and post-activation Deal/Account changes",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0087r:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

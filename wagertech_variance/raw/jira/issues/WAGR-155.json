@@ -1,0 +1,301 @@
+{
+  "id": "10217",
+  "key": "WAGR-155",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-31T11:12:27.034-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:28.998-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Problem\n\nClicking Log Sign Up advances Status__c from New to In Progress even when nothing was entered. The silent status change with zero data is unintuitive (Emily). The \"accept with no info\" intent is dropped.\n\nCurrent state\n\nThe Log Sign Up screen flow sets Status__c = In Progress unconditionally on completion.\n\nProposed solution\n\nIn the Log Sign Up flow, compare screen inputs to current record values.\n\nSet Status__c = In Progress only if ANY field was entered/changed.\n\nIf no changes detected, show a screen letting the user know that the record will not move to In Progress unless any of the fields are filled in.\n\n* User should be able to close the screen or go back and enter any info to update the record to In Progress. Closing the screen without any changes should not update the record status to In Progress.\n\nOtherwise save without status change (record stays New).\n\nAcceptance criteria\n\nField set should include First Wager Date being added to the Log Sign Up flow as per BUILD-242.\n\nTrigger — Log Sign Up screen flow finish, on Sign_Up__c.\n\nPositive — any single field entered or changed → status becomes In Progress.\n\nNegative — popup opened and finished with nothing entered → status stays New. Popup cancelled → no change at all.\n\nIdempotency — running Log Sign Up on an already-In Progress record never regresses status to New.\n\nOut of scope\n\nMinimum-required-fields gating (alternative rejected; Emily chose \"any field edited\").\n\nComplete-gating (C2) unaffected.\n\nTest data\n\nOne New Sign-Up logged with only Referrer filled (→ In Progress); one New Sign-Up logged with nothing (→ stays New).\n\nSource\n\nEmily doc comment 2026-08-28: \"let's go with original ask, 'any field edited' will advance the record to in progress.\" [https://docs.google.com/document/d/1LOMrG0-0JchyP9wHrV4hMlBqh-gMq8YxknpySd5OJjY/edit](https://docs.google.com/document/d/1LOMrG0-0JchyP9wHrV4hMlBqh-gMq8YxknpySd5OJjY/edit)",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10159",
+        "filename": "Screenshot 2026-09-03 at 11.52.17 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-03T11:53:27.885-0400",
+        "size": 214884,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10159",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10159"
+      },
+      {
+        "id": "10178",
+        "filename": "Screenshot 2026-09-03 at 11.52.23 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-03T11:54:33.382-0400",
+        "size": 242494,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10178",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10178"
+      },
+      {
+        "id": "10169",
+        "filename": "Screenshot 2026-09-03 at 11.52.32 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-03T11:53:41.959-0400",
+        "size": 217394,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10169",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10169"
+      },
+      {
+        "id": "10175",
+        "filename": "Screenshot 2026-09-03 at 11.52.37 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-03T11:53:45.086-0400",
+        "size": 242701,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10175",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10175"
+      }
+    ],
+    "summary": "BUILD-243 — Sign-Up: Advance to In Progress only when a field is edited in Log Sign Up",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10448",
+          "body": "**Changes made:** \n\n\\[Screen\\] - Sign Up - In Progress (`Screen_Sign_Up_In_Progress`) — last saved 2026-09-02 6:21 PM UTC - v13\n\n* Added an Assignment element to capture the record's original (prior) values and its current (working) values into new flow variables.\n* Updated the screen element to reference the new variables instead of the default field bindings.\n* Added a second Assignment element to populate fields not referenced by the screen flow by default, so they are included in the comparison.\n* Added a Decision element that checks whether Status__c is New and no field values changed.\n* Added a new screen that displays when Status__c is New and no fields were changed. It tells the user the record will not advance to In Progress unless a field is filled in.\n* Preserved the existing path for records where a field value did change — these continue to advance Status__c to In Progress as before.\n\n**Testing:** Validated in sandbox.",
+          "created": "2026-09-03T11:54:41.348-0400",
+          "updated": "2026-09-03T11:54:41.348-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Cedrick Infantado"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-370"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "SLC & Sign-Up Intake",
+          "id": "10060"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218016083707263"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000yn:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218016083707263"
+      }
+    }
+  }
+}

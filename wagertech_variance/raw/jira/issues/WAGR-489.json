@@ -1,0 +1,150 @@
+{
+  "id": "11566",
+  "key": "WAGR-489",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T17:41:16.635-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-29T17:41:16.292-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-30T01:05:25.964-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nOperator/Partner integration identifiers cannot be changed casually after they have participated in an activated Deal, while legitimate exceptional remediation remains possible through an admin-controlled process.\n\n## Requirements\n\nProtect integration identity fields such as:\n\n* `Operator_External_ID__c`\n* `Partner_External_ID__c`\n* `Partner_Code__c`\n* equivalent fields approved during grooming.\n\nStandard users must not be able to edit these fields through normal UI/API paths when the Account has any related Deal whose **First Activated Date is populated**.\n\nDo not use current Deal Status = Active; Paused/Inactive/Closed/Retired Deals still count as having been activated.\n\n## Recommended durable marker\n\nMaintain a system-managed Account-level Boolean equivalent to **Has Ever Activated Deal**.\n\n* Source event: the first related Deal successfully crosses first activation.\n* Once TRUE, it does not clear because Deals later become Paused/Inactive/Closed/Retired.\n* Unrelated Deal updates do not rewrite/toggle it.\n* Do not use existing “Active Deal count” DLRS fields as a substitute; those answer a different current-state question.\n\nLegitimate correction uses an explicit privileged/manual admin remediation workflow.\n\n## Acceptance criteria\n\n1. Operator with an ever-activated Deal cannot have its integration External ID edited by a standard user.\n2. Partner with an ever-activated Deal cannot have Partner External ID / Partner Code edited by a standard user.\n3. Account with only never-activated Deals can still follow the approved maintenance process.\n4. First Deal activation sets the durable marker once.\n5. Later status changes/unrelated Deal edits do not clear or restamp the marker.\n6. Admin remediation is explicit and auditable rather than achieved by ordinary record Edit.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Account — Protect Operator/Partner integration identity fields after Deal activation",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i008z3:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

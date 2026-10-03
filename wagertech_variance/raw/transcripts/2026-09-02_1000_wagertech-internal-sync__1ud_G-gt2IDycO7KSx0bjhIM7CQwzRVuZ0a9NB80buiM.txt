@@ -1,0 +1,725 @@
+📝 Notes
+Sep 2, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+Attachments Wagertech Internal Sync
+Meeting records Transcript Recording
+
+
+Summary
+Meeting discussions ranged from cultural holiday observations to technical project adjustments and administrative system configurations.
+
+Seasonal Cultural Observations
+Participants contrasted regional seasonal transitions and Christmas traditions with localized observances of holidays. Discussions highlighted significant differences in how various cultures approach major celebrations and seasonal patterns.
+
+Administrative and Operational Updates
+Discussions covered onboarding logistics and general administrative tasks alongside system improvements. The conversation centered on refining user accessibility and clarifying project-related timelines.
+
+System and Field Configurations
+The team decided to standardize signup status fields and field history tracking to enhance data accuracy. This move ensures scalable system maintenance for future record updates and operational workflows.
+
+
+Decisions
+Aligned
+* Use signup status for completion The team will use the "signup status" field to represent completion status in the referral rollup, rather than adding a "completion percentage" column.
+* Update fields in signup related list The signup related list layout is set to include "deal name" instead of "operator," include "payout type," and include "status."
+* Rename field label to registration date The "agency signup date" field label is updated to "registration date."
+* Enable field history tracking for auditing Field history tracking is enabled on the player object for status and financial fields to provide auditing capabilities.
+* Implement reactivate flow for banned accounts The team will create an "active" button/flow to unban players, which clears all ban fields and resets the status, with access restricted to Ops users.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Review Timesheet: Analyze Taryns submitted time sheet for approval.
+* [Kobi Kunasekaran] Invite to Meetings: Add Taryn to upcoming meetings including the finance manager.
+* [Taryn Reithofer] Send Document: Submit the player referral document for team review once approval is received.
+* [Taryn Reithofer] Implement Reactivate Button: Create a screen flow with a confirmation message for unbanning or reactivating accounts.
+* [Taryn Reithofer] Set History Tracking: Configure field history tracking for status and financial fields on the necessary objects.
+* [Cedrick Infantado] Complete Task 243: Develop the logic for field update checking using two record variables.
+* [Kobi Kunasekaran] Clean Up Tickets: Refine the text and descriptions within project tickets.
+* [Cedrick Infantado] Review Tickets: Evaluate project tickets after finishing task 243.
+* [Kobi Kunasekaran] Develop Stories: Create documentation from the previous call.
+* [Kobi Kunasekaran] Examine Tickets: Analyze automation tasks to identify outstanding scope requirements.
+* [Kobi Kunasekaran] Manage Backlog: Evaluate items waiting for processing.
+* [Taryn Reithofer] Update Phase 1: Create a section for cancelled entries to declutter the section.
+* [Taryn Reithofer] Submit Document: Send the file for feedback to the player and refer teams.
+* [Taryn Reithofer] Notify Kobi: Send a Slack message regarding the outstanding items.
+
+
+
+Details
+* Weather and Climate Conditions: Taryn Reithofer and Cedrick Infantado discussed the transition from summer to fall, noting temperatures around 30°C (00:00:07). Cedrick Infantado reported heavy rains in the Philippines during August, which caused flooding on roads and expressways, noting this weather pattern is unusually followed by potential droughts, which differentiates the current experience from typical climate patterns (00:01:21). Kobi Kunasekaran and the group reflected on the unpredictability of winter and changing seasonal weather compared to their childhood experiences (00:02:23).
+* Christmas Traditions in the Philippines: Cedrick Infantado explained that in the Philippines, the Christmas season begins during the "ber" months, with festivities starting as early as September (00:03:21). Kobi Kunasekaran noted that Christmas is highly significant in the Philippines, with extensive decorations appearing in malls and buildings much earlier than in other regions (00:04:17).
+* Halloween and Cultural Observations: Cedrick Infantado clarified that Halloween is not a major celebration in the Philippines, as the country does not typically observe trick-or-treating in the same way as other nations (00:04:17). Instead, the holiday is associated with All Souls' Day, where people visit cemeteries to honor the dead, an approach that Taryn Reithofer compared to cultural celebrations in Mexico (00:05:20). Cedrick Infantado noted that they have begun adopting some Western traditions, such as dressing up for fun and visiting relatives for sweets (00:06:20).
+* Media Preferences and Spider-Man Popularity: The participants discussed the widespread, and somewhat mysterious, obsession children have with Spider-Man, noting that many kids are enamored with the character despite having never watched the movies or shows (00:06:20). Taryn Reithofer mentioned rewatching older television series like Lost and Gilmore Girls, prompting a discussion about the format of older shows that were originally edited to accommodate commercial breaks (00:07:08).
+* Work Administration and Onboarding: Kobi Kunasekaran committed to reviewing Taryn Reithofer's timesheet following the meeting. Regarding the onboarding project, Kobi Kunasekaran stated that Travis intends to handle introductions this week and that Taryn Reithofer will be added to future meetings, which may also include the finance manager to help streamline day-to-day operations (00:10:07).
+* W-Tech Referral Rollups: Taryn Reithofer proposed adding a completion column to the primary and secondary referral rollups to clarify count discrepancies for users and help them identify which signups are incomplete (00:11:59). Kobi Kunasekaran suggested using the signup status field rather than completion percentage to reflect record completeness, as operational teams might manually approve records that have not reached 100% completion (00:13:09).
+
+
+* Signup Record Field Adjustments: Kobi Kunasekaran and Taryn Reithofer agreed to update the related list by replacing the operator field with "deal name" and including "payout type," while excluding payout code and roles (00:16:37). The team decided to finalize these adjustments and revisit potential payout-related fields during future discovery sessions (00:17:39).
+
+
+* Registration Date Clarification: Kobi Kunasekaran confirmed that the "agency signup date" field on the player page was successfully renamed to "registration date" and verified that it is populating correctly in the system (00:18:47).
+
+
+* Player Page Ban and Unban Automation: Kobi Kunasekaran and Taryn Reithofer discussed creating an "unban" or "reactivate" button that would automatically clear ban-related fields, functioning similarly to the existing ban flow (00:19:48) (00:26:13). They agreed that this reactivation functionality should be restricted to operations users to maintain control (00:28:32).
+
+
+* Field History Tracking Implementation: Kobi Kunasekaran and Taryn Reithofer planned to implement standard field history tracking to maintain a record of status changes, noting a limit of 20 fields per object (00:22:22). They intend to add this tracking as a related list on the page layout for status and financial fields, acknowledging that a separate custom object would be required if persistent tracking beyond a year is needed (00:23:32).
+
+
+* Technical Implementation and Script Refactoring: Cedrick Infantado confirmed the completion of the referral information rearrangement (244) and outlined plans to work on validating field updates (243) (00:30:58). Cedrick Infantado proposed refactoring scripts to use separate record variables for prior and working values to create a scalable system, allowing for the addition of new fields in the future without requiring complex formula edits (00:32:25).
+
+
+* Backlog Management and Next Steps: Taryn Reithofer and Kobi Kunasekaran discussed the need to clean up the "phase one" project documentation, which is currently cluttered with cancelled tickets. Taryn Reithofer planned to send the player and referral documentation for review once the status logic is integrated, while Kobi Kunasekaran committed to reviewing outstanding time sheets and the backlog of stories from previous discussions (00:35:46).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 2, 2026
+Wagertech Internal Sync - Transcript
+00:00:07
+
+Taryn Reithofer: Good morning.
+Cedrick Infantado: Morning T.
+Taryn Reithofer: How you doing?
+Cedrick Infantado: Doing good. It's raining here
+Taryn Reithofer: It's raining. Well,
+Cedrick Infantado: again.
+Taryn Reithofer: kind of raining here, too. Yeah, it's like the last bit of summer is ending. So like yesterday and today has been really hot like 30° C. Are you you're in Celsius
+Cedrick Infantado: Yeah, it's weird. Here in the Philippines, we're using kind of both sometimes.
+Taryn Reithofer: too?
+Cedrick Infantado: So, for temperature, we're using Celsius for measuring um height of fe people people. Um we're using feet and inches. So,
+Taryn Reithofer: Okay.
+Cedrick Infantado: it's kind of weird.
+Taryn Reithofer: Same same here. Um, yeah. So, it's been like 30° here yesterday and today and then after today I think it's supposed
+Cedrick Infantado: Mhm.
+Taryn Reithofer: to drop. The temperature is supposed to drop and it's going to feel more like fall. Um, but yeah, it's been like super humid. Like I went for a walk last night after my kids went to bed and I feel like I was like breathing in water.
+
+
+00:01:21
+
+Taryn Reithofer: It was like crazy. You could just see the molecules and like Yeah,
+Cedrick Infantado: Oh
+Taryn Reithofer: it was crazy. But it's cozy day today.
+Cedrick Infantado: yeah.
+Taryn Reithofer: Um, it's been raining a lot where you
+Cedrick Infantado: Yeah.
+Taryn Reithofer: are.
+Cedrick Infantado: Actually um in the month last month August um we have I think 28 or 25 days remaining here in the Philippines.
+Taryn Reithofer: Oh,
+Cedrick Infantado: Oh yeah.
+Taryn Reithofer: is that really messing that really messing up the agriculture then
+Cedrick Infantado: Actually,
+Taryn Reithofer: or
+Cedrick Infantado: yes. A lot of uh roads are flooded right now, even the expressways. So, yeah,
+Taryn Reithofer: Wow,
+Cedrick Infantado: there's
+Taryn Reithofer: that really sucks.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: That's the opposite of what's happening in England right now. I think that they're having a massive
+Cedrick Infantado: Yeah. And the worry here in the Philippines is that after the everything,
+Taryn Reithofer: drought.
+Cedrick Infantado: all the rains, it would be very hot. So it would be very dry after that. So it's actually it's the first time that this happens.
+
+
+00:02:23
+
+Taryn Reithofer: Oh,
+Cedrick Infantado: So yeah,
+Taryn Reithofer: hey
+Cedrick Infantado: hi Kobi.
+Kobi Kunasekaran: Good morning, guys.
+Taryn Reithofer: Kobi.
+Kobi Kunasekaran: You say it was waiting for 25 days
+Cedrick Infantado: We're just chatting um no for uh in
+Kobi Kunasekaran: straight.
+Cedrick Infantado: total for the month of August.
+Taryn Reithofer: That's pretty much the whole month.
+Kobi Kunasekaran: That's crazy.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: global warming for you guys.
+Taryn Reithofer: Yeah, I know, right?
+Cedrick Infantado: Yeah.
+Taryn Reithofer: Oh my god, it'd be so over it.
+Kobi Kunasekaran: I'm scared for the winter that we're going to have cuz I keep hearing that it's going to like the worst one.
+Taryn Reithofer: Okay. But don't we hear that every
+Kobi Kunasekaran: It's true.
+Taryn Reithofer: year?
+Kobi Kunasekaran: It's true. It's true. And like it just keeps getting pushed later and later and later.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: But we'll see.
+Taryn Reithofer: I feel like winter doesn't really show up for us until like end of January
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: now.
+Cedrick Infantado: It's okay.
+Kobi Kunasekaran: Which is crazy because I remember like back when I was younger like we used to go trick-or-treating for Halloween and it was already like snow,
+
+
+00:03:21
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: like stacks of snow.
+Taryn Reithofer: Yeah. Yeah. And Christmas was always like
+Kobi Kunasekaran: Oh yeah,
+Taryn Reithofer: snowy. Cedric, do you celebrate Christmas?
+Kobi Kunasekaran: crazy.
+Cedrick Infantado: Yeah,
+Taryn Reithofer: Yeah.
+Cedrick Infantado: we we celebrate this.
+Taryn Reithofer: Do you start like next month?
+Cedrick Infantado: Actually, in the Philippines, we have what we call bur months and that signals the start of Christmas season here. every people gets busy at all.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: So actually starting yesterday there are yeah they are already
+Taryn Reithofer: Oh, this month.
+Cedrick Infantado: celebrating the Christmas here in the Philippines even it's
+Taryn Reithofer: Oh my goodness. Yeah,
+Cedrick Infantado: raining.
+Taryn Reithofer: I knew you guys started really early, but I didn't realize it was September.
+Cedrick Infantado: Yeah. Yeah.
+Taryn Reithofer: Thought it was like around October.
+Cedrick Infantado: And and news stations usually have countdowns for Christmas here in the Philippines.
+Taryn Reithofer: Oh, I love that.
+Cedrick Infantado: So yeah,
+Taryn Reithofer: It keeps the spirits up. Probably something to look forward to.
+
+
+00:04:17
+
+Cedrick Infantado: of course.
+Kobi Kunasekaran: Christmas is huge in the Philippines, is it not?
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Christmas is huge in the Philippines.
+Cedrick Infantado: Sorry.
+Kobi Kunasekaran: like the malls and the buildings, everything gets like decorated like crazy.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: It's so much better than
+Cedrick Infantado: actually I Yeah, actually I went to a mall earlier today.
+Kobi Kunasekaran: us.
+Cedrick Infantado: It's already decorated for Christmas.
+Taryn Reithofer: Wow. So, so you guys don't celebrate Halloween at all
+Cedrick Infantado: Um,
+Taryn Reithofer: then?
+Cedrick Infantado: Halloween is not a big thing here in the Philippines. So, there's no trick or treat or something like that.
+Taryn Reithofer: Got it.
+Cedrick Infantado: Maybe uh we went straight to Christmas.
+Taryn Reithofer: Nothing spooky.
+Cedrick Infantado: So basically
+Taryn Reithofer: Yeah. Okay, that I guess that makes sense because we have like we're big on Halloween and then
+Cedrick Infantado: that's
+Taryn Reithofer: um Thanksgiving. Obviously, you guys don't have Thanksgiving, so there's really like no like no other holiday between now and Christmas for you guys.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: So, I guess that makes sense that you just prioritize it sooner just to have something,
+
+
+00:05:20
+
+Cedrick Infantado: Yeah.
+Taryn Reithofer: right?
+Cedrick Infantado: But we do um we do have Halloween or what we call here also souls day. It's a holiday here in the Philippines, but t it's uh typ typically for us, we go to cemetery for that day and that's all. So
+Taryn Reithofer: uh uh I see.
+Cedrick Infantado: yeah,
+Taryn Reithofer: So it's like more like uh Mexico where they it's like about the celebration of the dead, right?
+Cedrick Infantado: yeah.
+Taryn Reithofer: Right. Yeah, that makes sense.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: Here it's just like hallmarkified like There's nothing to it.
+Kobi Kunasekaran: How much should I be?
+Taryn Reithofer: It's no It's It's Yeah, just commercial. It's nothing culturally like deep. Just candy.
+Cedrick Infantado: Okay.
+Taryn Reithofer: Candy and getting scared. That's what it's about.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: And dressing up.
+Cedrick Infantado: But some of but my uh
+Kobi Kunasekaran: Dressing up is
+Taryn Reithofer: Yeah. Yeah.
+Kobi Kunasekaran: important.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: my son uh we usually um dress him up for for that as well.
+
+
+00:06:20
+
+Cedrick Infantado: So we're trying to adopt that.
+Taryn Reithofer: Oh,
+Cedrick Infantado: So because I think it's fun.
+Taryn Reithofer: yeah. Yeah.
+Cedrick Infantado: We think it's fun. So we just dress it up and then we go to our relatives to just knock some door and ask for
+Taryn Reithofer: Oh,
+Cedrick Infantado: sweets.
+Taryn Reithofer: cute. Yeah,
+Kobi Kunasekaran: Nice.
+Taryn Reithofer: I like I decorate the house and like I put like spiderw webs and like scaryish stuff around.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: I try and do it do it up.
+Cedrick Infantado: Especially now my son wants to be a uh wants to be Spider-Man. So maybe
+Taryn Reithofer: Ah, yeah. Well, okay. The Spider-Man craze has made it out to you, too. Okay, every every single toddler slash little kid in Ontario is obsessed with
+Cedrick Infantado: Yeah.
+Taryn Reithofer: Spider-Man right now. The same with my kids and they've never seen Spider-Man before.
+Kobi Kunasekaran: Wait, I've never seen it
+Taryn Reithofer: They've never seen it and they're obsessed with the concepts and stuff.
+Cedrick Infantado: Oh.
+
+
+00:07:08
+
+Kobi Kunasekaran: before.
+Taryn Reithofer: Like like I bought Laura Spider-Man pants the other day and she was like so excited. It's so crazy. Like everyone at daycare too, all the kids are obsessed with Spider-Man. I'm talking to their parents. They're like,"Yeah, we've never seen Spider-Man either." Like it's just it's weird.
+Cedrick Infantado: Yeah, for us it's a regular show right now in our house.
+Taryn Reithofer: No.
+Cedrick Infantado: So, yeah. And actually,
+Taryn Reithofer: Okay.
+Cedrick Infantado: we we did a little trip to Mc McDonald's just to collect all the toys for Spider-Man. So,
+Taryn Reithofer: Nice. Nice.
+Kobi Kunasekaran: Have you guys seen the new movie?
+Taryn Reithofer: No.
+Cedrick Infantado: for me.
+Kobi Kunasekaran: A good
+Cedrick Infantado: Yes.
+Kobi Kunasekaran: movie.
+Taryn Reithofer: Yeah. Yeah, I'm not really into like um superhero movies these days. I've rewatched a lot of old stuff like old TV series lately like Lost and Gil um Gilmore Girls and older stuff
+Kobi Kunasekaran: Don't think I've ever watched either of those shows. I heard Lost is supposed to be like a survival type show.
+
+
+00:08:19
+
+Taryn Reithofer: kind of. Yeah.
+Kobi Kunasekaran: Yeah. It's not a reality show though,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: right? It is.
+Taryn Reithofer: No, no.
+Kobi Kunasekaran: No. Yeah.
+Taryn Reithofer: It's it it's about like a plane crashing and then they learn how to survive,
+Kobi Kunasekaran: Isn't
+Taryn Reithofer: but then on the island where they crashed, there's a lot of um supernatural stuff and they it's like
+Kobi Kunasekaran: that
+Taryn Reithofer: a a mystery type show and they figure it out and then there's this big reveal at the finale and it makes the viewers go like this whole time type of thing. Oh, it's not like Survivor or anything.
+Kobi Kunasekaran: Is that a good Huh?
+Taryn Reithofer: It's really good, actually. But it's funny because older shows like they're they're on streaming services now,
+Kobi Kunasekaran: Dad.
+Taryn Reithofer: right? So, you can binge like one episode after the other, but in the episodes they're they're cut for commercials. So, they'll have like fadeins or fade outs and fadeins like during the same episode and you can tell
+Kobi Kunasekaran: Yeah.
+
+
+00:09:14
+
+Taryn Reithofer: like where the commercials used to be. It's interesting.
+Kobi Kunasekaran: Think of all days.
+Taryn Reithofer: I'll have to explain that to our kids later.
+Cedrick Infantado: Okay.
+Taryn Reithofer: They're going to be very confused.
+Kobi Kunasekaran: I mean, if you watch if you if they end up watching the old Spider-Man shows, like the OG Spider-Man show, it's like that, too. Like every like 15 minutes or 10 minutes,
+Taryn Reithofer: same thing.
+Kobi Kunasekaran: it'll like pay down and then pay back in.
+Cedrick Infantado: There we
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: A great show to watch,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: though.
+Taryn Reithofer: Yeah. Maybe one day I'll start watching those so they're not
+Cedrick Infantado: go.
+Taryn Reithofer: posers.
+Kobi Kunasekaran: Exactly. I mean, the new Spider-Man movies are pretty awesome. They're fun. They're fun.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I'll recommend that to anyone.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: All right. Shall we talk about
+Taryn Reithofer: Yes. Um,
+Kobi Kunasekaran: work?
+Taryn Reithofer: okay. So, my random good morning messaged you this morning was just so you looked at our chat again.
+
+
+00:10:07
+
+Kobi Kunasekaran: Oh,
+Taryn Reithofer: I messaged you be Yeah.
+Kobi Kunasekaran: I didn't even notice.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: I just
+Taryn Reithofer: So, I messaged you before end of day about my time sheet. So,
+Kobi Kunasekaran: Yes.
+Taryn Reithofer: let me know when you look at it and then I can submit it right away.
+Kobi Kunasekaran: I'll take a look after this meeting.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Yesterday was just like actto and then backto-back meeting.
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: So I got nothing else done after our widget meeting uh for wager techch.
+Taryn Reithofer: I figured. Oh, no.
+Kobi Kunasekaran: So uh I'm going to pick up everything
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: today. Um but speaking of octo so I did chat with uh Travis and I don't know
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: he he said this last week too but he's like I'm going to finally do the introductions and we'll get this whole uh onboarding project started. said he said he's going to try to do it this week. So, heads up. Keep an eye out if anything comes.
+
+
+00:10:51
+
+Kobi Kunasekaran: But knowing him, I I I don't think so, but we'll see. Um, and then I think we I'm going to start adding you to the meetings uh starting like the next meeting, which probably is like next week or the week after, I think. Um, and uh we might have their finance manager also join that meeting.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: So Link is trying to like have her take over some of the day-to-day stuff because he's too busy.
+Taryn Reithofer: nothing.
+Kobi Kunasekaran: So um maybe she'll help move uh move some of these things along. Yes. For W tech, how are we doing with the stories? Where are we at?
+Taryn Reithofer: Good. Um, I'm done. I just um wanted to mention one
+Cedrick Infantado: It's okay.
+Taryn Reithofer: thing that I thought of this morning because I was grabbing screenshots of the um examples for um primary and secondary referrals rolling up to the highlights um in the referral page.
+Cedrick Infantado: Come
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: And obviously we know it only counts it's set up to only count when the sign
+
+
+00:11:59
+
+Cedrick Infantado: on.
+Taryn Reithofer: up record is complete. Um, so I at just a glance I I thought it might be confusing for users if they saw for example two primary referrals in the related list but then only one count in the rollup. So I was thinking perhaps we can put in the field column completion and I added that this morning so that it can surface.
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: So if they're like they see there's two primary referrals in the rollup but then let's say for instance there was a third one actually in the related list they can see which ones is which ones are actually complete and which ones aren't. So I guess if it if there was a third one at the bottom let's say under Christian and that was not reflecting in the
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: rollup they could look at completion column and see that it was only at 90% and that's who isn't accounting for. I can maybe like look into it or
+Kobi Kunasekaran: I like the idea. I think what we should do is confirm if I don't remember
+
+
+00:13:09
+
+Taryn Reithofer: whatever.
+Kobi Kunasekaran: where we landed on the conversation.
+Cedrick Infantado: Perfect.
+Kobi Kunasekaran: Um, but confirm what the difference between the referrals and signups is. technically like referrals are signups that they're referring or my understanding. Right.
+Taryn Reithofer: Yeah. Yeah.
+Kobi Kunasekaran: So,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: we said we're not going to do like a separate signup tab. So, we're not doing a separate signup tab. Um, and we have the primary and secondary referrals which which is like the signups where the referral is the primary and secondary. Um, instead of the completion, could we not just have the status field showing so that that cuz you're doing the roll up based on the status anyways, right? It should like separate the ones that are
+Taryn Reithofer: knows completion knows completion because this player like let's say
+Kobi Kunasekaran: complete.
+Taryn Reithofer: Christian for example his player status is pending
+Kobi Kunasekaran: Yeah. Wait, are we doing the So this roll up, is it based on players or based on
+Taryn Reithofer: Sign
+Kobi Kunasekaran: signups?
+Taryn Reithofer: up.
+
+
+00:14:25
+
+Kobi Kunasekaran: So if it's sign up,
+Taryn Reithofer: Sign up.
+Kobi Kunasekaran: sign up status equals completed, it should be the same thing as completion equals 100%.
+Taryn Reithofer: Yeah, but I'm looking at Christian's sign up page right now and the player status is pending.
+Kobi Kunasekaran: But the player status is different though, right? Player status has not doesn't have anything to do with the signup completion.
+Taryn Reithofer: So,
+Kobi Kunasekaran: Oh, sorry. Actually,
+Taryn Reithofer: where would the status come from?
+Kobi Kunasekaran: it it does. It does. Sorry. It does. It this is supposed to go into active but uh that automation is queued up uh to still
+Taryn Reithofer: Right.
+Kobi Kunasekaran: be built. So completion percentage I we don't necessarily need to show it as long as we show I think
+Taryn Reithofer: Right.
+Kobi Kunasekaran: the uh signup status that that serves the same purpose right um because completion there might be cases where they could override the completion percentage and still complete a signup if ops approves it. That was one of those cases.
+
+
+00:15:27
+
+Kobi Kunasekaran: So you could still have a sign up that's like maybe like they don't have a wager proof or
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: something like that like one of the proofs if they don't have it ops can still approve and move the
+Cedrick Infantado: Just
+Kobi Kunasekaran: record to completed even if the completion percentage isn't 100%.
+Taryn Reithofer: got it. Okay.
+Kobi Kunasekaran: So it's a good Yeah.
+Taryn Reithofer: refresh your page or refer.
+Cedrick Infantado: trying to move on.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So I think status will cover both. Um, and then I would I think this is one of those like I check with Joyce or Emily to
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: confirm like um if we can consolidate these fields like we don't have the payout field or uh or anything like that yet. So I think those are all kind of like we'll we'll add those in later but I would confirm if we just consolidated so we show the signup related list. Um but like exactly how you have it like you have the primary and secondary but it's really the primary signups and secondary sign up and the columns would be whatever they have here.
+
+
+00:16:37
+
+Taryn Reithofer: Okay. Okay.
+Kobi Kunasekaran: So there's no like we don't have like a separate referral ID or anything like it is.
+Taryn Reithofer: Is that what it is right now?
+Kobi Kunasekaran: Yeah, like that is how you have it set up. I think it's just the columns. I would probably line it up to be closer to this which for the most part it is like we don't have operator deal so we can skip that. We can just put the deal name. Um and let me go back. So instead of operator this could be the deal name because that has the entire string. Uh proof status is fine. Uh this is payment sent. Payment sent is probably fine too. Uh we can always swap it out later. Uh we could add payout type. We don't have payout code, so we can leave that one out. Um there's no roll, so we can leave that one out because we just have two separate lists to show the uh show the role.
+
+
+00:17:39
+
+Kobi Kunasekaran: And then Yeah.
+Taryn Reithofer: Okay. So, pretty much just operator deal
+Kobi Kunasekaran: Yeah. Yeah, I just swap this out with for deal.
+Taryn Reithofer: then
+Kobi Kunasekaran: I guess that's the only one that and add payout type. Yeah. And then you already added the status. is um and then when we look into like when we start doing the discovery for the payout then maybe we come back and figure out where all of these other fields and come in and if we need like a separate related list for that. Okay. Otherwise this looks good.
+Taryn Reithofer: Okay. So, that was the one thing I want to point out. The one more thing. Okay. So, I saw your comment on the agency sign up date field uh from my question. This was yesterday, but I'm still not seeing what you're referring to. You said there should be um Oh, this is on the player page, by the way. You said this
+Kobi Kunasekaran: Yeah, we renamed it.
+
+
+00:18:47
+
+Taryn Reithofer: should
+Kobi Kunasekaran: It's it so it's no longer agency signup date. Um it's called registration date. So, um I I think there is a like behind the scenes it's all called agency signup date, but the label is registration date and I'm it looks like it is filling in. So,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: we should be good there.
+Taryn Reithofer: Okay, perfect.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Closing that one out.
+Kobi Kunasekaran: And this is what shows up here as well. Yeah. So,
+Taryn Reithofer: Yeah. Okay.
+Kobi Kunasekaran: that one should be good.
+Taryn Reithofer: Amazing. Okay. And then just the um obviously I had player in the player page of what was outstanding but the list has grown since after our sync with them uh yesterday. So I just called that out briefly um in the last comment. Not not that one, the one above it. Um and then that's pretty much it. I'm done for this. So once you give me the thumbs up, I will send it over to them for review.
+
+
+00:19:48
+
+Kobi Kunasekaran: Do we add anything else for player yesterday? I thought most of the feedback yesterday was for signup record.
+Taryn Reithofer: It was the It was uh the referral information.
+Kobi Kunasekaran: No.
+Taryn Reithofer: Um we're going to like add another checkbox or something.
+Kobi Kunasekaran: Yeah. Under the signup record,
+Taryn Reithofer: Uh oh,
+Kobi Kunasekaran: right?
+Taryn Reithofer: sign up record, right?
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay. Um uh and then I guess the fraud flag
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: would be sign up record two.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Um
+Kobi Kunasekaran: Yeah. And you have the ban as well. So, this is good. Actually, this looks great. So,
+Taryn Reithofer: okay.
+Kobi Kunasekaran: and were you able to hook it up so that it actually sets the status as
+Taryn Reithofer: That's what I plan on doing this morning.
+Kobi Kunasekaran: well?
+Taryn Reithofer: That's on my next to-do.
+Kobi Kunasekaran: Okay. Okay. I I was thinking this morning actually there's a there's a card that's created um when if we give them a button to ban, we should probably give them a button to unban as well, right?
+
+
+00:20:51
+
+Kobi Kunasekaran: So do the reverse but do the reverse.
+Taryn Reithofer: What do you mean?
+Kobi Kunasekaran: So it like for unban it would do exactly the opposite. Is it right? Like clear the ban notes, clear the band region and um ideally put the player back to the previous status. Um I don't know if we have a field to capture the previous status. So if not, let's add that automation
+Taryn Reithofer: What if what if they could just change the status back to active and then it just clears the
+Kobi Kunasekaran: in.
+Taryn Reithofer: ban automatically
+Kobi Kunasekaran: Uh
+Taryn Reithofer: sort of thing.
+Kobi Kunasekaran: potentially. So for players cuz we have both banan and pause and I guess the question is do we clear because for pause we're also capturing a reason right? Um yeah, technically we could clear clear all four fields and just have like reactivate button that just puts them back to active and clears the
+Taryn Reithofer: Um, do you think that they would want
+Kobi Kunasekaran: status.
+Taryn Reithofer: like a history record of who's been previously banned and then reactivated in a reporting
+
+
+00:22:22
+
+Kobi Kunasekaran: Yes.
+Taryn Reithofer: sense.
+Kobi Kunasekaran: And that's where we should turn on field history tracking for those fields if we don't already have it. So that'll do it at least at like the like a bait layer and then if they need additional tracking we'll have to set up a custom object for it.
+Taryn Reithofer: That's
+Kobi Kunasekaran: So field history is like a related uh so if you go to the field fields and relationship
+Taryn Reithofer: it.
+Kobi Kunasekaran: on most object I think or maybe all objects uh this not dependencies set history tracking um and then you can choose the fields to track and what this does is fail for will automatically start tracking uh changes to these fields. Um, so generally the ones to do is like status. I think we have a bunch of statuses. There is a limit of 20 fields per object. So we have to be strategic on what those are.
+Taryn Reithofer: Probably all the financial ones too, like tied to money.
+Kobi Kunasekaran: Uh yeah. Yeah. And like I would do the email too.
+
+
+00:23:32
+
+Kobi Kunasekaran: Um except I don't see Oh, there we go. Okay. This one we don't need to worry about the record type. I don't think we need to track the band reasons. Actually, you know what? Let's do it.
+Taryn Reithofer: Are you streaming?
+Kobi Kunasekaran: Well, I think these ones they won't necessarily drop the actual values. Okay, we can start with these. If there's anything else we can add here. So, that'll give us like basic tracking. Um, it is a related list that needs to be added into the page layout. I would add it underneath like uh the more info tab for the records.
+Taryn Reithofer: Sorry, what related this?
+Kobi Kunasekaran: um for the field history um it is a separate related list that needs to get added into the page layout for you to see it. So uh I can show you where that is. So if we go to edit page which one is this refer I don't think this can be a dynamic related list. I think it needs to be the old school one underneath here and then it's called account history or like depending on the object it'll just be called like whatever object name and history.
+
+
+00:25:08
+
+Kobi Kunasekaran: Uh but it says it's not in the current page layout. So I have to go into the page layout and add it to the page layout too.
+Taryn Reithofer: Can we get to it from there?
+Kobi Kunasekaran: So many
+Taryn Reithofer: s***.
+Kobi Kunasekaran: places.
+Taryn Reithofer: I've been doing everything the long way.
+Kobi Kunasekaran: Uh count twisty along this to the bottom.
+Taryn Reithofer: This is why I just need to watch you work.
+Kobi Kunasekaran: You can see where all the the things are being done. Yeah,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: this should be good.
+Taryn Reithofer: Like all the shortcuts and
+Kobi Kunasekaran: I always say the best way to learn is just reverse engineer what somebody else
+Taryn Reithofer: stuff.
+Kobi Kunasekaran: has built. That's how I learned all the flows and uh everything that we've done. Okay. So, if I go to more info now, there's uh uh person account history. I don't know why it's called person account history, but um so if I is the status, let's change the status. It starts to track it automatically.
+
+
+00:26:13
+
+Kobi Kunasekaran: So, we don't need to do like a separate floor or anything like that.
+Taryn Reithofer: What?
+Kobi Kunasekaran: Um, so there are some caveats with this. I think it there's a limited number of records it can store and I believe these get cleared after a year or two. Uh, so if they need like persistent tracking then it does need to be a separate custom object. But I think at this phase given like we're trying to keep the scope minimal this is good enough to start.
+Taryn Reithofer: Okay. Okay. So you do want an unban button then or
+Kobi Kunasekaran: I think the active button is I I like the idea of the active button because we can use it for both banan and pause.
+Taryn Reithofer: okay.
+Kobi Kunasekaran: Um,
+Taryn Reithofer: So they'll just clear.
+Kobi Kunasekaran: right. are. So are of like yeah it clears like all the like the the field that you're setting
+Taryn Reithofer: Very
+Kobi Kunasekaran: for all of these things. It'll just clear all of them in one go and they're just one flow plus one button that you could use.
+
+
+00:27:12
+
+Taryn Reithofer: perfect. So that's a flow or press a button.
+Kobi Kunasekaran: Yeah, flow plus a button similar to Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: It's it's basically it is a it is a screen flow like it's exactly how you built the ban button. uh but instead of like option you'll just uh provide like a confirmation that uh the account has been activated or something like that and then uh they'll have a finish button to close the flow and that's it and I mean that's it from a user perspective but behind the
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: scenes like you'll be updating the record. Um,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: if you want to see an example like the fraud flag one, uh, should be set up in a similar way except I can't edit these. Change the status to already set to flag. Oh, I guess we don't have one for un flag. Yeah, I guess all of these, never mind. All of these ask for a reason, but like the full should be similar in that like the the elements that you would have would be the same as like what's in in these ones.
+
+
+00:28:32
+
+Cedrick Infantado: Um,
+Kobi Kunasekaran: Um, for the reactivate though,
+Cedrick Infantado: what
+Kobi Kunasekaran: I would restrict it to just the ops
+Cedrick Infantado: they
+Kobi Kunasekaran: users. The reps don't see it.
+Taryn Reithofer: Sorry. To reactivate.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay. Yeah, that makes sense.
+Kobi Kunasekaran: Sorry, you were saying
+Cedrick Infantado: Yeah, of I think for the band notes um it is a long text.
+Kobi Kunasekaran: something.
+Cedrick Infantado: So the history tracking couldn't um really capture what's the previous value in that
+Kobi Kunasekaran: Yeah, I think that's okay.
+Cedrick Infantado: field.
+Kobi Kunasekaran: Um, as long as like if we trap the statuses for now, that's probably okay. If they uh let them go through it and if they come back with feedback that they do want to see the uh the reasons changed too, then we can talk about adding a separate
+Taryn Reithofer: How are
+Kobi Kunasekaran: object like the review at least
+Cedrick Infantado: It's
+Taryn Reithofer: you?
+Kobi Kunasekaran: the uh what is it the sorry is the reason did you say the reason was uh that reason should be just a pick list right the band notes This is what's like we can't track through history tracking but that's okay.
+
+
+00:29:56
+
+Kobi Kunasekaran: Okay. Uh are we good with next steps? for these ones.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Dove right
+Taryn Reithofer: Um, yep.
+Kobi Kunasekaran: in.
+Taryn Reithofer: Yep. So, I'll put that above affiliate links for my to-do list just so we can close it out.
+Kobi Kunasekaran: Okay. So, we we've already handed them over the operator partner. Um and then uh did you send the player already or this is like still wrapping
+Taryn Reithofer: Yay. No,
+Kobi Kunasekaran: up?
+Taryn Reithofer: this is this is player refer that we're talking about right now on this doc that I can send
+Kobi Kunasekaran: Okay. Okay.
+Taryn Reithofer: over this morning.
+Kobi Kunasekaran: Okay. Yeah.
+Taryn Reithofer: And then that's pretty much it.
+Kobi Kunasekaran: And then
+Taryn Reithofer: And then deal and affiliate links is next.
+Kobi Kunasekaran: Okay, sounds good. Deal and affiliate links. Yeah, heads up on the deal. Like I'm making changes as part of like all the imports and stuff. So if you are seeing things that are different from the mockup, uh it's probably because of me.
+
+
+00:30:58
+
+Taryn Reithofer: It's fine.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So I don't I feel like it's mostly done though. So maybe like let's let's highlight the gaps and then we can go through it together and see what's
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: what's needed and what uh what can be removed.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Cool. Okay. Uh Cedric, how are you doing?
+Cedrick Infantado: Yep. Uh for me um I've already so actually I've uh I've swapped my task for yesterday because uh 243 has dependency for 244. So I'm uh I've or I finished first the 244 yesterday. So it's the rearrange of referral information. So um I've also added the um the changes that you have included or we have got u we have agreed on yesterday and I've attached the or I put in the comments the test evidences for that as well. So yeah, for today I will be doing the 243 which is the um prevention to um or checking for any updates on the fields because um I I think that all the necessary fields right now on the log uh log sign up and complete buttons or close are already there.
+
+
+00:32:25
+
+Cedrick Infantado: So I can proceed with that one um today. So, yep. Um but based on my checking on the flow, I might have to um partially overhaul the scripts because uh we we need to create a way uh um a scalable way so we can add um fields in the future and just um minimal changes on the on the screens and the uh on the checking or the decision. So yeah, I might need to arrange some variables on that so to make it
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: work.
+Kobi Kunasekaran: Is it like to support like advancing only when there is an edit to the values?
+Cedrick Infantado: Yep.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: Because right now uh we're just uh um on high level we're just updating the whatever in the get record. So um for for this requirement I think I need to have two record uh variables for the sign up the prior values and a working value. So yeah, if we don't have that, then adding a condition would require editing a formula. Maybe something like that rather than just adding the fields on the decision
+
+
+00:33:46
+
+Kobi Kunasekaran: I see.
+Cedrick Infantado: element.
+Kobi Kunasekaran: Okay. Yeah. You'd say the before, you' say the after. Are we able to compare the records like those variables without doing any comparison at the field level?
+Cedrick Infantado: we're doing a comparison on the field level on the decision element by itself. So rather than using a formula and adding it um and yeah it it will get messy after some um maybe 15 fields.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: So yeah, it was very hard to
+Kobi Kunasekaran: All right. I'm curious about how this turned out. So like yeah, let let me know what what the solution looks like.
+Cedrick Infantado: tr
+Kobi Kunasekaran: I don't think I've done like a a flow where we have to compare and only make an update when there are changes. So, that'd be interesting. Okay. So, you've got that one and then I send a few other ones over to you as well. Um again, just like work through it um at your pace and let me know if uh you run into any issues.
+
+
+00:34:55
+
+Kobi Kunasekaran: I might clean up some of these. I feel like there's a lot of text in here and I don't think we need to have all this text. Uh but it should capture like the essence of what we're trying to do. So let me know when you've had a chance to review um after 243 if you have any questions.
+Cedrick Infantado: Yep. I'll review after part three and we'll get back
+Kobi Kunasekaran: Okay. Uh yeah,
+Cedrick Infantado: in.
+Kobi Kunasekaran: I'm not paid. So Taryn, I'll I'll review the time sheets, get back to you. Um, I think let me know if there's anything still outstanding in terms of comments or uh anything that you've done that I haven't replied to. I'm trying to keep up with it. Uh, but there are messages everywhere.
+Taryn Reithofer: I know.
+Kobi Kunasekaran: So, if I miss something,
+Taryn Reithofer: I know.
+Kobi Kunasekaran: just shoot me a message on Slack.
+Taryn Reithofer: Yeah. Yeah. Because I'm messaging on Slack.
+Kobi Kunasekaran: Uh,
+Taryn Reithofer: I'm commenting it on site tickets and I'm making comments on documents,
+
+
+00:35:46
+
+Kobi Kunasekaran: in the document.
+Taryn Reithofer: too. I
+Kobi Kunasekaran: I I I think I got everything, but in case I miss something,
+Taryn Reithofer: know.
+Kobi Kunasekaran: just shoot me a message. Um, but yeah, so I'll I'll get through the time sheets first. I got to do my own time sheets from the reports. Uh, and then, uh, I got to work on the stories from our call yesterday. Uh, and then, yeah, I think if we get through that, that'll be a good win.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Um, and then I still need to scope out a couple things for you, I think, for because there are still some things outstanding on the pages that we shipped already, right?
+Taryn Reithofer: Some automation items. I think
+Kobi Kunasekaran: Yes. Do we have I'll go through the tickets. So, I go through the tickets and turn what those are. I think they're assigned to me
+Taryn Reithofer: Yeah. And some of I think we still need to add a new section to take out the um tickets that are
+
+
+00:36:30
+
+Kobi Kunasekaran: anyways.
+Taryn Reithofer: si sitting in phase one that are either cancelled or um yeah, I think pretty much just canled because there's a few. So, it's just it's just bloating the phase one section a little
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: bit.
+Kobi Kunasekaran: Yeah, it's a good idea that we would keep adding so many tickets in
+Taryn Reithofer: Oh my god,
+Kobi Kunasekaran: here.
+Taryn Reithofer: there's so many. Okay. Okay. Am I good to send the um the document over for review the player and refer?
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Because they haven't they haven't even looked at operator and partner either.
+Kobi Kunasekaran: I think so.
+Taryn Reithofer: So I think just send it over and then I mean as I go I can still edit it.
+Kobi Kunasekaran: Yeah. Yeah. Yeah, it's fine. I I think I think it look it's good.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: That looks like it's it's it's all like there. So, um if they have feedback, we can work through it through the feedback.
+Taryn Reithofer: Yeah. Okay. Cool. Yep. That's all cleared on my end then.
+Kobi Kunasekaran: All right.
+Taryn Reithofer: Everything you've answered everything. I think there's just a couple outstanding assault ones that I'll bump them to you in Slack uh once I get back to
+Kobi Kunasekaran: Okay, sounds good. And I'll try to get through the review queue as well.
+Taryn Reithofer: it.
+Kobi Kunasekaran: I know that that list is also getting uh huge, but uh try to power through that too. All right, guys. Okay, have a good day. Talk to you later.
+Taryn Reithofer: You too. Bye.
+Cedrick Infantado: Okay,
+Kobi Kunasekaran: Bye.
+Cedrick Infantado: thanks so
+
+
+Transcription ended after 00:38:15
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

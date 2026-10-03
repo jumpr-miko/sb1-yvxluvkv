@@ -1,0 +1,306 @@
+{
+  "id": "10525",
+  "key": "WAGR-388",
+  "fields": {
+    "statuscategorychangedate": "2026-09-21T14:08:22.622-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10519",
+      "key": "WAGR-382",
+      "fields": {
+        "summary": "Operator and Partner relationships, and direct billing",
+        "status": {
+          "description": "The issue is open and ready for the assignee to start work on it.",
+          "name": "Open",
+          "id": "1",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "Normal",
+          "id": "3"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 2,
+      "isWatching": false
+    },
+    "created": "2026-09-14T13:22:51.283-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10023",
+        "type": {
+          "id": "10000",
+          "name": "Blocks",
+          "inward": "is blocked by",
+          "outward": "blocks"
+        },
+        "inwardIssue": {
+          "id": "10521",
+          "key": "WAGR-384",
+          "fields": {
+            "summary": "Operator–Partner Relationship records created and deactivated from Deals",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.304-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2 data-local-id=\"6f72577bc4a0\">Outcome and context</h2><p data-local-id=\"7149f531d307\">The associated-partner and associated-operator counts on the Account header are derived by concatenating partner record Ids into a 255-character text field and counting the semicolons. Eighteen-character Ids plus a delimiter fill that field at about thirteen entries, after which the value truncates mid-Id and the count silently under-reports. The rollup has no criteria either, so a partner whose deals all closed years ago still counts as associated.</p><p data-local-id=\"a2dc32d1101b\">Neither problem is visible yet at 28 deals and four partners. Both become visible as the org fills up, and neither is fixable in the current shape — a distinct count is not something DLRS does. Once relationship rows exist, both numbers are just a count of rows.</p><h2 data-local-id=\"09459aa89408\">Current state</h2><ul data-local-id=\"d8a98e9f2ccb\"><li data-local-id=\"8203f43debab\"><p data-local-id=\"4e0ed056e7e9\"><code>Deals_Operator_Associated_Partners</code> — DLRS Concatenate Distinct of <code>Deal__c.Partner__c</code> into <code>Account.Associated_Partners_List__c</code> (Text 255), delimiter <code>;</code>, Realtime, no relationship criteria. Mirror rule <code>Deals_Partner_Associated_Operators</code> into <code>Associated_Operators_List__c</code>.</p></li><li data-local-id=\"6c13d794141c\"><p data-local-id=\"ff9166548fc9\"><code>Account.Associated_Partners__c</code> and <code>Associated_Operators__c</code> are <strong>formula</strong> fields counting semicolons + 1, so they cannot be the target of a rollup.</p></li></ul><h2 data-local-id=\"c6dc6dd9939d\">Proposed solution</h2><ol data-local-id=\"c37f7793eca4\"><li data-local-id=\"a81fc73d05fd\"><p data-local-id=\"6359e434e05f\">Two DLRS <strong>Count</strong> rules on the relationship object into Account — one keyed on Operator, one on Partner — with criteria <code>Status__c = &#039;Active&#039;</code>. The Operator-side rule also carries <code>Is_Direct__c = false</code>, so the shared Direct record is not counted as one of an operator&#039;s partners.</p></li><li data-local-id=\"63cd24c464b2\"><p data-local-id=\"345a32924f20\">Replace the formula count fields. A formula field cannot be a rollup target, so each has to be deleted and recreated as Number. To keep the same API names — and avoid touching the header components and any report or list view referencing them — <strong>erase the deleted field from the deleted-fields list before recreating</strong>; the name is not available until it is erased. Recreating under a new name is the fallback and costs a downstream sweep.</p></li><li data-local-id=\"9dbca666cba8\"><p data-local-id=\"c2c2453d6933\">Deactivate and remove the two Concatenate Distinct rules and the two list text fields once the new counts are confirmed correct.</p></li></ol><h2 data-local-id=\"1554f4cc53c0\">Acceptance criteria</h2><ol data-local-id=\"fe622ab1adec\"><li data-local-id=\"a8e45bc2dbc9\"><p data-local-id=\"4a33379a7890\">An Operator with twenty active partner relationships shows twenty.</p></li><li data-local-id=\"6d9eb1c51309\"><p data-local-id=\"6faef04376ef\">An Operator whose relationships are all Inactive shows zero.</p></li><li data-local-id=\"4ed7fb0fd5e7\"><p data-local-id=\"4ff6483796d7\">An Operator with a direct arrangement and two partners shows two, not three.</p></li><li data-local-id=\"6260f7df078c\"><p data-local-id=\"45a1f55e3623\">Deactivating a relationship reduces the Operator&#039;s count with no edit to the Account.</p></li><li data-local-id=\"b28d3408c3c4\"><p data-local-id=\"05ef2c527705\">The Account header and every report or list view that referenced the old count still resolves after the change.</p></li></ol><h2 data-local-id=\"815ae8d2cf7c\">Out of scope</h2><p data-local-id=\"cfdb8b309f02\">Whether the Direct partner Account should display an operator count at all — a display decision for Kobi, not a build change.</p><h2 data-local-id=\"428fdf437705\">Dependencies</h2><p data-local-id=\"569be3aceb3c\">Depends on <em>Operator–Partner Relationship records created and deactivated from Deals</em>.</p><p data-local-id=\"3eb2adcb347e\">Supersedes the associated-partner and associated-operator header rollups as originally built; link the earlier header-rollup tickets to this one.</p>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10345",
+        "filename": "Screenshot 2026-09-22 at 11.43.51 AM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-22T11:44:22.169-0400",
+        "size": 372190,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10345",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10345"
+      },
+      {
+        "id": "10346",
+        "filename": "Screenshot 2026-09-22 at 11.44.09 AM.png",
+        "author": {
+          "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+          "emailAddress": "taryn@jumpr.io",
+          "displayName": "Taryn Reithofer",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-22T11:44:22.512-0400",
+        "size": 363583,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10346",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10346"
+      }
+    ],
+    "summary": "Rebuild the associated partner and operator counts from relationship records",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11267",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"03afb2232425\"><span data-local-id=\"b2dd5ec2-ffbf-42e2-a7e7-978d268cc210\" data-type=\"mention\" data-user-id=\"712020:e303283b-a074-400e-9470-8d704ea7427d\">@Taryn Reithofer</span> Assigning this to you as you worked on the initial Associated Partners/ Operators counts on the respective pages. With the new junction object from this epic, the count should be from the junction records as opposed to the current method of concatenating the distinct operators/partners. </p>",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-17T13:53:45.636-0400",
+          "updated": "2026-09-17T13:53:45.636-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "11287",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<figure data-local-id=\"139610339c1f\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"610\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"0c53aa95-846d-4543-9055-20aa1e061f12\" data-alt=\"Screenshot 2026-09-22 at 11.43.51 AM.png\" data-width=\"2503\" data-height=\"744\"></div></figure><figure data-local-id=\"88c18b4cccae\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"610\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"e63b4ed6-533c-4bda-92db-1f76821c420a\" data-alt=\"Screenshot 2026-09-22 at 11.44.09 AM.png\" data-width=\"2494\" data-height=\"735\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-22T11:44:22.909-0400",
+          "updated": "2026-09-22T11:44:22.909-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 2,
+      "total": 2,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002v3:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-382"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

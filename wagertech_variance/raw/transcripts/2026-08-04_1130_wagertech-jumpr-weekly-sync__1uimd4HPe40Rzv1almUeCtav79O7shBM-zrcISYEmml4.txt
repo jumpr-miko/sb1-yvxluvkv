@@ -1,0 +1,773 @@
+📝 Notes
+Aug 4, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited Marc Cabantog lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi strah@wagertech.bet strahinja.vladetic@gmail.com Miko Sumagang Taryn Reithofer
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+The team reviewed integration plans and fraud detection tools for the project while deciding to delay the launch.
+
+System Integration and Payouts
+Content Management System and Salesforce integration workflows were reviewed. A manual payment tracking checkbox was adopted to replace complex automated payout generation for Phase 1.
+
+Cloud Platform and Fraud
+Discussions covered Google Cloud Platform integration for file management and automated fraud detection via email analysis. These features aim to enhance security and operational efficiency.
+
+Revised Project Timeline
+The mid-August launch deadline was identified as unfeasible due to recent scope expansions. Efforts will prioritize building system functionality over meeting initial project timelines.
+
+
+Decisions
+Needs Further Discussion
+* CMS and Salesforce integration discussion CMS and Salesforce integration design regarding rep assignments requires further internal review and discussion before finalization.
+
+
+Aligned
+* Player ID ownership responsibility Responsibility for player ID, deduplication, and cleaning is assigned to the CMS team to ensure consistent data processing.
+* Payment tracking field added Payment tracking capability will be added via a 'payment sent' checkbox on the signup record operations view in Salesforce.
+* GCP proof of concept approved GCP proof of concept development is approved, with file and folder structure details to be refined as an iterative process.
+* Fast follow approach for API integration The API integration for the welcome email process is designated as a fast follow effort rather than a Phase 1 deliverable to prioritize immediate testing.
+
+
+Shelved
+* Payout code implementation deferred Implementation of a payout code field in Salesforce is deferred until the broader payouts object functionality is developed.
+* Ops cost formula postponed Implementation of the ops cost calculation formula is postponed until additional information regarding requirements is available.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Emily Vandenberg] Flag Comments: Identify and highlight specific comments within the documentation for Kobi to review.
+* [Emily Vandenberg] Schedule ID Meeting: Book a time to discuss player ID and associated cleanup processes.
+* [Kobi Kunasekaran] Define Cost Formula: Retrieve notes and provide specifics on the operations cost calculation formula.
+* [Emily Vandenberg] Review Scope: Examine the detailed scope document regarding CMS integration and provide feedback.
+* [Joyce Kiddell] Resolve Process: Determine the appropriate division of responsibilities between CMS and Salesforce for deal rep assignment.
+* [Kobi Kunasekaran] Provide Feedback: Review remaining feedback on the deal rep integration and communicate findings.
+* [Emily Vandenberg] Clarify Timeline: Provide a clearer rollout plan for phase 1 by next week.
+* [Kobi Kunasekaran] Update Design: Incorporate planned CMS changes into the technical design document.
+* [Kobi Kunasekaran] Update Permissions: Add the specific level of Google Drive permission requirements to the project documentation.
+* [Kobi Kunasekaran] Confirm Resourcing: Assess current internal staffing and report back on the project development sequencing plan.
+* [Kobi Kunasekaran] Manage Access: Coordinate with Emily to obtain the necessary Google Workspace service account credentials for API access.
+* [Joyce Kiddell] Review Documents: Complete the review of all outstanding project documentation.
+
+
+
+Details
+* Meeting Agenda and Progress Update: Emily Vandenberg opened the meeting with an agenda covering the payout code, Content Management System (CMS) and Salesforce integration, Google Cloud Platform (GCP) scope, fraud detection tool integration, and project timelines (00:00:26). The team discussed recent progress, noting that survey link click data is successfully flowing through; however, work remains to resolve player ID processes and finalize survey completion (00:01:43).
+* Payout Code Definition: Kobi Kunasekaran queried the necessity of the payout code field for Phase 1. Emily Vandenberg clarified that the public relations document requires the system to support payout structures and reporting, though they are not looking to execute payments directly through Salesforce (00:04:17). Joyce Kiddell noted that while a matrix for payout calculations exists, the team had not fully discussed the batching workflow for this phase (00:05:19).
+* Phase 1 Payout Approach: The group decided to table the full payout code generation and complex workflow for a future phase (00:06:57) (00:12:20). Instead, Lina Ceniccola proposed adding a "payment sent" checkbox to the operations view of the signup records, which would allow the team to track payments manually without implementing a complex automated system for Phase 1 (00:08:25). Kobi Kunasekaran confirmed this approach is straightforward and will be implemented (00:11:27).
+* Operational Cost Calculation Formula: Kobi Kunasekaran raised the issue of the operational cost calculation formula, which was previously slated for Phase 1. Kobi Kunasekaran committed to reviewing internal notes to determine what specific information is required to support these fields and will follow up with the team (00:12:20).
+* CMS and Salesforce Integration Overview: The team reviewed the integration between Salesforce and the Content Management System. Kobi Kunasekaran noted that the direction has shifted to sending all Salesforce data into the Content Management System (00:13:42). Joyce Kiddell explained that the pivot involves providing sales representatives with options in the Content Management System to choose from, rather than a rigid one-to-one link assignment in Salesforce, to accommodate flexibility when multiple links exist for a single deal (00:15:07).
+* Deal and Representative Assignment Workflow: Emily Vandenberg and Lina Ceniccola discussed that representatives may switch links on the same deal, so the system must support multiple link access (00:18:29). Kobi Kunasekaran outlined the proposed workflow: deal configuration and link management occur in Salesforce, and the data is sent as a payload to the Content Management System, where the actual assignment of a representative to a specific link is managed (00:21:04).
+* CMS Integration Scope Review: Joyce Kiddell identified a need to further discuss how this workflow impacts the overall view for Owen, who manages deal assignments (00:21:04). Kobi Kunasekaran confirmed that the current integration scope, which requires building new API callouts, is significantly larger than the initial plan, which focused only on Salesforce UI management (00:23:21). Waleed Alasadi added that a custom engine is required to facilitate communication between Salesforce and the Content Management System, as Salesforce lacks a native API engine for this (00:24:31).
+* CMS versus Salesforce Functionality: Waleed Alasadi questioned why the Content Management System is used for assignment management instead of Salesforce. Joyce Kiddell explained that the Content Management System must interface with external systems that display links in dedicated websites for end-users, necessitating the split process (00:27:23). Kobi Kunasekaran suggested that if the Content Management System is being rebuilt, an API endpoint could potentially allow Salesforce to drive assignments, though this would increase scope on both ends (00:28:19).
+* Development of Link and Deal Objects: Kobi Kunasekaran proposed starting the construction of the link object and fields in Salesforce immediately to visualize the data model, working in parallel to avoid waiting for the final specifications. The team agreed to review the current documentation and loop back before proceeding with this development (00:30:45).
+* Timeline for Phase 1: Emily Vandenberg acknowledged that the August 15th deadline for Phase 1 is not feasible due to recent scope additions and technical delays (00:32:51). Waleed Alasadi suggested focusing on getting users into Salesforce as soon as possible to build familiarity, phasing in features rather than delaying the go-live indefinitely (00:33:58).
+* Testing with Real Data: The team discussed the goal of testing with real data the following week. Emily Vandenberg noted that the websites are not yet live to feed data into the API, causing a delay (00:34:54). Kobi Kunasekaran stated that testing the signup process is possible if both the Content Management System and Salesforce share the same operator and partner lists, though assigning signups to deals might require a manual interim process (00:36:57).
+* Google Cloud Platform (GCP) Proof of Concept: Kobi Kunasekaran described the proposed GCP integration, which aims to replace the current link-pasting process with an upload button in Salesforce that automatically saves files to Google Drive and tags them appropriately. The design is intended to be decoupled from architectural decisions and could support automated fraud detection in the future (00:42:12) (00:44:51).
+* Security and Data Privacy in Google Drive: Joyce Kiddell emphasized that representatives should only have visibility over their own proofs, requesting a "walled garden" approach for the folder structure (00:45:49). Kobi Kunasekaran confirmed that Google Drive folder permissions are handled outside of the Salesforce integration and that mapping logic is required to ensure files are saved to the correct, restricted folders (00:46:54) (00:53:08).
+* Future Folder Structuring and Workspace AI: Waleed Alasadi suggested using Google Workspace AI to manage file movement, which would offer more flexibility than hardcoding folder structures. Joyce Kiddell expressed concerns regarding the practicality of this for representatives without email addresses and suggested sticking to the proposed folder structure for now (00:49:01).
+* Next Steps for GCP Integration: Kobi Kunasekaran requested a service account to access Google Drive to begin building the necessary API callouts. Kobi Kunasekaran committed to checking internal resourcing to determine if the team can begin this work alongside the Content Management System integration and will update the team accordingly (00:51:16) (00:55:12).
+* Fraud Detection Tool Introduction: Joyce Kiddell introduced a fraud detection tool being developed by another vendor for the welcome email stage. The process will involve having players forward welcome emails from the operator to a shared inbox for analysis (00:57:04).
+* Welcome Email Automation Workflow: Joyce Kiddell explained the technical setup for welcome email broadcasts, which involves using a centralized inbox with aliases for representatives, such as "welcome plus emily at usabilo dot com". The current process involves forwarding a copy of the welcome email to run automated checks, writing the results to a Google Sheet, notifying representatives via WhatsApp, and forwarding the email to the representative's actual inbox (00:58:05). Kobi Kunasekaran confirmed that this workflow applies to affiliate signups and verified that the process occurs after the signup record is created (00:59:25).
+* Phase Two API Integration: Joyce Kiddell and Kobi Kunasekaran discussed the transition to phase two, which will involve storing results from the Google Sheets directly against individual player records via an API (00:58:05). Joyce Kiddell noted that they will own the code and that building an endpoint for this connection will be required (00:59:25). While Joyce Kiddell plans to begin testing the initial phase later in the week, they clarified that a formal discussion regarding the API connection will only occur once they have confidence in the system's performance, a process they expect to take a few weeks (01:00:27).
+* User Testing and Documentation: Joyce Kiddell emphasized the importance of getting actual users to interact with the UI to ensure the signup flow functions correctly, even if they must use test data. Acknowledging that they had become a bottleneck, Joyce Kiddell committed to reviewing all remaining documents during the afternoon. Emily Vandenberg reported that many questions in the open document have been closed and noted that a meeting is scheduled for the following day to review additional objects that still require feedback (01:01:24).
+* Project Timeline and Status: Emily Vandenberg and Kobi Kunasekaran aligned on the understanding that the project will not meet the mid-August launch deadline. Kobi Kunasekaran confirmed that they would continue development work on ASA and prioritize reviewing feedback from Emily Vandenberg to get a working system in front of users as soon as possible. The team agreed to continue working toward a functional product before establishing further timelines (01:01:24).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 4, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:26
+
+Emily Vandenberg: Hello.
+Kobi Kunasekaran: There we
+Emily Vandenberg: Is it just us? We can jam out if you want.
+Kobi Kunasekaran: go.
+Emily Vandenberg: I have some agenda items, too.
+Kobi Kunasekaran: Yeah, there was a lot of comments.
+Emily Vandenberg: Um
+Kobi Kunasekaran: I haven't uh had a chance to go through all of them yet. So, if uh there's anything anything in particular, uh I need you to flag those.
+Emily Vandenberg: Okay. Yeah. So, the things the kind of like major things on our end I want to talk through the payout code which was like within your kind of let's like pull up and go through the um remaining phase one items. Payout code is one. I think we've gotten most of your questions answered. Um but yeah, we will we'll kind of unblock anything that's needed. CMS and Salesforce scope. Let's just bust into that. Few questions around GCP. Um and then Joyce will like at the end speak to kind of like start the conversation on like the fraud detection um tool and integration and then we can also kind of just like um kind of acknowledge timeline at the end we can have that conversation.
+
+
+00:01:43
+
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: Um, just trying to think. I think that that is the major major items. Joyce, we had a good kind of review with straw essentially. We're kind of like green star on the survey link click data coming through. Um, we need to talk about the player ID on our end, so we'll kind of take that away. But then STR still needs to finish survey completion. Um, and a little bit of work on Kobe's Zen, too. But to get that survey link click flowing through it was a win.
+Kobi Kunasekaran: It's looking
+Joyce Kiddell: That's great.
+Kobi Kunasekaran: good.
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Is draw on the
+Emily Vandenberg: No, he did.
+Joyce Kiddell: call.
+Emily Vandenberg: I just told him he did like could save time. Um, but do you want him? I could I can bring him in.
+Joyce Kiddell: No, no. I was just wondering if we like hang back and talk some about the player ID stuff, but maybe later.
+Emily Vandenberg: Yeah, we'll book we'll book something.
+
+
+00:02:46
+
+Joyce Kiddell: Okay.
+Emily Vandenberg: We need to resolve it on our end, but what we kind of lean towards is like we own player ID um and dduping and cleaning and making sure we're always passing one through from the CMS. Excuse me.
+Kobi Kunasekaran: Yes,
+Emily Vandenberg: Um, all
+Kobi Kunasekaran: we can get started. Um,
+Emily Vandenberg: right.
+Kobi Kunasekaran: I think lead is probably in should be joining shortly, but I can get him caught up afterwards.
+Emily Vandenberg: Perfect.
+Kobi Kunasekaran: Uh okay. So where do you want to start? So payout code um so payout code basically like um it was one of the fields that we added onto the uh onto the records but um I don't think we had a full definition of what the uh what the automation is. It sounds like there's a lot of prerequisites for it. So, is this something that's necessary for phase one or do we leave it out for now and then come back once we have all of the uh like everything that we need to put together the payout code? I think that's all like basically like we're trying to get at from our end.
+
+
+00:04:17
+
+Emily Vandenberg: like I went back through the PRD and then I was like kind of like looking at some of your comments and my for me it was like the PRD kind of clearly stated that we it needed to support the structure like payout structure and reporting um and like my kind of takeaway was like we're not looking to like execute payment through Salesforce, but we need to be able to push through as like a status or like flow the payments cycle. Um, and then obviously report on it as well. So that's I was like, is this what we mean by payout code is like this what the connective tissue for all of that. Um, Joyce, I I'll leave it to I know you're a bit more close on it and what you were thinking there, but my feeling is that it we have to account for it in phase one.
+Joyce Kiddell: Yeah, unless like with all like the sign up data coming in could be like retroactively apply
+Kobi Kunasekaran: like from the from the PRD like as I understand it the pay payout code is essentially
+
+
+00:05:19
+
+Joyce Kiddell: Man,
+Kobi Kunasekaran: uh just a status to know if the signup can be paid out but like there's no like I think it's was referring to a formula But I don't know if there was actually a formula to do except that oh guys
+Joyce Kiddell: there's a matrix.
+Kobi Kunasekaran: see the matrix.
+Emily Vandenberg: Cuz
+Joyce Kiddell: This is
+Emily Vandenberg: without the payout code, do we have like the concept of like what's been paid versus what's pending?
+Joyce Kiddell: No. And like there's that whole workflow, right? Um where it's like people are batching and then can ring into payout. It's like that's Yeah. We we hadn't really discussed that being part of this phase, but it's still necessary
+Emily Vandenberg: Okay. So it would just like be like we would just be able to report
+Joyce Kiddell: work.
+Emily Vandenberg: on signups completed and then like manually like phase one you're thinking manually handle um the process on our end and then push like push it back after the
+Joyce Kiddell: I would rather treat payouts as like you know how we're moving to redeposits and then we're going to move to payouts
+
+
+00:06:57
+
+Emily Vandenberg: act.
+Joyce Kiddell: next. It's like what if we can handle all of just the payout related work at that stage I think that makes more more sense like sorry with the pale code I wasn't sure if we were talking like just like kind of saving some data with the signups as they were coming in and then like just minimally doing that and then revisiting the whole flow but looking at the comment it looks like it was speaking to like the whole getting kaboodleoodle and I think we saved
+Kobi Kunasekaran: Okay. I I'm I'm good with that. So like we don't necessarily need a field or anything to keep track of it on the Salesforce side for now and then we revisit it as part of implementing the payouts
+Emily Vandenberg: Now, okay.
+Kobi Kunasekaran: object.
+Emily Vandenberg: So if I think if do we want to handle it in any way even if it's like an import of like because we're going to have to take the data out of Salesforce to like know how to pay and model it but then do we want to like even be able to like kind of upload what has been paid so that we like once we launch we kind of have record um of those signups in Salesforce like cuz it'd have to be tagged right as paid.
+
+
+00:08:25
+
+Emily Vandenberg: If not, they will just kind of sit there open and when we do launch payout, we'll have a bit of a of a gap in our data set.
+Joyce Kiddell: Oh, look at Slack.
+Emily Vandenberg: What's that?
+Joyce Kiddell: I just sent you some contacts on Slack.
+Emily Vandenberg: Okay.
+Lina Ceniccola: like creating the payout I mean flow is just going to be like the same thing as redeposits you're saying like just another thing we have The design. Yeah.
+Emily Vandenberg: Okay. So for phase one, we don't need to solve for anything.
+Lina Ceniccola: The only thing I would think to add would be a potential field on the signup record to say like payment sent like a like a button. I'll discuss that Joyce and Emily,
+Kobi Kunasekaran: Uh
+Lina Ceniccola: but I just I wanted to throw that out before um while I'm just thinking about it here. Just uh
+Kobi Kunasekaran: just like cross off that like the signup record has and paid in
+Lina Ceniccola: if
+Kobi Kunasekaran: Salesforce,
+Lina Ceniccola: Yeah. Cuz like the most the for a sign up level, it's like okay,
+
+
+00:09:55
+
+Kobi Kunasekaran: right?
+Lina Ceniccola: you you send out money for the sign up. you you want to track that it was paid out to that person. Um I mean when you put the deposit info, it's really kind of like a from our end that's when the money has been sent and you're writing down okay $60. But if we could have it's an easy ad to just have an extra check box.
+Kobi Kunasekaran: Let's
+Lina Ceniccola: That's um besides the deposit that says
+Joyce Kiddell: Yeah.
+Lina Ceniccola: uh each transfer sent you can click it helps tracking that can just flow
+Kobi Kunasekaran: do
+Lina Ceniccola: into this whole payout calculation logic and then the next level would
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: that.
+Lina Ceniccola: be paying out the referrals and all of that that accumulates. And then rate deposits are kind of a different thing when it comes to payouts cuz it's
+Kobi Kunasekaran: What's this?
+Lina Ceniccola: like that would be another kind of checkbox situation where it's just like payment sent payment sent payment sent. So, cuz right now we have a sheet to manage bank transfers for every sign up that's sent out and then we have another sheet to trans to manage the referral payments for all those payments sent out.
+
+
+00:11:27
+
+Lina Ceniccola: So,
+Joyce Kiddell: Yeah,
+Lina Ceniccola: yeah.
+Joyce Kiddell: I think if the checkbox is like quick and dirty like that totally makes sense just to like close the loop for the rep who's testing. Um, and then we definitely just need to have like I think a bigger solutioning meeting around like how we're handling the payout. Like I in the purity we definitely have it like in more of an abstract sense of like we know that there has to be like batching and then like kind of like checking off whether it's done or not. But I don't think we've fully or I haven't fully thought through like the different types of payouts and how they will kind of merge into this funnel. So, it just requires more discussion in my
+Emily Vandenberg: Okay. So, you're you're
+Joyce Kiddell: mind.
+Kobi Kunasekaran: Yeah. So, from a Salesforce perspective,
+Lina Ceniccola: Yeah.
+Emily Vandenberg: Kobe.
+Kobi Kunasekaran: like we'll we can add that checkbox. It's pretty straightforward. Um, we'll add it to the ops view um for signup records for payment sent.
+
+
+00:12:20
+
+Kobi Kunasekaran: Um,
+Lina Ceniccola: Heat.
+Kobi Kunasekaran: and we'll table the bigger conversation around actual payout code generation for later. That works for me.
+Joyce Kiddell: Thank you.
+Kobi Kunasekaran: Um, okay. So, the next one we want to talk about the ops cost calculation formula. I think this one I don't think we have all the information for this yet either, right? Is this something that we want to approach similar to PR code uh at a later phase or is this something that we want to add in as part of phase one?
+Emily Vandenberg: We had talked about adding it to phase one in one of our sessions, but I just didn't know what you were missing for the calculations and the formulas.
+Kobi Kunasekaran: Um, let me go back on my notes and get back to you with like the specifics of like what we have right now and what this could look like with the information that we
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: have.
+Emily Vandenberg: whatever you need like we'll kind of get it over to
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: you.
+Kobi Kunasekaran: I think if I remember correctly, we were just going to add some fields to support this, but yeah, I'll have to go back to my notes and I'll get back to you.
+
+
+00:13:42
+
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Um, okay. Do we want to talk about the um the deal wrap EMS integration uh portions next? I I don't know if there's anything else specific like I'll have to go through the rest of the feedback and I can get back to you on those uh afterwards, Emily. But uh we can tackle the big pieces now and get that out of the way.
+Emily Vandenberg: Yeah, the deal rep or like the full kind of like CMS.
+Kobi Kunasekaran: The CMS integration. I mean that's kind of like that's the direction we're going now.
+Emily Vandenberg: mess.
+Kobi Kunasekaran: We started with DRF assignments and logic and now we're just talking about um all the Salesforce data going into the CMS.
+Emily Vandenberg: Yeah. So, I think like um if you want to pull up, you have the the more granular Yeah. Doc. Um, I think if we kind of scroll down, like I know there's a lot of detail here, but like where I've kind of commented up above Joyce. I think just like making sure we're kind of all aligned here.
+
+
+00:15:07
+
+Emily Vandenberg: Um, so this is kind of based on the like Yeah, I think it was last Tuesday when we met and what we kind of got went through, but then I know our conversation with Owen on Thursday, Joyce, I think changed this slightly. So just like an alignment
+Joyce Kiddell: Where do we think it's
+Emily Vandenberg: Um,
+Joyce Kiddell: misaligned?
+Emily Vandenberg: so published Salesforce pushes a deal and its links to the CMS uh where they become options to choose from.
+Joyce Kiddell: Yeah. All
+Emily Vandenberg: I thought we moved to like we're actually like assigning at a rep level into the CMS into
+Joyce Kiddell: right.
+Emily Vandenberg: Salesforce.
+Joyce Kiddell: So where that came from is in the CMS today. There's no master view for us to be able to like manage like the all of the reps in one spot and all the links and who has access to what link. So, if can you pull up the deal uh page right now that you have built in
+Kobi Kunasekaran: Uh,
+Joyce Kiddell: Salesforce?
+Kobi Kunasekaran: yep.
+Joyce Kiddell: So, I think what we were kind of pivoting towards is still um having like a concept of rep assignment in Salesforce, but it's more like providing um the reps with options for people to choose from.
+
+
+00:17:09
+
+Joyce Kiddell: um and correct me if I'm wrong, but it was more like if they um if there's like multiple links that they could potentially have access to um in a given deal, right? Like if Alli had like two links within a deal that they could have access to, those two then still become the options on the CMS side, but it's not always going to be like a onetoone and that like the rep assignment that we provide here is like one link and then they only have one link that they're turning off and on in the CMS. We wanted to give them flexibility,
+Kobi Kunasekaran: Let's
+Joyce Kiddell: right?
+Emily Vandenberg: Um,
+Kobi Kunasekaran: go.
+Emily Vandenberg: typically like a rep for a deal wouldn't have more than one link, but they like to maintain it like they might get moved around from time to time but it would be managed on Salesforce so it' be like updated in that master like Salesforce and then that would be show available in the CMS then there will be rep sharing so like multiple
+Joyce Kiddell: Mhm.
+Emily Vandenberg: assignment to a link um but Lena am I I'm correct in saying right that there will be like typically a rep would have multiple links per
+
+
+00:18:29
+
+Joyce Kiddell: not active,
+Emily Vandenberg: feel
+Joyce Kiddell: but like would they have the ability to be assigned to I guess multiple
+Lina Ceniccola: be assigned to multiple
+Emily Vandenberg: length.
+Joyce Kiddell: links, affiliate links?
+Lina Ceniccola: per deal.
+Joyce Kiddell: Yeah. like not actively assigned but there could be multiple links that they have access to. I think this is just something sorry I yeah the way that we talked about it briefly in the me in the like offsite that we had like I changed the mockup for like five minutes m and then we didn't really like further discuss it but I think what you're you're saying is like we just do one to one
+Emily Vandenberg: Yeah,
+Joyce Kiddell: Yeah.
+Emily Vandenberg: I mean that's Yeah, like they're they're they can in their lifetime have like one to
+Lina Ceniccola: Yeah, there's a potential for them to switch to a different link on the same
+Emily Vandenberg: Okay.
+Joyce Kiddell: Yeah.
+Lina Ceniccola: deal.
+Joyce Kiddell: And in my mind, I keep thinking like that should happen on the CMS side because like for lack of needing to bring in more people onto the Salesforce view, right?
+
+
+00:19:48
+
+Joyce Kiddell: But like we're adamant that it's only Owen and potentially like one other person that changes this stuff. So if that's the case, then it just is a bit clunkier
+Lina Ceniccola: Mhm.
+Joyce Kiddell: in my mind in the current Salesforce state.
+Emily Vandenberg: Okay, maybe we just like give you the like some time to just like go through where we landed, play, and then like loop back on
+Joyce Kiddell: Yeah,
+Emily Vandenberg: this.
+Joyce Kiddell: we just have to rethink the UI then I guess like because we're talking about basically just bringing the rep assignments back into Salesforce like there's no change there
+Kobi Kunasekaran: Yeah, like last week we spoke uh in a nutshell what we were trying to do is um in terms of workflow um you have your managers or ops or Owen like whoever configures a deal they go into Salesforce create the deal record um which would be like this deal record with like the combination of partner uh country, state, vertical, all of that fun stuff. And then uh they would have a button similar to this, not exactly this to add the links which uh which are going to be just another list of related like links that they would add to the deal.
+
+
+00:21:04
+
+Kobi Kunasekaran: And so we would then send the deal and all of the uh links that they add or the link code uh into associated to the deal as like one payload uh again this is
+Joyce Kiddell: This is Yeah.
+Kobi Kunasekaran: all like pending how you configure your API endpoint. But we would send a payload of the deal configuration and all the links uh to CMS and then in CMS you would uh associate or add the deal rep assignments. So, choose the rep, choose the link from the deal, um, and choose the deal, uh, and do the assignment on the CMS side. And that gets pushed back to Salesforce. And Salesforce will then create and maintain these records based on what we're getting from the CMS.
+Joyce Kiddell: I think the only thing that's missing if we do it that way that like Emily was like explaining to me
+Kobi Kunasekaran: Um,
+Joyce Kiddell: last week is that we um I guess it would update in table, but I just need to understand I think like how Owen looks at like the overall view and then like makes decisions.
+
+
+00:22:17
+
+Kobi Kunasekaran: overall view of like for this particular deal or further
+Joyce Kiddell: Yeah. For like who he's assigned to what. Like I know it's an air table. Um anyway, I I just need to not confirm right now.
+Kobi Kunasekaran: that
+Joyce Kiddell: I think I need to have a separate discussion. I'm sorry to keep drawing this
+Emily Vandenberg: Yeah. Okay. So, I think there Kobe is just like I know you were like looking for kind of feedback.
+Joyce Kiddell: out.
+Emily Vandenberg: It's in our court. We will Joyce will kind of like review confirm. I know we've kind of taken it a decent way through here. The only other question I had around the increased or the like effort kind of estimate that you provided. Is that like pull ahead scope or is that like considered kind of like net new additional scope from the
+Kobi Kunasekaran: I think the soul like dealrep integration or or CMS integration in general
+Emily Vandenberg: deal?
+Kobi Kunasekaran: is a pretty big build that we're adding uh in addition to like the payouts objects and everything that we had queued up right um we hadn't talked about like a twoe integration like this initially we just scoped out the study link clicks coming into Salesforce.
+
+
+00:23:21
+
+Joyce Kiddell: Stop.
+Kobi Kunasekaran: Um, and then a lot of the like the deal rep assignments and everything would happen within Salesforce and it mirrors what you have in your spreadsheet and the point was to consolidate the air table and spreadsheets together. Um, but a lot of this is going to be net new from the
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: overall plan.
+Emily Vandenberg: Yeah. I was just chatting with Leandro this morning. I was like, I can't confirm if this is like additional scope or if pull if it's pull ahead. So, that's fine.
+Kobi Kunasekaran: Like some of it, some of it is like we are pulling ahead like the whole concept of like deal rep management but the integration specifically like the API callouts and stuff that is a lot of that is new from what we initially discussed and will you correct me if I'm wrong like I think that's how like the initial plan of like the base breakdown it didn't factor in like a full-on integration like this it was
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: just the user interface and management and assignments and everything within Salesforce itself
+
+
+00:24:31
+
+Waleed Alasadi: Yeah, correct. It was just the incoming kind of API connection.
+Emily Vandenberg: Yep.
+Waleed Alasadi: Uh, and just kind of to be clear, the reason is Salesforce doesn't have like a native um engine or API engine.
+Emily Vandenberg: Okay,
+Waleed Alasadi: I really don't know what you call it. So it has to be kind of built specifically um to to talk to your CMS.
+Emily Vandenberg: that makes sense. Um, okay. Yeah, that let us get back to you on your kind of like detailed scope doc
+Waleed Alasadi: Um can I can I ask a question um just like on on the side here?
+Emily Vandenberg: there.
+Waleed Alasadi: Um, I guess I'm struggling to understand, and I'm sure you have your reasons, but I'm struggling to understand why would Owen log into the CMS to manage a lot of the assignments and the views and not Salesforce itself.
+Emily Vandenberg: I I can go.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: My my opinion is like where we're leaning to is you likely won't like we're
+Waleed Alasadi: That's
+Emily Vandenberg: trying to we would push it through Salesforce but activation like from an active like turning on and off there's a lot of movement and the interface and kind of how that deploys um is where he they'd be kind of like air traffic controlling is through the CMS.
+
+
+00:26:10
+
+Emily Vandenberg: So the setup and config is like Salesforce. The onoff CMS.
+Joyce Kiddell: But like why wouldn't I think I'm kind of aligned with bull where it's like why why wouldn't we just do the onoff in Salesforce too? Like do more people do on off piece than just knowing?
+Emily Vandenberg: Yes. Expanded. And we just like said the UI was much better.
+Joyce Kiddell: Yeah. Yeah.
+Waleed Alasadi: the the reason for my question is um soon at one point 6 months 8 months four months however you take it on Salesforce will be your tool right and you won't have outsiders like us kind of working in it but also So you will have the ability to like make changes like very quickly like once you
+Kobi Kunasekaran: Yeah.
+Waleed Alasadi: become fluent with Salesforce. Um, adding objects, adding fields, creating automations um will be something that you're able to do quickly and it will allow you to focus your resources on kind of your core product versus like the managing of um kind of the records that are being done with that could be done within Salesforce, but I'm I don't know exactly kind of like your product intricacies.
+
+
+00:27:23
+
+Waleed Alasadi: So, I'm trying that's why I'm trying to be careful about what I suggest. But just from as an outsider here, it seems that like a lot is being built here for visibility that could be just kind of singular or triangulated within here.
+Joyce Kiddell: So, it's not just visibility, right? Like where I'm getting tripped up is on the CMS side. It's actually tied to external systems that can figure things off and on in that like um or assigned or like the links that the reps have access to will show up in dedicated websites, right? So it's like we can't just configure that stuff within Salesforce in isolation. Like it's going to have to connect to something in order to actually like make the updates to what our end user sees being like the players who sign up,
+Waleed Alasadi: All
+Joyce Kiddell: right? Like if the the rep isn't assigned to a link,
+Waleed Alasadi: right.
+Joyce Kiddell: then it's not going to show up in their portal and then like we can't complete the actual like sign up or conversion flow.
+
+
+00:28:19
+
+Joyce Kiddell: But I am getting like like from day one I feel like I've been getting stuck on this whole like split between the processes. Um so
+Kobi Kunasekaran: Thank you for like like it sounds like we're like you you're rebuilding the CMS anyways right initially we like we
+Joyce Kiddell: yeah
+Kobi Kunasekaran: went under the assumption that whatever is in CMS is kind of not necessarily set it stone but we didn't want to make any large changes so it kind of made sense to have the split responsibility But if you're actively working on updating CMS anyways, uh I think to Elite's point, like could we not have an API endpoint to do the link assignment and activation that's driven either through the through your CMS UI, but in addition, it can also be driven through the API uh which Salesforce can potentially drive because it adds all the same information.
+Joyce Kiddell: There's other edge cases right now though or like not edge cases like functions that the CMS
+Kobi Kunasekaran: Anyways,
+Joyce Kiddell: serves. Uh yeah, I think it's just an internal discussion that we need to have in terms of like I'm still having this like identity crisis of like what is the purpose of CMS versus Salesforce.
+
+
+00:29:29
+
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: I mean that does add a lot of scope on both ends, right? So that's also a valid reason for not going through with that approach from day one. But uh it is worth having a
+Joyce Kiddell: Yeah, I think like if we had been able to kind of build both systems like from the ground up
+Kobi Kunasekaran: conversation.
+Joyce Kiddell: anyway, like there's just been stuff that was kind of like built on our end without us like properly scoping it like initially.
+Kobi Kunasekaran: Yes.
+Joyce Kiddell: So we're trying to like also kind of reverse engineer some stuff as we go.
+Waleed Alasadi: Okay, thank you for uh humoring us. It's just uh worth my chain.
+Emily Vandenberg: No, no, it's valid. Okay. Yeah. So, we'll we'll loop back to say the least.
+Joyce Kiddell: Yeah.
+Emily Vandenberg: Um, anything else, Kobe, that you wanted to on the deal deal?
+Kobi Kunasekaran: Um, no. So, I think right now where I'm at is um you'll review the document and then any any further changes that you're making on the CMS side, um, let's make sure to factor those in into the design before we make any changes.
+
+
+00:30:45
+
+Kobi Kunasekaran: Um, if it helps like I can start building out the I think I mentioned this in the talk already but the whole uh the link object and everything we can start building that uh right now if it'll help to kind of visualize what the data model looks like in Salesforce um and start putting in like the the fields and everything to capture the link code and the link URL and everything as we've kind of scoped it. Um, so we could kind of work in parallel. Um, so we're not waiting on the full spec or uh for everything. Um, but maybe it's it's still work. Like just take a look at the document and let us know if uh if that's still good or if we need to make any changes to that before you go ahead.
+Emily Vandenberg: Yeah, I think let's maybe just have kind of like we'll loop back and then we can
+Kobi Kunasekaran: Uh,
+Emily Vandenberg: decide from there. See how much it changes.
+Kobi Kunasekaran: Okay. Okay. So, yeah, I think other than that, the next next big topic is timelines.
+
+
+00:31:49
+
+Kobi Kunasekaran: How how this is going to affect our timelines for both UAT and collab. Um because this is going to add a lot of work to the
+Emily Vandenberg: I think
+Kobi Kunasekaran: implementation. Are you going to see
+Emily Vandenberg: yeah I think there was kind of two other things too which I guess what do we have we have
+Kobi Kunasekaran: something?
+Emily Vandenberg: 30 minutes still um we want to talk about GCP which I know we're kind of like posting that thereafter um for timeline, but we should make sure we loop back to that. And then fraud detection scope or just uh kind of like kicking open that discussion. Um we want to kind of pause and talk about timelines for phase one. I think like we're all in alignment that we're, you know, trending a bit behind just kind of like based on some of the new stuff that's come in on both sides, right? like there's been new scope added on this end. We're like kind of dealing with some other technology things that have slowed up our ability, you know, even to kind of like nail down um testing on the surveillance click, right?
+
+
+00:32:51
+
+Emily Vandenberg: So,
+Kobi Kunasekaran: Thanks.
+Emily Vandenberg: I think where we kind of landed in chatting through this internally before is like we know we're not we're not hitting August 15th. We still want to be pushing along to like the best of our ability, but we need to kind of like nail these kind of key things down and we kind of committed to like next week being a bit clearer on our end on like timeline on the on the kind of rollout plan. Um, we need to like land a few things on the agency site CMS this week as well that can contribute to kind of like, you know, when we can be really testing that survey link, click data, what we need to do with the CMS and Salesforce um, endpoints. I think those conversations will help us like dial in what's
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: realistic.
+Kobi Kunasekaran: Do we have like a like a target date that you want to go forward with including all of these changes knowing that it's not
+Waleed Alasadi: Maybe Kobe, sorry. Before you before you asked that question,
+
+
+00:33:58
+
+Kobi Kunasekaran: in stone?
+Waleed Alasadi: I I just kind of remember the conversation about like wanting to like really be adamant about going live in July and like when you guys were here, we talked about August. Um, so like ch change is going to be difficult of course like we run this with all the Salesforce implementations. So I'm wondering if there's a world where like we are able to get the users your your like sales reps into Salesforce maybe using the signup process at least um it's again going to be difficult because data is going to be in multiple places but at least we we get over the hump of getting on everybody in Salesforce getting them familiar with it and kind of going through it and as you kind of intended initially in phases we're able to look into obviously like every two three weeks however like we work we add more features u based on the feature. Um so it just gets better and better versus uh postponing the go live for for
+Kobi Kunasekaran: Take
+Waleed Alasadi: a long
+Joyce Kiddell: I think we can start that next
+
+
+00:34:54
+
+Kobi Kunasekaran: care.
+Waleed Alasadi: time.
+Emily Vandenberg: Like the goal will lead is like to have testing with like real you like with real
+Joyce Kiddell: week.
+Emily Vandenberg: process um next week not full roll out but like we don't have
+Waleed Alasadi: Yeah.
+Emily Vandenberg: the CMS and the websites aren't like even live yet to be able to plug into the API data right for us to even kind of start. So that's like the recognition of we we're causing some delay as well. Once we kind of like get that a bit more firmed up on our end this week, I think we can like better understand what that broader,
+Kobi Kunasekaran: It's
+Emily Vandenberg: you know, roll out might look like.
+Joyce Kiddell: Can I can I ask something though?
+Waleed Alasadi: Okay.
+Joyce Kiddell: Like are we able to start testing just like the sign up flow next week without
+Emily Vandenberg: But
+Joyce Kiddell: deal assignment?
+Waleed Alasadi: Are you asking jumper or wager back?
+Joyce Kiddell: Both I guess because there is dependency.
+Waleed Alasadi: We're We're ready.
+Joyce Kiddell: Yeah. And it seems like our API connection for leads or like the signup clicks is working,
+
+
+00:35:54
+
+Kobi Kunasekaran: What?
+Joyce Kiddell: right, Emily?
+Emily Vandenberg: Yeah, like we wanted Ally, right? Because that, right, to be able to kind of like mimic and whatnot.
+Waleed Alasadi: Okay.
+Emily Vandenberg: Um, we need to talk through that a bit more, but at least first phase, but his sites aren't set up yet. like right we don't have that kind of plumbed through but the goal when we were chatting with straw is like hopefully end of this week we're there next week we have real data that we can open up to Salesforce and then like really test that and the edge cases that come
+Joyce Kiddell: Yeah, because we can even like was it Andy and someone else that
+Emily Vandenberg: trail.
+Joyce Kiddell: we were going to do on Xenoflow like not even Alli's website?
+Emily Vandenberg: Got it.
+Joyce Kiddell: Yeah. So, we could potentially even just extend their testing like to see if it's like hitting in
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Salesforce, right? if we've connected that website anyway that yeah we can be ready I feel like in some capacity
+Waleed Alasadi: Um, Kobe, did I misspe?
+
+
+00:36:57
+
+Waleed Alasadi: I thought you were going to say
+Joyce Kiddell: right
+Kobi Kunasekaran: Um, so the signup process,
+Waleed Alasadi: something.
+Kobi Kunasekaran: so we just had a call with Straw about the whole uh SLC clicks coming through and the survey clicks. Um, and we talked about having Salesforce send the operator and partner IDs to CMS as well, so that you have the external IDs to send back into Salesforce. So, we might still need some some level of API work first before that that can work. Like, can we still make it happen without Salesforce sending data to CMS? We can. um if we just rely on like email addresses and operator names and things like that or if we just make sure both systems have the same data and ids um uploaded to both systems which we could do in the time being until we have the connection back from like connection from Salesforce to CMS. So in a nutshell like yes we can be ready from the sign up process um assuming we have uh like both CMS and Salesforce have the same operator and partner list um for players um CMS is generating the ID so I think that's okay um so we can go as far as creating like uh ingesting the signup clicks uh creating the signup records the whole signup workflows that we've kind of worked through the last couple weeks,
+
+
+00:38:34
+
+Kobi Kunasekaran: the the log buttons, um that entire process. Um what we won't necessarily have is those signups linking back to deals unless we decide on an interim process to create these uh deal rep assignments so that we can associate those signup records to the right player and the right deal. So either like if we want to do it without deal assignment like the API way of managing the deal assignment then we need to come up with a manual way to do it in the interim otherwise it won't be like the data won't be complete
+Joyce Kiddell: Yeah, I'm just kind of wondering even just like from the perspective of having like test dummy data going through like we could do some you know clicks on our end through the staging environ like um do we have like I thought we had a test version of one of the agency sites it like a sandbox.
+Emily Vandenberg: I think we can spin one up. We didn't end up going that
+Joyce Kiddell: Okay. Sorry,
+Emily Vandenberg: way.
+Joyce Kiddell: I'm like so like not like as close to this as I should be.
+
+
+00:39:39
+
+Joyce Kiddell: Um, but yeah, like I think just from a usability perspective and like get having like it doesn't have to be real data in my in my mind like if we're able to just like start having someone provide us with actual like feedback on like the user experience.
+Waleed Alasadi: Yeah, I think like I was just kind of hearing it out because if if you think with your tech team that it is sufficient uh the experience that Kobe described and like let's just say the manual rep assignments if you think that that is sufficient for kind of a phase one go live then I'm obviously testing with real data coming in kind going through that will be necessary and looking at the UI but then once we say like let's go for go live the activities we're going to focus on deployment to production training your employees um kind of whatever other activities around data migration so we go through that allows you time to kind of continue to consider the CMS design and how that interacts with Salesforce um and if we're doing that while you're go live then let's say like any other release that comes after that is going to be somewhat nom inal because it's just a release.
+
+
+00:40:50
+
+Waleed Alasadi: Here's the training video or here's how we launch it. Here are the changes and it becomes again um kind of an add-on after that. So, it's just important to consider what you think is sufficient for phase one now that you've seen kind of what we have.
+Emily Vandenberg: Yeah, let us take it away. I think like and all kind of points considering next week we can have a more meaningful kind of discussion around it. Okay.
+Waleed Alasadi: Yeah,
+Emily Vandenberg: So,
+Waleed Alasadi: it's obvious uh we're biased towards getting you live because I just like I'm just going to put it out there
+Emily Vandenberg: timeline
+Waleed Alasadi: that it's really hard. Like just changing systems is hard. So the the sooner that we get people in the system and getting into the new rhythm, I think um the faster the whole phase of like oh Salesforce is implemented and it's beyond us um can happen.
+Emily Vandenberg: Okay. Um, yeah, I think valid points. Think there's just I think there's just like a couple kind of big things that like let's just like wrap our heads around them and then go from there.
+
+
+00:42:12
+
+Emily Vandenberg: So, um I think if we like kind of move on Kobe to the GCP um scope that you kind of shared, I know you're looking for kind of approval and a proof of concept. Um, can you kind of give like the high like give a kind of highlevel summary of Yeah.
+Kobi Kunasekaran: Uh-huh.
+Emily Vandenberg: like kind of the of what you're needing to do or like this at this phase around the proof of concept or any kind of like big things that stood out as maybe needing discussion?
+Kobi Kunasekaran: Sure. Um yeah. So in a nutshell like the way we've deci designed the whole proof of uh like proofs and uh uploading that information um we've made it so that it can be decoupled from the actual architectural decisions. Right? So in in the signup records uh let me find one that is in progress. uh in the signup records we have these three link fields um where right now you can paste in the links and this will uh consider the proof as being uploaded. The idea was that whether they're uploading it uh straight into Dropbox right now or if they want to move to uploading it to Google Drive, they'll do the upload uh in whatever system it is and then get the link to the URL and put it in here.
+
+
+00:43:39
+
+Kobi Kunasekaran: Um same process as what you have right now with the spreadsheets. Um I mean same but like with the added benefit that this automates the whole uh completion percentages and everything for you once it's in Salesforce. Um so for the signup records this is still going to be the same. What ECP integration uh scoped out does is um instead of just having a place for you to put the link um we would essentially have a button that lets you uh upload the files from your computer and then um that will pop to Google Drive, save the file there, get the link back and paste it into uh into Salesforce. Um, so there's the individual uh upload links for each of these proofs and then we've also built it so you can also upload other files as we did. Um, and part of that integration is also making sure on the uh Google Drive side we're tagging uh those uploaded files accordingly. So if you're clicking on like a upload button for signup proof, it will uh tag on Google Drive side that it's a proof that's being uploaded.
+
+
+00:44:51
+
+Kobi Kunasekaran: Um there's like we also have talk about like the the folder structure in Google Drive. um how we how we actually do the uploads and everything. This is a lot of this is like up for uh discussion because I I think the long-term goal was that you want to be able to use this information to automatically detect fraud and everything as well. So that term will align on what that structure looks like, naming conventions and all of that. Uh but uh the overall design is just enabling that functionality. So without having to go to another tool to uh upload, copy the link and paste it here, the apps they they just work direct uh straight from Salesforce.
+Joyce Kiddell: So why do you need a proof of concept though instead of just like building it flat out that
+Kobi Kunasekaran: Um it's like because I think we're going to talk through what the interface and everything looks like.
+Joyce Kiddell: way?
+Kobi Kunasekaran: Um and this is the first time we're building an integration like this. So um the proof of concept is it's still the integration.
+
+
+00:45:49
+
+Kobi Kunasekaran: It's just making sure that we're able to get the files working. We're able to get the folder structure and everything working as we work out the details.
+Joyce Kiddell: So the folder structure the one thing that we discussed this morning is like um I think you brought in the idea of groups and would that imply that like reps would be able
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: to access each other's files or like have visibility over
+Kobi Kunasekaran: Um that depends on how Google Drive is set up. My assumption right now is that similar to Dropbox, if um if they have access to the overall folder uh in Dropbox, then yeah, they would be able to see other people's
+Joyce Kiddell: So the way that we want to structure it is very much like similar to their Salesforce records like
+Kobi Kunasekaran: proofs.
+Joyce Kiddell: you should only have access and visibility over your own proofs, right? In the same way that in Salesforce, you only have visibility over your own signups and rate deposits and stuff like that, right? So, it's like a walled garden per rep.
+
+
+00:46:54
+
+Joyce Kiddell: Um, and can we do that using the Google Drive folder structure where it's like each rep has their own folder that we lock down?
+Kobi Kunasekaran: Um, we'll have to try it out. Like, we're not doing any uh any development on the Google Cloud side of things for this, right? All we're doing is building an interface for somebody to upload a file through the record, which then tags those files as they're being uploaded into Google Drive. So, um, any like privacy sharing and everything that happens on the Google Drive side,
+Joyce Kiddell: So,
+Kobi Kunasekaran: we're not touching any of those. That's all configured for us as part of like setting up the Google Drive and providing us a credential.
+Joyce Kiddell: we do that. Okay.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: As long as you're writing to the correct folders, then that would be
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: fine.
+Kobi Kunasekaran: But like if we need to map like a a proof uploaded for a specific layer to a folder, like we we'll need that lot. We need to hash out that logic so that we know on our end when somebody's uploading the proof where to upload.
+
+
+00:47:59
+
+Kobi Kunasekaran: it to um how to upload to the right folder, how to find the right folder, things like that. Um as long as we can hash out the logic,
+Joyce Kiddell: and the structure would be like the structure would be like kind of rep.
+Kobi Kunasekaran: we should be
+Joyce Kiddell: I'm just like doodling rep and then under that would be like player
+Kobi Kunasekaran: okay.
+Joyce Kiddell: name and then like hypothetically player name and then um like operator or like sign up whatever and then date. So you're basically looking like for what does that hierarchy look like from us? Okay.
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: Um, crazy idea, but we're we're testing this out actually internally because you guys use Google Workspace, right? Um, so for us, we're trying to have transcripts be moved into a specific folder because we like we're using AI to kind of help help us out basically internally. So one thing that you could do because like right now that's a structure and like we all know that building an integration and a tool is going to be like hardcoded.
+
+
+00:49:01
+
+Waleed Alasadi: So if you change your criteria later it might change. Um the Google AI like workspace AI works really well. Um if like Kobe and team are able to structure the files or give you tags within the file and you kind of put in the logic to have it moved and like shared however you want within the AI. This allows you in the future to like change it up if you want to. So we don't worry about other than uploading the file and then putting the link back.
+Joyce Kiddell: would that require us like for every rep to have like their own workspace account.
+Waleed Alasadi: They they need to be on your on your on your workspace. If they
+Joyce Kiddell: Yeah,
+Waleed Alasadi: are
+Joyce Kiddell: because they currently do not have not all of them have like email addresses associated with
+Waleed Alasadi: okay.
+Joyce Kiddell: this.
+Waleed Alasadi: So is then that would have been required.
+Joyce Kiddell: Yeah. Yeah. Okay. Figured.
+Waleed Alasadi: Yes.
+Joyce Kiddell: Yeah. That's a cool idea though.
+
+
+00:49:59
+
+Joyce Kiddell: I just don't know that it's practical for us right
+Waleed Alasadi: Yeah. I mean Claude could do it,
+Joyce Kiddell: now.
+Waleed Alasadi: but let's not get off the rails right now. Yeah.
+Emily Vandenberg: Okay. So sorry just like what what is next steps then on
+Joyce Kiddell: You need a preferred folder structure in order to do the PL.
+Emily Vandenberg: this
+Kobi Kunasekaran: Uh yes.
+Joyce Kiddell: f***.
+Kobi Kunasekaran: Yes. and then we can we can get started on building the uh API callouts and stuff. But also um in terms of priority, right? Like do we if we're talking about like API integration for uh for the CMS um and this is also like 100% API work. If this is not urgent, I would table this for later and focus on deal and deal rep assignment and CMS API work first.
+Joyce Kiddell: What are you guys working on this week?
+Kobi Kunasekaran: Uh we have a lot of behind the scenes um automations to update um the SLC click uh updates that we need to make. So there's actually quite a bit of work to do um to get the one ready to go.
+
+
+00:51:16
+
+Joyce Kiddell: What? Because if you were waiting on us for like the deal stuff, um, and the GCP integration seems pretty straightforward, like folder structure aside, um, I would probably focus your efforts on the GCP while we're like 100% confirming stuff, I guess, entirely on the deal side of things. Um, if you have other stuff that like is going to be priority anyways and like the timing might align that we're ready
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: like we're going to have this figured out by the end of the week or jump off the nearest
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: bridge for sure.
+Kobi Kunasekaran: Okay, let me check our our resourcing on our side too. Um because like both TCP and CMS integration requires Salesforce developers and um we are Python resourcing right now as well.
+Emily Vandenberg: What?
+Kobi Kunasekaran: So I'd rather sequence it. But if the CMS integration isn't going to be ready for a couple weeks anyways, then uh and we're able to uh staff it on our end to work on the GCP, uh I can try to get that going while I'm working on the configuration parts.
+
+
+00:52:23
+
+Kobi Kunasekaran: I can get back to you. I'll let you know. Um, but yeah, like as long as we're good with like the design, um, even the folder structure, um, like for the purpose of the PC, I want to make sure that we're able to send the files, uh, build out the API calls and everything, get those working, and then we can, uh, talk through the actual like locations, folder structure, and everything, um, as an iterative process.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: So,
+Joyce Kiddell: You're not you're not blocked on that piece.
+Kobi Kunasekaran: I'm good with No.
+Joyce Kiddell: Like you can just do this.
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: just take a look and see if there's anything else that's like glaring or like we've scoped incorrectly as part of the design. But if we're good if you're good with the overall design and we can we'll get started on as soon as we
+Joyce Kiddell: Look,
+Kobi Kunasekaran: can.
+Joyce Kiddell: the number one thing for me is making sure that there's no overlapping like visibility, right, between the reps and we need to have like a separate provision for uh like operations
+
+
+00:53:08
+
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: rule to be able to see everything, right? Um, and as much as you can do to like kind of compress storage, like if there's like the ability to do that before it hits like drive or even if you can't do that too much, then like due to the like what's the word um cost effective nature of GCP like maybe compression is not even is that scoped anywhere in here?
+Kobi Kunasekaran: We're not doing any compression like all all this design does is provide an interface from Salesforce to upload files into Google. So all the security everything and we're we're like using a service account too. So the assumption is that the account that you set up for us in Google cloud is gives has all the access from a perspective, they only have access to the signup records that they uh they own. So they can see. So if they're not if they don't have email address in GCP, then they won't even see the links. So then they won't be able to go to them anyways.
+
+
+00:54:11
+
+Kobi Kunasekaran: So I don't know if that like that kind of restriction is good enough or if you need explicit restrictions on the links so that you have to be logged in with the right account. We can talk about that later. Um but for now
+Joyce Kiddell: So if there's any need for like compression or encryption on like the actual
+Kobi Kunasekaran: um
+Joyce Kiddell: like files themselves that would be something that we have to look at internally probably right.
+Kobi Kunasekaran: yeah like that's all on the Google Drive
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: side.
+Joyce Kiddell: All right. So maybe um that's just a quick discussion point with Straw, but um yeah, as long as we're considering those items, then I don't really care. I think you just do your thing. I don't know. Is that fair or should I review it
+Emily Vandenberg: Um,
+Joyce Kiddell: still?
+Emily Vandenberg: like if everything else is like pretty like standard to what we've talked about, nothing like deviates from I think like what we've been talking around here, Kobe, then I think you're good.
+
+
+00:55:12
+
+Joyce Kiddell: Yeah. And I the one thing I will care about is like the upload interface. So talking through kind of when what that looks like when we get to that
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: stage
+Kobi Kunasekaran: Okay. All right. So, yeah, let me let me work internally on resourcing and then I mean I I think the first step for us to get started on any of this is getting access to uh like a service account that we can work with uh for the API. So, Emily, like I I can coordinate with you to get that figured out once you're ready to start.
+Emily Vandenberg: for the API.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: And is that a service account for GCP or to our workspace?
+Kobi Kunasekaran: to your like it's Google Drive so to your
+Joyce Kiddell: Okay, that just changes who we have to talk to.
+Kobi Kunasekaran: workspace.
+Joyce Kiddell: So Emily, that's an Alex thing.
+Kobi Kunasekaran: Yeah, just to be clear like GCP is like the Yeah,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: part
+Kobi Kunasekaran: workspace is part of GCP.
+
+
+00:56:10
+
+Kobi Kunasekaran: So, while like I know we kind of use the term interchangeably, but ultimately what we're using is not the actual like cloud platform itself, it's still Google Drive because that gives you that that's the easiest one for you to be able to actually go in
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: and click on and find the proofs and process and everything. Otherwise, you have to uh provision people to the actual cloud platform for access. The interface is very different. It's very advent focused. So um what we're proposing here it's it's Google Drive essentially through a service account where we're s storing everything very similar to uh Dropbox. Um and I think it's actually about the same in terms of costs uh like for each terabyte of data that you get with Google Drive versus like the actual cloud platforms. ID.
+Joyce Kiddell: Okay. Okay. Is that your because you just mentioned Dropbox and I was like,
+Kobi Kunasekaran: You just don't need any custom interface or anything.
+Joyce Kiddell: are you saying it's the same class as Dropbox?
+
+
+00:57:04
+
+Kobi Kunasekaran: Sorry. Google Google
+Joyce Kiddell: Um, and in your doc, do you have the level of permission you need?
+Kobi Kunasekaran: apps.
+Joyce Kiddell: Like because I'm just going through a similar exercise with another vendor and there's like a bunch of s*** like read only access like domain versus entire works, but you know what I mean? Like is that scoped here somewhere?
+Kobi Kunasekaran: It should. If not, I'll get that for you added in.
+Joyce Kiddell: Okay, perfect.
+Kobi Kunasekaran: Yeah. Okay.
+Joyce Kiddell: Um, and I do have to hop in a few minutes. Um, did you want me to touch briefly on the fraud stuff? Um,
+Emily Vandenberg: If you can just as like kind of make heads up as to what's
+Joyce Kiddell: yeah.
+Emily Vandenberg: coming.
+Joyce Kiddell: Okay. So, we have another vendor who's building a um a fraud tool for us specific to the welcome email stage. I think we mentioned this maybe in a previous meeting where um essentially we're going to have players forward their email like a welcome email direct from the operator to a shared inbox.
+
+
+00:58:05
+
+Joyce Kiddell: Sorry, it's not even shared. It's just like a single um inbox. Welcome at insert agency domain name here, right? So like welcome at usabilos if the first one we're testing. Um and then each of the reps will have like an alias against that inbox. So it'd be like if you're part of usabilo, you have like welcome plus emily@usabilo.com, right? Um and then right now the scope is for them to both forward a copy of that um welcome email broadcast like it's going to run a bunch of checks once we receive it on our end. Once we have the results, it's going to um write that to a Google sheet plus also send a notification to the rep um to say like, you know, this player uh asked X checking and it goes through WhatsApp. Um and then it also forwards a copy of that that um initial welcome email to the rep uh what their actual inbox is, not like the alias inbox. Um but so that's part of phase one. Phase two will be actually um pulling out the results from the Google Sheets obviously and storing that against the individual player records.
+
+
+00:59:25
+
+Joyce Kiddell: So I'm assuming at that point we'll do it via API. Um and they're building it for us.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: So we're going to own all the code like it's being pulled into our GitHub um or uh so we'll just have to build you probably an endpoint for that one as well.
+Kobi Kunasekaran: Okay. Is this like the welcome emails for the like the affiliate signups or for your agency website signup?
+Joyce Kiddell: I
+Kobi Kunasekaran: The affiliate signups. Okay. Um,
+Joyce Kiddell: feel
+Kobi Kunasekaran: and is this happening uh before the signup record gets created or after? After. Right. Okay.
+Joyce Kiddell: y if we don't have a click registering on our end then um sorry yeah because that include that becomes a signup record, right? When there's a click, it's there's no like lead. So, yes, it we will have a signup record and then the goal would be that um once we have it connected via
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: API, um the receipt of that welcome email notification makes it in progress.
+
+
+01:00:27
+
+Joyce Kiddell: We discussed that as like an automated trigger
+Kobi Kunasekaran: Right.
+Joyce Kiddell: previously.
+Kobi Kunasekaran: Got it. Okay. So, it doesn't change anything right now, but uh once we have all of that set up, then we'll just need to make sure to Yeah, it'll it's going to be like an endpoint. Whether you send it from your end or we query it from our end,
+Joyce Kiddell: Yep.
+Kobi Kunasekaran: we can sort that out then.
+Joyce Kiddell: We are heading into testing with it hopefully like later this week. Um, so it's not like super far off like it's mostly built.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Uh, so just wanted to give you visibility on the timeline. Um, but once we have confidence in it actually like working properly. Um, which is where like that could take you know a few weeks. I don't know how long um then yeah that's when we will um have a solutioning discussion around uh the API connection
+Kobi Kunasekaran: but I guess a big question is like are do we intend to have this go live as part of phase one or fast follow.
+
+
+01:01:24
+
+Joyce Kiddell: follow let's just treat everything as it comes in right like that's where I'm like hey sign flow done
+Kobi Kunasekaran: Okay. Okay.
+Joyce Kiddell: let's test it let's get some people in there like even if it's not real data I just want someone getting their hands on like the actual UI that isn't us a
+Kobi Kunasekaran: Yeah, agreed.
+Joyce Kiddell: heart. Yeah. But I I recognize I'm being a huge bottleneck.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: So I will commit to um getting through all the documents this afternoon.
+Kobi Kunasekaran: Sounds
+Joyce Kiddell: I have some time between meetings. So yeah, go from there.
+Emily Vandenberg: Perfect. And then yeah,
+Kobi Kunasekaran: good.
+Emily Vandenberg: I think like we closed out a bunch of questions and stuff in the open doc, but if anything's kind of lingering, just like ping me to keep that moving. And we're also we have a meeting kind of booked tomorrow to like go through the other um objects that we have not provided feedback on which we're aware of. So like that will also be coming in, you know, kind of midweek. So it'll give more um kind of like more things to work on for kind of launch.
+Kobi Kunasekaran: Okay, no worries.
+Emily Vandenberg: Cool.
+Kobi Kunasekaran: Yeah, I think like as long as we're aligned that like we're not hitting the mid August, which it sounds like we're not going to. Um, yeah, like we'll keep working on our end. There's quite a bit to work on in ASA as well. And yeah, like I'll review your comments and feedback as well, Emily, and uh try and get back then we'll work towards getting something working that we can get users into ASAP. Um and then figure out the timelines later.
+Emily Vandenberg: Sweet.
+Kobi Kunasekaran: Cool.
+Emily Vandenberg: Cool.
+Kobi Kunasekaran: Awesome. Thanks everyone.
+Emily Vandenberg: All right.
+Joyce Kiddell: Thank you.
+Kobi Kunasekaran: Nice meeting you all.
+Emily Vandenberg: Thanks.
+Joyce Kiddell: Bye.
+Kobi Kunasekaran: Talk to you all later.
+Emily Vandenberg: Bye.
+Kobi Kunasekaran: Bye.
+
+
+Transcription ended after 01:03:26
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

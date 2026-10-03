@@ -1,0 +1,224 @@
+{
+  "id": "10320",
+  "key": "WAGR-116",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T17:49:26.201-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 3,
+      "key": "done",
+      "colorName": "green",
+      "name": "Done"
+    },
+    "resolution": {
+      "id": "10001",
+      "description": "This issue won't be actioned.",
+      "name": "Won't Do"
+    },
+    "resolutiondate": "2026-09-29T17:49:26.171-0400",
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-07-30T16:43:10.641-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-29T17:49:26.201-0400",
+    "status": {
+      "description": "",
+      "name": "Cancelled",
+      "id": "10066",
+      "statusCategory": {
+        "id": 3,
+        "key": "done",
+        "colorName": "green",
+        "name": "Done"
+      }
+    },
+    "description": "As a Brand Manager or Ops user, I want to see whether a deal reached the CMS and force a re-send when it did not.\n\n* CMS_Sync_Status__c picklist (Not Published / Pending / Synced / Failed / Retrying)\n\n* CMS_Sync_Note__c Long Text Area (2000) — most recent attempt's message\n\n* CMS_Last_Sync_Attempt\\__c, CMS_Last_Sync_Success_\\_c DateTime — lets Ops distinguish 'synced' from 'synced, but six days ago'\n\n* All grouped in the Ops section of the Deal record page\n\n* Field History Tracking enabled on CMS_Sync_Status__c so the pattern of failures over time is visible\n\n* The 'Sync with CMS' button calls the SAME invocable Apex as the automatic path — no duplicate code path\n\n* Button visible to Brand Manager and Ops only via dynamic action visibility; NEVER visible to reps\n\n* Repeated presses are safe; the CMS receives a normal update event\n\n* Automatic retry: three attempts with backoff before status is set to Failed\n\n* On failure the note contains HTTP status and response body, truncated to field length\n\n* Sync fields exist on Deal ONLY, not on Deal Link — publish is deal-scoped, links inherit their deal's sync state\n\n* List-view mass action supports bulk retry after a CMS outage\n\nEffort: 8-12h. Blocked by BUILD-66.\n\nSource: CMS Integration Design v1, §4.4.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-83 — Deal sync status fields + Sync with CMS action",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11579",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "Superseded by WAGR-451 (current Deal CMS sync state/manual-bulk retry design) and WAGR-493 for later v0.8 configuration/permission additions. The living requirements are maintained in Confluence: https://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-29T17:48:53.270-0400",
+          "updated": "2026-09-29T17:48:53.270-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "CMS <> SF Integration"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-192"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "On Hold",
+          "id": "10033"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Development",
+          "id": "10055"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "CMS ↔ SF Integration",
+          "id": "10071"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217037597729358"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001lj:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217037597729358"
+      }
+    }
+  }
+}

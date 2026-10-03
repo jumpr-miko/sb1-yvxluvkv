@@ -1,0 +1,430 @@
+📝 Notes
+Aug 4, 2026
+Wagertech <> Jumpr: API Flow Testing
+Invited strah@wagertech.bet Kobi Kunasekaran emily@wagertech.bet lina@wagertech.bet
+Attachments Wagertech <> Jumpr: API Flow Testing
+Meeting records Transcript Recording
+
+
+Summary
+The team aligned on Study Link Click requirements and finalized the Content Management System data mapping strategy.
+
+Validating link click requirements
+Discussions confirmed updated Study Link Click requirements align with Version 2 specifications to ensure accurate deal mapping. Testing validated that payload data consistency matches expectations for downstream Salesforce processing.
+
+Content Management System testing
+Teams agreed that testing a single site validates the entire Content Management System workflow effectively. Survey completion events require payload adjustments to ensure successful player record updates.
+
+Finalizing data mapping strategy
+The team decided to rely on external identifiers provided by the Content Management System for Salesforce updates to streamline data integrity. This change removes reliance on email-based lookups.
+
+
+Decisions
+Needs Further Discussion
+* Operator and partner ID integration The proposal to have Salesforce generate and push operator and partner IDs to the CMS to ensure system consistency requires further internal discussion to align on scope.
+
+
+Aligned
+* Single site used for testing The testing strategy is established to utilize a single representative agency site to validate the system flow before applying the update to other sites.
+* External ID used for player mapping The player mapping process is updated to rely exclusively on the External ID provided by the CMS, eliminating reliance on email lookups to ensure data integrity.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Update Salesforce Workflow: Update Salesforce workflow to save the player ID on the account record. Ensure this is completed by the end of tomorrow.
+* [Emily Vandenberg] Plan ID Consolidation: Develop a plan for mapping and deduplicating player IDs. Coordinate internally to finalize this strategy this week.
+* [Strahinja Vladetic] Update Survey Fields: Update fields to conform to the required payload for the survey completion event. Notify Kobi via the channel once the update is finished.
+* [The group] Discuss CMS Scope: Define the CMS requirements for handling deal, operator, and partner information. Align on the final scope during upcoming discussions.
+
+
+
+Details
+* Study Link Click Requirements: Strahinja Vladetic confirmed that the survey link click has been updated to the study link click to conform to the V2 requirements. Several fields were renamed or added to the schema to ensure consistency (00:00:00). While initial discussions indicated a need for deal country and state information in the study link click API, Kobi Kunasekaran clarified that this remains a requirement to properly map signups to specific deals and representatives (00:02:10). Strahinja Vladetic confirmed that the survey payload currently includes deal country, state, and representative ID and email information, which should be sufficient to facilitate deal creation (00:03:23).
+* SLC Data Verification: Kobi Kunasekaran reviewed recent study link click records in the test environment to verify data consistency (00:04:14). It was confirmed that the currency, email, and actual click ID are present; while some related fields appeared blank, Kobi Kunasekaran noted this is expected as those fields are processed on the Salesforce side rather than through the API. The external ID for the representative is available, which will assist with mapping (00:06:01).
+* CMS Testing Strategy: The team discussed the deployment status of the new Content Management System, noting that the feature is currently behind a flag (00:07:26). Emily Vandenberg and Strahinja Vladetic established that since all agency sites share the same backend and code, testing a single site provides a representative sample. The plan is to test using a specific representative's site by the end of the week to validate the flow with real data, at which point the feature will be enabled (00:08:21) (00:10:17).
+* Survey Completion Event Setup: Kobi Kunasekaran clarified that the survey completion is a separate event from the study link click, requiring direct updates to the player record (00:11:18). Strahinja Vladetic confirmed that while the completion event is already configured, they must adjust the fields to conform to the necessary payload (00:12:21). It was agreed that Strahinja Vladetic would coordinate with Kobi Kunasekaran in the relevant communication channel to finalize these updates (00:20:07).
+* Player ID and Data Mapping: The team addressed the issue of reconciling old and new player IDs resulting from the migration to a new CMS (00:14:07). To ensure data integrity and simplify the Salesforce upsert process, the team decided to rely on the external ID provided by the CMS rather than performing email-based lookups (00:16:59). Emily Vandenberg acknowledged that the team needs to conduct an internal review of the data cleanup, specifically regarding duplicate IDs, and will develop a plan to reconcile these records (00:15:04) (00:19:00).
+* Workflow and Account Updates: Kobi Kunasekaran stated that to facilitate the survey completion, their workflow must be updated to save the player external ID onto the account record. Kobi Kunasekaran committed to performing this update, noting that once the ID is present in the account record, it will allow for a successful upsert when Strahinja Vladetic triggers the completion event. This shift to using actual IDs reduces complexity in resolving existing records (00:19:00) (00:21:07).
+* Operator and Partner ID Integration: The conversation turned to future integration needs, specifically concerning Salesforce generating IDs for operators and partners, which would then be saved to the CMS. Emily Vandenberg and Kobi Kunasekaran agreed that they need to determine the necessary API endpoints for the CMS to receive this information (00:23:01). This topic, along with general deal link management, is reserved for a separate, upcoming conversation (00:24:15).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 4, 2026
+Wagertech <> Jumpr: API Flow Testing - Transcript
+00:00:00
+
+Emily Vandenberg: this through versus like bringing the whole group along. Um, so I I was we maybe we don't need the full 30 minutes, but the goal here is really like based on the work rework that ST's done against like kind of your V2 requirement stock. Um, like are we getting it all? What are we missing? Like let's, you know, test that out. Does that make sense?
+Kobi Kunasekaran: Sounds
+Strahinja Vladetic: Um, yeah, I think this should be relatively simple from my side.
+Kobi Kunasekaran: good.
+Strahinja Vladetic: So I've just updated the survey link click to the study link click
+Emily Vandenberg: study,
+Strahinja Vladetic: sorry to conform to the spec um that you guys outlined
+Emily Vandenberg: right?
+Strahinja Vladetic: there and uh check it check it against what's in Salesforce currently. Um so it's just a couple of fields were renamed and then there there was a few additions so those have been added there. Now, aside from that, I haven't touched any of the deal workflow. Um,
+Emily Vandenberg: No, the deal workflow I it needs to come, but at this point it's really like the study link click survey completion.
+
+
+00:00:59
+
+Strahinja Vladetic: so
+Emily Vandenberg: I know we're sending that data. Um, and I don't know if you worked through the player ID, sending the player ID straw.
+Strahinja Vladetic: yeah. Yeah, that would be happening as well. I think it's the uh
+Emily Vandenberg: Does it make sense for us to like do kind of like a
+Strahinja Vladetic: um
+Emily Vandenberg: simulated test or just even pull up Salesforce to kind of see what you did
+Strahinja Vladetic: I can run it.
+Emily Vandenberg: test?
+Strahinja Vladetic: I mean I I don't know if we need to Do you guys want to be in the meeting for that? Yeah, I could I can run it myself and then show you guys the upload kind of like we did before.
+Emily Vandenberg: Yeah. What do you think,
+Kobi Kunasekaran: Yeah, I think a few like quick questions off the top of my head. I think the the big ones are were we able to get the uh like the
+Emily Vandenberg: Cob?
+Kobi Kunasekaran: deal country and state uh to go through the API for the SLC's or is that still pending?
+
+
+00:02:10
+
+Strahinja Vladetic: I think that would still be pending. I
+Emily Vandenberg: That was part of the V2. Yeah, Kobe.
+Strahinja Vladetic: haven't
+Kobi Kunasekaran: Yeah, I mean like we we talked about it in the initial one like we sent I think book state um I don't know if we sent the book country back then but uh I renamed a bunch of the fields so that's a bit more consistent with uh what we're uh what we're naming across the board. Um but yeah, like we need to be able to identify which deal and rep the signup goes to. Um and so for that, like at least as of now, we need the country and state for the deal. Um and I think for the rep, um we talked about getting the either the rep ID, email address. I give a few different options. Just whatever is available we can uh we can work with to try to map it against the player uh sorry not player against the ref um but for the deal yeah like for now it's a state and country and then I I know we're having a separate conversation about the whole deal management integration which could change what we need on this side but we're going into the assumption that at least this will unblock us from the entire like signup flow um and then we can come back and add in or make
+
+
+00:03:23
+
+Kobi Kunasekaran: changes uh once we sort out the deal rep management integration
+Strahinja Vladetic: Yeah. So maybe I'm I have to read that doc a little bit more closely. So as as part of the survey link, the deal information is there, right? You guys added fields,
+Kobi Kunasekaran: Yeah, like there was a deal country, deal state.
+Strahinja Vladetic: right? Yes. So those are being sent along and as are the rep rep ID and
+Kobi Kunasekaran: Okay, nice.
+Strahinja Vladetic: email. Um the operator.
+Kobi Kunasekaran: Okay,
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: let me see if
+Strahinja Vladetic: So I think everything you guys would need to create the deal would be in the survey payload.
+Kobi Kunasekaran: Okay,
+Strahinja Vladetic: Now
+Kobi Kunasekaran: I'm gonna see if I can find uh one of the latest so you can see what this
+Strahinja Vladetic: I'm trying to I'm just trying to get it running in a few months now.
+Kobi Kunasekaran: product
+Strahinja Vladetic: I should be able
+Emily Vandenberg: Yeah, sorry when I was saying like deal thinking of the like kind of new scope but yes I know
+
+
+00:04:14
+
+Strahinja Vladetic: to
+Emily Vandenberg: deal is currently a combination of the book and then the shorthand code. But you were working through sending that
+Kobi Kunasekaran: Uh yeah, this one was created. This is electronic because there's two all the information. This is from the
+Strahinja Vladetic: Hey,
+Kobi Kunasekaran: 31st.
+Emily Vandenberg: Is that you presenting
+Kobi Kunasekaran: Uh, yes.
+Emily Vandenberg: Kobe?
+Kobi Kunasekaran: Trying to find like the SLC records that have come through, but I uh the one the latest one doesn't seem to have much information. Oh, wait. Okay. These are the ones you're just sending right now, right, Straw?
+Strahinja Vladetic: Yes.
+Kobi Kunasekaran: Okay, let's see if this looks good.
+Strahinja Vladetic: Just double check.
+Kobi Kunasekaran: Yeah. Okay. Country is good. States good. We don't have the external ID, so that's okay until we decide how we want to go forward. Currency is good. Uh, e transfer email. This is the actual ID for the click. Uh first name, last name, operator actual ID.
+
+
+00:06:01
+
+Kobi Kunasekaran: house.
+Strahinja Vladetic: Yeah, I'll have to review a few of those blank entries. So I think there's u some more information we need to get from the user but this is still on the test environment. So
+Kobi Kunasekaran: Yeah, I mean like these relation like these related fields I'm not expecting those to come in from the
+Strahinja Vladetic: it's
+Kobi Kunasekaran: API like this we would process on our end based on the other field values and then map it. So, um I'm expect like some of these are expected to be blank. Um this just shows like all the like all the fields. Um but yeah, so we have the email address. So that's good. External ID is good for the rep. So we can use this for the mapping. Uh this is fine. This is expected because we don't have all of these fields updated in our automation on our end. Yeah. Okay. No, I think I think this is looking good. Um, so are we like are we good with all this information like we're based on this?
+
+
+00:07:26
+
+Kobi Kunasekaran: I'm assuming anything that you're sending now is going to be available from the CMS to send through the API on like a normal like
+Strahinja Vladetic: Yeah. So, we talked about I think we had talked about that initially,
+Kobi Kunasekaran: clicks.
+Strahinja Vladetic: Emily, and we had decided to not turn it on right away for the
+Emily Vandenberg: Yeah. So, Kobe, just like in it's less about it's more about kind of what's changed on our side of things and
+Strahinja Vladetic: current
+Emily Vandenberg: we're like rolling out new CMS right now um with the agency sites kind of dripping in as we're like rolling. So, we just haven't like we haven't kind of unleashed or opened up the tap completely. Um, straw is just kind of like testing it through. What did you say? Put a feature on it. Um, but this is going is representative of like what you will get once we kind of connect all of the pipes. But, um, currently we just haven't unlocked
+Strahinja Vladetic: Yeah, it's behind a feature flag right now.
+
+
+00:08:21
+
+Emily Vandenberg: that
+Strahinja Vladetic: So when I think when we get more confidence in the new agency sites, we'll probably turn it on. Is that the
+Emily Vandenberg: like we can tell. Yeah, we can test as much as we want.
+Strahinja Vladetic: idea?
+Emily Vandenberg: Um, we were going to test like through a certain rep like in our kind of initial so that we could kind of closely monitor. They're not on the new system yet, but the plan is I would hope this week. Uh, and then like in that case I think straw you could like point that specific could you like point that specific flow through like the rep slug like the URL to just be passing through or would you have to open it up for All
+Strahinja Vladetic: No, I could do it on a per agency side basis if that's what you mean or like a per
+Emily Vandenberg: yeah,
+Strahinja Vladetic: rep,
+Emily Vandenberg: correct. But we could do even if we kind of like contained it,
+Kobi Kunasekaran: Sure.
+Strahinja Vladetic: but it's doable.
+Emily Vandenberg: Kobe, for the first one testing to like one site because they're all exactly the same like everything's behaving
+
+
+00:09:16
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: exactly the same. That's correct straw, right?
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: They're all using the same backend and code.
+Strahinja Vladetic: Yeah. All the industry sites are now sort of pulled together and they share the same back end.
+Emily Vandenberg: So one site would give us like true representation and then we
+Strahinja Vladetic: Yeah.
+Emily Vandenberg: could test and then like
+Strahinja Vladetic: Yeah. Pretty much. Yeah,
+Emily Vandenberg: fully
+Strahinja Vladetic: they're pretty much like copy templates of each other. So that it's just the front end that changes really and then the any like sort of logic has been extracted to like that shared layer. So that would be that is the idea that we test one site, make sure the flow works and then the other ones are tested by by virtue of just doing that.
+Kobi Kunasekaran: So,
+Strahinja Vladetic: Yeah,
+Kobi Kunasekaran: am I understanding this correctly? Like your new CMS is live or almost in the progress of being
+Strahinja Vladetic: it's it's in testing.
+Kobi Kunasekaran: live.
+Strahinja Vladetic: It's sort of like in a staging testing area right
+
+
+00:10:17
+
+Kobi Kunasekaran: Okay. So then like the records that would come in, it's still not technically like end user information,
+Strahinja Vladetic: now.
+Kobi Kunasekaran: right? So like whatever uh whatever test that you're running or would it be actual
+Emily Vandenberg: Uh well, we're we're testing currently and it would be end user like we're testing with end user
+Kobi Kunasekaran: information?
+Emily Vandenberg: um data but like we haven't unlocked that and it's like the first site that we're testing is not the user that or the rep we want to test Salesforce Um,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: so that's why I'm saying like end of week we're hoping to be on Ali site and then it would be real
+Kobi Kunasekaran: Okay. Yeah,
+Emily Vandenberg: data.
+Kobi Kunasekaran: I think that would be helpful like if we can open it up so that we start getting some real data and then um that'll help us get all of our flows updated and we can see how that translates into signups. Um and yeah, like like real nothing beats real data for uh making sure that we we catch all of the edge cases.
+
+
+00:11:18
+
+Kobi Kunasekaran: So, um, if we can if we can open the tabs whenever you're ready, let me know what that looks like and then we can look out on our end. Um, but this is looking good. Like based on all this information, I think we can uh we'll we'll need to update our flow that processes these SLC links into uh signup records. So, but like you won't see these comp like automatically created as signup records right now because I don't think we have all the updated fields mapped yet. So we can do that this week and then once we have some real data coming in we can actually test it and make sure that it's uh translating the signups correctly.
+Emily Vandenberg: So, this has all of the required um data points. It's bringing in the survey stuff as well.
+Kobi Kunasekaran: uh the survey we are not testing through the SLC. Um that was I specked that out as a like a separate uh separate event like you would just be updating the player record directly. Um would were you able to get uh test this out or is this
+
+
+00:12:21
+
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: still PVD?
+Strahinja Vladetic: I haven't done that part of the post. I I just focused on the survey um link click.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: But there is an completion event already hooked up.
+Emily Vandenberg: Hello.
+Strahinja Vladetic: So I think it would just be adjusting the fields.
+Emily Vandenberg: Sorry, that's my bad straw.
+Strahinja Vladetic: It should be relatively
+Emily Vandenberg: I was when you were saying survey, I was thinking we were completely disconnected, but you were talking about the study link click.
+Strahinja Vladetic: Yeah. Sorry, I keep saying survey. I don't know why.
+Emily Vandenberg: That's okay. That's No,
+Strahinja Vladetic: Oh,
+Emily Vandenberg: it's okay.
+Strahinja Vladetic: right.
+Emily Vandenberg: Okay. So,
+Strahinja Vladetic: Okay.
+Emily Vandenberg: we still need to do the survey. And how about the player ID? Same thing.
+Strahinja Vladetic: The player ID I think it should be resolved through this. So you guys should be getting Yeah.
+Kobi Kunasekaran: So are you creating this like external ID on your side the ptr user
+Strahinja Vladetic: Yeah.
+
+
+00:13:08
+
+Emily Vandenberg: Okay.
+Strahinja Vladetic: That would be coming from the database. Um,
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: right now it's just test test
+Kobi Kunasekaran: Nice. Okay. So then in in order for you to be able to update the the survey see the
+Strahinja Vladetic: data.
+Kobi Kunasekaran: surveys, you we'll need to make sure that that actual ID is saved on the account record because I'm assuming that's what you're going to be looking up to do the upsert, right?
+Strahinja Vladetic: Yeah. To do the completion.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: Yeah. You're saying I would send that idea along so you guys can
+Kobi Kunasekaran: Okay. Yeah. like so you're you're sending this in the study click link or the study link click SLC's. Um so what we're going to do on our side is u we're going to look up to see if there's an existing player based on uh either the external ID or the email addresses that uh is coming through on the SLC uh clicks. If there is, we will link this player to the existing record.
+
+
+00:14:07
+
+Kobi Kunasekaran: Um if there isn't, we'll create a new player record. um store the uh where's that ID that the store the actual ID as part of it and then that way when you do the upsert for the survey completion you can just do the upsert based on the actual ID and it should always be
+Strahinja Vladetic: Okay. Yeah, there's just one thing to mention there.
+Kobi Kunasekaran: unique
+Strahinja Vladetic: I think I mentioned it to Emily before. So, we we had the two CMSs and then we've moved all the data into the new one. Um, but in doing that, we've now got the old ID um that comes from that database and then the new one that's
+Kobi Kunasekaran: Right.
+Strahinja Vladetic: been generated by our new database. Um, so that old ID will possibly be linked to other data in the G sheets and other areas of the business.
+Kobi Kunasekaran: Okay. We're going to have to do like a mapping exercise to like import the updated ID so that you're
+Strahinja Vladetic: Um,
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: updating the survey completion for the right players.
+
+
+00:15:04
+
+Strahinja Vladetic: okay. Yeah,
+Kobi Kunasekaran: then or not
+Strahinja Vladetic: I think I think this will serve the purpose or our purposes at least. So, it'll be the ID that we use going forward and the the one that all the users have.
+Kobi Kunasekaran: yet,
+Strahinja Vladetic: And then we I'm just saying we might not need to introduce the secondary ID that might be linked to the old
+Emily Vandenberg: And I was chatting with Straw or Joyce,
+Kobi Kunasekaran: right?
+Strahinja Vladetic: data.
+Emily Vandenberg: sorry St. I know I was like going back and forth asking questions last week, but I do think we internally need to just have a bigger conversation around the the dduping the mapping and getting a um kind of like cleaned up list for Salesforce to like upload. Um, and then wherever that takes us, maybe, you know, we don't need those two IDs, but I think it's like about making
+Strahinja Vladetic: Yeah,
+Emily Vandenberg: one.
+Strahinja Vladetic: ideally there would just be once we've like consolidated all the existing data you guys
+Emily Vandenberg: Yeah. So,
+Strahinja Vladetic: have
+
+
+00:15:57
+
+Emily Vandenberg: the we're going to take that away internally this week and then kind of get a plan in place.
+Kobi Kunasekaran: Okay. The good thing is like Salesforce data or database is pretty clean right now. So we don't have to reconcile anything on our end. So whatever we decide to go with uh when we go live u as as long as we update your existing list of players with their current or updated external IDs that should be sufficient. We don't necessarily need to build anything to accommodate a secondary ID right now. If the plan is to you're just going to have a single ID moving forward.
+Emily Vandenberg: Yeah, if something changes, Kobe, we'll come back to you, but we need to just break that open a bit more.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: But then like only thing that you said that just like made me pause slightly. So,
+Kobi Kunasekaran: So,
+Emily Vandenberg: you're going to check for the player ID. If there's no player ID, you're going to check, you're going to like validate um name, email, phone number.
+
+
+00:16:59
+
+Emily Vandenberg: But is that the right like shouldn't we always have a player ID? Like isn't like that where we need to be? So, you should never receive something without a player
+Kobi Kunasekaran: That's a great question. I was actually going to bring this up next, but yes. So,
+Emily Vandenberg: ID.
+Kobi Kunasekaran: because we now have a player external ID coming in from the system, maybe we don't necessarily need to do any of the email lookups to resolve it ourselves because it it would would be safe to assume that you're sending it. But that comes back to the whole dduplication. Does this mean that you're going to handle the dduplication on your end to make sure that like one email address or a player always maps to uh the same email and player information?
+Emily Vandenberg: straw maybe we have to get back to you. I would like to say yes, but I don't know feasibility.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: It's something that we could do. So, we have access to the player base, right?
+
+
+00:18:02
+
+Strahinja Vladetic: Um, so yeah, we could do Yeah, it's something we could talk about.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: It's basically
+Kobi Kunasekaran: So maybe what yeah what what I'm thinking is like we'll
+Strahinja Vladetic: like
+Kobi Kunasekaran: remove like in our flow right now we are looking up the email address to map the SLC to a player. So we'll remove that and base it off of the external ID. Um, and then that way we just rely on whatever comes from CMS. Um, so it should be ideally one to one. So we don't need to there's not going to be any overlap because the last thing I want is for us to look up the email and then your ID ends up being different than what we might have actually captured before and then we have to do some updates and that could get that could cause like data integrity issues. So I'm fine relying on whatever comes from CMS for the players.
+Emily Vandenberg: Yeah. Okay. You can just like we'll just like note that in the agenda as like to Joyce today as well, but like we had already Yeah.
+
+
+00:19:00
+
+Emily Vandenberg: agreed on like kind of taking this offline and getting back to you with the player ID and how we need to clean up the ddups. Um, so
+Kobi Kunasekaran: Okay. Yeah. Worst case, like if something comes in like if we get a SLC without a player ID,
+Emily Vandenberg: okay.
+Kobi Kunasekaran: I would just flag that for review by ops anyways. So, that's what we'll do. And then we can see if when we hook up actual like uh player data and then actual clicks coming in from your agency sites u for the one that we're going to test with. Uh we can see if if we get if we run into that scenario at all, but we'll make sure that there's some sort of uh way to capture those errors on our end.
+Emily Vandenberg: Okay, that makes sense. Okay, so although polarity is coming through, we need to like also be sending it within the um survey payload completion and you're saving that off into the account record. Um,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: so we'll solve for that straw within creating that connection for survey completion.
+
+
+00:20:07
+
+Emily Vandenberg: So you have that as a takeaway or are you currently blocked on the survey
+Strahinja Vladetic: Uh the no I wouldn't be blocked.
+Emily Vandenberg: completion?
+Strahinja Vladetic: There is an event already configured to be sent, but I haven't uh I think I just have to change the fields to conform to the payload. So, it should be relatively quick to
+Emily Vandenberg: So I think you do that. I think you can just send a note to Colobby in the like channel.
+Strahinja Vladetic: update.
+Emily Vandenberg: You guys can kind of go back and forth. I think that one's pretty easy. This feels like a win in terms of the survey link click API.
+Strahinja Vladetic: Yep.
+Emily Vandenberg: Um, so I think we're giving it a check mark and then we'll solve for the player ID and the survey stuff here
+Kobi Kunasekaran: Yeah. Okay.
+Emily Vandenberg: after.
+Kobi Kunasekaran: So like next steps for me um before straw you can test the survey completion we'll need to update our workflow to save the player ID on the account record. So, um, we'll focus on that, uh, today slash tomorrow.
+
+
+00:21:07
+
+Kobi Kunasekaran: Um, I'll send you an update and then that way next time you send a SLC click,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: there will be an account record with that player external ID that you can then look up to do the upsert for the survey completion. If you do it right now, you're probably going to get blocked because we we don't have any player information uh,
+Strahinja Vladetic: Oh,
+Kobi Kunasekaran: syncing to the account yet.
+Strahinja Vladetic: that makes
+Kobi Kunasekaran: But I love this.
+Strahinja Vladetic: sense.
+Kobi Kunasekaran: So I love that we're switching everything to actual IDs because that reduces a lot of the complexity on the Salesforce side when we're trying to resolve to existing records. So this is a lot cleaner. It does mean like we'll need to like for partner operator all of that. We'll need uh import sheets to update all the IDs correctly so we can do the resolution. But that's a that's a easy job. So that'll save us a lot of headaches later on.
+Emily Vandenberg: So, I spoke with Joyce this morning about the like Air Table kind of like sheet ID sheet that you drafted Kobe is going to review that in more depth.
+
+
+00:22:07
+
+Emily Vandenberg: She just hasn't had time to kind of fully go through it, but like we'll just work off of that aligned. They everything should have IDs. We can do an upload and then the deal all the ids will be handled from Salesforce thereafter through the deal
+Kobi Kunasekaran: for the deals.
+Emily Vandenberg: creation.
+Kobi Kunasekaran: Yes. For operators and partners technically. Yes. Yeah.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Would make sense.
+Emily Vandenberg: Because it's all like a deal is a combination of all those things. So any Yeah.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Right.
+Kobi Kunasekaran: Does that mean like we're when we go live with that DMS,
+Emily Vandenberg: So
+Kobi Kunasekaran: sorry, Salesforce and CMS API, we're not just sending deal information. We should be sending operator and uh partner info as well with the ids to the CMS.
+Emily Vandenberg: to the CMS.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I think we need to talk that through.
+Kobi Kunasekaran: Okay. I mean, it would make sense to do it, right? Because like right now these these numbers you're feeding from the CMS, but moving forward,
+
+
+00:23:01
+
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Salesforce is going to be where you enter your operator information and partner information and ideally Salesforce generates those uh IDs and then that gets saved to your CMS and then so next time there's a click, you're pulling against that same list that came from Salesforce. So that would make
+Emily Vandenberg: Heat.
+Kobi Kunasekaran: sense.
+Emily Vandenberg: Yeah, I think we'll like we can confirm with Joyce too on the because we're going to kind of chat through a few things that are slight deviation from your scope that you drafted, but um let's like nail that
+Kobi Kunasekaran: Okay. Yeah. Because like from our end like sending all of that it's we just need API endpoints right
+Emily Vandenberg: down.
+Kobi Kunasekaran: from your CMS for us to send that information. um deal rep assignment, the the links, all of that is a bit more complicated than just sending operator and partner info. So, um this we can we can probably build pretty quickly um add into a scope. Um but it sounds like we'll need this in order for everything else to kind of drive forward.
+
+
+00:24:15
+
+Emily Vandenberg: Yeah. And we need Yeah.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Okay. Yeah. There's a few moving pieces there, but like we're aligned on that.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: We need to have a conversation on what the CMS needs to handle and then we need to like align just on some of the scope items here. Plan like divide and conquer and then yes the communication. So, okay. Um,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: I know just in the interest of time. So, you're going to rework to be able to receive that information that those data points. You'll let Straw know once you're good and then he can build out the player ID sending the player ID in the survey uh completion through then that kind of gives us like a check mark on the current kind of like API um items for sign up and play record and then we yes we need to bust open the
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: the deal link stuff but to be kind of be determined after next few conversations that are going to happen this
+
+
+00:25:09
+
+Strahinja Vladetic: Perfect.
+Emily Vandenberg: week. Okay.
+Kobi Kunasekaran: Sounds good.
+Emily Vandenberg: Anything else you need from straw,
+Kobi Kunasekaran: Um,
+Emily Vandenberg: Kobe?
+Kobi Kunasekaran: no, not at this time. I think like we have the whole deal conversation to have that's going to be that they go in and what are the end points that we can hit and how Salesforce is going to communicate back to CMS. But that's a separate conversation. But for this, I think we're good for now. Um, once we figure out the other piece, we can come back and see how how some of this might change.
+Emily Vandenberg: Okay. Yeah. So, straw, I feel like you can if you want to listen in, but you can sit out for the 11:30 here. This was like the biggest kind of thing I wanted to make sure we tackled. Um, the rest we can kind of go into some higher level
+Kobi Kunasekaran: Awesome.
+Emily Vandenberg: stuff.
+Strahinja Vladetic: Sweet. Yeah, that sounds good.
+Emily Vandenberg: Cool. All right.
+Kobi Kunasekaran: Thanks for the red light.
+Emily Vandenberg: See you shortly. Okay.
+Strahinja Vladetic: You guys
+Emily Vandenberg: Bye.
+
+
+Transcription ended after 00:26:35
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

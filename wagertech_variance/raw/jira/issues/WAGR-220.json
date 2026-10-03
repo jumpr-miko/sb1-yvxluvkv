@@ -1,0 +1,253 @@
+{
+  "id": "10368",
+  "key": "WAGR-220",
+  "fields": {
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-07-28T15:27:17.011-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:eee79857-319d-43b4-b3a4-1d52b39207b1",
+      "emailAddress": "marc@jumpr.io",
+      "displayName": "Marc Cabantog",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:32.304-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Objective\n\nDrive record access and field state from Fraud Review Status.\n\nImplementation Requirements\n\n* Suspected / Under Review / Confirmed -> record read-only for Reps; Admins retain edit access\n\n* Currently implemented via Lightning page display filters — confirm sufficient or harden\n\n* Dismissed -> clear Fraud Flag, Fraud Review Status, Fraud Reason and Other Reason (Fraud)\n\n* Dismissed -> return Sign-Up Status to its PREVIOUS Status, not to In Progress (records can be flagged after Completion)\n\nAcceptance Criteria\n\n* A Completed Sign-Up that is flagged then dismissed returns to Completed\n\n* Reps cannot edit a record in Suspected/Under Review/Confirmed\n\n* Dismissal leaves no residual fraud data on the record\n\nDependencies\n\n* BUILD-35 (Previous Status field) — HARD dependency\n\n* DECISION-02 (Fraud Flag impact on Player Status) — BLOCKING, unanswered\n\nRISK / CONTROL GAP\n\nLightning page display filters HIDE fields; they do not prevent edits via API, list view inline edit, or flows. If the Rep lock needs to be a real control, this requires validation rules or field-level security. Raise with Ops before sign-off.\n\nEstimate: M · \\~8h\n\nSource: Wagertech Additional User Stories, July 2026 — items 9.3 and 45 (merged; both specify the same Dismissed behaviour).",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-34 — Fraud Review Status automations: record lock and Dismissed clear-down",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10492",
+          "body": "CONFLICT TO CONFIRM (2026-07-30, from feedback tracker row 41): client's written workflow says Dismissed → 'returns to In Progress and unlocks'. Current design (with BUILD-35) restores PREVIOUS status — which for a flagged-after-completion record means back to Completed, not In Progress. Confirm with Ops which behavior wins (recommend: restore previous status; 'In Progress' in their text likely assumed the common case). Also note row 41 confirms lock-on-Suspected — real enforcement needs validation rules, not just page filters (existing risk note).",
+          "created": "2026-07-30T08:59:33.010-0400",
+          "updated": "2026-07-30T08:59:33.010-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10493",
+          "body": "**UNBLOCKED — Open Questions Q7 resolved.**\n\nDecision: \"Dismissed Fraud Review should return the record back to the **previous status** before it was flagged.\"\n\nAgreed by Lina Ceniccola, 2026-08-03: \"previous works!\" (Emily proposed; Joyce was asked but never replied in-thread.)\n\n**This overrides** the earlier feedback-notes behaviour of \"returns the record to In Progress\". If a flow currently hardcodes `In Progress`, that is the change. A Completed Sign Up that gets flagged and then dismissed goes back to **Completed**, not In Progress.\n\nBuild:\n\n* Stamp `Previous_Status__c` at the moment of flagging (field is BUILD-35, already Ready for Review; make it read-only for all users per BUILD-113).\n\n* Record-triggered flow on Fraud Review Status = `Dismissed` → Status = Previous Status, then clear the stash.\n\n* Dismissal must also **release the record lock** — locking is part of this card's scope.\n\n**Related open item:** DECISION-06 asks whether a _Completed_ record locks too. If it does, this dismissal path needs to restore the right lock state, not just the right status. Sequence DECISION-06 before finalising the flow.",
+          "created": "2026-08-10T13:08:50.577-0400",
+          "updated": "2026-08-10T13:08:50.577-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10494",
+          "body": "Update: When Fraud Review Status is set to Dismissed, reset Flag status on the Sign Up record, i.e Uncheck Fraud checkbox, clear Fraud Review Status and Fraud Reason. \n\nFraud satus fields should be tracking field history for future review.",
+          "created": "2026-08-17T12:41:25.626-0400",
+          "updated": "2026-08-17T12:41:25.626-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10495",
+          "body": "[Sign Up - Before Save - Dismissed Fraud](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000010FB4PYAW)",
+          "created": "2026-08-17T14:58:28.719-0400",
+          "updated": "2026-08-17T14:58:28.719-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 4,
+      "total": 4,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Marc Jester Cabantog"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-137"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "SLC & Sign-Up Intake",
+          "id": "10060"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1216965703397883"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001w7:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1216965703397883"
+      }
+    }
+  }
+}

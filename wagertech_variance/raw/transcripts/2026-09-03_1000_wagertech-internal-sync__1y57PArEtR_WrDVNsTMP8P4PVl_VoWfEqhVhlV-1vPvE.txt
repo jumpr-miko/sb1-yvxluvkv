@@ -1,0 +1,757 @@
+📝 Notes
+Sep 3, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+The team refined workflow documentation protocols, technical implementation strategies, and progress tracking via system metadata analysis.
+
+Workflow and Documentation Standards
+The team decided to consolidate walkthrough documentation for completed features rather than creating individual tickets for every task. Internal user acceptance testing will verify behaviors against client expectations.
+
+Technical Implementation and Logic
+System automation for refer, pause, and ban functions will utilize existing related lists to maintain consistency. The team successfully configured flow logic for build 243 to prevent invalid status changes.
+
+Backlog and Metadata Management
+Metadata analysis will be used to reconcile conflicting ticket information and streamline the backlog. Technical tools like Visual Studio Code will improve field and logic tracking.
+
+
+Decisions
+Aligned
+* Feature documentation requirement established Project documentation (walkthroughs or write-ups) is required upon the completion of a full feature rather than for every individual ticket.
+* Signup view layout prioritization confirmed The signup view layout is prioritized over the recent view list, and search layouts will be updated based on a specific field list.
+* Referral and ban status automation logic Automation logic for banning referrers will exclude creating flags on related player records, relying instead on the existing related list to display status.
+* Pause status banner implementation A yellow banner will be added to the pause status to ensure prominence, consistent with the ban status design.
+* Fault path testing requirement removed Automated fault path testing is deemed unnecessary for current simple flows and will be omitted.
+* Development task prioritization confirmed Development efforts are prioritized for the reactivation task, while affiliate link tasks are deprioritized for now.
+* Vertical and market rollup implementation The team decided against using DLRS rollups for verticals and markets, as the requirement is deemed too complex and not straightforward to implement.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Review deal endpoint document: Assess the deal endpoint document to understand API details and technical requirements.
+* [Kobi Kunasekaran] Upload deal endpoint document: Upload the PDF deal endpoint document to the Google Drive folder for team access.
+* [Cedrick Infantado] Review deal requirements: Identify any missing information in the deal document required before initiating Salesforce integration.
+* [Kobi Kunasekaran] Add open items to Asana: Create new Asana tickets for open items identified in recent project discussions.
+* [Taryn Reithofer] Create reactivate button: Implement the reactivate button and the corresponding flow.
+* [Kobi Kunasekaran] Clean up All view: Organize columns and field layout for the SLC All list view.
+* [Taryn Reithofer] Update Recent view fields: Update the Recently Viewed list configuration using the provided field list.
+* [Taryn Reithofer] Adjust time sheet entries: Adjust time sheet entries for August based on provided guidance.
+* [Kobi Kunasekaran] Review ban flows: Examine the ban flow implementation for potential errors or logic concerns.
+* [Kobi Kunasekaran] Clarify client feedback: Clarify client feedback regarding vertical rollups and other pending requirements.
+* [Cedrick Infantado] Test build 243: Verify the build 243 signup status logic and error message behavior.
+* [Cedrick Infantado] Attach build 243 screenshots: Attach build 243 testing screenshots and results to the corresponding ticket.
+* [Kobi Kunasekaran] Update Flow Copy: Draft simpler copy for the signup flow update.
+* [Cedrick Infantado] Review Tickets: Review tickets 2550 and 2551 to determine the correct execution order.
+* [Cedrick Infantado] Prioritize Automation: Prioritize and implement the player status automation task.
+* [Kobi Kunasekaran] Process Feedback: Process pending feedback items from Tuesday.
+* [Kobi Kunasekaran, Cedrick Infantado] Review API Docs: Analyze the API documentation to identify missing information or necessary queries.
+* [Kobi Kunasekaran, Cedrick Infantado] Update Stakeholders: Send a status update regarding the API documentation to the relevant stakeholders by the end of the day.
+
+
+
+Details
+* Documentation and Task Logging Process: Kobi Kunasekaran, Taryn Reithofer, and Cedrick Infantado discussed the protocol for documenting completed tasks in Asana. Kobi Kunasekaran clarified that while building walkthroughs is standard practice, they are not required for every individual ticket, particularly when multiple related tickets exist. Instead, the team should focus on tracking progress in Asana, and when a full feature is complete, they will consolidate the walkthrough documentation via video or written format (00:02:01). Internal User Acceptance Testing will be used to verify that behaviors match client expectations before final approval (00:03:22).
+* Open Items and Feedback Status: The team reviewed current project feedback. Taryn Reithofer confirmed that they updated the project document to reflect current statuses, shifting resolved items away from active consideration. Kobi Kunasekaran mentioned that they are currently drafting new tickets based on recent work and will ensure these are added to Asana shortly (00:05:19).
+* Salesforce List View Configuration: Taryn Reithofer and Kobi Kunasekaran addressed challenges with editing Recently Viewed and other list views in Salesforce. Kobi Kunasekaran explained that these views require configuration via search layouts at the object level, which is profile-specific. Kobi Kunasekaran will clean up the all view and provide Taryn Reithofer with the necessary field list so they can update the recently viewed configuration without needing client feedback (00:07:41) (00:10:12).
+
+
+* CMS Integration and API Documentation Review: Kobi Kunasekaran introduced a PDF document provided by a client regarding API endpoints for Salesforce-to-CMS integration. Kobi Kunasekaran will upload this to Google Drive as a document to allow for collaborative commenting. Cedrick Infantado was tasked with reviewing the endpoint and payload details to ensure all requirements are identified for implementation, which is planned for the following week (00:11:31) (00:14:22).
+* Time Sheet Review and Administrative Updates: Kobi Kunasekaran reviewed recent time sheets and found them generally acceptable, though they noted some adjustments would be needed for time logged against onboarding and troubleshooting tasks to ensure billing accuracy. Kobi Kunasekaran will provide guidance on these adjustments by the end of the day (00:15:13). Regarding the project with Travis, the team is still awaiting updates and has no new progress to report (00:16:57).
+* Automation Logic for Refer, Pause, and Ban Functions: Taryn Reithofer provided an update on automating the refer, pause, and ban functions, noting that they needed to address related player records. Kobi Kunasekaran advised that the system should utilize the existing related list for the referer rather than creating new flag logic, as this ensures consistency with other automations (00:17:58). The team agreed that the pause function should include a yellow banner to maintain prominence similar to the ban function (00:19:45). Regarding fault path testing, Kobi Kunasekaran advised that it is not currently worth the effort to simulate system-level errors like record locks unless specifically required (00:21:38).
+
+
+* Ticket Prioritization and Cleanup: The team identified a need to reconcile conflicting information across older tickets and more recent discussions (00:26:19). Kobi Kunasekaran plans to use metadata analysis to help clean up the ticket backlog and identify tasks that are already completed or no longer relevant (00:27:38). Taryn Reithofer will prioritize finishing the current flow work and reactivation tasks over the pending affiliate link page (00:24:36) (00:32:28).
+
+
+* Metadata Utilization for Workflow Improvement: Kobi Kunasekaran discussed using Visual Studio Code to download and analyze metadata, which helps them and the team track fields and logic more effectively (00:27:38). Cedrick Infantado noted using the Managed Control Panel to monitor schema and metadata, and the team discussed the potential for further process improvements through these technical tools (00:28:32).
+* Taryn Reithofer's Absence: Taryn Reithofer notified the team that they will be out of the office the following day. Kobi Kunasekaran encouraged prioritizing the completion of existing flows before this absence (00:32:28).
+* Cedrick Infantado's Progress on Build 243: Cedrick Infantado demonstrated the progress on build 243, which involved implementing logic to prevent a sign-up from moving to in progress status unless changes are made to the record (00:34:59). Cedrick Infantado successfully configured the flow to compare the working record against the prior record (00:37:42). Kobi Kunasekaran reviewed the implementation and determined that the behavior is correct, though they may suggest minor updates to the error message copy (00:36:39) (00:42:00).
+
+
+* Project Sentiment and Next Steps: Cedrick Infantado expressed satisfaction with the progress, noting that hands-on tasks are more rewarding than reviewing onboarding videos (00:45:06). Kobi Kunasekaran and the team agreed to finalize current tasks and review the API documentation before the end of the day (00:46:05).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 3, 2026
+Wagertech Internal Sync - Transcript
+00:00:15
+
+Taryn Reithofer: Hello. Hello.
+Cedrick Infantado: Morning.
+Taryn Reithofer: Good morning. What do you think? Um, says Kobi's offline, but sometimes he's like actually online. The showing is offline, so a few
+Cedrick Infantado: Sure.
+Taryn Reithofer: minutes
+Cedrick Infantado: Um, may I ask uh one question for you, Sarah? Um,
+Taryn Reithofer: Is
+Cedrick Infantado: I've I've seen that uh I don't know after your uh
+Taryn Reithofer: it
+Cedrick Infantado: after you do your task, are you creating a document or some sort of user guide for them to try that out? I'm not sure if uh should I do the same for my task task as well?
+Taryn Reithofer: sorry? Say that again. when when I'm finished a task like on a
+Cedrick Infantado: Yeah,
+Taryn Reithofer: sauna.
+Cedrick Infantado: then uh I'm seeing that you're sending some sort of document uh for them like um like what are the changes the screenshots of it. Uh I'm not sure if I also required to do that because I'm just
+Taryn Reithofer: Oh,
+Cedrick Infantado: enhancing the existing picture.
+Taryn Reithofer: right.
+
+
+00:02:01
+
+Taryn Reithofer: Um, yeah, it's just like a progress update um for them for the record pages that we've built for them. Um, I assume we're probably going to be doing like another one another walk through when everything's more built out and they have little feedback left. Uh Kobi Cedric's just asking if he should be keeping track of um or I guess logging in a document for walkthrough purposes what he's um the tasks he's completed in ASA.
+Kobi Kunasekaran: Um,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I haven't reviewed the Asana cards yet, but I think you're putting in comments on like what's being added already right Cedric.
+Taryn Reithofer: Heat.
+Cedrick Infantado: Yep. And I'm also adding some screenshots on it.
+Kobi Kunasekaran: Okay. Okay. Um I do generally ask that like whoever builds it put together like a walk through. Um but I think you've you're only like working on like smaller pieces at a time. So maybe like when the whole feature is done like we can go through it and then um at that time you can go through and put put something together whether it's a video or um or a write up or something like that.
+
+
+00:03:22
+
+Cedrick Infantado: Okay,
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: sure.
+Kobi Kunasekaran: Um like we don't need to do one for every single like ticket, right? because um especially like the auto uh not the auto save but like the player activation and things like that. Those are there are like four or five pickets that are kind of related. So it makes sense to just tackle them all together. So um I think we're kind of a little scattered still, but we will eventually get to a point where we're rolling these things out in like in in logical chunks and we can just like put it all together um at at at those points. That helps.
+Taryn Reithofer: Yeah.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: But you should keep track of like what you're what you're building and what what's going out and what the behavior is. Um and I mean as long as you're putting it in the sauna that's uh that is the place to go or that that's the way to start and then uh we can go from there. Like we can always uh when we do our own testing like internal UAT we can test to make sure all the behaviors kind of match up what the client's expecting.
+
+
+00:04:18
+
+Kobi Kunasekaran: Um, and then before we give them the thumbs up, this we can just put something
+Cedrick Infantado: Okay,
+Kobi Kunasekaran: together.
+Cedrick Infantado: got that.
+Taryn Reithofer: Okay, Emily was Emily is being protected this morning.
+Kobi Kunasekaran: I know I saw all the messages coming
+Taryn Reithofer: I'll just stop.
+Kobi Kunasekaran: in.
+Taryn Reithofer: Let me wake up. And she's like,"Wait, we already answered this question." Yes, you're right. We
+Kobi Kunasekaran: I think she starts her day at like 7 a.m.
+Taryn Reithofer: did.
+Kobi Kunasekaran: Like I always like before I even get up like there's already like a few messages every single day from her
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: that are like wait eager be reamer.
+Taryn Reithofer: She starts earlier. Yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: But it's okay. It's good. It's good that I like that there's progress.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I I'll take this over like the days of silence and waiting that we had earlier on in the project. So fine.
+Taryn Reithofer: Oh, fair.
+Kobi Kunasekaran: Um, but I did see your question and I glad like Emily called it out.
+
+
+00:05:19
+
+Kobi Kunasekaran: We did talk about those open items.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I didn't update it in the weekly sync talk, but um I am still drafting those tickets. I just have to go through what's been produced and I'll uh I'll get those added to uh Asana soon. But um I think the other things are done. Let me just double check.
+Taryn Reithofer: Yeah, I updated the doc. Um just like uh changing the status in the in the table above just so we can just stop looking at them in the document. Um I say is complete but they're in for review in a sauna. Um, And then for the feedback for Tuesday uh build 245 some
+Kobi Kunasekaran: One second. I'm just trying to open the document.
+Taryn Reithofer: stuff.
+Kobi Kunasekaran: Just want to make sure that there's nothing else still outstanding there. So, email transfer is fake. fetter field result flags for fraud at any status that's been resolved. Um, you already added that in
+Taryn Reithofer: Wait,
+Kobi Kunasekaran: um,
+Taryn Reithofer: what documentary are you looking
+
+
+00:06:36
+
+Kobi Kunasekaran: this
+Taryn Reithofer: at?
+Kobi Kunasekaran: one.
+Taryn Reithofer: Oh, the feedback
+Kobi Kunasekaran: Yeah. Yeah. So, this is good.
+Taryn Reithofer: one.
+Kobi Kunasekaran: This should be good as well. Although I do notice it it does uh change here and there. So we just have to keep an eye on it and see if there's a way we can fix the view. Um the status automations that Drake's working on these right now. So um that should be ready soon. Um and the band players I think this one you were working on. So um I don't know if we shared any updates on those but that's still outstanding. This one should be fixed. This one was an open item still uh on Cedrick. And then this one we fixed. But most of these are done. There's like a couple of things that are still outstanding. And then we have obviously like a whole bunch of new things that came out on Tuesday as well that uh do need to be updated on the signup page.
+
+
+00:07:41
+
+Kobi Kunasekaran: Uh but we'll get we'll get to those uh once I create those tickets.
+Taryn Reithofer: Yeah, for the question that she asked with the um list views and what fields they're showing. Um,
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: I don't believe I have access to edit these.
+Kobi Kunasekaran: The recently viewed one. So the recently viewed uh list is a special list that
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: doesn't let us edit columns the traditional way as we do for other uh other views but there is a way um and I think we have to do it through the object u uh like through the configuration on the object level um I forget the section uh Cedric do you know which uh where this is being set
+Cedrick Infantado: This um this uh for recently viewed list, right? You need to go change it on the search
+Kobi Kunasekaran: Yeah, search. Yeah, that's one.
+Cedrick Infantado: layout.
+Kobi Kunasekaran: Okay, let me see. Open.
+Taryn Reithofer: I mean, even the all one isn't like very nice. It shows the names twice.
+
+
+00:09:01
+
+Kobi Kunasekaran: for the SLC's. Yeah. I mean, we we never really like cleaned up the SLC view for this anyway. So,
+Taryn Reithofer: Yeah. Okay. So, she's just jumping
+Kobi Kunasekaran: uh like yeah, like whatever we have was like just based off of what we set up
+Taryn Reithofer: ahead.
+Kobi Kunasekaran: uh from what we thought was going to be useful. Um I don't know if we put any like real thought into it.
+Taryn Reithofer: Okay. Well,
+Kobi Kunasekaran: Uh
+Taryn Reithofer: I'll I'll just I'll keep an eye out for what she says cuz I asked her what her preference is and then I can make a ticket from
+Kobi Kunasekaran: okay.
+Taryn Reithofer: it.
+Kobi Kunasekaran: Yeah, like yeah, the names and stuff. It's not it's not great, but uh we can we can clean that up. I would actually maybe we can uh prioritize the signup one first if that makes sense. Give me one second. Search layouts. Oh, you have to edit it for every uh the uh profile.
+
+
+00:10:12
+
+Kobi Kunasekaran: Eh,
+Cedrick Infantado: Yeah, it's perfect profile.
+Kobi Kunasekaran: annoying.
+Cedrick Infantado: But you can set a default for that though.
+Kobi Kunasekaran: Oh, just the one here. The default layout.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Yeah. All right. All right. So yeah, we can follow up with this. Uh Taran, maybe like we can ask her about like the useful columns or you know what, like I can give you the useful columns. I don't think we need to really get feedback on this. Um do we don't have to spend the time like going back and forth. Um maybe I'll I'll clean up the one for the all and then I'll send you the field list and you can uh update it for the recent view. Uh okay. So was there anything else in our feedback or the messages? Does look like we have the deal endpoint uh document shared. Um, so I I mean I don't think we're going to be able to do anything with this today in terms of implementation, but this is something worth uh taking a look at.
+
+
+00:11:31
+
+Kobi Kunasekaran: Cedric, if you have a few minutes, I haven't reviewed it yet, so I'll I'll look through it after the
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: call.
+Cedrick Infantado: Um, can you show me this document as well or is it
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: possible?
+Kobi Kunasekaran: I'm gonna I'll put it uh Sorry, which one are you asking about? one, the one I'm on on the screen or the one for the deals.
+Cedrick Infantado: Yep. Um, this one and That one.
+Kobi Kunasekaran: Yeah. Yeah. This you and then the deals. He he shared a PDF. Let me see if I can upload it to Google Drive. So, we can just there. I guess we are going to go a definition of access to this folder, but that doesn't look like you're adding. So, you add to it here.
+Cedrick Infantado: Yeah, if I have access to the folder, then I'll just check on that
+Kobi Kunasekaran: I mean,
+Cedrick Infantado: folder.
+Kobi Kunasekaran: I I haven't been very good at putting everything in the form, so even if people have access, you might not have everything there.
+
+
+00:13:10
+
+Kobi Kunasekaran: Uh, but I just pushed the PDF that uh Straw shared into a Google Doc. So, we can work off of this. That way we can leave comments in here, right?
+Cedrick Infantado: So,
+Kobi Kunasekaran: I wish Google
+Cedrick Infantado: uh what do what do you want me to do for uh for this document?
+Kobi Kunasekaran: just
+Cedrick Infantado: You want me to review if it if the end points and the payloads are correct or
+Kobi Kunasekaran: um yes. So the purpose of this document is if you remember the whole CMS integration uh conversation that we had on the initial scope document that we created um we essentially want all the deals that we're creating in
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Salesforce. So these deal object information when the deals are created in
+Cedrick Infantado: What's that?
+Kobi Kunasekaran: Salesforce this needs to get pushed into their CMS. Um, and this document is supposed to be the API endpoint details for us to set this up from the Salesforce side. Um, again, I haven't fully re reviewed this, so I I'll take a look at it uh properly after the call as well, but um,
+
+
+00:14:22
+
+Cedrick Infantado: Are
+Kobi Kunasekaran: look through it and let me know if there's anything else that we need from them before we can start setting up uh,
+Cedrick Infantado: you
+Kobi Kunasekaran: Salesforce to send data to their CMS. I think that's the starting point like let's just get all the information.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: We don't need to start the work uh this week because we already have a few things queued up. Um but uh they do take a couple days to get back to us uh with some of these uh technical things. So if we can ask for anything else that we need up front um and then uh that way even if they get back to us by tomorrow we can do this up for next week.
+Cedrick Infantado: Okay, sure. I'll check that out.
+Kobi Kunasekaran: Okay. Um, so I kind of like dove right in and uh went all over the place. Um, but couple of other quick updates. So Karen, I did look through the time sheets. They're for the most part okay.
+
+
+00:15:13
+
+Kobi Kunasekaran: Um, I I've been slacking on my own time sheets, so I just got those done uh as well. So I'm going to do one more check and then I think there might be just a couple of areas that uh uh might reduce the time that you've blogged. Um and then we can just put put it in the uh like the the admin projects or something like that just so we don't build them like
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: but mostly around like the user story creation and stuff.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: Um generally yes we should include them but um I think we went uh there was a lot of like lack
+Taryn Reithofer: okay.
+Kobi Kunasekaran: of um still like onboarding and trying to figure out the format and everything. So I think we can cut that down a little bit. Um, it's also because we've spent a lot of time on troubleshooting all their like SLC flow and everything. So, I don't want to scare them too much on the hours. Um, so I'll let you know where to make the adjustments today and then
+
+
+00:16:02
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: uh we can we can close that off for for August basically by the end of the day. Okay. Otherwise,
+Taryn Reithofer: Thank you.
+Kobi Kunasekaran: the comments were great. Um, it was helpful. Um, and I think for the most part, like I I didn't like through every single one, like skimmed through it and just made sure um it looked kind of okay in terms of value versus the hours that we're logging and it looked okay. So, and I only looked at the Wagertech one,
+Taryn Reithofer: kind of
+Kobi Kunasekaran: too. So, I didn't Yeah,
+Cedrick Infantado: f***
+Kobi Kunasekaran: like I didn't look at the other ones like I don't know if you logged hours for the other projects,
+Taryn Reithofer: okay
+Cedrick Infantado: you.
+Kobi Kunasekaran: but uh I just looked at the widget tech one so far, so it looks okay.
+Taryn Reithofer: for actto. There was just a couple. It was just the um I think I just like create started beginning creating one training document that was about it.
+
+
+00:16:57
+
+Taryn Reithofer: There was really
+Kobi Kunasekaran: Yeah. Okay.
+Taryn Reithofer: nothing.
+Kobi Kunasekaran: So, that I think you you also started doing some prep work for the whole onboarding thing and then we kind
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: of still waiting on Travis.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So, uh still waiting on Travis.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So, no updates there. Uh, okay. Yeah,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: I think those are the main updates from my end. I'm working through those user stories, uh, drafting them. We'll get those out. There are a couple of items or a few items rather on the sheet and I think there was something that came up in Emily's feedback yesterday that you asked about as well.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um, so before we get into that, any uh do you want to go through like updates from your end on like what's uh what's been done since yesterday and uh what we've uh shared with
+Taryn Reithofer: Um,
+Kobi Kunasekaran: them.
+Taryn Reithofer: so yesterday I worked on the refer, pause, and ban button automation.
+
+
+00:17:58
+
+Kobi Kunasekaran: Oops.
+Taryn Reithofer: Um, let me pull it Let's get them off. Oops. I haven't gotten to the reactivate button yet. I was planning on doing that today.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Okay. So then so now it moves confer in van and then now it uh I did automation with the um flagging the related player but that's not working because I believe we don't have any like other flag automation happening in here yet because we're kind of doing things out of order. So I need to look into that a bit more.
+Kobi Kunasekaran: Uh I don't think the ban on the refer needs to do anything on the related player record.
+Taryn Reithofer: Um
+Kobi Kunasekaran: We don't need to put any logic there.
+Taryn Reithofer: so take away this this was in their mockup.
+Kobi Kunasekaran: Yeah, let's get rid of that because what by virtue of having
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: the referer flagged um and I think we have the related list for the refer on the player page um they should be able to see like the status of the referers
+
+
+00:19:45
+
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: that were banned. So if they want to like make that a bit more prominent,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: we should talk about what that process looks like um instead of just creating like a flag for it. And like that I think that should be like general design principle like if you're if one especially like if they give us like mockups or feedback on like you know uh automations on one object uh impacting the other we want to make sure we scope that out properly because you also want to make sure that's factored into other automations that might be taking place for that other uh other object that you're doing.
+Taryn Reithofer: Yeah, makes sense. Pause doesn't have that. So, we're good on that that front. It into pause. Um,
+Kobi Kunasekaran: Nice.
+Taryn Reithofer: they didn't ask for a banner for pause, I believe. Um, but I feel like we should probably keep it the same as ban.
+Kobi Kunasekaran: Yeah, I think we should have a banner just so it's a bit more prominent,
+
+
+00:20:48
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: right?
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: I agree.
+Kobi Kunasekaran: Did they have a banner for No, they players don't get paused. So, I guess there was no banner there. Yeah, like just split that's 01 in And just just to make it more
+Taryn Reithofer: There's an inactive one. So, yeah,
+Kobi Kunasekaran: open.
+Taryn Reithofer: pause should have one.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Okay, cool.
+Kobi Kunasekaran: we can use this like same yellow one instead of the red if that makes any
+Taryn Reithofer: Yeah. Yeah.
+Kobi Kunasekaran: sense.
+Taryn Reithofer: Yellow. Um, and then this time around I did add fault paths. Not sure how to test it in here though. Like how would I? So if I because that's for like I don't know if it just doesn't go through because it's a system error, right?
+Kobi Kunasekaran: It's like a record lock or
+Taryn Reithofer: Or is it if you Yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: So because that just happens when I just don't put in notes, right?
+
+
+00:21:38
+
+Taryn Reithofer: So like I don't know how to test something like that.
+Kobi Kunasekaran: Uh in this case I don't think it's worth the effort to test the fall path.
+Taryn Reithofer: Okay. But there is a
+Kobi Kunasekaran: So we can skip ahead.
+Taryn Reithofer: way.
+Kobi Kunasekaran: Um yeah like you can try doing data imports and try to simulate updating the record uh at the same time. Those are like th those types of like record locks are usually what you would run into for faults for like a simple flow like this. Um either that or like if there are other validation rules that we put in place that
+Taryn Reithofer: So
+Kobi Kunasekaran: supersede um what you have in the flow. So like let's say like we put a validation rule that says the default payout type on this uh page is required and they don't have it filled in. when you try to update or when you try to set the ban on the record, it could raise that validation rule behind the scenes and it'll cause a uh flow to
+Taryn Reithofer: heat.
+
+
+00:22:35
+
+Kobi Kunasekaran: fail. So that would cause it to go into the fault path. But I don't believe we have any validation rules. So it's not worth testing it at this point. But I I will review the flow. So, as long as like you have it in the comment, I'll take a look at the flow and just look through it and make sure that uh there's nothing else uh that's
+Taryn Reithofer: Yeah. Okay, cool.
+Kobi Kunasekaran: concerning.
+Taryn Reithofer: I was running into some issues with like setting the record ID variable. Um, and it was just like a formatting issue. So, that kind of chewed up some time. But, I'm taking I'm making sure to take off the time I spend troubleshooting that turns out
+Kobi Kunasekaran: available.
+Taryn Reithofer: to be Oh, it's just because of my lack of experience. I'm taking off that time in the time sheet entries. Yeah.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay. Yeah. The record ID has to be like exactly like very very specific with the cases and everything.
+
+
+00:23:28
+
+Kobi Kunasekaran: It it is annoying. Everybody goes through that.
+Taryn Reithofer: Yeah, it is annoying.
+Cedrick Infantado: Yeah,
+Taryn Reithofer: You're right. Um,
+Cedrick Infantado: back in the days, uh,
+Taryn Reithofer: so that was like
+Cedrick Infantado: I spent two hours for that.
+Taryn Reithofer: Okay. Hey,
+Cedrick Infantado: Back in the
+Taryn Reithofer: same yesterday. So that's where I'm at right now,
+Cedrick Infantado: days
+Taryn Reithofer: Cedric. Hopefully I become you later.
+Kobi Kunasekaran: All part of their journey.
+Taryn Reithofer: Yeah. as we're all giggling. Um, so for the um, do you want me to prioritize the operator feedback that Emily sent through yesterday? I feel like some of these could I could just bang out pretty quick because it's just like reorganization of the page or
+Kobi Kunasekaran: Uh,
+Taryn Reithofer: like a field name change or taking something
+Kobi Kunasekaran: what else do you have on your plate that's still open for
+Taryn Reithofer: out
+Kobi Kunasekaran: today?
+Taryn Reithofer: today. I have still have the pending affiliate link page that I have not got to yet.
+
+
+00:24:36
+
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Um the reactivate unban and unpause button and flow.
+Kobi Kunasekaran: 10.
+Taryn Reithofer: Um, so I did the flow for refer which I just showed you. I need to make sure that Blair's also um working the same. So it just worked on refer yesterday. Um and then then I think
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: that's it.
+Kobi Kunasekaran: Okay. I would say let's prioritize the reactivation first. um affiliate we can dep prioritize for now and we can do the follow-ups for the
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: operator. But even for this like I I I actually want to go through a couple of these with you. Um I think I've flagged this uh before as well in the page but for verticals and markets um I where did we spec out that we needed rollups for this? I don't remember why we need to roll ups.
+Taryn Reithofer: I mean, maybe we don't. I just uh maybe the assignment is just not updated.
+Kobi Kunasekaran: Yeah, I I just don't remember from our conversations because it's been a while since we went through the feedback for it.
+
+
+00:26:19
+
+Taryn Reithofer: Yeah, I know. I know. Oh,
+Kobi Kunasekaran: So,
+Taryn Reithofer: it was build 148 and we're almost at 300.
+Kobi Kunasekaran: yeah.
+Taryn Reithofer: So um Okay, let me I found it. Um
+Kobi Kunasekaran: So I think like if it was part of like older uh feedback sessions um we can like I would tell Claude to just confirm if they're still like accurate. Right. So there there are things that have changed from like what they've asked us for either in the mockup or in our calls that maybe we've followed up with and changed up later. So, um because otherwise claw just keeps bringing those old things up when it's no longer
+Taryn Reithofer: I know. I think I think I'm having an issue because there's no source
+Kobi Kunasekaran: relevant.
+Taryn Reithofer: of truth and like you said, we've been having a lot of discussions and a lot of edits and perhaps forgetting to fix the tickets or we're working off of a separate doc now and it's getting a little bit hard to um keep track of everything.
+
+
+00:27:38
+
+Kobi Kunasekaran: Yeah, I think we can we can try to do like a ticket cleanup maybe like uh early next week. Um do like a uh like review everything, see uh if there are any tickets that are like already done. Um actually, you know what? I I can I can do that. I'll get Cloud to do it because I also have like metadata and MCP hooked up. So, I can have it like read the read the info and flag anything that might need review and then we can go through and review it based on transcripts,
+Taryn Reithofer: like based on transcripts and stuff too.
+Kobi Kunasekaran: but also based on like what's built in Salesforce already. Um, just so we can close off the ones that are done or like no longer
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: relevant.
+Taryn Reithofer: you have it hooked up to
+Kobi Kunasekaran: Uh yeah,
+Taryn Reithofer: Salesforce.
+Kobi Kunasekaran: I like I I download the metadata through like VS Code. We don't have like an easy way to do it yet. I'm going to find an easy way to do it so everybody can do it.
+
+
+00:28:32
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: But uh I have I download the metadata through VS Code and I have it read through it so it's able to see like all the fields
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: and stuff that we add.
+Taryn Reithofer: nice.
+Kobi Kunasekaran: So it's it's helpful. It's uh it's helpful, but we don't necessarily have version control and stuff.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So that makes it difficult for it to understand if something's been removed because it doesn't really remove it from the metadata unless I delete and refresh. So there's a whole thing.
+Taryn Reithofer: Oh.
+Kobi Kunasekaran: So I'm going to work through on figuring out how to best make that available for everyone so that you can allow access to Cedric. I assume like you already you probably already have metadata downloaded or I don't know if you've set it up for OG tech yet.
+Taryn Reithofer: Thank
+Cedrick Infantado: Uh for me I'm just using the MCP to track the Yeah.
+Kobi Kunasekaran: MCP. Okay.
+Taryn Reithofer: you.
+Cedrick Infantado: And then I'm just checking the schema and the meta data
+
+
+00:29:20
+
+Kobi Kunasekaran: The MCP only does the like the fields
+Cedrick Infantado: there.
+Kobi Kunasekaran: and like not it doesn't have everything that the metadata has, right? It doesn't have like the full definitions and stuff right
+Cedrick Infantado: Yeah. Yeah. Yeah. For my test I doesn't have I think the need to download all the
+Kobi Kunasekaran: now.
+Cedrick Infantado: metadatas yet. So, but I'll maybe I'll do it after this.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: So, but um another thing that we can use maybe is that uh the cloud in Chrome. I think it's kind of helpful at some point. So, yeah, it's reading all the um what's on the screen and then comparing it to the other versions. Very simple.
+Kobi Kunasekaran: Quad in Chrome is extremely what's the word?
+Cedrick Infantado: It's in beta.
+Kobi Kunasekaran: Fulky.
+Cedrick Infantado: Yeah, it's in beta right now,
+Kobi Kunasekaran: It's not It's not the best.
+Cedrick Infantado: but not the best right now.
+Kobi Kunasekaran: Yeah, I've used it for a few things. It's it's not that great.
+Cedrick Infantado: Oh,
+
+
+00:30:16
+
+Kobi Kunasekaran: Like it it takes so much uh so much tokens and uh what it actually does is like so little uh compared to like what you can get from the metadata and stuff.
+Cedrick Infantado: yeah, of course.
+Kobi Kunasekaran: Um
+Cedrick Infantado: The best way still is to have the metadata on um read out by by cla
+Kobi Kunasekaran: yeah. Um yeah. Okay. So I I mean I think you're going to have to do it anyways for when you start doing the apex work next week. So I mean right now it's not necessary but uh coming back to the conversation. So um for the additional feedback um there is one thing I wanted to clarify with them uh Taryn like around this whole thing because this kind of contradicts what we talked about in our meeting uh when we went through the walkthrough. Um, so I want to like do a double like let me look look through one more time and just make sure I have all the questions uh ready and then maybe we can set up a quick call uh to confirm or I'll leave comments on this.
+
+
+00:31:25
+
+Kobi Kunasekaran: Um, but yeah, I think in terms of priorities like I'd say like wrap up the flows that you're working on for the pages.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: um the support of verticals. I Let me go through my notes and confirm if this needs to be a rollup or it just needs to be a pick list that somebody chooses um at some point. I don't think it needs to be a rollup to be honest. Um and if it does, you wouldn't do it through DLRS for something like this because DLRS is great for like aggregating numbers and uh things like that, but not for like string values. that would need to go through like a flow and especially because like you're I guess like you could use a joint object but it's it's not a direct relationship. So yeah, it wouldn't be as straightforward.
+Taryn Reithofer: Oh, okay.
+Kobi Kunasekaran: Um but like they're also asking about like you know adding restrictions so if uh can't create a deal in an unsupported vertical like this is a whole other ball game like this is a story of its own and this has implications.
+
+
+00:32:28
+
+Kobi Kunasekaran: So um I would push back and clarify on some of these. So I I can do that for for a lot of these. But if there are anything that's like simple um just like name changes or field reorganization things like that uh feel free to like spin up a card and uh work through those after the flows.
+Taryn Reithofer: Okay. Okay. Um, and just a reminder for you both,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: I am out of office tomorrow.
+Kobi Kunasekaran: Oh that's right. Red. Okay. Um, yeah, then I think all the more reason like focus on the flows and then u that we will wrap those up. If there's any other like stragglers uh in terms of smaller items that we can get done for uh these two pages or the pages that we've delivered um try to wrap those up
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: um and then I can follow up on this talk first before scooping out the big oak stories from here.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Okay. Um, are you good for priorities for today?
+
+
+00:33:40
+
+Kobi Kunasekaran: Um, do you have any questions or any blockers? Okay. Um, and for the band flows, you put the flow names in the comments, right? Sign.
+Taryn Reithofer: Yeah. And in screenshot.
+Kobi Kunasekaran: Okay. Perfect. Perfect. Perfect.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: I will try and look through that today. Let you know if there's any anything that you might need to know before uh or as you work on the other flow.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: Cool. Okay. Uh Cedric, how are you doing with your uh sign
+Cedrick Infantado: Yeah. Uh for me,
+Kobi Kunasekaran: tickets?
+Cedrick Infantado: um I'm already done with the build 243. I just need to um do a testing on that and also attach the screenshots of the testing. So yeah, um I just want to confirm if um the error message is what we like. Um, I'll try to share my screen and take a look at it.
+Taryn Reithofer: I'm going to hop off and um start start working. Oh, it's dropped.
+
+
+00:34:59
+
+Kobi Kunasekaran: Yeah, they probably had to give permissions.
+Taryn Reithofer: Permissions. Yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay. I'll talk to you later.
+Kobi Kunasekaran: Okay. All right. Thanks, Taryn.
+Taryn Reithofer: It's fine.
+Kobi Kunasekaran: Bye.
+Cedrick Infantado: Sorry, I got dropped off. Sorry
+Kobi Kunasekaran: No worries.
+Cedrick Infantado: about
+Kobi Kunasekaran: I figured you probably had like permissions or something.
+Cedrick Infantado: uh I've clicked the um share and I think it's my first time sharing um in my device. That's why uh it does quit. Okay. Uh uh for me um so the uh requirement for 243 is that uh
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: whenever there um there are no changes on the log sign up whenever the status is new it should not proceed to in progress. I think it's so I'll just get one sign up which
+Kobi Kunasekaran: Mhm.
+Cedrick Infantado: is new and nothing in here. So once I click save, it would say design that remains new. No fields were entered or changed at add at least one detail to move it in progress or close without saving.
+
+
+00:36:39
+
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: So once they go back, it would show up the logup screen.
+Kobi Kunasekaran: Well,
+Cedrick Infantado: I'll just show the finished one. So to make uh so that you can see that there's no uh change of status here. as the user click
+Kobi Kunasekaran: sorry. Can you refresh the Can you refresh the page as
+Cedrick Infantado: again.
+Kobi Kunasekaran: well? Okay, this is
+Cedrick Infantado: So once they change anything here it
+Kobi Kunasekaran: good.
+Cedrick Infantado: would proceed to in progress. Yep.
+Kobi Kunasekaran: Okay,
+Cedrick Infantado: So once finished a good no to this one I
+Kobi Kunasekaran: nice. Okay,
+Cedrick Infantado: think.
+Kobi Kunasekaran: this this is awesome. Okay, I think the only thing maybe the error message, let me see if we want to do like a different copy. But uh in terms of behavior, I think this this looks great.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: So as long as you change any value on it,
+Cedrick Infantado: I will send this.
+Kobi Kunasekaran: it it moves it forward.
+Cedrick Infantado: I'm sorry.
+
+
+00:37:42
+
+Kobi Kunasekaran: As long as you change like any value on uh any of the fields,
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: it moves it forward.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: And in the flow if you want to see it. it is something like this. So this is uh are the assignments that I've worked on. So I set up two variables to have um the prior and working um record and then um I've reconfigured everything here so that it would point to the working record. previously it's it is just pointing to the get signup record. So I don't have any way to compare to the previous value.
+Kobi Kunasekaran: I see.
+Cedrick Infantado: And then I've added this element for the assignment of the fields that are uh cannot be referenced directly on the screen float or or the screen element. So it is just assigning the uh working record. Then after that I have this uh gate or condition. So it's checking the uh the status if it is new and uh basically comparing the variables or the record variable itself.
+
+
+00:39:00
+
+Kobi Kunasekaran: Oh, nice. Okay. So, you don't you didn't have to like do it one field at a time. You could compare the entire like record.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Nice.
+Cedrick Infantado: Yeah. So, I've run some uh debugging as well yesterday.
+Kobi Kunasekaran: That's cool.
+Cedrick Infantado: Seems that it's working
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: fine.
+Kobi Kunasekaran: This is this is awesome. I was I was worried that you're going to have to like do like individual checks, but I'm glad you have to do like a dozen or uh or elements and conditions for
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: each
+Cedrick Infantado: that that is what I'm worried as well.
+Kobi Kunasekaran: field.
+Cedrick Infantado: But uh I've seen that um it seems that it's possible. So I've created two variables just just for
+Kobi Kunasekaran: So if they add like a new field on the log signups,
+Cedrick Infantado: that.
+Kobi Kunasekaran: then we would need to um update it. Do we need to update it anywhere on the floor?
+Cedrick Infantado: Yep. uh the screen uh element only and then if it is something or or if it is a field
+
+
+00:39:53
+
+Kobi Kunasekaran: It's a
+Cedrick Infantado: that cannot be referenced directly like this one on the record variable then for
+Kobi Kunasekaran: few
+Cedrick Infantado: example this one um the URL field it cannot be referenced directly. So you just have to point it the default values and then after that you have to put that field here to be assigned on the working variable record or sign up working signup. Yeah.
+Kobi Kunasekaran: What what does it mean when you say like the yield can't be referenced? Is is it like because of the
+Cedrick Infantado: Yeah. Of the field type.
+Kobi Kunasekaran: type?
+Cedrick Infantado: So um for example um this sign up proof you cannot find it anywhere here like proof.
+Kobi Kunasekaran: Oh,
+Cedrick Infantado: So just the check.
+Kobi Kunasekaran: interesting. Okay.
+Cedrick Infantado: So uh this is some limitation on the screen for like right now like the currency it cannot be referenced as
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: well.
+Kobi Kunasekaran: I see. Okay. Interesting.
+Cedrick Infantado: yet. I don't know. Salesforce being Salesforce, I guess.
+
+
+00:41:01
+
+Kobi Kunasekaran: Yeah. I'm curious what makes the difference because like currency fields seem basic, right? That you would be able to do it.
+Cedrick Infantado: Yeah. Yeah. Yeah. I think the problem is that we have enabled the multicurrency. So, I think that's the reason for that.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: But or the URL. I'm not really sure why why it's not showing
+Kobi Kunasekaran: Okay. All right.
+Cedrick Infantado: up.
+Kobi Kunasekaran: That's fine. That's something to look into when when we have some time. I'm just out of curiosity, but that's fine.
+Cedrick Infantado: Yeah, but still better than um old school. So you have to do it
+Kobi Kunasekaran: Oh, 100%.
+Cedrick Infantado: all.
+Kobi Kunasekaran: Yeah. Yeah. No, this is already this is already much much better.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Um, this is the same like you said that we had two different flows like one for the log signup and one for complete,
+Cedrick Infantado: s***.
+Kobi Kunasekaran: right?
+Cedrick Infantado: Yep.
+Kobi Kunasekaran: So the complete is still um I guess that wouldn't require all the fields.
+
+
+00:42:00
+
+Kobi Kunasekaran: So, it doesn't really matter.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: We don't need to make any changes.
+Cedrick Infantado: I I don't see any impact on that flow or just
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: change.
+Kobi Kunasekaran: Okay. Cool.
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: Wait,
+Cedrick Infantado: I
+Kobi Kunasekaran: this is awesome. Yeah, I think Yeah, my only thing is like I the copy I think maybe we can come up with like something a bit
+Cedrick Infantado: think
+Kobi Kunasekaran: more uh simpler, but I can get back to you with that one.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Um, that's a quick change anyways.
+Cedrick Infantado: Do you want me to send this?
+Kobi Kunasekaran: So,
+Cedrick Infantado: If you want, I can just take a screenshot of this, send it to you. So, you can comment what they want. Uh, or what do you
+Kobi Kunasekaran: Yeah. Yeah. Yeah. Yeah. That that works. That works. Yeah. I can let me let me think about it.
+Cedrick Infantado: prefer?
+Kobi Kunasekaran: I'll get back to you.
+
+
+00:42:42
+
+Kobi Kunasekaran: But it's a quick update. So again, like feel free to like you don't have to be blocked. We can push this forward and then we can always change this later.
+Cedrick Infantado: Yeah. Okay.
+Kobi Kunasekaran: So if they click on finish without making any changes, yeah,
+Cedrick Infantado: No,
+Kobi Kunasekaran: you show that they can still do it,
+Cedrick Infantado: it Yeah,
+Kobi Kunasekaran: right? or will it still block them?
+Cedrick Infantado: there will be no changes on the record after clicking the finish
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: button.
+Kobi Kunasekaran: Okay. All right. Yeah, that's
+Cedrick Infantado: Yep. Yeah.
+Kobi Kunasekaran: fine.
+Cedrick Infantado: Uh after uh doing the testing on the users uh on the login user and attaching everything or the changes that I've made here, I will move forward with my other task. I think I will um it's 2550 if my memory serves me right. Sorry, everything just closed out after.
+Kobi Kunasekaran: No worries.
+Cedrick Infantado: Yeah, it's 25 and
+Kobi Kunasekaran: Uh
+Cedrick Infantado: 251.
+Kobi Kunasekaran: yeah, like these ones like take a look at all of them first and then see if there is an order that makes sense because they're kind of all related and there are some some of them are prerequisites to the other.
+
+
+00:44:01
+
+Kobi Kunasekaran: I don't know if uh if I created these in the right order. So just go through them first like all of them and then you can decide on uh how to execute.
+Cedrick Infantado: Okay, sure. I I'll just check
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: it.
+Kobi Kunasekaran: Yeah. Uh pen source code to deal name.
+Cedrick Infantado: Think that's all for me.
+Kobi Kunasekaran: This is a small one that I added on your plate as well but not super urgent. Uh like I would prioritize the player status automation first and then we can come back and update this one.
+Cedrick Infantado: Okay, we'll prioritize that one and line up the player status
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: first.
+Kobi Kunasekaran: Yeah. 243. Okay. Cool. All right. So, that looks good. Yeah. Let me know once you have once you've had a chance to review these if you have any questions. Um they cuz cuz there are some dependencies. sees like we added like tracking the first sign up date, last sign update on the related player and things like that too.
+
+
+00:45:06
+
+Kobi Kunasekaran: So if you run into anything um just let me know. But otherwise I think I think you should be good to
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: go.
+Cedrick Infantado: I'll just check the um the user uh or the task and then if I have any questions, I'll uh make sure to let you know.
+Kobi Kunasekaran: Okay, sounds good. How are you uh how are you feeling about all these uh all these tickets and uh work so far?
+Cedrick Infantado: I yeah everything uh for me everything's looks good nothing yet too complex that um that is twisting my brain to so it's like
+Kobi Kunasekaran: Okay, that's good. At least this is better than just looking through the onboarding videos and documents,
+Cedrick Infantado: uh yeah this is better
+Kobi Kunasekaran: right?
+Cedrick Infantado: uh there's a feeling of accomplishment rather than just sharing uh the
+Kobi Kunasekaran: Yeah. Nice.
+Cedrick Infantado: onboard recording videos. But but of course that helps me uh helps me to better understand what they're trying to do
+Kobi Kunasekaran: Yeah. Okay. Awesome.
+Cedrick Infantado: here.
+
+
+00:46:05
+
+Kobi Kunasekaran: All right. So, yeah, you got you got a few things queued up. I am going to work through the uh feedback items from Tuesday and I'll keep pinging those up. Um but yeah, like when you have a minute, like take a look at that API doc, just flag anything that you might need um that we need to ask them uh earlier. Um, and I'm going to do the same as well after the call. We'll just look through it and see if there's anything else that might be missing that we might need. Um, and then uh let's let's try to give them like an update before the end of the day today if we can and then uh you can move on to the new tickets.
+Cedrick Infantado: Okay, sure. I'll do that.
+Kobi Kunasekaran: Awesome. All right,
+Cedrick Infantado: Yep.
+Kobi Kunasekaran: Cedric, anything else?
+Cedrick Infantado: Um, that's all for me. Nothing else,
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: man. Thank you,
+Kobi Kunasekaran: Awesome.
+Cedrick Infantado: Kobi.
+Kobi Kunasekaran: Great update. Great progress. I'll talk to you later, Ben.
+Cedrick Infantado: Okay. Then you'll go with my
+Kobi Kunasekaran: Thank you. Bye.
+
+
+Transcription ended after 00:47:15
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

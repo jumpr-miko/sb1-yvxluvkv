@@ -1,0 +1,299 @@
+{
+  "id": "10340",
+  "key": "WAGR-157",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T13:38:15.047-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.525-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# RF-12: Ban Automation\n\n_Triggered actions and modal inputs when a Referrer is banned._\n\n### AUTOMATION\n\n* Ban Reason — Picklist, required: Under Investigation, Confirmed Fraud, Network Policy Violation, Associated with Banned Network, Other\n* Ban Notes — Text, always required\n* Flag related Player record — Checkbox, optional. Sets the related Player's Review Required and Review Reason fields (see BUILD-177). Banning the Referrer does not restrict the Player automatically — this checkbox is a separate action.\n* All unpaid payouts (Status = New or Logged) move to Hold. Payouts already at Paid are not affected. Held payouts do not release on their own — a manual decision to pay or cancel is required.\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Ban Reason values are confirmed — see [BUILD-232 — Referrer: Ban Button — Confirm Reason/Notes Capture](https://app.asana.com/0/0/1217801011390356/f/) for confirmation history.\n* Ban Notes-required, the Flag Player checkbox, and the payout-Hold behavior are not separately re-validated with the client — sourced from the prototype's Ban modal only. Not confirmed whether Player's equivalent simplification (inferring the reason from already-flagged records instead of a modal, see [BUILD-175 — Player: Ban Status + Banner](https://app.asana.com/0/0/1217686087320935/f/)) should apply here — tied to [BUILD-189 — Referrer: Restriction Detail Fields](https://app.asana.com/0/0/1217693083539212/f/)'s open question.\n\n### NOTES\n\n* Provenance: RF-12 (Referrer Record User Stories doc).\n* Ban Reason values corrected 2026-08-26 to match the confirmed list from the Aug 25 Wagertech <> Jumpr Weekly Sync — the prototype's original values are documented in a comment on this ticket.\n\n### SOURCE\n\n* [Taryn doc RF-12 — Referrer Record User Stories](https://docs.google.com/document/d/1MsJXwt3oY-DyQuAdMzNYlyPenKUQl7g8mHzMmeRaVHs/edit?tab=t.lh55xwl5syhi)\n* Dependencies: [BUILD-185 — Referrer: Object + Core Status](https://app.asana.com/0/0/1217693311564006/f/), [BUILD-189 — Referrer: Restriction Detail Fields](https://app.asana.com/0/0/1217693083539212/f/)\n* Related: [BUILD-232 — Referrer: Ban Button — Confirm Reason/Notes Capture](https://app.asana.com/0/0/1217801011390356/f/) (BUILD-232 — Ban Reason confirmation history)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-20 from Referrer record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10092",
+        "filename": "Screenshot 2026-09-02 at 3.52.46 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-02T15:52:53.349-0400",
+        "size": 176976,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10092",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10092"
+      },
+      {
+        "id": "10077",
+        "filename": "Screenshot 2026-09-03 at 10.49.08 AM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-03T10:49:13.152-0400",
+        "size": 119274,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10077",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10077"
+      }
+    ],
+    "summary": "BUILD-196 — Referrer: Ban Automation",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10276",
+          "body": "**Update:** BUILD-189 now has the banner and a blank Restriction Detail field section (shows when Referrer Status = Banned). Nothing writes to those fields yet. Holding until we confirm the approach.",
+          "created": "2026-08-21T16:18:00.059-0400",
+          "updated": "2026-08-21T16:18:00.059-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10277",
+          "body": "Corrected the Ban Reason picklist values to match the client-confirmed list from BUILD-232 (08/25 Weekly Sync), replacing the prototype's original values.\n\nFor the record, the prototype's original Ban Reason list was: \n\n* Fabricated/Rogue Referrals\n* Edited/Suspicious Proof\n* Collusion with Player\n* Confirmed Duplicate Referrer\n* Policy Violation — Non-Fraud\n* Other Fraud/Compliance Concern\n\n",
+          "created": "2026-08-26T15:12:43.549-0400",
+          "updated": "2026-08-26T15:12:43.549-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10278",
+          "body": "**Ban automation built and live in Partial.** Referrer Status sets to Banned automatically. Optional checkbox flags the related Player (Review Required + Review Reason) when checked; Player is untouched when unchecked. Both update steps have fault paths to a shared Error screen. Tested via Debug and the live Ban button, both branches.\n\n**Outstanding:** payout-hold logic — blocked on the Payout object, not yet ticketed, picking up next week once scoped.",
+          "created": "2026-09-02T15:33:31.580-0400",
+          "updated": "2026-09-02T15:33:31.580-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10279",
+          "body": "tested complete and working! Referrer - Ban Button - V5",
+          "created": "2026-09-02T15:53:14.707-0400",
+          "updated": "2026-09-02T15:53:14.707-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10280",
+          "body": "Removed Flag player section and flag related player checkbox from ban screen and flow per internal sync 09/03\n\nReferrer - Ban Button - V7\n\n[https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011G7G9YAK](https://nosoftware-nosoftware-7430--partialsb.sandbox.lightning.force.com/builder_platform_interaction/flowBuilder.app?flowId=301WJ000011G7G9YAK)",
+          "created": "2026-09-03T10:50:10.925-0400",
+          "updated": "2026-09-03T10:50:10.925-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 5,
+      "total": 5,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-318"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Should Have",
+          "id": "10041"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Development",
+          "id": "10055"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217693254043092"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001pz:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "M (8-16 Hours)",
+          "id": "10046"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217693254043092"
+      }
+    }
+  }
+}

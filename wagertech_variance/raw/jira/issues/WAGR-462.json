@@ -1,0 +1,188 @@
+{
+  "id": "11443",
+  "key": "WAGR-462",
+  "fields": {
+    "statuscategorychangedate": "2026-09-25T12:55:02.359-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10140",
+      "key": "WAGR-11",
+      "fields": {
+        "summary": "Epic C — Deals & Rep Assignment",
+        "status": {
+          "description": "This issue is being actively worked on at the moment by the assignee.",
+          "name": "In Progress",
+          "id": "3",
+          "statusCategory": {
+            "id": 4,
+            "key": "indeterminate",
+            "colorName": "yellow",
+            "name": "In Progress"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-25T12:55:01.667-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-30T00:20:40.800-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "**Related:** WAGR-98, WAGR-106, WAGR-461, WAGR-173, WAGR-211, WAGR-212, WAGR-215, WAGR-68\n\n**Summary**\nA Deal's terms (CPA, Rev Share, deposit range, redeposit required) change over time. Today the terms are plain fields on the Deal. An edit overwrites the old value, and a completed Sign-Up keeps no record of the terms it earned. Ops cannot answer \"what did we agree for this Sign-Up?\" after a change.\n\nThis card holds the requirements for dated terms. Its output is a design and the build stories.\n\n**Requirements captured**\n\n* Keep a dated history of each Deal's terms. The Deal shows the current terms.\n* A completed Sign-Up keeps the terms that were in effect on its First Wager Date.\n* A backdated terms change updates unpaid Sign-Ups. It flags paid Sign-Ups for Ops and does not change them.\n* Terms are not sent to the CMS.\n* Support the Tiered CPA model (WAGR-461), or explicitly defer it.\n* Show clearly how the Deal CPA feeds the payouts. This is a dependency for referral payouts and redeposits.\n\n**Open questions**\n\n* What does Ops do with a paid Sign-Up that a backdated change has flagged? _(Emily / Lina)_\n* What currency do the copied CPA and deposit amounts use? Can a Deal's currency change after creation? _(Emily / Lina)_\n* Is a renewal the same Deal with new terms, or a new Deal? _(Kobi said both on Sep 11. Confirm with Emily.)_\n* Are start and end dates part of the terms?\n* What happens to in-flight Sign-Ups (not yet complete) when the terms change?\n* Confirm the final list of term fields. Emily filled in Taryn's table.\n\n**Done when**\n\n* WagerTech approves the design in writing, and the approval is on this ticket.\n* The build stories exist under the parent and link to this card.\n* WAGR-98 and WAGR-106 are updated to the approved design and closed.\n\n**Sources (traceable):**\n\n* Weekly sync, 2026-09-11 — https://fathom.video/calls/812654105\n* Emily, Slack 2026-09-14 (Tiered CPA) — https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1789396252107239\n* Slack 2026-09-14 (backdated terms reprocessing) — https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1789413008443589\n* Internal sync, 2026-09-25 (payout dependency) — https://fathom.video/calls/835861145\n* Kobi local design page — Wagertech/Wagertech_Commercial_Terms_Design_Page_DRAFT_2026-09-23.md\n\n---\n\n_Captured 2026-09-25 by Kobi from the WagerTech calls, Slack, Jira and sandbox review (Jul–Sep 2026). Design backlog item: requirements only, not a solution._",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Commercial Terms — design and user stories",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Documentation & Spec",
+          "id": "10054"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0089b:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-11"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

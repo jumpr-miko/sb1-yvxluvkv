@@ -1,0 +1,190 @@
+{
+  "id": "11390",
+  "key": "WAGR-441",
+  "fields": {
+    "statuscategorychangedate": "2026-09-25T15:31:14.577-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-23T16:18:35.170-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:35.863-0400",
+    "status": {
+      "description": "This issue is being actively worked on at the moment by the assignee.",
+      "name": "In Progress",
+      "id": "3",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2 data-local-id=\"d97bbbc07332\">Summary</h2><p data-local-id=\"afa19235f2cb\">WagerTech added a second mandatory player survey. Survey 1 happens at sign-up and stays as is. Survey 2 happens later in the player journey. Salesforce records only one survey completion today (Survey Completed checkbox and Date Survey Completed on the Player). Ops cannot see if a player completed Survey 2.</p><h2 data-local-id=\"5966804473b9\">Requirements</h2><ul data-local-id=\"9c7f99968239\"><li data-local-id=\"27de63d29119\"><p data-local-id=\"f0109321d23a\">Salesforce stores the completion status and completion date for Survey 1 and for Survey 2 on the Player.</p></li><li data-local-id=\"0efbd504a27e\"><p data-local-id=\"e33800f57a3e\">Salesforce tracks only complete or not complete. It does not track percent complete.</p></li><li data-local-id=\"909158c353f7\"><p data-local-id=\"8f53aae592f7\">The CMS sends Survey 1 and Survey 2 completion as separate, identifiable events. Salesforce must not infer which survey a date belongs to.</p></li><li data-local-id=\"87ffad902e07\"><p data-local-id=\"a103e178ed74\">A Survey 2 completion updates the existing Player. It does not create a Player or a Sign-Up.</p></li></ul><h2 data-local-id=\"736c8b763f80\">Approved Design</h2><p data-local-id=\"81979f359704\">Agreed with WagerTech on the Sep 23 weekly sync:</p><ul data-local-id=\"d38fb1874b74\"><li data-local-id=\"5ea39fa2a479\"><p data-local-id=\"18372b1f94bc\">Relabel the existing survey fields as Survey 1 (Survey Completed, Date Survey Completed).</p></li><li data-local-id=\"d00acec81b57\"><p data-local-id=\"8e67a139ab77\">Add matching Survey 2 fields (status and date) in the same Survey section of the Player page.</p></li><li data-local-id=\"8e5cd24f6f3c\"><p data-local-id=\"2d4731af7182\">Jumpr sends the updated field API names to Strahinja. Strahinja then updates the CMS payload.</p></li></ul><p data-local-id=\"453fd172818c\">No separate survey object was requested.</p><h2 data-local-id=\"7b4db7b1fd2b\">Acceptance Criteria</h2><ol data-local-id=\"2f46ab70371c\"><li data-local-id=\"043bb2b917de\"><p data-local-id=\"b1bd90c0d5e9\">When the CMS sends a Survey 1 completion for a Player, only the Survey 1 status and date are set on that Player.</p></li><li data-local-id=\"68105c048737\"><p data-local-id=\"7b5c192c0d55\">When the CMS sends a Survey 2 completion for a Player, only the Survey 2 status and date are set. The Survey 1 values do not change.</p></li><li data-local-id=\"b702c37e4c4b\"><p data-local-id=\"6d2992e89bcf\">A Survey 2 event for a Player external ID that Salesforce cannot find does not create a new Player. The failure is visible to the team. </p><ol data-local-id=\"e3c9ebc987ca\"><li data-local-id=\"37ef1d234dc3\"><p data-local-id=\"d9d454ed82de\">Error handling for this should be on the CMS → SF API call response. No additional work on the SF side besides ensuring new player isn’t created. </p></li></ol></li><li data-local-id=\"82422540924d\"><p data-local-id=\"9d6a8fdb8b39\">Both survey paths are tested end to end with the CMS in the sandbox. The last test was on a few records, before the SLC and API changes.</p></li></ol><h2 data-local-id=\"02f8322ac8c9\">Open Questions</h2><ul data-local-id=\"d379408bc682\"><li data-local-id=\"e1219910412d\"><p data-local-id=\"66a10d053f9e\"><strong>When does Survey 2 happen?</strong> Emily&#039;s Slack (Sep 21) says after the first wager is complete. On the Sep 23 call, the team said about 72 hours after sign-up, and that players are forced to complete it when they sign in after 3 days. Confirm the trigger. (WagerTech: Emily / Strahinja)</p></li><li data-local-id=\"e43d30ef8bca\"><p data-local-id=\"d03a66e0b5a8\"><strong>How does Survey 2 arrive?</strong> Options raised: the separate CMS survey callout (the WAGR-46 path) or a second payload. The Slack message says Survey 1 comes in the SLC payload. On the call, Kobi described a separate CMS callout. Confirm the current Survey 1 path and the Survey 2 path. (Strahinja)</p></li><li data-local-id=\"8d56668f8c4e\"><p data-local-id=\"28efb8d48f7d\"><strong>Edit access:</strong> WAGR-401 makes the survey completion date Ops-only. Do the Survey 2 fields follow the same rule? (Kobi)</p></li><li data-local-id=\"da1e41cf8231\"><p data-local-id=\"c75fa7d0abe9\"><strong>Downstream effect:</strong> does Survey 2 completion gate Sign-Up completion, proof status, or payout? This was not discussed. (Emily)</p></li><li data-local-id=\"7666269febac\"><p data-local-id=\"8deb2a663296\"><strong>Partial surveys:</strong> Strahinja will confirm that the CMS does not let a player submit a partly completed survey.</p></li></ul><h2 data-local-id=\"9ad98d4068a9\">Dependencies</h2><ul data-local-id=\"a0e51686924e\"><li data-local-id=\"b64ae426a0f7\"><p data-local-id=\"2e39ee53831d\">WAGR-46: the inbound survey-completion event to the Player. It is in Requirements, and the CMS side is owned by WagerTech. This story extends its contract to two surveys.</p></li><li data-local-id=\"38e2efc415ea\"><p data-local-id=\"57265c03c5ca\">WAGR-401: Ops-only edit access on the survey date.</p></li><li data-local-id=\"68e95897c66a\"><p data-local-id=\"fee438e1c18e\">CMS payload change (WagerTech): it needs the new API names from Jumpr first.</p></li><li data-local-id=\"dfc403d130de\"><p data-local-id=\"350e1d8ad792\">Build complete by Oct 9 for the Nov 1–2 launch (Waleed, Sep 23 call).</p></li></ul><h2 data-local-id=\"2d3680f03a41\">Out of Scope</h2><ul data-local-id=\"3a7166eb32a9\"><li data-local-id=\"cfe82e1edaac\"><p data-local-id=\"0e337ca74447\">Tracking percent complete or individual survey answers in Salesforce.</p></li><li data-local-id=\"00e920d2e733\"><p data-local-id=\"4a1ce34cb02b\">VIP (manually entered) players. They do not go through the CMS survey flow (Sep 23 call).</p></li></ul><h2 data-local-id=\"38041e48b2db\">References</h2><ul data-local-id=\"8e84d0543ef5\"><li data-local-id=\"fb4d1fffbae6\"><p data-local-id=\"6680bd53ce36\">Emily, Slack, 2026-09-21: https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1789998614855609</p></li><li data-local-id=\"35910baae9fe\"><p data-local-id=\"2955809af7fd\">Wagertech &lt;&gt; Jumpr Weekly Sync, 2026-09-23, survey discussion from 04:19 to 09:27: https://fathom.video/calls/831090060?timestamp=259</p></li></ul>",
+    "timetracking": {},
+    "attachment": [
+      {
+        "id": "10388",
+        "filename": "Screenshot 2026-09-25 at 3.30.00 PM.png",
+        "author": {
+          "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+          "emailAddress": "kobi@jumpr.io",
+          "displayName": "Kobi Kunasekaran",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-09-25T15:31:11.693-0400",
+        "size": 32380,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10388",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10388"
+      }
+    ],
+    "summary": "Player: Capture Survey 2 completion from CMS alongside Survey 1",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11354",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<ul data-local-id=\"00b45f5c6e9a\"><li data-local-id=\"c0a832d67b7b\"><p data-local-id=\"0919135e78c0\">Labels for original Survey fields updated to say Survey 1</p></li><li data-local-id=\"904ea6bb043e\"><p data-local-id=\"b3fad1a9b6f2\">New fields created for Survey 2 - Read-only for Wagertech Rep Profile</p></li><li data-local-id=\"980745ad91d7\"><p data-local-id=\"2374aeb0a368\">Survey 2 fields added to the Lightning Record page under Survey section below Survey 1 fields. </p></li><li data-local-id=\"0999313f1b61\"><figure data-local-id=\"a55daac4fbfa\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"679\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"1a04b986-e0d0-461d-bee4-8673168e4cea\" data-alt=\"Screenshot 2026-09-25 at 3.30.00 PM.png\" data-width=\"679\" data-height=\"243\"></div></figure><p data-local-id=\"ea507581077f\">Notified Emily <a href=\"https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1790363451510869\" data-card-appearance=\"inline\">https://jumpr-solutions.slack.com/archives/C0BBC05C2HG/p1790363451510869</a>  </p></li></ul><p data-local-id=\"b4c1f03d099d\"></p><p data-local-id=\"0c7df8099aeb\"><strong>Next Steps before close: </strong>Confirm Strah can update these fields via CMS after survey completion on the respective Player records. </p>",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-25T15:31:12.151-0400",
+          "updated": "2026-09-25T15:31:12.151-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0084n:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

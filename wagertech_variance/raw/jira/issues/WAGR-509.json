@@ -1,0 +1,150 @@
+{
+  "id": "11586",
+  "key": "WAGR-509",
+  "fields": {
+    "statuscategorychangedate": "2026-10-02T09:18:56.443-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-10-02T09:18:56.097-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-10-02T09:18:56.186-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Purpose\n\nCapture the explicit follow-up for tomorrow's WagerTech review: decide whether Affiliate Links need their own terminal **Archived** state rather than relying only on Active/Inactive + Exclude from CMS.\n\n## Current interim behavior\n\nUntil this decision changes it:\n\n* Deal Pause deactivates currently Active Links and may restore the pre-pause active set.\n* Deal Close deactivates currently Active Links; Closed → Active leaves them inactive.\n* Deal Archive deactivates currently Active Links.\n* Deal Inactive does not change Links.\n* Previously-published Links remain in the full current eligible snapshot until CMS omission semantics are confirmed.\n\n## If Link Archived is adopted, reconcile as one coordinated workstream\n\n* Link data model / status values;\n* Link manager create/edit/end-of-life UX;\n* Deal Close and Deal Archive behavior;\n* WAGR-456 payload eligibility and serialized status/state;\n* WAGR-491 Exclude/Delete rules;\n* CMS omission semantics / tombstone expectations;\n* WAGR-459 staging tests;\n* migration/backfill of existing inactive Links;\n* reporting/history/SLC attribution.\n\n## Questions for WagerTech / Strah\n\n1. Is Archived terminal for a Link?\n2. Should Deal Archive move all child Links to Archived rather than Inactive?\n3. Should Deal Close archive Links, or only deactivate them?\n4. Should Archived Links remain in future payloads?\n5. If omitted, does CMS retain the last-known state?\n6. Can an Archived Link ever be restored, or must a new Link be created?\n\n## Done when\n\nDecision is recorded in Confluence and the affected Jira stories are updated together. Do not implement Link Archived piecemeal before this review.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Affiliate Link — Evaluate and design Archived status / historical payload treatment",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0093b:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

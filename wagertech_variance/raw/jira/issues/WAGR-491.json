@@ -1,0 +1,189 @@
+{
+  "id": "11568",
+  "key": "WAGR-491",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T17:41:22.291-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-29T17:41:21.834-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10079",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "11384",
+          "key": "WAGR-435",
+          "fields": {
+            "summary": "Affiliate Link: Add VIP flag + exclude from CMS feed (VIP)",
+            "status": {
+              "description": "The issue is open and ready for the assignee to start work on it.",
+              "name": "Open",
+              "id": "1",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-10-02T09:17:20.015-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nOps can intentionally keep Links out of CMS and previously-published Link history is preserved safely.\n\n## Current V1 rules\n\n* Add/use generic **Exclude from CMS**.\n* Never-published Link may be deleted through the guided confirmation path.\n* Published Active Link cannot be deleted/excluded.\n* Published Link must first be Inactive and CMS must have successfully confirmed the inactive state before omission/delete could become eligible.\n* Until CMS omission semantics are confirmed, do not enable production omission-based deletion/exclusion for previously-published Links.\n* Do not add a deleted/tombstone payload state unless CMS requires it.\n* Direct/API delete and re-parenting must obey the same protection.\n\n## Lifecycle interaction\n\n* Pause/Close/Archive may make currently Active Links inactive through Deal lifecycle actions.\n* Inactive Deal status does **not** change Links.\n* Whether Affiliate Links themselves gain an explicit **Archived** status is intentionally **out of scope here** and tracked in the separate Link Archive follow-up.\n* If Link Archived is adopted, revisit this story's physical-delete/end-of-life rules rather than silently layering a second lifecycle.\n\n## Publication markers\n\nKeep lightweight system-managed publication state sufficient to prove last successful CMS state. These are not a separate Link retry engine.\n\n## Acceptance criteria\n\n1. Never-published Link can be deleted after confirmation.\n2. Published Active Link cannot be deleted/excluded.\n3. Published inactive Link is not omission/delete-eligible until CMS has confirmed inactive.\n4. API/UI paths cannot bypass protection.\n5. Deal Pause/Close/Archive deactivation does not make a Link delete-eligible merely because a request was queued; successful CMS confirmation is still required.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Affiliate Link — Exclude from CMS, publication markers and safe deletion",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i008zj:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

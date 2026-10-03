@@ -1,0 +1,228 @@
+{
+  "id": "10240",
+  "key": "WAGR-231",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:33:38.875-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.803-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Mirror Partner's Agreement set onto Operator so Direct relationships carry their own terms and signed contract.\n\n=== FIELDS ===\n\n* Agreement Signed — Date\n\n* Renewal Date — Date\n\n* Notice Period — Text, free form (Joyce, Slack Aug 14 14:32: 'Feel free to make them free form text for now'). NOT a picklist — reverses Taryn's doc.\n\n* Auto-Renew — Checkbox\n\n* Exclusivity — Text, free form — same Slack answer. NOT a picklist.\n\n* Agreement File — Salesforce Files, stored in Salesforce not Drive/GCP\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Part of the same Direct-only conditional group as Billing — visibility is BUILD-130, not here.\n\n* Salesforce Files, confirmed Aug 13: Kobi 'do we need that stored in Google Drive? Or is it okay to store it in Salesforce?' -> 'Salesforce. Salesforce, fine.' Joyce: 'the amount of agreements are not so huge that we need to solution otherwise.' GCP stays scoped to Sign-Up proofs.\n\n* Do not mark any field required on the page layout. No validation rules are being built yet — decided 2026-08-17: 'No need for validations for now, we'll add them in later as needed.'\n\n=== OPEN QUESTIONS ===\n\n* Taryn reported Operator as 'pretty much' complete but did not enumerate the Agreement fields specifically. Verify these six exist before closing.\n\n=== NOTES ===\n\n* ALREADY BUILT (verify — see open question). Confirmed on the Aug 17 Kobi/Taryn call. Ticket is retroactive documentation.\n\n* Settles OP-3's open question. Joyce: 'if the relationship is direct, then we should also have the same agreement information on operators that we did on partners.' She thought they already existed; Kobi corrected her — 'They're not. Not for the agreement.'\n\n=== SOURCE ===\n\n* Taryn doc OP-3\n\n* Aug 13 call\n\n* Slack Joyce Aug 14 14:32\n\nDependencies: BUILD-126\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-128 — Operator: Agreement fields (Direct-only block) — NEW, did not previously exist",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10361",
+          "body": "Built per spec: added the Direct-only Agreement block to Operator — Agreement Signed (Date), Renewal Date (Date), Notice Period (free-text), Auto-Renew (checkbox), Exclusivity (free-text), and Agreement File (Salesforce Files, not Drive/GCP). No fields are marked required and no validation rules were built.",
+          "created": "2026-08-24T17:19:30.966-0400",
+          "updated": "2026-08-24T17:19:30.966-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-262"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563507375007"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0013r:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563507375007"
+      }
+    }
+  }
+}

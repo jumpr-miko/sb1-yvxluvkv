@@ -1,0 +1,246 @@
+{
+  "id": "10226",
+  "key": "WAGR-183",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T13:44:36.519-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:28.706-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# BA-4: CMS Identity Fields\n\n_CMS-sourced identity fields on the BA record — read-only, created upstream via the CMS._\n\n### FIELDS\n\n* BA External ID\n\n* Needed for mapping — Kobi Kunasekaran, [1:04:16](https://fathom.video/calls/787411922?timestamp=3856): \"We're planning on using that for the mapping, but the rest is optional.\"\n\n* BA Slug\n* Primary Agency Site — renamed from Landing Page\n\n* Joyce Kiddell, [1:04:56](https://fathom.video/calls/787411922?timestamp=3896): \"Can we change it from landing page to agency?\" Lina Ceniccola, [1:05:00](https://fathom.video/calls/787411922?timestamp=3900): \"Agency site? Yep.\"\n\n### IMPLEMENTATION REQUIREMENTS\n\n* Copy-to-clipboard for these fields is deferred — don't build it\n\n* Emily Vandenberg, [1:07:13](https://fathom.video/calls/787411922?timestamp=4033): \"No, let's just make it as simple as we can right now.\"\n\n* Section stays read-only\n\n* BAs are created upstream via the CMS, same as Player.\n\n### NOTES\n\n* Provenance: BA-4 (Brand Ambassador Record User Stories doc).\n\n### SOURCE\n\n* [Taryn doc BA-4 — Brand Ambassador Record User Stories](https://docs.google.com/document/d/1MsJXwt3oY-DyQuAdMzNYlyPenKUQl7g8mHzMmeRaVHs/edit?tab=t.g64hrhse8pog)\n* [Aug 18 Weekly Sync — Kobi Kunasekaran, 1:04:16 (External ID for mapping)](https://fathom.video/calls/787411922?timestamp=3856)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 1:04:56 (renames to Agency Site)](https://fathom.video/calls/787411922?timestamp=3896)\n* [Aug 18 Weekly Sync — Lina Ceniccola, 1:05:00 (confirms)](https://fathom.video/calls/787411922?timestamp=3900)\n* [Aug 18 Weekly Sync — Emily Vandenberg, 1:07:13 (copy-to-clipboard deferred)](https://fathom.video/calls/787411922?timestamp=4033)\n* Dependencies: [BUILD-202 — Brand Ambassador: Object + Core Status](https://app.asana.com/0/0/1217693577680227/f/)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-20 from Brand Ambassador record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-205 — Brand Ambassador: CMS Identity Fields",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10464",
+          "body": "Built per spec: \n\nField label updates\n\n* Rep Slug → BA Slug\n* Rep External ID → BA External ID\n* Landing Page → Primary Agency Site\n\n",
+          "created": "2026-08-25T10:49:05.333-0400",
+          "updated": "2026-08-25T10:49:05.333-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10465",
+          "body": "[@Kobi Kunasekaran](https://app.asana.com/1/1202721605677544/profile/1203115293332591)Does the CMS set the Agency Site link here?",
+          "created": "2026-08-25T10:52:45.320-0400",
+          "updated": "2026-08-25T10:52:45.320-0400",
+          "jsdPublic": true
+        },
+        {
+          "id": "10466",
+          "body": "No I believe this was going to be set manually, all user fields are generally going to be set manually during user provisioning.",
+          "created": "2026-08-25T12:32:10.135-0400",
+          "updated": "2026-08-25T12:32:10.135-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 3,
+      "total": 3,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-326"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217693390283570"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0010n:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217693390283570"
+      }
+    }
+  }
+}

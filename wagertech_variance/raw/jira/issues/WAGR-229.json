@@ -1,0 +1,228 @@
+{
+  "id": "10372",
+  "key": "WAGR-229",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:33:38.899-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.255-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Core identity field set on Operator, plus the two Contact lookups that replaced the Contacts related list.\n\n=== FIELDS ===\n\n* Operator Name — Name — standard Name field\n\n* Status — Status__c — Picklist: Active; Inactive. Created as a plain picklist here; automation is BUILD-147.\n\n* Website — URL\n\n* Operator Portal URL — URL — the site Ops logs into to pull operator reports\n\n* Primary Contact — Lookup(Contact) — child relationship name Accounts_Primary, not required, no lookup filter\n\n* Billing Contact — Lookup(Contact) — child relationship name Accounts_Billing. Lives in the Billing block (BUILD-129) but created here.\n\n* Primary Contact Email — cross-object relationship field off Primary Contact, read-only. NOT a custom field.\n\n* Primary Contact Phone — cross-object relationship field off Primary Contact, read-only. NOT a custom field.\n\n* Parent Company — Text, free text. No lookup — Kobi: 'there's no relationship by name' -> Joyce: 'Correct'.\n\n* Logo — see BUILD-145\n\n* Operator Name is NOT placed in a field section — the header/highlights panel is sufficient. Decided 2026-08-17: 'Operator Name in the header is sufficient.' Overrides Taryn's OP-1 story, which lists it as a layout field.\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Secondary Contact is CUT. Kobi, Aug 17: 'we don't need the secondary contact for now... for now, it's just going to be two lookup fields. One for primary contact and one for the billing contact.' Its source was the old PRD, which he declared stale: 'this came from the PRD, which is obviously outdated now.' Taryn's doc still lists it — do not build it.\n\n* Email and phone come from the Contact record via relationship fields, not custom fields. Kobi: 'we want the information to come from the actual contact record... this way it's not editable. They would go to the contact record and update and that way any other records with this person related would have the latest information.' The two standalone Primary Contact Email / Phone fields were removed from the Operator layout on Aug 17 and replaced with relationship fields.\n\n* No Operator Owner custom field — standard OwnerId only, and Owner was removed from the layout entirely. Kobi: 'we said no to the operator owner or partner owner fields.' Joyce in Slack Aug 14: 'Nah just remove.'\n\n* No 'Active Status' field — duplicates Status, removed on Aug 13.\n\n* No Asset Library field — Joyce: 'I don't know why there's Asset Library. think Claude added that.'\n\n* When creating fields, uncheck all 'add to page layouts / related lists' boxes. Kobi: 'you want to do it intentionally... if we forget to uncheck these then it's going to add it to the bottom of the first section.'\n\n* Every field needs a description. Taryn did this on everything she created — hold the line on it.\n\n* Do not mark any field required on the page layout. Kobi, Aug 17: 'if we put it on the page layout, it could prevent them from updating information even if it's not relevant for that particular account.' Required logic will go through validation rules instead — but no validation rules are being built now. Decided 2026-08-17: 'No need for validations for now, we'll add them in later as needed.' Net effect: these fields are optional in the org today, deliberately.\n\n=== OPEN QUESTIONS ===\n\n* Can relationship field labels be renamed? Kobi flagged it live — 'I don't know if it lets us rename the field. That might be annoying, might not be clear.' If not, the label on the page may read badly.\n\n* Possible orphans. Neither Kobi nor Taryn could remember whether the old Primary Contact Email / Phone fields were pre-existing or Taryn-created — 'Good question. I forget.' If Taryn made them, they should be deleted, not just removed from the layout. Not being chased now — per the 2026-08-17 review these get swept up in UAT prep, where unused fields surface naturally.\n\n=== NOTES ===\n\n* ALREADY BUILT — confirmed on the Aug 17 Kobi/Taryn call. Ticket is retroactive documentation. Set Status = Ready for Review and add the real API names to the card so the work is traceable, per the Aug 17 convention. Taryn: 'pretty much everything else in operator at least has been completed.' Both Contact lookups were created live with Kobi on the call.\n\n* Build on the Dynamic Lightning record page using Dynamic Forms — not the classic page layout. Related lists use the Dynamic Related List – Single component so columns can be controlled per list.\n\n* Provenance: OP-1.\n\n=== SOURCE ===\n\n* Taryn doc OP-1\n\n* Aug 13 call — Contacts, Owner, Parent Company\n\n* Slack Joyce Aug 14 15:04\n\n* Aug 17 call — Secondary Contact cut, relationship fields, lookups built live\n\nDependencies: None — foundational\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-126 — Operator: Core Details fields + Contact lookups",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10496",
+          "body": "Built per spec: added the Operator core field set — standard Operator Name field, Status (picklist: Active/Inactive; automation is separate under BUILD-147), Website (URL), Operator Portal URL (URL), Parent Company (free text, no lookup), and two Contact lookups — Primary Contact and Billing Contact (child relationships Accounts_Primary and Accounts_Billing). Primary Contact Email and Primary Contact Phone were added as read-only cross-object relationship fields off Primary Contact, not custom fields. Per spec, Secondary Contact, a custom Operator Owner field, a duplicate Active Status field, and an Asset Library field were not built, and Operator Name was kept out of a layout section (header only). No fields are marked required on the layout.",
+          "created": "2026-08-24T17:19:34.517-0400",
+          "updated": "2026-08-24T17:19:34.517-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-260"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563605399766"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001x3:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563605399766"
+      }
+    }
+  }
+}

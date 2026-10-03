@@ -1,0 +1,228 @@
+{
+  "id": "10230",
+  "key": "WAGR-200",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-17T16:35:50.305-0400",
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.718-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Same treatment as BUILD-131, applied to Partner.\n\n=== FIELDS ===\n\n* Section: All Additional Information, inside a More Info tab\n\n* Partner External ID — Text(80), External ID, case-insensitive. Created by Marc Aug 13; replaces auto-number Partner_ID__c.\n\n* Partner Code — Text. Note: partner codes are the suffixes in CMS link names — Joyce, Aug 11: 'They just exist as second part of the link name so CTM for drafkings-CTM.'\n\n* Partner Aliases — Long Text Area, semicolon-delimited\n\n* Logo URL — URL\n\n* Partner Notes — Long Text Area (main page, not the tab)\n\n* Created By / Last Modified By — standard, no build\n\n=== IMPLEMENTATION REQUIREMENTS ===\n\n* Check whether the Partner page already has a tab component, as Operator did. If not, create one.\n\n* P&L Book Name and CMS Last Sync are deliberately NOT created — same as BUILD-131.\n\n* Tab visibility only — NOT field-level security. The mockup flags this section 'Hidden from Ops by field-level security', but that is not what is being built. Decided 2026-08-17: 'Tab visibility is sufficient.' No profile or permission-set work in this card. 'Ops' in the mockup also doesn't map cleanly to the Rep/Manager/Ops permission model, which is a second reason not to read it literally.\n\n* Do not build the error/audit log view — it gets scoped with the CMS integration work.\n\n=== OPEN QUESTIONS ===\n\n* Same 'squash' ambiguity as BUILD-131 — Taryn to rewatch \\~36:00 of the Aug 13 recording and confirm whether Joyce meant delete the System section or only the Owner field.\n\n=== NOTES ===\n\n* Outstanding.\n\n* Provenance: PT-5. The 'Active Status' duplicate that lived here is deleted — see BUILD-136.\n\n=== SOURCE ===\n\n* Taryn doc PT-5\n\n* Aug 13 call\n\n* Slack Marc Aug 13 23:33\n\n* Aug 17 Marc call — layout read-only, not FLS\n\nDependencies: BUILD-136\n\nOwner (proposed): Taryn Reithofer\n\nRemember to update the requirements documentation as part of this change.\n\nCreated 2026-08-17 from the Operator/Partner ticket review, approved by Kobi.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-139 — Partner: move Additional Information + System fields into a More Info tab",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10481",
+          "body": "Not yet built, per this ticket's own notes — on the outstanding list. Spec calls for an \"All Additional Information\" section inside a More Info tab on Partner, containing Partner External ID (Text(80), External ID, case-insensitive), Partner Code, Partner Aliases (Long Text Area, semicolon-delimited), Logo URL, Partner Notes (on the main page, not the tab), plus standard Created By / Last Modified By fields. P&L Book Name, CMS Last Sync, and an error/audit log view are excluded per spec.",
+          "created": "2026-08-24T17:20:16.614-0400",
+          "updated": "2026-08-24T17:20:16.614-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-275"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Core Reference Data",
+          "id": "10062"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217563877953628"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0011j:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217563877953628"
+      }
+    }
+  }
+}

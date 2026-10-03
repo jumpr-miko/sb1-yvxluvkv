@@ -1,0 +1,176 @@
+{
+  "id": "10534",
+  "key": "WAGR-397",
+  "fields": {
+    "statuscategorychangedate": "2026-09-15T10:55:06.479-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 2,
+      "isWatching": false
+    },
+    "created": "2026-09-15T10:55:05.968-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:34.330-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "<h2>Outcome and context</h2><p>Emily&#039;s Sep 2026 feedback asks Jumpr to confirm that Assigned BA (and, by the same mechanism, Primary/Secondary Referrer) comes in from the SLC API and is set based on the first completed sign-up. That confirmation is exactly what BUILD-178 (WAGR-72) and BUILD-253 (WAGR-140) flagged as an open question before this defaulting automation could be built — both explicitly carved &quot;BA/Primary/Secondary Referrer defaulting on first completed Sign-Up&quot; out of scope pending client sign-off. Emily&#039;s note reads as that sign-off.</p><h2>Current state</h2><p>BUILD-174 (PL-2, WAGR-43) defines Assigned BA, Primary Referrer, and Secondary Referrer as fields intended to be &quot;set from the player&#039;s first sign-up when blank,&quot; with mismatches flagged for Ops review (BUILD-179 / WAGR-71) rather than blocking. The actual automation that sets these fields on a completed Sign-Up has not been built — BUILD-253 (WAGR-140) explicitly excludes it, noting &quot;awaiting client confirmation — separate ticket.&quot;</p><h2>Proposed solution</h2><ol><li><p>Confirm back to Emily that Assigned BA, Primary Referrer, and Secondary Referrer are intended to populate from the SLC/Sign-Up data and are set on the player&#039;s first completed Sign-Up when blank.</p></li><li><p>Build the defaulting automation: on a Player&#039;s first completed Sign-Up, set Assigned BA, Primary Referrer, and Secondary Referrer from that Sign-Up&#039;s data if not already populated.</p></li><li><p>Reuse the existing mismatch-flagging pattern (BUILD-179 for BA; the referrer half described in BUILD-174) for any later Sign-Up whose BA/Referrer differs from what&#039;s already on the Player — flag for Ops review, don&#039;t block.</p></li></ol><h2>Acceptance criteria</h2><ol><li><p>A Player&#039;s first completed Sign-Up sets Assigned BA, Primary Referrer, and Secondary Referrer when those fields are blank.</p></li><li><p>A later Sign-Up with a different BA or Referrer does not overwrite the Player&#039;s fields — it&#039;s flagged for Ops review per the existing mismatch pattern.</p></li><li><p>Emily has an explicit answer confirming how the mechanism works.</p></li></ol><h2>Dependencies</h2><p>Depends on BUILD-174 — Player: Attribution fields (WAGR-43) and BUILD-179 — Player: BA Attribution Mismatch Flagging (WAGR-71). Unblocks the open item noted in BUILD-178 (WAGR-72) and BUILD-253 (WAGR-140).</p><h2>Source</h2><p>Wagertech Notes / Questions (Emily Vandenberg), Player record doc, reviewed Sep 2026: &quot;Brand Ambassador - can you confirm that this assignment comes in from the SLC API and is assigned based on the first completed signup.&quot; https://docs.google.com/document/d/1mp3b1qpJkzKNDztEQpdnv-BYCgUgDdXe5jLuJi-ix1U/edit?tab=t.0</p>",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Player: Confirm and Build BA/Referrer Defaulting on First Completed Sign-Up",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11269",
+          "author": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"dfdecac3ac2d\"><span data-local-id=\"35c0a494-631e-4557-9af1-4f4d172ee3ca\" data-type=\"mention\" data-user-id=\"712020:61966a85-61f2-42ce-8382-85568cc7e090\">@Kobi Kunasekaran</span> to check on what’s being created for Player during SLC &amp; Player creation, and what needs to be updated during first sign up completion. </p>",
+          "updateAuthor": {
+            "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+            "emailAddress": "kobi@jumpr.io",
+            "displayName": "Kobi Kunasekaran",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-18T10:49:10.974-0400",
+          "updated": "2026-09-18T10:49:10.974-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vi:y"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

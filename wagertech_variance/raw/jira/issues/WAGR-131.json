@@ -1,0 +1,236 @@
+{
+  "id": "10330",
+  "key": "WAGR-131",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-09-10T10:52:42.506-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:29.448-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Proposed solution\n\nReview the CMS integration scoping document and identify any Salesforce-side configuration that can be completed while sandbox access is still pending.\n\nPost the list of buildable items, and any open questions, as a comment on this card ahead of tomorrow's call.\n\n## Acceptance criteria\n\n* List of SF-side items buildable without sandbox access is posted on this card.\n* Open questions are posted before the call.\n\nKobi, 2026-09-10.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-280 — CMS Integration: Salesforce-side configuration review",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10290",
+          "body": "Hi [@Kobi Kunasekaran](https://app.asana.com/1/1202721605677544/profile/1203115293332591), see below the things we can build ahead of the CMS sandbox. \n\n* **Auth & connection design**: External Credential (Custom auth, one principal, header `X-Webhook-Key`) → Named Credential at `https://wagertech-cms-tkqruf7sva-uk.a.run.app`, callout path `callout:<NamedCredential>/api/salesforce/deals`. Only the click-through setup and dropping the real secret into the principal wait on access.\n* **Field mapping**: All core payload fields already exist — `External_Deal_ID__c`, `Operator_External_ID__c`, `Partner_External_ID__c`, `Vertical__c`, `Source__c`, `Deal_Status__c`, `CurrencyIsoCode`, `Effective_Start_Date__c`. No new fields needed for the payload itself.\n* **Region derivation**: `region` isn't a stored field — needs logic derived from `Market_Country__c` + `Market_State__c`. Can be spec'd now.\n* **New fields to design**: `Sync_Status__c` (picklist), a sync-error detail field, `Last_Synced_Date__c`, optionally a self-lookup `Superseded_By__c` for Retire & Replace.\n* **Flow design**: record-triggered Flow on Deal__c (trigger conditions, HTTP Callout, fault path), a validation rule locking the five makeup fields once Active, and a uniqueness check across the makeup combination - if not yet existing.\n* **Error handling & retry design**: retryable-vs-terminal split is already given (503/timeouts retry; 400/401/409/422 need a fix first). Can spec a `CMS_Sync_Log__c` audit object and an Apex Queueable for bulk resync (≤200/call).\n* **Permissions**: field-level security plan for the new sync fields. \n\nMost of the big questions are already covered, but I have a quick question about retries:\n\n* **Retry strategy — automated vs. manual?** The doc splits failures into two classes: 503/timeout/network (explicitly safe and welcome to retry) vs. 400/401/409/422 (explicitly \"do not loop... need a fix first\"). Given that split, do we: \n\n* Build automated background retry (capped attempts + backoff) for transient failures only, and leave business-rule failures (400/409/422) as surface-and-fix-manually?\n* Or keep everything manual for V1 — surface all failures the same way and require a person to trigger every resend, transient or not?\n* Separately: for `unknown_operator`/`unknown_partner` rejections, the fix happens on WagerTech's side (they map the account in the CMS), not in Salesforce — so nothing on the Deal record changes to naturally re-trigger a resend. Do we need a manual \"Resend to CMS\" action just for that case?\n* And do we want an admin-triggered bulk resync (the Apex Queueable already specced for up to 200/call) as a safety net for \"CMS was down and a batch of deals are stuck,\" independent of whichever retry approach we pick?\n\n",
+          "created": "2026-09-11T08:01:19.768-0400",
+          "updated": "2026-09-11T08:01:19.768-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Cedrick Infantado"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-421"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Documentation & Spec",
+          "id": "10054"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "CMS ↔ SF Integration",
+          "id": "10071"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1218365056978369"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001nr:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XS (2-4 Hours)",
+          "id": "10048"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1218365056978369"
+      }
+    }
+  }
+}

@@ -1,0 +1,652 @@
+📝 Notes
+Aug 25, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited Marc Cabantog lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Taryn Reithofer Miko Sumagang Waleed Alasadi
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+Technical signup errors and system configurations were resolved alongside standardized data tracking for improved operational efficiency.
+
+System Errors and Cleanup
+Signup processing failures caused by duplicate deal records prompted a transition to unique deal identifiers. This change minimizes system errors and simplifies raw data handling.
+
+Configuration and Standardization
+Time zone settings were synchronized to Toronto time for reporting accuracy, and standardized naming conventions for deal sources were implemented. The team also finalized specific ban and pause reason codes for account management.
+
+Milestones and Future Planning
+Progress on object development reached 90 percent completion with upcoming user testing scheduled. System improvements like manual reprocess capabilities were prioritized for future backlog inclusion.
+
+
+Decisions
+Aligned
+* Raw deal data logic removal The processing flow logic reliant on raw deal data is removed in favor of using Deal IDs to resolve duplicate processing errors.
+* Salesforce time zone configuration The Salesforce time zone setting is updated to Eastern Standard Time to ensure data tracking accuracy.
+* Primary contact designation change The primary contact record in Salesforce is reassigned to Lina Ceniccola.
+* Ban and pause reason lists The proposed ban and pause reason lists are approved for use with the addition of the 'Associated with broad network' category.
+* Deal naming convention update The deal naming convention is updated to include a single-letter source identifier suffix for all deal types.
+* Redeposit feature discovery initiation The discovery phase for redeposits is scheduled to commence next week.
+* Link storage solution deferral The development of a dedicated link storage solution is deferred in favor of utilizing existing Salesforce URL fields.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Kobi Kunasekaran] Fix Salesforce Flow: Implement graceful error handling for duplicate deal entries in the processing flow.
+* [Kobi Kunasekaran] List Blocked Records: Compile and share a list of all signups affected by the current processing errors.
+* [Emily Vandenberg] Follow up with Straw: Contact Straw to discuss click deduplication logic and potential link tracking requirements.
+* [Emily Vandenberg] Update Time Zone: Modify personal profile settings in Salesforce to Eastern Standard Time for accurate data logging.
+* [Kobi Kunasekaran] Update Primary Contact: Change the primary contact designation from Pablo to Kobi within the system.
+* [Emily Vandenberg] Test Signup Process: Validate the signup logging workflow with Jay and provide consolidated feedback.
+* [Emily Vandenberg] Update List Views: Revise signup page list views to reflect recent system updates.
+* [Kobi Kunasekaran] Send Page Updates: Produce and distribute a video walkthrough for each completed object page.
+* [Kobi Kunasekaran] Configure Reason Interfaces: Prepare the ban and pause reason interfaces for user testing.
+* [Kobi Kunasekaran] Scope Link Tracking: Define and document the fields required to track link URLs for signups and deals.
+* [Joyce Kiddell] Review Redeposit Scope: Examine the PRD to refine the requirements for the redeposit feature.
+* [The group] Add Manual Push Button: Include a manual reprocess button requirement in the CMS development backlog.
+* [Kobi Kunasekaran] Prepare Questions: Compile list of queries for Straw to address at the upcoming meeting.
+
+
+
+Details
+Did the screenshots in this section make your notes better or worse?
+* Signup Processing and Technical Errors: Kobi Kunasekaran observed that signup processing failed due to duplicate deal records causing system errors, which prevented the creation of signup records (00:01:58). To resolve this, Kobi Kunasekaran deactivated the SLC (Salesforce Lead/Signup) processing flow and plans to implement a more graceful error handling solution. To simplify the system and avoid future duplication issues, Kobi Kunasekaran proposed removing the reliance on raw deal data and instead utilizing unique Deal IDs, which eliminates the need to map deal countries and states from the API (00:02:57).
+* Missing Records and Error Investigation: Emily Vandenberg requested a list of blocked records to assist in cross-referencing against existing data, as some records were missed or processed incorrectly. Kobi Kunasekaran agreed to review the error logs to identify the affected records (00:04:46). The errors appear linked to situations where operators and deals match, but country or state data differs, causing the system to misidentify them as duplicates. Kobi Kunasekaran intends to patch the system to handle these discrepancies properly (00:05:56).
+* Click Tracking and Logging: Emily Vandenberg questioned if clicks are being logged for items stuck in a "pending review" status, as there is currently no visibility into these clicks within the SLC. Kobi Kunasekaran clarified that they have provided a report of incoming SLCs and suggested that deduplication might be occurring on the CMS side (00:06:54). Kobi Kunasekaran plans to consult with Straw regarding the addition of link names or URLs to ensure proper tracking and to investigate if other error paths are preventing data from flowing through (00:07:55).
+* Time Zone Configuration: Emily Vandenberg identified that time-stamping for data entries was misaligned with the intended schedule, likely due to a time zone difference. Kobi Kunasekaran explained that Salesforce defaults to specific time zones and noted that users can adjust their personal profiles to reflect their preferred time zone. Kobi Kunasekaran updated the Salesforce instance to Toronto time to better align with the team's needs, and they advised users to check their own settings under the avatar and settings menu for report accuracy (00:08:59) (00:11:20).
+
+
+* Account Management: Lina Ceniccola requested that Kobi Kunasekaran update the primary contact field in the system, changing the designation from Pablo to Lina Ceniccola (00:11:20).
+* System Milestone and User Testing: Kobi Kunasekaran celebrated the progress in click mapping and signup creation as a significant milestone. The team discussed beginning user testing for the logging process, with Emily Vandenberg planning to coordinate with Jay and other team members to validate the user experience before expanding to wider usage (00:13:02).
+
+
+* Status of Additional Objects: Kobi Kunasekaran provided an update on the progress of various objects, including operator, partner, deal, and brand ambassador, noting that they are 80% to 90% complete. Kobi Kunasekaran mentioned that while the user page has limited flexibility for custom layouts, they can implement conditional visibility settings to show specific fields as needed (00:15:11). They expect these pages to be finished by the end of the week and will provide a video walkthrough for the team to confirm the setup (00:16:04).
+
+
+* Ban and Pause Reason Codes: The team reviewed the proposed list of ban and pause reasons from the mockup, as raised by Taryn Reithofer (00:16:04). They confirmed the current lists, with Lina Ceniccola suggesting the addition of "associated with banned network" for ban reasons. Kobi Kunasekaran agreed to include these, noting that the lists can be adjusted later if necessary, and confirmed the retention of reasons such as "waiting ops verification," "under review," and "payout details missing or invalid" for pause records (00:20:13).
+
+
+* Deal Source Identification: The team discussed how to standardize deal naming conventions and source tracking (00:25:33) (00:27:39). To address the need for identifying various sources (e.g., Direct, Agencies), they agreed to append a one-letter identifier at the end of deal names (such as -S for specific sources), which will only display if a source value is present (00:31:22). Kobi Kunasekaran will update the system logic to support this, and Lina Ceniccola confirmed that this approach helps clarify the deal source (00:32:20).
+
+
+* Future Integration and Process Improvements: Kobi Kunasekaran highlighted the need for a manual reprocess button in the CMS, similar to the one in Salesforce, to handle potential API or system outages (00:37:34). Emily Vandenberg confirmed this request is added to the backlog. Regarding future development, Joyce Kiddell will evaluate the scope for redeposits this week, with plans to begin discovery for this feature next week (00:38:32).
+
+
+* Next Steps and Meeting Coordination: Emily Vandenberg plans to include Straw in next week's meeting to address pending technical items, or they will prepare a list of questions to ensure efficiency if Straw is unavailable. Kobi Kunasekaran remains available for separate meetings if needed to expedite progress on the CMS integration (00:40:28).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Aug 25, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:10
+
+Kobi Kunasekaran: What is
+Taryn Reithofer: Good
+Kobi Kunasekaran: this?
+Taryn Reithofer: morning. It's just Morning.
+Kobi Kunasekaran: Josh, I'm from another meeting.
+Lina Ceniccola: Hello.
+Emily Vandenberg: How did you know?
+Kobi Kunasekaran: So, everybody just came on at the same time.
+Emily Vandenberg: Right.
+Kobi Kunasekaran: How are you all doing?
+Lina Ceniccola: Good. How are you?
+Kobi Kunasekaran: Doing well, thank you.
+Emily Vandenberg: Lena is not good. She's just so positive. She's battling with a cold. Poor thing. The summer
+Taryn Reithofer: Hello.
+Emily Vandenberg: cold.
+Lina Ceniccola: the
+Taryn Reithofer: Something's going around.
+Kobi Kunasekaran: Oh,
+Lina Ceniccola: worst.
+Emily Vandenberg: Do you have one too,
+Taryn Reithofer: Yeah.
+Emily Vandenberg: Taryn?
+Taryn Reithofer: My daughter's been home sick with the stomach flu.
+Emily Vandenberg: Oh,
+Taryn Reithofer: Yeah.
+Emily Vandenberg: that's tough. Yeah, I do agree though. There's a lot going around.
+Lina Ceniccola: Yeah, Joyce was sick. Then she gave me her sickness through the computer. Some is
+Kobi Kunasekaran: I don't know if it works that way.
+Lina Ceniccola: next.
+
+
+00:01:58
+
+Emily Vandenberg: I hope not.
+Kobi Kunasekaran: Are you saying we should disconnect this call right now so we don't get
+Taryn Reithofer: Thank
+Lina Ceniccola: Yeah,
+Taryn Reithofer: you.
+Kobi Kunasekaran: st
+Lina Ceniccola: there's a new sickness going around through
+Emily Vandenberg: Right.
+Lina Ceniccola: Claude.
+Kobi Kunasekaran: because of all the reading that we have to do with everything that generates?
+Taryn Reithofer: Yeah.
+Emily Vandenberg: Um,
+Kobi Kunasekaran: Uh, I think we're all here.
+Lina Ceniccola: Are we waiting for anything else?
+Kobi Kunasekaran: Uh,
+Joyce Kiddell: Thanks.
+Emily Vandenberg: sorry.
+Kobi Kunasekaran: I don't know if Waleed is going to join. He may join in a bit, but we can get started. Um, think is in another meeting. Okay. Yeah, he should join in a little bit, but uh, yeah, we can get started. U, Emily, I did take a look at those signups. Um it does look like they are coming in but somewhere along the processing um whenever there's
+Taryn Reithofer: That's it.
+Kobi Kunasekaran: like a duplicate that's being found for deals um it is failing. So I I think it's actually on the Salesforce side.
+
+
+00:02:57
+
+Kobi Kunasekaran: Um so I turned off the SLC processing flow. soul. the SLC's should get created now. Um, it just won't get created. Uh, like a signup record won't get created. Um, because it's not going to process them. We can all like we can always go back and uh process those afterwards. So, I'm going to take a look at the flow and uh put in a graceful way to handle that uh that error. Uh, but we also need to make sure the deal country and deal state are being sent from the API as well. Um, because it looks like they've been coming in blank. It's not a big deal. Like we've because we move from using the makeup of the deal to having the deal IDs. Um I could just remove that logic entirely as well, which is what I'm thinking. And then we just rely on the deal ID to give us the mapping for it. And that way we don't need to deal with any dduplications or anything like that.
+
+
+00:03:48
+
+Kobi Kunasekaran: And um it's going to be like one to one.
+Emily Vandenberg: Yeah, that would make sense because we haven't handled the in the CMS the deal um like the kind of work on the deal setup and then the endpoint. So like we just seated the ids in database.
+Kobi Kunasekaran: at least.
+Emily Vandenberg: So like they're I I can see that the country like the province is coming through
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: that's related to the kind of like sign up but yeah other than that we're just um sending the it's just pulled from the deal ID
+Kobi Kunasekaran: Yeah, the book name is coming in.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: I think that's from like the uh the original like API endpoint because that was one of the original fields. Um we had created deal country and deal state but u I think yeah like like you said like because we're moving away from having the raw data that makes up a deal to the deal ids I can just move all this logic from the flow. It'll make it a lot simpler too.
+
+
+00:04:46
+
+Kobi Kunasekaran: Um, but yeah, it does look like even from like the signups from Friday, they're like I I noticed it when I saw the sequence not line up because we should we should have an SLC for every single record. Uh, we haven't been creating any test records that we're deleting. So, um, that means it's coming in, it's doing some processing, but before it commits to the database, um, it errors out and then it just rolls back all the changes. So then doesn't actually save which is not a good way to handle anything coming from external systems. So I'm going to get that updated. So um we don't block any creations of
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: SLC's.
+Emily Vandenberg: So, is that do you have a list of what was blocked?
+Kobi Kunasekaran: Um I think I can go through the errors and maybe put the list together.
+Emily Vandenberg: That would be good. just to kind of like cross reference, I'm going through um Alex's like up until yesterday and then I can see if they exist within there. There's a few that have been missed and then if that accounts for some of the stuff with Andy as well because it would have been sent just incorrectly.
+
+
+00:05:56
+
+Emily Vandenberg: Um,
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: we can talk I can talk through, but I was went in to check this morning thinking that Andy's like from yesterday when I said we had resolved it onward like to see that his stuff was flowing through corre correctly and that's when I realized that nothing had since Jay and I
+Kobi Kunasekaran: Okay, I think the ones that would be affected are anything that I was like we have the deal and
+Emily Vandenberg: tested.
+Kobi Kunasekaran: operator um that are the same but the country and state would be different. So those are getting detected as duplicates in the system right now because we don't have the deal country and deal state coming in. So it just assumes they're all the same and then it sees multiple deals and that path
+Emily Vandenberg: Uh
+Kobi Kunasekaran: is not it doesn't necessarily have a good error handling to begin with. So um I'll get that patched up. We should be able to get that fixed.
+Emily Vandenberg: okay. And then I had two questions this morning which just to kind of loop back.
+
+
+00:06:54
+
+Emily Vandenberg: So the one um I know maybe it didn't come through entirely clear but like the examples where they were still kind of pending review the SLC so they hadn't turned in there was no signup record because they're stuck in that status.
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: Is there anywhere you're logging all the clicks against something that's stuck or does that and it doesn't really matter. I'm just like seeing on our end like multiple clicks against these um deals and then there's no within the like um SLC there's no log logging of
+Kobi Kunasekaran: So, the report that I shared this morning,
+Emily Vandenberg: it.
+Kobi Kunasekaran: um I think I shared this last week on Friday as well, but it might have gotten varied, but this was just like a list of all of the signups that are coming in or the SLC's that are coming in. Um,
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: so this this minus I guess the ones that errored out, right, because of the uh duplicate markets and stuff. I'll go through the rest of the errors and see if there's anything else there too.
+
+
+00:07:55
+
+Kobi Kunasekaran: But um uh every single click should be here u as once they like start getting created. Um and the ones that are like review required um it'll show up if as long as the um like if you are clicking the same link multiple times I think straw mentioned last week that there is some dduplication happening on the CMS side um because I had mentioned that there was like sometimes it's not actually coming through here even for the testing it only like one came per site um but I also can't tell exactly which link it is um to like do some proper testing. Um so we talked about potentially adding the link name or URL so we can also keep track of that. Um but I think the dduplication is happening on the CMS side and if it is then you won't see the multiple clicks on the Salesforce
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: side.
+Emily Vandenberg: I thought I'll loop back with him. um cuz we are logging the the multiple clicks, but if he's not sending it, that's a different thing. Um, so that was the I thought you Okay,
+
+
+00:08:59
+
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: I'll follow up with straw and then we can go
+Kobi Kunasekaran: I Yeah, I'll also check the errors. So, like the the errors I noticed about the deal uh country state
+Emily Vandenberg: there.
+Kobi Kunasekaran: uh mixup is the is the one that I found, but there there are other errors. So, it could be that he's sending them and it's also going through like another error path and that's it's not being handled well. So I I'll also take a look and I'll get back to
+Emily Vandenberg: Okay. Yeah. And then the timing was off.
+Kobi Kunasekaran: you.
+Emily Vandenberg: So that was my question. Like our time um tracking from like or stamping was off and I was like this clearly is probably a time zone thing. So I'll just update. Yeah. I'll just follow your direction there.
+Kobi Kunasekaran: Uh I believe Salesforce is set to specific like the default time zone. So any time that's being sent usually gets converted. Um but the time that you see um right like depending on what your profile is set as uh you might still see a different time for those uh data
+
+
+00:10:10
+
+Emily Vandenberg: Yeah. Yeah. So that's what's happening.
+Kobi Kunasekaran: fields.
+Emily Vandenberg: And so then it's like pushing different dates like at the a lot of work happens around that mid later in the evening. So then the the dates weren't logging like tracking. So then I was looking at the time.
+Kobi Kunasekaran: Cool.
+Emily Vandenberg: So I think that that'll solve
+Kobi Kunasekaran: I think uh that said, I believe when we're sending things to the API, um I want to say that if we sent it send it as UTC, it'll autocon convert correctly. So maybe something to check like is there a specific time zones or date time that you wanted to line up to?
+Emily Vandenberg: Well, we're tracking like the CMS like everything's tracking Eastern Standard,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: right?
+Kobi Kunasekaran: Should the Salesforce or be set up for Eastern Standard as well?
+Emily Vandenberg: Joyce. Yes.
+Lina Ceniccola: I don't see um a reason why not.
+Emily Vandenberg: Lena.
+Kobi Kunasekaran: Okay, usually like whoever sets up Salesforce the first time like it's whatever like whatever time zone they would have set, right?
+
+
+00:11:20
+
+Lina Ceniccola: What?
+Kobi Kunasekaran: So, um it might have just been unintentionally set to Pacific
+Emily Vandenberg: Oh, okay. We'll blame Mariah then. I'm kidding. No, I think so. Yeah, that that it it should be I
+Lina Ceniccola: Let's add a
+Emily Vandenberg: know
+Kobi Kunasekaran: Oh,
+Emily Vandenberg: and it is a pretty it'll be a significant change just
+Kobi Kunasekaran: it's fine.
+Emily Vandenberg: given the time of day that our reps typically push
+Kobi Kunasekaran: Okay,
+Emily Vandenberg: signups.
+Kobi Kunasekaran: I set it to Toronto time.
+Lina Ceniccola: Actually, while you're while you're here,
+Kobi Kunasekaran: So,
+Lina Ceniccola: can you change that primary contact to myself where it says
+Kobi Kunasekaran: uh,
+Lina Ceniccola: Pablo?
+Kobi Kunasekaran: yeah.
+Lina Ceniccola: Thanks.
+Kobi Kunasekaran: Okay. Okay. Awesome. So, this should be the default, but um yeah, like in your profile though, um you're going to want to check like cuz that's that can still be different. Um, so if you go to the your avatar and go to settings, um, and I believe it is under language and time zone, um, where you can also change it to so that any reports and stuff that you see within Salesforce, it shows the correct time zone.
+
+
+00:13:02
+
+Kobi Kunasekaran: I'm going actually update mine to auto. I don't know. I guess I just picked the default. Okay. Um but the error aside this is this is a huge milestone. We are getting all the the clicks are coming in the mapping is working the signups are getting created. Um I think uh like let me get the error fixed up. Um and then I think this might be a good time to start testing the logging process as well. Whether like you want to do it for like a couple of records to see how it looks and the experience or if you want to get uh one or two reps to come in. Um, it's a good way to start trying that out. Uh, getting some early feedback. Um, see if there are any, uh, issues or missing information or anything that we need to kind of, uh, make adjustments to on the signup, uh, logging process. What do you guys
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: think?
+Emily Vandenberg: my plan there was so um I want to kind of go through just like from the click like the API perspective validate that we'll get these areas clean up.
+
+
+00:14:12
+
+Emily Vandenberg: Then the next round will be like going and I'll refer just to like Alex's um sheet or Andy sheet and I'll like do a little bit of it. We can probably pull in an ops member Jay I'm thinking Jay um get
+Kobi Kunasekaran: Nice.
+Emily Vandenberg: some feedback there the three of us as well and then give you the feedback if you know if green is go then we'll
+Kobi Kunasekaran: Okay, sounds good.
+Emily Vandenberg: expand
+Kobi Kunasekaran: Um, okay. Well, I think the signup page list views still need to be updated with the latest uh uh changes that we made. Um, was there any any feedback from the signup logging experience since the last time uh we made all the updates?
+Emily Vandenberg: No,
+Kobi Kunasekaran: We haven't
+Emily Vandenberg: we were saying we were meeting before and we were saying that we it's on our kind of radar to go back through this week. So, I know that that was kind of yesterday the only one that was sitting there ready for us to go back into.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: So, we'll make sure.
+
+
+00:15:11
+
+Emily Vandenberg: But if there's anything else, Kobe, as like things come off the line, please let us know and we'll take a
+Kobi Kunasekaran: Okay. Yeah. I think for the other objects we're like I want to say 80 to 90% there for each of
+Emily Vandenberg: look.
+Kobi Kunasekaran: them. Um most of the fields they're in. Uh we're still hooking up some of the automations and um some of the fields that are based off of automations. Um and there are a couple of like related lists that are missing. So we're going to get all these cleaned up. I think uh by the end of this week we should be done with all of the pages like operator partner deal uh brand ambassador. Uh we are able to make changes. So that that was one that I I said I have to come get back to you with how much we can do. It is limited. It's not as flexible as all the other objects um because it is a special object but we can we can create our own custom layout um within limits.
+
+
+00:16:04
+
+Kobi Kunasekaran: Um we can do a lot of like uh conditional based visibility settings like show some fields for some people versus uh different fields for others. It's not uh straightforward for the user page, but I don't think there was anything like that in the mockup anyway. So I think we're safe there. Um, but otherwise for the rest like yeah, we're we're almost done. Um, give us like maybe a couple more days and then I will do like a full full video uh for each one and send you an update so you can just click through it and confirm everything's good. Um,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: but we did have a couple questions on I think uh Taran you raised them up in the flat channel and these had to do with the uh the ban reasons, the pause reasons and uh logging referral. Um do we want to go through that right now? Was there anything else on the agenda item by the way?
+Taryn Reithofer: Um,
+Lina Ceniccola: Excuse
+Kobi Kunasekaran: Checked.
+Taryn Reithofer: we can close out the log referral button.
+
+
+00:17:10
+
+Taryn Reithofer: Joyce did end up responding at the end of the day, so that's that's
+Lina Ceniccola: me.
+Kobi Kunasekaran: Okay,
+Taryn Reithofer: good.
+Kobi Kunasekaran: for the reason codes, actually, let me open up the mockup because you did have quite a bit in the mockup. I think it was just a matter of confirming if we're good with those. Um so for band we had all of these reasons and like um this interface. Um do we want to keep these reasons or was there like a different list that we want to go forward with? This is for player
+Emily Vandenberg: Did we create these or was this claw?
+Kobi Kunasekaran: Uh, this is in the mockup.
+Emily Vandenberg: Oh.
+Lina Ceniccola: I think it looks fine.
+Emily Vandenberg: if a duplicate account. Sorry, just um is that right? Like do we want to handle duplicate accounts through ban or do we have another way to merge?
+Kobi Kunasekaran: I think this one you'll maybe think of it as not like a legitimate duplicate, but like somebody maybe creating a player account with like a fake email
+
+
+00:19:07
+
+Emily Vandenberg: Oh, I see. I see.
+Kobi Kunasekaran: address.
+Emily Vandenberg: Okay. Got it.
+Kobi Kunasekaran: So I think the legitimate BMS from what I heard last CMS is handling those those cases. So as far as I understand there should only be like one player uh one player record per
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: email and then when we do the manual player creation path um we we'll set up dloop rules so that if if somebody's trying to create another player record with the same email address, it'll flag that before they can create it. So there should technically be no no duplicates created in the
+Emily Vandenberg: Okay,
+Kobi Kunasekaran: system.
+Emily Vandenberg: that's why I was like confused.
+Kobi Kunasekaran: Okay. So if these are good like we can start with these again like we can always change them up later too.
+Emily Vandenberg: Perfect.
+Kobi Kunasekaran: So it's not like you know set in stone. Um so we can start with these ones for Ben. Um and then I think pause was in referrals. Yeah, we also have band reasons for refer as well.
+
+
+00:20:13
+
+Kobi Kunasekaran: Um, if we're good with these, we can keep these as well. And then I'll pause reasons are
+Emily Vandenberg: Okay. I think like if we can if we want to be that detailed we can keep that list. Lena thoughts. What did I say yesterday?
+Taryn Reithofer: under investigation. Confirmed fraud and network policy violation.
+Lina Ceniccola: I mean,
+Taryn Reithofer: Other
+Lina Ceniccola: there's the only one I would really add would be like associated with broad network. That's probably one of the more common reasons for a ban cuz it's like this person banned because this other person's banned and they're associated with each other. So that that would be like majority the reasons. So if we can add that that would be good and then we can keep it detailed. I mean it doesn't really matter like more. We could always remove the ban reasons, I guess, if we're finding they're not being used. So, we can keep them to start and just narrow down.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: I think giving them more options to start is um the way to
+
+
+00:22:52
+
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: go.
+Kobi Kunasekaran: Oh, cool. We can do that. Um, I think for pause we have similar pro similar reasons waiting pops verification.
+Joyce Kiddell: Yeah, these are all CLED.
+Emily Vandenberg: Hey,
+Joyce Kiddell: I don't No,
+Kobi Kunasekaran: It's good.
+Joyce Kiddell: it's good.
+Lina Ceniccola: Yeah. Waiting ops proof quality under review. Sure. Payout details missing or invalid. Sure. Duplicate under review. Possible duplicate referral record. Sure. Yeah. I mean as long as we have the reasons and when we have other then
+Kobi Kunasekaran: Yeah. Yeah. Okay. We'll keep these again.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: I think like once we start using the system, then they'll start to see like what's going to what's going to work and what's missing. So, we can always add or remove later.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: I'm good with that. Okay. Uh I think those are the main ones from our end. Um Taryn, was there anything else that you needed to get feedback for?
+
+
+00:24:24
+
+Taryn Reithofer: Um, not right now. Those were just the main
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: ones.
+Kobi Kunasekaran: Okay. Yeah. So, we'll we'll get those interfaces set up as well. Um I'll let you know once those are ready for testing. Um, I think I owe straw some additional uh feedback on some fields that we want to add like specifically to track the links for these clicks so we know where they're coming from. Um, what are the actual studies that they're clicking so when you're testing you can check one to one. Um,
+Emily Vandenberg: just good title
+Kobi Kunasekaran: so I'm going to Yeah. title or URL or any type of identifier that you know as a tester you can you
+Emily Vandenberg: like
+Kobi Kunasekaran: can click and you'll know exactly what it is that's coming in. Um, and then we were going to add source as one of the fields as well for the uh for the deal and the SLC's so that it's like that unique combination. Um, so that's still on my plate. I'll scope that out and uh I'll let you know uh where all that's going to get added.
+
+
+00:25:33
+
+Kobi Kunasekaran: Um that source,
+Emily Vandenberg: Yes.
+Kobi Kunasekaran: do we want that to be part of the deal name in like this format or do we leave it out?
+Joyce Kiddell: No,
+Emily Vandenberg: The the pro like the shy um example, right? So the logic breaks when so like s equals shzy,
+Joyce Kiddell: heat.
+Emily Vandenberg: right? But like it's actually direct. So like how are we going how are we going to identify it I guess so that it kind of like flows through
+Joyce Kiddell: That's not the same thing as the ID though, right? Isn't the ID just like a unique set of numbers?
+Kobi Kunasekaran: like I'm generating the ID based off of like the makeup of the deal, but it doesn't like there's also a concept of like a counter. So if there is like another deal that has all of these but it's maybe like a different source or something it'll just start adding like 01 02 03 so that there's still like the ID is always going to be unique from the Salesforce side. It's so it doesn't necessarily need to have this information in the makeup of
+
+
+00:26:53
+
+Joyce Kiddell: Yeah. I mean,
+Kobi Kunasekaran: it.
+Joyce Kiddell: I don't really care. like if you think it's better for the team to identify it. I think that's the only consideration. Like from a technical perspective,
+Kobi Kunasekaran: That's a question.
+Joyce Kiddell: we don't need to add
+Emily Vandenberg: Well, I guess like just walk through the logic of so cuz like Bet MGMs kind of
+Joyce Kiddell: it.
+Emily Vandenberg: breaks how we've set this up, right? Um, so how would theyident how would it be identified when we're following the logic of like bet MGM is actually a direct deal with Jersey?
+Joyce Kiddell: Depends on where you're looking, right? Like if you're just on the deal list,
+Lina Ceniccola: cuz
+Emily Vandenberg: Um,
+Joyce Kiddell: there will be a column for source.
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: You can add that in the main table.
+Kobi Kunasekaran: that's
+Joyce Kiddell: Um if we're looking in like the
+Kobi Kunasekaran: and the signups we can add like a field below here. So you can you can identify just like
+Joyce Kiddell: CN
+
+
+00:27:39
+
+Kobi Kunasekaran: vertical
+Lina Ceniccola: We'll definitely need to do that. Um because now that we have we built this having one source, now we have multiple sources.
+Kobi Kunasekaran: He
+Lina Ceniccola: So I think like Emily's point is like all of our
+Kobi Kunasekaran: knows.
+Lina Ceniccola: like that the name of it. So MI-H hardock arrival. Yeah.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: the deal name it. We don't have a source in that deal name. So like do we want to add another ticker for the source since we have multiple sources or is it just like you just have to filter for the source and then the deal name is obviously under that source.
+Joyce Kiddell: Yeah. My only thing was like it's starting to get really long, but like I don't give a s***.
+Lina Ceniccola: Yeah.
+Joyce Kiddell: Like if we want to add in S and then we'll just do an equivalent code for like P. They
+Lina Ceniccola: Do we have a code for a direct deal? Like what? So, for example,
+Joyce Kiddell: can't.
+
+
+00:28:43
+
+Lina Ceniccola: if it was agency MGM direct, what would that look like?
+Emily Vandenberg: It's
+Kobi Kunasekaran: uh we're just calling it direct like it's just in the name.
+Emily Vandenberg: deep.
+Lina Ceniccola: Just calling it direct. Okay.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Um,
+Joyce Kiddell: If it is direct,
+Lina Ceniccola: that's
+Joyce Kiddell: can we just default to the the source name? Like instead of putting it as direct, we would put Jersey or whatever the source
+Kobi Kunasekaran: We can Yeah.
+Joyce Kiddell: is
+Kobi Kunasekaran: So the source would only be relevant for direct deals.
+Joyce Kiddell: in in the deal name itself. Yeah.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: Wait, the source name,
+Joyce Kiddell: So instead of it saying, can you go up for a sec? 01 line
+Lina Ceniccola: but you could have direct you could have direct Jersey and direct agency and
+Joyce Kiddell: drift.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: direct. So you might not want to put
+Joyce Kiddell: If we do direct agency though,
+Lina Ceniccola: it
+Joyce Kiddell: it'd be like Proline Play can casino or like agency, whatever source we choose for that.
+
+
+00:29:54
+
+Joyce Kiddell: I don't know. I'm just spitballing.
+Kobi Kunasekaran: Is agency supposed to be widget time?
+Emily Vandenberg: Yeah, we probably need to update that. Do we want agency play can or wager
+Lina Ceniccola: Yeah.
+Emily Vandenberg: tech? I know Joyce keeps saying play can.
+Joyce Kiddell: Um, Lena, who what do the operators have agreements with Playen or with Wager Tech? What's the
+Lina Ceniccola: They have agreements with wager
+Joyce Kiddell: latest
+Lina Ceniccola: tech. We we migrated all of our agreements from play can to wager tech. I just am thinking if there's one that is play can I don't think so.
+Joyce Kiddell: Mhm.
+Lina Ceniccola: I think we can keep agency as wager tech or change it for now. I think it's good as wager tech.
+Joyce Kiddell: Okay.
+Lina Ceniccola: But yeah, I agree. The name is It is getting long, but
+Joyce Kiddell: But would it make sense to just see Owen Proline wagers at casino and then they know it's direct? Or should we be like 09 Proline direct casino WT or something and then it' be - S
+
+
+00:31:22
+
+Lina Ceniccola: yeah, I like at the end having the identifier as -
+Joyce Kiddell: and
+Lina Ceniccola: S-WT-V or dashp.
+Joyce Kiddell: Yeah, that's fine.
+Lina Ceniccola: Yeah. Yeah. Source very end one or two letters. Well, you can even be it as just one letter. So, S
+Joyce Kiddell: Can you only do that for direct deals though?
+Lina Ceniccola: VWP
+Joyce Kiddell: Then everything else is just normal.
+Kobi Kunasekaran: Yes.
+Joyce Kiddell: Okay. Because we only care about that for direct, right,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Emily? Yeah.
+Lina Ceniccola: we can for anything because if we have them and it's
+Joyce Kiddell: everything. Are we sure they Okay.
+Lina Ceniccola: through
+Joyce Kiddell: Yeah. Yeah. Okay.
+Kobi Kunasekaran: I can set it up so that like if there's a value in in source,
+Emily Vandenberg: Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: it'll show up. If there's no value in source, it won't show up. So then that'll work for direct and
+Joyce Kiddell: Okay.
+Lina Ceniccola: well there will always be a source.
+
+
+00:32:20
+
+Kobi Kunasekaran: non-direct.
+Lina Ceniccola: There is there would never be a
+Emily Vandenberg: It has to be
+Lina Ceniccola: source
+Emily Vandenberg: mandatory.
+Kobi Kunasekaran: Oh, I see. Okay. So even the nondirect deals, we'll we'll still just say wage tech,
+Lina Ceniccola: at this point.
+Kobi Kunasekaran: I guess.
+Lina Ceniccola: The deal name is already so long.
+Kobi Kunasekaran: I see.
+Lina Ceniccola: Adding one more letter okay makes it more clear. Then what will one more letter do to
+Joyce Kiddell: Okay, that's it.
+Lina Ceniccola: us?
+Kobi Kunasekaran: That's fair. And we can always like shorten directive if if that'll help uh if it starts to get too
+Lina Ceniccola: Honest,
+Kobi Kunasekaran: long.
+Lina Ceniccola: I think it's fine given like this is this is how We look at it anyway today.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: We can shorten it later
+Kobi Kunasekaran: Okay. Okay. So, I'll just use the onelet code at the end.
+Lina Ceniccola: on.
+Kobi Kunasekaran: Um, show it for all of it. Um, and then let's see what that looks like in a
+Emily Vandenberg: And sorry to be annoying.
+
+
+00:33:16
+
+Kobi Kunasekaran: back.
+Emily Vandenberg: Do we want director just to be did we say this just D? Do we care if because that's being transferred into the sign up, right?
+Kobi Kunasekaran: Uh, what in what way?
+Emily Vandenberg: it's like displayed or am I just am I just not looking at the right
+Kobi Kunasekaran: Um it is being like we're displaying the information from the deal. So whatever we set up on the deal we can like it'll just be the related field to show up on the
+Lina Ceniccola: because dash diaz de right
+Emily Vandenberg: do you care
+Kobi Kunasekaran: signup.
+Lina Ceniccola: now.
+Emily Vandenberg: Right.
+Lina Ceniccola: So let's just leave it as
+Emily Vandenberg: Okay.
+Lina Ceniccola: direct.
+Emily Vandenberg: And they can see reps can see that. No problem.
+Lina Ceniccola: Yeah, that's fine for now.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Okay. So, uh I'll I'll get those updates made and then for the API name, um I will I might have to give you new deal names if we're going to update it. Um so that it shows up. Um I'm assuming like the data that you've loaded right now it like we can load updated data when we start when we go to prod right like this is not production data.
+
+
+00:34:44
+
+Emily Vandenberg: This isn't production
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: data.
+Kobi Kunasekaran: Okay. So uh maybe then I'll update the ID makeup to include the source too just so we have it there too. Um and then if we need to make any other changes later uh we can come back and revisit. But either ways, whether we add source or not, the deal ids will still be unique. So, not too worried. Um, okay. I think I think that's it. That's all I had from my end. Um, I did put a list of like all the things that we've completed, but again, like I'll we'll we'll send you like page by page update. Um, so easier to go through and uh and process. But uh yeah, first thing on my list is just to get the uh flow back up and running so it starts creating the signups. Um and then when we're ready to do the testing on the signup logging experience, I'm looking forward to that because like yeah, we do have a lot of uh records now.
+
+
+00:35:42
+
+Kobi Kunasekaran: So it's a it's a it's a good time to test it out, test the process, and see how it works.
+Emily Vandenberg: And um just so I'm clear because I'm going to take the first. So like what we're looking at right now is like the view that um we deal history and then like everything else outside of more info is what the reps will see.
+Kobi Kunasekaran: Uh, yes, generally. Um,
+Emily Vandenberg: Correct.
+Kobi Kunasekaran: if you want to test it as a rep, Emily, like I can update your profile so you only have rep access and then um you can see what it looks like and confirm that it's good.
+Emily Vandenberg: I'll do when I'm ready for that then I'll just like ping you and then I'm going to test it on mobile too.
+Kobi Kunasekaran: Okay. Okay.
+Emily Vandenberg: Um and I'll yeah kind of like download
+Lina Ceniccola: So these these records on the signup side. Where did those come
+Emily Vandenberg: These are from the API.
+Lina Ceniccola: from?
+Emily Vandenberg: Um, these are just like yeah, not completed.
+Kobi Kunasekaran: Hello.
+
+
+00:36:38
+
+Emily Vandenberg: So, they came through up until yesterday through Andy and
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: Alex.
+Lina Ceniccola: Okay, so both Andy and Alex are showing up
+Emily Vandenberg: Yeah.
+Lina Ceniccola: there.
+Emily Vandenberg: Uh, Andy's like very minimal. Just Hard Rock came through and Alex is like majority.
+Kobi Kunasekaran: I have a feeling it's because of the the block because I think the it looks like most of these are Canadian. So the US ones had the multiple states and that's likely what's erroring out. So that's probably why we don't see more from the other
+Emily Vandenberg: I think it's Yeah,
+Kobi Kunasekaran: person.
+Emily Vandenberg: like you said, because it's hard rock GD. I think it's why it was blocking is a big thing that I saw. There was some other ones. I will send you the examples, Kobi. There's some stuff that we missed,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: too. So,
+Kobi Kunasekaran: And and you said straws off this week, right? So like if we need to push them back from the other side, but wait until next week.
+
+
+00:37:34
+
+Emily Vandenberg: um, if there's something small he can potentially
+Kobi Kunasekaran: Okay. Okay. Yeah,
+Emily Vandenberg: action
+Kobi Kunasekaran: it would be good to have like I I don't know how it's set up on the CMS side, but like on on our end, right? Like if I go to a click on the report.
+Lina Ceniccola: Shut
+Kobi Kunasekaran: So if I go to the actual like FLC, we have a button to reprocess. So what this does is it'll run it through the flow um and make sure that it's it's like trying
+Lina Ceniccola: up.
+Kobi Kunasekaran: to find the sign up, the deal, the deal rep ID and everything and reprocess it. So um it would be good to have something like that on the CMS side that you know an admin can do. So it doesn't need to be a developer. So in case the API does fail for whatever reason, you can try to rep push it because like Salesforce does like have outages every now and then, right? So if it does have an outage, we're not going to see any of those records and they will need to be pushed from the CMS side.
+
+
+00:38:32
+
+Kobi Kunasekaran: I think he said he's he's build he's building in some like retry logic anyway.
+Lina Ceniccola: See?
+Kobi Kunasekaran: So hopefully that'll take care of most of it. But it's always good to have a way to manually push
+Emily Vandenberg: Yeah, he hasn't built that yet. I was checking in yesterday, but we will add it to the backlog. Yeah, I think the um you know as other things come through we will we'll kind of like get feedback um let The to know what preferred way for feedback is. Um the other thing that's kind of like we need to work out obviously get the end point. So with draw off that will be a next week thing. It is a high priority. We we're going to evaluate maybe a different resource as well uh to move it along quicker. Um continuing with testing the SLC's and then the logging. Um, and then Joyce is going to take some time this week to go back into the PRD and relook at the scope uh for kind of redeposits and then we'll kind of let you know when that's ready.
+
+
+00:39:33
+
+Emily Vandenberg: But I'm assuming we'll be What are you thinking for kind of like moving on to being able to move on to redeposits?
+Kobi Kunasekaran: Um I think next week we should be ready to go next week. Um like unless we have any like major movements on the CMS endpoint side for the API integration. Um but I either ways I think we can start the discovery next week. let's let's get it out because we've already started like uh we have dependencies on these other mockups for those fields anyway. So let's let's start the discovery.
+Lina Ceniccola: Let's
+Kobi Kunasekaran: Let's uh map it out and then we can continue to work in the background as we work uh as we work through the CMS integration.
+Emily Vandenberg: I
+Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end.
+Lina Ceniccola: see.
+Emily Vandenberg: agree.
+Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce.
+Joyce Kiddell: Yeah, let's keep on that
+
+
+00:40:28
+
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Okay. Okay. Um it sounds good. Yeah. So um I think the CMS integration is probably the the biggest piece. Um, and then we can maybe start moving some of these into broad salesforce. Um, as we built out the payouts and everything cuz I I feel like the payouts and redeposits are like related but different logic. So we don't need to keep everything in sandbox. But we can decide later once the endpoint is done.
+Emily Vandenberg: Yeah. Okay. Yeah. Anything else ladies on on our
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: end?
+Joyce Kiddell: I'm
+Emily Vandenberg: I might add straw just next week to the meeting Kobe and then like as things kind of accumulate and if he's not
+Joyce Kiddell: good.
+Emily Vandenberg: um super available this week then we can just like you can kind of create a list of questions I think we could hit him within the first you know 20 minutes and then it' be a good use of time.
+Kobi Kunasekaran: Sounds good. Yeah, that works. Yeah, if you want to book like a separate meeting as well, I'm happy to meet uh outside as well. That helps.
+Emily Vandenberg: All right.
+Kobi Kunasekaran: All right,
+Emily Vandenberg: Thanks,
+Joyce Kiddell: Thanks everybody.
+Kobi Kunasekaran: cool.
+Emily Vandenberg: Tim.
+Kobi Kunasekaran: Good stuff, everyone.
+Joyce Kiddell: Bye.
+Kobi Kunasekaran: Thanks everyone. Bye.
+Emily Vandenberg: Bye.
+Taryn Reithofer: Inspire.
+Emily Vandenberg: Bye.
+
+
+Transcription ended after 00:42:10
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

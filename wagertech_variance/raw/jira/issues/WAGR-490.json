@@ -1,0 +1,189 @@
+{
+  "id": "11567",
+  "key": "WAGR-490",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T17:41:19.621-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-29T17:41:19.254-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10088",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "11576",
+          "key": "WAGR-499",
+          "fields": {
+            "summary": "Affiliate Link — Harden Link Code and Tracking URL storage for CMS",
+            "status": {
+              "description": "",
+              "name": "Requirements",
+              "id": "10058",
+              "statusCategory": {
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10028",
+              "description": "",
+              "name": "Story",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-09-30T01:18:02.413-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nEvery Affiliate Link has a stable cross-system identifier that survives ordinary Link Code edits and can be referenced by CMS/SLC without relying only on Salesforce record Id.\n\n## Requirements\n\n* Add a system-managed Link External ID field.\n* Logical value = **Deal External ID + deterministic delimiter + Link Code**.\n* Do not use Salesforce record Id as part of this external identifier.\n* Configure as Text(255), Unique and External ID (or the closest final metadata shape that preserves those constraints).\n* Generate on creation, or when blank and all required source values exist.\n* Once populated, ordinary Link Code edits do not automatically regenerate Link External ID.\n* Exceptional regeneration requires an authorized admin to intentionally clear it; automation then regenerates from current Deal External ID + Link Code.\n* Add `link_external_id` to CMS `links[]` in addition to `sf_link_id`.\n* Before enabling uniqueness, run a data-quality check that Link Code is unique within each target Deal.\n* Never silently truncate the composed identifier.\n* WAGR-499 must confirm the final Link Code length policy. The composed Deal External ID + delimiter + Link Code must fit within 255 characters.\n\n## Acceptance criteria\n\n1. Same Link Code on two different Deals produces different Link External IDs.\n2. Ordinary Link Code edit does not silently change external identity.\n3. Authorized clear/regenerate produces the new value from current source fields.\n4. Normal users cannot directly edit Link External ID.\n5. CMS payload carries both `sf_link_id` and `link_external_id`.\n6. Overlength composed identity is rejected clearly; it is never truncated.\n7. Final approved Link Code maximum is compatible with the 255-character Link External ID envelope.\n\n## Dependencies\n\n* WAGR-499 — Link Code / Tracking URL storage hardening.\n* WAGR-456 — CMS Link payload.\n\n## External dependency\n\nKobi must inform Strah so CMS stores/returns `link_external_id` on click/SLC events and, where practical, later DRA events.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Affiliate Link — Stable Link External ID",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i008zb:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

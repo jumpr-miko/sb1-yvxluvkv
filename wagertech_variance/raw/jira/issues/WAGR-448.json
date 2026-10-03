@@ -1,0 +1,269 @@
+{
+  "id": "11397",
+  "key": "WAGR-448",
+  "fields": {
+    "statuscategorychangedate": "2026-10-02T12:54:52.858-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 2,
+      "isWatching": false
+    },
+    "created": "2026-09-24T10:02:00.174-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+      "emailAddress": "cedrick@jumpr.io",
+      "displayName": "Cedrick Infantado",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-10-02T12:55:18.441-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "<h2>Source of truth</h2><p>https://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition</p><h2>Outcome</h2><p>A Deal keeps ownership of its business makeup through every non-terminal lifecycle state. <strong>Archived</strong> releases only the deduplication key; each Deal record keeps its permanent External Deal ID.</p><h2>Rules</h2><h3>Deal Makeup Key</h3><ul><li><p>System-managed and unique.</p></li><li><p>Draft, Active, Paused, Inactive and Closed retain the raw makeup key.</p></li><li><p>Only Archived releases it.</p></li><li><p>Preferred new implementation form if not already deployed: <code>{raw}-A-{18-character CASESAFEID}</code>.</p></li><li><p>Retaining an existing deployed <code>-R-</code> internal suffix is acceptable if dependencies already exist.</p></li></ul><h3>External Deal ID</h3><ul><li><p>Permanent integration identity for one Deal record.</p></li><li><p>May regenerate only while never activated and approved makeup fields change.</p></li><li><p>Once First Activated Date is populated, it never changes.</p></li><li><p>Keep existing automatic collision suffixing: base, <code>-002</code>, <code>-003</code>, etc.</p></li><li><p>Do not add a user-entered Deal Version field.</p></li></ul><h2>Requirements</h2><ul><li><p>Another non-Archived Deal with the same raw makeup remains blocked.</p></li><li><p>Bulk/API writes obey the same uniqueness rule.</p></li><li><p>Multiple Archived historical Deals may share the same historical business makeup because their released technical keys are unique.</p></li><li><p>Closed keeps the makeup reserved.</p></li><li><p>No parent/version Deal hierarchy is added for V1.</p></li></ul><h2>Acceptance criteria</h2><ol><li><p>Active → Paused/Inactive/Closed keeps the raw Makeup Key reserved.</p></li><li><p>Eligible Deal → Archived releases the raw key.</p></li><li><p>Archived keeps its original External Deal ID.</p></li><li><p>Replacement Deal can take the raw Makeup Key and gets the next collision External Deal ID.</p></li><li><p>API/Data Loader cannot bypass the Makeup Key uniqueness rule.</p></li></ol>",
+    "timetracking": {},
+    "security": {
+      "id": "10000",
+      "description": "Work visible only to the internal Jumpr delivery team. Client users and guests must not have access.",
+      "name": "Jumpr Internal"
+    },
+    "attachment": [
+      {
+        "id": "10418",
+        "filename": "Screenshot 2026-10-03 at 12.42.29 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-10-02T12:54:45.388-0400",
+        "size": 171862,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10418",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10418"
+      },
+      {
+        "id": "10417",
+        "filename": "Screenshot 2026-10-03 at 12.42.40 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-10-02T12:54:45.278-0400",
+        "size": 170722,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10417",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10417"
+      },
+      {
+        "id": "10416",
+        "filename": "Screenshot 2026-10-03 at 12.52.23 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-10-02T12:54:45.154-0400",
+        "size": 174125,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10416",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10416"
+      },
+      {
+        "id": "10415",
+        "filename": "Screenshot 2026-10-03 at 12.53.04 AM.png",
+        "author": {
+          "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+          "emailAddress": "cedrick@jumpr.io",
+          "displayName": "Cedrick Infantado",
+          "active": true,
+          "timeZone": "America/Toronto",
+          "accountType": "atlassian"
+        },
+        "created": "2026-10-02T12:54:44.971-0400",
+        "size": 176435,
+        "mimeType": "image/png",
+        "content": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/content/10415",
+        "thumbnail": "https://jira-prod-us-44-as-4.prod.atl-paas.net/rest/api/3/attachment/thumbnail/10415"
+      }
+    ],
+    "summary": "Deal — Reserve makeup until Archived; retain automatic External Deal ID collision suffixing",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "11605",
+          "author": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "<p data-local-id=\"4ecae32414d6\"><strong>Changes made:</strong></p><table data-local-id=\"27855f8f-2619-45fa-ba05-ce327d97a388\"><tbody><tr><td data-local-id=\"befa181f83d8\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"4537523bd9cc\">Metadata Name</p></td><td data-local-id=\"87f54fa58fed\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"2cbcfa5bb173\">Metadata Type</p></td><td data-local-id=\"053c55c01d28\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"a96188806265\">Action</p></td><td data-local-id=\"00c47c075dab\" data-background=\"#f2f3f4\" style=\"background-color: #f2f3f4\"><p data-local-id=\"2f3a5bea174d\">Notes</p></td></tr><tr><td data-local-id=\"279fb5d944e6\"><p data-local-id=\"720c891d64e6\">Deal_Before_Save_Set_External_Deal_ID</p></td><td data-local-id=\"4a9291732a57\"><p data-local-id=\"c6969c421836\">Flow</p></td><td data-local-id=\"8280d72386f6\"><p data-local-id=\"ff72e2cd29e1\">Update Component</p></td><td data-local-id=\"951339fe9851\"><p data-local-id=\"e1dcc236b86a\"></p></td></tr><tr><td data-local-id=\"ef665198c5e3\"><p data-local-id=\"77dfdbdda4ef\">Deal_Makeup_Key__c</p></td><td data-local-id=\"e69eaf2a8781\"><p data-local-id=\"d58d390eaf09\">CustomField</p></td><td data-local-id=\"eba1523cc0f8\"><p data-local-id=\"eb18763ddef4\">Update Component</p></td><td data-local-id=\"92e23fb04a39\"><p data-local-id=\"4664b0ab912e\"></p></td></tr><tr><td data-local-id=\"419fb63dc6fd\"><p data-local-id=\"0a499629d17f\">Makeup_Drift__c</p></td><td data-local-id=\"a38fff231ead\"><p data-local-id=\"a1f2b13c40e5\">CustomField</p></td><td data-local-id=\"ce346e0806ad\"><p data-local-id=\"06136efdaf50\">Update Component</p></td><td data-local-id=\"8617adf20fac\"><p data-local-id=\"f83dd04fca4d\"></p></td></tr><tr><td data-local-id=\"2bb3b6e1576b\"><p data-local-id=\"7f6d0d0e4e6e\">Deal_Record_Page_v2</p></td><td data-local-id=\"bc70f8288f0e\"><p data-local-id=\"693306378924\">Flexipage</p></td><td data-local-id=\"dffc03d1eadc\"><p data-local-id=\"155509a754ab\">Update Component</p></td><td data-local-id=\"13e8568e519f\"><p data-local-id=\"6198a42baf0c\">Added new tab for audit</p></td></tr></tbody></table><p data-local-id=\"58f096b47d33\"><strong>Testing:</strong> Working as expected.</p><figure data-local-id=\"9e6e69571455\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"559\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"a53a8484-0b88-43e9-a8c4-6ce1d80986d2\" data-alt=\"Screenshot 2026-10-03 at 12.42.29 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"9f1be379d7ef\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"559\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"45987c1f-ab78-4837-9d67-840d0a58e819\" data-alt=\"Screenshot 2026-10-03 at 12.42.40 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"b14fbbcb0eb0\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"559\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"50e129c8-59bd-42ad-92aa-15a789167b7d\" data-alt=\"Screenshot 2026-10-03 at 12.52.23 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure><figure data-local-id=\"ace2f75b9570\" data-type=\"media-single\" data-layout=\"align-start\" data-width=\"559\" data-width-type=\"pixel\"><div data-type=\"media\" data-media-type=\"file\" data-id=\"ae0abbbf-8b91-4549-b373-18ef59b03fb3\" data-alt=\"Screenshot 2026-10-03 at 12.53.04 AM.png\" data-width=\"1600\" data-height=\"783\"></div></figure>",
+          "updateAuthor": {
+            "accountId": "712020:d3ffd30a-2b90-4bcc-99d4-29fe0303d278",
+            "emailAddress": "cedrick@jumpr.io",
+            "displayName": "Cedrick Infantado",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-10-02T12:54:45.584-0400",
+          "updated": "2026-10-02T12:54:45.584-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i000hl:1"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

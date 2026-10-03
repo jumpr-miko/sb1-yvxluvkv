@@ -1,0 +1,782 @@
+📝 Notes
+Sep 1, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet Waleed Alasadi Taryn Reithofer strah@wagertech.bet strahinja.vladetic@gmail.com Cedrick Infantado joyce@wagertech.bet
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+The team addressed pipeline restoration and operational automation updates while finalizing financial tracking and project scope constraints.
+
+Pipeline and Automation Fixes
+Engineers resolved silent pipeline failures and implemented database locking mechanisms to prevent duplicate record creation. These technical updates ensure consistent data flow and improved processing reliability for the system.
+
+Operational Logic and Reporting
+Leadership approved the introduction of a write-off checkbox for tracking fraud impacts on financial reporting. This enables accurate accounting while integrating commission fields and payout overrides into the signup record.
+
+Project Timeline Alignment
+Project leadership postponed scope revalidation until key stakeholders return to ensure alignment across project phases 2 and 3. Resources remain committed to the target go-live date.
+
+
+Decisions
+Aligned
+* Duplicate deal creation prevention The system will implement logic to prevent the creation of duplicate deals when the operator, partner, market, country, and vertical fields are identical.
+* SLC re-sync feature implementation A re-sync button will be added at the SLC level to enable manual syncing to Salesforce, ensuring data integrity when automatic processing fails.
+* Fraud status handling process Signups confirmed as fraud will be archived if payment is not sent; if payment is sent, a write-off checkbox will be used to track the financial implication.
+* Retention of Email field label The current 'Email' field label will be retained rather than renamed to 'E-transfer email' to maintain system simplicity.
+* UI field layout adjustment The wager and deposit fields will be updated to display in-line in the user interface to improve layout flow.
+* Commission tracking and override implementation Signup records will be updated to include dedicated fields for Brand Ambassador and Manager commissions, with an added option for manual overrides of payout amounts.
+* Project re-forecasting timeline set The re-forecasting of remaining project hours is scheduled for the end of next week, following the finalization of project phases two and three.
+
+
+
+Next steps
+* [Kobi Kunasekaran] Fix deal assignment: Reassign the account to the correct person and delete the mistakenly created duplicate. This task will resolve the improper assignment created during the meeting.
+* [Kobi Kunasekaran] Flag duplicate deals: Implement logic to automatically detect and flag deals with identical characteristics. This will prevent the creation of duplicate deal records moving forward.
+* [Kobi Kunasekaran] Add source code: Update the naming convention for all deals to include the associated source code. This update is currently queued for the week.
+* [Emily Vandenberg] Review pages: Evaluate the updated brand ambassador and operator player pages for feedback. Provide findings to the team after review.
+* [Kobi Kunasekaran] Update fraud workflow: Automate the archiving process for new fraud-flagged records and implement a checkbox for tracking manual write-offs. This logic will trigger based on the confirmation status of the fraud review.
+* [Kobi Kunasekaran] Update field layout: Reconfigure the wager and deposit information sections to display fields in line. This small layout change will improve the user interface for inputting data.
+* [Kobi Kunasekaran] Implement commission logic: Add functionality for manual overrides on payout amounts and create a system to calculate brand ambassador and manager commissions. These commission structures will be based on the established payment matrix.
+* [Kobi Kunasekaran] Add Commission Fields: Add BA commission, brand manager information, and corresponding commission fields to the signup record. Ensure these fields are accessible to brand managers while restricting full view to operations.
+* [Lina Ceniccola] Send Logic Matrix: Submit the commission logic matrix to Kobi to facilitate automation.
+* [Kobi Kunasekaran] Record Creation Tutorial: Create and distribute a video tutorial demonstrating how to manually create deals within the user interface.
+* [Kobi Kunasekaran] Submit Timesheet Report: Deliver the pending timesheet report to the team by the end of the day.
+* [Emily Vandenberg] Refine Project Phases: Finalize the scoping for project phases 2 and 3 based on current progress.
+* [The group] Revalidate Remaining Hours: Collaborate to revalidate the remaining project hours and overall project scope following the refinement of phases 2 and 3 next week.
+
+
+
+Details
+* Meeting Kickoff and Status Update: Emily noted that Dewy was unable to attend the meeting, but Straw was available if needed; however, Straw did not have any specific agenda items after reviewing the table information. Kobi requested that the team tag them in any messages regarding recent channel changes to ensure nothing was missed (00:01:31).
+* Click Pipeline Restoration: Kobi reported that the click pipeline is back up and running after experiencing missing clicks. Investigation revealed that the original logic was failing because it required Deal Country and State information, which was missing; additionally, a misleading "No player found" error was causing the flow to fail silently, which Kobi has since corrected (00:02:35).
+* Flow Automation Improvements: Kobi implemented several updates to the flow, including incorporating source information and removing unnecessary logic regarding deal makeup. To prevent duplicate player creation, a hard lock with a unique database-level ID and a retry mechanism for race conditions were added, ensuring that if a record fails, it attempts to reprocess after 30 to 60 seconds (00:04:34).
+* Data Validation and Testing: Emily and Kobi conducted live troubleshooting regarding deal assignments (00:06:46). Emily performed data validation on records from the 29th through the previous day, reporting that data is passing through the API cleanly with one minor exception (00:07:47). The team is preparing for higher volume testing scheduled for this week (00:08:42).
+* Deal External ID Alignment: Kobi asked for clarification on whether Straw's team is recreating the Deal External ID formula, as it is critical that their generation logic matches the Salesforce-side logic to avoid issues with past and future deals (00:09:52). Emily agreed to coordinate with Straw to validate that their generation process aligns with the current requirements (00:11:54).
+* Duplicate Deal Management: Kobi addressed an issue where duplicate deals were created due to assignment confusion. It was agreed that identical combinations of operator, partner, market, country, and vertical should be prevented, and Kobi will incorporate logic to flag these as duplicates (00:12:48).
+* Reprocessing and Production Concerns: The team discussed the reprocess button functionality, which allows for relinking clicks that have missing assignments (00:15:00). Kobi noted that clicks missing a Deal External ID cannot be reprocessed automatically, though they can be fixed by manually editing the Salesforce Lead/Click records. Emily suggested that the ability to re-push data from the CMS is a useful feature for future development (00:16:01).
+* Operational Page Updates: Kobi provided an update on the operator brand ambassador and player pages, noting that most fields and related lists are complete. Kobi requested feedback on these pages to finalize the remaining automations, such as the player active status (00:16:54).
+
+
+* Fraud Status Logic for New Signups: The team discussed how to handle signups flagged for fraud at the "New" status (00:18:01). It was decided that if fraud is confirmed, the record will be archived, but if the status is dismissed, the fraud flag will be removed, and the record will return to its previous stage (00:19:17) (00:22:20).
+
+
+* Financial Tracking and Write-offs: Lina and Emily emphasized the need to account for the financial impact of fraud for profit and loss reporting (00:22:20). The team agreed to introduce a "Write-off" checkbox, which will allow operations to flag payments that were sent but later identified as fraud, ensuring these are accurately tracked regardless of the record's overall status (00:25:02).
+
+
+* Email Field Labeling: Kobi confirmed that the signup record now uses a single email field for the E-transfer email address (00:28:45). While Kobi offered to create a read-only formula field labeled "E-transfer Email" for user clarity, the team decided to keep the label as "Email" to maintain simplicity (00:29:53) (00:31:57).
+
+
+* Signup Form UI Adjustments: Emily requested layout improvements for the "Log Signup" form, specifically placing the wager and deposit dates inline with their respective proofs (00:33:58). Kobi agreed to these changes (00:35:04). Additionally, the team discussed the "No Refer" functionality, which automatically hides the referral section when selected to reduce interface clutter (00:36:07).
+
+
+* Payout Override and Commission Integration: Lina requested the ability for operations staff to override the default payout amount, which Kobi confirmed can be implemented as an override field (00:37:17). Furthermore, the team agreed to add fields for Brand Ambassador and Manager commissions to the signup record (00:40:00). These fields will be populated based on a matrix and can be overridden by operations, with commission visibility restricted based on roles (00:43:23).
+* Reporting and Next Steps: Kobi noted that adding the commission fields will provide the necessary data for signup-level reporting (00:46:50). The team agreed that these fields should be part of the signup record, with payouts and redeposits to be scoped out in the coming week (00:47:47) (00:49:53).
+* Deal Creation Training: Kobi offered to create a video tutorial for Emily on how to manually create deals within the interface, as this responsibility will eventually shift to the operations team. Emily welcomed this resource (00:51:54).
+* Resource Commitment: Kobi confirmed that the team remains fully committed to the Wagertech project, with Cedric stepping in to support ongoing work while Jester moves to a different project (00:54:31). The team is working toward a November go-live date (00:55:32).
+* Timeline and Scope Alignment: Waleed and Emily discussed the shift in the project timeline and agreed to hold off on revalidating the remaining scope and hours for phases two and three until Joyce returns to ensure full alignment and avoid surprises (00:56:29).
+* Utilization Reporting and Re-forecasting: Waleed Alasadi and Emily Vandenberg discussed the timing for submitting utilization reports, with Waleed Alasadi suggesting a delay to allow time to re-forecast the remaining hours for the project. Emily Vandenberg expressed agreement with this approach, and Waleed Alasadi noted that they may need to collaborate with Emily Vandenberg to validate specific project assumptions (00:58:26).
+* Project Phase Finalization: Waleed Alasadi proposed that the project team wait until the end of next week to finalize utilization reporting, contingent upon Joyce completing the finalization of project phases two and three. Emily Vandenberg and Lina Ceniccola both confirmed their alignment with this timeline (00:58:26).
+* Scope of Work Transition: Kobi Kunasekaran detailed the operational plan to conclude the current week by closing out various pending minor tasks. Starting the following week, the team intends to shift their focus toward scoping new work, including specific items such as payouts, redeposits, and project components that were reserved for later phases (00:58:26).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 1, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:10
+
+Waleed Alasadi: Good
+Lina Ceniccola: Hello.
+Kobi Kunasekaran: Good
+Waleed Alasadi: morning.
+Kobi Kunasekaran: morning.
+Emily Vandenberg: Morning. How's it going?
+Kobi Kunasekaran: Good. Good. How are you all doing?
+Lina Ceniccola: I'm on puppy duty right now,
+Emily Vandenberg: Good.
+Lina Ceniccola: so I'll be kind of running back and forth from my computer. So, I'm just going to stay off camera.
+Kobi Kunasekaran: You're on puppy duty and you're hiding your puppy from us.
+Lina Ceniccola: I'll show you the puppy and then I have to make sure she doesn't fall off the couch every 5 seconds. One second.
+Kobi Kunasekaran: How old is she?
+Emily Vandenberg: those.
+Lina Ceniccola: She is nine. Wait.
+Kobi Kunasekaran: I think Oh.
+Lina Ceniccola: Let me
+Kobi Kunasekaran: Oh, adorable.
+Emily Vandenberg: Oh my goodness.
+Kobi Kunasekaran: Like, what's going on?
+Lina Ceniccola: I know.
+Emily Vandenberg: Hi Oh,
+Lina Ceniccola: She's like posting.
+Emily Vandenberg: she's like,"Who are these
+Lina Ceniccola: You know, I haven't seen that
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: before.
+Emily Vandenberg: creatures?" First first uh Google Meet
+Lina Ceniccola: Yeah.
+Emily Vandenberg: experience.
+
+
+00:01:31
+
+Lina Ceniccola: This is your first meeting. Get used to it.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Oh my gosh, she's so
+Lina Ceniccola: Like I can't.
+Emily Vandenberg: cute.
+Lina Ceniccola: But she is she's running a muck. So I have to keep running away. That's her. Anyway, we can
+Emily Vandenberg: Yeah, Dewy isn't going to be able to make it um
+Lina Ceniccola: start
+Emily Vandenberg: today and Straw's kind of like in the wings like if we
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: need him, we can pull him in if there's anything you need. But after kind of getting the table information yesterday, he was good. So, he didn't have anything any agenda items.
+Kobi Kunasekaran: Okay. Um, yeah, I think like the past week we've uh we made a lot of changes. So, I know our channel's been very busy. So, if I missed anything, I apologize. Uh, please feel free to tag me in any of those messages. Um, but the main thing I wanted to call out um just just a few highlights from our laundry list of updates which are below so we can go through it later.
+
+
+00:02:35
+
+Kobi Kunasekaran: Um, but the main thing is the click pipeline is back up and running again. So, like two weeks ago, we turned it on. Uh, it looked like everything was flowing correctly and then, uh, Emily found out like there were a bunch of clicks that were missing and looking into, uh, what was going on. Um, one of the reasons was uh because we weren't getting the deal and country. And the logic was still built based off of our old logic or our old approach where we wanted to match up deals based on the individual makeup of the deal like the vertical operator that was all still there. So when a deal ID wasn't coming in, it was trying to match it up, but because deal country and state weren't there, it kept failing. But it's it wasn't just that. It was also like um we al whenever we look up the player, we did the same thing. every time we couldn't find a player, even though we create the player anyways as part of that process, we still uh added that error message, no player found, which was a little misleading uh when we looked at the error list.
+
+
+00:03:38
+
+Kobi Kunasekaran: But um the error path for that flow was uh essentially failing. Um and when it failed, it stopped uh those SLC records from being created. So that's why we saw like the sequence was off because Sal processed it. It tried to create it and then when it got to the last step uh there was an error that was unhandled. So then it rolled everything back. So um it was actually helpful to see the sequence missing because at least that way we knew there were some missing records. Um unfortunately those records like we weren't able to recover straight from Salesforce um as it is right now. Um I think another issue was uh because the org was already set up, Jumpr wasn't actually set up as one of the people to receive any error messages. So that's why it also kind of failed silently. So I fixed that as well. So we will get any flow errors or anything moving forward as of uh like last week. So that way we can be ahead of this.
+
+
+00:04:34
+
+Kobi Kunasekaran: So hopefully this doesn't happen again. Um but since I made I made a lot of changes to that flow actually um I incorporated the uh source information um removed all of the matching by the deal makeup. So right now we're only relying on the delectional ID which seems to be working fine and I think that's going to be the direction we move forward anyways because the point was we configured the deal in Salesforce that information gets pushed to CMS and CMS already has the deal ID to send it back. So um I removed all that unnecessary logic that was there. Um and then we sorted out the signup currency. So it relies on the signup currency from the deal. Um also cleaned up uh there were some cases where if uh clicks came in back to back or at the same time into Salesforce for the same user, there was a chance that duplicate players were getting created. Um and that was literally just like race conditions. So we put in like a hard lock um where uh there is a unique ID being created at the database level.
+
+
+00:05:42
+
+Kobi Kunasekaran: So it should prevent um any duplicate player from being created even if uh even if they get processed at the same time. Um there's like a retry mechanism basically. So if even if the first one fails, it's going to retry again um in like 30 seconds. I uh to a minute and next time it retries it checked again to see if the player exists. By this time the previous record would have been processed. So it's able to just map it to that instead of creating a duplicate. So, um, lots of updates on the flow and, um, it looks like we're good. Like, uh, I think I shared this report with you, Emily, but, uh, the SLC click IDs have been sequential since like Tuesday of last week when we disabled the automation and, uh, turned it back on. So, it leads me to believe everything is coming in um, that's being pushed from CMS. Uh the only errors that we see are some with without the deals configured and that's expected. Um so uh so again like I haven't seen any anything related to players or anything like that.
+
+
+00:06:46
+
+Kobi Kunasekaran: Um I think this was the one that we just added today. So I can reprocess these. Also had the chance to try out the reprocess logic. So um like this one has no deal rep assignment found. So, if I reprocess, hopefully it should get uh fixed. Uh or maybe not. I guess we don't have the DL external ID coming in.
+Emily Vandenberg: That one is that cuz it's Andy. Um, yeah.
+Kobi Kunasekaran: Uh yeah,
+Emily Vandenberg: I
+Kobi Kunasekaran: I think this is for Alex, right? Is Alex ALS research?
+Emily Vandenberg: Oh, yeah. Oh,
+Kobi Kunasekaran: Yes,
+Emily Vandenberg: no. That's That's Andy.
+Kobi Kunasekaran: I can take a look after.
+Emily Vandenberg: That's Andy.
+Kobi Kunasekaran: That's for me.
+Emily Vandenberg: So yeah.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: So that we Yeah, you just handed that
+Kobi Kunasekaran: Oh,
+Emily Vandenberg: over.
+Kobi Kunasekaran: you know what? I did the wrong person. That's
+Emily Vandenberg: Well,
+Kobi Kunasekaran: why
+Emily Vandenberg: they're both supposed to be enabled for it.
+
+
+00:07:47
+
+Kobi Kunasekaran: I think in the sheet I only saw one
+Emily Vandenberg: So you had Alex from like the initial
+Kobi Kunasekaran: person.
+Emily Vandenberg: onset, but I just added Andy today.
+Kobi Kunasekaran: I see. Got it. Okay. Okay. So that live troubleshooting. Perfect. Okay. The sun got the sign. So the error message
+Emily Vandenberg: Yeah. So, this morning I ran like a validation against Andy and Alex from
+Kobi Kunasekaran: gone.
+Emily Vandenberg: the 29th, like just kind of when everything got cleaned up and there's still obviously some deal stuff. Um, and till yesterday at like 2:30. It was just kind of when I started and then didn't finish till this morning. Um, so I ran it through like AI and I ran I just pulse test on Andy because it was a small just kind of like cross reference and essentially everything with the exception of like one player came back clean. Um, it was a record that orphaned on our side. So like you guys got the clicks,
+
+
+00:08:42
+
+Kobi Kunasekaran: Nice.
+Emily Vandenberg: we didn't. So I'm just validating that on our end. But I think like what that tells me there's still a bunch of deals that needed to be cleaned up. O just got off a call with Straw and we cleaned up a few things. He's adding source to the deal ID. Um so that will all be kind of like should all be cleaned up um here shortly. And so I think we're like feeling good at a low volume that the data is passing through the API. um he's going to update it so that you're getting player country and and state um within the player um information that's sent. So yes, player play player city and country um within within the AP on the go forward. So I think the next thing here will be to unlock a higher volume. We're waiting to push all of our higher volume guys. It should happen today. So like this week we'll be able to test a high volume um rep with the API.
+
+
+00:09:52
+
+Emily Vandenberg: Um and then like just kind of continuing to val like now we can kind of like once we have that clear I think we can kind of put a check against the the data flow on at the
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: player and um sign up or the click level.
+Kobi Kunasekaran: I know.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Okay. Is um is straw generating the delectional ids like manually on the CMS side as well?
+Emily Vandenberg: He is ma but creating them to
+Kobi Kunasekaran: Okay. Okay. So,
+Emily Vandenberg: match.
+Kobi Kunasekaran: he's not like like he's not putting this together based off of like the makeup of the deal, right? Like I'm I'm sending over the deal external ID. I assume that he was just adding that into like a table on the database. So, that's what gets sent.
+Emily Vandenberg: Yeah, he had to just Yeah, he's kind of like seeding it for now and then he's working he's going to be working to kind of create all of like the end points needed so that he can just receive
+
+
+00:10:52
+
+Kobi Kunasekaran: Okay. Oh yeah. The only reason I ask is uh if he's recreating the formula to generate the
+Emily Vandenberg: from
+Kobi Kunasekaran: deleteral ID um I can provide the formulas that I'm using on the Salesforce side because there are like uh multiple layers like so all of the older deals like we didn't have the the source right so I left it as is so we don't we never change past deals that we've configured but anything moving forward um like the shy one that we added and even the uh rebet one that we added today. Um, it is going to have the uh what was it the source at the end of it and like we decided that every deal will have a source and it's going to be wer by wager tech by default and then you can have like you can change it to be whatever else has needed from our call last week. So that's how I add it set up so that um the new one that I added today it has like the WT at the end.
+
+
+00:11:54
+
+Emily Vandenberg: Okay. Yeah, I think he is creating them um to like match your but like if if I see if I'm making an assumption I think you could validate it within
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: the chat just like ping him and validate um because he like you
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: go in and you create you pick the like you have to go in and kind of pick everything that you are kind of defining and then it spits it out the exact same ideas like what you have. So I feel like he's creating it just in
+Kobi Kunasekaran: Okay. Yeah. And then like I just want to make sure we have the same formula so that it doesn't change like the old
+Emily Vandenberg: the
+Kobi Kunasekaran: deals and things like
+Emily Vandenberg: Yeah. Yeah. That's what I don't know is that if he's like timestamping it and only kind of like updating because
+Kobi Kunasekaran: that.
+Emily Vandenberg: he was going to update with the source today. So I don't know if that'll retroactively change all of the IDs or not.
+
+
+00:12:48
+
+Emily Vandenberg: So we can confirm
+Kobi Kunasekaran: Okay. Um yeah, actually as as we were speaking this whole rebate reit I guess we already had one created from before for the same one, right? We just added a new assignment.
+Emily Vandenberg: Andy.
+Kobi Kunasekaran: Okay, I think I actually created a new G port instead of adding just the assignment over.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: So I'll need to fix this. Okay. Yeah, let let me I'll I'll fix this after the call and get back to you. Um I'll just add them to the original deal that we had and then delete the new one. But this is actually a good good scenario.
+Emily Vandenberg: Heat.
+Kobi Kunasekaran: Um so in these cases where the operator partner market country um and vertical are the same, would this be considered a duplicate deal? And should we prevent people from creating uh deals like this?
+Emily Vandenberg: Yeah, we wouldn't that would be considered it's not considered it you would be considered we shouldn't have duplicate deals.
+Kobi Kunasekaran: should have two we shouldn't have two of the same makeup of those fields, right?
+
+
+00:14:09
+
+Kobi Kunasekaran: As two separate
+Emily Vandenberg: it I think it's just so like we talked about the logic of source being mandatory like these things have
+Kobi Kunasekaran: deals.
+Emily Vandenberg: to kind of like mandatory within and then you can apply the
+Kobi Kunasekaran: Okay. So,
+Emily Vandenberg: logic
+Kobi Kunasekaran: I'll I'll make sure to add that in too so that next time these things get flagged. Um, I think I can do the same like maybe work off of the actual deal ID logic to flag it as a duplicate or something. I'll route that in. Um, okay. So, other than that, uh, the deal source, uh, we just kind of talked about it. So I did add that in and added the source code at the end of the deal. Uh we talked about adding that in the name as well. So that's queued up. It we'll get that added in this week. Um it was lower priority because it didn't have any implications on the automation. So I left it off for a little bit later.
+
+
+00:15:00
+
+Kobi Kunasekaran: I just made sure to update the the electional ID for now. Um but yeah, moving forward like every deal is going to require uh the source code and or sorry the source and uh you have the option for like widget tech or anything else. All the old deals if you make any updates to them it'll ask you to select a source. So just so we don't have to go back and update them. Um but these are test data anyway. So when we go into production when we do the clean import we'll make sure it's all there. Um already talked about preventing duplicate player. So that logic is also in place. So we shouldn't have any cases where the same player with the same email address exists in the system anymore. Um, and then I already talked about the reprocess button where if you do see an error and if we fix it, uh, like if it's like a missing assignment or something like that, then once that's fixed, you can just click on reprocess and it'll relink it.
+
+
+00:16:01
+
+Kobi Kunasekaran: The only ones that it won't like kind of work for is uh, the deal or the clicks where we received no delectional ID. For these ones, there's nothing like we won't be able to reprocess it because the source data doesn't have the delectional ids. Um, if you ever need to in a production setting uh to fix this instead of pushing it uh from CMS, uh you can always edit the SLC to add in the correct electional ID and it'll reprocess and back to the deal.
+Emily Vandenberg: Yeah, and I talked to Straw like we can he can re like write a script to repush anything that we need, but right now we don't have the functionality like reprocess from the CMS. But I think like the sense we said like knowing we don't need to clean this data up like historically because it's just production data. We just kind of everything cleaned up,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: move forward, and then we know what our kind of jumping off points
+Kobi Kunasekaran: Okay. Yeah. I think the pushing is something to have ready before we go into production so we have it tested because it's going to
+
+
+00:16:54
+
+Emily Vandenberg: are,
+Kobi Kunasekaran: happen, right? like Salesforce is going to fail. There there are going to be cases where it's going to be outside of our control and we always have the option of manually importing the SLC records.
+Emily Vandenberg: right?
+Kobi Kunasekaran: So that's always there but obviously that takes uh time to put together and make sure the data is accurate and everything. So the better option is uh from the CMS side have a have a button on the SLC level to reync to Salesforce.
+Emily Vandenberg: Okay. Yeah, I just I just kind of backlogged it for the week, but we can pull it in before
+Kobi Kunasekaran: Okay. Um, a few other updates. So, I think Taryn's been sending you like a summary of what's been done on the operator uh brand ambassador refer uh player pages. For the most part, I believe the fields are done uh fields sections and a lot of the related lists. There are still some automations like the player active status automation that's queued up for this Um, but we should have those wrapped up this week.
+
+
+00:18:01
+
+Kobi Kunasekaran: So, um, if you have any feedback on any of the, uh, the pages themselves, let me know. Um, and we can make any updates. But, uh, yeah, I I think for the most part, they're they're pretty much
+Emily Vandenberg: Okay, I'll take a look.
+Kobi Kunasekaran: done.
+Emily Vandenberg: Apologies, Hern. I haven't looked at what you sent this morning. I think it was this morning or um yesterday, but did we close out the feedback on the signup
+Kobi Kunasekaran: Uh yes,
+Emily Vandenberg: object?
+Kobi Kunasekaran: there's a couple things still we're working through, but uh what we did do already is so we added the fraud for new signups as well. And that's actually one of the open questions I want to talk about. Um, is if we flag something for fraud when it's new, do you still want the status to be new or should that get archived? Um, and do we follow the same process as something that might be in progress or archived or completed that's flagged for review or flagged as fraud?
+Emily Vandenberg: my mind goes to if it's at the new stage because you're bringing in anything with a click, right?
+
+
+00:19:17
+
+Emily Vandenberg: Um that if it's fragged as fraud at the new status, then we would push it to archive like through the kind of like archive um status thereafter. But Lena, do you agree with that?
+Lina Ceniccola: Um, so it's flagged as fraud in new and then if it doesn't get picked up, like if it doesn't move back to new or in progress, it goes to archive.
+Emily Vandenberg: Yeah. Like it would be a matter of where if if it's new. The scenario I'm kind of thinking of is like because a click has come in but like they have they don't enter anything and like they don't progress it because like it was raised as it and they hit
+Lina Ceniccola: Yeah.
+Emily Vandenberg: fraud. Where should it go as a status thereafter?
+Kobi Kunasekaran: like maybe even like a step before.
+Lina Ceniccola: Um,
+Kobi Kunasekaran: Um so right now if somebody flags something as fraud uh we are bringing this up to the ops team for review right so there's a fraud review status uh it goes into suspected um and then depending on whether you're confirming or dismissing the status um if you're dismissing it the record goes back to like it gets reopened um it's either in progress or whatever the status was last um and if it's confirmed then it's we're basically like locked for reps.
+
+
+00:20:58
+
+Kobi Kunasekaran: like they can't do anything with that record. So, do we want to follow the same process for new? Um, in which case like you know as ops you can decide right if you dismiss it then we we bring it back to the new status and if we confirm it then we could archive it. But is that going to be a lot of volume to follow the same process for new records versus the ones that you know they've already started logging or marked as completed.
+Lina Ceniccola: I think I'm more inclined to do the second one. So it'll frag those fra fraud. It goes to ops. Ops then confirms it's fraud and then obviously they can't do anything with it. Or if they go back to the Yeah. the drop down. If they dismiss it, then where does it go?
+Kobi Kunasekaran: So if it's dismissed, um the record goes back to like we basically remove the fraud flag when it's dismissed and then it stays
+Lina Ceniccola: Yeah. And it goes or whatever it was.
+
+
+00:22:20
+
+Kobi Kunasekaran: in whatever status it was.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: I think for confirmed the question is like do we still want to keep it as new or do we archive it because once we confirm the fraud then it's a brand new sign up there's like it should like it it doesn't necessarily need to show up in any new list
+Lina Ceniccola: Well, if it's new and money hasn't been sent out, then it can just be like I just want to make sure there it's not counted towards like the P&L basically like I don't want it as a part of
+Kobi Kunasekaran: right?
+Lina Ceniccola: our final data set that we're going to use for reporting on our finances cuz like it technically was just a dead click when you think about
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: it. So, um,
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: cuz I feel like there's other signups that get archived, but they could have a financial impact to them. So, you want to keep it as part of like the write offs, I guess, in a way.
+
+
+00:23:39
+
+Kobi Kunasekaran: Gotcha. Okay. Would would the financial implication only apply to like completed signups that are flagged as fraud or could you have new or in progress with like payouts or redeposits tied to those signups?
+Lina Ceniccola: It depends if money was sent out and the task wasn't complete.
+Kobi Kunasekaran: Oh no.
+Lina Ceniccola: So like if it's
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: in progress and basically if like the client received funds then it has to go it has to be a write off and we have to consider it as part of erosion. But if it gets flagged as fraud because it's tied to
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: someone else and they haven't actioned it yet, like you can kind of just like it's a wash like, oh,
+Emily Vandenberg: I
+Lina Ceniccola: whatever. But you want to still keep it's not like you want to delete it forever cuz this person tries to come back.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I did tell me if this makes sense because I agree with you like we have to be able to kind of track like the write off component of it Lina and report out on that.
+
+
+00:25:02
+
+Lina Ceniccola: Yeah.
+Emily Vandenberg: So if because we haven't built out that kind of payment the payment um management yet my you know what we'll need to do is have like on any sign up the ability
+Kobi Kunasekaran: Heat.
+Emily Vandenberg: to write it off like click for kind of like a write off because really at any
+Lina Ceniccola: Yeah.
+Emily Vandenberg: status um you know this could happen and and it's like a bit more of like an ops would go in and write it off um but this is like the kind of nature of what we're up against. So even within an archive status, so if you take the flag and push it to archived, it would still be flagged as like a write-off. So you would know that you kind of have to track it on the P&L that way because I think that logically matches like
+Lina Ceniccola: Yeah.
+Emily Vandenberg: the status like where it goes from a flow perspective like once you've kind of bucketed or flagged it. Um but gives you the ability to like report on it as needed based on how uh the financial implication.
+
+
+00:26:06
+
+Lina Ceniccola: Yeah.
+Emily Vandenberg: Does that make sense Kobi?
+Kobi Kunasekaran: Yeah. So, it sounds like we're good to archive the fraud uh or records that are flagged as fraud from new, but we want to mark the ones that need to be written off in like a separate checkbox like right off.
+Lina Ceniccola: Well,
+Kobi Kunasekaran: And then you can do that for any of
+Lina Ceniccola: because if it if it has payment
+Kobi Kunasekaran: them.
+Lina Ceniccola: sent, if it has that box payment sent ticked off and then it's
+Kobi Kunasekaran: Yeah,
+Lina Ceniccola: fraud, you would want it to go to write offs.
+Kobi Kunasekaran: enough.
+Lina Ceniccola: And if it doesn't have payment sent,
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: you want to send it to the other side of I guess like a write off or whatever that there's either two ways payment sent so we're writing it off payment not sent so we're just archiving it like
+Kobi Kunasekaran: It's archived.
+Lina Ceniccola: records
+Kobi Kunasekaran: Okay. Okay. I I think we can track that with like a with another checkbox then. So yeah, like when we dismiss the record goes back to new or in progress or whatever it was, it's uh reopen for the rep to work through.
+
+
+00:27:33
+
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Um but if the prod review status is uh marked as confirmed, then we can check if the payment status is uh checked. And if this is checked, we'll check the write- off check box. And then that's what you'll use on the reporting side to make sure that it's included in the write-offs regardless of the status. Um, and then if payment sent is unchecked, then we will move new to archived once the fraud is confirmed. Okay,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: that works. That works. Okay, that that way we could also like remove those from the list as well so that it
+Lina Ceniccola: Heat.
+Kobi Kunasekaran: doesn't like add up and stay as noise. So we can do
+Emily Vandenberg: Yeah, cuz that's what I Yeah,
+Kobi Kunasekaran: that.
+Emily Vandenberg: there will be cases and I just don't want them to like kind of clog up in that that kind of like new status with no place to go because we just
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: didn't have like anything sitting there that was kind of like or where the like review and where it kind of all came from.
+
+
+00:28:45
+
+Emily Vandenberg: So I think this accomplishes
+Kobi Kunasekaran: Okay, done. Uh,
+Emily Vandenberg: it.
+Kobi Kunasekaran: and then the other changes that are already live on the signup from your feedback last week. Um, so basically we swapped out the email address that showed up on the signup record with just the email field. So initially we talked about like having three different fields. one is the main email uh or primary email, secondary email and then e transfer email. So um and e transfer email was what we were showing on the signup records. Um but since whatever we're getting from the SLC's are e transfer email and we're actually just saving those as the email address for the player. Um we just swapped out the field so it shows the email field. Um, if you go to the player record, you can still enter in a secondary email if needed. Um, but there are no more spots for the e transfer email. So, if you do ever need another field to capture like e transfer that uh e transfer email that's separate from the email that comes in from uh from the agency site, let me know.
+
+
+00:29:53
+
+Kobi Kunasekaran: We can always surface that field back um and add some logic so that one takes precedence. Uh but for now, I would just replace the swapped out the field so that you just see the email the whole
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: time.
+Emily Vandenberg: like that when I was kind of like reviewing that feedback came in just like what the email is is like that we ask for is the e transfer email. So, can that be called like that email field be called e transfer email or is there no ability to kind of change the
+Kobi Kunasekaran: Uh, we can't change the out of the box label,
+Emily Vandenberg: label?
+Kobi Kunasekaran: but we could I can always create a formula field that's like read only that shows like it's called e transfer email and it'll just have the email address there. That'll be easier.
+Emily Vandenberg: Do you think it matters, Lena? Like
+Lina Ceniccola: I don't I don't really understand.
+Emily Vandenberg: essentially like the way that they had like when I was doing the last last review, they had three email slots.
+
+
+00:30:53
+
+Emily Vandenberg: Email, secondary email, and then e transfer email. But how we were capturing the information from the signup is like or like you know the player kind of
+Lina Ceniccola: Huh.
+Emily Vandenberg: account creation. The like email that they enter is the um e transfer email, right?
+Lina Ceniccola: Yeah.
+Emily Vandenberg: So like they're kind of the same. So, but it wasn't bubbling up into the player information, which then wasn't bubbling up into the SLC because it was kind of coming in separate. So,
+Lina Ceniccola: Oh.
+Emily Vandenberg: I just had Kobe refer to the email that we received, which we know is the e transfer email, as the like out of the box email field that they have for the player information, which then talks to the SLC record.
+Lina Ceniccola: Yeah. So, do you just want to change that name to e transfer email on this player record like the
+Emily Vandenberg: Yeah. Yeah. He's he's just saying that like he can do some custom like workaround to show that,
+Lina Ceniccola: title?
+Emily Vandenberg: but out of the box it just reads email.
+
+
+00:31:57
+
+Emily Vandenberg: And my question is like do we care if it reads e transfer email or are we fine with it just reading email?
+Lina Ceniccola: I mean, how big of a lift is it to change to e transfer All
+Kobi Kunasekaran: It's just a formula field. So it like literally like we we can't change this specific field name.
+Lina Ceniccola: right.
+Kobi Kunasekaran: Um it's one of those special fields. So we can't change the label on it. But we can create a formula field. It's not a big lift. It's just uh it's just a read only field that we create. It'll reference this email field. And um everywhere we add it, it'll just say you transfer email instead of email.
+Lina Ceniccola: Where would it say e transfer email?
+Kobi Kunasekaran: Um like we will add it here like replace this email with the with that new field. Um and it'll just be like a read only field here
+Lina Ceniccola: Um,
+Kobi Kunasekaran: from a user like from a UI perspective. uh you won't really notice the difference.
+
+
+00:32:58
+
+Kobi Kunasekaran: like it'll just say e transfer email and the email address will be there. Behind the scenes, it's actually like two fields. There's the email field that's editable where you can set the actual email address and then there will be a formula field. I don't have one that's an example that I can show you. Um like it'll it'll show something like this where the formula field version which will actually say transfer email on the player record. Uh it won't be editable. Um but I I don't know if that really matters. We're not expecting reps to go in and edit these emails uh anyways. And if they do, they just have to edit this email
+Lina Ceniccola: I mean,
+Kobi Kunasekaran: field
+Lina Ceniccola: is it just simpler to keep it as email assumed it's the e transfer email?
+Emily Vandenberg: I think I think it I
+Kobi Kunasekaran: from a from a systems perspective. Yes. But from a user perspective,
+Emily Vandenberg: think
+Kobi Kunasekaran: you let me know.
+Lina Ceniccola: Yeah, I think Emily, do you agree?
+
+
+00:33:58
+
+Lina Ceniccola: Just keep it as email. They will
+Emily Vandenberg: Yeah, like we know that the only email we like kind of really care about is the e transfer and that's like our primary. So I think we're good.
+Kobi Kunasekaran: Okay. Okay. So, that's that's added. Um, and then on the log signup, um, we're still working on the logic to make it so that you have to enter something to push it to in progress. Um, so that should be done this week as well. But in the meantime, the first wager date has been added. Um, and we are moving around the referral information. Um,
+Emily Vandenberg: Sir,
+Kobi Kunasekaran: just a heads up.
+Emily Vandenberg: can you open that up again? Wager approve. Hey, sign up date sign up proof.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Deposit date deposit proof. Can like I don't know if this is just like a funny UX but for wager can like we put them in line
+Kobi Kunasekaran: Uh yeah, we can like next to the wager proof.
+
+
+00:35:04
+
+Emily Vandenberg: is the wager date like I'm just thinking when I'm like doing the things right and you can put like that they're just going to kind of logically and just that's just a bit hoppy.
+Kobi Kunasekaran: Yeah. Yeah. Yeah, we can do that. We'll swap it out maybe like we'll put the deposit amount below deposit amount defers next to it and then first widget take first wager date um underneath deposit date.
+Emily Vandenberg: Can you only put two like Can you only t kind of two rows or columns against?
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Okay. Yeah, that that's a pretty small change. We can do that. Um and then for no refer um you asked to move this to the right side. Um in the feedback we we tried it. It looked really funky when no referral was selected because there was nothing else on the left side cuz all the fields get hidden. So, um, instead like we put it at the bottom and what we're doing, I don't know if this is already implemented yet.
+
+
+00:36:07
+
+Kobi Kunasekaran: So, Cedrick, let me know. But, okay. Yeah, it is. So, if there is a refer, the no refer checkbox goes away because you can only have one or the other, right? Um, if you clear this, then the no referral checkbox shows up. And then if you select no referral, the whole section hides and it's just no referral.
+Emily Vandenberg: Okay. And payment amount is automat automated right by default or by selection.
+Kobi Kunasekaran: Yes. Yeah. Like when when you select the referer and the referral type, it should get populated based on the
+Emily Vandenberg: Will it go?
+Kobi Kunasekaran: matrix.
+Emily Vandenberg: Will it update in the box? The logging box.
+Kobi Kunasekaran: Uh long signup doesn't actually have the payment uh payout amount here because we're not expecting the user to enter it,
+Emily Vandenberg: Oh,
+Kobi Kunasekaran: right? We're just expecting them to select the referral or refer information and the referral type.
+Emily Vandenberg: perfect.
+Lina Ceniccola: Wait,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: why aren't you expecting the amount?
+Kobi Kunasekaran: Uh the payout amount is getting auto set based on like the referral that's chosen and the referral type that's chosen, right?
+
+
+00:37:17
+
+Lina Ceniccola: Oh, you mean like there's already a matrix set up,
+Kobi Kunasekaran: It's it comes from that matrix.
+Lina Ceniccola: right? Okay.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Um, but the one thing I wanted to introduce here is the option to add a um like a manual commission amount. Is that going to mess a lot of things up? Like can we have it as payout amount by the matrix as default but then with an option to like add in a different amount.
+Kobi Kunasekaran: Uh who would who would choose that option?
+Lina Ceniccola: um either reps or someone from operations.
+Kobi Kunasekaran: Okay. And is
+Emily Vandenberg: No rep.
+Lina Ceniccola: This
+Emily Vandenberg: Um, normal rep with normal rep access.
+Lina Ceniccola: pardon.
+Kobi Kunasekaran: a
+Emily Vandenberg: Change it. Lena, are we just thinking of O andJ?
+Lina Ceniccola: Um I'm just thinking we if we could have it as ops first. I think that would be a good just as like if we need to go in
+Kobi Kunasekaran: That's okay.
+Lina Ceniccola: and set a custom amount.
+
+
+00:39:00
+
+Lina Ceniccola: just the ability to do that just because like I'm only saying this because our business moves so quickly and like we could want to introduce a different structure at any time and like we don't I just want to make sure we maintain
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: as much flexibility as we can especially with like payment amounts
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: because from like I want to do this make sure we have this set up from the BA perspective and the referral commission that they're paying out.
+Kobi Kunasekaran: Okay. I Yeah, we can definitely do it. Um the referral type is going to remain the same though, right? Like it's either going to be cash or bet credit and then um it'll preload based on what we have in the
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: matrix. But then as let's say for now as ops, you want the ability similar to like the deposit amount defers where you want to be able to override the
+Lina Ceniccola: Yes.
+Kobi Kunasekaran: default payment about that
+Lina Ceniccola: you can have the same setup.
+
+
+00:40:00
+
+Lina Ceniccola: So,
+Kobi Kunasekaran: gets.
+Lina Ceniccola: payout amount differs, new payout amount,
+Kobi Kunasekaran: Yeah. Okay. Yeah, we can do
+Lina Ceniccola: and then um something else that I want to address on the sign up
+Kobi Kunasekaran: that.
+Lina Ceniccola: level. So, right now, do we have it set up what the actual rep commission is per sign up?
+Kobi Kunasekaran: Uh, no. I don't think we have any commission set up. These are the only amount fields that I believe we have right now.
+Lina Ceniccola: cuz I'm wondering if cuz this maybe would have come into like the payout matrix, but I I'm just thinking through this again and Emily, you can maybe let me know if this makes sense, but if we can have uh box specifically for brand ambassador commission and that's also just like a very simple it's one box that says the commission amount for that particular sign up and that is determined based on a payment matrix as well like if it's a US signup they get x amount of commission. If it's an Ontario sign up, they get, for example, Ontario, they get $20.
+
+
+00:41:33
+
+Lina Ceniccola: US, they get $50. Alberta, they get $15. So, it's just like purely based on market. That's it. Like, um, so one of those three markets, they get a specific commission. And then on a BA level, but then on a a manager level, they get um a certain amount of commission for their brand ambassadors signups. So, I don't know how that loops into things that will affect it, but like sure there's a way to set it up so that cuz technically on a BA level, you have their commission and then what their brand ambassador also makes on that sign up. And from like a user, I guess, like if you're a manager, you're going to have access to your brand ambassadors, right?
+Kobi Kunasekaran: information like the commission.
+Lina Ceniccola: So yeah, in theory, like all of those commission amounts need to like come back to
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: them. So yeah, there's like two there's commission for the BA and then there's commission for the manager. That's a set amount of commission per sign up and then um also a set amount of commission per manager pay.
+
+
+00:43:23
+
+Lina Ceniccola: But I think like basically if we start doing the signup flow and we want to download the data, it's important the total acquisition cost is the deposit amount plus the commission amount plus the equals the total acquisition. So that amount is critical for figuring out our um profit and loss. So like our average deposit, our average commission per sign up, well per deal.
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: Does that make sense?
+Kobi Kunasekaran: Yeah, that's 100% doable. Um, what I can do is maybe we'll we'll add the section with the with the fields. So, we'll add the uh BA commission amount and then uh a way to override it. So, if you need to change it uh to be something different than whatever is autofilled, um you have the ability similar to like what what we just talked about for the pay payout amount.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: And then we can add a section that captures the or displays the brand manager
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: tied to the brand ambassador at the time of the sign up.
+
+
+00:44:41
+
+Kobi Kunasekaran: Um and this is something that won't change when you change the manager on the brand
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: ambassador on the signup unless you go in and manually change it on the signup record. Um and then same thing we can have the commission fields there for the like the brand manager commission. Um, and we can make sure that the brand manager has access to the VA commission fields. Um, but then only ops can see the all of the commission fields. Um, and then if you want to get back to me on the matrix for the commissions for both,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: like what are the conditions um, similar to what we did for the payout amount, uh, we can add in the automation for that. But at least for the time being, we can create the fields and placeholders so we can see what it looks like and what the uh what the experience looks
+Lina Ceniccola: Okay, perfect. And I think that's helpful just also like generating that um highle
+Kobi Kunasekaran: like.
+Lina Ceniccola: report for reps.
+
+
+00:45:37
+
+Lina Ceniccola: Okay, like this is the total commission owed. This is the total they're owed for a manager. They can have that pull into a report pretty easily, which I think they'll want. um they love the money so they won't want that. But from our perspective too, if we're like downloading a report, the commission amount is actually very important. And sorry, I did not think of that earlier, but
+Emily Vandenberg: Will this into the pay out kind of like framework that we kind of or or do you build this in now,
+Kobi Kunasekaran: Um,
+Emily Vandenberg: Kobe?
+Kobi Kunasekaran: I mean based on the requirements that we're talking about right now, I think we can like we don't necessarily need a separate object or anything for it because if it's going to be like one commission per deal uh for the BA and manager,
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: there'll just be additional fields on the signup record. Um, I know we like there's a whole concept of like payout object and everything that we're we're due to talk about. Um, I don't know if any of those necessarily have to come in at this point yet.
+
+
+00:46:50
+
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Yeah. So, I can build build uh these fields for now.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Relatively straightforward and simple. Um and then the adding the matrix and the uh automatically filling in the amounts based on the matrix. That's where the uh heavy lifting is.
+Emily Vandenberg: H
+Kobi Kunasekaran: Um but we can see what the fields look like and we can create some reports uh like signup level reports. So you can see what the commission reports could look like. They're pretty standard like asks when we're talking about like typical sales organizations with opportunities. So nothing uh nothing out of the like nothing extraordinary that you're asking for Lina is like completely normal. Um I think like initially we were like more focused on the logging experience as opposed to the ops and reporting but now we've kind of uh I think we're in a very good place on the logging. There's some tweaks and stuff but now we're going into the operation side. So it is a natural progression of how the object is evolving.
+
+
+00:47:47
+
+Kobi Kunasekaran: Um, so yeah,
+Emily Vandenberg: Okay, that makes sense.
+Kobi Kunasekaran: perfectly fine.
+Lina Ceniccola: To be honest,
+Kobi Kunasekaran: We can add them in.
+Lina Ceniccola: I I was thinking we were going to bring this into the I guess the payout portion. But I don't think it hurts to start here when it is actually on a signup level. And I think the payout side of things is like a little bit more on the actual BA
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: payments whereas commissions is very it's it's operations focus. So if we can build that in
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Hold on.
+Lina Ceniccola: here, that would make me feel
+Kobi Kunasekaran: Yeah, I think if anything like these fields that we're adding right now,
+Lina Ceniccola: better.
+Kobi Kunasekaran: this is this would be the data that drives any transaction level records that we end up creating later, right? So if later we're we're trying to create like a payout object that that uh tracks if this payout amount was actually paid for this signup um at you know the prayer signup level, player level, all of that.
+
+
+00:48:53
+
+Kobi Kunasekaran: This would feed into those objects.
+Lina Ceniccola: us.
+Kobi Kunasekaran: Um so I don't I don't think it's like one or the other. I think this is a good place to start. And uh and then we can when we scope out the payout object, if we need to make any modifications here, we can always come back to that.
+Lina Ceniccola: Yeah, cuz to me like the there's no payout without a sign up. So,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: it makes sense to I mean like frontload the information here. At the end of the day, it's like there's no commission,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: there's no referral pay, there's no redeposit, there's no signup payment like if this first step doesn't happen. So,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: um it doesn't I don't think the actual payout side of thing will be a huge lift. This is like this is where all the information lives pretty much.
+Kobi Kunasekaran: Okay. Yeah, that makes sense to me. So, we'll get those added.
+Lina Ceniccola: We will send you that commission
+
+
+00:49:53
+
+Kobi Kunasekaran: Sorry. Matrix. Yeah.
+Lina Ceniccola: logic.
+Kobi Kunasekaran: Yeah. We'll put in the placeholders. I think we can get that done this week. And then whenever you send the commission logic, I'll let you know. Like that might I don't know if we can squeeze that in this week. That might be early next week, but uh shouldn't be too complicated.
+Lina Ceniccola: Okay,
+Kobi Kunasekaran: Uh yeah, other than that,
+Lina Ceniccola: perfect.
+Kobi Kunasekaran: I think for the rest of this week, uh our goal is to like wrap up all the outstanding um automations that we have. It's it's just a lot of little things. We're just powering through it. Um, so as assuming we have no more like big big issues like we had with the SLC processing last week, um, we should be good to close out all of these. Um, obviously if you have any any few feedback or anything, we'll we'll add those in. Um, and then next week we can probably start talking about the payouts and redeposits and start scoping out what that looks like.
+
+
+00:50:56
+
+Emily Vandenberg: Uh yeah, that'd be great because we're a little It's delayed on our end, too. Joyce has had a couple conflicting kind of priorities, so she hasn't looped back. Um, so that
+Kobi Kunasekaran: Okay. Um that and I guess like if if there are any action items for us on the integration,
+Emily Vandenberg: works
+Kobi Kunasekaran: right? um because on once the API endpoint is set up for us to start sending the deal info, we can start scoping that work out on the Salesforce side and that is going to take us some time. So um yeah, let me know like whenever that's ready um and then we can we can we can cue that up and we can see what uh how we can sequence the uh open
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: items.
+Emily Vandenberg: I would suspect um tomorrow for that like straw will be working on it today tomorrow and that we have more of an update tomorrow. Um so fingers crossed that nothing kind of like trumps but that's the
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: goal.
+Kobi Kunasekaran: Yeah.
+
+
+00:51:54
+
+Kobi Kunasekaran: Okay. Keep me posted. Um, and then for the deals, I know like we've been configuring the deals manually. Uh, but Emily, I might I'm going to see if I can create like a quick video of how to do it on the UI if you want to try creating it as well. uh to simulate like what it will look like when we go into uh when we get to the point where we're creating the deals directly in Salesforce. Uh you don't have to you can still send me the deals and I I'm happy to create them.
+Emily Vandenberg: See?
+Kobi Kunasekaran: Uh but I think we're in a good place now where like even the like this last one I just created it directly in the interface. Um so I can do like a quick video and send it over. Want to try it out?
+Emily Vandenberg: Yeah, totally. That works. Then I can just kind of like not bug on either side because I can do it on the CMS now, too.
+Kobi Kunasekaran: Perfect.
+
+
+00:52:40
+
+Kobi Kunasekaran: Yeah. And I also added like the ids um in the admin tab and then on the deal rep assignment the dr ID column so you can copy and paste it whenever you create these. So I'll talk through all of that in the video when I uh create that for you.
+Emily Vandenberg: Perfect. Uh and we do we will just kind of like a heads up I would say there's going to be kind of like some slight scope um that we need to add into kind of like the you know phase one here around manual creation of deals which is a bit of like a side flow that we have that will come in Joyce is going to round that out a bit more. We have to kind of like think through it. It will be for our ops um like kind of like an ops person to be able to follow that flow. But no
+Kobi Kunasekaran: Are you talking about like manually creating the deals or like the deals that we've been setting
+Emily Vandenberg: the creating players and
+
+
+00:53:38
+
+Kobi Kunasekaran: up? Oh, right, right, right, right. Uh,
+Emily Vandenberg: signups.
+Kobi Kunasekaran: yeah, because right now everything is just SLC's that we're processing. But yes, we did talk about this a couple weeks ago where there are cases where you're going to create the players manually and the signups manually for them.
+Emily Vandenberg: Yeah. and Joyce just has to kind of think through like where because like the assignment like they won't follow through from the perspective of the CMS like they kind of bypass the process entirely. So where do how we kind of like in what entry point do we create against manually? So she's that through will bring it in but it'll just just to let you know we'll need to bolt it on
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: here.
+Kobi Kunasekaran: Okay. That should be fine. I think it's uh like we just have to yeah we just have to figure out like what are the information that you're going to have available at the time that you're creating them and make sure you have those fields available.
+
+
+00:54:31
+
+Kobi Kunasekaran: I don't think you need to make any drastic changes outside of that. Okay.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: And then last thing, I still owe you time sheet report. Um just waiting on a couple more updates uh from the team. Um and I'll try to get that over to you by end of day.
+Emily Vandenberg: Perfect. How are you guys like I know just like as a kind of overall arching question we were you know supposed to be kind of through this you know end of August more or less. Um, so like are you guys how are you kind of um utilizing your time against our project right now just cuz I haven't seen it in a couple weeks? Like are you guys like full kind of like committed still
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: on like in hours or have you scaled
+Kobi Kunasekaran: Uh, so Jester had to swap into another project.
+Emily Vandenberg: back
+Kobi Kunasekaran: That's why like uh had to step in for the flow automation fixes last week. Um but we have Cedric um that's going to be taking over and working through it.
+
+
+00:55:32
+
+Kobi Kunasekaran: So um right now we're basically treating the engagement like we've we've kind of moved away from phases into like just uh ongoing monthly until we get to uh like UAT stage um and go live in November. So um as as we have work coming in uh we'll we should be able to power through it.
+Emily Vandenberg: Okay. Yeah, I'll keep an eye.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Just wasn't sure from like an hours perspective like you know what you guys were kind of
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: spending more recently on the on the project.
+Kobi Kunasekaran: Yeah. Like my my main priority, me and uh Taryn both our main priority is the Wagertech project. So until we get to go live, uh we're still here. We're not going to get reassigned. Um and uh Cedric's going to be here as well um I think until we close out the project. So no worries. we can work at your pace. Um and uh yeah, as we have like changes we can we can go through it.
+
+
+00:56:29
+
+Emily Vandenberg: Okay. Yeah, I will I'll keep an eye for that utilization
+Kobi Kunasekaran: Go ahead.
+Emily Vandenberg: report.
+Lina Ceniccola: We are eager. We're eager beavers over
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: here.
+Waleed Alasadi: go live.
+Lina Ceniccola: Yeah.
+Waleed Alasadi: Is that what you Yeah. Okay.
+Lina Ceniccola: Everything. Thank
+Waleed Alasadi: Um, I guess one question I had and since you brought it up to I had I had it to Kobe yesterday
+Lina Ceniccola: you.
+Waleed Alasadi: that um the like since we've given you the so obviously the time has. or we're no longer like going to go live with phase one only. We're going to include multiple phases into November. Um at the time where we wrote the S so phase 2 and phase three were supposed to be estimates and some like some requirements have changed throughout. Um so from from our end I've asked Kobe to help kind of provide visibility into like what what it looks like for the remaining hours of the project based on what we know right now. Do you feel like you have an understanding of that?
+
+
+00:57:29
+
+Emily Vandenberg: the um yeah I think that we do but it needs to be refined slightly like when you're talking about scope you're talking about scope specifically I think that's the like
+Waleed Alasadi: Yes.
+Emily Vandenberg: um Joyce just going back in and like refining uh phase kind of like two and three based on you know what we've learned in phase one but also just like um how it's progressed, what we've pulled into phase one versus like what is going to be sitting in phase 2. Um so I think that like we have a decent pulse right now, but after next week we'll have like an even like I think we'll have a very close sense of that.
+Waleed Alasadi: Okay. So, does it make sense then to like wait, hold off, we can wait until Joyce comes back and then Kobe,
+Emily Vandenberg: William
+Waleed Alasadi: maybe you can work with Emily just to revalidate um the remaining like scope, the remaining hours, the timeline. Um and just so that we're both aligned and not like kind of caught off guard at the end. Would that make sense?
+
+
+00:58:26
+
+Waleed Alasadi: Is that okay with you, Emily?
+Emily Vandenberg: like to wait to send the utilization.
+Waleed Alasadi: No, no, not at all. No,
+Emily Vandenberg: Oh.
+Waleed Alasadi: but Sunday just to wait to kind of reforcast how many hours are left for the
+Emily Vandenberg: Oh yeah,
+Waleed Alasadi: project.
+Emily Vandenberg: absolutely. No, I'm totally blinded with
+Waleed Alasadi: Yeah. Okay. Yeah. And we may just want to work with you to validate some assumptions if we have them.
+Emily Vandenberg: that.
+Waleed Alasadi: But it would be good to expect it by end of next week once Joyce has finalized the phases two and
+Emily Vandenberg: Yeah,
+Waleed Alasadi: three.
+Emily Vandenberg: I'm aligned with that. Lena, does that work for you?
+Lina Ceniccola: Yeah.
+Waleed Alasadi: Awesome.
+Kobi Kunasekaran: Yeah, I think that's in line with like what we talked about like closing off all the like hundreds of little things that we have still left um this week and then we can start sculping out uh new work as of next week like the payouts or redeposits and the items that we left for later phases.
+Emily Vandenberg: Perfect.
+Kobi Kunasekaran: So that works. Awesome. Okay, good stuff everyone. Um, any other questions or anything else before we close off?
+Emily Vandenberg: Think I'm good.
+Kobi Kunasekaran: Okay. All right. Well, thanks everyone. Have a great uh rest of the day.
+Emily Vandenberg: All right.
+Kobi Kunasekaran: I'll see you later.
+Waleed Alasadi: Thank you.
+Emily Vandenberg: Thank you.
+Lina Ceniccola: Thanks.
+Waleed Alasadi: Bye.
+Lina Ceniccola: Bye.
+Kobi Kunasekaran: Bye.
+
+
+Transcription ended after 01:00:03
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

@@ -1,0 +1,524 @@
+{
+  "doc_id": "1YFECsE8N0jzoN4Xk6QH2dPT4yDinYrrbel-WHyQLT88",
+  "title": "Wagertech Internal Sync",
+  "meeting_date": "2026-09-09",
+  "meeting_time": "10:01",
+  "doc_link": "https://docs.google.com/document/d/1YFECsE8N0jzoN4Xk6QH2dPT4yDinYrrbel-WHyQLT88/edit",
+  "meeting_type": "internal sync",
+  "tier": "tier1",
+  "attendees": [
+    "Cedrick Infantado",
+    "Kobi Kunasekaran",
+    "Taryn Reithofer (invited; did not join)"
+  ],
+  "lines_total": 335,
+  "read_complete": true,
+  "items": [
+    {
+      "item_id": "2026-09-09-1001-01",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "Player",
+      "topic": "Player status story 253 nearly complete",
+      "statement": "Cedrick reports he is almost complete with story 253, the biggest part of the player status user story, and will test other scenarios.",
+      "speakers": [
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:01:17",
+      "line_start": 134,
+      "line_end": 134,
+      "quote": "Cedrick Infantado: Uh for my tickets, um I'm almost complete with the 253. So um that that is what we I've worked on. um yesterday and I think this is the biggest chunk of um the player status user story.",
+      "jira_keys_mentioned": [
+        "WAGR-253?"
+      ],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-02",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Player",
+      "topic": "Backdated completed sign-up vs first sign-up",
+      "statement": "Cedrick asked whether a completed sign-up dated earlier than the player's existing first sign-up should supersede the first sign-up lookup and date. His flow only fills first sign-up when blank (no sorting); last sign-up date already works.",
+      "speakers": [
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:02:29",
+      "line_start": 139,
+      "line_end": 141,
+      "quote": "Cedrick Infantado: I'm not sure if this would happen. Um, if ever there's a sign up that was um most or latest one or let's say um the first sign up in the player is let's say August 10 and I've loaded as completed sign up which is dated July 26 or something. Should that supersede the existing value on the first sign up? Look up. as well as the dates.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-03",
+      "type": "decision",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Flow will not handle historical backdating",
+      "statement": "Internal Jumpr build decision: the 253 flow sets first completed sign-up date when reps mark sign-ups completed in the UI and will not be built to handle backdated historical imports, because a historical import is expected to be a one-time event. Client was not present; Kobi framed it as OK against current requirements.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:03:46",
+      "line_start": 149,
+      "line_end": 167,
+      "quote": "Kobi Kunasekaran: I think in a natural setting um like on a day-to-day we're expecting the reps to go through the UI to complete the signups. So in that sense the first signup date should be or first completed signup date should be when they mark the record as completed. So, um I think that should be the day-to-day for the historical data imports. Um I think I don't think we need to necessarily build for it cuz that's if we end up doing something like that, it's going to be a onetime thing, right? / Cedrick Infantado: Yeah, I agree on that.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-04",
+      "type": "deferral",
+      "firmness": "proposed",
+      "feature_area": "Data Migration / Import",
+      "topic": "DLRS one-time run for earliest sign-up",
+      "statement": "If historical first sign-up calculation is needed, Kobi suggested a DLRS (or similar) run one time to set the earliest sign-up; proper calculation for one-offs can be solutioned later if the client needs it.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:05:11",
+      "line_start": 156,
+      "line_end": 159,
+      "quote": "Kobi Kunasekaran: we can and if this is needed, we could always set up like a like a DLRS or something to determine the earliest signup based off of all the signups and fill it in uh fill it in and just run it like one time and call it a day. / Cedrick Infantado: Yeah. Uh I'm good with that. So, uh we could either do that on the flow or maybe um as well as update the data. So, whichever works. So, yeah.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no",
+      "asr_note": "DLRS = Declarative Lookup Rollup Summaries; Gemini Details expands it as 'Database Lookup Relationship'"
+    },
+    {
+      "item_id": "2026-09-09-1001-05",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Data Migration / Import",
+      "topic": "Historical import timing at go-live",
+      "statement": "Kobi does not expect historical imports to be regular; one may happen during production go-live. No decision on whether a historical import will happen.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:05:11",
+      "line_start": 160,
+      "line_end": 160,
+      "quote": "Kobi Kunasekaran: Yeah. Because I think like the historical import. I don't expect them to do it on a regular basis, right? Like maybe we'll do it during like production go live.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-06",
+      "type": "deferral",
+      "firmness": "proposed",
+      "feature_area": "Player",
+      "topic": "One-off backdating ability solution later",
+      "statement": "Kobi said if reps miss one-offs, Jumpr may give them a way to fix it, and if the client needs proper calculation it can be solutioned later; current requirements are met without it.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:06:05",
+      "line_start": 168,
+      "line_end": 168,
+      "quote": "Kobi Kunasekaran: And then if there's like maybe oneoffs like they they forgot to do it manually and there's oneoffs then maybe we can give them a way to do that. But yeah, I don't see it being a regular occurrence. So I think based off of the requirements that we have right now, this is okay. Um and then if they do need the ability for that to like be properly calculated and stuff, we can yeah I think we can solution for that later.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-07",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Testing, UAT & Go-Live",
+      "topic": "Test 253 and attach evidence",
+      "statement": "Cedrick will run a test pass on 253 today (backdating scenario scoped out) and attach the test evidence.",
+      "speakers": [
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:06:05",
+      "line_start": 169,
+      "line_end": 169,
+      "quote": "Cedrick Infantado: Okay, good. I I scope out that one for my scenarios. So yeah, I I think I will just run a pass through on this today and I'll just attach the um the test evidence that I have and I think that's pretty much done.",
+      "jira_keys_mentioned": [
+        "WAGR-253?"
+      ],
+      "owner": "Cedrick Infantado",
+      "due": "2026-09-09 (today)",
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-08",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Story 254 scheduled inactive flow",
+      "statement": "After 253, Cedrick will move to 254: a scheduled flow to set status to inactive after 90 days of no activity.",
+      "speakers": [
+        "Cedrick Infantado",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:06:05",
+      "line_start": 169,
+      "line_end": 171,
+      "quote": "Cedrick Infantado: So I after that I will be moving to 254 which is a scheduled uh flow. I think it's scheduled flow to set the status to inactive after 90 / Kobi Kunasekaran: Yep. / Cedrick Infantado: days of no activity.",
+      "jira_keys_mentioned": [
+        "WAGR-254?"
+      ],
+      "owner": "Cedrick Infantado",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-09",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Kobi to assign tickets to Cedrick",
+      "statement": "Cedrick has no tasks after 254. Kobi may reassign some of the new tickets he assigned to himself (those not blocking the deal cleanup) and will scope out stories from the other day for Cedrick.",
+      "speakers": [
+        "Cedrick Infantado",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:07:10",
+      "line_start": 179,
+      "line_end": 179,
+      "quote": "Kobi Kunasekaran: Yeah, I was working on a few new tickets yesterday and I just assigned them to myself because I figured uh I'll get it done while I work on it. Uh but I may assign some of those to you. And then I still have the new uh the stories from the other day to still scope out for you as well. So I'll get those added as well.",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-10",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "CMS deal ID changes broke sync",
+      "statement": "WagerTech updated many deal IDs in their CMS. This breaks the sync because the Jumpr flow never changes the deal external ID after creation.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:07:10",
+      "line_start": 183,
+      "line_end": 185,
+      "quote": "Kobi Kunasekaran: Yes, I I did. I did. And it's B like because like they wanted to um like I don't know if you're following the conversation on the Wagertech channel, but like they updated a bunch of the uh the deal ids in the in their CMS. / Cedrick Infantado: Yeah. / Kobi Kunasekaran: So it's breaking the sync because our like we set up our flow so that the deal external ID never gets changed right after it's created.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-11",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "Deal",
+      "topic": "Deal name logic updated; cleanup ongoing",
+      "statement": "Deal IDs going forward follow a new format. While cleaning up, Kobi updated the deal name logic and created additional stories; the deal cleanup was still in progress.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:08:09",
+      "line_start": 193,
+      "line_end": 195,
+      "quote": "Kobi Kunasekaran: so anything moving forward follows a new format. So while I was cleaning it up, I'm like,\"Okay, I I needed the name logic to be updated as well.\" So I'm already here. I might as well do it. So it was like it was pretty quick and I did that and then I realized like there were a couple more things that I wanted to just do while I'm already there and wrap it up. So uh that that's where the additional stories came from.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-12",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Waiting on WagerTech CMS sandbox",
+      "statement": "The one thing Jumpr is waiting on from WagerTech is a sandbox for the CMS integration. Kobi thinks the access offered is their production environment and does not want to work in production.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:08:09",
+      "line_start": 197,
+      "line_end": 202,
+      "quote": "Kobi Kunasekaran: Okay. And worst case scenario like if we don't um the one thing we're waiting for the Wagertech team on is a sandbox for the uh for the CMS integration. / Kobi Kunasekaran: ... But my only issue is I think they're giving us access to not not a sandbox. I think it's like their production environment and I don't want to play around with the production environment.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-13",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "WagerTech CMS open questions pending",
+      "statement": "Kobi hopes WagerTech resolves some open CMS integration questions as soon as possible so the team can get to it.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:09:02",
+      "line_start": 202,
+      "line_end": 202,
+      "quote": "Kobi Kunasekaran: ... but um I'm hoping that they give us or or they resolve like some of the open questions ASAP so that we can get to it.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-14",
+      "type": "decision",
+      "firmness": "decided",
+      "feature_area": "CMS Integration",
+      "topic": "Cedrick shifts to CMS on sandbox",
+      "statement": "When sandbox access is available, Cedrick will shift focus to the CMS integration as his main work; Kobi called it arguably one of the most important pieces of the project now.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:09:02",
+      "line_start": 202,
+      "line_end": 208,
+      "quote": "Kobi Kunasekaran: So the moment we have that access uh you're going to shift focus onto that and that's going to be like your main thing because that's um that is arguably one of the most uh important pieces of this project at this point. / Cedrick Infantado: Okay. Got it.",
+      "jira_keys_mentioned": [],
+      "owner": "Cedrick Infantado",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-15",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Enough info to start; start on sandbox",
+      "statement": "Jumpr has enough information to start (communication, authentication, test calls, API call structures), but work starts the moment a sandbox is available; open questions remain to resolve afterwards.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:09:55",
+      "line_start": 210,
+      "line_end": 213,
+      "quote": "Cedrick Infantado: So uh once I'm sorry uh once uh they have uh or they signed off with the or are we just waiting for the sandbox of the CMS? Is that it? / Kobi Kunasekaran: just waiting for the sandbox. / Cedrick Infantado: So / Kobi Kunasekaran: I think we can get started the moment we have a sandbox. Um, yes, there's still some open questions that we have to work through, but we have enough to at least get get some things uh set up. uh test out a few calls to make sure it works, get the uh get the API call structures and everything figured out and then we can fix the other things afterwards.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-16",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Kobi post plan in group chat",
+      "statement": "Kobi will post in the group chat so they are on the same page about Cedrick picking up the API document review.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:10:55",
+      "line_start": 223,
+      "line_end": 223,
+      "quote": "Kobi Kunasekaran: ... uh I'll put in the group chat so we're on the same page.",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-17",
+      "type": "action-item",
+      "firmness": "proposed",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Optional Asana ticket for API review",
+      "statement": "Kobi said Cedrick may optionally create an Asana ticket to track reviewing the requirements and log time against it. Optional, not assigned.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:10:55",
+      "line_start": 223,
+      "line_end": 223,
+      "quote": "Kobi Kunasekaran: And if it helps like feel free to create a a sauna ticket to track that you know you're doing you're reviewing the requirements and stuff that's totally fine. Um just so you have something to log time and everything against",
+      "jira_keys_mentioned": [],
+      "owner": "Cedrick Infantado",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no",
+      "asr_note": "a sauna = Asana [ASR?]"
+    },
+    {
+      "item_id": "2026-09-09-1001-18",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "CMS Integration",
+      "topic": "Cedrick review API integration document",
+      "statement": "Cedrick has not read the API integration document (the one WagerTech sent, which Kobi commented on). Unless told otherwise, he picks it up next after his assigned tickets and starts prepping next steps.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:10:55",
+      "line_start": 223,
+      "line_end": 224,
+      "quote": "Kobi Kunasekaran: Yeah. Yeah. This this one. This one. So, this this will be I guess if you haven't had a chance to look at it, um pick this up as the next thing unless I tell you otherwise / Cedrick Infantado: Okay, got it.",
+      "jira_keys_mentioned": [],
+      "owner": "Cedrick Infantado",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-19",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "No CMS access; rely on API responses",
+      "statement": "For now the team bases its understanding on API responses; Kobi requested CMS access so they can see what is committed into WagerTech's database. Access not yet given.",
+      "speakers": [
+        "Cedrick Infantado",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:10:55",
+      "line_start": 224,
+      "line_end": 232,
+      "quote": "Kobi Kunasekaran: Um, uh for now just based on the API response, but I did request access um so we can at least see um what we're committing into their database and stuff. / Kobi Kunasekaran: So hopefully they're able to give us something like that, too.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-20",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Await WagerTech reply; Friday fallback",
+      "statement": "Kobi hopes a WagerTech contact replies today; if not, they will talk through it at the Friday meeting.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:12:08",
+      "line_start": 234,
+      "line_end": 234,
+      "quote": "Kobi Kunasekaran: Yeah. Um I think yeah, hopefully Straw is able to get back to us today. If not, we do have a meeting on Friday where we can uh we can talk through it.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": "Friday 2026-09-11 (fallback)",
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "Straw = unclear name of WagerTech contact [ASR?]"
+    },
+    {
+      "item_id": "2026-09-09-1001-21",
+      "type": "decision",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Proposed solutions in tickets, to challenge",
+      "statement": "For integration stories, Kobi will include proposed solutions where it makes sense; Cedrick should challenge them and suggest alternatives, not treat them as set design. Cedrick agreed.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Cedrick Infantado"
+      ],
+      "timestamp": "00:13:15",
+      "line_start": 245,
+      "line_end": 270,
+      "quote": "Kobi Kunasekaran: Okay. Um, I'm I'm happy to do like some of the solutioning where uh where it makes sense. / Kobi Kunasekaran: Don't assume it's the truth. Don't assume it's like a set design or anything like that. / Cedrick Infantado: So yeah uh I'm I'm pretty I'm totally good with uh with that approach.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": null
+    },
+    {
+      "item_id": "2026-09-09-1001-22",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Kobi to line up more stories",
+      "statement": "Kobi will scope and assign additional stories to Cedrick, prioritized in case there is not enough to move forward with the integration.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:18:34",
+      "line_start": 324,
+      "line_end": 324,
+      "quote": "Kobi Kunasekaran: man. So, I think you're good in terms of stories. I will um you've got your next steps. I'm I I will prioritize getting the other stories uh lined up as well in case uh we don't have any we don't have enough to move forward with the integration.",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "line 234 'co-ound additional stories' likely = scope out [ASR?]"
+    }
+  ],
+  "gemini_disagreements": [
+    {
+      "summary_text": "Historical data migrations will be handled manually.",
+      "transcript_quote": "Kobi Kunasekaran: we can and if this is needed, we could always set up like a like a DLRS or something to determine the earliest signup based off of all the signups and fill it in uh fill it in and just run it like one time and call it a day.",
+      "line": 156,
+      "why": "Summary (line 57) is firmer and different: transcript offers an optional one-time DLRS run or later solutioning if needed, not a decision to handle migrations manually. Details (line 88) also misnames DLRS as 'Database Lookup Relationship'."
+    },
+    {
+      "summary_text": "Kobi resolved a sync break caused by Wagertech updating Deal IDs in their CMS by adjusting the flow and name logic.",
+      "transcript_quote": "Kobi Kunasekaran: so I let me see if like if there's anything that's like not going to block me from cleaning up the deal, I will assign those to you",
+      "line": 195,
+      "why": "Transcript says Kobi updated the name logic and the deal cleanup was still in progress with additional stories created; 'resolved' and 'adjusting the flow' are firmer than stated."
+    },
+    {
+      "summary_text": "The team will proceed with Proof of Concept (POC) testing using API responses as the primary data source until sandbox access is provided. / Proof of concept will proceed while awaiting sandbox access.",
+      "transcript_quote": "Kobi Kunasekaran: just waiting for the sandbox. / Kobi Kunasekaran: I think we can get started the moment we have a sandbox.",
+      "line": 213,
+      "why": "Transcript says work starts the moment a sandbox is available; it does not say the POC proceeds before sandbox access. 'Based on the API response' (line 225) referred to understanding data in lieu of CMS UI access, not POC testing. Summary lines 17 and 60, and Details line 91, invert the sequence."
+    },
+    {
+      "summary_text": "[Cedrick Infantado] Track API Review: Create a task in Asana to track the review of API requirements.",
+      "transcript_quote": "Kobi Kunasekaran: And if it helps like feel free to create a a sauna ticket to track that you know you're doing you're reviewing the requirements and stuff that's totally fine.",
+      "line": 223,
+      "why": "Optional suggestion ('if it helps, feel free') hardened into an assigned action item."
+    }
+  ],
+  "rule5_redactions": 1,
+  "secret_exposed": false,
+  "notes": "Internal Jumpr-only sync (no WagerTech attendees), ~20 min. Decisions are internal build/process calls; client did not confirm. Jira keys heard only as bare numbers (253, 254) so recorded with '?'. Status/risk items use firmness 'discussed'. Skipped as not WagerTech delivery: personal chit-chat, company-wide ticket-standardization/AI prompt-template/knowledge-sharing-channel discussion (lines 273-316). One rule-5 skip (attendee absence reason). No secrets."
+}

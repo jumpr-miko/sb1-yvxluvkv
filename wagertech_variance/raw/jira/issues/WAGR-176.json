@@ -1,0 +1,236 @@
+{
+  "id": "10357",
+  "key": "WAGR-176",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-20T13:43:40.222-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:30.675-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "# BA-1: BA Object + Core Status\n\n_Foundational Brand Ambassador object — status picklist, market fields, and the manager lookup everything else depends on._\n\n### FIELDS\n\n* BA Status — Picklist: Active, Paused, Inactive, Terminated. Trimmed from an initial five-value list that included a Review status.\n* Brand Manager — Lookup, required. A BA without a Brand Manager is excluded from roll-up reporting.\n* Primary Market\n* Secondary Markets — Multi-select picklist. Field type and value list not yet settled; not confirmed these fields exist on the User object today — may need to be created.\n* Start Date — Date, required\n* End Date — Date, automation-set when the BA is terminated (see BUILD-206, BA-5)\n\n### IMPLEMENTATION REQUIREMENTS\n\n* No separate \"Review Required\" status — a BA either keeps working or gets terminated, not left in limbo.\n* Total Sign-Ups roll-up is removed; standard reports cover this instead of a custom roll-up object.\n* Not confirmed — hold before building: the mapping of Active/Paused/Terminated against the User object's Active checkbox. See [BUILD-236 — Brand Ambassador: Status Automation (via User Active Checkbox)](https://app.asana.com/0/0/1217832880216788/f/).\n\n### NOTES\n\n* Provenance: BA-1 (Brand Ambassador Record User Stories doc).\n* Open question carried from the doc: is a separate \"flagged for review\" marker still needed once Review Required is dropped as a status (mirroring Player's Review Required checkbox, PL-7)? Not confirmed either way.\n\n### SOURCE\n\n* [Taryn doc BA-1 — Brand Ambassador Record User Stories](https://docs.google.com/document/d/1MsJXwt3oY-DyQuAdMzNYlyPenKUQl7g8mHzMmeRaVHs/edit?tab=t.g64hrhse8pog)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 47:03 (four statuses)](https://fathom.video/calls/787411922?timestamp=2823)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 53:01 (brand manager lookup)](https://fathom.video/calls/787411922?timestamp=3181)\n* [Aug 18 Weekly Sync — Kobi Kunasekaran, 58:04 (roll-up removed)](https://fathom.video/calls/787411922?timestamp=3484)\n* [Aug 18 Weekly Sync — Joyce Kiddell, 58:09 (End Date basis)](https://fathom.video/calls/787411922?timestamp=3489)\n* [Aug 18 Weekly Sync — Kobi Kunasekaran, 58:31 (confirms automatic)](https://fathom.video/calls/787411922?timestamp=3511)\n* [Aug 24 Weekly Planning — Kobi Kunasekaran, 01:11:33 (market fields + status mapping both flagged as open)](https://docs.google.com/document/d/1qB7cUeJGFs_SZba9NX5R9MWKzOj8yTetmWTWoqY3gw8/edit?ouid=111290854928580430080#heading=h.2df0ngshfjzy)\n* Dependencies: None identified (foundational)\n* Owner (proposed): Taryn Reithofer\n* Created 2026-08-20 from Brand Ambassador record documentation review.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-202 — Brand Ambassador: Object + Core Status",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10404",
+          "body": "Cannot update Profile Page Layout section label:\n\n* \"Brand Ambassador Details\" will stay \"About\"\n* BA Manager → Manager\n* Primary Market pick list was created with placeholder values\n* Secondary Market (multi-select) pick list was created with placeholder values\n\nOutstanding: \n\n* End Date automation (when the BA is terminated)\n* Primary and Secondary Market pick list values\n\n",
+          "created": "2026-08-25T10:43:59.486-0400",
+          "updated": "2026-08-25T10:43:59.486-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-321"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Players & Referrers",
+          "id": "10059"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217693577680227"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i001tr:"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "S (4-8 Hours)",
+          "id": "10047"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Taryn Reithofer"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217693577680227"
+      }
+    }
+  }
+}

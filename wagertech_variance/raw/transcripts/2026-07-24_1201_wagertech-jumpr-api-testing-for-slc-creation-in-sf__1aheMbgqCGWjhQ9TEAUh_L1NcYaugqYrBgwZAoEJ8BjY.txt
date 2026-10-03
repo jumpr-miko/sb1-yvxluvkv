@@ -1,0 +1,909 @@
+📝 Notes
+Jul 24, 2026
+Wagertech <> Jumpr: API Testing for SLC Creation in SF
+Invited Kobi Kunasekaran emily@wagertech.bet strah@wagertech.bet jay@wagertech.bet Marc Cabantog
+Attachments Wagertech <> Jumpr: API Testing for SLC Creation in SF Wagertech: Phase 1 Sign Up Logging via API Spec
+Meeting records Transcript Recording
+
+
+Summary
+Technical alignment meeting regarding API integration, data mapping standards, and architecture strategy for system synchronization.
+
+Technical Integration And Access
+Permissions for API configuration were secured, and the external identifier property was enabled on the link object. Testing confirmed the system can successfully push integration records to the sandbox environment.
+
+Data Mapping And Normalization
+The team reached a consensus to implement unique system identifiers for operators and partners to ensure accurate data mapping. This shift away from inconsistent naming conventions will prevent duplication and standardize regional data.
+
+Architecture And Error Handling
+A queue system using Google Cloud Platform will be introduced to handle production errors via logging and reprocessing. New deal records will now originate in Salesforce to eliminate mapping ambiguity.
+
+
+Decisions
+Aligned
+* Operator and partner ID system implementation The team will adopt a unique ID system for operators and partners for API mapping, supported by a shared import sheet to ensure data consistency between the CMS and Salesforce.
+* Market and country ID system implementation The team will implement an ID system for market, country, and state fields in the API to improve integration reliability and avoid data mapping errors.
+* Retention of rep slug identifiers The team will continue using existing rep slugs as unique identifiers for now rather than creating a new rep ID system.
+* Deal makeup data transfer strategy The team will include the deal makeup—specifically the operator, partner, market, and vertical—in all study click links.
+* Click record deduplication removal policy Server-side deduplication of click records is removed to ensure all individual click events are tracked and captured in Salesforce.
+* Salesforce click ID storage standard The system will store the Salesforce unique ID for each click record in the local database to enable two-way troubleshooting.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [Strahinja Vladetic, Jay] Review CMS Data: Collect and organize the data points available in the content management system to verify which fields are ready to be mapped to the study link click object.
+* [Kobi Kunasekaran] Create Import Sheet: Create an import sheet for operators and partners to establish a standardized unique ID system for mapping records in Salesforce.
+* [Jay] Clean Up Data: Clean up the current list of operators and partners in the content management system to remove inactive entries and ensure the refined list matches the new Salesforce mapping requirements.
+* [Kobi Kunasekaran] Manage Market IDs: Develop a system for managing unique IDs for country and state markets to ensure accurate mapping between the content management system and Salesforce integration.
+* [Kobi Kunasekaran] Provide Field Requirements: Send an updated list of fields and expected values to the team.
+* [Kobi Kunasekaran] Document Survey Payload: Create documentation detailing the payload structure and targeted objects for survey updates.
+* [Kobi Kunasekaran] Send Mapping Spreadsheets: Compile and distribute spreadsheets for operator, partner, and deal mapping to the team.
+* [Kobi Kunasekaran, Emily Vandenberg] Import Partner Data: Collaborate to import operator and partner lists into Salesforce and define and distribute unique external IDs to the CMS.
+* [Strahinja Vladetic] Implement Data Pass-through: Configure the system to pass market, country, state, and partner data through to Salesforce.
+* [Strahinja Vladetic] Review Survey Requirements: Analyze requirements to identify accessible information and push it to the relevant system objects.
+* [Strahinja Vladetic] Implement ID Logging: Store unique Salesforce record IDs in the database to enable lookup and troubleshooting.
+
+
+
+Details
+* Meeting Opening and Permissions: Kobi Kunasekaran, Emily Vandenberg, and Strahinja Vladetic gathered to discuss the API integration progress, specifically regarding the Study Link Click and survey completion elements. Strahinja Vladetic confirmed they successfully obtained the necessary read/edit access from Jester to move forward with the configuration (00:00:02) (00:02:12).
+* Technical Setup and External ID: Strahinja Vladetic reported that they enabled the external ID property on the Study Link Click object, as the system had previously flagged it as missing. Kobi Kunasekaran acknowledged this change and noted that as long as the record creation works, the current approach is acceptable for testing purposes (00:02:12).
+* Last Name Field Validation: The team discussed an issue where the last name field was flagged as missing during testing. After reviewing the scenario, Strahinja Vladetic and Emily Vandenberg determined that this is likely because the backend validation handles requirements, and the front-end allows null values before submission (00:03:11). They concluded that this behavior is expected and does not require changes at this time (00:04:27).
+* Sandbox Testing Confirmation: Strahinja Vladetic demonstrated the current testing process using a local environment disconnected from the main backend (00:04:27). They successfully triggered the event to push data to the Salesforce sandbox, confirming that the integration can create records, with Kobi Kunasekaran clarifying that all data in the sandbox will be cleared before production deployment (00:06:04) (00:11:16).
+* API Field Configuration: Kobi Kunasekaran and Strahinja Vladetic discussed the API documentation, noting that certain fields, such as site and book country, were not properly configured in the current requirements. Kobi Kunasekaran stated they shared an updated document with Joyce and requested that the team review the fields to ensure there is enough information for deal mapping (00:07:41).
+* Deal Lookup Challenges: The team identified that since the current Salesforce deal IDs are not available in the Content Management System (CMS), they need to rely on other data points to map records to the correct deals (00:08:55) (00:12:04). Kobi Kunasekaran suggested that providing specific operator, partner, and market details—rather than relying solely on arbitrary names—would allow them to map records to deals effectively in Salesforce (00:13:22).
+* Data Normalization and ID Usage: Kobi Kunasekaran proposed moving away from using raw, inconsistent names for operators and partners, suggesting instead the use of standardized unique IDs. Jay agreed, noting that this would help clean up the data, and the team reached a consensus to generate a system of unique IDs that will be maintained in both the CMS and Salesforce to ensure accurate mapping (00:19:31) (00:26:11).
+* Market and Region Data Parsing: Regarding market information (country and state/province), the team discussed the need to standardize these inputs (00:31:15). Kobi Kunasekaran explained that they need consistent data for scenarios such as US-only, Canada-only, and combined US/Canada deals to avoid mapping errors (00:32:22). Strahinja Vladetic and Jay confirmed they could parse this information from the CMS to match the required Salesforce format (00:24:05).
+* Source of Deal Data: Emily Vandenberg and Kobi Kunasekaran clarified that the data required for mapping (operator, partner, and market) should come from the deal configuration in the CMS rather than the player's personal profile information. The team acknowledged that while the player provides registration details, the specific deal parameters must be attached to the click event (00:33:22).
+* Representative Slug and ID Strategy: The team discussed the use of representative slugs versus unique IDs for mapping (00:38:58). Because some representatives have different slugs for US and Canada sites (e.g., Luca), which causes duplicate records, Kobi Kunasekaran recommended moving to a unique identifier system for reps that remains consistent regardless of the site or slug (00:40:19). The team agreed to prioritize this to avoid future synchronization issues (00:42:23) (00:44:39).
+* Survey Completion Implementation: Regarding the survey completion tracking, Strahinja Vladetic noted they have not yet tested this section (00:45:54). Kobi Kunasekaran committed to providing the payload requirements and object details, explaining that this will be tracked on the player account level using an upsert method based on the player's external ID (00:46:59).
+* CMS and Salesforce Go-Live: Emily Vandenberg and Kobi Kunasekaran confirmed that the CMS update and the Salesforce integration are currently running in parallel, with the CMS expected to go live shortly before the Salesforce integration. The team agreed that establishing these connections now is a priority to ensure a smooth transition (00:48:11).
+* Error Handling Infrastructure: To address potential inconsistencies in production, Strahinja Vladetic proposed introducing a queue system using Google Cloud Platform (GCP). This will include logging, retry behaviors, and dead-letter queues to ensure that any failed record creation events can be audited and reprocessed, providing the robust error handling Kobi Kunasekaran requested (00:50:12).
+* Upcoming Action Items: Kobi Kunasekaran committed to sending an updated list of required fields and creating import sheets for operators and partners by the end of the day. Emily Vandenberg and the technical team (Strahinja Vladetic and Jay) will work on populating these sheets and finalizing the parameter parsing for the Study Link Click and survey events (00:52:02) (00:54:14).
+* Future Architectural Planning: The team discussed long-term architecture, with Kobi Kunasekaran and Emily Vandenberg reaching a consensus that, moving forward, new deals should originate in Salesforce (00:55:21). By generating deal IDs in Salesforce and pushing them to the CMS, the team aims to create a highly controlled system that eliminates ambiguity and mapping errors (00:57:32).
+* Salesforce Deal Structure and CMS Alignment: Kobi Kunasekaran clarifies that for Salesforce, each deal per state must be treated as a separate record rather than grouping five states into a single deal. Consequently, the CMS must maintain a distinct deal record for each unique combination of operator, partner, market, and vertical. Kobi Kunasekaran confirms that they will proceed with sending this deal makeup data, a direction acknowledged by Emily Vandenberg and Strahinja Vladetic (00:58:53).
+* Click Data Deduplication Policy: Regarding the back-end handling of link clicks, Kobi Kunasekaran explains that they do not want server-side deduplication to occur (01:00:06). This is because the team needs to capture scenarios where a user clicks a link, fails to sign up, and returns a week later to click the link again; deduplication would erroneously merge these distinct events. Strahinja Vladetic agrees with this approach, confirming that the team will track every click rather than attempting to filter them, and will surface the most relevant record in Salesforce for representatives (01:01:16).
+* Troubleshooting and ID Storage: Kobi Kunasekaran recommends that the team store the unique Salesforce ID for every click record within their database (01:01:16). By maintaining this identifier, the team will have a two-way lookup mechanism for troubleshooting, which allows them to investigate issues such as missing click records, accidental deletions, or processing errors. Strahinja Vladetic agrees with this implementation (01:02:11).
+* Project Milestone and Future Communication: Emily Vandenberg indicates that the participants will continue to coordinate via their established channel and will schedule a sync meeting if necessary to discuss any technical questions or documentation. Kobi Kunasekaran expresses that the capability to transfer this data represents a major milestone and successful risk mitigation for the project (01:02:11).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 24, 2026
+Wagertech <> Jumpr: API Testing for SLC Creation in SF - Transcript
+00:00:02
+
+Kobi Kunasekaran: Hi everybody. Sorry, running a little late.
+Emily Vandenberg: It's okay.
+Kobi Kunasekaran: Happy.
+Emily Vandenberg: How's it?
+Kobi Kunasekaran: How are you all
+Emily Vandenberg: Good.
+Kobi Kunasekaran: doing?
+Emily Vandenberg: Straw was just giving an exciting update. Well,
+Strahinja Vladetic: Hey
+Emily Vandenberg: I think you'll specifically be excited,
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Kobe.
+Kobi Kunasekaran: Okay, let's hear it. I'm looking forward to this. Get all of our agents in here. Oh s***. Sorry sir. I just saw your message. I was actually just in another call this whole time. I'm just getting off a bit. Um but were you able to get the read edit access?
+Strahinja Vladetic: Yeah. Yeah. Uh Jester,
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: help me
+Kobi Kunasekaran: Oh, perfect. You're the best, Jeff. Thank you.
+Strahinja Vladetic: out.
+Emily Vandenberg: Um, cool. Okay, I'll ping Jay. It's okay to get started without Jay. Um, because Straw's kind of like carried the weight here on the API.
+
+
+00:01:12
+
+Emily Vandenberg: Um, so Straw, I'll hand it over to you, but essentially Kina know we kind of like put it a little bit wide open with just like a session to kind of test, but what Straw's been doing is building up the connection on our end um, specifically for the kind of survey link click and then the survey completion um, element as well. So, he's been able to push through some data. Um, so I think it's just a matter of like he had a few questions.
+Kobi Kunasekaran: Nice.
+Emily Vandenberg: Not sure if he still does, but getting anything, you know, that's fuzzy for you straw answered and then like we just kind of watch maybe or like test a few scenarios to make sure that kind of we're happy and Kobe on your end things are looking good as well. Does that make sense as we how we kind of tackle this?
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Cool.
+Strahinja Vladetic: Yep.
+Emily Vandenberg: Yeah. So straw, I'll open it up for you just like if there was any kind of like questions or blockers
+
+
+00:02:12
+
+Strahinja Vladetic: Uh there's no real So I've just uh I've had to get those permissions from Jesser just now.
+Emily Vandenberg: or
+Strahinja Vladetic: And then the only other change that I did make was to the I just went in and did this myself. So just so you guys know to the study link click object. I just enabled the external ID property because it was complaining about that.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: Um,
+Kobi Kunasekaran: Uh on like when you were trying to create the record in Salesforce or Yeah.
+Strahinja Vladetic: yeah.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: I don't know if that's what should be happening, but um, just so you guys know, so you can undo it if it needs to be undone and then let me know. There's a different way. Uh, aside from that, I can do like a quick demo of what we have. So,
+Emily Vandenberg: Is there a reason Kobe that that like is it that it wasn't
+Kobi Kunasekaran: Yeah. Uh yeah,
+Emily Vandenberg: enabled?
+Kobi Kunasekaran: like we we I think we have like a couple of fields for external ID.
+
+
+00:03:11
+
+Kobi Kunasekaran: Uh maybe uh we are using the custom one, but it's fine. Like as long as it's working, you're able to create the record. U that works for us.
+Strahinja Vladetic: suit. Um there I guess if we can go through there was one other issue. I think uh it mentioned that last name um was missing when I was trying to test a couple times which I'm not sure if that's what we want because last name being null is allowed at least on the site.
+Kobi Kunasekaran: in the
+Strahinja Vladetic: Well, it's allowed on the front end.
+Kobi Kunasekaran: database.
+Strahinja Vladetic: So maybe this is a question for the survey site. Should we allow them to not enter a last name at all?
+Emily Vandenberg: No. Um, so the sign up form,
+Strahinja Vladetic: Yeah, at least on the one page it seems
+Emily Vandenberg: so like when you say on the
+Strahinja Vladetic: like.
+Emily Vandenberg: onepage front end agency site
+Strahinja Vladetic: Yeah. Uh, field choice
+Emily Vandenberg: form,
+Strahinja Vladetic: research.
+Emily Vandenberg: can you show your screen? Sorry.
+
+
+00:04:27
+
+Strahinja Vladetic: So um Yeah, I don't know. Uh, yeah. So, it would be Can you guys see my screen on this
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: one? Uh, this is just me running it locally. So, I've disconnected it from um Shelley's back end. Oh, that might be why. Okay, that would make more sense because I think the actual validation is done on the back end. So, it doesn't stop the user from um right, it doesn't stop the user from entering a null last name in the front end until you actually hit Okay, that makes sense. So, it's uh Emily, I was probably wrong. It's it's it's likely okay. Um
+Emily Vandenberg: But essentially on the sign up flow for a player like for a new account they need to provide a last name right is what we're saying.
+Strahinja Vladetic: Yeah. Yeah. So, we have that information so we can pass it back through the survey like click. Um, so yeah, like I said, this is this is disconnected from the actual back end of the site, but it's enough for us to test.
+
+
+00:06:04
+
+Strahinja Vladetic: So, if we go to the survey of Oh, sorry. Active studies.
+Emily Vandenberg: active studies for a click uh for the study link.
+Strahinja Vladetic: Yeah. Yeah. Uh,
+Emily Vandenberg: Click.
+Strahinja Vladetic: and then clicking on the So, I've been looking at it through Um, I've been exploring it through the query editor. Seems like you can just use table queries here.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: So, I can see the ones that I've been testing with recently. Um, and then if I if I were to click this, it's not going to take us to study because again the back end is disconnected, but it will trigger the event. and uh push to Salesforce. So now if I go back here and I rerun the query, did we lose? Yeah, you can see this one was done at uh 1209 which the one that I just
+Kobi Kunasekaran: Nice.
+Strahinja Vladetic: sent.
+Kobi Kunasekaran: Were you able to get all of the the fields that was in the API doc or was there were there any issues with any of the fields that were proposed?
+
+
+00:07:41
+
+Strahinja Vladetic: Uh yeah, all the ones that you guys um outlined here. Yeah, the only ones was the uh I think the site was not properly configured and the
+Kobi Kunasekaran: site.
+Strahinja Vladetic: book country.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: It's mentioned here, but I don't think it exists on the uh actual
+Kobi Kunasekaran: Okay, I we actually did I shared a updated document to Joyce
+Strahinja Vladetic: object.
+Kobi Kunasekaran: that I was hoping she might have passed along but it should be more or less the same fields but uh I did make some changes or like as we work through some of the changes we might have made some uh slight changes so just put it in the comments and let me know if you're able to take a look it I I think it's fine like in terms of creating signup records I can see them or not signup records with SLC records. I can see them. So, those look great. Um, I just want to know if we have enough information to do the mapping for the deal. Uh, which I am not thinking yet.
+
+
+00:08:55
+
+Emily Vandenberg: When you say not seeing like it's not piping through Um,
+Kobi Kunasekaran: uh not necessarily that's not piping through. I think that that was one of the things that we we're trying to work out because you don't necessarily have the like the same deal ID that we have in Salesforce uh to send over. So we kind of need to understand what information you have uh on that end to send that we can then map to find the respective deal and the deal of assignment. Um so I think the core fields now it's like the uh operator ID uh partner ID market market we've broken down into the state and country uh or country and state but then the country is like Canada United States and then we have Canada and US as a country. Um, so are we able to send all of that? Like do you have all that information on the back end to send through with the study click link?
+Strahinja Vladetic: Um, if you guys send me that list, I can confirm or point me to where the doc um, yeah, if you if you just let me know.
+
+
+00:10:04
+
+Strahinja Vladetic: Um,
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: I I can take a look.
+Emily Vandenberg: Well, I think okay, the market like in the country and then the state would you I don't even know how you would send that straw. like you have the sign up details of the player, but based on your current config with the CMS. Um, I don't know if you'd have that information to share.
+Strahinja Vladetic: Right.
+Emily Vandenberg: However, we do need to share it.
+Strahinja Vladetic: And that needs to happen on study link click like we would have that information by then.
+Emily Vandenberg: Yeah, it it would need to like
+Strahinja Vladetic: So, we just need to pull it in. We need to
+Emily Vandenberg: We need to pull it in, but it's not currently. The CMS is not currently I was looking at it this morning
+Strahinja Vladetic: get
+Emily Vandenberg: to I think easily for you to easily grab that, but we can take that
+Strahinja Vladetic: Yeah.
+Emily Vandenberg: offline.
+Strahinja Vladetic: Or maybe in the inter like grab it from wherever it's where like maybe it's energy sheet or an air table or something.
+
+
+00:11:16
+
+Strahinja Vladetic: We can grab it from there for now. Um, just to start collecting the data and organizing it and maybe get this workflow going, whatever you guys want. But yeah, if we can collect data, find out where it is and then we can should be able to pipe anything through to Salesforce automatically at this
+Kobi Kunasekaran: Yeah. Look, look at the records that you push like this is great.
+Strahinja Vladetic: point.
+Kobi Kunasekaran: This looks good. Um and I
+Strahinja Vladetic: And that was just test data. It wasn't connected to production.
+Kobi Kunasekaran: can Yeah.
+Strahinja Vladetic: So yeah, I was I was worried that leaving you guys with a bunch of like orphan records.
+Kobi Kunasekaran: Well,
+Strahinja Vladetic: I was just saying that to Emily,
+Kobi Kunasekaran: no, no,
+Strahinja Vladetic: but um
+Kobi Kunasekaran: it's fine. This is the sandbox anyway. So, all the data that we're uploading is going to get cleared when we go into production.
+Strahinja Vladetic: Okay.
+Kobi Kunasekaran: So, no worries. Um yeah, like it looks I'm assuming these ones you sent with the same uh same information.
+
+
+00:12:04
+
+Kobi Kunasekaran: So they actually all got related into a single signup. Uh which is great which is what we expected. Um,
+Emily Vandenberg: Can you go back into the object quickly?
+Strahinja Vladetic: Okay.
+Emily Vandenberg: Sorry.
+Kobi Kunasekaran: uh, the sign up one or the study link
+Emily Vandenberg: Yeah, setting link click. Okay, so you're sending the type,
+Kobi Kunasekaran: clip
+Emily Vandenberg: you're sending the book,
+Strahinja Vladetic: Heat.
+Emily Vandenberg: but you're not sending the oper uh the partner, right? In any way. And you you want to receive that there, right?
+Kobi Kunasekaran: Yeah, we don't. So I think the when when I shared the API doc actually like we left it a little bit open. So we could either if you have a deal ID that and it doesn't have to be like the Salesforce ID just some ID that we can then look up the deal and relate that sign up to the deal that works right and initially my what I was thinking or what what I assumed was that in air table um all of your programs have like a number uh in front of it like well the assignment ID is actually like the equivalent of a dealrep assignment.
+
+
+00:13:22
+
+Kobi Kunasekaran: ID in Salesforce. So I thought maybe we might have this information on your back end and if you can send that and we make sure that you know the records created in Salesforce for the deals have the ID we can use acromatic like you see these codes I thought these were like unique deal codes that were like unique to a deal. So if you have that then we don't need to send the partner vertical or anything you just send that ID and that ID will relate to a unique deal and we can do the mapping that way. If we don't have that,
+Emily Vandenberg: We
+Kobi Kunasekaran: we would need to get the makeup of the deal, right?
+Strahinja Vladetic: Okay.
+Emily Vandenberg: don't
+Kobi Kunasekaran: Like the individual uh unique combination that we can then look up in Salesforce to find the right deal. And that all that breakup of the information needs to come from the study click link.
+Emily Vandenberg: And sorry because I thought we decided that we would pass you the parameters and you guys would create the deal ID because we don't have a deal
+
+
+00:14:16
+
+Kobi Kunasekaran: Yeah. That and that's fine. That's okay. So if if the uh if the study click link will come with like the
+Emily Vandenberg: ID.
+Kobi Kunasekaran: market like the country the market country and state for the deal uh the operator ID partner ID and all that stuff then yes we can do the lookup and generate like sorry associated to the deal all records um any every deal we create they are going to have like an auto number ID that gets created by Salesforce but this only lives in Salesforce right you're not going to like unless you sync this over to CMS or we have like uh some sort of integration ations you won't necessarily have this there maybe that could be like a feature state but in the interim um we would need the makeup of all those separate components so that we can look up the ID Sorry, we can look up the deal and associate it to sign
+Emily Vandenberg: Yeah, if you go back to the um uh I'm just trying to think. Yeah, the CMS straw and I had asked the question today like I don't think we're even in the CMS like have the concept of partner because he's just using those like um the like naming convention with a like shorthand like the slm slash c slash you know and that is not a specifically called out.
+
+
+00:15:42
+
+Emily Vandenberg: So, I'm assuming like when you're passing through bet mg or bet 365 from the um CMS,
+Kobi Kunasekaran: That's Let's
+Emily Vandenberg: how is that actually coming through? Was it like bet mgm dash something and then Salesforce is just able to
+Kobi Kunasekaran: see.
+Emily Vandenberg: like pull out the first part of it or is there like something on the back end that does have them separated.
+Kobi Kunasekaran: So, this would be all raw data. Uh, anything that's in the SLC, we're not actually processing. So,
+Emily Vandenberg: Dead.
+Kobi Kunasekaran: this would technically be the raw data that STR is sending over. Sorry, let me go back to the other view. So, like 365. I mean, correct me if I'm wrong, but I don't think we're doing any processing here
+Strahinja Vladetic: No. Yeah, I assume what whatever is showing there is exactly what I'm sending over the
+Kobi Kunasekaran: yet.
+Strahinja Vladetic: wire.
+Emily Vandenberg: Okay. Can you go back to the the other view you were showing the raw? Um yeah.
+Strahinja Vladetic: And I think this data is coming formatted in the same way that it would be sent to the play back end.
+
+
+00:17:04
+
+Emily Vandenberg: Okay.
+Strahinja Vladetic: We just intercepted that and uh added like
+Emily Vandenberg: And so from the CMS was that value the book name there was nothing like if you were I guess cuz you only probably have that 365 like it's it that would make me think if that value came in like that it would be like a direct deal Kobe but like obviously you wouldn't actually get the direct right but there if I'm looking at the
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: CMS draw And like how he ha how we have the like operator names with like the dashes. Would that fall off or would that transfer if there was a dash there?
+Strahinja Vladetic: Um, it would transfer. I mean, we could Yeah, it would go up in whatever whatever format you guys want. So if there should be a dash there, we can include one. I'm not sure how the playen server, the one that's connected to the agency sites right now, handles this,
+Emily Vandenberg: But it's the your new one that we have to be worried about.
+Strahinja Vladetic: but that yeah,
+
+
+00:18:18
+
+Emily Vandenberg: the
+Strahinja Vladetic: in our new one, we can do whatever we want.
+Emily Vandenberg: new
+Strahinja Vladetic: So if we if you're saying that 365 is missing the dash probably look into why that's happening but
+Emily Vandenberg: well I'm I'm just trying to understand what you're sending from like
+Strahinja Vladetic: um
+Emily Vandenberg: what um that click like that case study like on the back end what is the book value in the CMS can you tell me that or the the operator
+Strahinja Vladetic: what CMS um
+Emily Vandenberg: If I share you my screen and guys like sorry if I'm making this confusing but with I just don't I think.
+Kobi Kunasekaran: Maybe if we can look at the can we take a look at the fields that are available on the CMS side for like what makes up what makes up the SLC and then we can go through like what's available and pick what we want to send over. Would that be helpful?
+Emily Vandenberg: What do you think,
+Strahinja Vladetic: Sorry. Sorry, I missed that. I was I'm trying to look at the
+
+
+00:19:31
+
+Emily Vandenberg: Straw?
+Strahinja Vladetic: CMS.
+Kobi Kunasekaran: Yeah, I was just saying like can we can we take a look at the fields that are available on the CMS side for like when a click happens what what are all the data points that you have available there and then maybe we can pick what we want to send over onto the Salesforce side and we can update both sides as needed like the field that we have in the SLC right now this is based off of the initial requirements that we had right we've made the assumptions mentions that these are the fields that are available from the initial API docs you shared. But if you're already like building and changing some of those things up, we don't need to stick to these fields. I would rather like I would pick a book ID over a book name any day because names can change, names have spaces, but ids generally don't change. So if you have an ID available, I'd rather you send that. We can then uh have like a mapping sheet in Salesforce to do the mapping to show the book name uh here.
+
+
+00:20:32
+
+Kobi Kunasekaran: Um and then we use the actual ID to do any mapping that we need. So if we can see what what are the fields available on the back end, we can kind of see what we need in order to like link a click to a book uh sorry to a deal on our end.
+Strahinja Vladetic: Okay. Uh yeah, that makes sense. We haven't done any just sort of been like migrating agency sites and the CMS code. We haven't done any like work to clean up the data yet. So doing something like adding IDs to the book names I agree would be a good idea and maybe we do
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: that going forward. We're in the process of changing up some of the stuff in the new CMS. Maybe J can speak to that more. Um, and the data available there as far as I know is the player, the book, um, and what are we missing from the deal partner?
+Kobi Kunasekaran: So we have yeah partner market country market state and
+
+
+00:21:36
+
+Emily Vandenberg: partner.
+Kobi Kunasekaran: vertical and those are like the that is a unique makeup for a unique deal Okay.
+Emily Vandenberg: Yeah.
+Strahinja Vladetic: What
+Emily Vandenberg: Vertical being like casino sports book which we do have.
+Kobi Kunasekaran: Yeah,
+Strahinja Vladetic: do
+Kobi Kunasekaran: I think we just call it type here.
+Strahinja Vladetic: you
+Kobi Kunasekaran: Oh, sorry. I thought I was still sharing the
+Emily Vandenberg: Yeah, Jay, in the con in the um CMS,
+Kobi Kunasekaran: screen.
+Emily Vandenberg: we don't have the concept of a partner, do we? at the date
+Jay: Uh, no. We just use the like every single book if it's owned by Katina,
+Emily Vandenberg: point
+Jay: we just put CTM at the end CTM. So, just I just kept it that way.
+Emily Vandenberg: and then we don't have the concept of like actually that's not true like how do we break down the like market from like country state province perspective
+Jay: Um it's it says on the CMS if it's Alberta or Ontario or um it's like it's grouped already. So like for example, if it's DKC um you can have that in both Ontario and USA, but um it it's grouped in a way that it only shows up under USA if you're looking at that specific like uh DraftKings.
+
+
+00:23:00
+
+Jay: But are you asking for like in terms of like like a if you were exporting the data, how would you know if it's DKC like US or Canada? Is that what you're
+Emily Vandenberg: less about exporting,
+Jay: asking?
+Emily Vandenberg: more about like the values that we need to send to Salesforce and like to be able to kind of like create the ideal idea on their end because we kind of lean towards giving them the like raw um details to um create the deal ID on their
+Jay: Could
+Emily Vandenberg: end.
+Jay: we just do DKC in brackets US? If it's a US book, we just put in brackets
+Kobi Kunasekaran: No,
+Jay: US
+Kobi Kunasekaran: because like the country selection that we or country state selection that we have in the deal um is it's it's kind of not just state and country. uh country we're kind of using as a like United States, Canada or US and Canada. And then for the states, um, we would on the specific state that that study click link is
+Strahinja Vladetic: We can parse that out on Yeah,
+Kobi Kunasekaran: for.
+
+
+00:24:05
+
+Strahinja Vladetic: we can parse that out on our end and then send the information in the way that you guys receive it.
+Kobi Kunasekaran: Yeah, that could
+Jay: I'm I'm pretty sure I'm pretty sure we can we can set something to organize it and send it your
+Kobi Kunasekaran: work.
+Jay: way.
+Strahinja Vladetic: It's just a matter of like if that information is available and so if it's encoded in
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: like dash us and um like you were saying brackets cm like as long as the information is there and we can like parse it out
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Okay. Then I think in the current state but maybe J and Star you have to take it offline is that
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: um the partner would need to be parsed out from the like operator
+Strahinja Vladetic: That's
+Emily Vandenberg: name value and then like your there'd need to be like mapping Kobe on your end unless we make a change on the CMS maybe it's something you need to think through JSOW is like cuz like there'd be like a table that maps like what the shorthand codes mean from a partner name perspective because we do just deal in in these like short-handed Oh,
+
+
+00:25:13
+
+Jay: I I think the mapping would happen on our end. So Salesforce would tell us how they want it and then we would map the books to work that
+Emily Vandenberg: it's
+Jay: way. Or am I wrong there?
+Strahinja Vladetic: Yeah, we can we can change the data to how to to be well structured like they have it here so that it fits their data model. That's that's fine. It's just a matter of do we have that data available at the time of the survey link click and it or is it in the CMS in some
+Jay: Yeah.
+Kobi Kunasekaran: Mhm.
+Strahinja Vladetic: form
+Kobi Kunasekaran: Okay. So, why don't we do this for um for like the partner operator because I I don't like the book name coming in just as a book name. Um he's like I'm looking at a like a few of them like some of them have spaces and stuff. This makes it like yeah, we can still do the lookups if we have this value in the uh in the book name, but if it changes, if they rebrand, then it gets tricky on the mapping.
+
+
+00:26:11
+
+Kobi Kunasekaran: So, uh, Emily, can we maybe start putting together the import sheets for operator and partner because it's it's a it's like a finite list that you have, right? You're not adding operators and partners every time. Um, and if you don't have a concept of like an internal ID that kind of ties it together, uh, sorry, not internal ID, external ID that ties your spreadsheets, uh, air table and everything together today. uh we can we can set that up in Salesforce and we can use the Salesforce ID as the mapping um or that universal ID and we can share that table of operator name, operator ID, partner name, partner ID uh to you guys and you can send those ids uh through uh through the API when when you're submitting those SLC's.
+Jay: Yeah, that'd be Good. That way we can also I think we can also make the air table changes on the CMS end cuz that's where we would mostly change the books and we can tie the API for air table into the CMS. So any change there reflects immediately on air table as well.
+
+
+00:27:15
+
+Jay: That'd be
+Kobi Kunasekaran: Okay. Yeah.
+Jay: good.
+Kobi Kunasekaran: Like the these are like the programs that I like that we have that I'm seeing on Air Table right now. We could just add another column for ID and just make up like a ID system and then call it a
+Jay: Yeah, I think Yeah, I mean, yeah, that that would save a lot of time.
+Kobi Kunasekaran: day.
+Jay: Yeah.
+Emily Vandenberg: And then like as because then the deals will the like any new deals would be created through um Salesforce. Then you would just create a new ID, pass that
+Kobi Kunasekaran: Uh, sorry, not the deal, but like for uh for the partner and operator.
+Emily Vandenberg: back
+Kobi Kunasekaran: We'll create like a unique ID for each of those and then we'll send that table over. Anytime you're adding a new operator or partner, you'll just have to make sure like we're adding it in both systems and making sure that they both have that same ID to be able to pass it over. Um and then through the API we're we're creating these uh study click links uh but we're going to have like operator ID uh partner ID uh and things like that.
+
+
+00:28:23
+
+Kobi Kunasekaran: We'll use that to map it to the deals uh because we can do the lookup and find the corresponding deal based on the combination. Does that make sense?
+Emily Vandenberg: As long as when you move into the sign up like as that information passes through to the sign up flow it's presented in like the raw right so it shows you it's not ids it's
+Kobi Kunasekaran: Yeah. Yeah. Absolutely.
+Jay: All
+Kobi Kunasekaran: Yeah. Like we can display the the name for sure.
+Emily Vandenberg: The
+Kobi Kunasekaran: Um the ID is just better to work with when we're working about uh sorry when we're dealing with integrations IDs are better to send the information but we can 100% just display the name of the uh the operator or partner uh instead of the ID when you're looking at the record in Salesforce.
+Emily Vandenberg: okay I think like Jay would probably be a worthy exercise like that table list
+Jay: right.
+Emily Vandenberg: is very there's a lot of inactive and I think it goes to maybe like what you were saying about cleaning up.
+
+
+00:29:25
+
+Jay: Oh yeah, for
+Emily Vandenberg: It could just like that's the only thing I wouldn't want you to go in and like make
+Jay: sure.
+Emily Vandenberg: IDs um for all of these Kobe. I think we can get you a refined list.
+Jay: Yeah, I can do that. I can I can uh I can clean it up.
+Kobi Kunasekaran: Yeah.
+Jay: I just have a question for you. Uh, Kobe, would you be the one to make the IDs?
+Kobi Kunasekaran: Um I can if you want or like we can just come up with the system and we can let
+Jay: Yeah.
+Kobi Kunasekaran: Salesforce
+Jay: I'm wondering if we can make it like like like a uniformity somewhere on those uh IDs like a like an easy like algorithm maybe so that future books would be easy to set an ID for but I'm sure we can come up with something but
+Kobi Kunasekaran: Yeah. I want to
+Jay: I'll clean this up I'll clean up air table so that you don't have to there's a lot of these books we don't have anymore like
+Kobi Kunasekaran: use
+Jay: play ojo we'll never have again so I can delete those for sure you said book
+
+
+00:30:24
+
+Kobi Kunasekaran: when you say book like are you referring to like the combination of like the the partner operator vertical market or are you talking about just like the
+Jay: Sorry.
+Kobi Kunasekaran: operator?
+Jay: We say book as in like uh it would it would it would technically be the operator. Yes. Correct.
+Kobi Kunasekaran: Just the operator.
+Jay: Yeah. Yeah.
+Kobi Kunasekaran: Okay.
+Jay: Sorry. So you still see the
+Kobi Kunasekaran: No worries.
+Jay: book.
+Kobi Kunasekaran: No worries. I I just don't want to get the terminology crossed on my end.
+Jay: Now you're
+Kobi Kunasekaran: So So we're lying. Um okay. So let let me take that away.
+Jay: getting
+Kobi Kunasekaran: Maybe like um I I'm I don't have any preference on like what the uh ID could look like. Uh we can take that away and like come up with like a uh like a system and share that over with the data that we have here.
+Jay: sticker.
+Kobi Kunasekaran: And then what I'll do is like we'll create like a spreadsheet like an import sheet essentially. um and then send that over and you can help us populate that.
+
+
+00:31:15
+
+Kobi Kunasekaran: I mean Claude can definitely help uh do that instead of doing it manually uh because you have spreadsheets and stuff,
+Jay: I hope it's
+Kobi Kunasekaran: right? So we can fill that up and then we can upload that into Salesforce into the respective objects on our end. Um and then share like that mapping sheet of what are the ids to partner and ids to operator and we can go from there. And I'm also thinking we should do something similar for the market country and state too because like things like Canada and United States as a country is like visually it's good but from a integration perspective it's not great when we're trying to map it um because we're if we're trying to set up a filter to look for uh Canada uh we're going to have to like think about excluding United States and things like that. So for pick list we can also have um uh what is it like ids on the uh API internal name and then we have labels. So I'm thinking we do the same thing here too uh where we have some sort of ID system um that you will send over and then that way we're not getting uh lines crossed when we're trying to send the market information as well.
+
+
+00:32:22
+
+Jay: Yep, that sounds good. So, right now, right now it's Canada, US. There's no way to differentiate. Is that what you're
+Kobi Kunasekaran: No. So, right now we have all three options.
+Jay: saying?
+Kobi Kunasekaran: So, you could have a deal that is US and you pick a state and that's one deal.
+Jay: Yep.
+Kobi Kunasekaran: Uh or you could have a deal that's Canada, you pick a state and that's one deal. Or you could have a deal that spans the all of Canada, so we just leave the state empty and this is another deal. Um and then one of the other asks was we wanted something that covers US and Canada as an example. So then that in that case you just send the market country. So these are like different scenarios. Those are uh options for the market combination for deals.
+Jay: Okay, that makes
+Kobi Kunasekaran: So when you're sending that SLC like the study click links uh data,
+Jay: sense.
+Kobi Kunasekaran: we need to make sure that we have this information as well so that we can map it to the corresponding deal in Salesforce.
+
+
+00:33:22
+
+Emily Vandenberg: And that information has to come from like essentially the like not from the player information. It has to come from the like operator. Um the on our end it needs to be like operator partner combination.
+Kobi Kunasekaran: because an operator can have deals in multiple states, right? So,
+Jay: Yeah,
+Kobi Kunasekaran: we need to know which
+Jay: they
+Emily Vandenberg: Yeah. So it can't it's like just making sure we're clear that it's not coming from the
+Jay: kept
+Kobi Kunasekaran: one
+Emily Vandenberg: player details. It's coming from the tail.
+Strahinja Vladetic: Um, I think that makes
+Emily Vandenberg: Yeah. Like I don't know how it's all set up on the back end with like but I can see Jay that
+Jay: Welcome.
+Strahinja Vladetic: sense.
+Emily Vandenberg: you can go right with brands you can see your regions. Um and then within your Yeah, that that's what we'd have to pass through.
+Strahinja Vladetic: So it sounds like the the market and the operator is what we're missing here.
+Kobi Kunasekaran: market operator partner.
+Emily Vandenberg: Well, the book is technically the operator
+
+
+00:35:03
+
+Kobi Kunasekaran: Uh,
+Emily Vandenberg: though.
+Kobi Kunasekaran: right. Oh,
+Strahinja Vladetic: Oops.
+Kobi Kunasekaran: yeah, that's right.
+Emily Vandenberg: We have the operator. That's the like.
+Kobi Kunasekaran: Yeah.
+Jay: Perfect.
+Emily Vandenberg: But if is this an example of what straw sent through horseshoe New Jersey?
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Like that's not right that sending in.
+Kobi Kunasekaran: Let me go back to the record.
+Emily Vandenberg: That's what I was like.
+Kobi Kunasekaran: This
+Emily Vandenberg: Yeah. Right. Like that that book name book be we need to like update the the fields.
+Kobi Kunasekaran: one.
+Emily Vandenberg: But um that's not that's like horseshoe casino New Jersey. That's bringing in book name. That's bring in type and then that's bringing in date.
+Kobi Kunasekaran: Gotcha.
+Emily Vandenberg: So I don't know how
+Strahinja Vladetic: I I don't know that this would be an example.
+Emily Vandenberg: that's
+Strahinja Vladetic: I've only It's only ones that I've sent today.
+Kobi Kunasekaran: Oh, maybe this is something we uploaded. Yeah.
+Strahinja Vladetic: Yes,
+Kobi Kunasekaran: Yeah. Sorry. Yes.
+
+
+00:35:55
+
+Kobi Kunasekaran: Yes.
+Strahinja Vladetic: it would just be the most recent.
+Kobi Kunasekaran: Yes.
+Strahinja Vladetic: Yes. I think all minds the bug name will
+Kobi Kunasekaran: Yeah, these are the ones that we just did some sample ones.
+Strahinja Vladetic: 365.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Yeah. Yeah. So, we're good. We're good there. So, you you do have the book state here. So,
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: is this the state for like specific to that particular deal?
+Strahinja Vladetic: Um, again, I'd have to double check because it's it's it's it's just a one to one mapping of what is being sent to the back end right now.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: So all the information that normally the old CMS would receive that was basically just intercepted and then sent forward to you
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: guys. Um so that's a question I could Yeah. So you're saying is the book
+Kobi Kunasekaran: Yeah. I mean, I'm I'm I'm guessing if you have a book state,
+Strahinja Vladetic: state
+Kobi Kunasekaran: you probably have the book country as well.
+
+
+00:36:47
+
+Kobi Kunasekaran: Then we just need to create a field to capture that and call it a day.
+Strahinja Vladetic: right? So that might be the
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: market.
+Kobi Kunasekaran: Um, and then we already have the type for the vertical, so that's good. Um, we're sending I think partner is the only one that we don't have explicitly called out separately. Um, where right now it looks like you you have like the dash notation of the operator- not dash, yeah, operator- partner. But ideally, we split that up so that it comes in as two separate IDs and then we can resolve the actual names on our end. But you can also send the name. There's nothing like I I actually like maybe we do that too like we send both the ids and names but we use the ids to do any lookup against the records on our end.
+Strahinja Vladetic: Makes sense.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: and then the player information is coming in at time of click from the logged in like you sent that all right all that information just
+
+
+00:37:45
+
+Strahinja Vladetic: Yep.
+Emily Vandenberg: through whoever's logged in like it's their it's their information
+Strahinja Vladetic: Yeah. Yeah. In this case,
+Emily Vandenberg: Right.
+Strahinja Vladetic: it's just a test user that I created locally.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: And that looks good, right? Player external ID. You're creating that. Are we creating that? Yes.
+Strahinja Vladetic: We
+Emily Vandenberg: Right. We create that. Player registration date
+Strahinja Vladetic: reveal
+Emily Vandenberg: Ontario referral code. Um, sorry. Did the slug come through?
+Kobi Kunasekaran: It's
+Strahinja Vladetic: the end to end test or E2B
+Emily Vandenberg: Test
+Kobi Kunasekaran: slug is technically optional.
+Emily Vandenberg: test.
+Kobi Kunasekaran: Um, I figured we put it in here because in your previous API call out, you sent it over. It doesn't hurt to have the information here in Salesforce um because it'll help with troubleshooting later. Uh, but yeah, if you have it, you can send it.
+Emily Vandenberg: How are you getting the rep then information? If not, cuz that
+Kobi Kunasekaran: Uh they're sending the rep ID too.
+
+
+00:38:58
+
+Emily Vandenberg: Would it be the referral
+Kobi Kunasekaran: No.
+Emily Vandenberg: code that you're using?
+Kobi Kunasekaran: Good point. Yeah, actually I think I think you're right. Like we were Let me go back to my talk. Thought we had the rep ID like repter external ID separately. Yeah. Yeah, we did call that. So for rep same same thing we can as we create users in Salesforce we can assign them a particular ID and then if you have that ID on the CMS and send that over we can use that to map it to the rep. The fallback was going to be the rep slug because I I believe that's also unique to each rep. So we could use that as a potential uh unique identifier to look up the rep on our end too. Would
+Emily Vandenberg: the the I mean it's always right the slugs are best
+Jay: Sorry.
+Emily Vandenberg: indicator and so like because they have the their individual Right.
+Kobi Kunasekaran: you ever change those slugs?
+Emily Vandenberg: For the um ref specifically,
+
+
+00:40:19
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: you'd add new ones.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: I mean, I I guess like never say never, but
+Strahinja Vladetic: Well, there's kind of a situation, right now.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: I think Jay, we talked about this yesterday or you were explaining this to me yesterday where we need to like the US and Canada sites and the US sites have different slugs.
+Jay: Yes.
+Strahinja Vladetic: So those those ones are going to be merged in with Canadian for the same.
+Kobi Kunasekaran: The same player,
+Jay: Yeah. So,
+Kobi Kunasekaran: same rap.
+Jay: I I don't know who implemented this,
+Kobi Kunasekaran: Sorry.
+Strahinja Vladetic: Yeah.
+Jay: but um Luca could be LK Research, right? But then for whatever reason they wanted him to have his own USA page with so they created him another basically brand ambassador they call it play today and then they give play or play direct or whatever he is and play direct would also be Luca but just his USA page. So then Lena told us she wants that gone. She wants it merged. So now we need to merge it.
+
+
+00:41:19
+
+Jay: So all of those play slugs will disappear and they'll get merged with the uh the normal like uh slugs for all these reps. I could provide you a list if you need
+Strahinja Vladetic: I think it's just the example of right now we're in a scenario where perhaps have more than one slug.
+Kobi Kunasekaran: Yeah,
+Emily Vandenberg: What if you go
+Kobi Kunasekaran: I I was going to say I would recommend doing IDs then because then it doesn't lock you in because you you can change the slugs later if you need to, but the IDs generally don't change and the ID could be as simple as like you know rep dash
+Jay: It's I don't need to
+Kobi Kunasekaran: employee number uh or like the date they started, something that's unique. Um so it never overlaps with somebody else. Um and then they could have any number of slugs uh in the future. It's not going to lock you
+Jay: Yeah.
+Kobi Kunasekaran: out.
+Jay: Um I I think though like no no no rep will have two slugs moving forward. Everybody will have just one slug anyway.
+
+
+00:42:23
+
+Jay: So uh I'll leave it up to you. I think you're a professional.
+Emily Vandenberg: but you saying that we would create the rep, we would own the rep ID then on our end and pass it through.
+Kobi Kunasekaran: Yeah, like a as you're adding new users into the CMS and uh Salesforce, we just make sure there's like a unique identifier between the two and then we just use that for the lookup automations in Salesforce.
+Jay: makes and that that would live on the CMS level like we we do it on at the CMS it would communicate to Salesforce. I think that's what Emily was
+Emily Vandenberg: Yeah. Like who owns
+Jay: coming.
+Kobi Kunasekaran: Um,
+Emily Vandenberg: that?
+Kobi Kunasekaran: it could like it should live on both. Where it gets generated doesn't necessarily matter. we can just pick a system that generates it and go from there.
+Jay: Wonderful.
+Kobi Kunasekaran: So for example like what what a lot of times what we see is like these ids are generated by the database that we're
+Jay: Hold
+Kobi Kunasekaran: integrating with because every database has a row ID right and that's usually what people end up using as a unique identifier to link Salesforce records with those external system records.
+
+
+00:43:34
+
+Kobi Kunasekaran: Um so you're not necessarily like creating these IDs specifically.
+Jay: again.
+Kobi Kunasekaran: um they're just like by nature of like the your database growing and we just use that. Um that comes with pros and cons, right? Because like if you do database migrations, if you delete users, the numbers start uh shuffling around. So in those cases like it it's good to just give them like some sort of unique identifier system that's going to be common across all all of your tools and then just one one tool will generate it and then just distribute it everywhere else and everybody can use that same ID to map that same person or record across all your systems.
+Emily Vandenberg: What do you think, guys? I I'm not opposed to it. Like, it feels cleaner, but I I know right now the only thing we have for you is the slug.
+Kobi Kunasekaran: which is fine.
+Emily Vandenberg: That's
+Kobi Kunasekaran: Yeah, we can start with that and then we can always like migrate to an ID system later if that'll be uh easier.
+
+
+00:44:39
+
+Kobi Kunasekaran: But that means like you're committing to rep slug being a unique identifier that maps one to one to a single rep.
+Emily Vandenberg: Do you have any thoughts on that straw?
+Strahinja Vladetic: Um, It's it's really up to you guys. Like it's we're going to be using the Postgress database that powers the CMS as a source of truth as well. So we can upload this data as long as it's like a a list that you guys already have. We can upload this data into there. It'll autogenerate IDs like OB set and then we can use those to refer to those reps or or we can do the same workflow in Salesforce and then go the other way. It really doesn't there's no benefit I don't think of doing but it's good to have the ID
+Kobi Kunasekaran: Mhm.
+Emily Vandenberg: Okay,
+Strahinja Vladetic: in my opinion it's just
+Emily Vandenberg: let's make Okay, let's make sure we're passing the slug and like using it right now and then we'll get back to you
+Strahinja Vladetic: yeah
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: Kobe.
+Kobi Kunasekaran: Okay.
+
+
+00:45:54
+
+Kobi Kunasekaran: This is awesome. So, I think it sounds like this this a really big milestone like you're able to create records in Salesforce now. Um, looks like the data is coming through. So now like we just work out the right right field combinations that we need from you and the mapping and make sure that we have that data here and I think we should be good to go.
+Emily Vandenberg: Is there is there anything else draw that you like connected that we need to
+Kobi Kunasekaran: Um
+Emily Vandenberg: validate? I know you said survey but that was we saw that passing through.
+Strahinja Vladetic: survey. Um, so I've just started with the study link click, but yeah. Um, I've sort of stuffed in survey completion. I haven't tested that and then I don't know if the objects exist in sales source yet. Uh, but I could start looking through the if those sections are in the requirements
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: do I could start looking through there and then pushing whatever information we have access to if that's what you guys
+
+
+00:46:59
+
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: And we updated it to be that like you'd have to push it to the player,
+Strahinja Vladetic: want.
+Emily Vandenberg: right? Like we care. It's not at a study layer, it's at a player um level.
+Kobi Kunasekaran: Yeah, I think surveys like it's going to be slightly different where um I mean I like the fact that there's already a like you have a unique player external ID. Um so what we will do is like we'll store this on the uh on the player record. Player records are accounts by the way, not necessarily contacts. Um, so they're accounts of a specific record type. So I can send that information over and you would essentially do an upsert using the external ID that you're passing here. Um, and uh, I think we just have a check box here that says survey completed. Uh, and like if we want to capture the if you have the survey date as well, um, that could be part of the payload. Uh and then The other thing that needs to be part of the payload is the record type so that we know that it's going to actually no, we might not need the record type if we're using an external ID.
+
+
+00:48:11
+
+Kobi Kunasekaran: Yeah, I I'll get back to you on that. But yeah, I'll I'll I can send over the details of the payload and what object you'd be doing the upsert on. And uh as long as you do that, that that should be okay. That that should check the boxes and everything. Okay. Awesome. Okay. So, I'm hearing like you're we're setting up a new CMS. Is this expected to go go live alongside Salesforce?
+Emily Vandenberg: turning out that way.
+Strahinja Vladetic: I think so.
+Emily Vandenberg: Um, yeah.
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: So it was like it kind of came in I think we had alluded to like if kind of came in a little bit like um in parallel um it will go live before we're live with Salesforce. so strong and you're just working out some of the kinks as like honestly we wanted to get this like
+Kobi Kunasekaran: Nice.
+Emily Vandenberg: API like started just to prove to you that like you know we can make the connection and we can start um now straw like NJ and Jay's kind of biggest priority is getting the CMS up validated tested so it's
+
+
+00:49:09
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: like you know ready and then kind of loop back so um yeah it is going to be very close in timeline
+Kobi Kunasekaran: Okay. Uh, and when when you guys are sending these records, have you come across any errors? And like I I know you said like it complain about the last name and stuff. Um, it's easy to diagnose when you're testing calls, but in a production system, is there a process to review those and troubleshoot those as they come in?
+Strahinja Vladetic: Um, so it's still a little rough right now like we're just testing this connection. I can Are you guys saying I can get you guys like a test environment if that's what
+Kobi Kunasekaran: No,
+Strahinja Vladetic: you're
+Kobi Kunasekaran: I I'm more asking like how do you make sure that everything like anytime a player clicks on a as uh on a study uh study link on your agency websites, how do you make sure that every everyone is created as a record like what what do you have any uh process
+Strahinja Vladetic: Oh, I see. Yeah.
+
+
+00:50:12
+
+Kobi Kunasekaran: to handle errors?
+Strahinja Vladetic: Okay. Yeah. Yeah. We're going to be introducing a Q in between. So along with like as much logging as possible, we we'll introduce pumps up from GCP. So we'll be throwing the any message that goes to to Salesforce up as an event in the queue and then that'll come along along with like retry behavior and dead letters.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: So if anything doesn't come through, we should be able to audit that and make sure um or rerun it or whatever.
+Kobi Kunasekaran: Okay. Perfect.
+Strahinja Vladetic: Yeah. So we're going to try to keep a keep it robust enough on our end that we can try to diagnose those errors and figure out when the system's out of sync. Yeah.
+Kobi Kunasekaran: Okay, awesome. Yeah, I think like Joyce mentioned like in the previous iteration like the data there was a lot of get inconsistently. So, just want to make sure that we have the the guard bails on the API end when you're sending it
+
+
+00:51:07
+
+Strahinja Vladetic: Yeah, that's my my worry too.
+Kobi Kunasekaran: over.
+Strahinja Vladetic: I just want to have the have the proof on my side in case I need it. So, and then you guys can do whatever you you need on your
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: end.
+Kobi Kunasekaran: Like once it comes to Salesforce and like the records created, you get the uh the okay or success message, then uh from here it'll be Salesforce responsibility. So,
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: we can handle the troubleshooting here.
+Strahinja Vladetic: Yeah. Nice.
+Kobi Kunasekaran: Okay, awesome.
+Strahinja Vladetic: Um,
+Kobi Kunasekaran: So, sorry.
+Strahinja Vladetic: no, no,
+Kobi Kunasekaran: Go ahead.
+Strahinja Vladetic: go ahead.
+Kobi Kunasekaran: I was gonna say, so this this sounds good.
+Strahinja Vladetic: Sorry.
+Kobi Kunasekaran: So, um I'm glad we have we have these API calls coming in. This is good. We have the records. Um so, I think uh on my list of to-dos is uh I I'll do another like update on the final fields that we might need based on uh what we just talked about. Um, I'll send you like an updated list of fields and what values we expect for those.
+
+
+00:52:02
+
+Kobi Kunasekaran: Um, Emily, we can work together on getting those operators and partners imported into Salesforce um from your actual list and figure out what the external ID looks like and make sure that's distributed as well and your CMS has that. Um, and then for the surveys, I'll put together like a quick talk as well on uh what that payload should look like and what objects you'll be tapping in to update those. Uh, and that'll be good. Uh, yeah, I think that's it. And then once all of these pieces are in place, we'll update our automation on our end to test out if we're able to get the correct deals uh, mapped based on the study click links. Um, and uh we can go from there. But this is
+Emily Vandenberg: Okay. So, really on our end,
+Kobi Kunasekaran: great.
+Emily Vandenberg: we'll get back to you on the rep ID thing, but the market kind of country, state, and then the partner, that's what we need to kind of work into passing through. Um, and so straw, we can kind of leave that with you.
+
+
+00:53:03
+
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Um, and then you'll send over the survey stuff and we'll action that the just to make sure I'm clear on like yes, we will get you the like list of like the current list of active like partner book combinations. Do you want to buy market too? Like do you want to buy market and region two or market in like being province
+Kobi Kunasekaran: So uh um so
+Emily Vandenberg: state?
+Kobi Kunasekaran: there's three pieces of I guess things that we should probably start talking about importing right the your list of operators so operators by itself um and their like you know name aliases like we I think we we're at a stage where we can probably configure this uh same with partners We can configure this as well. And then this is where we'd uh figure out what those unique IDs are that we're going to use across the systems. Um so really this is just a spreadsheet or two spreadsheets, one for all of your operator info, one for all of your partner info. And then if we want to start testing actual deals as well, that's actually a really good idea.
+
+
+00:54:14
+
+Kobi Kunasekaran: Uh we can do another spreadsheet to figure out how these deals map to the data and fields we have in Salesforce. We can do an upload and then we can we can try to test with actual uh examples of like people clicking through uh a specific rep uh link and make sure that it actually maps it to the right deal.
+Emily Vandenberg: Okay. Yeah, cuz like it we could pass. Yeah. Okay. Okay. Yeah, I think we should, right? Because we have to have to prepare for that.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Um
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: I can work through those spreadsheets uh probably today. I'll send it over uh by the end of the day and then next week we can work on like populating them um and importing the
+Emily Vandenberg: Okay, that sounds good.
+Kobi Kunasekaran: data
+Emily Vandenberg: Um, but then like ju maybe just it's like kind of my level of understanding but when we said like you know we have to keep the two systems maintained because anything new in like the future world would be like the deal would originate in Salesforce.
+
+
+00:55:21
+
+Emily Vandenberg: Can we not just communicate then those like deal like those IDs um automatically versus maintaining two kind of like reference points?
+Kobi Kunasekaran: We
+Emily Vandenberg: You said we'd Okay,
+Kobi Kunasekaran: can
+Emily Vandenberg: cuz then just pass it to the CMS or wherever.
+Kobi Kunasekaran: are you thinking like passing through an API call or when somebody configures that deal in
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: CMS they would update that ID.
+Emily Vandenberg: If the deal would be created in
+Kobi Kunasekaran: No, like so deals created in Salesforce and then they're going into the CMS to activate like a that
+Emily Vandenberg: Salesforce,
+Kobi Kunasekaran: link for that deal or a rep, right? On your CMS side. So, are are we saying like they're going to know the deal ID from Salesforce and have a like a field on your CMS about that deal ID? Yeah, that's the case. That would be great.
+Emily Vandenberg: that's what I'm Like that's what I like. And there's a few things like Jay,
+Kobi Kunasekaran: Yes.
+Emily Vandenberg: I don't know if you saw the doc that I sent over yesterday just around like ownership around deal management and like management all the rest.
+
+
+00:56:30
+
+Emily Vandenberg: we have to kind of like solidify a few things but like with that in like the kind of like what we've mapped yeah it would start in Salesforce and then it would be there would be communication to the CMS on the on that like deal creation to like just pass the ID through is how I'm seeing it Kobe does that make sense
+Kobi Kunasekaran: Mhm. Yeah. Like
+Emily Vandenberg: I know there's work involved in it and like we have to talk about that like I know we haven't we haven't said
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: that out loud but we had to we have to think about it so it's like something we're just trying to nail down internally so that I can bring it into you. Um but
+Kobi Kunasekaran: Yeah. For example, like you know, as we're creating deals right now, these like deal ID numbers are getting autogenerated,
+Emily Vandenberg: yeah,
+Kobi Kunasekaran: right? Just an example. we can come up with a different system if we need to, but um these deal ids uh are getting autogenerated.
+
+
+00:57:32
+
+Kobi Kunasekaran: So, whoever's configuring this deal, um, they could copy this over and when you're setting up the link or in in CMS for that deal for the rep, if you put that deal ID in, then in when you're sending in the SLC records, you can just pass that deal ID and we just use the deal ID to map it map that signup click to the deal. We don't need to ne necessarily look up every single individual component to find the correct deal. Like that would be my preference because then it's it's a very controlled system, right? There's no there's no room for ambiguity uh because we're not looking at four different things to find the exact deal that uh click should map to because it's giving us the exact deal from the source.
+Emily Vandenberg: Okay. Yeah, let's We have to kind of nail a few things. I think that's where I'd like to get to, but I don't know if it'll it's like the right
+Kobi Kunasekaran: Yeah. Okay. Yeah.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Because like if I remember I remembered at least like the previous interface or uh either in like one of the demos or the videos that you shared, but in the CMS you had like a row for for the deal and then you had like a selector for each of the states that you want to enable which already kind of breaks the format, right?
+
+
+00:58:53
+
+Kobi Kunasekaran: Because in the Salesforce world, what we said was each deal uh for each state is going to be a separate deal. It's not a it's not a single deal for five states. So then you would like you need to make sure that you have a deal record for each of those unique combinations on your CMS as well.
+Emily Vandenberg: Okay, I think we have to take it away, but
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: understood.
+Kobi Kunasekaran: Okay. So, in the interim though, we're we're still good with moving forward with assuming that we're like in the study click links, we're going to send up send the makeup of a deal like the operator uh partner, market, vertical, that information. Okay,
+Emily Vandenberg: Yeah,
+Kobi Kunasekaran: cool.
+Emily Vandenberg: cool. Straw, do you have directions?
+Kobi Kunasekaran: This
+Emily Vandenberg: Just knowing you have to kind of carry the leg here.
+Strahinja Vladetic: Um, not I mean these Yeah, I think I'm okay so far these decisions
+Kobi Kunasekaran: one quick question for you on the back end. Um, in the old world, every I think there was like some dduplication rule where uh if somebody clicks on the same link
+
+
+01:00:06
+
+Strahinja Vladetic: like
+Kobi Kunasekaran: twice, I think you're only representing it as a single record or row in your database. Is that still the case with the new CMS or is is every click going to be like a separate row.
+Strahinja Vladetic: there should be some sort of guard against that is my understanding as well. Um I think that's being done by the play can server back end if it's being done at all.
+Kobi Kunasekaran: Okay.
+Strahinja Vladetic: So I'd have to explore what that looks like but uh that would my understanding is that would be our responsibility to not send you guys to do that through dduplication before it gets to Salesforce. Is that fair?
+Kobi Kunasekaran: Well, I I think we said that the we don't necessarily need the dduplication because um what we're doing here is each each time you do a like link
+Strahinja Vladetic: All right. It'll
+Kobi Kunasekaran: click like we're creating the record but we're rolling it up into the same
+Strahinja Vladetic: be
+Kobi Kunasekaran: signup record which is what reps are going to be interfacing with.
+Strahinja Vladetic: okay.
+
+
+01:01:16
+
+Kobi Kunasekaran: So this I I don't like the idea of like server side dduplication because then we could potentially misfle a real scenario that I think we're trying to build into is like day one they click the link but they don't go through with the referral uh or the sign up on the casino site and then a week later they come back and click through the same link. We don't want that to be treated as like a ddup and not have that second click sent to Salesforce.
+Strahinja Vladetic: No.
+Kobi Kunasekaran: We want that second click in Salesforce to know that they clicked it multiple times.
+Strahinja Vladetic: Okay. Okay. Even better. Okay. So,
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: you guys are just going to track all the all the clicks and then surface is probably the most recent one or whichever one is relevant.
+Kobi Kunasekaran: Yeah.
+Strahinja Vladetic: Okay.
+Kobi Kunasekaran: And the reason I asked that is if if that's the case then um I don't know if we've already explored this but uh you should get a unique ID for each click record that you're creating in Salesforce.
+
+
+01:02:11
+
+Kobi Kunasekaran: Uh, so Salesforce should send like a Salesforce ID like it it would be something like this that I'm highlighting the address bar.
+Strahinja Vladetic: on the up.
+Kobi Kunasekaran: Um, I would Yeah. And I would recommend storing that on the database.
+Strahinja Vladetic: Yeah.
+Kobi Kunasekaran: So then now you have a two-way lookup for troubleshooting. If the click click is missing in Salesforce, then we can see why. Um, if if it doesn't have an ID, then we can see why. Or if somebody accidentally deleted it or there was some processing issue on our end where you do have a Salesforce ID, but we can't find the record in Salesforce, we can troubleshoot why.
+Strahinja Vladetic: That makes
+Kobi Kunasekaran: Yeah. Okay.
+Strahinja Vladetic: sense.
+Kobi Kunasekaran: All right. I promise. I think that's it. That's all I have for now.
+Emily Vandenberg: Yeah, I think it's like let's just we'll obviously connect but like Kobe if there's anything as you're like looking now you see this like throw um questions into straw vice versa like if it's small enough that we can kind of go back and forth in the channel. If not, like we'll just book a sync as soon as we need to, but we'll look out for those kind of like documentations and spreadsheets that you're going to send
+Kobi Kunasekaran: Awesome.
+Emily Vandenberg: over.
+Kobi Kunasekaran: This is great. Thanks, guys.
+Emily Vandenberg: Cool.
+Kobi Kunasekaran: This is a huge milestone. I feel a lot better knowing that we're able to send this data over now. It's a big
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: risk.
+Emily Vandenberg: No,
+Strahinja Vladetic: That's looking Smooth.
+Emily Vandenberg: it's great.
+Strahinja Vladetic: Oddly smooth. Yeah, that's
+Emily Vandenberg: All right. Thanks,
+Kobi Kunasekaran: Awesome.
+Strahinja Vladetic: good.
+Emily Vandenberg: Tim.
+Kobi Kunasekaran: Have a good rest of the day, guys. Have a good weekend. Bye.
+Emily Vandenberg: Bye.
+
+
+Transcription ended after 01:36:16
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

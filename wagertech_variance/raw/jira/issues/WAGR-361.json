@@ -1,0 +1,189 @@
+{
+  "id": "10433",
+  "key": "WAGR-361",
+  "fields": {
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-07-30T16:45:57.051-0400",
+    "priority": {
+      "name": "Low",
+      "id": "4"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": null,
+    "updated": "2026-09-14T03:09:26.127-0400",
+    "status": {
+      "description": "The issue is open and ready for the assignee to start work on it.",
+      "name": "Open",
+      "id": "1",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "PARKED — fully additive. Nothing in the base build needs to change to accommodate it later.\n\nWhat the base build gives you: each deal carries its current sync status and the message from its most recent attempt. Salesforce field history will show THAT a deal moved in and out of Failed, but for LONG TEXT FIELDS IT DOES NOT RETAIN PREVIOUS VALUES. If a deal fails Monday with one error and again Thursday with a different one, Thursday overwrites Monday.\n\nDay to day that is fine — Ops needs to know what is broken now. It matters only for cross-time questions: which errors are most common, whether a particular operator's deals fail repeatedly, whether the failure rate changed after a CMS release, how long failures take to clear.\n\nProposed solution:\n\n* A dedicated integration error log object, DELIBERATELY GENERIC rather than deal-specific, so it serves any Salesforce object pushing to any external system\n\n* One record per attempt: source object and record, target system, direction, event type, outcome, HTTP status, request and response detail, timestamp, retry count\n\n* Retention policy so data does not accumulate indefinitely\n\n* A standard set of reports\n\nEffort 12-20h INDICATIVE ONLY — not scoped in detail; would be scoped as separate work. Grows in value as SF-CMS touchpoints increase beyond deal publishing.\n\nSource: CMS Integration Design v1, §4.5, D10.",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-108 — Generic integration error log (optional, ~12-20h)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "On Hold"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-214"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Deferred",
+          "id": "10032"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "2",
+          "id": "10084"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Nice to Have",
+          "id": "10042"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "Integration",
+          "id": "10056"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "CMS ↔ SF Integration",
+          "id": "10071"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217037404219379"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Story",
+          "id": "10075"
+        }
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002an:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "L (16-32 Hours)",
+          "id": "10044"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217037404219379"
+      }
+    }
+  }
+}

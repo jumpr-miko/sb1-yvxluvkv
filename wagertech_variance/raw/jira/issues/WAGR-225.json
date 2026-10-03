@@ -1,0 +1,224 @@
+{
+  "id": "10470",
+  "key": "WAGR-225",
+  "fields": {
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 0,
+      "isWatching": false
+    },
+    "created": "2026-08-10T22:46:56.246-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:32.756-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "Source: Kobi, 2026-08-11. Depends on BUILD-124 (Market_Country_Code\\__c / Market_State_Code_\\_c). Revises the Deal Name format set in BUILD-117.\n\n=== OBJECTIVE ===\n\nRebuild the two Deal label formulas to read Operator - Market - Vertical using the new market short-code fields, and collapse separators when a segment is blank.\n\nTwo changes from the previous format:\n\n1\\. Partner is REMOVED from the label (intentional - see Decisions below).\n\n2\\. Market is rendered from the short-code fields (ON · CA) instead of the full picklist names (Canada Ontario).\n\n=== DEFECT BEING FIXED ===\n\nBoth original formulas referenced Partner__r.Name and the market picklists WITHOUT blank guards. Any Deal with no Partner rendered a double separator and an orphaned space, e.g.:\n\nBet99 - - Canada Ontario - Casino\n\nThe new formulas guard every optional segment.\n\n=== FIELD 1: Deal_Name__c (Formula, Text) ===\n\nOriginal:\n\nOperator__r.Name\n\n& IF(ISBLANK(Partner__c), \"\",\n\n\" - \" & Partner__r.Name)\n\n& IF(TEXT(Market_Country__c) = \"\", \"\",\n\n\" - \" & TEXT(Market_Country__c) &\n\nIF(TEXT(Market_State\\__c) = \"\", \"\", \" \" & TEXT(Market_State_\\_c)))\n\n& IF(TEXT(Vertical__c) = \"\", \"\",\n\n\" - \" & TEXT(Vertical__c))\n\nNew:\n\nOperator__r.Name\n\n& IF(ISBLANK(Market_Country_Code__c), \"\",\n\n\" - \" & IF(Market_State_Code__c = \"Multi-state\",\n\nMarket_Country_Code__c & \" · Multi-state\",\n\nMarket_State_Code\\__c & \" · \" & Market_Country_Code_\\_c))\n\n& IF(ISPICKVAL(Vertical\\__c, \"\"), \"\", \" - \" & TEXT(Vertical_\\_c))\n\n=== FIELD 2: Deal__c (Formula, Text - hyperlink) ===\n\nOriginal:\n\nHYPERLINK( \"/\" & Id, Operator\\__r.Name & \" - \" & Partnerr.Name & \" - \" & TEXT(Market_Countryc) & \" \" & TEXT(Market_Statec) & \" - \" & TEXT(Vertical_\\_c), \"\\_self\" )\n\nNew:\n\nHYPERLINK(\"/\" & Id, Deal_Name__c, \"\\_self\")\n\nThis references Deal_Name__c rather than duplicating the logic, so the plain-text label and the hyperlink label can never drift. Confirmed to compile.\n\n=== EXPECTED OUTPUT ===\n\nOperator | Market Country | Market State | Vertical | Deal Name\n\nBet99 | Canada | Ontario | Casino | Bet99 - ON · CA - Casino\n\nBet99 | United States | Ohio | Sports | Bet99 - OH · US - Sports\n\nBet99 | United States | (blank) | Sports | Bet99 - US · Multi-state - Sports\n\nBet99 | (blank) | (blank) | Casino | Bet99 - Casino\n\n=== COMPILED-SIZE CONSTRAINT (important for anyone editing these) ===\n\nThe first attempt had Deal_Name\\__c reference Market_Displayc, which in turn references Market_State_Code_\\_c (a 69-branch CASE). Salesforce inlines referenced formula fields into one compiled expression, and this failed:\n\n\"Compiled formula is too big to execute (20,367 characters). Maximum size is 15,000 characters.\"\n\nResolved by having Deal_Name\\__c reference Market_State_Codec / Market_Country_Code_\\_c DIRECTLY and drop the flag emoji, which removed a nesting layer and brought it under 15,000.\n\nConsequence: there is limited headroom left. Do NOT add further nested formula references to Deal_Name\\__c or Dealc without re-running Check Syntax. If more headroom is ever needed, the fix is to sever the chain - either convert Market_State_Code_\\_c to a Text field populated by a before-save Flow, or rename the Market State picklist API values to the 2-letter codes so the 69-branch CASE disappears entirely.\n\n=== DECISIONS ===\n\n* Partner removed from the Deal label. Deliberate. Note the side effect: partner deals and Direct deals are no longer distinguishable by name alone, so reporting and list views must surface Partner as its own column. If this needs reversing, insert after Operator__r.Name:\n\n& IF(ISBLANK(Partner\\__c), \"\", \" - \" & Partner_\\_r.Name)\n\n* Flag emoji excluded from both label fields. The emoji lives only in the UI display field (BUILD-118). Keeps Deal Name clean for CSV export, email templates and any outbound CMS payload, and avoids the Windows no-flag-font rendering issue.\n\n* Separator is a middle dot ( · ) inside the market segment and a hyphen ( - ) between segments, so the market reads as one unit.\n\n=== ACCEPTANCE CRITERIA ===\n\n1\\. Both formulas pass Check Syntax and report compiled size under 15,000 characters.\n\n2\\. A Deal with no Partner renders no double separator and no orphaned space.\n\n3\\. A Deal with Market Country set and Market State blank renders \"US · Multi-state\".\n\n4\\. A Deal with Market Country blank renders Operator - Vertical only.\n\n5\\. Deal\\__c hyperlink navigates to the Deal record in the same tab and its label text matches Deal_Name_\\_c exactly.\n\n6\\. Deal list views (BUILD-119) and the Deal record page (BUILD-120) reflect the new label.\n\n=== OPEN QUESTION ===\n\nDeal_Name\\__c and Deal_\\_c now render identical strings - one as plain text, one as a hyperlink. Two adjacent columns showing the same text will read as a duplicate to reps. Decide before BUILD-119/BUILD-120 lock the layouts whether to keep both (HYPERLINK fields export as raw HTML and do not sort cleanly, which is the usual reason to keep a plain-text twin) or retire one.\n\n=== METADATA LOCATION ===\n\nforce-app/main/default/objects/Deal\\__c/fields/Deal_Name_\\_c.field-meta.xml\n\nforce-app/main/default/objects/Deal\\__c/fields/Deal_\\_c.field-meta.xml\n\n(Wagertech_Partial repo, partial sandbox)",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "BUILD-125 — Deal Name + Deal hyperlink: drop Partner, use market short codes (REVISES BUILD-117)",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Asana Original Assignee Name": {
+        "id": "customfield_10230",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Original Section": {
+        "id": "customfield_10231",
+        "value": "In Review"
+      },
+      "WAGR": {
+        "id": "customfield_10232",
+        "value": "WAGR-247"
+      },
+      "Asana Completed": {
+        "id": "customfield_10233",
+        "value": "false"
+      },
+      "Status": {
+        "id": "customfield_10234",
+        "value": {
+          "value": "Ready for Review",
+          "id": "10028"
+        }
+      },
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Phase": {
+        "id": "customfield_10235",
+        "value": {
+          "value": "1",
+          "id": "10083"
+        }
+      },
+      "MoSCoW": {
+        "id": "customfield_10225",
+        "value": {
+          "value": "Must Have",
+          "id": "10040"
+        }
+      },
+      "Work Type": {
+        "id": "customfield_10226",
+        "value": {
+          "value": "SF Config",
+          "id": "10052"
+        }
+      },
+      "Epic": {
+        "id": "customfield_10227",
+        "value": {
+          "value": "Deals & Rep Assignment",
+          "id": "10061"
+        }
+      },
+      "Asana Task URL": {
+        "id": "customfield_10228",
+        "value": "https://app.asana.com/1/1202721605677544/project/1215732799516730/task/1217353081830377"
+      },
+      "Item Type": {
+        "id": "customfield_10229",
+        "value": {
+          "value": "Task",
+          "id": "10077"
+        }
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002iv:"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      },
+      "Size": {
+        "id": "customfield_10237",
+        "value": {
+          "value": "XXS (1-2 Hours)",
+          "id": "10043"
+        }
+      },
+      "Asana Original Creator Name": {
+        "id": "customfield_10238",
+        "value": "Kobi Kunasekaran"
+      },
+      "Asana Task ID": {
+        "id": "customfield_10239",
+        "value": "1217353081830377"
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "10543",
+  "key": "WAGR-406",
+  "fields": {
+    "statuscategorychangedate": "2026-09-15T13:51:54.543-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-15T10:56:03.291-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:33.887-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nWagertech's notes ask to remove Recent Click Timestamp from the Player record, keep Deposit Date, and surface Sign Up Date and First Wager Date instead.\n\n## Current state\n\nBUILD-13 (WAGR-340) and BUILD-31 (WAGR-287) built Recent Click Timestamp on Sign-Up and rolled it up from the latest Study Link Click — currently visible on the Player record. BUILD-122 (WAGR-241) built First Wager Date on Sign-Up, and BUILD-242 (WAGR-164) added it to the Log Sign-Up popup. Deposit Date already exists and is not affected by this change.\n\n## Proposed solution\n\n1. Remove Recent Click Timestamp from the Player page layout (the underlying field/rollup on Sign-Up can stay — this is a Player-page display change).\n2. Surface Sign Up Date (the relevant Sign-Up's own date) and First Wager Date (BUILD-122) on the Player page in its place.\n3. Leave Deposit Date as-is.\n\n## Acceptance criteria\n\n1. Recent Click Timestamp no longer appears on the Player record page.\n2. Sign Up Date and First Wager Date are visible on the Player record page.\n3. Deposit Date is unchanged.\n\n## Dependencies\n\nDepends on BUILD-13 — Recent Click Timestamp field on Sign-Up (WAGR-340), BUILD-31 — Recent Click Timestamp rollup (WAGR-287), and BUILD-122 — First Wager Date field on Sign Up (WAGR-241).\n\n## Source\n\nWagertech Notes / Questions (Wagertech Notes section), Player record doc, reviewed Sep 2026: \"Remove Recent Click Timestamp, keep deposit date and surface Sign Up Date and First Wager Date.\" https://docs.google.com/document/d/1mp3b1qpJkzKNDztEQpdnv-BYCgUgDdXe5jLuJi-ix1U/edit?tab=t.0",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Player: Remove Recent Click Timestamp, Surface Sign Up Date and First Wager Date",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vi:zzi"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

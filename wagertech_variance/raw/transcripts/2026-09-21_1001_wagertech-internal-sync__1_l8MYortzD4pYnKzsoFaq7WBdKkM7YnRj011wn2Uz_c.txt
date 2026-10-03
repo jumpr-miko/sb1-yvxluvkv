@@ -1,0 +1,575 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech Internal Sync
+
+Sep 21, 2026
+Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+
+Layout updates and commercial terms discussions with currency default investigations
+
+CMS integration and commercial terms
+* Sandbox credentials for the CMS integration remain pending.
+* Commercial terms require a custom object implementation instead of inline fields.
+* Commercial terms are excluded from the scope of the CMS integration.
+
+
+Project scope and feature management
+* Phase 1 scope expanded beyond core pages to include automation and survey features.
+* Global actions and contact creation remain in the backlog as PLC items.
+* Kobi Kunasekaran emphasized realigning with the client on hard caps and billing impacts.
+
+
+Documentation and estimation practices
+* Taryn Reithofer created a draft ACTO discovery document using Claude.
+* Team members must time-box research spikes for complex requests before estimating effort.
+
+
+Next steps
+* [Cedrick Infantado] Update Field Layouts: Display the currency field on both operator and partner layouts.
+* [Taryn Reithofer] Clarify VAT Field: Message the client to confirm which VAT field should be exposed on the layouts.
+* [Cedrick Infantado] Investigate Currency Logic: Review the SLC processing flow to determine what is driving the player field currency.
+* [Taryn Reithofer] Consolidate Blockers: Create a list of all outstanding items blocking progress on record pages to discuss with the client tomorrow.
+* [Taryn Reithofer] Confirm Assignments: Confirm the ability to deal and the dealer rep assignment records.
+* [Kobi Kunasekaran, Taryn Reithofer] Plan Redeposits: Sync to evaluate information regarding redeposit requirements and translate them into design user stories.
+* [The group] Draft release notes: Compile summaries of team accomplishments to help maintain context across meetings. Use project cards and conversation histories to build these summaries.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 21, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran
+Attachments Wagertech Internal Sync WagerTech Redeposit — Requirements & Open Questions
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Layout updates and commercial terms discussions with currency default investigations
+
+Wager Tech Layout Updates
+Currency and payment term fields confirmed. VAT field issue pending clarification.
+
+Player Currency Investigation
+Investigation of default currency assigned to staff. System processing flow review initiated.
+
+Phase One Scope Management
+Optional features deprioritized to prevent scope expansion. Core deliverables prioritized.
+
+
+Decisions
+Aligned
+* Payment terms display on layouts The payment terms field will be displayed on both operator and partner layouts.
+* Custom object for commercial terms The commercial terms will be implemented as a custom object rather than inline.
+* Deprioritization of optional operator features Optional operator features like global actions and contact creation are deprioritized and kept in the backlog.
+
+
+
+Next steps
+* [Cedrick Infantado] Update Field Layouts: Display the currency field on both operator and partner layouts.
+* [Taryn Reithofer] Clarify VAT Field: Message the client to confirm which VAT field should be exposed on the layouts.
+* [Cedrick Infantado] Investigate Currency Logic: Review the SLC processing flow to determine what is driving the player field currency.
+* [Taryn Reithofer] Consolidate Blockers: Create a list of all outstanding items blocking progress on record pages to discuss with the client tomorrow.
+* [Taryn Reithofer] Confirm Assignments: Confirm the ability to deal and the dealer rep assignment records.
+* [Kobi Kunasekaran, Taryn Reithofer] Plan Redeposits: Sync to evaluate information regarding redeposit requirements and translate them into design user stories.
+* [The group] Draft release notes: Compile summaries of team accomplishments to help maintain context across meetings. Use project cards and conversation histories to build these summaries.
+
+
+
+Details
+* Wager Tech Layout Field Updates: Cedrick Infantado raised questions regarding field formats and layouts for Wager Tech. Kobi Kunasekaran and Taryn Reithofer confirmed that currency fields should utilize the Currency IO standard field format for both operator and partner user screens (00:04:10). Additionally, Taryn Reithofer confirmed that payment term fields must be displayed on both the operator and partner layouts (00:05:18). Regarding a duplicate VAT field issue involving `tax GST V ID` and `tax VAT ID` as requested in Wager Tech's mockup, Taryn Reithofer agreed to message Wager Tech to confirm which specific field should be exposed (00:06:43).
+* Commercial Terms Custom Object Implementation: Kobi Kunasekaran assigned the commercial terms configuration to Cedrick Infantado, noting it requires a custom object because sandbox credentials for the Content Management System integration are not yet available (00:07:46). Kobi Kunasekaran stated that even without full testing credentials, Cedrick Infantado can begin building based on the structured documentation (00:08:49). Taryn Reithofer noted that a document determining deal fields to be snapshotted on sign-up completion was created and aligned with Wager Tech (00:33:23). Kobi Kunasekaran planned to provide a final check-in to Wager Tech regarding the commercial terms process utilizing a custom object rather than an inline setup (00:34:35).
+* Player Currency Default Investigation: Taryn Reithofer investigated why all player record pages defaulted to Canadian Dollars with signup currency, raising ticket numbers Wager 404 and Wager 413. Kobi Kunasekaran reassigned this investigation to Cedrick Infantado to help them become familiar with Salesforce connection flows. Cedrick Infantado was tasked with reviewing the system processing flow, specifically the single-sign-on processing flow, to determine what drives the currency on player fields (00:11:21). Kobi Kunasekaran agreed to share original design diagrams and historical context documents to assist Cedrick Infantado with the analysis (00:12:52).
+
+
+* Player Page Backlog and Outstanding Items: Taryn Reithofer discussed the status of player page backlog items. Taryn Reithofer noted they are still waiting for a response from Emily regarding the fraud flag and link email banner for player records, and planned to bump the request again (00:15:43). Kobi Kunasekaran suggested structuring upcoming meetings to cover blocking items upfront (00:17:02). Taryn Reithofer confirmed that the only remaining items in the player page backlog are related to redeposits and payouts (00:18:09).
+* Operator and Partner Backlog and Scope Management: Taryn Reithofer reviewed operator and partner backlog items, noting that a quick global action and custom associated contact creation during operator creation are being kept on the side as nice-to-have features. Kobi Kunasekaran advised deprioritizing these optional items and treating the global action button as a proof of concept to prevent unnecessary scope expansion beyond phase one (00:18:58) (00:22:21). Kobi Kunasekaran highlighted that client requests, such as newly added survey requirements, have blurred the lines of phase one scope, necessitating a clear separation of optional enhancements from core deliverables (00:20:18).
+* Utilization Hours, Billable Research, and Client Management Guidelines: Kobi Kunasekaran addressed time tracking and timesheet reports, noting they were a couple of weeks behind on reporting and would share updates once finalized. Kobi Kunasekaran explained that while there is no strict upper-bound service-level agreement currently in place, they need to clarify how additional client requests impact allotted hours (00:23:22). Providing guidance on product management, Kobi Kunasekaran advised Taryn Reithofer not to solution client requests on the spot, but rather to gather requirements, consult the internal team, and communicate any billable research spikes transparently to the client in advance (00:27:50).
+
+
+* Finalizing Phase One Pages and Preparing for Tomorrow's Client Meeting: Taryn Reithofer confirmed they are reviewing dealer rep assignment records and other phase one pages to ensure completion. Kobi Kunasekaran and Taryn Reithofer discussed compiling a comprehensive list of all open items, pending client feedback from Emily on referral pages, and unfinished backlog tasks to review during the upcoming meeting with Wager Tech (00:35:55). Kobi Kunasekaran emphasized closing out all initial phase one deliverables so that any new requests, such as survey integrations, can be tracked distinctly as net-new features (00:36:49).
+* Weekly Goals for Content Management System Integration and Redeposits: Kobi Kunasekaran outlined weekly goals, instructing Cedrick Infantado to begin designing the Content Management System integration using the specification document provided by straw once current tasks are complete. Taryn Reithofer shared the redeposits requirements document—drafted using Claude and targeting brand managers—to help break down features into user stories before Kobi Kunasekaran's upcoming vacation (00:37:58). Finally, Kobi Kunasekaran and Taryn Reithofer emphasized the importance of maintaining release notes and documentation to retain project context across meetings (00:42:08).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 21, 2026
+Wagertech Internal Sync - Transcript
+00:00:26
+
+Taryn Reithofer: Did I do that? Hello.
+Kobi Kunasekaran: Good morning. How you doing?
+Taryn Reithofer: Good. How are you doing?
+Kobi Kunasekaran: I'm doing all right.
+Taryn Reithofer: Yeah, I uh I don't know if you saw, but I threw in um just an hour meeting the day before you leave on your vacation just so we can go through anything
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: outstanding.
+Kobi Kunasekaran: Sounds good. Still have a couple Is it next week?
+Taryn Reithofer: No,
+Kobi Kunasekaran: I'm losing track,
+Taryn Reithofer: be a couple weeks from now.
+Kobi Kunasekaran: guys. Couple weeks. Okay. Scared me a little bit. I'm like,
+Taryn Reithofer: No,
+Kobi Kunasekaran: I'm not ready to go on vacation yet.
+Taryn Reithofer: no. Do you do you have everything planned?
+Kobi Kunasekaran: I just finished booking our accommodations like last night. So, we're yeah,
+Taryn Reithofer: Nice.
+Kobi Kunasekaran: still have to book uh car rentals and and have a pretty good itinerary going. Uh but yeah, so still a lot of work to do.
+Taryn Reithofer: Yeah.
+
+
+00:01:50
+
+Taryn Reithofer: Where exactly are you going?
+Kobi Kunasekaran: Um going to Croatia and Bosnia, doing like a little road trip around with new
+Taryn Reithofer: Nice.
+Kobi Kunasekaran: countries we haven't been before. So,
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: it'll be fun.
+Taryn Reithofer: Mhm. It'll be nice. It's not going to be too hot.
+Kobi Kunasekaran: It's supposed to be like shoulder season, like just just outside of uh the busy season. So, hopefully that makes things, you know, less crowded and uh not as bad. So, but it is supposed to be colder because of that. So,
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: I don't think we're doing too many beaches anyway. So, should be fine.
+Taryn Reithofer: it's okay.
+Kobi Kunasekaran: All right. How's uh how's everyone's weekends?
+Taryn Reithofer: Goody, but good.
+Kobi Kunasekaran: Everyone went well.
+Taryn Reithofer: Yeah. Yeah, it went well. My sister was late late to her own party, so that was kind of annoying. But other than that, it was good.
+Kobi Kunasekaran: How about you, S?
+Cedrick Infantado: Yeah, for me.
+
+
+00:02:59
+
+Cedrick Infantado: Um. Yeah, we just go to um or we just drove to a mountain this weekend. So, so that we could just enjoy the nature. So, and then after that we just go home. So, we just uh sit there and watch the bird birds fly the trees into the
+Kobi Kunasekaran: Nice.
+Cedrick Infantado: air something like that. Yeah.
+Kobi Kunasekaran: Nice. I'm jealous. I feel like we've uh started to get cold weather here already. Like I had to go out with like a like couple layers this morning to walk the dogs. Like is it that time already?
+Taryn Reithofer: It was chilling. Yeah.
+Cedrick Infantado: Y it's getting colder right make
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Mhm.
+Cedrick Infantado: I am but here it rained one and a half months so first weekend that's that's the sun shows up. So we just enjoyed.
+Kobi Kunasekaran: Yeah, that's true. I guess I guess you got to take what you get.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Um, okay. Let's let's dive into it.
+
+
+00:04:10
+
+Kobi Kunasekaran: I we have a meeting following this one with W Tech. I want to do a little bit of prep um because it's been a while since uh we talked to them. So, kind of have to remember what we talked about last week. Um but let's go through what's on your plates and uh what our goals are for this week. We're going to try to wrap up. Um and um and yeah, we'll we'll start with that. and uh see where else uh I I can unblock you. Who wants to go first?
+Cedrick Infantado: Yeah. Uh for I'll go first. Uh for me, I have 411. So um I I left a question last week about the format of the fields and um I think one of uh t uh tar confirm is that uh it should be the currency Io standard field uh that should be shown on the screen for the user. So um if that's not fixed I will um go on and replace that one and show it for both uh operator and partner or am I or is that right partner?
+
+
+00:05:18
+
+Kobi Kunasekaran: Mhm.
+Cedrick Infantado: So I just show that up to both layouts. Um I think I have another question for that um the payment terms. Um so I just want to confirm whether which one is the um is the right I'm not sure if the term is correct um which one should I follow um for these two because um they have two different layouts but I think every field on on the billing address should be the same for for both.
+Kobi Kunasekaran: I think so as well. Um Taran, were you able confirm with their mockup what uh like if the payment term should be on both. Like the answer is yes.
+Cedrick Infantado: Yeah, I'm imagining the same because we're having the same fields on the junction object. So,
+Taryn Reithofer: Let me just delete direct Um, are you asking about like the the order of the fields or just what should be
+Kobi Kunasekaran: No,
+Taryn Reithofer: showing?
+Kobi Kunasekaran: just the payment terms field itself like if it should be on both operator and partner or was
+Taryn Reithofer: Yeah.
+
+
+00:06:43
+
+Kobi Kunasekaran: there a reason why it's not on the other one?
+Taryn Reithofer: Uh, no, there's they're both on it. Uh, they both should be on there.
+Kobi Kunasekaran: Okay. So, oh wait, we might just missed that then. So,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: go ahead and like make it like display for both. Should be okay.
+Cedrick Infantado: Okay. Okay.
+Taryn Reithofer: Mhm.
+Cedrick Infantado: And I I'll just check the VAT field. I think uh there's a duplicate field on that. So uh let's decide on which one should we expose. This one is tax GST V ID.
+Kobi Kunasekaran: That's fun.
+Cedrick Infantado: The other one is tax VAT ID.
+Taryn Reithofer: Yeah, that's what they had exactly on their mockup. So, I don't know if that is an error on their end when requesting it or if there's I don't know something about the GST that applies to one and not the other.
+Kobi Kunasekaran: I think it's similar enough that it should be the same one. So maybe like can we just shoot them a message?
+
+
+00:07:46
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Just do a quick confirm. But I don't see a reason why you wouldn't have the same field on both.
+Taryn Reithofer: Okay, I can do that right now. Taryn,
+Kobi Kunasekaran: I'm feeling like they just uh they just didn't like when they did the mockup it probably just got missed. It was over anyways. So
+Taryn Reithofer: I'll do that right now.
+Cedrick Infantado: Yeah. Um I think um that's the only thing for me after that. So it's uh small changes. So probably done it in less than one hour on my end. So right now I don't have anything on my bucket. So Kobe, if you have anything for me, I just put it on my bucket. So I'll start tracking them.
+Kobi Kunasekaran: Okay. Yeah, I do have the commercial terms one. Um, but it's still rough though. So, uh, let me see if I can wrap it up after this call and assign them over to you.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: That's going to be a custom object because we still don't have the sandbox.
+
+
+00:08:49
+
+Kobi Kunasekaran: uh credentials yet for the CMS integration. Um, if I don't get back to you on the commercial terms,
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: um, I would say like look through the updated documents. that straw samp um and uh let me know if there's anything that we can get started on the build for that. In the meantime,
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: I know we won't be able to test until we get the proper like the full credentials, but I think in terms of the structure and everything, it looks like it's mostly there. So, we should be able to get started on like the design from our side.
+Cedrick Infantado: Okay, got that done.
+Kobi Kunasekaran: Awesome. Um Okay. And then the relationships and everything that we built last week. Um so Taran like this week maybe uh you and I let's sync up and put together like a release notes for everything that uh Cedric worked on last week about like with related to the whole partner and operator.
+Taryn Reithofer: Hello.
+Kobi Kunasekaran: Actually maybe we should wait until because you also have some action items from here, right?
+
+
+00:09:52
+
+Kobi Kunasekaran: Um so to like do the same thing on the partner side. So once those are done, um I'll leave it to you to like communicate the uh the changes to wager tech. So like you know what's been added um what that looks like and we can talk through what that messaging could look like before you send it out to them.
+Taryn Reithofer: this.
+Kobi Kunasekaran: Okay. So that brings us to you Taran. What do you what did you have for last week? And uh what do you have going on to see?
+Taryn Reithofer: Okay. Last week, um I was doing the actto um I was putting together a document um in uh confluence um coming out of the ACTO uh discovery call. It's still a draft, but I made a folder um under our um what is it called? Jumper knowledge base. Um and then a folder in actto called discovery. And that's where that document is. I just built it with claude so far. I haven't actually gone through it all and you know cleaned it up and made it less clotty.
+
+
+00:11:21
+
+Taryn Reithofer: Um, but it's there if you want to take a look, if you are curious. Um, and then what else did I do? Um, uh, wager 404 and 413. Um, it was that message that I sent to you about the player record page and I was investigating if all players or why all players are defaulting to um CAD with the um signup currency, whether that was um something that I did wrong or if that was just like just the nature of the data that we had in Salesforce already.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Um is
+Kobi Kunasekaran: Oh, you created a followup for this, right? Actually, you know, let's let's assign this over to Cedric.
+Taryn Reithofer: it
+Kobi Kunasekaran: This is a good one. So, Cedric, you can get familiar with the seat flows. Um, so if there are changes, uh, you can help like update them as well. Um so essentially like the the task is to just review the SLC flow. Um so there's a flow that triggers I think it's just called SLC processing flow uh if I'm not mistaken.
+
+
+00:12:52
+
+Kobi Kunasekaran: Um so just take a look and if you can confirm what is driving the currency on the player field on that flow.
+Cedrick Infantado: Okay. So, do we have any documentation for the SLC or should I investigate it based on the flow on how the automation works?
+Kobi Kunasekaran: Um, we have the original like I have a couple of diagrams that show um what it was supposed to like how it was initially designed. Um, I think the underlying behaviors are more or less the same. Um yeah, let me send that over to you. Uh it's been updated though, so might need I don't I don't know if it makes sense first update,
+Cedrick Infantado: That's fine. I I I I just did the baseline then I'll just
+Kobi Kunasekaran: but
+Cedrick Infantado: check what what has changed based on the flow.
+Kobi Kunasekaran: yeah. So I think this this is the one that we created initially to kind of talk through the behavior and for the most part this is still accurate. like maybe not the specific fields and stuff because some of those we've changed.
+
+
+00:14:04
+
+Kobi Kunasekaran: Um, but for the most part like the behavior of like how it talks to the how CMS talks back to uh Salesforce and everything is more or less the same. So this should still be relevant. Um, so I will share the silver and then you can look at the flow to see how the rest works. It's pretty straightforward.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Uh trust some reason my slot is okay. There might be uh I think there might be some like design document as well but I'll have to look through to see what we have and what stage it's at.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Yeah, we have a spec, but I don't I don't know if it's relevant. Like I think I think you're better off just looking at the looking through the flow and you you kind of see what what's going on within Bridgeer.
+Cedrick Infantado: Okay, sure.
+Kobi Kunasekaran: like all all it's doing is like as the payloads are coming in from uh from the CMS, it's creating the SLC records and the processing flow is getting triggered off of those SLC record creation and creating a signup record, a player record based on certain conditions.
+
+
+00:15:43
+
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Yeah. Um so take a look. Um but yeah, if we if we ever do need to work on the actual flow itself and like you know change fields or anything like that there I do have a design document. Uh again I think it might be we might have changed some of the things since that document but uh it might still be helpful if you need some historical context.
+Cedrick Infantado: Okay, sure. I'll check that on the flow first and let you know if I need any further equipment on that.
+Kobi Kunasekaran: Okay. So I will sign this over to you and this is in our current sprint. Okay. All right. Um sorry Taryn. Let's continue. So that one is blocking the um it's just blocking some of the feedback clarifications from the player page, right?
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Okay. Is there any other work left for the player page?
+Taryn Reithofer: Good question. So, I'm just re filtering my sprint view. Um, still waiting on on Emily to respond about the fraud flag and link email banner for player.
+
+
+00:17:02
+
+Taryn Reithofer: Um,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: but I bumped it again. Um, let's see if she responds. If not, then I'll have to bring it up in our meeting when it's an
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: appropriate time to do that. I feel like in our meetings there's not like a natural jump in point for like outstanding items that like are not necessarily on the agenda to talk about.
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: Um maybe go
+Kobi Kunasekaran: I think we we can try to restructure it a little bit.
+Taryn Reithofer: ahead
+Kobi Kunasekaran: Usually like if there's something that's blocking us from any like major build, um we try to cover those outstanding items up front. uh unless like there's like some higher priority process or anything that we need to get through. So I think the last couple of syncs it's been like get moving the CMS integration along. So we kind of focused on that.
+Taryn Reithofer: ever.
+Kobi Kunasekaran: Um but since we are meeting them today, Okay. Um I don't know if I don't recall if we have to like talk through any of those like any of those other items tomorrow.
+
+
+00:18:09
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: So we could um if you want to put together like a list of open uh items that are like basically blocking us. Um we can go through those tomorrow as like the first thing.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: And usually like you just share that with Emily first and she might be able to just power through it today if she has time. But if not, yeah, like whatever is left, we can just talk to them tomorrow.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: That's the first thing.
+Taryn Reithofer: Yeah. Okay, cool. Sounds good. Uh, and then for a player page, the only thing that's left in the backlog is just the redeposits and payouts related.
+Kobi Kunasekaran: Okay. So then that one's good. What about for operator and partner?
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Is there anything else?
+Taryn Reithofer: Um uh for operator and my backlog. I just have that um quick global action thing that you said to just keep on the side for uh for a nice to have if we have extra
+
+
+00:18:58
+
+Kobi Kunasekaran: Yeah, dep prioritize that.
+Taryn Reithofer: time. Um and then I have um create associated contact in line during operator creation. That was the also the feedback that she had where she um wanted like a custom thing.
+Kobi Kunasekaran: Custom thing.
+Taryn Reithofer: So that that that's on the side as well. Um that's in my backlog. In terms of an actual um in the sprint itself, I just have the another just one outstanding question that that will bring up tomorrow if she doesn't get to today. Um other than that, that's good for the operator. Well, other than, you know, the the thing that we're working on right now with direct billing.
+Kobi Kunasekaran: Uh oh yeah okay. So yeah the the the nice to haves like the operator like the quick way uh sorry the global action and the contact creation. Let's keep that in the backlog for now. Um I don't want to prioritize it.
+Taryn Reithofer: What
+Kobi Kunasekaran: I think we need to let them know like what the effort and impact would be before we uh add that in. Um like they want to be able to see um like from Emily's question of the uh Thursday or Friday, they want to see like the hours for phase one, but we're kind of like blurring the line on phase one.
+
+
+00:20:18
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: They just keep adding and just I just saw the message this morning they want to add like more survey
+Taryn Reithofer: Yeah, I saw that. I was like,
+Kobi Kunasekaran: things.
+Taryn Reithofer: "Oh,
+Kobi Kunasekaran: So yeah,
+Taryn Reithofer: that's a lot."
+Kobi Kunasekaran: and like we have to talk about design for that. And so we've gone from like phase one to like I don't even know what phase we're at anymore.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So um I want to keep all the optional stuff separate and call it out separately so that we can we we can close off anything that's technically was initially part of phase one as phase one and then move on.
+Taryn Reithofer: It's fine.
+Kobi Kunasekaran: So,
+Taryn Reithofer: Did you
+Kobi Kunasekaran: this whole like partner relationship even that's like I think technically is an like an enhancement to what the original designs were, but um like I I'll let them know about that and we'll close it off. Um, but I don't like I want to make sure that there's nothing else that's still waiting for us from our initial design or feedback.
+
+
+00:21:11
+
+Taryn Reithofer: Yeah. Is there like um do do you have a list or like I don't know some sort of reference on what was in the for the initial phase phase one cuz I myself I don't know where it ends and stops right now to like keep track of of everything.
+Kobi Kunasekaran: Yeah, it's it's been pretty blurry. Um, we had the phase one user stories. I haven't like looked at that in ages, but um that's what I get plot to refer back to. Um, but mo like it's mostly just like those core pages, right? Like the deal page, the uh no like the main deal page,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: um the operator page, uh operator partner, refer player, like all of those uh page layouts and uh experiences and the signup blogging experience. So that was technically all of phase one,
+Taryn Reithofer: Nice.
+Kobi Kunasekaran: but then even within those like we've added like the band logic, we've added the reactivation logic, we've added a whole bunch of automation. So we kind of went from just a simple phase one to something far more complicated.
+
+
+00:22:21
+
+Kobi Kunasekaran: So, I'll I'll need to close that off. But, uh, yeah,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: that's all I played for today.
+Taryn Reithofer: Okay. Um, going back to those two nice to haves that's sitting in the backlog. I before we me and you discussed those nice to haves as as to wait on those. I had already created the global action button. Do you want me to like deactivate it or like get rid of it?
+Kobi Kunasekaran: Uh no I would just treat it as a PLC um and just call it as that.
+Taryn Reithofer: Okay. Okay.
+Kobi Kunasekaran: So that way like we don't spend any more time until um we are able to allocate the time to spend on it right.
+Taryn Reithofer: Yes. Yes.
+Kobi Kunasekaran: So it's more hey you asked for this like this is what we were able to build uh in like whatever time. Um but if you want to expand on it you know add more fields and everything that it's going to it's going to take more effort.
+Taryn Reithofer: Yes.
+
+
+00:23:22
+
+Taryn Reithofer: um for our utilization hours and you know the monthly agreement or SLA or whatever we call it for them. Are we like where are we sitting with it all?
+Kobi Kunasekaran: Uh, I will let you know as soon as I wrap up the time sheet reports.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Yeah, I'm still a couple weeks behind. So, um, I'll I need to double check. Uh but uh we don't like right now I think that's the thing like we don't necessarily have like a ongoing um SLA like uh like after where it's like 32 to our a month or something like that, right? So, that's what makes it a bit difficult and like when they keep asking for things like I'm happy to take it on. So far, they haven't pushed back on the hours that we've built, but it looks like they want to be able to see the difference of like what's being added and uh how that's impacting the hours. I do try to include that in the like when Claude puts together the time sheet, I try to break it down.
+
+
+00:24:25
+
+Kobi Kunasekaran: Um, but it I I think she's she wants to see a little bit more like uh explicitly. So, yeah, I'll see what I can do. There used to be a chart as well that used to show phase one versus like phase two and everything. I removed it in the last instance because like it didn't make any sense anymore because we're way past phase one. But, uh, yeah, I I'll do the reports and I'll I'll I'll share a link. This is like at least a couple weeks old. This the last one I sent.
+Taryn Reithofer: Do we ever like if you notice that we're encroaching on the allotted hours or or budget that they have what like what does that converation look like? Would that be me facilitating once I take that over or will it still be with you?
+Kobi Kunasekaran: Um, I think it'll be it'll be us like it'll be up to you to try to stay within whatever the budgeted hours would be. Um, but again, we don't necessarily have like a strict upper bound yet.
+
+
+00:25:44
+
+Kobi Kunasekaran: So that's something to like clarify with them on how these additional things like how they want those reflected in the hours. Um and then if we can come to an agreement on what like what the hard cap should be then maybe we can try to stay within it.
+Taryn Reithofer: Okay. Yeah. because I think it would be easier to well I guess you have said to not question everything but to you know relay to them that yes that we it is feasible but it's got to be you know a lot to build so that'll accumulate on the hours
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: but I think if I could see the numbers building to the limit that they have it would be easier to gauge,
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: you know.
+Kobi Kunasekaran: I think it might be a good like conversation to have with them like to reset. This is something like Wal brought up a few weeks ago, right? And we were supposed to like they were supposed to come back with like, okay, what else do they want? And then we were supposed to kind of align on what the next items is and then we never did that.
+
+
+00:26:47
+
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Uh,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: and then we dove straight into like the CMS integration and then now redeposit. So, um, we do need to like take a step back and realign at on what else is needed. Um,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: so you can try to do that before uh before I go off so that uh like essentially like even as they ask for new things, you'll notice like I I generally try to push back on anything like that's nice to have or that we already have a solution for and let them know what the current solution is and tell them that it's going to be more effort to do what they're asking for. um and let them decide and if they decide they want it then like yeah we'll do it right but uh we don't just blindly build what they ask for um cuz it is our job to be their adviser too right you have to tell them like if it makes sense or not
+Taryn Reithofer: Yeah. I think I think for me it's a little bit difficult to gauge on still on how long things would take.
+
+
+00:27:50
+
+Taryn Reithofer: Like now I have a little bit of a better understanding, but um like I wouldn't I don't think at this point I would be able to say how long an estimate would take for a more complicated um request.
+Kobi Kunasekaran: Yeah, and that's okay, right? That's where like you lead on the team. So, you bring the requirement back to the team and you just check in uh maybe and be like,"Hey, this is what they're looking for. Uh what are our options?" and whoever like between like me, Cedric W, uh, Miko or whoever is in the group can give you like a rough idea of what that
+Taryn Reithofer: Okay. So,
+Kobi Kunasekaran: is.
+Taryn Reithofer: I I guess I'll just like have to um uh like think of a a few oneliners to say to um kind of hold on and capture their thought and then bring it back to them later. Like for me,
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: not to problem solve right on the spot.
+Kobi Kunasekaran: Yeah. Yeah, like what you want to do is gather the requirements though.
+
+
+00:28:47
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So you want to ask all the right questions to like understand what they're trying to do, where they're trying to do it, is there like an alternative right now, what their current processes like again product management stuff, right? Like you're trying to understand what's there currently.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Um so you still want to ask those questions. Um, so generally like you don't spend more than like uh 15 20 minutes maybe in a call to dive in unless it's like something really complicated and like redeposits obviously like it's multiple calls for for a
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: reason, right? It's a whole new process and everything but generally like yeah if they ask for things you just ask ask questions back to them and then because you want to you avoid the back and forth with the engineering team and them uh offline. So try to get as much as you can. There's still going to be instances where you're going to have to go back and ask questions and clarify, but uh you don't necessarily have to give them a solution right away.
+
+
+00:29:40
+
+Kobi Kunasekaran: Um usually I'll just be like,"Okay,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: let me let me check with the team and get back to you." Um because we'll have to see, you know, what what this looks like for what what our options are from a technical perspective.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So um that usually is fine.
+Taryn Reithofer: Yeah. I think I'm just um I'm forgetting that that's an option because um I'm like trying to learn from what you're doing in the meetings, but what you're doing is is solutioning on the spot. So some days I'm like,"Oh s***, like am I expected to do this?" But then I forget.
+Kobi Kunasekaran: No, no. Yeah,
+Taryn Reithofer: And I know that you've explained it to me a bunch of times that I don't.
+Kobi Kunasekaran: don't you don't have to do Yeah, you don't have to do what I do cuz when I started I um that's exactly what I used to do though. it it is like you know I I didn't know all the estimates like how long certain things would take so I would I would be like
+
+
+00:30:27
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: yeah let me check with the team and get back to you and uh sometimes we have to do investigation we have to do some like research spike to understand what our options are too so those you would like time box those right so obviously we don't want to spend
+Taryn Reithofer: And then again,
+Kobi Kunasekaran: like six hours to do an investigation and a followup so you can be like okay we can spend like half an hour an hour two hours depending on how complicated it is to come up with options And then from there we can estimate the actual effort to build. Um so something that's like more complicated those uh that's what you would let the client know and then you just work with the rest of the team to get back on next
+Taryn Reithofer: And all of that is fillable.
+Kobi Kunasekaran: steps. All of that is billable. Yeah.
+Taryn Reithofer: Nice.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Like as long as they know that you know we're going to do a research spike for an hour that that's fine.
+
+
+00:31:16
+
+Kobi Kunasekaran: But if we don't let them know and then we're spending like two, three hours trying to figure out a solution before getting back to them on an effort, they might not like that when they see that on a time sheet. So that's why like yeah,
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: transparency.
+Taryn Reithofer: you tell them in advance how long.
+Kobi Kunasekaran: Mhm. If like if we don't know like sometimes we don't know like they might ask to implement a new tool. Um honestly like just be honest, right? Like we've never done it before or I've never done it before but I know uh like Nico has worked on it. So, um, oh, let me go back and check in with him and then I can get back to you on solutions. That's honestly like that's how we learn. Like they don't expect us to know everything and like we're not going to we're not going to be able
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: to know everything under the sun with Salesforce and revenue operations in general. Like there are so many tools that keep popping up and while the skills are transferable, right?
+
+
+00:32:05
+
+Kobi Kunasekaran: Like if you set up like one building agent pool, all of the other ones have similar concepts. They're we're pretty close, but they all have their nuances and uh and stuff that we need to investigate. So, um we don't need to pretend like we know everything. Um just be honest and let them know.
+Taryn Reithofer: Yeah. Yeah. I just have Yeah.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Got big shoes to fill in.
+Kobi Kunasekaran: Yeah.
+Taryn Reithofer: Okay. Okay. Going back to the back the jarboard. Um, uh, so those are the the the questions I have for player and operator. Once I have those back from Emily, I'll be able to close out everything that I have on my end for those record pages. I sent that um question Cedric for the um, field naming conventions already. Soap. I say seed you so you'll be able to see the response as well right away. And then um oh um for um wager 106 Kobe the decision with the um commercial terms you said to attach the um documents and then to close out the ticket itself.
+
+
+00:33:23
+
+Taryn Reithofer: Was it just the um um document that I had made and then what else did I attach? Um the bigger like web hook deals web hook document. Was there any other document you were referring to?
+Kobi Kunasekaran: Uh what's this question? Which deal fields must be snapshotted on a sign up at completion? Uh this was the document that you created that we aligned with them on what the what they needed.
+Taryn Reithofer: Okay. So,
+Kobi Kunasekaran: I don't think Yeah,
+Taryn Reithofer: it's good now.
+Kobi Kunasekaran: I think we should be good. I don't think there's anything open from that one. Um I think we kind of already made the decision that it's going to be a like a separate object. Um that's the one that like I am I need to wrap the drafts for Cedric. But yeah, we we kind of made the decision that it's not going to be uh this inline into the thing. It's just going to be a custom object. Um, but I think this is I also wanted to like get the explicit thumbs up on the process.
+
+
+00:34:35
+
+Taryn Reithofer: Oh, did we
+Kobi Kunasekaran: So I shared on the slide deck that walks them through what the solution is, but they never really said anything about it. Um, and then we moved on to talk about the CMS integration and uh, we agreed that we don't need the commercial terms on the CMS uh, integration. So, I'm just going to like do like a a check with them tomorrow in our call. Um, just let them know this is what we're going to move forward with. Um, but I I think it should be fine. I don't see any objections on what we've proposed based on what the requirements were. Okay. So, that's for commercial terms. So that redesign is going to hold us back a little bit on the deal pages. Um but aside from that, uh when it comes to operator, partner, player, refer, and VA, um it sounds like we've taken care of 90% of like the the MASA feedback, right? If not more.
+Taryn Reithofer: Yes. Um,
+Kobi Kunasekaran: Okay.
+
+
+00:35:55
+
+Taryn Reithofer: I just have one BA thing to do today. It was confirming his ability to Deal and dealer rep assignment records
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: on that. Yes.
+Kobi Kunasekaran: Can you can you go through all those pages and like um if there's anything still outstanding um can you make that list so we can go through it with them tomorrow and close it off. If there's anything outstanding on our side, um like obviously let's let's sync up uh either today or tomorrow in our uh standups to make sure that we have an action plan. That way we can close this off this this week.
+Taryn Reithofer: You mean things that we're waiting on them for?
+Kobi Kunasekaran: Then we both Yeah. Like things that were waiting on them and then things that is still like maybe still stuck in the backlog, waiting on me. Um or uh in Yeah. in our in our backlog of things that we haven't like picked up or just forgot about.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Just want to make sure we close off anything outstanding so we can say that those pages are done.
+
+
+00:36:49
+
+Taryn Reithofer: All the pages.
+Kobi Kunasekaran: All of those pages. Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: And then that way anything new that they ask for it's it's new. We track it as net new including like the whole new survey thing that they ask for, right? Like that's going to be a new feature.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay. Um, yeah, if there's anything open that we need to clarify, yeah, let let's see if we can squeeze that in tomorrow and just wrap it up. That way, we don't need to wait for them because you also said she hasn't really gotten back. Was it the referral page that you said? She she hasn't left any feedback.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So, yeah, that's another one to to bump up to them to confirm. Awesome. Okay. Anything else?
+Taryn Reithofer: Um, no, not on my end.
+Kobi Kunasekaran: Okay. Uh Okay. So then the goal goal for this week, I guess, is um let's try and wrap up those pages. Let's try wrap up anything else that might be considered like phase one.
+
+
+00:37:58
+
+Kobi Kunasekaran: Um on your plate, Cedric. Um I'm hoping we can get started on the CMS integration so that um we have a design and we have like a plan for what we're going to build from our side. Um so yeah like after whatever was assigned to you if I don't assign anything else um just look into that uh the spec document that uh straw shared and just uh let's start putting together like a design uh whatever that looks like you know uh document um user stories whatever it is in terms of like next steps for us on what we're going to do in Salesforce um and then let's try and get that kicked off. Um, so that like there's no open questions before I go on vacation. Like, you know, they're good to just power through, build, and deliver.
+Taryn Reithofer: All
+Kobi Kunasekaran: Um, and then, yeah, and then for redeposits, I'm hoping we have enough to also break those down into user stories. Um so Taran like you we we'll sync up after our call today um if there's uh
+
+
+00:39:03
+
+Taryn Reithofer: right.
+Kobi Kunasekaran: if we have enough information to break it down into like a design um that we can then turn it to user stories and start queuing it up for us to work through.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Okay. Um, did you were you able to start putting together like the requirements that we got from them about the redeposits on I think it's Wednesday.
+Taryn Reithofer: Um, I made a document um of open questions,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: but I had it directed Did I think I had it directed at the wrong user? Um, initially I believe the questions were for the reps themselves, but now I need to rejig it. So, it's for brand managers, right? That's who we're meeting with.
+Kobi Kunasekaran: Uh today I believe we are meeting with brand managers. Yes.
+Taryn Reithofer: And that's what you're talking about?
+Kobi Kunasekaran: Yeah. I mean like it's it's what what do we learn or sorry the requirements was supposed to be um what they need in terms of requirements for the functionality that they're asking for and then open questions
+
+
+00:40:30
+
+Taryn Reithofer: Okay. Yes. Um, hold on. I'm going to send you the document right now. Oh jeez. Um, editor. I've never seen that screen before. Cool. Oh, you can change the um permissions of a doc in Google Meet. Cool. Okay. I sent you the document,
+Kobi Kunasekaran: convenient.
+Taryn Reithofer: the requirements document. again. I I haven't been able to go through Wi-Fi line yet and make it not
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: clotty. second.
+Kobi Kunasekaran: Okay. Yeah, I think this looks okay um for today. Yeah, I I I believe um I also have some questions lined up, but I have to go through my notes and everything is kind of frozen. So, I'm going to try to restart and uh see if I can see my documents.
+Taryn Reithofer: That's
+Kobi Kunasekaran: But um yeah uh It looks like you've captured the outstanding question from last week. I just have to remember what what are all the things that we we talked about last week.
+
+
+00:42:08
+
+Kobi Kunasekaran: So, I'm going to do that after this call.
+Taryn Reithofer: I know like the context the questions there's too
+Kobi Kunasekaran: Yeah, there's so much that we went through since Wednesday that I forgot half of that call.
+Taryn Reithofer: much.
+Kobi Kunasekaran: But this is why we have recorded calls.
+Taryn Reithofer: Oh I I know.
+Kobi Kunasekaran: So, thank God for that.
+Taryn Reithofer: I think that's one of the thing things that's tripping me up especially when I start leading the sinks. It's like remembering everything.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: There's so much. But I guess as we progress there's going to be less things to remember. Hopefully. I don't know. Maybe not.
+Kobi Kunasekaran: I I it starts to come together once you start sharing them what we've done.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: That's like those release notes, the the summary of like here's here's all the things that we did. Putting those together is is what because then you always you have something to quickly scan through before the next meeting to know what what the team's worked on.
+Taryn Reithofer: in the home.
+Kobi Kunasekaran: Just following the cards and following all the conversations, yeah, you get lost in it. Especially when we're working on like multiple clients, it's it's hard. So once you start putting those release notes together, then then it does make it easier. So um let's let's work on that over the next couple weeks. So we were able to retain that context.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: Yeah. All right, guys. So, I think that's it. Um, let me know if anything else comes up. Um, otherwise, uh, yeah, I'll see you in the other meeting. Um, and, uh, yeah, we'll chat soon.
+Taryn Reithofer: Sounds good.
+Kobi Kunasekaran: Cool.
+Taryn Reithofer: Thanks.
+Kobi Kunasekaran: Thanks,
+Taryn Reithofer: See you later.
+Kobi Kunasekaran: everyone. Bye, guys.
+
+
+Transcription ended after 00:44:07
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

@@ -1,0 +1,291 @@
+{
+  "id": "10544",
+  "key": "WAGR-407",
+  "fields": {
+    "statuscategorychangedate": "2026-09-16T10:45:29.299-0400",
+    "issuetype": {
+      "id": "10009",
+      "description": "A task that needs to be done.",
+      "name": "Task",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 4,
+      "key": "indeterminate",
+      "colorName": "yellow",
+      "name": "In Progress"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-15T10:56:10.235-0400",
+    "priority": {
+      "name": "High",
+      "id": "2"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10028",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "10363",
+          "key": "WAGR-195",
+          "fields": {
+            "summary": "BUILD-184 — Player: Fraud Flags Related List",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "10029",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "10367",
+          "key": "WAGR-197",
+          "fields": {
+            "summary": "BUILD-180 — Player: Sign Ups Related List",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      },
+      {
+        "id": "10030",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "inwardIssue": {
+          "id": "10547",
+          "key": "WAGR-410",
+          "fields": {
+            "summary": "Player: Add Fraud columns to Sign-Ups related list",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "Normal",
+              "id": "3"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "updated": "2026-09-28T09:34:34.084-0400",
+    "status": {
+      "description": "",
+      "name": "Jumpr Review",
+      "id": "10062",
+      "statusCategory": {
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+      }
+    },
+    "description": "## Outcome and context\n\nWagertech's notes describe a Fraud Flags related list on the Player record, then immediately raise an open question directly to Kobi and Taryn: whether to simplify this and just flag fraud directly in the Signup list instead of building a separate table. Taryn has confirmed this should stay open as its own ticket for her and Kobi to decide, rather than picking a direction now.\n\n## Current state\n\nBUILD-184 (PL-14, WAGR-195) scoped a dedicated Fraud Flags related list on the Player record (columns: Flag ID, Reason, Source Record, Raised By, Raised, Status), sourced from the prototype only and not yet confirmed in any transcript. BUILD-180 (WAGR-197) already built a Sign-Ups Related List on the Player record, which could be where a \"Fraud Flagged\" indicator gets added instead. The underlying Fraud Flag object and business rule (DECISION-02/03, WAGR-295 and WAGR-1) are also still open.\n\n## Proposed solution\n\nNo solution decided yet. Two directions on the table:\n\n1. Keep BUILD-184 (WAGR-195) as scoped — a separate Fraud Flags related list.\n2. Simplify — add a fraud indicator/column to the existing Sign-Ups Related List (BUILD-180 / WAGR-197) and drop the separate related list.\n\n## Acceptance criteria\n\n1. Kobi and Taryn have decided between the two directions above (or another alternative).\n2. Once decided, this ticket is updated or superseded by a build ticket reflecting the chosen direction.\n\n## Dependencies\n\nDepends on the Fraud Flag object and business rule being defined (DECISION-02/03 — WAGR-295, WAGR-1). Related to BUILD-184 — Player: Fraud Flags Related List (WAGR-195) and BUILD-180 — Player: Sign Ups Related List (WAGR-197).\n\n## Source\n\nWagertech Notes / Questions (Wagertech Notes section), Player record doc, reviewed Sep 2026: \"Fraud Flags related list... can we simplify this and just flag fraud directly in the Signup list rather than having a separate table.\" Taryn confirmed (Sep 2026) this should be tracked as an open decision rather than resolved now. https://docs.google.com/document/d/1mp3b1qpJkzKNDztEQpdnv-BYCgUgDdXe5jLuJi-ix1U/edit?tab=t.0",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Player: Decide Fraud Flag Presentation — Related List vs. Signup List Flag",
+    "creator": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+      "emailAddress": "taryn@jumpr.io",
+      "displayName": "Taryn Reithofer",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [
+        {
+          "id": "10566",
+          "author": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "body": "**Decision:** Option 2 — flag fraud directly in the Sign-Ups related list on Player, rather than building a separate Fraud Flags related list.\n\n**What this means:** Add `Fraud_Flag__c` and `Fraud_Review_Status__c` as columns on the existing Sign-Ups related list. Both fields already exist on Sign_Up__c (confirmed via sandbox schema check, Sep 16) — no new object, no rollup, no automation needed to support this.\n\n**Reply for Emily's doc comment:**\n\n> Yes — we can simplify this and flag fraud directly in the Sign-Up list. We'll add Fraud and Fraud Review Status as columns there: both fields already exist on Sign-Up, and having both lets you tell a confirmed flag from a dismissed one at a glance.",
+          "updateAuthor": {
+            "accountId": "712020:e303283b-a074-400e-9470-8d704ea7427d",
+            "emailAddress": "taryn@jumpr.io",
+            "displayName": "Taryn Reithofer",
+            "active": true,
+            "timeZone": "America/Toronto",
+            "accountType": "atlassian"
+          },
+          "created": "2026-09-16T11:06:40.878-0400",
+          "updated": "2026-09-16T11:06:40.878-0400",
+          "jsdPublic": true
+        }
+      ],
+      "maxResults": 1,
+      "total": 1,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Sprint": {
+        "id": "customfield_10020",
+        "value": [
+          {
+            "id": 34,
+            "name": "WAG Sprint 1",
+            "state": "closed",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-14T13:00:45.588Z",
+            "endDate": "2026-09-21T13:00:00.000Z",
+            "completeDate": "2026-09-28T13:34:27.111Z"
+          },
+          {
+            "id": 35,
+            "name": "WAG Sprint 2",
+            "state": "active",
+            "boardId": 34,
+            "goal": "",
+            "startDate": "2026-09-28T13:00:36.715Z",
+            "endDate": "2026-10-05T13:00:00.000Z"
+          }
+        ]
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i002vi:zzr"
+      },
+      "Development": {
+        "id": "customfield_10000",
+        "value": "{}"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

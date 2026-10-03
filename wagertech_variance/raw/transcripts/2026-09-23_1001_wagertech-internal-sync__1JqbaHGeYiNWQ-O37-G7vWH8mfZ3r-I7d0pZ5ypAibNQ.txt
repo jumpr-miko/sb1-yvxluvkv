@@ -1,0 +1,787 @@
+✍️ Quick notes
+Please rate the new Quick notes tab by taking a short survey.
+
+Wagertech Internal Sync
+
+Sep 23, 2026
+Cedrick Infantado Taryn Reithofer Kobi Kunasekaran Waleed Alasadi
+
+Workflow bottlenecks and ticket resolutions with system updates via collaborative planning
+
+Salesforce layout and referral configuration
+* Kobi resolved the referral creation issue by assigning the correct record type in the activation settings.
+* Entry points for creating referrals previously displayed older field sets instead of expected lightning page layouts.
+
+
+Support ticket management and workflow
+* Taryn introduced a client support label in Jira to track ad-hoc support requests and reporting volumes.
+* Taryn confirmed the cancellation of fraud and primary email banner requirements after reviewing the implementation scope.
+* BA player tables lack search functionality and renaming capabilities due to standard user object constraints.
+
+
+Project planning and resource coverage
+* Kobi finalized a timesheet analysis document for Emily before starting a vacation in 2 weeks.
+* Taryn requested time off for a field trip, requiring coordination with Bull for client support coverage.
+
+
+Technical updates and field mapping
+* Cedrick discovered address fields mapped to standard billing addresses rather than custom state and country fields.
+* Kobi deprioritized deletion workflows within the affiliate links screen flow to simplify data management complexity.
+
+
+Next steps
+* [Taryn Reithofer] Verify Referral Status: Refresh the browser, log out, and log back in to verify the referral status fix and close the corresponding Jira ticket.
+* [Taryn Reithofer] Document Referral Fix: Add a summary to the referral status Jira ticket explaining the fix for future reference.
+* [Taryn Reithofer] Close Banner Ticket: Post a summary of the decision regarding the fraud banner and email banner on the ticket and mark it as canceled.
+* [The group] Add Brand Ambassador Tab: Create a low priority Jira ticket to add a tab for Brand Ambassador pages to improve navigation.
+* [The group] Clean Up Brand Manager Fields: Create a Jira ticket to clean up duplicate brand manager fields and implement logic for pulling the brand manager into the field.
+* [Taryn Reithofer] Groom Sign Up Ticket: Update the Jira ticket regarding flagging banned or paused refers for operations review to include clear expectations and outcomes.
+* [Taryn Reithofer] Address Emily's Feedback: Review the Answers for Emily document to ensure all comments are addressed and close any completed Jira tickets.
+* [Kobi Kunasekaran] Send Time Sheet Analysis: Finalize the client-facing version of the time sheet analysis and send the document to Emily.
+* [Taryn Reithofer] Notify Bull of Leave: Inform Bull about the leave request for the 16th to ensure appropriate client support coverage.
+* [Cedrick Infantado] Update Field Logic: Map custom state and country fields to standard ones within the existing flow. Ensure these fields stay synced with the original values.
+* [Cedrick Infantado] Update Ticket Details: Add information about the state and country field mapping changes to the relevant Jira ticket description.
+* [Cedrick Infantado] Convert Spike: Transition the affiliate links task from a spike into a user story or proof of concept. Proceed with implementing creation and update capabilities.
+* [Kobi Kunasekaran] Update Ticket Status: Update the ticket status for the affiliate links task to in progress.
+
+
+
+Want to see more? View the full notes
+Tip: You can always access your full notes from the left sidebar.
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+📝 Full notes
+Sep 23, 2026
+Wagertech Internal Sync
+Invited Cedrick Infantado Taryn Reithofer Kobi Kunasekaran Waleed Alasadi
+Attachments Wagertech Internal Sync
+Meeting records Transcript (Some recordings unavailable)
+
+
+Summary
+Workflow bottlenecks and ticket resolutions with system updates via collaborative planning
+
+AI tools and workflow bottlenecks
+Artificial intelligence tools introduced delays through extensive reviews. Multitasking slowed overall progress.
+
+Salesforce record page activation settings
+Lightning record pages required explicit assignment for referral types. Page layouts got cached during testing.
+
+Affiliate links and flow updates
+Deletion requirements were deprioritized from edit screens. Flow logic updates maintained low effort.
+
+
+Decisions
+Aligned
+* State and country field mapping synchronization The team agreed to update the flow to sync state and country values directly to the custom text fields.
+* Deprioritization of link deletion in screen flows The participants agreed to deprioritize record deletion from the screen flow and focus on adding and updating links.
+
+
+
+Next steps
+* [Taryn Reithofer] Verify Referral Status: Refresh the browser, log out, and log back in to verify the referral status fix and close the corresponding Jira ticket.
+* [Taryn Reithofer] Document Referral Fix: Add a summary to the referral status Jira ticket explaining the fix for future reference.
+* [Taryn Reithofer] Close Banner Ticket: Post a summary of the decision regarding the fraud banner and email banner on the ticket and mark it as canceled.
+* [The group] Add Brand Ambassador Tab: Create a low priority Jira ticket to add a tab for Brand Ambassador pages to improve navigation.
+* [The group] Clean Up Brand Manager Fields: Create a Jira ticket to clean up duplicate brand manager fields and implement logic for pulling the brand manager into the field.
+* [Taryn Reithofer] Groom Sign Up Ticket: Update the Jira ticket regarding flagging banned or paused refers for operations review to include clear expectations and outcomes.
+* [Taryn Reithofer] Address Emily's Feedback: Review the Answers for Emily document to ensure all comments are addressed and close any completed Jira tickets.
+* [Kobi Kunasekaran] Send Time Sheet Analysis: Finalize the client-facing version of the time sheet analysis and send the document to Emily.
+* [Taryn Reithofer] Notify Bull of Leave: Inform Bull about the leave request for the 16th to ensure appropriate client support coverage.
+* [Cedrick Infantado] Update Field Logic: Map custom state and country fields to standard ones within the existing flow. Ensure these fields stay synced with the original values.
+* [Cedrick Infantado] Update Ticket Details: Add information about the state and country field mapping changes to the relevant Jira ticket description.
+* [Cedrick Infantado] Convert Spike: Transition the affiliate links task from a spike into a user story or proof of concept. Proceed with implementing creation and update capabilities.
+* [Kobi Kunasekaran] Update Ticket Status: Update the ticket status for the affiliate links task to in progress.
+
+
+
+Details
+* AI Tools and Workflow Bottlenecks: Kobi Kunasekaran reported feeling behind and overwhelmed due to ongoing work and frequent context-switching (00:00:52). Kobi Kunasekaran and Cedrick Infantado discussed how using cloud and artificial intelligence tools like Claude actually introduces delays because the extensive output review and context-switching often take longer than writing user stories from scratch (00:02:11). Taryn Reithofer echoed this sentiment, describing a feeling of doing a lot yet accomplishing nothing. Kobi Kunasekaran noted that multitasking leads to multiple items moving slowly without completion, making Kobi Kunasekaran a bottleneck in the process (00:03:14).
+* Referral Status Error Investigation: Taryn Reithofer reported being derailed by end-of-day requests, specifically investigating a ticket where a user received an error stating a referral status was missing despite being entered (00:04:17). Kobi Kunasekaran suspected the primary status field was an older, required field not present on the layout. Kobi Kunasekaran instructed Taryn Reithofer to check the object's field list for a field named first status and uncheck the required setting (00:05:27).
+* Salesforce Record Page Activation Settings: Taryn Reithofer shared their screen to show a discrepancy between input fields on the record page versus the sign-up add-referral view (00:06:27). Cedrick Infantado and Kobi Kunasekaran identified that the lightning record page needed to be explicitly assigned as the application default for the specific record type. Kobi Kunasekaran successfully navigated through the activation settings to add the assignment for the referral record type (00:09:04) (00:13:46). Kobi Kunasekaran instructed Taryn Reithofer to have Emily refresh and test again, noting that page layouts get cached (00:15:05). Additionally, Taryn Reithofer agreed to add a summary of the fix to the Jira ticket and apply a client-support label to track ad-hoc support tickets (00:16:18) (00:18:20).
+
+
+* Operator Logo and Canceled Tickets: Taryn Reithofer confirmed completing the operator logo document conversion using document 365, moving it to the external document drive, and closing the Jira ticket (00:17:23). Furthermore, following discussions with Emily, Taryn Reithofer confirmed that a ticket regarding a fraud flag and primary email banner on player records was no longer needed because Emily agreed it was a non-issue. Kobi Kunasekaran advised summarizing the decision in the Jira ticket before marking it as canceled (00:19:18).
+* Brand Ambassador Player Related List Searchability and Renaming: Taryn Reithofer raised questions from Emily regarding whether the player related list on the brand ambassador record page is searchable and if it can be renamed. Kobi Kunasekaran and Cedrick Infantado noted that Salesforce user object limitations prevent customizing or renaming related lists and making them searchable (00:20:26) (00:26:42). Because Emily indicated they likely do not need the features if they cannot be customized, Kobi Kunasekaran and Taryn Reithofer agreed to close the ticket while noting it was originally added based on Emily's mockup (00:28:05).
+* Brand Ambassador Navigation and Deal Rep Assignments: Taryn Reithofer asked for an easier way to navigate to brand ambassador pages (00:22:03). Kobi Kunasekaran noted the absence of a dedicated brand ambassador tab and suggested creating a low-priority Jira ticket to add one. Kobi Kunasekaran explained that the current fastest method is navigating through deal rep assignments, which serve as the junction between deals and reps (00:23:38) (00:25:40). Kobi Kunasekaran also identified cleaning up duplicate brand manager fields and linking related tickets to an epic for deals and Content Management System integration (00:24:26).
+* Sign-Up Ban and Pause Review Flag: Taryn Reithofer requested clarification on a user story regarding banned or paused referrers completing sign-ups normally but getting flagged for operations review rather than being blocked (00:30:36). Kobi Kunasekaran suggested grooming the ticket to clarify the exact expectations, proposing a basic report as a minimum viable product solution to surface banned players with recent signups rather than building complex automated approval processes (00:31:49). Taryn Reithofer noted being blocked on this by another ticket assigned to Kobi Kunasekaran regarding brand manager deal visibility (00:32:47).
+* Feedback Documentation and Meeting Cadence: Kobi Kunasekaran asked Taryn Reithofer to review feedback documents such as "Answers for Emily" to ensure open questions are addressed or tracked via tickets (00:33:57). Taryn Reithofer and Kobi Kunasekaran discussed discovery call efficiency, agreeing that complex topics like referrals may require scheduled follow-up sessions (00:37:06). Kobi Kunasekaran noted an upcoming vacation in two weeks and stated an intention to finish a timesheet analysis, notify Emily, and ensure user stories are queued up for Taryn Reithofer and Cedrick Infantado to work on during their absence (00:38:12). Additionally, Taryn Reithofer requested time off on the 16th for a school field trip, which Kobi Kunasekaran approved provided Bull is notified to ensure client support coverage (00:39:49).
+* Player Address Mapping and Flow Updates: Cedrick Infantado provided updates on ticket Wager-413 regarding signup currency and address mapping, discovering that custom city and state player fields were incorrectly mapped to standard billing address fields (00:40:40). To maintain low effort without rebuilding everything, Kobi Kunasekaran and Cedrick Infantado agreed to update the flow logic to feed standard address values directly into the custom text fields (00:42:13). Cedrick Infantado committed to updating the ticket and implementing this flow logic (00:43:33).
+
+
+* Affiliate Links Spike and Deletion Deprioritization: Cedrick Infantado shared updates on ticket Wager-84 regarding the affiliate links spike, explaining difficulties in handling item deletions and confirmation pop-ups within screen flows (00:44:43). Kobi Kunasekaran decided to de-prioritize the deletion requirement from the edit screen, focusing solely on adding and updating links, and leaving deletions for a separate future implementation like individual record-level access or bulk checkboxes (00:47:06) (00:49:09). Cedrick Infantado agreed to convert the spike into a regular user story or proof of concept and move it to in progress. Kobi Kunasekaran also praised Cedrick Infantado's use of a whitespace label workaround for an active-inactive toggle in the flow (00:50:11).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Sep 23, 2026
+Wagertech Internal Sync - Transcript
+00:00:52
+
+Cedrick Infantado: Hey Kobi.
+Kobi Kunasekaran: Hey, good morning. How you doing?
+Cedrick Infantado: Good. Yes.
+Kobi Kunasekaran: How's your week going so far?
+Cedrick Infantado: And it's good.
+Kobi Kunasekaran: It's as good as it can be.
+Cedrick Infantado: Not sure about that. I'm not sure if it's good or what. Just saying it's makes it uh makes me feel good if I say that like my conditioning.
+Kobi Kunasekaran: manifestation, right? You got to believe it.
+Cedrick Infantado: Yeah. How about you?
+Kobi Kunasekaran: Uh, I'm doing all right. I'm doing all right. Feel like I'm uh I'm really behind on a bunch of stuff and uh there's just like ongoing work to do and it just uh it just feels a little never ending. I'm like I I just need to feel caught up like I just just need to just power through things. But yeah, then it's uh yeah, there's a lot happening.
+Cedrick Infantado: Yeah. Yeah.
+Kobi Kunasekaran: But
+Cedrick Infantado: There's a lot going on on your plate. Sometimes even if you work overtime it feels like everything is stuck and everything.
+
+
+00:02:11
+
+Kobi Kunasekaran: exactly. Yeah. like you know as much as I love like cloud and AI to help make things easier it uh there there's so much to review as a result you know like I can't just take the output and give it out so it just feels like it sometimes it takes longer to do that than to actually just for example like writing the user stories like doing it from scratch like heads down for a few hours versus like prompting claude and then it takes time to do the thing so then you're distracted or you're doing something else and then you have to like context switch back to this
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: thing and then go through review, give it feedback and context switch it.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: I think it's just uh the context switch and the time it takes it's uh taking a toll.
+Cedrick Infantado: Yeah. of eight. Maybe that's the side effect of having odds doing some of the
+Kobi Kunasekaran: Yeah. Honestly,
+Cedrick Infantado: work.
+Kobi Kunasekaran: uh yeah, sometimes like it just might just be faster to do from scratch,
+
+
+00:03:14
+
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: but
+Cedrick Infantado: And yeah, because of that context switching, yeah, it it's very difficult to go back into the momentum that you have. souls and the chirp.
+Kobi Kunasekaran: exactly. Yeah. Like I wish it was faster, you know, like maybe the the things I'm asking for like it's just they're just bigger items. But still, it's uh I'm starting to realize that like it that multitasking aspect is great, but like now I have like 10 things moving slowly and like I'm like going back and forth between them, but like nothing is finishing because it doesn't feel complete. So,
+Cedrick Infantado: Yeah. And in the end,
+Kobi Kunasekaran: uh Exactly.
+Cedrick Infantado: you're the bottleneck in the process because
+Kobi Kunasekaran: Exactly.
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: It's a struggle.
+Taryn Reithofer: I caught the end of that. But I feel the same, guys. Doing so much yet nothing at all.
+Kobi Kunasekaran: Right. Like that's how I've been feeling like for the past week or like since last week.
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: It just it's like little momentum like things are moving but just nothing is getting completed.
+
+
+00:04:17
+
+Kobi Kunasekaran: Like uh we just we just need things that closed off. How how you doing Taran?
+Taryn Reithofer: I'm good. Sorry I'm late. I just lost track of time.
+Kobi Kunasekaran: No worries. It's a there's a lot happening. The Wagertechchannel is uh a lot happening. A lot of lots to catch up on.
+Taryn Reithofer: Yeah. Yeah. What I um the few requests that we got at the end of the day kind of derailed what I had originally planned to do. Surprise, surprise.
+Kobi Kunasekaran: Were you able to figure out the referral status required?
+Taryn Reithofer: I was just about to start um because I I was a little bit confused when
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: I started investigating it yesterday on where she was going, but then I I found it and um uh I need to test it out myself to see what's actually happening. Was weird because it says like the error said that she didn't u put a status, but she did. So with the logic I don't
+
+
+00:05:27
+
+Kobi Kunasekaran: I I have a feeling the first status field is not actually on the layout and it's remnants of like a older field where in the field itself it might be marked
+Taryn Reithofer: Where are we?
+Kobi Kunasekaran: as unique. or sorry not unique but required. Um so if you go to the field list for the object and look for like something called the first status if it's set to required then just just have to uncheck that. That should be it hopefully cuz I
+Taryn Reithofer: Okay. Okay. Yeah, at first
+Kobi Kunasekaran: see active status but I think I don't think active status is a fame. same thing as referral status. I think they're two separate fields.
+Taryn Reithofer: Um, okay. Yeah, I didn't even know you could add a refer from that point either. I thought she was going in like accounts and then new and then refer. It looks completely different.
+Kobi Kunasekaran: Does it is it should look the same?
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: No.
+Taryn Reithofer: it's not.
+Kobi Kunasekaran: When you're adding a new fur?
+
+
+00:06:27
+
+Kobi Kunasekaran: No. Uh,
+Taryn Reithofer: No.
+Kobi Kunasekaran: okay.
+Taryn Reithofer: So, we need to change that,
+Kobi Kunasekaran: We might not.
+Taryn Reithofer: too.
+Kobi Kunasekaran: Yeah, I mean, we might have to see what what what that is. Like, it's possible that actually to see the difference.
+Taryn Reithofer: Here,
+Kobi Kunasekaran: I need to see what what that looks like.
+Taryn Reithofer: let me I'll just show you right now while we're here and talking about it. Okay.
+Kobi Kunasekaran: I thought it would use the same like page layout for both.
+Taryn Reithofer: Yeah. Yeah. You'd think that's why I was so confused. Okay. So this is where she was going. I want to sign up and then new recurer account.
+Cedrick Infantado: commercial.
+Kobi Kunasekaran: Oh, hello.
+Taryn Reithofer: Honey,
+Cedrick Infantado: My kid wants to say hi.
+Kobi Kunasekaran: Hello.
+Taryn Reithofer: hi sweets.
+Cedrick Infantado: Say hi.
+Taryn Reithofer: It's time for bed.
+Kobi Kunasekaran: Hello.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: Get him started. Young horse.
+Taryn Reithofer: cutie looks just like you. Yeah, sorry.
+
+
+00:07:25
+
+Cedrick Infantado: Thank you.
+Taryn Reithofer: This is how you get the years uh the years in for your resume. Hit those uh job descriptions. Okay. So, uh yeah, this is from there. So the biggest difference is this section here where it's like uh yeah I don't even know what the the field difference is but it looks completely different from when you go to so this is like uh inputting the fields for the record page rather than the um the in the sign up log sign up add refer that is to like add a contact referral, right?
+Kobi Kunasekaran: technically they should be the same. Uh but yeah, this is interesting. So, is this because like one is using the lightning page and then the other one is showing the page layout version. Do you know?
+Taryn Reithofer: How many of them side by side?
+Kobi Kunasekaran: Yeah. Cuz in in this one the refer status is there. So on the page layout are we using the refer status? Uh sorry not page level but like the the record page for referral is it is it active status or refer referral status that we're showing Okay,
+
+
+00:09:04
+
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: this is question for you for the refer page layout like uh if you
+Taryn Reithofer: right. Uhhuh. This uh this one.
+Kobi Kunasekaran: open like a referral. No, no,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: not not the not the new but like just if you open any referral um what do we have there in terms of the status? Okay, we do have referral status. So that is the newer field. Uh yeah,
+Taryn Reithofer: Let's replace this one.
+Kobi Kunasekaran: what she's seeing is the older looks like an older field set, right?
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: But but it's still completely different.
+Kobi Kunasekaran: It is. Yeah, it's it's very different. I'm curious as to why like the new record
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: page
+Cedrick Infantado: I think I I think for uh for that one uh if you encountered that before, you need to set the uh the lightning record page as the app default for for that uh record type. So um if we are viewing it on a different profile or uh or if it is uh for the standard create of uh creating of new it would res it would use the page layout or the old layout that we have.
+
+
+00:10:18
+
+Cedrick Infantado: So it's like no sense on how things work with the layouts
+Taryn Reithofer: and the signup object for accounts.
+Cedrick Infantado: um for the landing page layout of account referral. So yeah
+Taryn Reithofer: Okay. What?
+Kobi Kunasekaran: Go to activation
+Taryn Reithofer: What did you say? Application.
+Kobi Kunasekaran: activation.
+Taryn Reithofer: Activation.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: At default sign is at default.
+Cedrick Infantado: Yeah.
+Taryn Reithofer: All of them.
+Cedrick Infantado: Um for Yeah.
+Taryn Reithofer: Wagertechconsole.
+Cedrick Infantado: Try. Oh, no.
+Kobi Kunasekaran: It should,
+Cedrick Infantado: Uh
+Kobi Kunasekaran: but you have to set it for just the specific record type though, right?
+Cedrick Infantado: yeah.
+Kobi Kunasekaran: Uh, what happens if you go next, turn? Does it ask you to choose a record type?
+Cedrick Infantado: No,
+Kobi Kunasekaran: Oh,
+Cedrick Infantado: I think no.
+Kobi Kunasekaran: no. Yeah, let's not do this.
+Cedrick Infantado: No, no, no, no.
+Kobi Kunasekaran: Don't do that.
+Cedrick Infantado: Sorry, but I thought she
+Kobi Kunasekaran: It should be the third third option app record type and profile right and then
+
+
+00:11:45
+
+Taryn Reithofer: third.
+Kobi Kunasekaran: do we have do we have the refer page assigned as a default for all of them what I'm seeing right
+Cedrick Infantado: Oh yeah.
+Taryn Reithofer: Maybe.
+Cedrick Infantado: Yeah. Even for personal
+Taryn Reithofer: This might be um an outstanding issue from us never getting to review anything that I've done. was studying.
+Kobi Kunasekaran: Well, no, because I think they they like we when we look at the pages, it is showing the right ones. So, unless this is like a recent update. So, I look at the player, I see the player information. Um, If I look at operator, I see operator page. So those are all good. See partner, I see the partner page. Then if I see if I open refer, I see the referral page. So that is good. Uh Burn record activation.
+Cedrick Infantado: you're as ty you're creating from a sign up then you want to create a new
+Taryn Reithofer: What's nice?
+Cedrick Infantado: refer in on that because on my end it's working as expected I
+
+
+00:13:46
+
+Taryn Reithofer: Oh,
+Cedrick Infantado: think yeah maybe you just need to refresh your
+Taryn Reithofer: that
+Cedrick Infantado: page.
+Taryn Reithofer: show Okay.
+Cedrick Infantado: Okay. Uh, is this server
+Kobi Kunasekaran: Okay. Actually, just I think I better fix it. I I I did go through the activation and uh added
+Taryn Reithofer: Easy.
+Kobi Kunasekaran: the assignment for the record type for referral. It did like so in the app record type and profile. Um so initially like you have to you choose a console and then you choose the like lightning apps and then it does ask you for the record type in the last step. So um I added that and I think that it should be good enough in the activation.
+Taryn Reithofer: Then um add assignments button.
+Kobi Kunasekaran: Yeah. Like so if you go to like app record page
+Cedrick Infantado: Uhoh. It's like boom.
+Kobi Kunasekaran: but yeah I think like Cedric like that was a missing piece. Yeah. If you go to assignments like the last step is to choose a record record type.
+
+
+00:15:05
+
+Kobi Kunasekaran: So, we just stopped at the second last one,
+Cedrick Infantado: Thanks so
+Kobi Kunasekaran: but uh if we went forward with it, it would have to record type and uh I saved that and seems like it's uh like it's working now.
+Taryn Reithofer: Okay. Well, I guess we
+Kobi Kunasekaran: Yeah. So,
+Taryn Reithofer: go
+Kobi Kunasekaran: yeah, you just tell Emily to refresh and try again. Should be okay. That is weird though that it doesn't just apply it across the board because like it's weird that one entry point to create the referral is different than the other one.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Now we know
+Taryn Reithofer: Just in the old instincts. Um
+Kobi Kunasekaran: I think Taran like with this like maybe we should also check uh actually like I don't I guess they wouldn't be creating players manually at this point. They wouldn't be clear creating operators and partners to any related lists at this point. So yeah actually it's it's a non-issue. I think refer is the only one uh where they'll be creating it through the signup object.
+
+
+00:16:18
+
+Kobi Kunasekaran: So uh we should be okay for now.
+Taryn Reithofer: Yeah. And hopefully when I do my first pass of the Disney tickets, we'll catch these.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: It's It's uh still not updated for me,
+Kobi Kunasekaran: No,
+Taryn Reithofer: but no,
+Kobi Kunasekaran: I just have to refresh everything like log out log back in the page
+Taryn Reithofer: I have. Yeah, I'm gonna log out.
+Kobi Kunasekaran: layouts get cached. So it's it's annoying.
+Taryn Reithofer: Yeah, I tried your comfy compact uh trick and it didn't didn't work.
+Cedrick Infantado: Yeah, that's another trick.
+Taryn Reithofer: Yeah. Okay, cool. I'll uh let her know and close out the ticket.
+Kobi Kunasekaran: Okay. Yeah. Yeah, in the ticket maybe like just put a quick summary of like where to go to fix it so that if it does happen for any other related records like we know that's the first thing. Uh okay. Was there any other bugs or anything else that she identified yesterday that's open? And there was one for me to look at later, but other than that,
+
+
+00:17:23
+
+Taryn Reithofer: Um the operator logo I converted your I tested your document did work. I tested it with that 365 and that I converted it into a branded um document and send it off and moved it to our external document drive.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: So that's checked off and I wrote a note and you know slapped the document in the ticket and closed it off.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: Um I assume for those ones like there's no reviewing process. I just I just marked it for done and It's
+Kobi Kunasekaran: uh for the document. Yeah. Yeah. I mean, you could hold it until like she confirms that it works for her, but I think it's fine.
+Taryn Reithofer: okay. Well,
+Kobi Kunasekaran: You've already tested and made sure,
+Taryn Reithofer: it's it's still in it's still in my view like on Jira,
+Kobi Kunasekaran: so it's okay.
+Taryn Reithofer: so it's not lost at least like it Yeah.
+Kobi Kunasekaran: It's okay as long as she follows up. Yeah.
+Taryn Reithofer: It's not like a sauna where I lose the ticket.
+
+
+00:18:20
+
+Kobi Kunasekaran: Goes into the abyss. Yes.
+Taryn Reithofer: Yeah. Um and then
+Kobi Kunasekaran: I mean the done items do go away I think after like a couple weeks two three I I don't remember the timing I set but
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: yeah it's fine it's fine those those things are okay the ones that you want to hold and review are things that you're waiting for them to
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: like do any UAT so this one we've already confirmed that the process works um like I did it yesterday as well to put together the process uh thing so and then if you
+Taryn Reithofer: Yeah. Yeah.
+Kobi Kunasekaran: did it and confirmed I should
+Taryn Reithofer: Yeah. Okay. Cool. And then requests like this just like ad hoc like support. I've started to label these tickets in Jira client-s support in case we need to I don't know filter or have a like compile some sort of report of how many of those we do. So I don't know if it's going to be useful in the future but I just started doing that anyways.
+
+
+00:19:18
+
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: So
+Kobi Kunasekaran: I think it'll be helpful. I like that. I That's better than like creating a field or something to track it separately. So,
+Taryn Reithofer: yeah. Yeah.
+Kobi Kunasekaran: let's do it.
+Taryn Reithofer: Okay, cool. Um and then um also kind of on that note and closing tickets out. So one of the feedback pieces um that Emily and I were going back and forth on on Player about the fraud flake and primary email banner thing. after me questioning her,
+Kobi Kunasekaran: Mhm.
+Taryn Reithofer: she kind of reverted on everything just saying, "Okay, like we don't need this." So, um, for the jura ticket, I just is marking it as canled um the correct way to do something like that.
+Kobi Kunasekaran: Yeah. Yeah.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Like so she said like we don't need the banner for fraud and she's good with not having one for the email because it's it should be a nonexistent case, right?
+Taryn Reithofer: Yeah, non-issue.
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: And then I reminded her on um there our discussion about the band banner kind of encompassing the broad aspect of it and she was like okay
+
+
+00:20:26
+
+Kobi Kunasekaran: Okay. Yeah. Just like quick summary of like the decision and then we can mark it as canled.
+Taryn Reithofer: um so that's what I got to do this morning and then uh after this I'm going to investigate. Oh, nope. We just did that. Um, so I'll close out that ticket after I did comments on how we just fixed that together. And then, um, Okay. So, uh, Um, one question that she had come up yesterday about the brand ambassador specifically player related list. Um, she had asked if the related list was searchable like a searchable table type of list. Um, and I told her it's not because it's in a user object and as we know the user object doesn't have a lot of customization. So, I went to see if I could make it into like a searchable table, and I didn't see anywhere that I could do that easily because it has it's going off of not a lightning, not the lightning app builder, but the page layout.
+Kobi Kunasekaran: Uh this is like the related list from the brand ambassador record page, the user record page.
+
+
+00:22:03
+
+Kobi Kunasekaran: And she wants what to be searchable, the players.
+Taryn Reithofer: Yeah, let me pull up the actual comment she had. So, at first she was asking like what this is for and I told her and then she said will this be renamed and also will this table list be searchable? if not sure if not sure if VAS would even use this. So I can't rename it and I don't think Oh.
+Kobi Kunasekaran: and you're not sharing your screen. If you're if you meant to share your screen pulling it
+Taryn Reithofer: Oh s***. Sorry.
+Kobi Kunasekaran: up.
+Taryn Reithofer: So this is where the comment thread is.
+Kobi Kunasekaran: Um
+Taryn Reithofer: It's this this guy right
+Kobi Kunasekaran: Oh, okay.
+Taryn Reithofer: here, which is okay. Another another separate question from here. How the hell is there an easier way to get to a BA page? Because I feel like I just click around and then just end up finding someone and then that's how I get to it like that.
+Kobi Kunasekaran: Uh yeah,
+Taryn Reithofer: Is there a better way?
+
+
+00:23:38
+
+Kobi Kunasekaran: I don't I don't think we have like a V8 tab.
+Taryn Reithofer: You don't.
+Kobi Kunasekaran: Um maybe we can create a let's create a J ticket to like add it. Um low priority like we don't need to spend too much time.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: The best way to do it right now is if you go to the DRRA or the deal rep assignments because the deal rep assignments is the junction between a deal and a rep. So if there is a DRA, you should be able to click through to go to the rep assigned to that DRA. We also should update these like recently viewed columns so it's a bit more
+Taryn Reithofer: They're
+Kobi Kunasekaran: relevant. Also a ticket to add to the backlog. Um but yeah. Oh, we don't have the brand ambassador here. Uh okay. No, there we go.
+Taryn Reithofer: here.
+Kobi Kunasekaran: Why do we have we have two fields? Okay. Need to clean this up.
+Taryn Reithofer: Manager.
+Kobi Kunasekaran: Oh no, that was brand manager.
+
+
+00:24:26
+
+Kobi Kunasekaran: Okay, never mind.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Never mind.
+Taryn Reithofer: Well, two brand managers. So, you know, let me make a note of that, too.
+Kobi Kunasekaran: Yeah, still needs to be cleaned up. And we also I think I don't think we have a logic right now that pulls a brand manager into this field. Uh there might be a ticket for that already, but if not, let's let's create one to add that in. I think some of these things like we're waiting for the CMS like the phase two of like what CMS is going to send in terms of DRRA before we uh fix an update. So uh hasn't been a priority but you know let's let's at least like keep a list of things we need to do or we should do and then we can come back and review. if you create these tickets like can you see if there's a epic already for like deals and deal rep assignments
+Taryn Reithofer: Oops. Yes.
+Kobi Kunasekaran: or CMS uh and just like link it to that so it's all in one place I don't know if we like in Asana we had that separate section for like the deals and CMS integration I don't know if that got converted into an ethics so if not you just create it but anyway so yeah back to the original question if you click called the brand ambassador.
+
+
+00:25:40
+
+Kobi Kunasekaran: It should take you to the BA page.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: that's probably the fastest way right now.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: Unless like you're going into Is it not taking you?
+Taryn Reithofer: it's not
+Kobi Kunasekaran: Oh,
+Taryn Reithofer: Right.
+Kobi Kunasekaran: it's working for me from like a another one another player record, but It's okay. We can we can troubleshoot that after. Like, do you want to just open the BA record page? The one that you had opened.
+Taryn Reithofer: I'm gonna I'm gonna get if we don't do it right now. Okay. Um, right. That's what I was doing. Where Yeah,
+Kobi Kunasekaran: You had one open for one of the signups.
+Taryn Reithofer: I did. I did.
+Kobi Kunasekaran: Go to more info.
+Taryn Reithofer: But I can't I can't click.
+Kobi Kunasekaran: Yeah. There.
+Taryn Reithofer: Oh,
+Kobi Kunasekaran: Brand ambassador.
+Taryn Reithofer: there.
+Kobi Kunasekaran: Yeah,
+Taryn Reithofer: Oh gosh. Okay.
+Kobi Kunasekaran: because all the signups should also have a BA, right?
+
+
+00:26:42
+
+Kobi Kunasekaran: Um that are processed. So be there.
+Taryn Reithofer: Okay. So, this this table right here, she's um talking about
+Kobi Kunasekaran: Okay. Okay. Yeah. This this is like I think what I would say is like um just in terms of a communication like in their mockup they had a list of they had that related list um of the players uh for the BA page.
+Taryn Reithofer: Mhm.
+Kobi Kunasekaran: So, we added it because of that. Um but yeah, I don't know if it can be made searchable. I think uh like if you looked into it uh Cedrick,do you know if we can make this searchable um on the record page? the user profile.
+Cedrick Infantado: Sorry.
+Taryn Reithofer: When I was looking into it, it had something about something about like a plus. Um, this is not if it
+Kobi Kunasekaran: If you go to the the wrench next to the brand ambassador accounts related list,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: this is where you would see the option if it was possible.
+Taryn Reithofer: Yeah.
+
+
+00:28:05
+
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I think
+Taryn Reithofer: That's where I went yesterday. I don't see anything. I think it was it's supposed to be like another expandable header here or if it if it was. So, and yeah, you also can't rename this either.
+Kobi Kunasekaran: Yeah, cuz it's not a I guess it's not like a lightning lightning component.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Yeah, I think that's fine. But like if she says like we don't need it anyways, um I wouldn't even bother with the investigation. But I would like tie it back to the initial requirements that it was part of their mockup. So that's why we added it there. So if they don't need it, that's fine. We can remove it.
+Taryn Reithofer: Yeah, she she didn't say we don't need it. She just said if we can't do these things, then we probably don't need it. So, I let her know that we can't do these things. So,
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: I'll close it out.
+Kobi Kunasekaran: What was the other thing besides a search that she asked for?
+
+
+00:29:07
+
+Taryn Reithofer: Uh renaming the title here.
+Kobi Kunasekaran: Okay. Yeah, that also I'm I'm actually I think I think it might be possible.
+Taryn Reithofer: Yes.
+Kobi Kunasekaran: Um probably not through here. I think it would be from the accounts related list potentially.
+Taryn Reithofer: Um, yes. However, it lives elsewhere too that we wouldn't be able to change the name. Uh we believe this
+Kobi Kunasekaran: Yeah, because I guess it's the same one for all four record types,
+Taryn Reithofer: one exactly.
+Kobi Kunasekaran: right? Yeah.
+Taryn Reithofer: So that
+Kobi Kunasekaran: Yeah. Then just say no.
+Taryn Reithofer: means Okay. I'm sure she she doesn't she didn't seem to care for it anyways. So, Okay, that's done. Um,
+Kobi Kunasekaran: If she really wants it,
+Taryn Reithofer: yeah.
+Kobi Kunasekaran: we can create a another like custom lookup, but I don't think it's worth the effort.
+Taryn Reithofer: Yeah,
+Kobi Kunasekaran: So,
+Taryn Reithofer: it didn't sound like she was she was obsessed with it. So, so yeah. Um, okay. Can't wait until these build numbers go away.
+
+
+00:30:36
+
+Kobi Kunasekaran: Yeah. Part of me is like as I'm going through like do we just like remove it from the title? But it's it's not worth it.
+Taryn Reithofer: H. You don't want to break anything.
+Kobi Kunasekaran: Not worth. Yeah. Exactly.
+Taryn Reithofer: Um,
+Kobi Kunasekaran: There's some references in random places.
+Taryn Reithofer: yeah. Yeah, exactly. Okay. So, I was a little bit confused on how to action this one. So in sign up naming a pause your band refer completes normally but then gets flagged for ops review instead of being blocked. How would you go about flagging things for ops review? Is that like just a a banner or like
+Kobi Kunasekaran: sign up.
+Taryn Reithofer: a
+Kobi Kunasekaran: Uh
+Taryn Reithofer: And mind you, this was this was a user story originally created off of the original prototype and also like my second week here. So take take that information too.
+Kobi Kunasekaran: Okay. I I think maybe first step is just like boom the ticket a bit more um before we action it.
+
+
+00:31:49
+
+Kobi Kunasekaran: I think I have an idea of like what this is supposed to be,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: but can we go back through the notes and uh plush out like what the expectation is? Um my guess here or like what I what I believe this is for is um on the
+Taryn Reithofer: Listen.
+Kobi Kunasekaran: player record, sorry, on for signups um they want people to be able to um add refers uh that are banned or paused in the signups. But when that happens, they just need a way to see those uh to review and see if they need to like um pull that sign up back or anything like that. So to me that I I'm
+Taryn Reithofer: So what would that what would that look like though in their view?
+Kobi Kunasekaran: thinking it would just be like a report as opposed to like an automation or anything at this stage.
+Taryn Reithofer: Oh. Oh, let me see.
+Kobi Kunasekaran: Um like a a report of these are the band players with recent signups or something like that. That's what I'm imagining.
+
+
+00:32:47
+
+Kobi Kunasekaran: But let's groom the ticket first. Like put in what they're looking for in terms of outcome and then come back and we can solution
+Taryn Reithofer: Is it?
+Kobi Kunasekaran: it. Yeah, if they need like a proper process with like proper approvals, that's a whole other build. Um,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: so that's where like, you know, we would confirm with them. But, um, like a report would be like a V1 at least a way to surface these things.
+Taryn Reithofer: Got it. Okay. And then I just want to mention that I'm blocked by um from this one by this one that's under you. Um so not that not that you need to do it now or anything. I just wanted to make the connection.
+Kobi Kunasekaran: What's the ticket? Brand manager should see deal and deal assignment tied to a rep alongside signups. questions uh sharing rule or visibility for brand manager to deal with new assignments. Okay, that's fine. I don't think we need to do the sharing rules right now.
+
+
+00:33:57
+
+Kobi Kunasekaran: Um everybody should be able to see their deal rep assignments already. Um what we don't have is custom views to like a quick related list that just shows you your deal assignment. I think that would be the solution for this. Like we can come back to this can uh this will be a lower priority unless like they raised any questions around this. I think this a lower priority. I don't think there's a blocker uh for users to access their DRA yet.
+Taryn Reithofer: Okie dos. Um I think that's it for me but you know when one thing one question and then three other questions come up and then we get feedback and so if I can you know action everything that we talked about then I will start pass one but who knows I'll actually get you out
+Kobi Kunasekaran: Okay.
+Taryn Reithofer: today.
+Kobi Kunasekaran: Okay. Emily also I think she left some comments in one of our like feedback documents as well. Um, take a look at those two and can you just confirm that like we've addressed those?
+
+
+00:35:12
+
+Kobi Kunasekaran: Not I don't know if it was this one. I I saw some comments from like the August 28 debac talk or open questions one or responses for Emily.
+Taryn Reithofer: What are you saying?
+Kobi Kunasekaran: Um, maybe you don't maybe you didn't get notified because it was my document. Uh, in the box.
+Taryn Reithofer: Answers for Emily.
+Kobi Kunasekaran: Yes. Yes.
+Taryn Reithofer: Is that what this document's called?
+Kobi Kunasekaran: That's one.
+Taryn Reithofer: That's terrible.
+Kobi Kunasekaran: This is more like the Slack message that she asked,
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: right? And then I want to post all this in Slack.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: uh, yeah,
+Taryn Reithofer: And she got back to you about something.
+Kobi Kunasekaran: if you can just go through and like just confirm that we've either addressed or have like a ticket to work through the additional I think we've already closed off most of these um and we might just not have like it might just be sitting as review uh waiting to be communicated to her then we just
+
+
+00:36:10
+
+Taryn Reithofer: Okay. Yep.
+Kobi Kunasekaran: use it as an opportunity to actually like review and close off those tickets.
+Taryn Reithofer: Sounds good.
+Kobi Kunasekaran: Awesome. Okay. All right. I think that's it. Unless uh unless Emily sends us with board ops today, but we'll see find out at our meeting today.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: Um
+Taryn Reithofer: Oh, and I still owe you um agenda items on my side for today's meeting. However, yesterday she ended up she ended up responding to a lot of them. So, it it may be nothing,
+Kobi Kunasekaran: okay.
+Taryn Reithofer: but it if it is, it'll be super short.
+Kobi Kunasekaran: Okay. I think it sounds like we're going to be doing more discovery today rather than like a typical sync. So, I'm going in with that mindset, but if there is anything blocking, um, those are the ones that we want to at least give them a heads up on.
+Taryn Reithofer: Yeah. Yeah. Yeah. I don't think there's anything blocking anymore.
+Kobi Kunasekaran: Okay.
+
+
+00:37:06
+
+Taryn Reithofer: Um and and going off of what you just said, I I I feel like every time we have a discovery call, there's never enough time to go through everything. like it always feels like it's so long. Um, is that usually how things go or like do we need to meet with them more often right now?
+Kobi Kunasekaran: Um it's a mix of both. Um sometimes yes we do need to schedule additional time. Um usually like if we have enough information to start off our like requirements um and everything and then we just need additional time to flesh out details, we can do that as like a follow-up as opposed to just spending a lot of time uh talking back and forth.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: So yes,
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: you're right. Like I mean we had to split the the redeposits one into two already, right? And I'm sure we could use more time as we start doing the design for it. So, uh, we we can schedule follow-ups afterwards.
+Taryn Reithofer: Okay.
+Kobi Kunasekaran: Yeah.
+
+
+00:38:12
+
+Kobi Kunasekaran: And today we're talking about like referrals, which is like a completely new topic. Um,
+Taryn Reithofer: You got him.
+Kobi Kunasekaran: a lot of things that we've actually talked about in other other conversations in the past, but uh, now it's just focused on this process. So, this is good. Like, it's going to help us flush out uh, some of the outstanding items, too. So, let's see. We'll see how it goes.
+Taryn Reithofer: Okay. Okay. Yeah, cuz we after this sink, there's only two more sinks left until you go on vacation. So, I'm thinking like while you're on vacation, we just take those sinks to like close loops and wraps wrap up stuff rather than talk about new items. That makes sense.
+Kobi Kunasekaran: 100%. Yeah. Yeah.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: I wouldn't expect I I I'm going to I haven't let Emily know yet. I want to I'm like almost like 90% done with this uh time sheet analysis that she asked for. Just putting together the client facing version.
+
+
+00:39:07
+
+Kobi Kunasekaran: So, I'm going to send that out today. And then as part of that, I'll let her know like I'm going going on vacation. I want to make sure if there's anything else that we need to do discovery for, we do it in the next two weeks. And then um I want to make sure that there are user stories queued up for you guys to work through while I'm gone. So, and there there's plenty like there is plenty.
+Taryn Reithofer: I'm sure there there is
+Kobi Kunasekaran: So uh it's it's just uh for both of you just build and follow up and get feedback and refine.
+Taryn Reithofer: Yeah. Yeah. Yeah.
+Kobi Kunasekaran: So hopefully we shouldn't need any architecting.
+Taryn Reithofer: You'll be good.
+Kobi Kunasekaran: But worst case like W's going to be around so um he cannot facilitate those meetings.
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: He just he might not have the full context uh from like a lot of the things that we've done since. So we may have to just catch him up on those things.
+
+
+00:39:49
+
+Taryn Reithofer: Yeah. Okay. Speaking of, I don't know if you saw my message, but I was wondering if I could have the 16th off for a kiddo field trip, but you're you're also gone,
+Kobi Kunasekaran: Uh
+Taryn Reithofer: so I don't know what that's like in terms of client support. Um,
+Kobi Kunasekaran: um that should be fine. Just give Bull a heads up so there's at least somebody to cover.
+Taryn Reithofer: okay. Okay.
+Kobi Kunasekaran: Um that's that's usually it. like we just want to make sure there's at least like somebody for like we're not fully in production yet so I'm not as worried but like you know when we're supporting live clients we just need to make sure there's coverage um and somebody can at least like triage even if they can't solve the issue um just be there for the client should
+Taryn Reithofer: Yeah.
+Kobi Kunasekaran: be fine
+Taryn Reithofer: Okay, cool. Okay, that's it for me.
+Kobi Kunasekaran: awesome okay we are like way over but Cedric I do want to hear updates from the things that uh you were working
+
+
+00:40:40
+
+Taryn Reithofer: Sorry, Cedrick.
+Kobi Kunasekaran: on yesterday.
+Cedrick Infantado: Yeah. Uh don't worry. Uh I have a shorter shorter version of the dates on my end. That's fine. So uh for me uh for wager 413 u originally this is for investigating the uh signup currency but we have identified yesterday that
+Kobi Kunasekaran: He
+Cedrick Infantado: um the addresses fields are not being mapped to the correct field or supposed correct field. Uh I've checked and find out uh found out that the address are being mapped to the standard billing address. So, and we have to let me just share my screens. I think this
+Kobi Kunasekaran: Interesting. Okay. So, the the fields that we see on the player page, they're custom fields and not the standard ones.
+Cedrick Infantado: Yep, that's right. So, I've no want to show up. So, here uh we can see that we have custom field for Calgary and state. But on the back end where um those are mapped Uh this one's place doesn't want to load right now here.
+
+
+00:42:13
+
+Kobi Kunasekaran: Okay. Yeah, I see the
+Cedrick Infantado: So yeah, it is being mapped on the standard field.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: So um what would be the next step here? Do we want to map it here or do we want to expose the standard field for for this one?
+Kobi Kunasekaran: Uh second just pull up the mark up. Um if we do the standard fields uh are we able to just show the country and state without the full address everything will be shown.
+Cedrick Infantado: No, everything will be
+Kobi Kunasekaran: Um I think there's benefit in just using the standard field. I don't think we need to show the out of the box because the alternative is we build logic to feed the values from the standard field into these values. Right? Or can we not create a formula field?
+Cedrick Infantado: Or we can use the flow. Actually, we we can and we we can also No, we can also map it in the same flow
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: if you want.
+Kobi Kunasekaran: we could we could do that too.
+
+
+00:43:33
+
+Cedrick Infantado: But but but if we do that and someone changes changes
+Kobi Kunasekaran: Yeah,
+Cedrick Infantado: the value here, it would not sync up. So that's the only catch for that.
+Kobi Kunasekaran: that's okay, right? like if they change the value on the uh the player record we need.
+Cedrick Infantado: Yeah. Yeah. Uh for this uh custom field.
+Kobi Kunasekaran: Yeah, I think that's okay. You know what?
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Let's do that. Let's do that.
+Cedrick Infantado: I'll just
+Kobi Kunasekaran: That's the lightest lightest effort. We don't need to re rejig everything.
+Cedrick Infantado: Yeah.
+Kobi Kunasekaran: Um let's keep it syncing to the original field. And these look like just text fields. So um can we just update that logic to set these fields as well?
+Cedrick Infantado: I'll do that.
+Kobi Kunasekaran: bit redundant, but I think it's just the easiest one.
+Cedrick Infantado: Sure. I'll update that one. So, uh that that's it for uh that uh for widget 413. So after that I I can move this for Redditor view uh for uh wager 84. This is the affiliate links.
+
+
+00:44:43
+
+Cedrick Infantado: Uh I know uh there's a note here to time box the investigation for two to three hours but um I feel like I need to do a P for this one uh because of the because of the nature
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: of what we're trying to build here and uh I'm not sure on how can I implement it using computer but uh on high level I think it would work. I've started uh doing the PC but um so let me see if I can show it. So it is something like this right now. Uh but I think I need uh what I need more time is on how I can manage the data that is being throw uh thrown of out of this repeater because there's no update. We only have delete and deleted items. So u from what I I'm coming from I think we cannot show a pop up after clicking the remove. But we what we can do is have a second screen for this to confirm that if they want to remove that those items.
+
+
+00:46:06
+
+Kobi Kunasekaran: Um, okay. So, in terms of workflow, like um they would remove a bunch of them and then when they click on next, they'll see a list of the ones that are removed for them to confirm that they want to remove.
+Cedrick Infantado: Yeah. Yeah. Something like this.
+Kobi Kunasekaran: Okay.
+Cedrick Infantado: This not yet done.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: So it would show up. Right. And there's a problem with this. I have encountered a problem with this already. So, it's showing the ids only. We cannot retrieve the data. However, uh again, there's a caveat. When they go to previews, all the deleted ones are not here. So, maybe I I need to um to do a workound on that.
+Kobi Kunasekaran: U. Okay. So,
+Cedrick Infantado: creating
+Kobi Kunasekaran: in terms of creating and updating the uh the links, you're good for that process.
+Cedrick Infantado: and updating. Yeah, I think I can do that already or it's not
+Kobi Kunasekaran: Okay,
+Cedrick Infantado: yet done.
+
+
+00:47:06
+
+Cedrick Infantado: It's a spike. So, I'm just trying to handle the data and try if I can uh do that. So uh based on what I have explored yesterday, I think for creation and update we can already do that for the deletion part.
+Kobi Kunasekaran: good. Okay.
+Cedrick Infantado: Uh I think this one is the trickier part because we want to have a confirmation for them that they really want to delete those records.
+Kobi Kunasekaran: Okay. So why don't we do this? So um let's dep prioritize the deletion from the screen flow for now. Let's just make it so that we are able to add new links and update the links that are already there. Um, and then if I'm but what I want to make sure we're able to do is like if I add a link um in like well let's say I kick off the I click the button and then there's already three pre-existing links and then I click add to add one more link. link, right? Um, let's make sure that the new link I'm able to remove that so it doesn't get committed.
+
+
+00:48:05
+
+Kobi Kunasekaran: So, in case like I clicked to add accidentally, that one doesn't need a confirmation. Um, but we don't need to add a way to remove the previous ones. I I mean, you let me know if this is making it more complicated or simpler. But, uh,
+Cedrick Infantado: You do.
+Kobi Kunasekaran: essentially what I'm what I'm getting at is, uh, here, let me actually share my window and show you Thunder Markup. Not this one. Okay. So, let's say like this is a starting point, right? Uh the this is preloaded from whatever is already in the like related to the deal. Um I don't need the ability to delete it from here. Uh because that's the one that you know we said we wanted to make sure there's confirmation. So, let's get rid of that requirement. But what I do want is if I add a new row right now, um I should be able to like proceed without like committing it. So whether that's deleting it, um like I don't need a confirmation for that.
+
+
+00:49:09
+
+Kobi Kunasekaran: Um but I like you know what I mean? Like so that they're not stuck like if they accidentally click on add link and put something in and then they realize like it it doesn't need to be there. Um I just need to be able to clear that out before committing whatever changes to Salesforce.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: But let me know if that simplifies things a little bit and then for the deleting of the links we'll come back um I think a better option is to either give them like individual uh record level access to delete uh which is the safest because then we can put it behind like validation rules and things like that um or uh we can also give them like a way to to like do it in bulk through like you know having the check boxes in the related list and then an option button. So we can do that as a separate item instead of uh instead of like trying to do it within the edit link. Um because I get the I get the complexity of like the the extra confirmation and then trying to loop through it and and everything.
+
+
+00:50:11
+
+Kobi Kunasekaran: So I'm I'm good to de prioritize a deletion.
+Cedrick Infantado: Okay, sure.
+Kobi Kunasekaran: Um, also I I like it's awesome that you were able to get the the active inactive to show up as a toggle. I thought they only show up as a checkbox. Is that like custom or out of the box?
+Cedrick Infantado: This is out of the box with a little bit of a trick.
+Kobi Kunasekaran: Okay. It's okay. So,
+Cedrick Infantado: Yeah,
+Kobi Kunasekaran: uh,
+Cedrick Infantado: because the toggle uh it requires a label. So I just created a variable for a white white space so that it would
+Kobi Kunasekaran: nice. Okay.
+Cedrick Infantado: wouldn't show up any labels here. Yeah.
+Kobi Kunasekaran: Okay. Oh, wait. Yeah, that's fine. That's fine. I think this is good. So I yeah, I'm good with like getting rid of the deletion requirement for now for the creating and managing. Um and then we can come back to the deletion afterwards.
+Cedrick Infantado: Okay. Uh for this one, should I continue this as a regular user story rather than spike so we
+
+
+00:51:15
+
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: could uh push through?
+Kobi Kunasekaran: Yeah. Yeah.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: You can try like change it into like a PLC, right? If if that's what we're going to do and then we can refine it and clean it up later if we need to.
+Cedrick Infantado: Okay.
+Kobi Kunasekaran: Yeah.
+Cedrick Infantado: I think that's all for me. I don't have any tickets on my back plug other than this. Oh, you should move this to in progress.
+Kobi Kunasekaran: Okay. All right. Yeah. I uh we we'll have some queue up for you today or the end of the day today.
+Cedrick Infantado: Okay. Got it.
+Kobi Kunasekaran: Awesome. Okay. All right. Thanks, Cedrick.uh for the state and country, can you update the ticket to indicate that we're making that change as well? Um where we're feeding or updating the existing state and country values in addition to the address. Um so we are able to follow through with that too.
+Cedrick Infantado: Okay,
+Kobi Kunasekaran: Awesome. All right. Thanks, Cedric.
+Cedrick Infantado: thank you.
+Kobi Kunasekaran: I think Karen's on the call, so yeah, we'll I'll talk to you'all later.
+Cedrick Infantado: Bye.
+
+
+Transcription ended after 00:54:51
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

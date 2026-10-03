@@ -1,0 +1,189 @@
+{
+  "id": "11574",
+  "key": "WAGR-497",
+  "fields": {
+    "statuscategorychangedate": "2026-09-29T18:28:30.720-0400",
+    "issuetype": {
+      "id": "10028",
+      "description": "",
+      "name": "Story",
+      "subtask": false,
+      "hierarchyLevel": 0
+    },
+    "parent": {
+      "id": "10285",
+      "key": "WAGR-39",
+      "fields": {
+        "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+        "status": {
+          "description": "",
+          "name": "Requirements",
+          "id": "10058",
+          "statusCategory": {
+            "id": 2,
+            "key": "new",
+            "colorName": "blue-gray",
+            "name": "To Do"
+          }
+        },
+        "priority": {
+          "name": "High",
+          "id": "2"
+        },
+        "issuetype": {
+          "id": "10000",
+          "description": "A big user story that needs to be broken down. Created by Jira Software - do not edit or delete.",
+          "name": "Epic",
+          "subtask": false,
+          "hierarchyLevel": 1
+        }
+      }
+    },
+    "project": {
+      "id": "10045",
+      "key": "WAGR",
+      "name": "Wagertech",
+      "projectTypeKey": "software",
+      "simplified": false
+    },
+    "fixVersions": [],
+    "statusCategory": {
+      "id": 2,
+      "key": "new",
+      "colorName": "blue-gray",
+      "name": "To Do"
+    },
+    "workratio": -1,
+    "watches": {
+      "watchCount": 1,
+      "isWatching": false
+    },
+    "created": "2026-09-29T18:28:30.284-0400",
+    "priority": {
+      "name": "Normal",
+      "id": "3"
+    },
+    "labels": [],
+    "versions": [],
+    "issuelinks": [
+      {
+        "id": "10082",
+        "type": {
+          "id": "10003",
+          "name": "Relates",
+          "inward": "relates to",
+          "outward": "relates to"
+        },
+        "outwardIssue": {
+          "id": "10215",
+          "key": "WAGR-141",
+          "fields": {
+            "summary": "BUILD-252 — Player Status: Last Activity Date Engine (Subflow)",
+            "status": {
+              "description": "",
+              "name": "Jumpr Review",
+              "id": "10062",
+              "statusCategory": {
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+              }
+            },
+            "priority": {
+              "name": "High",
+              "id": "2"
+            },
+            "issuetype": {
+              "id": "10009",
+              "description": "A task that needs to be done.",
+              "name": "Task",
+              "subtask": false,
+              "hierarchyLevel": 0
+            }
+          }
+        }
+      }
+    ],
+    "assignee": null,
+    "updated": "2026-09-30T01:05:34.188-0400",
+    "status": {
+      "description": "",
+      "name": "Requirements",
+      "id": "10058",
+      "statusCategory": {
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    },
+    "description": "## Source of truth\n\nhttps://jumpr.atlassian.net/wiki/spaces/JK/pages/269090817/03+User+Stories+Jira+Disposition\n\n## Outcome\n\nEach Deal exposes the latest historical **first-click Date** across its related Sign-Ups so inactivity qualification can be evaluated without querying Sign-Up history inside the scheduled Flow.\n\n## Source field\n\nWAGR-498 owns `Sign_Up__c.First_Click_Date__c` (final API name subject to metadata conventions).\n\nThis is a **Date**, not DateTime, because Deal activity/inactivity is a calendar-day business rule.\n\n## Implementation direction\n\nPrefer a realtime/appropriate DLRS or equivalent roll-up:\n\n* Parent: Deal.\n* Child: Sign-Up.\n* Aggregate: **MAX(First Click Date)**.\n* Target: Deal system-managed Date conceptually named `Last_Signup_First_Click_Date__c`.\n\nThis replaces the previously-proposed copied `Deal_Stamp_Last_Activity` subflow.\n\nWhy:\n\n* preserves historical/imported first-click dates;\n* recalculates correctly when a Sign-Up is deliberately re-parented;\n* avoids per-Sign-Up whole-Deal updates;\n* makes the value visible/reportable for WAGR-487.\n\n## Source-event rule\n\nThe rollup changes only because the underlying related Sign-Up set / First Click Dates change.\n\n* Unrelated Deal updates do not change it.\n* Unrelated Sign-Up edits do not change First Click Date and therefore do not advance activity.\n* Repeat clicks rolled into the same Sign-Up do not update First Click Date in V1.\n* If a Sign-Up is re-parented, source/destination rollups recalculate while the Sign-Up's First Click Date remains preserved.\n\n## Acceptance criteria\n\n1. Deal with no related Sign-Up First Click Date has blank Last Sign-Up First Click Date.\n2. First qualifying Sign-Up rolls its First Click Date to the Deal.\n3. Later Sign-Up with a newer First Click Date advances the Deal value.\n4. Older/equal Sign-Up does not advance the MAX value.\n5. Unrelated Sign-Up edit does not change First Click Date or Deal Last Sign-Up First Click Date.\n6. Re-parenting a Sign-Up recalculates both affected Deals without changing the Sign-Up's historical First Click Date.\n7. Existing Player Last Activity automation remains unchanged.\n\n## Dependencies\n\n* WAGR-498 — Sign-Up First Click Date semantics and source-event behavior.\n* WAGR-487 — scheduled inactivity consumes this Deal field.\n\n",
+    "timetracking": {},
+    "attachment": [],
+    "summary": "Deal — Roll up Last Sign-Up First Click Date",
+    "creator": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "subtasks": [],
+    "reporter": {
+      "accountId": "712020:61966a85-61f2-42ce-8382-85568cc7e090",
+      "emailAddress": "kobi@jumpr.io",
+      "displayName": "Kobi Kunasekaran",
+      "active": true,
+      "timeZone": "America/Toronto",
+      "accountType": "atlassian"
+    },
+    "aggregateprogress": {
+      "progress": 0,
+      "total": 0
+    },
+    "progress": {
+      "progress": 0,
+      "total": 0
+    },
+    "votes": {
+      "votes": 0,
+      "hasVoted": false
+    },
+    "comment": {
+      "comments": [],
+      "maxResults": 0,
+      "total": 0,
+      "startAt": 0
+    },
+    "worklog": {
+      "startAt": 0,
+      "maxResults": 20,
+      "total": 0,
+      "worklogs": []
+    },
+    "customFields": {
+      "Request participants": {
+        "id": "customfield_10036",
+        "value": []
+      },
+      "Rank": {
+        "id": "customfield_10019",
+        "value": "0|i0090v:"
+      },
+      "Epic Link": {
+        "id": "customfield_10014",
+        "value": "WAGR-39"
+      },
+      "Responders": {
+        "id": "customfield_10046",
+        "value": []
+      },
+      "Organizations": {
+        "id": "customfield_10002",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,1003 @@
+📝 Notes
+Jul 28, 2026
+Wagertech <> Jumpr: Weekly Sync
+Invited Marc Cabantog lina@wagertech.bet Kobi Kunasekaran emily@wagertech.bet joyce@wagertech.bet Waleed Alasadi Taryn Reithofer jay@wagertech.bet Miko Sumagang
+Attachments Wagertech <> Jumpr: Weekly Sync
+Meeting records Transcript Recording
+
+
+Summary
+The team reviewed interface updates and finalized the integration architecture between Salesforce and the Content Management System.
+
+Interface and workflow updates
+The team approved a 2-column layout for lead details and established automated logic for fraud and archive statuses. These changes ensure clearer data organization for operations teams.
+
+Access controls and terminology
+Administrative access was restricted to prevent accidental data changes while field labels were standardized for clarity. Managers gained new capabilities to track deposit amount discrepancies effectively.
+
+System architecture and integration
+The team designated Salesforce as the primary source of truth for deal configurations, ensuring automated data flow to the Content Management System. Development efforts will now prioritize the Application Programming Interface to support this critical integration.
+
+
+Decisions
+Aligned
+* Referral notes section enabled A notes section will be added to the referral information area to allow for capturing additional details.
+* Country flag icons displayed Country flag icons will be displayed next to user names in the interface to indicate the market.
+* Red flag icon repositioned The red flag icon will be repositioned to the immediate right of the person's name in the UI.
+* Operations editing functionality maintained Operations team will retain the ability to edit records, with a plan to evaluate and potentially restrict this functionality in the future.
+* Agency signup date renamed The 'Agency signup date' field will be renamed to 'Agency registration date' to avoid confusion.
+* Actual deposit amount field added A checkbox and field will be added to capture the actual deposit amount when it differs from the allotted amount.
+* Rep view simplified The rep view will be simplified to remove detailed deal information, relying instead on deal assignments for context.
+* CMS designated as assignment system The CMS will serve as the system of record for managing deal assignments, while Salesforce will act as the configuration and visualization layer.
+* Affiliate link toggle functionality confirmed The deal page is confirmed to include functionality for configuring affiliate tracking links, specifically the ability to toggle them on or off.
+* System architecture for deal management defined The team established that the CMS will serve as the interface for managing links and deals, while Salesforce will replace AirTable as the backend system of record.
+* Deal assignment records managed via CMS Deal assignment records are to be created and managed within the CMS, utilizing API calls to synchronize these records with Salesforce.
+* API integration prioritized over data migration The team decided to prioritize API integration development work over data migration tasks to ensure go-live readiness.
+
+
+We've updated the Decisions section using your feedback.
+Let us know what you think: Helpful or Not Helpful
+
+
+Next steps
+* [The group] Update Operator Logos: Gather and provide the logos for all 60 to 70 operators. Upload the image URLs into Salesforce.
+* [The group] Provide Vertical Icons: Select and provide the desired icons for separating vertical sections in the interface.
+* [Lina Ceniccola] Finalize Referral Matrix: Determine and submit the final referral matrix data to ensure accurate platform payout logic.
+* [Kobi Kunasekaran] Add Notes Field: Include a new notes section within the referral information area for every signup.
+* [Kobi Kunasekaran] Rename Registration Date: Change the current field label from agency signup date to agency registration date.
+* [Kobi] Add deposit amount checkbox: Implement a checkbox below the deposit amount field to allow input of the actual deposit if it differs from the survey compensation.
+* [Waleed] Provide API requirements: Send a document containing the requirements and API payloads for integrating deal assignment records between the CMS and Salesforce.
+* [Joyce] Review remaining screens: Provide feedback on the remaining interface screens to ensure all necessary fields are captured before the go live date.
+* [Kobi] Prepare rep field information: Configure the player, operator, and partner information fields within the rep view to ensure they are ready for the go live phase.
+* [Kobi] Resolve external ID mapping: Continue the offline discussion regarding study click link processing and external ID mapping to finalize the data integration logic.
+
+
+
+Details
+* New Team Member Introduction: Kobi Kunasekaran introduced Taryn Reithofer, who joined the team as a new Revenue Operations consultant based in Hamilton, Ontario. Taryn Reithofer brings six years of experience in business-to-business (B2B) fintech software-as-a-service (SaaS) and will support the project with day-to-day operations and project management tasks (00:01:09).
+* Signup Record Interface Updates: Kobi Kunasekaran presented an updated user interface designed to reduce previous text-heavy layouts. The team agreed on a two-column structure that separates read-only lead details from editable end-user fields. Kobi Kunasekaran clarified that end-users cannot edit records in the "new" status and that administrative or operational permissions are required for record modifications (00:06:22).
+* Referral Information and Proof Status: Kobi Kunasekaran demonstrated how the system calculates proof status based on user input. Emily Vandenberg confirmed the inclusion of a "no refer" variable to adjust completion logic. Kobi Kunasekaran agreed to implement a requested "notes" field within the referral information section to provide additional context for signups (00:09:34).
+* Referral Payout and Currency Display: Lina Ceniccola emphasized the necessity of displaying referral currency to ensure accurate payment processing from specific regional bank accounts. Kobi Kunasekaran confirmed that payout amounts are driven by internal automation based on the signup currency, and while the team is still refining their approach to secondary referrers, the current setup does not block phase-one progress (00:12:56).
+* Visual Branding and Categorization: Kobi Kunasekaran updated the platform to support operator logos, noting that teams will need to collaborate to upload assets for approximately 60 to 70 operators. Kobi Kunasekaran requested the team provide specific icons for different verticals to improve visual organization, as state-level emojis are not currently supported (00:16:23).
+* Visual Layout and Icon Strategy: The team discussed reducing visual clutter in the list view. Kobi Kunasekaran agreed to explore options for adding country flag icons and moving the red "fraud" flag to a more prominent position next to the record names. Kobi Kunasekaran clarified that the yellow caution icons indicate overdue status, while red flags are used for fraud identification (00:17:24).
+* List View Configuration: Kobi Kunasekaran explained that while the system does not support "quick filters" in the current split view, they can create multiple filtered list views to help reps organize signups by market. Kobi Kunasekaran offered to rearrange displayed fields to match the visual format preferred by Lina Ceniccola (00:23:05).
+* Handling Data Exceptions: Emily Vandenberg questioned how the system handles click data that lacks operator or partner information. Kobi Kunasekaran explained that such records are flagged for a review process, allowing an operator or administrator to manually correct or process the data, ensuring incomplete "Study Link Clicks" do not disrupt production workflows (00:28:18).
+* Fraud and Archive Workflow: Kobi Kunasekaran demonstrated the workflow for managing fraud and archive statuses. Records flagged for fraud are automatically locked for editing, and operations teams must manually update the status to enable editing. The system includes a reactivate button for archived records, and Kobi Kunasekaran integrated specific reasons for archiving and fraud status into the system configuration (00:30:38).
+* Administrative Access Controls: The team discussed restricting edit access to prevent accidental changes to deal data. Lina Ceniccola and Emily Vandenberg agreed that while operations may eventually require full editing capabilities, it is safer to restrict access for standard users. Kobi Kunasekaran confirmed that they can lock down these fields and grant access on a case-by-case basis (00:33:15).
+* Data Field Terminology: The team aligned on field naming to avoid confusion between similar concepts. Kobi Kunasekaran, Lina Ceniccola, and Jay agreed to rename the "affiliate signup date" to "sign up date" and the "agency signup date" to "agency registration date" to clearly distinguish between the two events (00:36:32).
+* Deposit Amount Tracking: Lina Ceniccola and Emily Vandenberg identified a need to track discrepancies between allotted and actual customer deposit amounts. Kobi Kunasekaran agreed to implement a checkbox that, when triggered, reveals an input field for the actual deposit amount, allowing the team to document cases where a customer deposits more than the allocated compensation (00:38:53).
+* Deal and Assignment Configuration: Kobi Kunasekaran presented a simplified rep-facing deal interface and proposed removing the complex deal ID display. The team discussed adding target tracking metrics to the dealer assignment object to help managers monitor volume goals against individual targets (00:42:31) (00:47:42).
+* Integration with Content Management System: Joyce Kiddell and Emily Vandenberg finalized the architecture where Salesforce acts as the source of truth for configuring deal details and links, while the Content Management System (CMS) handles the actual rep assignments. This ensures that deal data flows from Salesforce to the CMS, where operations teams can select from pre-configured options for rep assignments, allowing for better reporting and loop closure (00:50:01).
+* Affiliate link configuration: Joyce Kiddell and Kobi Kunasekaran discussed the requirement for a configurable feature on the deal page to manage affiliate links, specifically the ability to activate or deactivate these links as needed. They clarified that this feature is distinct from link slugs, which are more relevant for representative landing pages, and confirmed that the ability to turn links on or off is the primary necessity (00:58:38).
+* Technical implementation of links: Kobi Kunasekaran proposed creating a new child object, similar to existing deal assignments, to manage affiliate links. Users will be able to create each link via a new button, which will be tied to an Application Programming Interface to send the payload to the Content Management System. Kobi Kunasekaran emphasized that since deal information originates in Salesforce, the systems can easily communicate without needing to reconcile individual items (00:59:34).
+* System workflow and guardrails: Kobi Kunasekaran noted that Salesforce cannot enforce specific business guardrails, such as ensuring a link only belongs to one representative, so these must be managed within the Content Management System. Owen Scott suggested that making changes, such as disabling a link or modifying a deal, should be handled through the Content Management System, with Salesforce serving as the system of record to track those changes (01:00:27).
+* Deal management and system transition: Joyce Kiddell explained that the Content Management System lacks a dedicated concept for deal management, requiring that deals be created in Salesforce first to be available for selection in the Content Management System (01:01:31). Lina Ceniccola clarified that Salesforce is replacing AirTable as the robust solution for capturing deal information, including volume targets (01:02:32). The team confirmed that adding deal information in Salesforce will automatically push the data to the Content Management System (01:03:53).
+* Future system convergence: Kobi Kunasekaran suggested that the team could eventually work towards converging the Content Management System and Salesforce into a single system. This would reduce the need for manual configuration and prevent users from having to shuffle back and forth between two different systems (01:04:56).
+* Deal assignment requirements: Waleed Alasadi identified deal assignments as a critical link between deals and representatives for running performance metrics. Waleed Alasadi confirmed that the team would provide requirements for the Content Management System to manage these deal assignment records, which will necessitate an Application Programming Interface call from the Content Management System to Salesforce (01:06:09).
+* API development and go-live prioritization: Waleed Alasadi and Kobi Kunasekaran discussed the need to accelerate the development of the Application Programming Interface for deal assignments in preparation for User Acceptance Testing (01:07:07). The team agreed to prioritize the Application Programming Interface work—including defining payloads and authentication—over historical data migration to ensure the system is ready for go-live (01:08:17). If the Application Programming Interface is not ready by the go-live date, the team discussed potentially using the Salesforce assignment process as a temporary measure (01:09:07).
+* Remaining tasks and project milestones: The team plans to address outstanding fields for players, operators, and partners in the coming week. Kobi Kunasekaran noted that the team reached a positive milestone on Friday by successfully sending records and mentioned that they will continue to work on the external identification situation offline (01:11:10).
+
+
+
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+📖 Transcript
+Jul 28, 2026
+Wagertech <> Jumpr: Weekly Sync - Transcript
+00:00:03
+
+Kobi Kunasekaran: I can't hear you. Can you hear me? Oh, you're on
+Emily Vandenberg: I muted myself.
+Kobi Kunasekaran: mute.
+Emily Vandenberg: Um, sorry, I'm going. It's going good. How about
+Kobi Kunasekaran: I'm doing all right.
+Emily Vandenberg: you?
+Kobi Kunasekaran: I'm doing all right. I feel like I caught you in the middle of lunch.
+Emily Vandenberg: No, I was trying to like um Well, I quickly went up and grabbed something and I was trying to multitask, which never works out well,
+Kobi Kunasekaran: These lunch meetings, they always get you sometimes.
+Emily Vandenberg: right? It's more like breakfast, but yes.
+Kobi Kunasekaran: Brunch. Hey, Joyce.
+Joyce Kiddell: Hey.
+Emily Vandenberg: Right.
+Joyce Kiddell: Yeah, speaking of food, I'm going to be heating up some lunch during this
+Kobi Kunasekaran: All good.
+Joyce Kiddell: call.
+Waleed Alasadi: Good morning everyone.
+Kobi Kunasekaran: Alina.
+Waleed Alasadi: Sorry,
+Emily Vandenberg: Morning.
+Waleed Alasadi: I'm gonna be off camera today so excuse me.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: No worries.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: I think we're all here. Uh don't think Jester is going to join and I don't think Nico is joining either.
+
+
+00:01:09
+
+Kobi Kunasekaran: Um anybody else joining on your end or shall we get
+Emily Vandenberg: Um, I added Jay.
+Kobi Kunasekaran: started?
+Emily Vandenberg: We can, um, I think we can kind of jump in. We're just kind of recapping and doing a brief intro.
+Kobi Kunasekaran: Sure.
+Emily Vandenberg: And I'll just ping Jay.
+Kobi Kunasekaran: All right. So, I do want to introduce Taran um who's on the call today. Um she actually just joined Jumper. Um it is her second day today. Um she's joining my team. Uh basically, she's going to help take over some of the project management and day-to-day support and uh helping to manage this project as we go into the later stages. um obviously she's still onboarding and uh picking things up. So you'll see her in all the lot of the calls and u ladder to the channel as well. But Taran, I don't know if you want to introduce yourself like a quick little
+Taryn Reithofer: Yeah, sure. Sure. No problem. Um, so hi everybody.
+Kobi Kunasekaran: intro.
+
+
+00:02:05
+
+Taryn Reithofer: My name is Taran Ryoffer. Um, I'm based out of Hamilton, Ontario. And like Kobe said, I'm a new RevOps consultant here at Jumper. Um, just a quick background on me. Um I've spent the last six years in B2B um fintech SAS first in client support moved into revops um and then most recently into product management. So I've sat on um kind of both sides of the systems and um process world figuring out how to actually make people use the tools built for them and how to build the right tools in the first place. So, um I'm looking forward to learning more about um your business and more about each and every one of you more personally. And I'm excited to work with you all.
+Emily Vandenberg: Nice to meet you.
+Taryn Reithofer: Nice to meet you.
+Emily Vandenberg: Oh, Lena, you're muted.
+Lina Ceniccola: Oh, I just said nice to meet you, too,
+Taryn Reithofer: Eight.
+Lina Ceniccola: and welcome to the project.
+Joyce Kiddell: Nice to meet you.
+Kobi Kunasekaran: Okay. Um, let's dive into the agenda.
+
+
+00:03:15
+
+Kobi Kunasekaran: I don't have uh I don't have anything sensive to go over. I shared the video u of the walkthrough just so we can save a little bit of time. Um, did you all have a chance to take a look at the updates? Any questions,
+Emily Vandenberg: I got a like I was just doing it kind of coming into this.
+Kobi Kunasekaran: concerns,
+Emily Vandenberg: It was a bit of a busy morning. Um so I like kind of still absorbing but I kind of I think I missed the last two minutes. Um so high level review probably worth going a bit deeper. How about you?
+Kobi Kunasekaran: sir?
+Emily Vandenberg: And how about Joyce Selena?
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: Yep. I watched the video um decided just to uh talk about it here, but nothing nothing from my end that was to point out as an urgent thing.
+Joyce Kiddell: Yeah, I did not watch it. I'm sorry. I've been back to back all morning. Um, so yeah, if there's maybe five minutes that you could spend just highlighting the biggest changes since we last spoke, that would be awesome.
+
+
+00:04:20
+
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Um,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: I've also brought on Owen and Jay who are on the ops team.
+Kobi Kunasekaran: Absolutely.
+Lina Ceniccola: So, they'll also be helping provide some of the feedback just from their side of things. So, they're they need uh to be caught up to speed a little bit. So, yeah, just a quick
+Kobi Kunasekaran: Yeah. Um, yeah, I can show like a uh go over a lot of the changes quickly.
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: Um, yeah, Owen Jay, nice to see you guys again. Um, I guess this is the first time you're going to be seeing the uh everything that we built as well. So, um, if you do have any questions, I mean, feel free to message or reach out afterwards if you don't get time to go over everything today. But, uh, um, yeah, I can start with the demo. Um, and then I think the big one that we want to talk about outside of going over the changes was the DLD link and the the array management and those changes, right, Emily?
+
+
+00:05:17
+
+Kobi Kunasekaran: Is there anything else that's like major that I want to cover today?
+Emily Vandenberg: I think like um I don't know if Joyce had a chance to look through the kind of um the partner operator country market like list that you created. we should just kind of nail down like the approach that you took there and the IDs like you know the approach of like I filter in on like that we want to do a unique ID for kind of each of those values but just like where we take your list from here um to make sure we have the right action in Yes.
+Kobi Kunasekaran: Okay, sounds good. Okay. All right. So, why don't I start with the quick demo? Um what Let me get this set up here. You can all see my screen. Yeah. Okay. So,
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: a lot of the changes um that we made are largely um user interface uh mainly focused on the sign up deal uh rep assignment and um and a few things on the operator as well.
+
+
+00:06:22
+
+Kobi Kunasekaran: Um there's still a lot of like automations and like behind the scenes functionality that uh were like we have queued up to do but it didn't affect what we're going to talk about today. Um so yeah from last week I think a lot of the feedback was um it was very tech heavy right like the interface was still very text heavy was a lot of fields um a lot of sections so we try to clean up as much of that as possible um I was able to combine uh the interface into just the two columns um as I explained in the video um we we can't do the full tab across the board um but we are able to um have it like at least on one section and then the other sections like kind of always on. Uh the order of which you can tell me like we can always switch it around. Um that's not a big deal. Um so I just figured just to be consistent throughout the whole journey. Um I've kept like the player information and the details on one side and then um anything that end user would enter um on the other side.
+
+
+00:07:24
+
+Kobi Kunasekaran: Um, actually, you know what? I'm Let me log in as a user and then I'll show you what it looks like from the end user.
+Joyce Kiddell: Nothing on this screen would be um editable though, right? Because that's like the lead quote unquote version when
+Kobi Kunasekaran: Correct. Yeah,
+Joyce Kiddell: it
+Kobi Kunasekaran: that's I want to go into the other view so you can see.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Yeah. So yeah, this is the this is the record when it's um in the new status. So none of this is going to be editable by uh an end user. Um so you need to have like you need to be an admin or have the permissions to be able to edit these fields. Um so read only except for the two buttons, right? They can click on lock signup. Um and when they click on lock signup, they have um all of the main fields that reps would generally um add information to um right up front. You don't necessarily have to have all the information when you're transitioning some uh transitioning a sign up from new to in progress.
+
+
+00:08:27
+
+Kobi Kunasekaran: Um so whatever you have, you can enter here. Um and click save, it'll move it to in progress. Once we go into in progress, the screen changes. Uh instead of the attribution information, which a lot of which like just went into the highlights panel, um we have the proof and deposit info and the referral info. uh below that. Um again, we can swap around the order um if you prefer it the other way around where the details and the non-editable section is on the right side instead of the left. Um but yeah, So similar like uh same fields that you would see in the uh log signup. I believe these are the only fields uh from the feedback and uh the field set that we talked about. But if there's anything missing, let me know. Um but yeah, so um over here we have the history tab just shows the history of clicks. If so there are multiple clicks, they'll be able to see that here. um the player information u they can't really edit because this is already like set through the automations behind the scenes when the uh clicks come in um but they can add in the proofs.
+
+
+00:09:34
+
+Kobi Kunasekaran: So I'm just going to do uh just some random text to show you how it works. So uh pretend like this is a URL that I'm pasting for the screenshot. Um it will uh update the uh little check mark um and then it starts counting up the proof status. Um, so if I do the deposit proof as well, we now go into two out of three proofs completed. Um, and same like if I do the wager, it'll go into three. Um, I haven't uh updated the completion logic. I think we're still waiting on finalizing the field set in the open questions out for what one all is considered uh completion. So once that's ready, like this will obviously start getting updated as well.
+Emily Vandenberg: Yeah, I think it was just like I had noted to add the no refer and as like a variable within completion and I think it was there, right?
+Kobi Kunasekaran: Yeah. So, I added the no refer field here. So, if they do check no refer, then the other two fields disappear.
+
+
+00:10:35
+
+Kobi Kunasekaran: They don't have to fill anything out. I think you still want the secondary refer though, right? Or is like is it all like no referral at all? Wasn't sure.
+Emily Vandenberg: Lena, if they don't have like if Yeah. like it can drop offer when there's no refer, but secondary refer still has to be a concept within the
+Lina Ceniccola: If it's no refer then we wouldn't have secondary But um how easy
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: would it be to add a field within the referral information section? Like say we needed to add just one extra thing.
+Kobi Kunasekaran: Uh like what are you looking at?
+Lina Ceniccola: Um, I don't quite know yet, but if we had to,
+Kobi Kunasekaran: Okay,
+Lina Ceniccola: I'm just curious like how much of an issue that would
+Kobi Kunasekaran: it's not an issue at all.
+Lina Ceniccola: be
+Kobi Kunasekaran: I think so generally speaking any anytime you want to add a field um by creating the field and adding it into a page layout is pretty straightforward and easy. Um it's the behavior that you want you want tied to that uh field that's where the effort goes in. So like if if you need that field to you know, in a particular state when the no referral is checked that like we'd have to scope that out to see what that is,
+
+
+00:12:04
+
+Kobi Kunasekaran: right? Um, but if it's just like capture like something like a deposit amount field where you just want reps to enter something and you just want that
+Lina Ceniccola: Uh,
+Kobi Kunasekaran: as part of the signup record, that's like super easy, like 15 minutes tops, start to
+Lina Ceniccola: okay.
+Kobi Kunasekaran: finish.
+Lina Ceniccola: Cuz we also had a note section and referral information. I don't see that here anymore. Can we add that back?
+Kobi Kunasekaran: Uh we can yeah just like just do you want to call it like refer notes or just regular notes? Okay. Yeah,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: we can add that
+Joyce Kiddell: This is looking so much better.
+Waleed Alasadi: and Lena that's so go ahead
+Kobi Kunasekaran: in.
+Joyce Kiddell: Sorry, I was just going to say that this is looking so much better.
+Waleed Alasadi: Jo.
+Joyce Kiddell: So, thanks Mark.
+Kobi Kunasekaran: Thank
+Waleed Alasadi: Awesome. Uh just for for the notes.
+Kobi Kunasekaran: you.
+Waleed Alasadi: So it's notes for this particular signup, right? Like it's not just for the referral in general.
+
+
+00:12:56
+
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: Good
+Lina Ceniccola: Yes.
+Kobi Kunasekaran: question.
+Emily Vandenberg: And then the only other like small but can we bring the secondary referral like down because the payout is just so that the like refer payout
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: type and uh payment amount are all linked to the primary.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: So it's not
+Kobi Kunasekaran: And actually the pay payout amount um we actually set this up so that there is some automation. Let me see if I can find the reference. And if I choose cash, um it'll fill it out based on that matrix that you sent us. So depending on the currency of the signup itself, which is something I don't know if you want to show that uh for the reps. Um I do have it in the more info tab that uh admins would generally see, but uh it might be helpful for them to see. Um but I am displaying the referral currency so that if there's a question on why it's showing 50 instead of the I think I don't remember the other amount but like uh 100 or whatever it is.
+
+
+00:14:19
+
+Kobi Kunasekaran: Um a lot of it is largely driven by the currency of the sign up and the
+Lina Ceniccola: Yeah, definitely want to keep the referral currency because that changes which platform they pay
+Kobi Kunasekaran: referral.
+Lina Ceniccola: out the referral. So just at like a quick glance, they know, okay, I'm going to pay this from the Canadian bank.
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: It's the US bank. So they definitely want access to that info. Um I'll try to get you the referral information.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: I don't think we'll have any changes at this time, but we're just kind of um discussing more of an uh an operational workflow issue we're dealing dealing with in terms of referrals right now. So, um yeah, I'll try to get that figured out as soon as possible cuz like you said, it it just affects how we want to use that info. So, um I will try to get that solidified as quickly as possible. But yeah, we might just internally change like how we view secondary referers.
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: But anyway, more to come there.
+
+
+00:15:28
+
+Kobi Kunasekaran: Okay. I we haven't added any automations around the secondary referral yet. Um because that that was supposed to be mostly on the referral object as opposed to the signup. So, uh, it doesn't seem to be blocking for this phase yet,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: but um, so if that's if that's changing, perfect, right? We haven't invested any money or effort into it yet,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: so that's fine. Um,
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: for this one, yeah, let me know if like anything on the matrix uh changes. Um, so that we'll want to uh make sure that's uh solidified sooner rather than later. Um, sorry, any questions?
+Lina Ceniccola: No
+Kobi Kunasekaran: Okay. All right. So, couple of other things.
+Lina Ceniccola: questions.
+Kobi Kunasekaran: So, as you can see, we I was able to get the um logo added in as well for some of the operators. Um so, this will like I think when I went through the spreadsheet, you have like something like 60 or 70 operators.
+
+
+00:16:23
+
+Kobi Kunasekaran: So, um I we may need to work together to figure out how to fill in get like the lo logos and fill it in for every single operator when when we're going live. Um, but we'll we've set up the platform so it's it's easy enough. Um, you do just have to upload the logo into Salesforce. Um, and as ops paste in the URL for that image from Salesforce and then it'll drive all of the other fields. Um, so the operator logo is good. Um, for the country, um, we were able to get the Canada and US as well. So um the the logo show for state uh I don't think we can really do any uh emojis for each individual state. So that's still going to remain as text. Um and for vertical uh I think I left a comment for this. Um if you want to give me the icons that you'd like to use to separate these ones uh we can easily add those in as well. Um,
+Emily Vandenberg: um question sorry a bit more for like Lena Joyce on the like Q
+
+
+00:17:24
+
+Kobi Kunasekaran: yes.
+Emily Vandenberg: like on the split side where it's your like Q do we want to show market there or can we show market there do we think that's necessary thinking of some of like of like Nikquille for example who's got signups coming in from all markets.
+Lina Ceniccola: Um, yes. I'm just wondering if there's a way like I just don't want it to get too jammed with info almost like we kind of have a lot of things going on in the tiny little box. But if we can we can somehow condense it just so that it remains like visually appealing and not whoa. But what do you think? Like where do you think market could sit there? Or could it be a filter maybe like at the at the top? Uh market filter like within in because you know how you have the created date filter and maybe one be market filter. So that if you want to see all signups in US, all signups in
+Joyce Kiddell: Yeah, I like
+Kobi Kunasekaran: So this isn't necessarily a filter.
+
+
+00:18:57
+
+Lina Ceniccola: Alberta
+Kobi Kunasekaran: It's just a column to sort by.
+Joyce Kiddell: that.
+Kobi Kunasekaran: So these are sorted by the created date. What we could do is create um additional list views that's like market focus. So we could show like my signups US, my signup Canada, just similar to like the new and in progress. Um, so these are like the filtered
+Joyce Kiddell: I feel like that that might get a bit confusing because like the user behavior
+Kobi Kunasekaran: lists.
+Joyce Kiddell: under that drop down would be like in my mind more of like a a funnel or like different stages,
+Lina Ceniccola: Yeah.
+Joyce Kiddell: right?
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: Can we just do a sort by market?
+Kobi Kunasekaran: We can um but market is two fields though. Um do we want to combine this into a single field somehow just
+Lina Ceniccola: just
+Kobi Kunasekaran: country?
+Lina Ceniccola: country.
+Kobi Kunasekaran: Um
+Waleed Alasadi: Uh, Kobe, I don't know if this is possible,
+Kobi Kunasekaran: yeah we can.
+Waleed Alasadi: but can we add the flag next to the name like E2E tester like Canada?
+
+
+00:19:58
+
+Emily Vandenberg: Yeah.
+Waleed Alasadi: Is that would that work? Would you guys like that?
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: I think that that was kind of where my mind went too.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: It just like that quick visual visual indicator for them to like grab
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: Mhm.
+Kobi Kunasekaran: that's something we can do. Like next to like Jake Morrison, it will just be either the Canadian flag or the US flag.
+Lina Ceniccola: You weren't talking about the actual flag, right? The little red
+Kobi Kunasekaran: This one?
+Lina Ceniccola: flag.
+Emily Vandenberg: Wait, the Yeah, the undermarket country
+Kobi Kunasekaran: Yeah.
+Emily Vandenberg: flag.
+Lina Ceniccola: Mhm.
+Joyce Kiddell: I thought Will was talking about like the red
+Lina Ceniccola: Same like
+Joyce Kiddell: flag.
+Waleed Alasadi: I was talking about the maple leaf.
+Kobi Kunasekaran: Oh,
+Waleed Alasadi: The maple leaf with the red borders.
+Lina Ceniccola: that.
+Kobi Kunasekaran: the country flags because we do have the red flag for to flag
+Waleed Alasadi: Yes.
+Kobi Kunasekaran: the accounts or signups that are flagged for fraud. So, that's what like the icons are, right?
+
+
+00:20:58
+
+Kobi Kunasekaran: It's like Basically, there's an icon for the status, the new, in progress, archived, uh, completed, and then we have the yellow triangle for anything that's in progress to uh, and then red flag.
+Lina Ceniccola: I have a question. Is it possible to change from using an emoji flag for the And okay,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: I'm talking about red flags to make it red highlight. So,
+Waleed Alasadi: No.
+Lina Ceniccola: in the on the left side of it has Jake Morrison, but it has a little red flag. Like, what if you just had it all colored red? Is that possible? Similar to how you have that red banner for fraud.
+Kobi Kunasekaran: No,
+Lina Ceniccola: No. Okay.
+Kobi Kunasekaran: no. Like we basically have the ability to like these are essentially fields, right? the the name uh the operator. Um this is a custom field for like the icons that that's basically combining a bunch of information together into a single field. Um and then the one below that is a time. So it we have the option to pick the field the four fields that will be displayed and the order of which uh but that's that's pretty much it or the list
+
+
+00:22:14
+
+Joyce Kiddell: I think to Lena's point though,
+Kobi Kunasekaran: views.
+Joyce Kiddell: like it's feeling a little just busy um on the right there with all the emojis.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: So, what if is it possible to at least move the red flag to the right, like the more immediate right of the person's name?
+Kobi Kunasekaran: Yeah. Yeah, we can do that. We can rearrange like some of these if it'll be helpful.
+Lina Ceniccola: What is the um the yellow and the red?
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: Like the yellow icon, the caution and the red
+Kobi Kunasekaran: Uh the yellow was for anything that's passed due. Um and the red is for flag fraud.
+Lina Ceniccola: So the red circle.
+Kobi Kunasekaran: the red flag.
+Emily Vandenberg: I think that it's for proof status, right?
+Kobi Kunasekaran: Oh, you're talking about Yeah. Yeah. The the dot the circles are for the proof status. This this
+Emily Vandenberg: which I don't think we need Lena in that
+Kobi Kunasekaran: information
+Waleed Alasadi: If I may suggest you guys take like a day to look at it.
+
+
+00:23:05
+
+Emily Vandenberg: view.
+Joyce Kiddell: Mhm.
+Waleed Alasadi: Um, these things are like small. It's almost like you get used to them like because I've been looking at it for a day. I can immediately tell that Sarah is like in progress and is missing like the the three proofs while like Chris is like uh all done with the proofs and it's past due but is in progress. So maybe I should like just kind of let him go through. Um, yeah.
+Emily Vandenberg: Yeah, we can kind of sit with
+Lina Ceniccola: Yeah. And I'm I'm wondering just based on the screenshot that I sent if the format
+Emily Vandenberg: it.
+Lina Ceniccola: can follow closer to that where we have OOLG and it'll actually show the progress completed and whatnot there. And then The proof status I guess just lives on the right hand side along with any of those flags or maybe not flag is the right word for it but a red flag archive or caution.
+Kobi Kunasekaran: uh you remember like the list view uh from your uh screenshot that you shared.
+
+
+00:24:31
+
+Lina Ceniccola: Yeah. Is it
+Kobi Kunasekaran: I think the only one that I like so yes I could do it exactly like that.
+Lina Ceniccola: able
+Kobi Kunasekaran: Um, but then we may not have the date. Um, because we also want to stack it and see how old the signups are, right? Um, but I could like combine the logo like the OG with the status um, just like how you have it in the screenshot. Um, it could fill up like the middle space instead of it all being in like the one section. We can definitely do that. Um and then the
+Lina Ceniccola: if it's possible. Um, just like Will said, we can take that away and determine if that's the move.
+Kobi Kunasekaran: statists
+Lina Ceniccola: But I just wanted to know if it was a possibility for us to think about a little bit, confirm. Um, again, I just don't know what you can configure versus what you can't. So, that's just good to know. And then we'll we'll nail it down how we just want it to look
+
+
+00:25:31
+
+Waleed Alasadi: Yeah, ultimate.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: assume like all of these are like Yeah,
+Lina Ceniccola: visually.
+Waleed Alasadi: Thanks. Yeah, we go ahead.
+Kobi Kunasekaran: actually I think we're going to say the same thing. So there there's basically four fields that we can display, but those four fields it can be uh like fields with data points or we can create the custom fields. So like proof status is a formula field that we created that drives off of these, right? And it drives these emojis. And then this one itself uh so if I show you in the full view,
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: it is uh a status formula field that I'm combining a bunch of different things together. So nothing stopping me from doing the same for player. Um if you want to show player plus the country icon um or operator with the the status next to it, it'll just be like additional fields that we configure. So yeah, we can all always we can move around the icons as uh however you like so that uh it'll fit.
+
+
+00:26:22
+
+Kobi Kunasekaran: But the limitation is four fields and the first four fields um are the ones that show up when we go into the split view. And then obviously the order matters. So the order that we have it in that other view determines like how it displays
+Lina Ceniccola: Okay. Yeah. Just because the the completion process for a sign up makes sense to match those
+Kobi Kunasekaran: here.
+Lina Ceniccola: together and then the proof process is like almost a different flow. So to have them separated visually kind of makes sense because
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: on the signup side it's like it's moving through. Okay, it's new, then it's in progress, and then it's completed. And then you have the proofs, and you're like one, two, three. So, having them all in the same line. It's Yeah.
+Kobi Kunasekaran: a lot.
+Lina Ceniccola: But again,
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: we'll we'll talk through it a little bit, figure out again,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: this is still like a lot better visually than the last time.
+
+
+00:27:23
+
+Lina Ceniccola: So, I'm happy that happy we got to this point.
+Kobi Kunasekaran: Nice. I think like also like once people get used to the icons, we can even remove the text for the status too, right? Like once you kind of have an understanding that the green check mark means completed,
+Lina Ceniccola: Right.
+Kobi Kunasekaran: you don't need to complet it because that that's just taking up a lot of space in the uh in the little space that we have
+Lina Ceniccola: Yeah, that's true,
+Kobi Kunasekaran: here.
+Lina Ceniccola: too.
+Emily Vandenberg: And then Kobe, just to confirm, there's no like way that we'll be able to filter outside of creating a separate list view within like the different markets.
+Kobi Kunasekaran: So not in like not here. Um if you go to a table view, you can create your own filters, but this is like it's not going to be practical for reps to go in and filter individually for each of the uh each of the combinations that they want to see. Like there's no concept of like quick filters. That that's the whole point of these lists.
+
+
+00:28:18
+
+Kobi Kunasekaran: It's like you can create any number of lists you want and these lists are filtered versions of the same data. You can search for it. We can reorganize the fields that are displayed. Um we can adjust how the fields are sorted. Um but as far as I know, there's no way to do any like quick filters from here.
+Emily Vandenberg: Okay, we can talk about that internally. And then just one other question around like some of that test data. So like E2E tester. So it came in obviously like or we inputed it with no um operator and or partner information. Is that so? like
+Kobi Kunasekaran: Yeah. Yeah. We just didn't have any like deal to link it to.
+Emily Vandenberg: the
+Kobi Kunasekaran: So, it just uh it was created without anything.
+Emily Vandenberg: in in a like with the API like once we have the API set up and like we're sending all of the click how would you handle
+Kobi Kunasekaran: Um great question.
+Emily Vandenberg: That
+Kobi Kunasekaran: So those would get so those uh SLC's or uh study link clicks that come in without enough information for us to create the signup record.
+
+
+00:29:33
+
+Kobi Kunasekaran: Um we added like a review review uh process where it'll get flagged for review and somebody
+Emily Vandenberg: hurt.
+Kobi Kunasekaran: would need to review to see what's missing. why uh it didn't have the information that it need needed or fill in the information or do whatever is needed to fix it and then we'll have a button to reprocess it through the automation to have it try to link it to an existing signup. That's kind of the plan. So that's LC will go to you to review when when that
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: happens.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Uh but yeah, like this being like test data, I think we uh we may have just forced this through just to uh see how it comes through, but this shouldn't happen in production setting. Once once we're done with all the updates, it shouldn't happen.
+Emily Vandenberg: Okay.
+Kobi Kunasekaran: Okay. Um yeah, a couple of other things to call out. Um so some of the functionalities um that we talked about. So for new yeah we have the the fraud flag um anything that's uh flagged as fraud you'll notice it is locked for editing.
+
+
+00:30:38
+
+Kobi Kunasekaran: So regardless of the status um whether it's in progress where they have access to the proof or deposit information or if it's flagged right from the get- go which is actually another question I want to ask but I'll come back to it in a second. Um archive status none of it is editable by rep. So this these records do need to be unlocked by the ops team. So you'll have to do something with the uh fraud flag. Either dismiss it if it's confirmed as flawed then I think it's safe to expect that rep shouldn't be updating the record anyway. So it remains locked. Um but if they do need access and ops would need to uncheck that fraud flag so that they can go back to editing it. And then for archive records we added the reactivate button. So, um, if I click on reactivate, um, it'll bring it back to in progress. And then now I have access to, um, edit the fields and log that sign up as needed. Um, and for archive and fraud, we have the, uh, the new reasons that you provided in the open questions lock.
+
+
+00:31:39
+
+Kobi Kunasekaran: Um, and if they choose other, they'll need to provide the additional information. Um, same for fraud. Um, whatever reason they provide. Um, once, so actually I'll I'll mark this one as fraud. boy Bennett. So I'll do suspicious heading pattern and uh share my screen. So this I'm logged in as black admin um under more ops. Um I guess the fraud reason is not the same record. There we go. Okay. Um, wrong choy. So, the fraud review status is set to suspected suspicious betting pattern. Um, so this is where you know as ops you would come in and you can mark it as under review, confirmed or dismissed. We don't have the automation yet, but when uh when that's live, when you set it to dismiss, it'll basically uncheck this, clear this, clear this, and the record will be opened up for reps to go back and uh work with uh yeah I think that's it in terms of all the major updates. So for ops team we do have the edit button so you can go in and edit um all the fields that are in the layout.
+
+
+00:33:15
+
+Kobi Kunasekaran: Um, so if you want to override it, uh, help the reps out. Um, or if you need to reallocate the sign up to a different deal or anything like that, you have access to it. But, uh, end users won't have
+Emily Vandenberg: is that so you can edit the partner
+Kobi Kunasekaran: access.
+Emily Vandenberg: and the um like I guess you're showing deal better be the operator as well.
+Kobi Kunasekaran: uh the operator technically the partner uh operator uh market all of that comes from the deal so it'll change the deal you it should like update all of it but you have the option I don't expect that if you will be doing that very often but you have the option if you want or we can lock it down so nobody has the ability to edit
+Emily Vandenberg: What? Lena and Joyce, what are your thoughts? Given like how everything's going to be talking to each other. I'm It feels like we wouldn't be editing at that level. could be like if there's something missing,
+Kobi Kunasekaran: Yeah.
+
+
+00:34:15
+
+Emily Vandenberg: we'd have to create like the ops would have to be able have the ability to create like a new lead or something, you know. Um I don't know though. I don't think we should I don't think we would need to edit,
+Lina Ceniccola: using edit a fraud
+Emily Vandenberg: but no,
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: this is just like the ops view of being able to like edit the lead.
+Lina Ceniccola: signup.
+Emily Vandenberg: So like changing the partner or the deal maybe the brand ambassador but like I can't even think
+Kobi Kunasekaran: We can lock it down if if you're not expecting to change it. I think I I don't see a need for it unless like they're
+Emily Vandenberg: of
+Kobi Kunasekaran: uh
+Lina Ceniccola: Like could we just leave it and then um not edit it if we don't need to,
+Kobi Kunasekaran: yeah.
+Lina Ceniccola: but just leave it as we could edit it just in case almost like we don't know what we don't know in this new state. So,
+Kobi Kunasekaran: Yeah.
+Lina Ceniccola: as long as ops knows to not go in and touch those items and I think we're good.
+
+
+00:35:26
+
+Lina Ceniccola: And then maybe when we have more confidence, we can just like gray it out and have it as like a not functional
+Kobi Kunasekaran: tighten that up. Yeah. Yeah,
+Lina Ceniccola: tab.
+Kobi Kunasekaran: I'm good with that. I think it's uh in case something gets messed up in the automation when it's doing the linking um or somebody accidentally created the wrong deal and you need to like map it to a different deal, you have the option. But uh yeah, but this is only going to be for whoever needs access. So we can lock it down for everybody except like 10 minutes. Okay. Um, moving. Any questions on the signup? I think I covered all like the ma main functionalities and changes that we've
+Lina Ceniccola: Jan Owen,
+Kobi Kunasekaran: made.
+Lina Ceniccola: do you have anything to add at this time? Like to flag or anything?
+Jay: No, it looks pretty well uh well thought out. Um I think uh Emily covered my only question I was having. So it's pretty good.
+
+
+00:36:32
+
+Owen Scott: Uh, no. This is great.
+Lina Ceniccola: And then I just want to be clear on one thing. The agency signup date that will autofill from the
+Kobi Kunasekaran: Yeah, this will come from the player.
+Lina Ceniccola: click.
+Kobi Kunasekaran: Right now, we don't have that feeding in properly yet, but uh it should come from the player based on their first sign
+Lina Ceniccola: Got it.
+Kobi Kunasekaran: up.
+Lina Ceniccola: So, the BA won't um they won't input that data and then the affiliate signup
+Kobi Kunasekaran: Correct.
+Lina Ceniccola: date will just be the same
+Kobi Kunasekaran: This one I think this is supposed to be the equivalent of like or rather like when they
+Lina Ceniccola: date.
+Kobi Kunasekaran: actually sign up for the affiliate the book. Yeah. So I think this is manually entered right now.
+Emily Vandenberg: temp.
+Kobi Kunasekaran: So it is the expectation is that they would enter that in because a click doesn't necessarily mean that they actually signed up,
+Lina Ceniccola: Oh,
+Kobi Kunasekaran: right?
+Lina Ceniccola: agency sign up date and affiliate signup
+Jay: I think affiliate signup date should just name it as Oh,
+
+
+00:37:35
+
+Lina Ceniccola: date.
+Jay: sorry. There's a one under that name, deposit date. Okay, nice. Cool.
+Emily Vandenberg: Yeah, like welcome email kind of date for the um affiliate signup day. We can re label that for sure if needed, but the
+Lina Ceniccola: Yeah, just sign up date to be
+Emily Vandenberg: agent
+Lina Ceniccola: honest. Sign up date. Sign up proof. Deposit date proof and then
+Kobi Kunasekaran: Yep.
+Lina Ceniccola: the agency site sign up date or agency registration date.
+Kobi Kunasekaran: Oh yeah, actually that registration is a good one because they register for an
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: account.
+Lina Ceniccola: Do you guys agree with that?
+Owen Scott: Yeah, I agree with
+Lina Ceniccola: I just don't want to use the same word as sign up
+Kobi Kunasekaran: Yeah.
+Jay: Yeah.
+Kobi Kunasekaran: Okay. Yeah,
+Lina Ceniccola: and that'll just
+Kobi Kunasekaran: I can can make that change. Easy
+Lina Ceniccola: Okay.
+Kobi Kunasekaran: enough.
+Emily Vandenberg: The only thing I know we are going back and forth. the deposit date. Lena, we kind of chatted about the adding a secondary flow there like where you
+
+
+00:38:53
+
+Kobi Kunasekaran: Psych.
+Emily Vandenberg: could check like if it was um the deposit amount differs from what we put in the deposit amount and then it would like we talked about like a box that would pop up to indicate it. Um, Kobe, I know we're kind of going back and forth within the feedback sheet, but is that necessary for phase one,
+Lina Ceniccola: Yes. Yes, it
+Emily Vandenberg: Lena?
+Kobi Kunasekaran: That doesn't have any implication on user behavior though, right?
+Lina Ceniccola: is.
+Kobi Kunasekaran: It's like you just want um to flag when the sign up the deposit amount and the signup is uh is it different from the payout amount or was it a different field that it was supposed to check against?
+Lina Ceniccola: It would be like we provide the customer um survey compensation to deposit on the book, but if the c customer deposits more than what we're compensating for, we want to record that. So like I'm I tell the customer you're your allot your allotted amount is $75, but then they actually deposit $500. It's more like if it's different then input new amount.
+
+
+00:40:13
+
+Kobi Kunasekaran: Where's the allotted amount
+Lina Ceniccola: So deposit that would be what they put as the deposit amount.
+Kobi Kunasekaran: captured?
+Lina Ceniccola: So we could um it'd be a separate field that would say um they're use what were you going to
+Emily Vandenberg: I had like kind Oh, sorry. I had just kind of outlined in the dog like a box that you would click almost to say like deposit amount
+Lina Ceniccola: say?
+Emily Vandenberg: differs. So like 99% of the time I'll say that that's maybe high like it's one to one but there's these cases we need to track where it differs and then if that was the case just a box that we would check and then it would like open up like a quick field for us to input
+Kobi Kunasekaran: Oh, I see. Okay.
+Emily Vandenberg: the
+Lina Ceniccola: Like did customer deposit the same amount?
+Kobi Kunasekaran: So,
+Lina Ceniccola: No. Then you type it in the second what they actually deposited. It's almost like deposit amount. Um that's really survey compensation and then deposit amount is what they deposited if it differs from survey
+
+
+00:41:27
+
+Kobi Kunasekaran: Gotcha. Okay. So,
+Lina Ceniccola: compensation.
+Kobi Kunasekaran: deposit amount is like the allocated amount and then the actual amount is what they actually deposit and we want the ability for them to enter that information in. Yeah, we can do that. We can do something similar to the referral checkbox. I can add a checkbox below. If they check it, then another field shows up to put in the actual deposit amount. That's easy enough.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Okay. Yeah, we can we can get that added in. Um, I'll add it like underneath the deposit amount so it's all in the same Nice. Okay. Uh I know we're at 40 minutes. Um I think there's only one other thing I want to show you and then let's go into the questions. And the other thing was just the deals. As for deals, um I don't have like the full set of field of what uh what you'd like to show for the reps versus what's behind the scenes. So, I kept it simple.
+
+
+00:42:31
+
+Kobi Kunasekaran: Um all of the like anything that makes up a deal. Um I put it up top. Maybe we can find a better example. There we go. Okay, this one. So, operator, partner, market, country. So, this is the rep view. Um right, I'm logged in as a rep. This is all I can see. Um I can't edit anything here. Um, I could potentially add notes if I need to. Uh, we can lock that down, too. Um, and if there are any deal assignments, uh, they'll be able to see that below as well. Um, the more info tab, it's not hidden for reps right now, but this they wouldn't have access to this. It'll only be for admins. Um, but under the more info, this is where as ops or adins, you can go in and configure the uh configure the deal, make any changes if needed. Um, update the uh the CPA amounts, the commissions, the redeposit ranges and whole all that fun stuff.
+
+
+00:43:21
+
+Kobi Kunasekaran: So, um, and then I I think we had a couple of other related lists. I removed all of that and kept it just the deal assignments and signups. So you'll see all of that uh in one place and you can see the status and proof status as well here. Um, and then the only button that you would have, I guess this this wouldn't be accessible for reps, but as uh admins, you can go in or admins or ops or managers, you can go in and if you want to assign this uh deal over to uh reps, pick the rep active, set a date of when this assignment will be effective, save, and then it'll create the assignments for you. Then if you want to manage that and update it and like for example if you want to terminate it, we can pick those people that are active ended. I'm going to set an effective end date. Um and it'll update the effective end date. I guess we need to make sure that it keeps the effective from uh we'll take care of that.
+
+
+00:44:20
+
+Kobi Kunasekaran: But yeah, so that would be all uh in terms of deal. And for deal, I did try to do that combination of all of the fields, but it looks very long as it is. All this is doing is appending these deals. So, we might need a better way to represent the deal instead of just the deal ID. Um, I want to like leave this with you to see if uh there's like a shorthand that we can we can do that we can map like the partners and operators to that might be easier to combine into a single field.
+Emily Vandenberg: Yeah.
+Lina Ceniccola: I don't hate the long title. in terms of deal and Owen could probably speak more to this, but I think like I think capturing those like four pieces of information at the top is key.
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: The the rep can't see that it says DraftKings GDC, right?
+Kobi Kunasekaran: Uh right now they can. This is the rep view.
+Lina Ceniccola: Yeah, we don't we want to make sure that the rep can't see the
+
+
+00:45:25
+
+Emily Vandenberg: Well, it go kind of goes back to like the thinking of like what do reps really need to see from a
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: partner.
+Emily Vandenberg: deal perspective? Um, originally I was thinking that they didn't necessarily need a ton of visibility here, Nina Joyce. was more like they just need to see what's active for them from like a book perspective, but like you said, just the not with the partner information, but are we aligned in that or do they need to know more.
+Lina Ceniccola: Well, I think did you want to
+Waleed Alasadi: Yeah,
+Lina Ceniccola: go?
+Waleed Alasadi: I was just going to say like why why are we giving access to the deals in the first place if like there's so much sensitivity? The deal assignments object should be like one that um is all they need access to. Like if you want to see what's active for me, you just see what my active data assignments
+Emily Vandenberg: And we would still need to a partner,
+Kobi Kunasekaran: Don't do that.
+Waleed Alasadi: are.
+Emily Vandenberg: but
+
+
+00:46:30
+
+Lina Ceniccola: Yeah.
+Joyce Kiddell: I think that makes sense.
+Kobi Kunasekaran: Could they be assigned to like multiple operators at the same time
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: that maybe or sorry no the same operator but through multiple partners at the same time where they might need to differentiate no.
+Lina Ceniccola: No,
+Kobi Kunasekaran: Okay. Yeah. Then we can we can do that.
+Lina Ceniccola: they'll always be on one
+Emily Vandenberg: Something
+Lina Ceniccola: operator at any given moment. So they they'll never be on DraftKings,
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: GDC, and Kina cuz like if you think on their agency site they have one survey or one study for DraftKings,
+Kobi Kunasekaran: Mhm.
+Lina Ceniccola: they they won't have two or they they wouldn't know like if you have two customers sign up
+Kobi Kunasekaran: Okay.
+Lina Ceniccola: for DraftKings, you wouldn't in our world right now like they wouldn't know if it's GD or Kina. So, it's always one study per partner or
+Kobi Kunasekaran: Okay. Yeah. Then I think we can remove this.
+Lina Ceniccola: operator.
+Kobi Kunasekaran: I like your idea.
+
+
+00:47:42
+
+Kobi Kunasekaran: Instead of like them going into the deal rep, maybe we'll clean this one up and have a view where they only see the they see enough deal information. Uh I mean the deal information will be as far as the operator, market, country, state, and vertical. But that's all they see. And they they'll see the list of all of the deals that they're assigned to. And then that's it. And if they click into it, this is just what we have right now, but we can simplify this to be uh to show a little bit more of the deal info and remove a lot of the other stuff.
+Lina Ceniccola: And are we able to include like what volume they've been given and for them to see how they've how much they've completed for their target?
+Kobi Kunasekaran: Uh we could add that in into the dealer assignment uh object as additional fields. Yeah. Um because we like the all the dealer assignments are related to the signup. So I don't know if we Oh, there we go. So if we do find like we we're able to see all of the signups that are associated to this dealer assignment.
+
+
+00:48:41
+
+Kobi Kunasekaran: So we could count that at the top. And then during the dealer assignment by like managers you we could have another field to set like target uh for each one. Um and if you set that we can set it up so that it shows like a tment against target or something like
+Lina Ceniccola: Yeah. Owen,
+Kobi Kunasekaran: that.
+Lina Ceniccola: is that everything you would need from your end? That would be helpful.
+Owen Scott: Yeah, I can't think of anything else right now that I'd need, but that basically covers everything from a deal perspective.
+Lina Ceniccola: Oops.
+Emily Vandenberg: Yeah. And Kobe, I think I had kind of put on the agenda just like an update because we kind of had a working
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: session to nail down some of like ownership around inputting and like where we need the deal and deal rep assignment communication between the CMS. So like the infrastructure is good but Joyce I don't know if you want to walk Kobe through kind of what we landed on at this point um just high high level because I think a few things will be changed on like where Salesforce is going to receive information versus where we're going to where it's going to kind of own the input and send have to send information to the CMS because we don't have that built into the scope right
+
+
+00:50:01
+
+Emily Vandenberg: now.
+Joyce Kiddell: Yeah, for sure. So, at the highest level, our goal is to um manage the details of a deal um still within Salesforce. Um, and that includes, you know, everything that's on the screen as well as the, um, links that we receive directly from our operators. Um and uh we will push that information into your CMS um as basically like options for the operations team to choose from in terms of when they go to actually assign um specific deals or links to uh reps on the CMS side of things. Um the they'll that information will get pushed into Salesforce. So, I guess like the rep assignment piece um lives or is owned by the CMS, but the actual like deal management like we won't be able to actually assign anything anything to a rep unless it's already configured in Salesforce. Does that make
+Kobi Kunasekaran: Yeah, that makes
+Waleed Alasadi: So not using the just sorry just so that I'm clear like right now Kobe you guys have like you go to
+Joyce Kiddell: sense?
+Kobi Kunasekaran: sense.
+
+
+00:51:16
+
+Waleed Alasadi: the deal in Salesforce and you create manage drop assignment and that's how it's done. So you're saying Joyce that we're not going to click manage up assignment in Salesforce. It's just going to display what assignments you've made in the CMS.
+Joyce Kiddell: Correct. Yeah.
+Kobi Kunasekaran: Oh.
+Waleed Alasadi: Okay.
+Emily Vandenberg: And it will have to like history.
+Lina Ceniccola: Yeah.
+Emily Vandenberg: So like it'll be updating and then tracking that
+Kobi Kunasekaran: Oh.
+Emily Vandenberg: history.
+Waleed Alasadi: Have You
+Joyce Kiddell: And the reason we we chose this path is um the CMS is tied to our like agency website um and there's some other like kind of technical
+Waleed Alasadi: this.
+Joyce Kiddell: configuration that happens as we're going through the rep assignment process that's like triggered by what happens in the CMS. So, it just makes sense to have it as like kind of like the last end point before you like if we assign a link within the CMS that actually shows up in that um that rep's like website for users to click on, right? So, it just makes sense
+
+
+00:52:17
+
+Kobi Kunasekaran: Uh, okay. Just to make sure, I thought I understood it the other way around.
+Joyce Kiddell: stream.
+Kobi Kunasekaran: Um, so when you say like they're going to configure the deal in Salesforce, um, what does that mean? Like is it just like this combination?
+Lina Ceniccola: Sorry.
+Kobi Kunasekaran: um and call the day and then go into CMS to do the actual assignments or are they are they also signing the assignments and uh adding the respective links for each rep in Salesforce and then going to CMS to update it
+Joyce Kiddell: No.
+Kobi Kunasekaran: there.
+Joyce Kiddell: Uh so the first half of what you said around like the actual configuration of the deal happens in Salesforce.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Um and then uh once we publish a deal then it should trigger that being sent to the CMS and anyone in the CMS um who goes to add a link to a rep will have that deal as an option to choose from um in like a drop-own list. So the actual rep assignment happens on the CMS
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: side.
+
+
+00:53:17
+
+Emily Vandenberg: It's almost like it has it has to push it as like all the setup
+Kobi Kunasekaran: Okay.
+Emily Vandenberg: information, but like the status is like determined by the CMS. So it just a it doesn't have any status kind of when it's set up until it's been engaged with on the CMS level. But all of the details are passed through.
+Joyce Kiddell: Yeah, like it'll still push back into Salesforce once the uh assignment happens so that we can still close the loop like you said around um you know if a rep is assigned to a specific deal, how are they trending against that with the signups like when we go to actually build the reporting?
+Kobi Kunasekaran: Mhm. Okay. So they then they don't necessarily need to manage the assignments from Salesforce, right? Like this is just a visual layer.
+Joyce Kiddell: That's correct.
+Kobi Kunasekaran: It's just uh bringing the data that CMS is sending over. Okay. Yeah, I think we can do
+Emily Vandenberg: I think we only Joyce like I know it doesn't we're not like
+
+
+00:54:08
+
+Joyce Kiddell: Yes.
+Kobi Kunasekaran: that.
+Emily Vandenberg: managing the assignment of like status but we're setting up the assignment in Salesforce right like at a link you're adding within that deal and within each rep you're giving them those unique links s or if it's a one to many. And then so it's kind of just like holding the setup information but not the status.
+Kobi Kunasekaran: Yeah,
+Joyce Kiddell: explain that more.
+Kobi Kunasekaran: we can do that.
+Joyce Kiddell: I trying to make sure we're all on the same page.
+Kobi Kunasekaran: Oh, sorry.
+Joyce Kiddell: Like can you point to like visuals as to what you mean? Um
+Emily Vandenberg: Um well I don't see where the links are being added in like at the assignment level. Oh
+Kobi Kunasekaran: like could like we did have this field for the link slug to add in if we wanted to add
+Emily Vandenberg: yeah.
+Kobi Kunasekaran: the links.
+Emily Vandenberg: Yeah.
+Kobi Kunasekaran: So we could capture it
+Emily Vandenberg: So like all the way through, right? And I'm going to like just like link it would be their unique link or shared link.
+
+
+00:55:05
+
+Kobi Kunasekaran: here.
+Emily Vandenberg: I would and it would be all kind of set here passed through to this
+Joyce Kiddell: But like would it would it be one to one like at a rep level or are you like originally I was thinking it would just be like the list of all of the available links under that deal is configured at a deal level and then when you go into the CMS EMS you just pick from the drop down um if there is more than one and you make sure that it's assigned to the right
+Lina Ceniccola: Perfect.
+Joyce Kiddell: person. Do you know what I
+Emily Vandenberg: Yeah, I think maybe I guess it's like a bit more of an own question as to what's in practice right now.
+Joyce Kiddell: mean?
+Emily Vandenberg: I thought we tried to like when we got them like set it up onetoone in best way we could um or strategically like share
+Joyce Kiddell: We would still do that. It would just happen on the CMS side instead of pre- assigning links to reps in the Salesforce. You know what I mean?
+
+
+00:56:13
+
+Joyce Kiddell: It just becomes like another drop down that like when they go to configure um or assign a deal um the only the links associated with that deal would show up in that drop down in the CMS. like they wouldn't be able to add another link from an unrelated deal and then you would just add it to like attach it to the rep in that modal in that view instead of here.
+Emily Vandenberg: Okay. Yeah, whatever you whatever you decide. I was I was thinking of it differently, but
+Joyce Kiddell: Okay. Just because like if we do it that way then there's no actual um assignment or like configuration that we have to do per rep in Salesforce. Right? Like we're just sending the full payload of the deal and all the associated links over the CMS and then narrowing in the the data that the operations team has to choose from when they go to actually configure it for the reps.
+Emily Vandenberg: And then where does that master cuz like oh and if I understand it like when you kind of get these links you know yes we're turning on and off but when we kind of like own that in air table we're assigning out at the onset.
+
+
+00:57:26
+
+Emily Vandenberg: Um would that that would just be like a table joist then like within the CMS so that if you're if you're um setting up for a certain book it just knows based on that rep like what it should default to or they just have the ability to manually select and it tracks and can and then they change it on the fly if they want.
+Joyce Kiddell: I'm Yeah, I'm getting more confused again. Um I think if it's a link associated with the deal, then like there's two options where you're just turning off that link altogether or we're reassigning the link from one rep to another or like taking them off of that link, right? And in the first option, if you're just like deactivating that link altogether, I feel like that has to happen in Salesforce where it's just like you're configuring anything that's kind of more dealwide. But if you're changing something that's associated with a rep already, then you're just like going into that that rep assignment within the CMS and then switching it um from that current link or, you know, um removing it as an assignment.
+
+
+00:58:38
+
+Emily Vandenberg: Okay. And then it passed back.
+Joyce Kiddell: Does that make sense? Does that cover your question?
+Emily Vandenberg: Yep.
+Joyce Kiddell: Okay. So, Kobe, yeah, the the kind of configurable thing that we'll need to add to this screen is like being able to add all the affiliate links because you had a spot there for link slug and I I think that's more maybe specific to the rep landing pages.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Is that what you were thinking of?
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Yeah.
+Kobi Kunasekaran: Initially
+Joyce Kiddell: Yeah. No, we we don't need that here.
+Kobi Kunasekaran: uh
+Joyce Kiddell: It's um on the deal page itself. We'll just need to have a spot where we can add the affiliate tracking links.
+Kobi Kunasekaran: Mhm.
+Joyce Kiddell: Um and then if it's active, then uh like it can get passed over to the CMS, but if it's inactive, we got to think through that flow a bit. But basically,
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: we just need the ability to turn it off and on.
+Kobi Kunasekaran: Okay.
+
+
+00:59:34
+
+Kobi Kunasekaran: Yeah. I think that's straightforward enough like we we can create another object u like a child object similar to how we have the deal assignments. Um I don't have the buttons here but um we like there'll be a new button when you click it you'll be able to create the each each link that you want to create. Um,
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: and then we'll as once we finalize what that call out looks like to CMS,
+Joyce Kiddell: Perfect.
+Kobi Kunasekaran: we would have that tied to uh tied to an API allowed to send that payload over. That should be possible. Um,
+Joyce Kiddell: Thanks.
+Kobi Kunasekaran: the one thing I would warn though is I I I like this idea because I think this is good because the actual deal information originates from Salesforce. So, both systems are able to talk to each other. So, when we do get the deal rep assignments and everything, uh, we don't necessarily need to try to reconcile it through the individual items. Then, you already have the deal ID and the rep ID, so you can just send that and it'll make it a lot cleaner.
+
+
+01:00:27
+
+Kobi Kunasekaran: Um but we won't be able to do any guardrails from the Salesforce side to enforce that you know a rep can only have uh like a link can only belong to one rep u or things like that like you'll have to do that on the CMS side like we can surface errors
+Joyce Kiddell: That's okay.
+Lina Ceniccola: Can you does this make sense to you from your workflow?
+Kobi Kunasekaran: but
+Lina Ceniccola: Like can you point out anything that you see an issue with here if this
+Owen Scott: Yeah.
+Lina Ceniccola: would work or not?
+Owen Scott: Uh the only thing that I would say and we spoke about this on the call yesterday briefly. Uh it's good that Salesforce will be able to track all this, but I think in terms of changing links or changing deals or doing anything related to that. I think that should all be in the CMS and Salesforce should be uh the system that kind of tracks that and like marks down those changes. So like in a way it would be the CMS communicating to Salesforce just because that would be a lot easier on our side of things uh if we're able to make those changes and then whatever we do is kind of uh kept uh organized on Salesforce if that makes sense.
+
+
+01:01:31
+
+Joyce Kiddell: And in terms of changes in the CMS, do you mean just like
+Owen Scott: Just general things like shutting off a link,
+Joyce Kiddell: signing
+Owen Scott: changing a deal uh changing a link to a separate deal or changing a link within a deal, anything like that. uh for us to be able to do it on the CMS that would make things a lot easier and then have Salesforce kind of identify those changes and keep track of
+Joyce Kiddell: The ch the challenge with that Owen is that there's no concept of deal management
+Owen Scott: it.
+Joyce Kiddell: really in um the CMS right now, right? Like you're you're just changing out links per rep from my understanding.
+Owen Scott: Yeah, exactly. So,
+Joyce Kiddell: So,
+Owen Scott: you're saying there's no like easy way for Salesforce to be able to keep track of that or is it just because there's no like system in
+Joyce Kiddell: no, no, no. Like that that all of that will still be tracked in Salesforce.
+Owen Scott: place?
+Joyce Kiddell: No problem. It's more like what we were saying and that like you have to be the one to kind of create each deal in Salesforce so that there's like an option for you to choose from
+
+
+01:02:32
+
+Owen Scott: Oh, okay.
+Joyce Kiddell: when you go to actually manage the assignment piece for the reps in the CMS.
+Lina Ceniccola: Um, can I just comment here?
+Joyce Kiddell: Yeah. Yeah.
+Lina Ceniccola: I think just Owen for you to maybe visualize what um the process here would be. It's like we're not using Air Table which would technically be like our deal assigned. and how we know like where we're attaching links. So Salesforce almost absorbs that role that you update Sales or Air Table with all of this info,
+Joyce Kiddell: Yeah.
+Lina Ceniccola: but even Air Table isn't really um capturing like everything we want in terms of like volume targets and things like that. So, if I'm understanding correctly, Air Table goes away, Salesforce becomes like the more robust solution for tracking all of our deal information. And then it'll it's almost like if Air Table and the CMS were connected, but it's going to be um Salesforce and the CMS
+Joyce Kiddell: Mhm.
+Lina Ceniccola: connected, but you you're making like the action of changing links and whatnot still lives in the CMS.
+
+
+01:03:53
+
+Joyce Kiddell: Yeah, exactly. It's like the biggest difference in my mind is that connection where a table air table before was like more static and I believe you had to update deal related stuff or keep track of it kind of separate from each other in those two systems. This way, if you um add stuff into Salesforce instead of Air Table, it's going to automatically get pushed over to the CMS.
+Owen Scott: Oh, okay. Cool. No, never mind.
+Joyce Kiddell: Nice.
+Owen Scott: Sorry. That makes perfect sense.
+Lina Ceniccola: I was also thinking the same thing as you, Owen, until I realized we would be getting rid of air table and this could actually because at one point we were talking about how do we connect air tableable and play CMS to have them talk to each other and relay that information but now we'll just have Salesforce with more fields to actually understand like what we're doing and when cuz Air Table like we all know it's pretty messy. Um we didn't really like set it up for everything we need.
+
+
+01:04:56
+
+Lina Ceniccola: So I think as long as we think of that this as like our new air table and then still with managing all of the links in CMS that should work.
+Owen Scott: Got it. Okay, cool. Yeah, that makes way more sense.
+Lina Ceniccola: But of course if it's not working we can always discuss a new solution or whatnot
+Waleed Alasadi: Excellent.
+Lina Ceniccola: but should be fine.
+Waleed Alasadi: Good.
+Kobi Kunasekaran: I will add that like we could work towards uh converging both into one system eventually too, right? like this is a great actually good balance of making this work uh for phase one but eventually you could uh focus on one system to take on more of the management so there's less uh less sh uh shuffling back and forth between systems because Salesforce can be both right it could be either uh the source of the information or just represent the information that's in uh uh that's in your CMS and tie all of the signups and everything together so if CMS can be built to create the deal configuration and just pass it to Salesforce that that also works so that we can eliminate that uh manual step for managers or whoever is configuring these deals later.
+
+
+01:06:09
+
+Kobi Kunasekaran: So it's always an option as in in the
+Waleed Alasadi: Kobe, I just want to make sure to say that like what's critical in the design here is the deal assignments because that's
+Kobi Kunasekaran: future
+Waleed Alasadi: the link between kind of the deal and the reps so that you're able to to run the metrics. Um, and kind of we're talking about this change in the CMS. I I'm assuming it's not built already in your CMS. Is that correct?
+Joyce Kiddell: It is
+Waleed Alasadi: Um, so one of the things then Joyce that like would you be able to like create and manage the deal
+Joyce Kiddell: built.
+Waleed Alasadi: assignment records from the CMS because we'll need those to be created here and then updated,
+Joyce Kiddell: Yeah, for sure.
+Waleed Alasadi: right?
+Joyce Kiddell: And that's where like we haven't built out the API for this yet, but uh that'll be critical in ensuring that like those two records or systems talk to each other.
+Waleed Alasadi: Okay. Yeah. And then Kobe, I think just kind of from a timeline perspective like this is going to be like a kind of a big
+
+
+01:07:07
+
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: testing um block. So maybe we should just from our end like accelerate the API requirements.
+Joyce Kiddell: Mhm. That'd be great.
+Lina Ceniccola: Yeah.
+Kobi Kunasekaran: Yeah. What would be the timeline for the CMS work uh for deal
+Joyce Kiddell: So,
+Kobi Kunasekaran: management?
+Joyce Kiddell: I'm not sure if like we have to operate off of like you guys would get us requirements first and then we would make the updates or are you expecting us to get you guys requirements? You know what I mean? Like where do we
+Kobi Kunasekaran: Uh
+Waleed Alasadi: we can we can give you the requirements choice because like it's just basically it's going to be the requirements off of this design that we're
+Joyce Kiddell: start?
+Waleed Alasadi: showing you, right? Like I think what like what we've been designing is that you create the you create the deal assignment in Salesforce. So that record exists and because that record exists we're able to kind of go on with the process and provide the the data linkages. So what there we will we will give you requirements and they're going to be based on um when you create a rec when you create an assignment in the CMS we're going to need an API call out to Salesforce to create like this deal assignment record with these required fields and then when that is
+
+
+01:08:17
+
+Joyce Kiddell: Okay.
+Waleed Alasadi: updated then that's what we're going to need to see as well.
+Joyce Kiddell: Yeah. Yeah. if you want to shoot over a doc with that. Um I'm sure we could get started on it like as soon as um we're just you
+Waleed Alasadi: Perfect.
+Joyce Kiddell: know finalizing some other backend stuff but something we could probably prioritize later this week or start working on it
+Waleed Alasadi: Okay.
+Kobi Kunasekaran: Yeah,
+Waleed Alasadi: Yeah.
+Kobi Kunasekaran: I mean I think
+Waleed Alasadi: Awesome.
+Joyce Kiddell: anyways.
+Waleed Alasadi: This way it allows us so I was just going to say it allows us to keep like keep the whole system as is in
+Kobi Kunasekaran: uh
+Waleed Alasadi: Salesforce and you're just instead of creating and managing you're just like having the the records but they're created and managed by you.
+Joyce Kiddell: Great. Yeah. And would you say this takes um priority probably over the historical data? Okay.
+Waleed Alasadi: They're both well I think they're both like go live blockers right like one
+Joyce Kiddell: Migration
+Waleed Alasadi: is if the this the manual I guess or the Salesforce deal assignment it's built
+
+
+01:09:07
+
+Kobi Kunasekaran: Mhm.
+Waleed Alasadi: already so if the API is not completed by time for go live we can discuss using the assignment in Salesforce until such time it is ready so that is like one thing that you could consider. Um, and then the the data migration is also necessary for your reps to be there and see it from day
+Joyce Kiddell: right?
+Waleed Alasadi: one.
+Joyce Kiddell: We'll do both, but I'm just wondering like in terms of by end of week, what what would you prioritize?
+Waleed Alasadi: The this this stuff, not the not the not the data migration.
+Joyce Kiddell: Okay. Yeah, I figured.
+Waleed Alasadi: I'm sorry I'm speaking over Kobe,
+Joyce Kiddell: Okay.
+Waleed Alasadi: but like I'm assuming that's your answer, too.
+Kobi Kunasekaran: No, it's true cuz like uh assuming like we're ready to go go into UAT this week, that means we can always work on the data migration. and flushing out the spreadsheets over the next week, right? So, uh but the API work like we talked about half the half of the components
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: like we we'll provide like uh what what you'll need to send in terms of payloads and stuff, but then there's also the other half that we have to talk about, right?
+
+
+01:10:13
+
+Kobi Kunasekaran: Like we need information on what uh you need from Salesforce sent over to CMS and what that authentication and everything looks like. So, we have to figure that out because we don't have any uh anything going out from Salesforce into CMS today. So, that might actually be a little bit of a bigger build than the other way
+Joyce Kiddell: Yeah. Right. Right. Yeah.
+Kobi Kunasekaran: around.
+Joyce Kiddell: This one feels definitely more gray. So, um happy to prioritize it first. if you can get us that doc um ASAP for the starting
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: point.
+Kobi Kunasekaran: Yeah.
+Joyce Kiddell: Anything else?
+Kobi Kunasekaran: Uh, no. I think that's it. That's it for my end. Um, I I'll
+Joyce Kiddell: I think we still owe you some feedback on like the rest of the screens.
+Kobi Kunasekaran: I'll
+Joyce Kiddell: Um so we can get to that for sure this week.
+Kobi Kunasekaran: like Okay. Yeah. I think like as as far as reps are concerned, like the the main thing is the signups and like whatever they might see from the the rep assignment.
+
+
+01:11:10
+
+Kobi Kunasekaran: So, um I this is probably still good enough to go live with. the player information we haven't really touched on like what are all the fields that you want to see for players and uh those those kinds of things.
+Joyce Kiddell: players,
+Kobi Kunasekaran: So um if exactly yeah like players operators and partners
+Joyce Kiddell: operators as well probably, right?
+Kobi Kunasekaran: it's it's pretty lightweight. There's not a lot that I think we need to show to the reps. Um but players you'll probably want a little bit more. So I think this one maybe uh we should like take a look this week as well um and prep before go live. Um other than that, yeah, I think those are it. Um the study click link processing. Um I think we we have that spreadsheet where we're trying to figure out the external ID situation. So as we we'll continue the conversation uh offline with those and try to move that along
+Joyce Kiddell: Cool.
+Kobi Kunasekaran: too. Uh but we we hit a pretty good milestone on Friday where we were able to uh send those records over. So I think it's it's great.
+Joyce Kiddell: Yay. Progress.
+Kobi Kunasekaran: Getting there.
+Joyce Kiddell: Okay.
+Kobi Kunasekaran: Okay.
+Joyce Kiddell: Thanks,
+Kobi Kunasekaran: All right. Yeah.
+Joyce Kiddell: Kim.
+Kobi Kunasekaran: Thanks everyone. Let me know if you have any questions as I'll talk to you later. Bye guys.
+
+
+Transcription ended after 01:12:50
+
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
