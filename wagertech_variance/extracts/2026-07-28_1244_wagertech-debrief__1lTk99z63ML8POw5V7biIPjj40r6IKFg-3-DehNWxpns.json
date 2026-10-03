@@ -1,0 +1,637 @@
+{
+  "doc_id": "1lTk99z63ML8POw5V7biIPjj40r6IKFg-3-DehNWxpns",
+  "title": "Wagertech Debrief (internal, after 28 Jul client sync)",
+  "meeting_date": "2026-07-28",
+  "meeting_time": "12:44",
+  "doc_link": "https://docs.google.com/document/d/1lTk99z63ML8POw5V7biIPjj40r6IKFg-3-DehNWxpns/edit",
+  "meeting_type": "internal sync",
+  "tier": "tier1",
+  "attendees": [
+    "Kobi Kunasekaran",
+    "Waleed Alasadi",
+    "Taryn Reithofer",
+    "Marc Cabantog"
+  ],
+  "lines_total": 329,
+  "read_complete": true,
+  "items": [
+    {
+      "item_id": "2026-07-28-1244-01",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Client CMS current state lacks Salesforce model",
+      "statement": "Kobi believes the client's claim that it is 'built in the CMS' refers to their existing activation setup: a users table with a country drop-down, a link entry field and a books object, with no Salesforce connection or deal concept.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:01:02",
+      "line_start": 92,
+      "line_end": 100,
+      "quote": "Waleed Alasadi: when I asked her if she has it built in the CMS, she said yes. There's no way that we have that object model / Kobi Kunasekaran: They don't have the whole like Salesforce connection and the concept of like deals and stuff. What they have is they have a list of like they have a table of um users and there is a drop down for the country and um there's an entry field for the uh link that is going to be activated for that person.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-02",
+      "type": "requirement",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Deal object in CMS synced from Salesforce",
+      "statement": "Waleed's understanding of the new client ask is that the client CMS may need a deal object that Salesforce communicates with, and that active/inactive filtering happens in the CMS, not through the connection.",
+      "speakers": [
+        "Waleed Alasadi"
+      ],
+      "timestamp": "00:01:59",
+      "line_start": 101,
+      "line_end": 108,
+      "quote": "Waleed Alasadi: they may have to have like ad or like a deal object created in their CMS. / Waleed Alasadi: Um, so that's being kind of like communicated to with Salesforce. / Waleed Alasadi: This whole like active inactive has to like again be filtered in their CMS, not in like through the connection.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-03",
+      "type": "requirement",
+      "firmness": "proposed",
+      "feature_area": "CMS Integration",
+      "topic": "Send Salesforce deal record to CMS",
+      "statement": "Kobi suggests that when a deal is created in Salesforce, Jumpr sends the deal record (with the Salesforce deal ID, vertical, state, country) to the CMS, likely updating their existing books object or a new object.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:03:02",
+      "line_start": 113,
+      "line_end": 118,
+      "quote": "Kobi Kunasekaran: assuming they have the deal ID from Salesforce captured in their system, which is that first part, right? Like they create the deal, the deal record, and we send that to the CMS and likely update their existing books object or whatever new object that they have. / Kobi Kunasekaran: So that will link the the deal information like the vertical uh state, country, um, and the deal the Salesforce deal uh together.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "'books' object = client CMS object [ASR?]"
+    },
+    {
+      "item_id": "2026-07-28-1244-04",
+      "type": "requirement",
+      "firmness": "proposed",
+      "feature_area": "Deal Rep Assignment",
+      "topic": "CMS upserts DRA records into Salesforce",
+      "statement": "Kobi suggests the CMS creates deal rep assignment child records in Salesforce through an upsert or POST call using the rep ID and deal ID, which are the minimum fields to create a deal assignment.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:03:02",
+      "line_start": 113,
+      "line_end": 118,
+      "quote": "Kobi Kunasekaran: I'm thinking the upsert is probably going to be the easiest way, right? Like we give them the parameters or like the fields that they need to create. / Kobi Kunasekaran: And then when they add the rep assignment there, so now they have the rep ID and the deal ID. Those two are the minimum requirements to create a deal assignment. So they could just go in today and like create a do like a upstart API call uh or a post call to create those records just based off of those two because that's what's linking the deal and rep together in Salesforce. So they just create like a DRRA child record.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "upstart = upsert; DRRA = DRA (deal rep assignment) [ASR?]"
+    },
+    {
+      "item_id": "2026-07-28-1244-05",
+      "type": "requirement",
+      "firmness": "discussed",
+      "feature_area": "Deal Rep Assignment",
+      "topic": "DRA status changes need separate payloads",
+      "statement": "Managing DRA statuses (activated to deactivated) means the CMS must send another payload, possibly another upsert, to Salesforce; Kobi does not think this side is too complicated.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:03:59",
+      "line_start": 118,
+      "line_end": 123,
+      "quote": "Kobi Kunasekaran: Now the statuses themselves is where it get complicated. So it's not just like a single payload, right? / Kobi Kunasekaran: So it is going to be like okay so when they change the status from activated to deactivated they now need to put together like another payload to send to Salesforce and that could be again another upsert because all the ids are uh like sync between the two systems. / Kobi Kunasekaran: So I don't think it's too complicated.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-06",
+      "type": "requirement",
+      "firmness": "discussed",
+      "feature_area": "Deal Rep Assignment",
+      "topic": "DRA driven by CMS; deal deactivation in SF",
+      "statement": "Kobi clarifies that the client is moving deal rep assignment management to the CMS (CMS drives it), while deal deactivation stays in Salesforce.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:04:55",
+      "line_start": 124,
+      "line_end": 135,
+      "quote": "Waleed Alasadi: I thought they're managing that in Salesforce. / Kobi Kunasekaran: No the rep the the deal rep assignment is getting like basically what they're doing is moving that to the CMS. / Kobi Kunasekaran: So TMS is driving it. / Waleed Alasadi: I thought you was talking about the deal deactivation. / Kobi Kunasekaran: the D activation they're doing that in Salesforce.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "TMS = CMS; D activation = deactivation [ASR?]"
+    },
+    {
+      "item_id": "2026-07-28-1244-07",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Salesforce-to-CMS callouts are big undertaking",
+      "statement": "Kobi says Salesforce-to-CMS communication needs scoping and is a big undertaking (including authentication), and the client may not know how much work it is; the CMS-to-Salesforce direction does not worry him.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:04:55",
+      "line_start": 137,
+      "line_end": 144,
+      "quote": "Kobi Kunasekaran: I I I think we need to scope out how Salesforce is going to talk to the system. That's going to be like a big bigish undertaking. Um because we have to figure out authentication. I don't think I don't know if they know how much work that's going to be. / Kobi Kunasekaran: but yeah, it's the other way around. That's going to be a bigger undertaking for us.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-08",
+      "type": "requirement",
+      "firmness": "proposed",
+      "feature_area": "CMS Integration",
+      "topic": "Jumpr defines fields for CMS-to-SF calls",
+      "statement": "For CMS-to-Salesforce, Kobi says Jumpr only needs to give the client the fields to set and when to set each, as the client already does this for the SLC.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:05:39",
+      "line_start": 142,
+      "line_end": 142,
+      "quote": "Kobi Kunasekaran: we just have to give them the fields to set and uh when to set each field for the behavior that we want. Um because they're already doing that for the SLC, right?",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-09",
+      "type": "decision",
+      "firmness": "proposed",
+      "feature_area": "CMS Integration",
+      "topic": "Apex outbound, standard API inbound",
+      "statement": "Marc suggests Apex for Salesforce-to-CMS callouts and the standard Salesforce API for CMS-to-Salesforce calls.",
+      "speakers": [
+        "Marc Cabantog"
+      ],
+      "timestamp": "00:05:39",
+      "line_start": 154,
+      "line_end": 154,
+      "quote": "Marc Cabantog: Yeah, for Salesforce to CMS like I think that's Apex and then if CMS can call out to Salesforce like we can use the standard um standard API Salesforce API if they can call",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-10",
+      "type": "decision",
+      "firmness": "proposed",
+      "feature_area": "CMS Integration",
+      "topic": "Record-triggered flows invoke Apex callouts",
+      "statement": "Responding to a concern that sync would not be real time, Kobi suggests an Apex class as the CMS interface, with callouts triggered and deal data passed from record-triggered flows.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:06:43",
+      "line_start": 159,
+      "line_end": 165,
+      "quote": "Waleed Alasadi: But then it would they will need to refresh, right? Like it won't be real time. / Kobi Kunasekaran: we could have the apex class like the apex class is basically the the interface between CMS and Salesforce, but we could trigger uh the actual callouts and pass the information from the deal through record triggered flows.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-11",
+      "type": "decision",
+      "firmness": "proposed",
+      "feature_area": "CMS Integration",
+      "topic": "CMS calls Salesforce on update vs polling",
+      "statement": "Marc raises scheduled checks for CMS updates; Kobi says current scoping is that the CMS calls Salesforce whenever there is an update, using the upsert API to insert DRA records directly, which he thinks is simplest.",
+      "speakers": [
+        "Marc Cabantog",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:06:43",
+      "line_start": 166,
+      "line_end": 176,
+      "quote": "Marc Cabantog: Yeah, but we we might need to schedule like to check for updates on CMS, right? / Marc Cabantog: And then apply it on Salesforce instead of CMS just calling Salesforce whenever it has some updates. / Kobi Kunasekaran: Well, right now I think it sounds like we're scoping it out so that they are going to call Salesforce whenever there's an update. So as they're doing the assignments and stuff, I I I think that might be the simplest way is is for them to like use the obser API to do the like insert the deal wrap assignment records / Kobi Kunasekaran: directly.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "obser = upsert; deal wrap = deal rep [ASR?]"
+    },
+    {
+      "item_id": "2026-07-28-1244-12",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "Testing, UAT & Go-Live",
+      "topic": "UAT end of week; walkback schedule needed",
+      "statement": "Waleed states the team is going to UAT at the end of the week (July 31 referenced) and needs a walkback schedule now.",
+      "speakers": [
+        "Waleed Alasadi"
+      ],
+      "timestamp": "00:07:42",
+      "line_start": 177,
+      "line_end": 177,
+      "quote": "Waleed Alasadi: look, we gotta go back. Um, listen, if we're going live July 31st, h sorry, if we're going to UAT, sorry, u um at the end of the week, um it's Tuesday, so we have to have a walkback schedule right now.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-13",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "Testing, UAT & Go-Live",
+      "topic": "SF-to-CMS callouts threaten UAT timeline",
+      "statement": "Kobi is not confident the Salesforce-to-CMS API callouts can be done in a week, and says that if the callout work is required the team will not hit the timeline given other work.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:08:42",
+      "line_start": 188,
+      "line_end": 222,
+      "quote": "Kobi Kunasekaran: I don't think I'm not confident that we can get the API call outs from Salesforce to CMS done in in a week. / Kobi Kunasekaran: Yeah. because we also have a lot of other stuff to do too, / Kobi Kunasekaran: So I I'll do it. I'll get it reconciled but yeah man like I think if we have to do the API call out we're not going to hit the timeline for this um given everything / Kobi Kunasekaran: else.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-14",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "Sign-Up",
+      "topic": "Sign-up logging automations still open",
+      "statement": "Kobi says many automations for the sign-up logging process still need to be hooked up.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:08:42",
+      "line_start": 192,
+      "line_end": 192,
+      "quote": "Kobi Kunasekaran: right? We have a lot of um automations to still hook up um for the signup logging process.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-15",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "Other (accounts / operator referral)",
+      "topic": "No client feedback on operator referral",
+      "statement": "Kobi says the client has not started giving feedback on the accounts, such as the operator referral, so the team has not touched those.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:08:42",
+      "line_start": 192,
+      "line_end": 192,
+      "quote": "Kobi Kunasekaran: and they haven't even started giving us feedback for uh the accounts like the operator referral or anything like that. So, we haven't even touched those.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-16",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Asana board not yet updated",
+      "statement": "The Asana board has not been updated; the team is working off a different document because it is faster.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:08:42",
+      "line_start": 195,
+      "line_end": 200,
+      "quote": "Waleed Alasadi: Is the Asana board have you been Have you had a chance to update / Kobi Kunasekaran: no, no, no, / Kobi Kunasekaran: not yet. It's on it's on my to-do list for today. / Kobi Kunasekaran: We're working off of a different document if you want to see that document actually because it's a lot it's a lot",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-17",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Reconcile and update Asana board",
+      "statement": "Kobi will reconcile the working document against Asana and update the board, adding all remaining work to give visibility into what is left before go-live.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Waleed Alasadi"
+      ],
+      "timestamp": "00:08:42",
+      "line_start": 198,
+      "line_end": 317,
+      "quote": "Kobi Kunasekaran: not yet. It's on it's on my to-do list for today. / Kobi Kunasekaran: Um uh I'm going to work through it with claude. / Kobi Kunasekaran: I I'll get the ASA board updated and then add in all the other work that we need to do, get like bring a little bit of visibility into what's left before we can go live",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": "today (2026-07-28), per line 198",
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "Assada/ASA/Assan = Asana [ASR?]"
+    },
+    {
+      "item_id": "2026-07-28-1244-18",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Add new items from client sync",
+      "statement": "Waleed asks for a simple walkback from UAT with responsibilities plus the extra items the client raised; Kobi says there is a laundry list of items from today's sync to bake in and he will create those.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:10:18",
+      "line_start": 227,
+      "line_end": 238,
+      "quote": "Waleed Alasadi: but maybe we we just need a simple like here's like the walk back from UAT and he's responsibility and / Waleed Alasadi: then you're right like the whole like and here's the extra things that you told us on Tuesday before go live before UAT, / Kobi Kunasekaran: Yeah. Because we we have a laundry list of items from today as well to bake in, / Kobi Kunasekaran: I'll I'll create those.",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-19",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "CMS Integration",
+      "topic": "Spec deal and DRA integration",
+      "statement": "Kobi will spec out what the connection and process could look like for the deal and deal rep assignment integration with the client's servers, then start the discussion.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:11:09",
+      "line_start": 240,
+      "line_end": 240,
+      "quote": "Kobi Kunasekaran: I'll get the setup board updated and then I'll I'll start specking out what the the connection and process could look like for the deal and deal rep assignment with their servers. Um, and then we we'll start the discussion.",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-20",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Client may not update CMS in time",
+      "statement": "Kobi doubts the client could get their side updated in time either, based on their progress so far.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:11:09",
+      "line_start": 240,
+      "line_end": 240,
+      "quote": "Kobi Kunasekaran: I don't think that they would be able to get it updated in time either based on how they've been going.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-21",
+      "type": "status-update",
+      "firmness": "discussed",
+      "feature_area": "Testing, UAT & Go-Live",
+      "topic": "UAT on track without new ask",
+      "statement": "Asked whether the team would have hit the UAT deadline if the new integration ask had not come up, Kobi says yes.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:11:09",
+      "line_start": 243,
+      "line_end": 246,
+      "quote": "Waleed Alasadi: If this was not brought up today, like let's forget this whole thing was not brought up today. Are we are we go were we going to hit the UAT go like deadline on / Waleed Alasadi: Tuesday? / Kobi Kunasekaran: Yeah.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-22",
+      "type": "decision",
+      "firmness": "proposed",
+      "feature_area": "Testing, UAT & Go-Live",
+      "topic": "Manual workaround instead of delaying UAT",
+      "statement": "Waleed and Kobi lean toward a manual process while the client builds the integration, rather than pushing UAT until everything is ready; no final decision is made and the call is referred to Emily.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:11:09",
+      "line_start": 249,
+      "line_end": 257,
+      "quote": "Waleed Alasadi: Your recommendation would be to like go the manual way while they're doing this. / Waleed Alasadi: I feel like that's better. No, like or or there's a push to pushing / Kobi Kunasekaran: as opposed to like pushing it until everything's / Waleed Alasadi: it. Yes. / Kobi Kunasekaran: ready.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no"
+    },
+    {
+      "item_id": "2026-07-28-1244-23",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "Testing, UAT & Go-Live",
+      "topic": "No end-user sales rep usage yet",
+      "statement": "Waleed notes many ideas have come from management and sales reps have not yet used the system; Kobi says today was the first time the two ops staff saw it, and they are operations people, not end users.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:12:03",
+      "line_start": 260,
+      "line_end": 266,
+      "quote": "Waleed Alasadi: Um, I feel like it's good to like there's been a lot of a lot of management putting the ideas like we still haven't seen sales reps like actually like come in and like use it. / Kobi Kunasekaran: today was the first time they've seen it like those two / Waleed Alasadi: And they're not even like sales reps. / Kobi Kunasekaran: guys. / Waleed Alasadi: You got the whole operations people, not the the end user end",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-24",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "Training & Enablement",
+      "topic": "Ops must learn tool; two systems",
+      "statement": "Waleed says 23 users are sales reps and Owen is pure ops; Kobi says Owen will manage much of deal management and rep assignments, which is a large process change, and a CMS-Salesforce sync means two systems to maintain.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:12:46",
+      "line_start": 281,
+      "line_end": 292,
+      "quote": "Waleed Alasadi: So, but there's 23 of them that are just sales reps. / Kobi Kunasekaran: I mean, he's going to be the main person that's managing a lot of the like the deal management, / Kobi Kunasekaran: prep assignments and stuff anyways, right? So, it's it's actually a huge process change for these guys as well. / Kobi Kunasekaran: Salesforce um like he's right to point out that it's it is two systems they have to maintain now.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "prep assignments = rep assignments [ASR?]"
+    },
+    {
+      "item_id": "2026-07-28-1244-25",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "CMS Integration",
+      "topic": "Why ops staff must use CMS",
+      "statement": "Waleed asks whether to push back on ops needing to be in the CMS; Kobi says yes they need it, because the CMS is where links are finally activated for reps so they show on the client's website.",
+      "speakers": [
+        "Waleed Alasadi",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:13:42",
+      "line_start": 295,
+      "line_end": 298,
+      "quote": "Waleed Alasadi: Because can we push back on that? like is there a need for him to be in the CMS? / Kobi Kunasekaran: because like that's where they do the ultimate activation of the links to the reps uh so that it shows up on their website, right?",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-26",
+      "type": "decision",
+      "firmness": "proposed",
+      "feature_area": "Deal",
+      "topic": "Salesforce manages links end to end",
+      "statement": "Kobi hoped Salesforce could manage links end to end (a link object, links assigned during rep assignment, then pushed to the CMS); Waleed says it would not be bad to suggest. Kobi says this was the initial plan but needs the client's CMS data model to match Salesforce, which they are not ready for.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Waleed Alasadi"
+      ],
+      "timestamp": "00:13:42",
+      "line_start": 298,
+      "line_end": 306,
+      "quote": "Kobi Kunasekaran: I I was hoping we could actually transition towards Salesforce managing the whole thing end to end. So yeah, there's nothing stopping us from like we'll have like another object to store all the links. / Waleed Alasadi: I mean, it won't be a bad idea to suggest it. / Kobi Kunasekaran: We did like that that was the initial plan. Like that's how I also uh mentioned it a couple times in the uh in the deal rep assignment combo we had a couple weeks ago. Um, but I in order for that to happen, they need to have their CMS data model matching Salesforce. I think they're not ready to do that yet.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": "Kobi says Salesforce-managed links was the initial plan, raised in the deal rep assignment call a couple of weeks earlier; client CMS data model not ready.",
+      "summary_agreement": "yes",
+      "asr_note": "combo = call [ASR?]"
+    },
+    {
+      "item_id": "2026-07-28-1244-27",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Testing, UAT & Go-Live",
+      "topic": "Hold UAT or power through",
+      "statement": "Open question for Emily: hold back UAT, or proceed with UAT, build the integration on the side and push the actual go-live until everything is ready.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:14:36",
+      "line_start": 312,
+      "line_end": 317,
+      "quote": "Kobi Kunasekaran: Yeah. I think this is more of a Emily conversation to ask her like where we should focus. / Kobi Kunasekaran: and then we can have a conversation on whether we need to hold back UAT or do we power through for UAT and then work on this long on the side and push the actual go live until everything's ready. Um we could we could have that conversation with Emily.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no"
+    },
+    {
+      "item_id": "2026-07-28-1244-28",
+      "type": "action-item",
+      "firmness": "proposed",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Consult Emily on focus and UAT",
+      "statement": "After due diligence (Asana update and integration scoping), the team will talk with Emily about where to focus and the UAT/go-live approach. No owner or date stated.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Waleed Alasadi"
+      ],
+      "timestamp": "00:14:36",
+      "line_start": 312,
+      "line_end": 318,
+      "quote": "Kobi Kunasekaran: I think this is more of a Emily conversation to ask her like where we should focus. So, we'll do all the due diligence. / Kobi Kunasekaran: Um we could we could have that conversation with Emily. / Waleed Alasadi: Okay.",
+      "jira_keys_mentioned": [],
+      "owner": "Jumpr team (not named)",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-07-28-1244-29",
+      "type": "risk-blocker",
+      "firmness": "discussed",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Client PM scope creep; ground V1",
+      "statement": "Kobi flags ongoing scope growth from the client product manager's requests and says Lena and Emily are needed to bring scope back to what is absolutely necessary for V1.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:15:30",
+      "line_start": 319,
+      "line_end": 319,
+      "quote": "Kobi Kunasekaran: scope creep just keeps going up. I mean, they're they're good ideas, but um we need Lena and Emily to kind of ground her to bring her back to like what's absolutely necess necessary for V1.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    }
+  ],
+  "gemini_disagreements": [
+    {
+      "summary_text": "Leadership decided to adopt manual workarounds instead of delaying the user acceptance testing deadline. This approach manages scope creep while deferring complex integration work to future phases. (also line 10: 'with a decision favoring manual workarounds')",
+      "transcript_quote": "Kobi Kunasekaran: and then we can have a conversation on whether we need to hold back UAT or do we power through for UAT and then work on this long on the side and push the actual go live until everything's ready. Um we could we could have that conversation with Emily.",
+      "line": 317,
+      "why": "Summary is firmer than transcript. Waleed and Kobi only leaned toward the manual route (lines 249-257); the call is explicitly left open for a conversation with Emily. The Gemini Decisions section itself lists it as 'Needs Further Discussion'."
+    },
+    {
+      "summary_text": "deferring complex integration work to future phases.",
+      "transcript_quote": "Kobi Kunasekaran: do we power through for UAT and then work on this long on the side and push the actual go live until everything's ready.",
+      "line": 317,
+      "why": "Transcript option is to build the integration alongside UAT and push go-live until it is ready, not defer it to a future phase. No phase deferral was stated."
+    }
+  ],
+  "rule5_redactions": 3,
+  "secret_exposed": false,
+  "notes": "Internal Jumpr debrief (~17 min) after the 28 Jul client sync about a new client ask: CMS-driven deal rep assignments and a deal sync between Salesforce and the client CMS. Nothing was decided on UAT vs go-live; that is referred to Emily. ASR: Taran = Taryn; Kobe = Kobi; 'Jester'/'Chester' looks like a nickname for Marc Cabantog (Waleed asks 'Jester, how would you do it?' and Marc answers) [ASR?]; Assada/ASA/Assan = Asana; TMS = CMS; upstart/obser = upsert. Line 307 'July 28th' is likely a slip for the July 31 UAT date [ASR?]; not extracted. Skipped under rule 5: 3 passages on Jumpr staff workload, performance and staffing. Also left out: disparaging remarks about client stakeholders (client-optics risk, not delivery content). Recorded client names: Emily, Lena, Joyce, Owen, Jay. No Jira keys were spoken."
+}

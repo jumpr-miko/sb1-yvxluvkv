@@ -1,0 +1,391 @@
+{
+ "doc_id": "1LJVRi-c_4T3QeYMWRKA8IiEXUB2owUbGXNjm2zqQDGI",
+ "title": "Marc / Kobi - 2026/06/17 09:59 EDT - Notes by Gemini",
+ "meeting_date": "2026-06-17",
+ "meeting_time": "09:59 EDT",
+ "doc_link": "https://docs.google.com/document/d/1LJVRi-c_4T3QeYMWRKA8IiEXUB2owUbGXNjm2zqQDGI/edit",
+ "meeting_type": "internal sync",
+ "tier": "tier2",
+ "screen_verdict": "include",
+ "screen_reason": "Gemini notes contain WagerTech design discussion (signup data model: custom object vs Lead, relationship type; console/LWC screen-flow UX; desktop vs mobile entry; native-first approach; existing ~8,000 lines of code; file storage/reporting) plus kickoff/discovery/tech-review actions.",
+ "delivery_line_ranges": [
+  [
+   19,
+   19
+  ],
+  [
+   22,
+   22
+  ],
+  [
+   25,
+   25
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   50,
+   50
+  ],
+  [
+   52,
+   52
+  ],
+  [
+   59,
+   62
+  ],
+  [
+   64,
+   65
+  ]
+ ],
+ "evidence_grade": "gemini-notes-only",
+ "raw_copy": "agent-saved-from-read_file_content",
+ "attendees": [
+  "Marc Cabantog",
+  "Kobi Kunasekaran"
+ ],
+ "lines_total": 72,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-06-17-0959-01",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Internal PRD review and data structure",
+   "statement": "Per Gemini notes, Marc and Kobi reviewed the Project Requirements Document and discussed the Salesforce data structure internally on 2026-06-17.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 60,
+   "line_end": 60,
+   "quote": "The team reviewed the Project Requirements Document and discussed the Salesforce data structure.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred: line 59 names Wager Tech as the primary focus and the passage concerns signups/PRD, but the bullet itself does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-02",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Custom object for signups, not Lead",
+   "statement": "Per Gemini notes, Kobi objected to using the Lead object for signups and proposed a custom object linked to Contacts instead. The Gemini Decisions section states this as a firm decision; the Details section states it only as Kobi's proposal, and no client was present.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 60,
+   "line_end": 60,
+   "quote": "Kobi Kunasekaran expressed an objection to using the \"Lead\" object for signups, proposing instead to use a custom object linked to contacts to improve data management and linking.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Gemini Decisions line 34 says 'The team will utilize a custom object for signups instead of the standard Salesforce Lead object' (firmer than Details line 60, which says 'proposing'). Internal Jumpr meeting only; not client-confirmed.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-03",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Sign-Up",
+   "topic": "Master-detail vs lookup for signup objects",
+   "statement": "Per Gemini notes, whether the new custom signup objects should use master-detail or lookup relationships was an open point still to be determined.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 60,
+   "line_end": 60,
+   "quote": "They discussed the necessity of determining whether to implement master-detail or lookup relationships for these custom objects",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-04",
+   "type": "decision",
+   "firmness": "discussed",
+   "feature_area": "Other (data model: client-provided field list)",
+   "topic": "Use client's pre-defined fields",
+   "statement": "Per Gemini notes, Marc and Kobi noted that the fields the client already defined would save significant development time.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 60,
+   "line_end": 60,
+   "quote": "noting that the pre-defined fields provided by the client would save significant development time.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-05",
+   "type": "risk-blocker",
+   "firmness": "discussed",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Excel-to-Salesforce transition, list view editing",
+   "statement": "Per Gemini notes, Marc raised a concern about users moving from Excel to Salesforce, in particular list view editing limitations and changes to the user experience.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 61,
+   "line_end": 61,
+   "quote": "Marc Cabantog raised concerns regarding the user transition from Excel to Salesforce, specifically highlighting limitations in list view editing and potential changes to the user experience.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-06",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Desktop primary entry, mobile on road",
+   "statement": "Per Gemini notes, users access the system on mobile while on the road, but primary data entry happens on desktop at the end of the day. This is Jumpr's internal understanding, not a client confirmation in this meeting.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 61,
+   "line_end": 61,
+   "quote": "While they acknowledged that users access the system on mobile devices while on the road, they clarified that the primary data entry happens on desktop computers at the end of the day.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-07",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Console views with embedded LWC screen flows",
+   "statement": "Per Gemini notes, the team plans a responsive design using console views with embedded Lightning Web Component screen flows to simplify the interface.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 61,
+   "line_end": 61,
+   "quote": "Consequently, the team plans to focus on a responsive design that utilizes console views with embedded Lightning Web Component screen flows to simplify the interface.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Gemini Summary line 22 says 'Focus shifted to console views...' (phrased as settled).",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-08",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Other (solution design principle: native-first, guided screen flows)",
+   "topic": "Native-first, guided screen flows over code",
+   "statement": "Per Gemini notes, Marc and Kobi discussed using guided screen flows and native Salesforce functionality for data entry to reduce the need for complex custom code.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 62,
+   "line_end": 62,
+   "quote": "They discussed using guided screen flows to assist users with data entry, which would reduce the need for complex, overengineered code.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Gemini Decisions line 35 states native-first prioritization as an aligned decision; internal meeting only, not client-confirmed. Commercial wording in the same bullet was not recorded.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-09",
+   "type": "risk-blocker",
+   "firmness": "discussed",
+   "feature_area": "Other (existing org codebase)",
+   "topic": "Existing environment has ~8,000 lines code",
+   "statement": "Per Gemini notes, Marc noted that the current environment holds about 8,000 lines of code, which looked excessive for the stated requirements.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 62,
+   "line_end": 62,
+   "quote": "Marc Cabantog noted that the current environment contains approximately 8,000 lines of code, which appears excessive relative to the stated requirements.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Gemini Summary line 22 says 'Native Salesforce functionality will replace 8,000 lines of complex, potentially unnecessary code' (firmer than Details line 62, which only notes the code volume).",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-10",
+   "type": "requirement",
+   "firmness": "discussed",
+   "feature_area": "Storage / Proofs",
+   "topic": "Notes and Attachments insufficient; links in fields",
+   "statement": "Per Gemini notes, Notes and Attachments was judged insufficient for images/files because it does not support reporting needs, and storing file links in separate fields was discussed to allow reporting.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 64,
+   "line_end": 64,
+   "quote": "noting that the \"Notes and Attachments\" feature is insufficient because it does not support necessary reporting requirements. They discussed storing links in separate fields to allow for better reporting",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-11",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Storage / Proofs",
+   "topic": "Explore AWS for file storage",
+   "statement": "Per Gemini notes, Amazon Web Services was raised as a possible option for file storage and integration, to be explored.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 64,
+   "line_end": 64,
+   "quote": "considered exploring Amazon Web Services as a potential option for seamless file storage and integration.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-12",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Kobi to schedule tech review",
+   "statement": "Per Gemini Next steps, Kobi is to schedule a meeting to discuss technical decisions and design strategies and review the project requirements with the team.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 50,
+   "line_end": 50,
+   "quote": "\\[Kobi Kunasekaran\\] Schedule Tech Review: Coordinate a meeting time to discuss technical decisions and design strategies. Review the project requirements with the team.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Source is the Gemini Next steps list only; WagerTech attribution is inferred from context (project requirements review).",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-13",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Marc to attend project kickoff",
+   "statement": "Per Gemini notes, Kobi asked Marc to prioritize attending the project kickoff meeting for introductions.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 65,
+   "line_end": 65,
+   "quote": "Kobi Kunasekaran requested that Marc Cabantog prioritize attending the kickoff meeting for introductions",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Marc Cabantog",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Next steps line 52 lists the same action. Kickoff date not stated. WagerTech attribution is inferred (WagerTech named as primary focus at line 59; earlier internal notes put the WagerTech start in this week).",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-17-0959-14",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Kobi and Willie run discovery meeting",
+   "statement": "Per Gemini notes, Kobi and Willie can run the discovery meeting without Marc and forward the relevant information to Marc afterward.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 65,
+   "line_end": 65,
+   "quote": "while agreeing that Kobi Kunasekaran and Willie can manage the discovery meeting independently and forward the relevant information to Marc Cabantog afterward.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran; Willie",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Willie's identity and the discovery meeting date are not stated. WagerTech attribution is inferred, as for item 13.",
+   "quote_verified": true
+  }
+ ],
+ "gemini_disagreements": [],
+ "rule5_redactions": 1,
+ "secret_exposed": false,
+ "notes": "Doc holds only Gemini notes (Summary, Decisions, Next steps, Details); no Transcript section, so all items are capped at 'proposed', quotes come from Gemini text, and summary_agreement is null (no transcript to test against). Internal Jumpr pre-kickoff design discussion; no client present, so nothing here is client-confirmed. Inside the Gemini text, the Decisions and Summary sections are firmer than the Details section on the custom-object-for-signups point (item 02) and the 8,000-lines-of-code point (item 09); see item notes. Only line 59 names Wager Tech; WagerTech attribution of the other passages is inferred from context. Skipped: one Jumpr-internal resourcing passage (rule 5), action items and detail for other clients' work (out of scope), and a Jumpr-wide Salesforce MFA/passkey housekeeping item that is not WagerTech-specific. No secret values present in the doc."
+}

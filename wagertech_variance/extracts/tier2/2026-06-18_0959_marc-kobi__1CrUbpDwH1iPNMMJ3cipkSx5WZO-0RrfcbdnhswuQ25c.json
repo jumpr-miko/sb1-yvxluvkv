@@ -1,0 +1,407 @@
+{
+ "doc_id": "1CrUbpDwH1iPNMMJ3cipkSx5WZO-0RrfcbdnhswuQ25c",
+ "title": "Marc / Kobi - 2026/06/18 09:59 EDT - Notes by Gemini",
+ "meeting_date": "2026-06-18",
+ "meeting_time": "09:59 EDT",
+ "doc_link": "https://docs.google.com/document/d/1CrUbpDwH1iPNMMJ3cipkSx5WZO-0RrfcbdnhswuQ25c/edit",
+ "meeting_type": "internal sync",
+ "tier": "tier2",
+ "screen_verdict": "include",
+ "screen_reason": "Gemini notes contain WagerTech design discussion: signup data model (custom Signup object vs PRD Lead object, record per submission, validation on contact link), interim WhatsApp manual entry, signup API deep dive and vendor direct-write vs batch, single account for operator and deal levels, per-casino and casino-plus-partner reporting, console/Player 360 UX, design-finalization target, and a WagerTech sandbox action.",
+ "delivery_line_ranges": [
+  [
+   19,
+   19
+  ],
+  [
+   22,
+   22
+  ],
+  [
+   25,
+   25
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   49,
+   50
+  ],
+  [
+   52,
+   54
+  ],
+  [
+   63,
+   70
+  ]
+ ],
+ "evidence_grade": "gemini-notes-only",
+ "raw_copy": "agent-saved-from-read_file_content",
+ "attendees": [
+  "Marc Cabantog",
+  "Kobi Kunasekaran"
+ ],
+ "lines_total": 78,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-06-18-0959-01",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Data Migration / Import",
+   "topic": "Sample table not needed for migration mapping",
+   "statement": "Per Gemini notes, Marc suggested requesting a sample table to start migration field mapping; Kobi replied that the PRD already holds the field definitions, so a sample table is less critical for now.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 63,
+   "line_end": 63,
+   "quote": "Marc Cabantog suggested requesting a sample table for the upcoming migration to begin mapping fields and analyzing necessary transformations. Kobi Kunasekaran responded that the existing Product Requirements Document (PRD) already contains the required field definitions, making a sample table less critical at this moment.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client. Gemini Summary (line 19) is firmer: it says sample tables are 'unnecessary', while Details says 'less critical at this moment'.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-02",
+   "type": "change-to-earlier-decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Hesitation on PRD Lead object for signups",
+   "statement": "Per Gemini notes, Kobi questioned the PRD's use of the Lead object for signups, because the process involves quick conversion decisions and not lead nurturing.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 64,
+   "line_end": 64,
+   "quote": "Kobi Kunasekaran expressed hesitation about using the \"lead object\" for signups as outlined in the PRD. Kobi Kunasekaran argued that the standard purpose of a lead object involves nurturing prospective customers, whereas the current process involves quick conversion decisions, making the lead object potentially unnecessary.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "PRD specified the Lead object for signups; Kobi questioned this.",
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-03",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Interim manual entry from WhatsApp",
+   "statement": "Per Gemini notes, Marc suggested that manual data entry from WhatsApp information may be needed in the interim until signup data becomes available.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 64,
+   "line_end": 64,
+   "quote": "Marc Cabantog suggested that, in the interim, manual data entry based on WhatsApp information may be necessary until signup data becomes available.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-04",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Custom Signup object, record per submission",
+   "statement": "Per Gemini notes, Kobi proposed a custom Signup object where every form submission creates a new record that reps work directly (not the Player object), with validation only when a signup is linked to a contact, to avoid deduplication and validation failures. Marc agreed. Internal Jumpr discussion only; no client confirmation.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 65,
+   "line_end": 65,
+   "quote": "Kobi Kunasekaran proposed utilizing a custom signup object where every form submission generates a new record, allowing representatives to manage these records directly rather than interacting with the player object. By performing validation only when a signup is linked to a contact record, the team can avoid deduplication issues and validation failures during initial signups. Marc Cabantog agreed with this approach",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "Replaces the Lead object approach in the PRD (internal proposal).",
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client. Gemini Decisions (line 34) and Summary (line 22) say 'The team decided'; Details (line 65) says Kobi 'proposed' and Marc 'agreed'. No client present, so this is not a client-confirmed decision.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-05",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Composite callout for real-time signup creation",
+   "statement": "Per Gemini notes, Marc suggested a composite callout so signup records are created in real time, so reps do not need to check whether a signup completed.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 65,
+   "line_end": 65,
+   "quote": "suggested implementing a composite callout to enable real-time record creation, which would eliminate the need for representatives to check the status of signup completion.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-06",
+   "type": "open-question",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Current signup API caller and data location",
+   "statement": "Per Gemini notes, it is unclear who calls the current API and where the data is stored; a deep dive is to check how signups appear and whether existing builds can be reused instead of a new batch process.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 66,
+   "line_end": 66,
+   "quote": "There is uncertainty regarding the current API structure, specifically regarding who is calling the API and where the data is stored. Kobi Kunasekaran intends to schedule a deep-dive call to examine the API, determine how signups appear, and identify if the team can leverage existing builds rather than creating a new batch process.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client. Feature area could also be CMS Integration; the notes do not name the external system ('the vendor').",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-07",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Schedule API signups deep-dive call",
+   "statement": "Per Gemini Next steps, Kobi is to send instructions to the relevant parties and schedule a deep-dive call on API signups to analyze the data structure.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 49,
+   "line_end": 50,
+   "quote": "[Kobi Kunasekaran\\] Send API Instructions: Send instructions to the relevant parties to prepare for the deep dive API call. / [Kobi Kunasekaran\\] Schedule API Call: Schedule a deep dive call regarding API signups to analyze the data structure.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-08",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Vendor writes directly into Salesforce preferred",
+   "statement": "Per Gemini notes, Marc noted that if the vendor can populate data directly into Salesforce, technical complexity drops a lot compared to an external batch process.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 66,
+   "line_end": 66,
+   "quote": "Marc Cabantog noted that if the vendor can populate the data directly into Salesforce, it would significantly reduce technical complexity compared to creating an external batch process.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-09",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Back-trace existing API integration",
+   "statement": "Per Gemini Next steps, Marc is to explore the existing interface and API integrations and back-trace the existing API integration to identify the current setup.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 53,
+   "line_end": 54,
+   "quote": "[Marc Cabantog\\] Explore API Integration: Explore existing interface and API integrations to understand the current implementation. / [Marc Cabantog\\] Back Trace API: Back trace the existing API integration to identify the current setup.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Marc Cabantog",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-10",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Operator & Partner",
+   "topic": "Single account for operator and deal levels",
+   "statement": "Per Gemini notes, Kobi and Marc agreed internally that a single account will serve both operator and deal levels.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 67,
+   "line_end": 67,
+   "quote": "Kobi Kunasekaran and Marc Cabantog discussed the account structure, agreeing that a single account will serve both operator and deal levels.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-11",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Reporting & Dashboards",
+   "topic": "Per-casino and casino-plus-partner reporting",
+   "statement": "Per Gemini notes, reporting needs one entry per casino and also casino-plus-partner combinations, with both individual and consolidated reporting; the approach (related lists or structural combinations) is not settled.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 67,
+   "line_end": 67,
+   "quote": "They addressed the challenge of reporting, concluding that the system needs to support one entry per casino while also accommodating casino-plus-partner combinations. Kobi Kunasekaran emphasized the need to configure the system to allow for both individual and consolidated reporting, which will likely be resolved through related lists or specific structural combinations.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client. Gemini Decisions (line 35) is firmer ('Casino reporting data structure defined', 'creating separate entries'); Details (line 67) says the approach 'will likely be resolved'.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-12",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Console view (Player 360) for signup entry",
+   "statement": "Per Gemini notes, complex UIs are acceptable for ops teams but the end-user interface must stay simple; Kobi proposed a console view like a 'Player 360' layout for signup forms, so reps can enter deposit information and see related player data.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 68,
+   "line_end": 68,
+   "quote": "Marc Cabantog and Kobi Kunasekaran agreed that while complex UIs are acceptable for operations teams, the end-user interface must remain simple. Kobi Kunasekaran proposed using a console view, similar to a \"Player 360\" layout, for the signup forms to allow representatives to easily enter deposit information and view related player data without technical complications.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client. Gemini Summary (line 25) says a console view 'was selected'; Details (line 68) says Kobi 'proposed' it.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-13",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Design finalization target next Wednesday",
+   "statement": "Per Gemini notes, Kobi aims to finalize the design by next Wednesday (about 2026-06-24) to start the build phase.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 69,
+   "line_end": 69,
+   "quote": "Kobi Kunasekaran aims to finalize the design by next Wednesday to initiate the build phase.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": "next Wednesday (as stated; about 2026-06-24)",
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-14",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Schedule stakeholder meetings on workflow gaps",
+   "statement": "Per Gemini notes, Kobi plans to send follow-up instructions to schedule meetings with stakeholders to address critical gaps in the current workflow.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 69,
+   "line_end": 69,
+   "quote": "Kobi Kunasekaran plans to send follow-up instructions to schedule the necessary meetings with stakeholders to address the critical gaps identified in the current workflow.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context (signups, player object, casino/operator/deal structure, WhatsApp intake); the passage does not name the client.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-18-0959-15",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Set up sandbox with shared WagerTech login",
+   "statement": "Per Gemini notes, Kobi asked Marc to set up a sandbox for the org using the shared consulting+wagertech address instead of the email used for production access, for shared login and verification.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 70,
+   "line_end": 70,
+   "quote": "Kobi Kunasekaran requested that Marc Cabantog set up a sandbox for the organization. To ensure a shared login and proper verification, Kobi Kunasekaran instructed Marc Cabantog to use the email address \\`consulting+wagertech@jumper.io\\` rather than the email currently used for production access.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Marc Cabantog",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; This bullet names WagerTech in the email address. Also listed in Next steps (line 52).",
+   "asr_note": "'jumper.io' = jumpr.io [ASR?]",
+   "quote_verified": true
+  }
+ ],
+ "gemini_disagreements": [],
+ "rule5_redactions": 1,
+ "secret_exposed": false,
+ "notes": "Doc holds only Gemini notes (Summary, Decisions, Next steps, Details); no Transcript section, so all items are capped at 'proposed', quotes come from Gemini text, and summary_agreement is null (no transcript to test against). The download_file_content export came back inline as base64, so the local copy was saved from read_file_content. Internal Jumpr design discussion; no client present, so nothing here is client-confirmed. Inside the Gemini text, Summary/Decisions are firmer than Details on the custom Signup object (item 04), the casino reporting structure (item 11), the console view (item 12) and the migration sample table (item 01); see item notes. Only line 52/70 (sandbox email) names WagerTech; attribution of the other passages is inferred from context. Skipped: one Jumpr-internal availability passage (rule 5); the deployment/API-authorization passage (line 61) and the 'data meeting' passage (line 62) because the notes do not tie them to WagerTech; action items for another client's updates (out of scope); a generic follow-up action. No secret values present in the doc."
+}

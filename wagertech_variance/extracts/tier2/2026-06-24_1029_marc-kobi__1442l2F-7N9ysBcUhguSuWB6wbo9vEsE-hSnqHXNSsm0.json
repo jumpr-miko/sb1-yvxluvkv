@@ -1,0 +1,259 @@
+{
+ "doc_id": "1442l2F-7N9ysBcUhguSuWB6wbo9vEsE-hSnqHXNSsm0",
+ "title": "Marc / Kobi - 2026/06/24 10:29 EDT - Notes by Gemini",
+ "meeting_date": "2026-06-24",
+ "meeting_time": "10:29 EDT",
+ "doc_link": "https://docs.google.com/document/d/1442l2F-7N9ysBcUhguSuWB6wbo9vEsE-hSnqHXNSsm0/edit",
+ "meeting_type": "internal sync",
+ "tier": "tier2",
+ "screen_verdict": "include",
+ "screen_reason": "Gemini notes contain WagerTech signup design direction (staging 'study link clicks' object instead of Lead, record-triggered flow), API error-handling position, org cleanup vs fresh-org question, and storage/licensing research action items.",
+ "delivery_line_ranges": [
+  [
+   21,
+   22
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   52,
+   55
+  ],
+  [
+   65,
+   67
+  ],
+  [
+   69,
+   69
+  ]
+ ],
+ "evidence_grade": "gemini-notes-only",
+ "raw_copy": "agent-saved-from-read_file_content",
+ "attendees": [
+  "Marc Cabantog",
+  "Kobi Kunasekaran"
+ ],
+ "lines_total": 76,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-06-24-1029-01",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Staging object replaces Lead for signups",
+   "statement": "Per Gemini notes, Kobi and Marc agreed internally to stop using the Lead object for WagerTech signups and use a staging object, tentatively named \"study link clicks\", to capture user clicks and relate them to signups. Gemini lists this under 'Aligned' decisions; no transcript confirms it and no client confirmation is recorded.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 65,
+   "line_end": 65,
+   "quote": "Kobi and Marc agree to move away from using the Lead object for Wager Tech and instead implement a staging object, tentatively named \"study link clicks,\" to capture user clicks and relate them to signups.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-02",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Record-triggered flow instead of batch class",
+   "statement": "Per Gemini notes, Marc suggested a record-triggered flow rather than a batch class for the study link clicks object, and Kobi supported it because volume is unlikely to need high-performance processing immediately. Gemini Decisions also says the object deduplicates signup records via flow automation.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 65,
+   "line_end": 65,
+   "quote": "Marc suggests utilizing a record-triggered flow rather than a batch class for this object, which Kobi supports, noting that the volume is unlikely to require high-performance streamlining immediately.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-03",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "CMS Integration",
+   "topic": "Client owns API error handling and retries",
+   "statement": "Per Gemini notes, Marc advised that the client should handle API error handling on their side because they use a standard Salesforce API that returns status codes and record IDs; Kobi agreed the client can monitor their interface and re-sync records that fail. This is an internal Jumpr position; no client acceptance is recorded in this doc.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 66,
+   "line_end": 66,
+   "quote": "Marc advises that the client should manage error handling on their end, as they are using a standard Salesforce API and will receive status codes, including record IDs, upon interaction. Kobi agrees, suggesting that the client can monitor their interface to identify and re-sync any records that fail to transfer to Salesforce.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-04",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Kobi to draft signup spec and stories",
+   "statement": "Per Gemini notes, Kobi will draft a specification for handling unique link clicks and signups, and finalize the signup specifications and user stories for team review.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 54,
+   "line_end": 65,
+   "quote": "\\[Kobi Kunasekaran\\] Finalize Specs: Finalize the signup specifications and user stories for the WagerTech project. Share the finalized design for team review. / Kobi will draft a specification document to define how to handle unique link clicks and signups.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-05",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "PRD vs current org: automations obsolete",
+   "statement": "Per Gemini notes, Marc presented an analysis comparing the PRD to the current WagerTech Salesforce org and noted that many automations and flows are obsolete.",
+   "speakers": [
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 67,
+   "line_end": 67,
+   "quote": "Marc presents an analysis comparing the Product Requirements Document (PRD) to the current Salesforce organization, noting that many automations and flows are obsolete.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-06",
+   "type": "open-question",
+   "firmness": "proposed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Clean existing org or start fresh",
+   "statement": "Per Gemini notes, it is open whether it is more efficient to clean the existing WagerTech org or start with a fresh org; process builders, validation rules and other automations need review first.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 67,
+   "line_end": 67,
+   "quote": "Kobi notes that they need to review all process builders, validation rules, and other automations to determine if it is more efficient to clean the existing environment or start with a fresh organization, with Kobi planning to consult the internal channel for input.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-07",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Kobi to check fresh-org feasibility internally",
+   "statement": "Per Gemini notes, Kobi will consult the internal team on whether a fresh Salesforce org is more efficient than cleaning the current WagerTech org.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 55,
+   "line_end": 55,
+   "quote": "\\[Kobi Kunasekaran\\] Check Org Feasibility: Consult the internal team to verify if starting a fresh Salesforce organization is more efficient than cleaning the current one for WagerTech.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-08",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Storage / Proofs",
+   "topic": "Marc to compare GCP vs Salesforce storage",
+   "statement": "Per Gemini notes, Kobi assigned Marc a cost-benefit analysis of GCP storage versus native Salesforce file storage for WagerTech, with implementation estimates for both options so the client can see upfront versus long-term impact.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 52,
+   "line_end": 69,
+   "quote": "\\[Marc Cabantog\\] Analyze Storage: Perform a comparative analysis between GCP storage and native Salesforce storage for the WagerTech project. Include implementation estimates and long-term cost implications for both options.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Marc Cabantog",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-06-24-1029-09",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Marc to assess Platform vs Cloud licenses",
+   "statement": "Per Gemini notes, Kobi assigned Marc to assess the functional implications of Platform licenses versus Salesforce Cloud licenses and whether current requirements support that switch.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 53,
+   "line_end": 69,
+   "quote": "\\[Marc Cabantog\\] Analyze Licensing: Assess the features and limitations of using Platform licenses compared to Cloud licenses. Determine if the current requirements support this switch.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Marc Cabantog",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision",
+   "quote_verified": true
+  }
+ ],
+ "gemini_disagreements": [],
+ "rule5_redactions": 1,
+ "secret_exposed": false,
+ "notes": "Doc holds only Gemini notes (Summary, Decisions, Next steps, Details); no Transcript section, so all items are capped at 'proposed', quotes come from Gemini text, and summary_agreement is null. All decisions here are internal Jumpr design positions; no client confirmation is recorded. Gemini text is internally inconsistent on API errors: Summary line 22 says teams will use record-triggered flows for 'API error management', while Decisions line 35 and Details line 66 say the client handles API errors on their side; item 03 follows the Decisions/Details wording. Local raw copy has one Details bullet replaced with a redaction marker under rule 5 (line 64). Non-WagerTech content (tool connectivity troubleshooting for another engagement, internal documentation and tooling practices) was not extracted."
+}
