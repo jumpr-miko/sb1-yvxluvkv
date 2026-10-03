@@ -1,0 +1,272 @@
+{
+ "doc_id": "1F_lmm0WGkCWOO6Q2CGjIk0X5TsrQ8jHmg-2BPXwGxzc",
+ "title": "Marc / Kobi - 2026/07/29 10:00 EDT - Notes by Gemini",
+ "meeting_date": "2026-07-29",
+ "meeting_time": "10:00 EDT",
+ "doc_link": "https://docs.google.com/document/d/1F_lmm0WGkCWOO6Q2CGjIk0X5TsrQ8jHmg-2BPXwGxzc/edit",
+ "meeting_type": "internal sync",
+ "tier": "tier2",
+ "screen_verdict": "include",
+ "screen_reason": "Gemini notes contain WagerTech delivery content: go-live pushed back from a Friday launch due to ongoing change requests, SLC documentation update, deferral of the SLC-to-signup mapping automation pending client logic, two-way Salesforce/CMS deal rep assignment integration, link code data-model question, external ID upsert proposal, and board/automation action items. Other-client content and Jumpr-internal resourcing are not recorded.",
+ "delivery_line_ranges": [
+  [
+   18,
+   19
+  ],
+  [
+   21,
+   22
+  ],
+  [
+   34,
+   35
+  ],
+  [
+   48,
+   49
+  ],
+  [
+   51,
+   53
+  ],
+  [
+   62,
+   62
+  ],
+  [
+   64,
+   66
+  ]
+ ],
+ "evidence_grade": "gemini-notes-only",
+ "raw_copy": "agent-saved-from-read_file_content",
+ "attendees": [
+  "Marc Cabantog",
+  "Kobi Kunasekaran"
+ ],
+ "lines_total": 73,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-07-29-1000-01",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Testing, UAT & Go-Live",
+   "topic": "Go-live pushed back from Friday",
+   "statement": "Per Gemini notes, Kobi said the WagerTech go-live date will be pushed back. The reason given is that the team is not ready for a Friday launch because change requests are still coming in.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 62,
+   "line_end": 62,
+   "quote": "Furthermore, Kobi Kunasekaran indicated that the go-live date will be pushed back because the team is not prepared for a Friday launch given the ongoing requests for changes.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Internal Jumpr meeting; the client was not present, so this is Jumpr's internal view, not a client-agreed date change. No new go-live date is stated. The Gemini Summary (line 19) is firmer: 'The Wager Tech project launch was officially delayed due to evolving requirements.' The Details text says only that Kobi 'indicated' it will be pushed back. Summary line 19 also says 'Production deadlines for the project are set for Thursday'; Details line 61 ties that Thursday deadline to a different, non-WagerTech project, so it is not a WagerTech date.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-02",
+   "type": "status-update",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "SLC documentation updated with backup IDs",
+   "statement": "Per Gemini notes, Kobi updated the Study Click Link (SLC) documentation for WagerTech. He added fields for player IDs and external IDs to give backup information.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 62,
+   "line_end": 62,
+   "quote": "Kobi Kunasekaran updated the Study Click Link documentation for Wager Tech, including additional fields for player IDs and external IDs to provide backup information.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Internal Jumpr meeting; the client was not present. The notes do not say which object holds these fields.",
+   "asr_note": "'Study Click Link' = study link click (SLC) [ASR?]; the Decisions line 34 uses 'SLCs'.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-03",
+   "type": "deferral",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "Hold SLC-to-signup mapping automation update",
+   "statement": "Per Gemini notes, Kobi chose to hold the update to the automation that maps Study Click Links to signup records until WagerTech finalizes its logic, so the work can be done in one complete update later.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 62,
+   "line_end": 62,
+   "quote": "Kobi Kunasekaran decided to hold off on updating the automation that maps Study Click Links to signup records until Wager Tech finalizes their logic, allowing for a single comprehensive update later.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; Jumpr-internal sequencing call; the client was not present. It implies the client's SLC-to-signup mapping logic was not final on 2026-07-29 (open dependency on WagerTech). Gemini Decisions line 34 lists it as 'Aligned': 'The update mapping SLCs to signup records is postponed until the client finalizes their logic'.",
+   "asr_note": "'Study Click Link' = study link click (SLC) [ASR?].",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-04",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "CMS Integration",
+   "topic": "Two-way SF/CMS deal rep assignment",
+   "statement": "Per Gemini notes, Kobi and Marc discussed a requirement for two-way integration between Salesforce and the CMS for deal rep assignments. Deal records are created in Salesforce and sent to the CMS, and a REST API handles the assignment of deal reps.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 64,
+   "line_end": 64,
+   "quote": "Kobi Kunasekaran and Marc Cabantog discussed a requirement for two-way integration between Salesforce and the Content Management System regarding deal representative assignments. The workflow involves creating deal records in Salesforce and sending them to the Content Management System, while utilizing a REST Application Programming Interface for handling the assignment of deal representatives.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context: this bullet does not name Wager Tech. Deal rep assignment and the CMS are WagerTech scope terms. Internal Jumpr meeting; this is Jumpr's internal restatement of the requirement, not client-voiced. The notes do not say which side calls the REST API.",
+   "asr_note": "'Content Management System' is Gemini's expansion of 'CMS' [ASR?]; in WagerTech context CMS is the client's own system.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-05",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Deal Rep Assignment",
+   "topic": "Link code data model: child vs junction",
+   "statement": "Per Gemini notes, the team needs a design to capture link codes (URL codes) that are tied to deals and assigned to reps. Kobi was weighing a child object under Deal for links against a junction object if one code assignment can link to multiple reps. No choice was made.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 64,
+   "line_end": 64,
+   "quote": "They need to design a solution for capturing link codes, or URL codes, which are tied to deals and assigned to sales representatives. Kobi Kunasekaran is considering the structure for these associations, specifically whether to create a child object under the deal for links or if a junction object is required to link code assignments to multiple representatives.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context: this bullet does not name Wager Tech. Internal Jumpr meeting; open design question, no decision recorded.",
+   "asr_note": "'sales representatives' likely = deal reps / referrer reps in WagerTech terms [Gemini wording?].",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-06",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Deal Rep Assignment",
+   "topic": "Kobi to design link code system",
+   "statement": "Per Gemini notes, Kobi owns the design for capturing link codes and associating them with deal records.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 51,
+   "line_end": 51,
+   "quote": "\\[Kobi Kunasekaran\\] Design Link Code System: Develop a design for capturing link codes and associating them with deal records.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context: this bullet does not name Wager Tech. Ties to item 05 (Details line 64). No due date stated.",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-07",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "CMS Integration",
+   "topic": "Salesforce external ID for CMS upserts",
+   "statement": "Per Gemini notes, Marc proposed defining an external ID on the Salesforce side so the CMS can upsert by that ID, so that data can still be updated if the first call fails. Kobi said this needs more design and planning, and the architecture was still being finalized with other team members.",
+   "speakers": [
+    "Marc Cabantog",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": null,
+   "line_start": 65,
+   "line_end": 65,
+   "quote": "To address potential issues with data synchronization or API calls, Marc Cabantog proposed defining an external ID on the Salesforce side. This will allow the Content Management System to use these IDs for upserts, ensuring that data can be updated even if the initial call fails. Kobi Kunasekaran noted that this requires further design and planning to ensure functionality. They are working with other team members to finalize this architecture.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution is inferred from context: this bullet does not name Wager Tech. Internal Jumpr meeting; not client-confirmed. Gemini Decisions line 35 is firmer than Details line 65: it lists as 'Aligned' that 'An external ID on the Salesforce side will be defined and utilized to enable the client system to perform data upserts during the two-way integration', while Details says Marc 'proposed' it and Kobi said it 'requires further design and planning'.",
+   "asr_note": "'Content Management System' = CMS [Gemini expansion].",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-08",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Update project board with feedback",
+   "statement": "Per Gemini notes, Kobi was updating the project board with recent WagerTech feedback and remaining items to get a clearer picture of remaining tasks. Marc is to review the updated board for missing items.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 48,
+   "line_end": 62,
+   "quote": "\\[Kobi Kunasekaran\\] Update ASA Board: Add remaining items and feedback to the project tracking board. / \\[Marc Cabantog\\] Review ASA Board: Examine the updated board entries to identify any missing items. / Kobi Kunasekaran is currently updating the ASA project board with recent feedback to gain a clearer picture of remaining tasks.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran (update); Marc Cabantog (review)",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; WagerTech attribution comes from Details line 62 (Wager Tech bullet); Next steps lines 48-49 do not name the client. Quote spans lines 48, 49 and 62. No due date stated.",
+   "asr_note": "'ASA Board' may = Asana board [ASR?].",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-07-29-1000-09",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Delegate remaining automations and polish",
+   "statement": "Per Gemini notes, after the board update Kobi plans to delegate remaining WagerTech tasks, including several automations and polish work, to Marc, who will complete them once they are prioritized and assigned.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Marc Cabantog"
+   ],
+   "timestamp": null,
+   "line_start": 52,
+   "line_end": 66,
+   "quote": "\\[Kobi Kunasekaran\\] Assign Automation Tasks: Distribute the remaining small automation tasks to team members. / \\[Marc Cabantog\\] Complete Automation Tasks: Execute the automation tasks once they are prioritized and assigned. / Kobi Kunasekaran plans to finish updating the project board and then delegate tasks, including various automations and polishing efforts, to Marc Cabantog.",
+   "quote_source": "gemini-notes (no transcript in doc)",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran (assign); Marc Cabantog (complete)",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": null,
+   "note": "Gemini notes only; not usable as sole evidence for a decision; The specific automations are not named. WagerTech attribution comes from line 66, which refers to Wager Tech tasks. Capacity and onboarding detail in the same passage was skipped under rule 5. Quote spans lines 52, 53 and 66.",
+   "quote_verified": true
+  }
+ ],
+ "gemini_disagreements": [],
+ "rule5_redactions": 3,
+ "secret_exposed": false,
+ "notes": "Fetched via download_file_content (HTML came back inline as base64), then read_file_content; text saved verbatim to the raw path. Read all 73 lines. Doc holds only Gemini notes (Summary, Decisions, Next steps, Details); no Transcript section, so all items are capped at 'proposed' or lower, quotes come from Gemini text, and summary_agreement is null (no transcript to test against); gemini_disagreements is left empty for the same reason, but inside the Gemini text the Summary/Decisions are firmer than Details on the go-live delay (item 01: 'officially delayed' vs 'indicated') and the external ID approach (item 07: 'Aligned'/'will be defined' vs 'proposed'/'requires further design'). Summary line 19 places a Thursday production deadline under the Wager Tech heading, but Details line 61 attributes it to a different, non-WagerTech project. Internal Jumpr meeting; no client present, so nothing here is client-confirmed. Skipped: other-client project content (out of scope), a Google Cloud Platform documentation review action (lines 50, 63) that is not attributed to WagerTech, and 3 Jumpr-internal capacity/onboarding passages (rule 5). No Jira keys mentioned. No secret values present."
+}
