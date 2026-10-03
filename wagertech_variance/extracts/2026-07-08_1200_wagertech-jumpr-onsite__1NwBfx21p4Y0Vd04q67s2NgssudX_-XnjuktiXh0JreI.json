@@ -1,0 +1,1402 @@
+{
+ "doc_id": "1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI",
+ "title": "Wagertech <> Jumpr: Onsite",
+ "meeting_date": "2026-07-08",
+ "meeting_time": "12:00",
+ "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+ "meeting_type": "walkthrough",
+ "tier": "tier1",
+ "attendees": [
+  "Miko Sumagang",
+  "lina@wagertech.bet",
+  "Kobi Kunasekaran",
+  "jess@bountysports.com",
+  "emily@wagertech.bet",
+  "joyce@wagertech.bet",
+  "Waleed Alasadi",
+  "jess@wagertech.bet",
+  "Marc Cabantog"
+ ],
+ "lines_total": 961,
+ "read_complete": true,
+ "items": [
+  {
+   "item_id": "2026-07-08-0000-01",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Build shown is work in progress",
+   "statement": "The Salesforce build shown at the onsite is work in progress built since the prior week, not the final product.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:00:00",
+   "line_start": 91,
+   "line_end": 96,
+   "quote": "Kobi Kunasekaran: I know that this is like what we were able to build between like last last week, I guess, uh and today. / Kobi Kunasekaran: Um like Will said, like not the final product, um but just work in progress.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0001-02",
+   "type": "requirement",
+   "firmness": "discussed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Separate rep view from ops/admin view",
+   "statement": "Profiles and permission sets will differentiate an admin/ops view (everything) from a simpler sales rep view; WagerTech asked what the reps should be shown, since showing everything overwhelms them.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:01:36",
+   "line_start": 116,
+   "line_end": 146,
+   "quote": "Kobi Kunasekaran: so there's there's two components here there's something called profiles and permission sets profiles is like an admin and / Kobi Kunasekaran: I guess my question more to our team is do we have a view of what what do we want to show the sales reps because I imagine we would not want to show them everything",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0006-03",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "SLC intake creates player and signup",
+   "statement": "Jumpr demonstrated (via a simulated import, since the API is not connected yet) that a study link click creates a Player record and a Signup, with the deal, operator, partner and market mapped from existing configured records.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:06:37",
+   "line_start": 191,
+   "line_end": 211,
+   "quote": "Kobi Kunasekaran: In the real world, as players click on your study, click the uh the study links, it'll come through the API in Salesforce, right? Um but because we don't have that yet, I'm going to simulate it. / Kobi Kunasekaran: So the deal uh the operator partner market all of that gets mapped uh with the existing uh data that was already in like the deal that was configured in Salesforce",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0005-04",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "CMS Integration",
+   "topic": "CMS payload should send IDs, not names",
+   "statement": "Most API fields come from the developer README with API callouts and JSON; some fields currently send names but Jumpr wants IDs instead because names can change. This still needs clarification.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:05:54",
+   "line_start": 181,
+   "line_end": 186,
+   "quote": "Kobi Kunasekaran: He sent me with like the API call outs and the JSON. / Kobi Kunasekaran: previously you were sending the name but we want the ID instead because the names can change right. So things like that we need to clarify but I pretty confident that able to do it.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": "Ryan = WagerTech developer who sent the README [name as heard]"
+  },
+  {
+   "item_id": "2026-07-08-0008-05",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "List views act as rep work queues",
+   "statement": "Reps would work from list views (for example new players that have not completed signup) as queues, replacing manual entry in their spreadsheets.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:08:33",
+   "line_start": 216,
+   "line_end": 221,
+   "quote": "Kobi Kunasekaran: what I'm imagining or envisioning is like they will have like this list view where they can see like maybe not my my accounts but my players or new players / Kobi Kunasekaran: Exactly. Yeah. These list views will be the queue",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0009-06",
+   "type": "requirement",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "New signups auto-marked past due after 3 days",
+   "statement": "All signups are created with status New; per the PRD, if nothing is logged within 3 days the signup is automatically marked past due/overdue. Reps add first-time deposits and other information to progress the signup.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:09:14",
+   "line_start": 226,
+   "line_end": 231,
+   "quote": "Kobi Kunasekaran: So right now everything um all the new all the signups will just be created as new and then um from your PRD you add that logic like if nothing's logged within 3 days then mark it as um overdue. / Kobi Kunasekaran: So um that like past due we'll mark it as past due. Um so that automation we can do.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0023-07",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Guided screen flow for status moves",
+   "statement": "Jumpr suggested replacing manual status edits with a 'move to next stage' button backed by screen flows that require stage-specific information before the transition.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:23:46",
+   "line_start": 421,
+   "line_end": 426,
+   "quote": "Kobi Kunasekaran: Now what we want to do is actually maybe one thing is like do these these screen flows that Kobe showed. / Kobi Kunasekaran: So instead of giving them the ability to change like from completed to in progress like just if they wanted to it'll be like okay move to next stage. So it will be a button",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no",
+   "asr_note": "Kobe = Kobi [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0024-08",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "In Progress gated on welcome email upload",
+   "statement": "WagerTech asked whether moving a signup to In Progress could depend on uploading the welcome/signup email screenshot; Jumpr said yes. The detail was left for further discussion.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:24:49",
+   "line_start": 441,
+   "line_end": 446,
+   "quote": "Kobi Kunasekaran: Can we do it based on screenshots like in progress once they upload a welcome email? Yes. Because really that's the the first indication that the customer is signed up. / Kobi Kunasekaran: Yeah, we can talk about that very long.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0024-09",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Sign-Up",
+   "topic": "Required data at each signup stage",
+   "statement": "Jumpr needs WagerTech to define exactly what information is required at each signup stage (and how rigid the gating should be); Jumpr was not sure the PRD covers it.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:24:19",
+   "line_start": 431,
+   "line_end": 431,
+   "quote": "Kobi Kunasekaran: we have to know exactly what you need at each stage and then this way it's like the only way to move to in progress would be if you complete these things these items. Yeah. Do we want your reps to be do we want it to be as rigid?",
+   "jira_keys_mentioned": [],
+   "owner": "WagerTech (to define)",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0025-10",
+   "type": "decision",
+   "firmness": "decided",
+   "feature_area": "Sign-Up",
+   "topic": "Consolidate Won't Do and Fraud",
+   "statement": "WagerTech wants Won't Do and Fraud consolidated so reps do not choose between two options; Jumpr agreed, modelling it like closed-lost with a loss reason (fraud or other) to track root cause.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:25:47",
+   "line_start": 456,
+   "line_end": 466,
+   "quote": "Kobi Kunasekaran: I think we want to like consolidate won't do and fraud. We can. Yeah. Yeah, we we absolutely can. / Kobi Kunasekaran: Makes sense makes yeah we can we can cut that out / Kobi Kunasekaran: The clause for closed loss would be that and then the loss reason would be either fraud or like yeah as long as we're tracking the root cause those problems then like that's a game changer for us.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0026-11",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Sign-Up",
+   "topic": "In Review status before fraud confirmed",
+   "statement": "Someone suggested an initial In Review status so ops can confirm fraud before the signup is closed as fraud/won't do; Jumpr said it could do that.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:26:39",
+   "line_start": 466,
+   "line_end": 476,
+   "quote": "Kobi Kunasekaran: Maybe we do like in review uh initially and then once it's confirmed that it's it's fraud then we mark it as like fraud or won't and that way you have that uh middle status right. / Kobi Kunasekaran: So that's where like it goes to ops. / Kobi Kunasekaran: We could do that.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0027-12",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Player",
+   "topic": "Roll up signup fraud flag to player",
+   "statement": "There is no logic yet to roll a signup fraud flag up to the player; it can be added, dependent on reason code (e.g. edited screenshots = banned, lesser offense = watch list), with the logic to be supplied by WagerTech.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:27:18",
+   "line_start": 476,
+   "line_end": 481,
+   "quote": "Kobi Kunasekaran: right now we also don't have any like logic that rolls up the sign up to the player level to like flag the player, but that's also something we can add, right? / Kobi Kunasekaran: if we pick something like um edited screenshots, then we kind of know like they are like banned banned. But if there's like a lesser offense, then maybe they're just like on a watch list once. / Kobi Kunasekaran: So, I mean, we could roll all that up like depending on that logic that you let us know.",
+   "jira_keys_mentioned": [],
+   "owner": "WagerTech to provide reason-code logic",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0027-13",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Player",
+   "topic": "What happens to banned/flagged players",
+   "statement": "Still to decide what happens at the player level once a player is banned or flagged for fraud.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:27:59",
+   "line_start": 486,
+   "line_end": 486,
+   "quote": "Kobi Kunasekaran: And then once they're uh banned or flagged for fraud, then we have to decide on what happens if they do. This is at the player level now.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0017-14",
+   "type": "requirement",
+   "firmness": "decided",
+   "feature_area": "CMS Integration",
+   "topic": "Store postback events against signup",
+   "statement": "WagerTech is piloting server-to-server postbacks (URLs, click IDs, dynamic URL-parameter reporting); those events need to be stored against the signup.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:17:04",
+   "line_start": 331,
+   "line_end": 336,
+   "quote": "Kobi Kunasekaran: we're also piloting these like uh postbacks server store postbacks. So we're going to get like uh URLs click IDs associated with it / Kobi Kunasekaran: So those events firing back to us we need to be able to store against the signup.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "server store = server-to-server [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0018-15",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "CMS Integration",
+   "topic": "Postback routing: backend first or direct",
+   "statement": "Open whether postbacks go to the WagerTech backend database first and then to Salesforce via the same REST call used for study link clicks, or straight to Salesforce; direct is possible only if the postback carries enough data to match the signup. WagerTech leaned to backend first; Jumpr was not confident yet.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:18:34",
+   "line_start": 351,
+   "line_end": 371,
+   "quote": "Kobi Kunasekaran: So I figured like it it makes more sense to go into play kind of like the back end first because you already have all that information there to map it, right? / Kobi Kunasekaran: But like I said, like if you do have all that information from the postback already to map it to sign up, then yeah, we can skip the middleman and do it directly. / Kobi Kunasekaran: But I don't know I don't know enough about it to say confident.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "play / play can = WagerTech backend/CMS name [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0019-16",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "CMS Integration",
+   "topic": "Backend creates records via REST, one-way",
+   "statement": "Currently the WagerTech backend calls the Salesforce REST API to create records; since it is one way it does not need to be a webhook.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:19:11",
+   "line_start": 361,
+   "line_end": 361,
+   "quote": "Kobi Kunasekaran: No, right now play is uh you're just calling out like REST API in Salesforce to create the records. I guess it doesn't have to be web hook if it's still one way.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0019-17",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Feedback on fields per view",
+   "statement": "The speaker committed to give feedback on which fields do not need to be in each view. Jumpr noted it skipped many PRD fields until their use is known.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:19:50",
+   "line_start": 371,
+   "line_end": 371,
+   "quote": "Kobi Kunasekaran: So we'll um whittle down like we'll give you feedback on kind of which fields maybe don't need to be part of. Yeah. Each view. / Kobi Kunasekaran: We actually skipped a lot of the fields because I don't like adding fields until we know how we're going to use it and what the process behind.",
+   "jira_keys_mentioned": [],
+   "owner": "Unclear from diarization (Gemini says Kobi; context suggests WagerTech team)",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0015-18",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Storage / Proofs",
+   "topic": "Proof checkboxes drive completion status",
+   "statement": "Currently reps manually tick proof checkboxes, which drive the proof completion status (e.g. partial); upload interfaces are not built yet.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:15:12",
+   "line_start": 306,
+   "line_end": 306,
+   "quote": "Kobi Kunasekaran: what we've done is we've set up these check boxes um that reps will have to check manually right now. Um this will drive the proof completion status. / Kobi Kunasekaran: Sorry this is all manual because like we haven't built out all the interfaces",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0015-19",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Storage / Proofs",
+   "topic": "Move proof storage from Dropbox to GCP",
+   "statement": "Discussions are ongoing about an interface to upload through Salesforce that would hook into Google Cloud Platform 'potentially' for storage, eliminating Dropbox.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:15:40",
+   "line_start": 311,
+   "line_end": 311,
+   "quote": "Kobi Kunasekaran: So discussions right now about like they're gonna build an interface where we're actually still upload stuff through Salesforce but it's gonna hook into Google Cloud Platform GCP potentially. Yeah. Um for storage. So we're going to like eliminate Dropbox.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no"
+  },
+  {
+   "item_id": "2026-07-08-0016-20",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Storage / Proofs",
+   "topic": "Categorized one-click proof upload",
+   "statement": "Standard Notes & Attachments cannot tag file type (e.g. signup proof); a custom upload component adding category metadata would be a custom build. WagerTech wants a dedicated button, since a 3-4 step upload-then-categorize process is not practical.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:16:17",
+   "line_start": 321,
+   "line_end": 326,
+   "quote": "Kobi Kunasekaran: you can't add any identifiers. You can't say that there's a signup proof. / Kobi Kunasekaran: So it'll add that metadata but that build that's like custom that we have to build on top / Kobi Kunasekaran: Otherwise it's going to be like three or four steps for somebody to upload the file and then go to the file, edit the file and then they have the option to like set the category which is not going to be practical.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0020-21",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Operator & Partner",
+   "topic": "Market split into country on deal",
+   "statement": "Market was updated on the deal to a country/market structure with values US, Canada, and US and Canada.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:20:36",
+   "line_start": 381,
+   "line_end": 386,
+   "quote": "Kobi Kunasekaran: So we did update it on the deal actually. Oh, you did? So in the in the deal we set up like country market country. / Kobi Kunasekaran: In the country like there's US, Canada, and then US and Canada.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0021-22",
+   "type": "requirement",
+   "firmness": "discussed",
+   "feature_area": "Data Migration / Import",
+   "topic": "Separate concatenated partner/operator fields",
+   "statement": "Partner sits above operator (direct label = Direct). Airtable, spreadsheets and the backend hold these concatenated in one field; separating them is a big change on WagerTech's side and the mapping must be worked out. It enables operator/partner-level rollups and reporting.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:21:28",
+   "line_start": 391,
+   "line_end": 401,
+   "quote": "Kobi Kunasekaran: like an idea of a partner that sits above operators So that would be like GDC, Cina, and then anything that's direct label as direct. / Kobi Kunasekaran: right now everywhere across like Air Table, spreadsheets, um, play cam, you you have both concatenated into like one field. / Kobi Kunasekaran: And we're going have to like separate it out and it's going to be a big change. / Kobi Kunasekaran: this is going to be the change process on your end like we have figure out how that's going to map and everything.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "GDC, Cina = partner names [ASR?]; play cam = WagerTech backend [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0028-23",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Deal",
+   "topic": "Deal fields configured from PRD",
+   "statement": "The deal record has partner, operator, market, country, state, effective date, deal version, vertical and cap (from the PRD), with bonus details and deposit amount now trackable.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:28:56",
+   "line_start": 501,
+   "line_end": 506,
+   "quote": "Kobi Kunasekaran: but for the deal like we have the partner, operator, market, market, country, state, um effective date, deal version, vertical cap basically. / Kobi Kunasekaran: So now we can track like bonus details too and deposit amount.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0028-24",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Deal",
+   "topic": "Guided flow for deal creation",
+   "statement": "Jumpr suggested a guided process for deal creation, similar to signup, that walks users through key fields.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:28:56",
+   "line_start": 501,
+   "line_end": 501,
+   "quote": "Kobi Kunasekaran: we could do like a guided process um where it walks them through the key fields um and then it'll update uh behind the scenes.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0029-25",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Deal",
+   "topic": "Cap with unlimited option",
+   "statement": "The PRD calls for the cap to allow 'unlimited'; Jumpr suggested a CPA target type picklist (numeric or unlimited) that blanks the numeric field when unlimited.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:29:20",
+   "line_start": 506,
+   "line_end": 506,
+   "quote": "Kobi Kunasekaran: Uh yes, this was from the PRD yesterday. So with the option for unlimited, right? / Kobi Kunasekaran: we could have like a CPA target type that says like numeric or unlimited and then we choose unlimited then this field could be black",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0031-26",
+   "type": "requirement",
+   "firmness": "decided",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Reps see only their own records",
+   "statement": "WagerTech confirmed sales reps must only see their own records (a 'deal breaker'); org-wide sharing should be private.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:31:39",
+   "line_start": 536,
+   "line_end": 546,
+   "quote": "Kobi Kunasekaran: there's like a baseline setting on sharing versus like private access. / Kobi Kunasekaran: So you as a a saleserson should only see your stuff, correct? / Kobi Kunasekaran: Yeah, that's like a deal breaker.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0031-27",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Sync rep field to owner for sharing",
+   "statement": "The owner field is not yet used for reps; Jumpr suggested having the separate rep field update the owner so ownership drives privacy, with managers able to see their team's records.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:31:56",
+   "line_start": 541,
+   "line_end": 561,
+   "quote": "Kobi Kunasekaran: right now we're not using the owner field uh to set the reps yet. / Kobi Kunasekaran: So um we have a separate field for the rep uh but we could like have this one update the other one so that it restricted. / Kobi Kunasekaran: Um, but then your manager can see it.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0033-28",
+   "type": "requirement",
+   "firmness": "discussed",
+   "feature_area": "Reporting & Dashboards",
+   "topic": "Team reporting for managers",
+   "statement": "There will be reporting for managers covering people in their teams, but not full back-end access; what data they see is to be figured out.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:33:03",
+   "line_start": 556,
+   "line_end": 556,
+   "quote": "Kobi Kunasekaran: we do have a concept of brand manager here where we will have reporting for the people within their teams. Yeah, but it's not going to be like full on back end access to everybody like we'll have to figure out like what kind of data",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": "brand manager = possibly Brand Ambassador manager [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0034-29",
+   "type": "status-update",
+   "firmness": "discussed",
+   "feature_area": "Referrer / Brand Ambassador",
+   "topic": "Primary and secondary referrers tracked",
+   "statement": "Referrals and referrers are tracked for signups, with a concept of primary and secondary referrers.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:34:26",
+   "line_start": 576,
+   "line_end": 581,
+   "quote": "Kobi Kunasekaran: we're tracking like referrals and referers sorry for sign up and we have a / Kobi Kunasekaran: concept of like primary and secondary refers",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0035-30",
+   "type": "change-to-earlier-decision",
+   "firmness": "decided",
+   "feature_area": "Deal Rep Assignment",
+   "topic": "One DRA per rep per deal, history child",
+   "statement": "Instead of a new Deal Rep Assignment row for each assignment event, there is one DRA record per rep per deal, with assignment history captured in a related child object, as discussed the day before.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:35:29",
+   "line_start": 591,
+   "line_end": 591,
+   "quote": "Kobi Kunasekaran: initially I thought this was going to track um every time you're assigning a deal to a rep, it'll it'll be a new row uh for each of those assignments. But I think what we talked about yesterday was one deal rep assignment for that rep in the deal and then we could capture the the actual history like a child object from there.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "Replaces initial design of one DRA row per assignment event (agreed 2026-07-07)",
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0035-31",
+   "type": "requirement",
+   "firmness": "decided",
+   "feature_area": "Deal Rep Assignment",
+   "topic": "Signups linked to rep's DRA",
+   "statement": "Each study-link-click signup will be associated to the respective rep's assignment for that deal, allowing all-time signup rollups per assignment.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:35:46",
+   "line_start": 596,
+   "line_end": 601,
+   "quote": "Kobi Kunasekaran: every time there's a study link click uh clicked and it it records a signup it'll be associated to the respective person's uh assignment for that deal. / Kobi Kunasekaran: Uh and then we can start rolling up like how many signups they had uh all all time uh from when they had the assignments.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0036-32",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Deal Rep Assignment",
+   "topic": "Signup caps per rep assignment",
+   "statement": "Deal-level caps are divided among reps (e.g. 200 split into 50s). Enforcing per-rep caps with notification was not scoped until phase 3/4; Jumpr suggested discussing and including it.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:36:12",
+   "line_start": 601,
+   "line_end": 626,
+   "quote": "Kobi Kunasekaran: we could start doing like if we want to enforce caps, like they can only have 50 signups, then we could start adding that in as well and then maybe notify somebody / Kobi Kunasekaran: Deals we there's like can be caps at the deal level. Yeah. But then and then they're broken down by we have 200 but then we have to divide it out. / Kobi Kunasekaran: So that technically wasn't sculpted until like phase three or phase four. / Kobi Kunasekaran: But I think we should actually talk about that and include that in.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "sculpted = scoped [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0036-33",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Deal Rep Assignment",
+   "topic": "DRA system of record: CMS or Salesforce",
+   "statement": "Assignment happens in the CMS, not Airtable. Options: Salesforce pushes assignments to the CMS, or the CMS creates DRAs in Salesforce (Jumpr has no problem with that if all IDs are provided). WagerTech needs to talk it through internally.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:36:30",
+   "line_start": 606,
+   "line_end": 616,
+   "quote": "Kobi Kunasekaran: the actual assignment process doesn't happen there happens in the yes but if um if they do the assignment here we could have Salesforce push out the call to your CMS / Kobi Kunasekaran: I guess we have to talk it through internally / Kobi Kunasekaran: like I have no problem with the CMS creating these deal rep assignments. / Kobi Kunasekaran: I think we just have to make sure that you have all the respective IDs so that we can do the lookups and associated to the to the deals.",
+   "jira_keys_mentioned": [],
+   "owner": "WagerTech internal discussion",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0038-34",
+   "type": "change-to-earlier-decision",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Deal rep assignment brought forward",
+   "statement": "Deal rep assignment, originally phase 4 in the PRD (with its automations and affiliate links, after payouts and redeposits), was brought ahead so signups can be mapped to the deal rep, since it is part of the signup flow. The transcript does not explicitly confirm which DRA automations (caps, assignment creation, affiliate links) are in Phase 1.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:38:25",
+   "line_start": 626,
+   "line_end": 636,
+   "quote": "Kobi Kunasekaran: We brought the deal assignment ahead so that we can do the mapping of the signups to the deal rep. / Kobi Kunasekaran: phase four was like the actually the deal rep assignment the uh all the automations tied to it like creating those assignments uh affiliate links. / Kobi Kunasekaran: later because it was going to come after like payouts and redeposits. But yeah, it's part of the signup flow and I think it makes sense to do it together",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "Moves deal rep assignment ahead of its original phase 4 position",
+   "summary_agreement": "no"
+  },
+  {
+   "item_id": "2026-07-08-0039-35",
+   "type": "decision",
+   "firmness": "decided",
+   "feature_area": "Testing, UAT & Go-Live",
+   "topic": "Core team tests before reps",
+   "statement": "It is too early for reps; the WagerTech core team will play with the UI and give feedback first, then Eric and Jay (sales side) together. Jumpr cautioned screen flows should be worked through before reps get it.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:39:38",
+   "line_start": 641,
+   "line_end": 651,
+   "quote": "Kobi Kunasekaran: Oh, I think it's still too early, but yeah, we we we want to get some feedback to you first. Okay. Yeah. And like play around with UI ourselves. / Kobi Kunasekaran: Yeah, Eric and Jay can do it at the same time and they're both on the sales side also kind of. / Kobi Kunasekaran: I think we might have to like work work through those like uh screen flows and stuff first before you give it to the reps.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0040-36",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Send Eric and Jay details for access",
+   "statement": "WagerTech will email Jumpr the details for Eric and Jay so they can get access, in addition to the three core team members.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:40:22",
+   "line_start": 651,
+   "line_end": 651,
+   "quote": "Kobi Kunasekaran: like if you can get us access and we'll send you an email for those two people also but like definitely us three",
+   "jira_keys_mentioned": [],
+   "owner": "WagerTech",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0041-37",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Ops list views / Console UX",
+   "topic": "Simplified rep view before screen flows",
+   "statement": "Suggested sequence: one first pass to clean out fields and create a simplified view (no screen flows yet), then reps work with it, then build the guided flow. Jumpr said this is quick for it to do.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:41:37",
+   "line_start": 666,
+   "line_end": 671,
+   "quote": "Kobi Kunasekaran: Yeah, I think we go through like one first pass ourselves like clean out the fields and create that view first. / Kobi Kunasekaran: Uh we don't have to create the screen flows yet, but just a simplified version of what all those fields that you saw, right? / Kobi Kunasekaran: That's very easy for us to do.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0042-38",
+   "type": "status-update",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Phase 1 on track for end of July",
+   "statement": "Phase 1 (the signup logging process and all supporting objects) is still on track, assuming the API work, storage and feedback come through.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:42:23",
+   "line_start": 676,
+   "line_end": 681,
+   "quote": "Kobi Kunasekaran: It's uh primarily everything that has to do with the signup blogging process and all the uh supporting objects for it. / Kobi Kunasekaran: Um, we're still on track. Um, I think we'll have everything done assuming, you know, the API stuff works out and we'll figure out the storage information.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "blogging = logging [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0042-39",
+   "type": "risk-blocker",
+   "firmness": "discussed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Phase 1 depends on API, storage, feedback",
+   "statement": "Phase 1 delivery depends on the API integration working out, the storage solution being settled, and WagerTech feedback.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:42:43",
+   "line_start": 681,
+   "line_end": 681,
+   "quote": "Kobi Kunasekaran: assuming, you know, the API stuff works out and we'll figure out the storage information. Um, from our end, um, yeah, long as we get all the feedback, I don't see any issues right now.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0043-40",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Data Migration / Import",
+   "topic": "Phase 1 must coexist with unmigrated sheets",
+   "statement": "Scoping starts later this week on keeping Phase 1 connected to spreadsheets not yet migrated (e.g. redeposits); worst case, Salesforce reports exported to the spreadsheets via a Google Sheets add-on.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:43:31",
+   "line_start": 691,
+   "line_end": 696,
+   "quote": "Kobi Kunasekaran: in phase one can make sure that we're scoping new starting like later this week on how to make sure that whatever we're launching in phase one still connects to the other spreadsheets that we haven't migrated to the system yet / Kobi Kunasekaran: I think like worst case scenario We should be able to create reports that we can then export into your spreadsheets.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0043-41",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Research sprint for later phases",
+   "statement": "Toward the tail end of Phase 1 (in a week or two), start scoping deposits and payouts, and run a research sprint for later-phase PRD items.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:43:04",
+   "line_start": 686,
+   "line_end": 691,
+   "quote": "Kobi Kunasekaran: as we get into the tail end, like probably in like a like a week or two, we can start talking about like scoping out the deposits, the payouts. / Kobi Kunasekaran: we we do have to go through like a research sprint to understand how we can do it and everything right. So we we can start that in a couple weeks.",
+   "jira_keys_mentioned": [],
+   "owner": "Jumpr",
+   "due": "in a couple of weeks",
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0044-42",
+   "type": "status-update",
+   "firmness": "discussed",
+   "feature_area": "Redeposits",
+   "topic": "Deposits/payouts core objects straightforward",
+   "statement": "Jumpr expects the core object and components for deposits and payouts to be fairly straightforward to scope, roughly a week to a week and a half.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:44:23",
+   "line_start": 701,
+   "line_end": 701,
+   "quote": "Kobi Kunasekaran: but I think for deposits and payout, um at least the core object and the the core component should be pretty straightforward. I think we can sculpt that on probably I'm going to say like probably a week uh maybe a week and a half",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": "sculpt = scope [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0045-43",
+   "type": "decision",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Sprint-based delivery after Phase 1",
+   "statement": "After Phase 1 go-live, delivery moves to sprint-based releases by functionality (e.g. redeposits, then payouts) instead of large phases; WagerTech confirmed it is aligned.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:45:36",
+   "line_start": 721,
+   "line_end": 926,
+   "quote": "Kobi Kunasekaran: And what we're proposing here is that once we go live with phase one, then you're moving into like just sprint based delivery that you want to work on this feature on this feature. / Kobi Kunasekaran: And like because it it seems like you're aligned with the sprintbased approach. Yes.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0044-44",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Redeposits",
+   "topic": "Order of redeposits vs payouts",
+   "statement": "Jumpr suggested redeposits first then payouts, moving everyone off Google Sheets for each, but said the order is up to WagerTech.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:44:45",
+   "line_start": 706,
+   "line_end": 711,
+   "quote": "Kobi Kunasekaran: So redeposits everything that has to do with redeposits to what we can with within Salesforce. / Kobi Kunasekaran: And again, this is if you want to do it the other way, I'd absolutely like the order I don't think necessarily matters. So, it's up to you.",
+   "jira_keys_mentioned": [],
+   "owner": "WagerTech",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0045-45",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Deal",
+   "topic": "Discuss affiliate links this week",
+   "statement": "Affiliate links are a big part of the signup process and need a separate discussion this week; affiliate link management is also in the later-phase research list.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:45:20",
+   "line_start": 716,
+   "line_end": 766,
+   "quote": "Kobi Kunasekaran: affiliate links I actually want to talk to you about because that is a big part of your sign up process. / Kobi Kunasekaran: Yeah. Let's let's let's on that this week. / Kobi Kunasekaran: And affiliate link management. This is yeah this one I I want to talk to talk to you all about this.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": "week of 2026-07-08",
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0045-46",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Training & Enablement",
+   "topic": "Bi-weekly release notes after initial build",
+   "statement": "WagerTech asked for bi-weekly documented release notes once the initial build is done and sprints start; Jumpr agreed and said it usually provides videos.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:45:55",
+   "line_start": 726,
+   "line_end": 731,
+   "quote": "Kobi Kunasekaran: Would you guys be able to do like you know once we get this initial like build done like bi-weekly like release notes / Kobi Kunasekaran: documented. Absolutely. Yeah. Yeah. We usually do like uh videos and stuff to show what's been released",
+   "jira_keys_mentioned": [],
+   "owner": "Jumpr",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0047-47",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Release targets: July, September, November",
+   "statement": "End of July: signups into Salesforce and reps logging there; deposits hopefully in September; payouts hoped for November. The timeline depends on how much build and customization is needed.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:47:02",
+   "line_start": 741,
+   "line_end": 746,
+   "quote": "Kobi Kunasekaran: basically what what's included here is like by the end of July your the signups are going to come into Salesforce. / Kobi Kunasekaran: then we're going to move into like the deposits and kind of get that um hopefully up and running in September. Um, then we move on to payouts. So that would be I think Kobe's hoping for November / Kobi Kunasekaran: ultimately the timeline is going to depend on how much you need to",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0047-48",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Reporting & Dashboards",
+   "topic": "Light notifications and reports in Phase 1",
+   "statement": "Phase 1 covers signups, logging and deal configuration, not notifications; notifications and reports are not explicitly scoped into Phase 1, but the speaker suggested adding a light version.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:47:56",
+   "line_start": 751,
+   "line_end": 756,
+   "quote": "Kobi Kunasekaran: ultimately in the first phase we're getting the signups the logging um deal configurations not so much notifications in phase one / Kobi Kunasekaran: So like those are things that we haven't like explicitly scoped in to phase one but I think we should add in um as as we like a light version.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0048-49",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Decommission Airtable and Dropbox",
+   "statement": "The idea is that Airtable can be decommissioned by the end of 'our phase three', and Dropbox as soon as the new storage solution exists.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:48:51",
+   "line_start": 761,
+   "line_end": 761,
+   "quote": "Kobi Kunasekaran: Yeah like and the idea is by the end of like this our phase three um air table you can decommission like that's where and like uh Dropbox we can decommission as soon as we have this new storage solution.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0048-50",
+   "type": "deferral",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Unknown-feasibility items placed last",
+   "statement": "Items with unknowns (e.g. operator data warehouse, affiliate link management) were placed at the end, pending research on feasibility.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:48:51",
+   "line_start": 761,
+   "line_end": 766,
+   "quote": "Kobi Kunasekaran: the ones that like we've put uh at the end are the ones with the unknowns because we need to do some research to understand what the feasibility is if we can even do any of these things. / Kobi Kunasekaran: Operator data warehouse that right because it's going there. Yeah. And affiliate link management.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0013-51",
+   "type": "deferral",
+   "firmness": "decided",
+   "feature_area": "Other (WhatsApp player messaging)",
+   "topic": "WhatsApp not touched in current build",
+   "statement": "The current build follows today's journey (reps in Salesforce, players on WhatsApp); WhatsApp messaging from Salesforce is the north star but is not touched now. A big WhatsApp conversation was suggested once this is in place.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:13:31",
+   "line_start": 281,
+   "line_end": 296,
+   "quote": "Kobi Kunasekaran: once we get this I really think we should have a big conversation about WhatsApp / Kobi Kunasekaran: So right now we're not going to touch WhatsApp at all. / Kobi Kunasekaran: That's the north for sure.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0011-52",
+   "type": "requirement",
+   "firmness": "discussed",
+   "feature_area": "Player",
+   "topic": "Re-engage players at active times",
+   "statement": "WagerTech raised analysing when players are most active to time re-engagement; this is not done today. Jumpr noted player-signup relationships allow rollups (first signup time, signup counts) and list views to support it.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:11:27",
+   "line_start": 256,
+   "line_end": 276,
+   "quote": "Kobi Kunasekaran: it'd be interesting for um on a VA level if we can see like when their customers are most active and then you can be able to send / Kobi Kunasekaran: We don't do that today. / Kobi Kunasekaran: perspective be like show me the first sign up the time of sign up and then the average signups and they have multiple signups you can roll all that from a player perspective",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "VA = possibly BA (Brand Ambassador) [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0049-53",
+   "type": "decision",
+   "firmness": "decided",
+   "feature_area": "Training & Enablement",
+   "topic": "Super-user training approach",
+   "statement": "The approach from an earlier conversation, training a small internal super-user base who then train the rest and are recorded, was reaffirmed.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:49:40",
+   "line_start": 771,
+   "line_end": 776,
+   "quote": "Kobi Kunasekaran: We had talked like when we kind of last talked we had talked about like a small kind of like base that we would train up that would then like train out and we would record. / Kobi Kunasekaran: I liked that approach. Um kind of like a super like internal super users.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0050-54",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Testing, UAT & Go-Live",
+   "topic": "Transition plan with strict cutoff from Sheets",
+   "statement": "Redeposits will stay in Google Sheets in parallel. Jumpr recommended a strict date (e.g. August 15) after which Google Sheets are not used, with a transition plan tied to go-live planning; WagerTech hesitated pending testing, but said it can work on that.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:50:31",
+   "line_start": 781,
+   "line_end": 791,
+   "quote": "Kobi Kunasekaran: the only reason I'm hesitating is because like we still need to be able to test it and make sure like it'll like meet the user needs and be able to / Kobi Kunasekaran: we will not look at Google sheets or all they have to be by August 15th and like provide them with the transition plan. / Kobi Kunasekaran: So I think the transition plan out of Google Sheets has to come hand in hand with the whole live planning. We can work on that for sure.",
+   "jira_keys_mentioned": [],
+   "owner": "WagerTech (with Jumpr input)",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0051-55",
+   "type": "risk-blocker",
+   "firmness": "discussed",
+   "feature_area": "Training & Enablement",
+   "topic": "Adoption risk and dual systems",
+   "statement": "Jumpr warned that without strict timelines reps will keep double systems and Salesforce data will be inaccurate; adoption will be a challenge and needs hands-on enablement (office hours, monitoring list views) in the first month.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:51:25",
+   "line_start": 791,
+   "line_end": 806,
+   "quote": "Kobi Kunasekaran: Um you will never get away from like double the systems and this will be not accurate in Salesforce. / Kobi Kunasekaran: It's it's like adoption is going to be a challenge / Kobi Kunasekaran: it's very important in the first month for you to invest time getting them enabled and setting expectations.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0052-56",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Training & Enablement",
+   "topic": "Training plan to review next week",
+   "statement": "A training/go-live plan will be drafted and reviewed together next week. Jumpr offered to help with training sessions and office hours if WagerTech wants.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:52:37",
+   "line_start": 811,
+   "line_end": 811,
+   "quote": "Kobi Kunasekaran: so things like training sessions, office hours, if you want to consider us helping with, we can we can do that. Okay. Awesome. We'll come up with a plan and then like let's uh rub it together next week.",
+   "jira_keys_mentioned": [],
+   "owner": "Unclear from diarization (likely WagerTech, with Jumpr offering help)",
+   "due": "week of 2026-07-13",
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0052-57",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Training & Enablement",
+   "topic": "Power users first, others on sheets",
+   "statement": "Power users could start in Salesforce first while everyone else still logs on their spreadsheet; bringing the full team is the bigger challenge.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:52:52",
+   "line_start": 816,
+   "line_end": 816,
+   "quote": "Kobi Kunasekaran: So like maybe the power users, they start first. Everybody else still logs on their spreadsheet.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0053-58",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Training & Enablement",
+   "topic": "In-person launch day",
+   "statement": "An in-person launch/training day bringing reps in (including Alberta) was raised as possible and up to WagerTech; a plan is to be worked out. Not confirmed.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:53:16",
+   "line_start": 821,
+   "line_end": 831,
+   "quote": "Kobi Kunasekaran: We do these like launch days um become training they follow and like we just kind of help them transition. / Kobi Kunasekaran: We can I think we can come up with a plan that like accomplishes that. But bring them in. It's just one day. / Kobi Kunasekaran: It is possible. Yeah, we can get the Alberta guys down too.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no"
+  },
+  {
+   "item_id": "2026-07-08-0055-59",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Other (Gamification / notifications)",
+   "topic": "Leaderboards and celebration notifications",
+   "statement": "Jumpr suggested gamification such as daily top-signup leaderboards and celebratory posts on Slack; since reps use WhatsApp rather than Slack, the group suggested checking the AppExchange for WhatsApp group notifications.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:55:36",
+   "line_start": 851,
+   "line_end": 886,
+   "quote": "Kobi Kunasekaran: leaderboards are also very like sales reps love leaderboards. Um, so this can be easily connected to Slack. / Kobi Kunasekaran: Is everyone like on Slack though? Like No, they're all WhatsApp. Maybe there's those notifications that we can send easily to. / Kobi Kunasekaran: I think let's look at app exchange. It should be easy to find.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0058-60",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "November 1 target for core modules",
+   "statement": "Alignment on November 1 for the core modules was described as doable but dependent on scope and customization; a firm answer would come after research sprints, around end of August.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:58:56",
+   "line_start": 896,
+   "line_end": 901,
+   "quote": "Kobi Kunasekaran: So alignment on November 1st for those core modules. It should be doable. Again, it's going to depend on how much scope and how much customization we're going to need / Kobi Kunasekaran: I think we need to get through the research sprints, right? So let's let's call it like end of August.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary"
+  },
+  {
+   "item_id": "2026-07-08-0100-61",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Research/discovery done by mid-August",
+   "statement": "Early August was floated for completing research/discovery, but the speaker declined to commit and called mid-August more realistic, given Phase 1 ends July 31.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:00:39",
+   "line_start": 921,
+   "line_end": 921,
+   "quote": "Kobi Kunasekaran: So early August because we're gonna be done in a research phase by early August, first week of August. Let's work towards it. Yeah. I don't want to commit. I don't want to commit. I think mid August will be more realistic to be honest because we do July 31st is just right.",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no"
+  },
+  {
+   "item_id": "2026-07-08-0101-62",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Month-by-month release outline",
+   "statement": "WagerTech asked for a month-by-month view of planned releases; Jumpr agreed and noted the Asana board now shows the PLC components in progress and the build phase next.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:01:16",
+   "line_start": 931,
+   "line_end": 931,
+   "quote": "Kobi Kunasekaran: Like if we can get a sense of like month by month, these are all the things we're planning on releasing. Like that would be a lot more. Yeah. Yeah, we can do that. / Kobi Kunasekaran: I did update it so that like we're working through the PLC components right now and then there's a build phase that we're working through.",
+   "jira_keys_mentioned": [],
+   "owner": "Jumpr",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": "PLC = possibly POC [ASR?]"
+  },
+  {
+   "item_id": "2026-07-08-0101-63",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Extend weekly meeting to one hour",
+   "statement": "The speaker said the weekly meeting needs to be extended to an hour and that meetings should be more frequent given the open questions; there was agreement, but no scheduling was confirmed.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:01:35",
+   "line_start": 936,
+   "line_end": 941,
+   "quote": "Kobi Kunasekaran: I think we need to start extending our week to an hour though. I don't like we're at that point where we need more time and the half an hour is not working. / Kobi Kunasekaran: We don't have to just meet once a week like let's just for our checkpoint but we should be actually at this point meeting more often",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "no"
+  },
+  {
+   "item_id": "2026-07-08-0101-64",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Open: fraud handling, player UI, streamlining",
+   "statement": "Open questions remain: how to handle fraud, what the UI looks like for players, and how to streamline the interface.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:01:56",
+   "line_start": 941,
+   "line_end": 941,
+   "quote": "Kobi Kunasekaran: because we we have like a lot of open questions right like how do you want to handle the fraud what does the UI looks like for the for the players uh how do you want to streamline the interface",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0101-65",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Access & Permissions / Org Setup",
+   "topic": "Give WagerTech sandbox access today",
+   "statement": "Jumpr will give WagerTech sandbox access the same day so they can play around with it.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:01:56",
+   "line_start": 941,
+   "line_end": 941,
+   "quote": "Kobi Kunasekaran: so we'll do like today we'll give you access to sandbox so you can play around with it",
+   "jira_keys_mentioned": [],
+   "owner": "Jumpr",
+   "due": "2026-07-08",
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  },
+  {
+   "item_id": "2026-07-08-0102-66",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Training & Enablement",
+   "topic": "Send recordings from both onsite days",
+   "statement": "The speaker will send the recordings from yesterday and today; WagerTech noted recording only started at the presentation.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:02:30",
+   "line_start": 946,
+   "line_end": 946,
+   "quote": "Kobi Kunasekaran: Um, and I'll send the recordings of the videos uh from yesterday and today if you don't already have it.",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran (per diarization; unverified)",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes"
+  }
+ ],
+ "gemini_disagreements": [
+  {
+   "summary_text": "Screen flow usage for workflows The team decided to utilize screen flows to enforce data validation and guide the signup process, ensuring required fields are completed before allowing status transitions.",
+   "transcript_quote": "Kobi Kunasekaran: Now what we want to do is actually maybe one thing is like do these these screen flows that Kobe showed. / Kobi Kunasekaran: we have to know exactly what you need at each stage / Kobi Kunasekaran: Uh we don't have to create the screen flows yet",
+   "line": 421,
+   "why": "Summary states a firm decision; transcript is a suggestion ('maybe'), stage requirements are still unknown, and screen flows were later deferred behind a simplified view."
+  },
+  {
+   "summary_text": "File storage migration to GCP The team decided to replace Dropbox with Google Cloud Platform (GCP) for file storage to enable structured access.",
+   "transcript_quote": "Kobi Kunasekaran: So discussions right now about like they're gonna build an interface where we're actually still upload stuff through Salesforce but it's gonna hook into Google Cloud Platform GCP potentially. / Kobi Kunasekaran: we'll figure out the storage information.",
+   "line": 311,
+   "why": "Summary is firmer: transcript says discussions are ongoing and GCP is 'potentially' the target; storage was still listed as an open dependency."
+  },
+  {
+   "summary_text": "Phase 1 scope adjustment The team decided to include 'deal rep assignment' automation in Phase 1, moving it up from its originally planned release phase.",
+   "transcript_quote": "Kobi Kunasekaran: We brought the deal assignment ahead so that we can do the mapping of the signups to the deal rep. But I think we should actually talk about that and include that in.",
+   "line": 626,
+   "why": "Transcript supports bringing the DRA object forward for signup-to-rep mapping; it does not explicitly put DRA automations (caps, assignment creation, affiliate links) in Phase 1, and caps were left to 'talk about'."
+  },
+  {
+   "summary_text": "Research phase completion timeline The research phase completion date is set for mid-August.",
+   "transcript_quote": "Kobi Kunasekaran: I don't want to commit. I don't want to commit. I think mid August will be more realistic to be honest",
+   "line": 921,
+   "why": "Summary says the date is 'set'; the speaker explicitly declined to commit and called mid-August 'more realistic'."
+  },
+  {
+   "summary_text": "Weekly meetings were extended to 1 hour to better accommodate discussions on complex system requirements.",
+   "transcript_quote": "Kobi Kunasekaran: I think we need to start extending our week to an hour though.",
+   "line": 936,
+   "why": "Summary states the change as done; transcript is a stated need/proposal with no scheduling confirmed."
+  },
+  {
+   "summary_text": "[Eric, Jay] Test Sandbox: Access the sandbox environment to test the UI and provide feedback on the signup flow.",
+   "transcript_quote": "Kobi Kunasekaran: so we'll do like today we'll give you access to sandbox so you can play around with it / Kobi Kunasekaran: Us then Eric and then us and J. / Kobi Kunasekaran: I think we might have to like work work through those like uh screen flows and stuff first before you give it to the reps.",
+   "line": 941,
+   "why": "Sandbox access today was for the WagerTech core team; Eric and Jay test after the core team's first pass, so assigning sandbox testing to Eric and Jay now misattributes and advances the step."
+  },
+  {
+   "summary_text": "Super-user based training approach The team decided to implement a 'super-user' training model, where a small group of internal users is trained first to lead the rollout, including a planned in-person launch day.",
+   "transcript_quote": "Kobi Kunasekaran: Yeah. Yeah. It's expensive though. No, we Yeah, I mean if it was Yeah, it's it's possible to do it. Obviously up to you. / Kobi Kunasekaran: We can I think we can come up with a plan that like accomplishes that.",
+   "line": 821,
+   "why": "The super-user approach is supported, but the in-person launch day was only raised as possible and up to WagerTech, not planned."
+  }
+ ],
+ "rule5_redactions": 6,
+ "secret_exposed": false,
+ "notes": "Onsite build walkthrough (demo + working session). DIARIZATION FAILURE: every transcript line is labelled 'Kobi Kunasekaran', so speaker attribution for all items is unreliable; ownership and who-agreed were inferred from content only and firmness was set conservatively. Attendee list is the invite list (header), not confirmed presence; transcript also mentions Will, Jess, Joyce, Eric, Jay, Ryan by name. Transcription ran to 01:07:17 but recording started at the presentation, not the full conversation. Rule 5 skipped passages: rep monitoring/termination discussion (~L511-531), individual rep behaviour (~L536-576, only the record-privacy requirement extracted), hours usage/budget (~L731-736), Jumpr capacity hours (~L911), commissions/compensation (~L836-846), vendor storage pricing (~L311-316, price omitted). No Jira keys spoken. Jumpr offer to help with training/office hours (L811) is a potential scope addition."
+}

@@ -137,9 +137,9 @@
    "owner": "Cedrick Infantado (implied; Kobi directs it to him, not named explicitly)",
    "due": null,
    "supersedes_hint": null,
-   "summary_agreement": "yes",
+   "summary_agreement": "no",
    "type": "action-item",
-   "firmness": "decided",
+   "firmness": "proposed",
    "feature_area": "Testing, UAT & Go-Live",
    "topic": "Test ban and manual status stamping",
    "statement": "Test ticket 251 by running the ban process and manually updating the status, and confirm the stamp tags the right person instead of the default automation user.",
@@ -150,7 +150,8 @@
    "line_start": 171,
    "line_end": 173,
    "quote": "Kobi Kunasekaran: but we can we can test it out like we can we can see like / Kobi Kunasekaran: run the ban process run the uh like try manually updating the status and just confirm if it's tagging the right person versus the default automation person.",
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Downgraded decided->proposed: Kobi says 'we can test it out'; no one is explicitly assigned. Gemini Next steps assigns it firmly to Cedrick."
   },
   {
    "item_id": "2026-09-04-1001-07",
@@ -248,9 +249,9 @@
    "owner": "Kobi Kunasekaran",
    "due": null,
    "supersedes_hint": null,
-   "summary_agreement": "yes",
+   "summary_agreement": "no",
    "type": "action-item",
-   "firmness": "decided",
+   "firmness": "proposed",
    "feature_area": "Sign-Up",
    "topic": "Kobi follow up on login flow",
    "statement": "Kobi said he can follow up with 'them' (party not named) on the login-flow item.",
@@ -262,7 +263,8 @@
    "line_end": 180,
    "quote": "Kobi Kunasekaran: Um so I can follow up with them on that.",
    "asr_note": "Gemini says 'external team' and 'login flow requirements'; transcript says only 'them' and calls the flow already completed",
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Downgraded decided->proposed: 'I can follow up with them' is a soft offer, and the party ('them') and subject are not named. Gemini Next steps adds 'external team' and 'login flow requirements', which the transcript does not say; summary_agreement changed yes->no."
   },
   {
    "item_id": "2026-09-04-1001-12",
@@ -295,14 +297,14 @@
    "item_id": "2026-09-04-1001-13",
    "jira_keys_mentioned": [],
    "owner": "Kobi Kunasekaran",
-   "due": "today (2026-09-04); work to start next week",
+   "due": "write-up today (2026-09-04); work to start next week or after Cedrick's current tickets",
    "supersedes_hint": null,
    "summary_agreement": "yes",
    "type": "action-item",
    "firmness": "decided",
    "feature_area": "Project Mgmt / Scope / Phase / Timeline",
    "topic": "Write up Tuesday meeting tickets",
-   "statement": "Kobi will write up the tickets from the Tuesday meeting today and queue them as the starting work for next week.",
+   "statement": "Kobi is reviewing the tickets from the Tuesday meeting and will write them up today and queue them; he said that work would start next week, or after Cedrick finishes his current tickets.",
    "speakers": [
     "Kobi Kunasekaran"
    ],
@@ -310,7 +312,8 @@
    "line_start": 188,
    "line_end": 188,
    "quote": "Kobi Kunasekaran: I am so reviewing the tickets from our Tuesday meeting. So, I'll get those written up today and cue that up. Um, so that'll be like what we end up uh starting with, I guess, next week.",
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Statement and due qualified by line 193: 'Uh, or after you're done with these ones.'"
   },
   {
    "item_id": "2026-09-04-1001-14",
@@ -363,7 +366,7 @@
    "supersedes_hint": null,
    "summary_agreement": "yes",
    "type": "risk-blocker",
-   "firmness": "decided",
+   "firmness": "discussed",
    "feature_area": "CMS Integration",
    "topic": "CMS calculates deal formula itself",
    "statement": "Kobi said it sounds like the client calculates the deal formula in the CMS instead of getting it from Salesforce, which is causing problems.",
@@ -374,7 +377,8 @@
    "line_start": 197,
    "line_end": 199,
    "quote": "Kobi Kunasekaran: Um and then it also Sounds like they're calculating the formula for the deals themselves in the CMS as opposed to getting it from Salesforce which / Kobi Kunasekaran: is causing some problems.",
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Downgraded decided->discussed: Kobi hedges ('Sounds like they're calculating...'); the risk is reported second-hand and not confirmed. Quote omits Cedrick's interjection 'No.' at line 198."
   },
   {
    "item_id": "2026-09-04-1001-17",
@@ -439,6 +443,50 @@
    "line_end": 211,
    "quote": "Cedrick Infantado: Yeah. Um, I still have five tickets on my bucket. So, yeah, / Cedrick Infantado: probably I'm still doing this by next week, Thursday or Wednesday.",
    "quote_verified": true
+  },
+  {
+   "item_id": "2026-09-04-1001-20",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "Player",
+   "topic": "Validation blocking manual status moves",
+   "statement": "Cedrick asked whether there is a validation that stops users from moving the player status. Kobi did not answer directly; he replied that the status field should be locked down for reps (see item 09). The validation question stays open.",
+   "speakers": [
+    "Cedrick Infantado",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:07:54",
+   "line_start": 160,
+   "line_end": 162,
+   "quote": "Cedrick Infantado: And do we have a validation for that? / Kobi Kunasekaran: So, okay. So, then yeah. / Cedrick Infantado: That's The user cannot move or",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "added_by": "critic"
+  },
+  {
+   "item_id": "2026-09-04-1001-21",
+   "type": "decision",
+   "firmness": "proposed",
+   "feature_area": "Player",
+   "topic": "Move stamp into ban/unban flows (dropped)",
+   "statement": "Kobi suggested moving the last-updated-by automation into the ban/unban flows so the stamp is set there. He dropped the idea after it was clarified that only scheduled flows stamp the default workflow user (item 04).",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:04:57",
+   "line_start": 133,
+   "line_end": 133,
+   "quote": "Kobi Kunasekaran: Okay. Uh, don't know if I like that. I I Yeah, I I assume that it was just for the schedule flows, but if it's also going to do it for like if somebody like bans or unbans somebody, maybe we need to move that automation to those flows instead, right? like the flow that does the batting. We could set the last updated by and at that",
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": "Superseded in-meeting by item 04 (lines 155-159: 'So then it's it's still fine').",
+   "summary_agreement": "not in summary",
+   "asr_note": "'batting' = banning [ASR?]",
+   "added_by": "critic"
   }
  ],
  "gemini_disagreements": [
@@ -453,9 +501,28 @@
    "transcript_quote": "Kobi Kunasekaran: Yeah. Um, yeah, I might still like prioritize some of the smaller things like the what like the stories that you're still working on. Um, just so we can wrap up that entire section before we move on to integration. But, um, yeah, let's see what we can do and see how that works out next week. / Kobi Kunasekaran: Yeah, I I think they're like pretty straightforward enough though, the ones that you have. So, I'm hoping at least even if we could start the process next week to for the integration, it'll be good good progress.",
    "line": 208,
    "why": "Summary states a firm decision to defer. Transcript: Kobi 'might still' prioritize the smaller stories, 'let's see', and hopes integration could start next week. Tentative, not decided."
+  },
+  {
+   "summary_text": "[Kobi Kunasekaran] Follow Up: Follow up with the external team regarding the login flow requirements.",
+   "transcript_quote": "Kobi Kunasekaran: Okay. Uh okay. So you've got that one and then uh so preventing the login from uh proceeding without uh without anything filled out in the flow that's already been completed. / Kobi Kunasekaran: Um so I can follow up with them on that.",
+   "line": 180,
+   "why": "Transcript says only 'I can follow up with them on that' about an item Kobi calls already completed. 'External team' and 'requirements' are not in the transcript, and the offer is soft, not a firm action. (critic)"
+  },
+  {
+   "summary_text": "[Cedrick Infantado] Verify Status Tagging: Run the ban process and manually update the status to confirm it tags the correct user rather than the default automation process.",
+   "transcript_quote": "Kobi Kunasekaran: Okay. So then this is fine. So whatever you're doing uh for uh 251 is fine. I don't think we need to make any changes but we can we can test it out like we can we can see like / Kobi Kunasekaran: run the ban process run the uh like try manually updating the status and just confirm if it's tagging the right person versus the default automation person.",
+   "line": 171,
+   "why": "Transcript: 'we can test it out', not assigned to anyone. Summary hardens it into an action item assigned to Cedrick. (critic)"
+  },
+  {
+   "summary_text": "Cedrick completed tickets 243 and 2550 regarding signup completion dates.",
+   "transcript_quote": "Cedrick Infantado: Uh for me uh I'm I'm already done with um what do you call this? 243. So I've already tested that out attach the screenshots and and also that's my work yesterday as well as the 2550 which is the signup completion date.",
+   "line": 110,
+   "why": "Quick notes attributes 'signup completion date' to both tickets; transcript ties it only to 2550. Ticket 243's subject is not stated. (critic)"
   }
  ],
  "rule5_redactions": 0,
  "secret_exposed": false,
- "notes": "15-minute Jumpr-internal standup (Kobi and Cedrick only speak). No client present, so 'decided' items are Jumpr-internal calls, not client confirmations. Holiday/personal small talk (Labor Day, attendee days off) skipped as non-delivery. Ticket numbers are heard aloud and unverified (243, 2550, 251, 252, 253, 255). Gemini Quick-notes and Details sections are mostly faithful; the two 'Decisions' bullets on status-field lockdown and integration deferral are firmer than the transcript."
+ "notes": "15-minute Jumpr-internal standup (Kobi and Cedrick only speak). No client present, so 'decided' items are Jumpr-internal calls, not client confirmations. Holiday/personal small talk (Labor Day, attendee days off) skipped as non-delivery. Ticket numbers are heard aloud and unverified (243, 2550, 251, 252, 253, 255). Gemini Quick-notes and Details sections are mostly faithful; the two 'Decisions' bullets on status-field lockdown and integration deferral are firmer than the transcript. Critic pass: read all 260 lines; added 2 items (20-21), modified 4 (06, 11, 13, 16), added 3 Gemini disagreements; all quotes verified verbatim.",
+ "critic_read_complete": true
 }

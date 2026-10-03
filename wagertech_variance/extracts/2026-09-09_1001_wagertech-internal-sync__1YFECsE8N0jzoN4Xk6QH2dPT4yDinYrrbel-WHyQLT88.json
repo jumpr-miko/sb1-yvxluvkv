@@ -81,7 +81,8 @@
    "supersedes_hint": null,
    "summary_agreement": "yes",
    "asr_note": null,
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Firmness kept as decided for the internal Jumpr build call (Kobi + Cedrick agreed). No WagerTech attendee; the client did not accept this in this meeting, so do not treat it as client-confirmed scope."
   },
   {
    "item_id": "2026-09-09-1001-04",
@@ -170,9 +171,10 @@
    "owner": "Cedrick Infantado",
    "due": "2026-09-09 (today)",
    "supersedes_hint": null,
-   "summary_agreement": "yes",
+   "summary_agreement": "no",
    "asr_note": null,
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "summary_agreement changed yes->no: Gemini next step says testing 'including all identified scenarios', but Cedrick scoped out the backdating scenario (line 169)."
   },
   {
    "item_id": "2026-09-09-1001-08",
@@ -354,7 +356,8 @@
    "supersedes_hint": null,
    "summary_agreement": "no",
    "asr_note": null,
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Context: line 202 Kobi says 'we have all the information we need to get started and uh build out like a PLC on how we're going to communicate, set up the authentication' (PLC = POC [ASR?]). Line 213 then says the start is the moment a sandbox exists, so the statement stands."
   },
   {
    "item_id": "2026-09-09-1001-16",
@@ -512,6 +515,56 @@
    "summary_agreement": "yes",
    "asr_note": "line 234 'co-ound additional stories' likely = scope out [ASR?]",
    "quote_verified": true
+  },
+  {
+   "item_id": "2026-09-09-1001-23",
+   "type": "status-update",
+   "firmness": "discussed",
+   "feature_area": "Player",
+   "topic": "253 flow fills first sign-up only if blank",
+   "statement": "Per Cedrick, the 253 flow has no sorting: per the story, when first sign-up and first sign-up date are blank it fills them from the first completed sign-up. The last sign-up date logic works for historical data; backdating the first sign-up is where the flow would break.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Cedrick Infantado"
+   ],
+   "timestamp": "00:02:29",
+   "line_start": 140,
+   "line_end": 141,
+   "quote": "Kobi Kunasekaran: Um, let me ask you this. How do you have this flow set up? Is this like uh uh like is it being triggered on every completed signup where it just checks for uh for like a blank record and fills it in or is there any sort of sorting happening? / Cedrick Infantado: Um, right. No, no. Um, there's no sorting. So um it um based on the story if the first sign up is blank and the first signup date is blank um it will fill up the first completed signup.",
+   "jira_keys_mentioned": [
+    "WAGR-253?"
+   ],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "not in summary",
+   "asr_note": null,
+   "added_by": "critic",
+   "quote_verified": true
+  },
+  {
+   "item_id": "2026-09-09-1001-24",
+   "type": "status-update",
+   "firmness": "discussed",
+   "feature_area": "CMS Integration",
+   "topic": "Kobi took Cedrick task for deal-ID fix",
+   "statement": "Kobi took one of Cedrick's tasks the day before because WagerTech changed deal IDs in their CMS; tickets that do not block Kobi's deal cleanup may be assigned back to Cedrick.",
+   "speakers": [
+    "Cedrick Infantado",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:07:10",
+   "line_start": 182,
+   "line_end": 195,
+   "quote": "Cedrick Infantado: And I also noticed that you uh uh you've uh all this you get one of my uh a task yesterday and / Kobi Kunasekaran: Yes, I I did. I did. / Kobi Kunasekaran: so I let me see if like if there's anything that's like not going to block me from cleaning up the deal, I will assign those to you",
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran",
+   "due": null,
+   "supersedes_hint": null,
+   "summary_agreement": "yes",
+   "asr_note": null,
+   "added_by": "critic",
+   "quote_verified": true
   }
  ],
  "gemini_disagreements": [
@@ -538,9 +591,22 @@
    "transcript_quote": "Kobi Kunasekaran: And if it helps like feel free to create a a sauna ticket to track that you know you're doing you're reviewing the requirements and stuff that's totally fine.",
    "line": 223,
    "why": "Optional suggestion ('if it helps, feel free') hardened into an assigned action item."
+  },
+  {
+   "summary_text": "[Kobi Kunasekaran] Request Sandbox Access: Secure sandbox access for the CMS integration from the Wagertech team.",
+   "transcript_quote": "Kobi Kunasekaran: Okay. And worst case scenario like if we don't um the one thing we're waiting for the Wagertech team on is a sandbox for the uh for the CMS integration.",
+   "line": 197,
+   "why": "No action was assigned to Kobi to get sandbox access. The transcript says only that the team is waiting on WagerTech. The access Kobi says he requested (line 225) is CMS access to see committed data, not the sandbox. Added by critic."
+  },
+  {
+   "summary_text": "[Cedrick Infantado] Test Player Status: Complete testing for player status user story 253 including all identified scenarios.",
+   "transcript_quote": "Cedrick Infantado: Okay, good. I I scope out that one for my scenarios. So yeah, I I think I will just run a pass through on this today",
+   "line": 169,
+   "why": "Cedrick scoped the backdating scenario out of his test scenarios; 'including all identified scenarios' leaves that out. Minor. Added by critic."
   }
  ],
  "rule5_redactions": 1,
  "secret_exposed": false,
- "notes": "Internal Jumpr-only sync (no WagerTech attendees), ~20 min. Decisions are internal build/process calls; client did not confirm. Jira keys heard only as bare numbers (253, 254) so recorded with '?'. Status/risk items use firmness 'discussed'. Skipped as not WagerTech delivery: personal chit-chat, company-wide ticket-standardization/AI prompt-template/knowledge-sharing-channel discussion (lines 273-316). One rule-5 skip (attendee absence reason). No secrets."
+ "notes": "Internal Jumpr-only sync (no WagerTech attendees), ~20 min. Decisions are internal build/process calls; client did not confirm. Jira keys heard only as bare numbers (253, 254) so recorded with '?'. Status/risk items use firmness 'discussed'. Skipped as not WagerTech delivery: personal chit-chat, company-wide ticket-standardization/AI prompt-template/knowledge-sharing-channel discussion (lines 273-316). One rule-5 skip (attendee absence reason). No secrets. Critic: read all 335 lines; all 22 original quotes verified; added items 23-24; added critic_note to items 03, 07, 15; added 2 gemini_disagreements. Gemini next step 'Provide Process Feedback' is internal Jumpr process (not WagerTech delivery), so not extracted.",
+ "critic_read_complete": true
 }

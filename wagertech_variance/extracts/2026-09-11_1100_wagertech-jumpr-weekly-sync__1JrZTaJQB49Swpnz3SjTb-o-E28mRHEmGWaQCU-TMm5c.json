@@ -882,8 +882,9 @@
    "owner": null,
    "due": null,
    "supersedes_hint": null,
-   "summary_agreement": "not in summary",
-   "quote_verified": true
+   "summary_agreement": "no",
+   "quote_verified": true,
+   "critic_note": "summary_agreement changed yes/not-in-summary -> no: Gemini Details says Kobi 'confirmed' automated updates; transcript is a 'we could' offer."
   },
   {
    "item_id": "2026-09-11-1100-41",
@@ -1238,7 +1239,8 @@
    "due": null,
    "supersedes_hint": null,
    "summary_agreement": "yes",
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Summary section matches (redeposit logic). Gemini Details says the meeting is to discuss 'redeposits and payouts'; transcript says payouts is a separate discovery. Logged in gemini_disagreements."
   },
   {
    "item_id": "2026-09-11-1100-57",
@@ -1283,6 +1285,71 @@
    "supersedes_hint": null,
    "summary_agreement": "yes",
    "quote_verified": true
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "added_by": "critic",
+   "item_id": "2026-09-11-1100-59",
+   "type": "requirement",
+   "firmness": "decided",
+   "feature_area": "Deal",
+   "topic": "Deal makeup fields locked; change means new deal",
+   "statement": "When Kobi used a market change on a deal as an example, Emily said makeup fields such as market are locked and can never change; a change to them would be a new deal. Kobi accepted and switched his example to CPA.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Emily Vandenberg"
+   ],
+   "timestamp": "00:28:30",
+   "line_start": 391,
+   "line_end": 392,
+   "quote": "Kobi Kunasekaran: … So once like if for example like I changed this uh deal that the the signup is associated to and change the market to Ontario, this is going to show Ontario. / Emily Vandenberg: But you do that. You could never change. Those are like the locked in fields. That would be a new deal.",
+   "summary_agreement": "yes"
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "added_by": "critic",
+   "item_id": "2026-09-11-1100-60",
+   "type": "open-question",
+   "firmness": "discussed",
+   "feature_area": "CMS Integration",
+   "topic": "Two-way sync for link changes",
+   "statement": "Emily said links can be added and changed after setup and asked for two-way communication around that. Only brand-new link creation was settled (in Salesforce first, item -51); how link changes made on the CMS side flow back was not resolved.",
+   "speakers": [
+    "Emily Vandenberg"
+   ],
+   "timestamp": "00:47:06",
+   "line_start": 533,
+   "line_end": 533,
+   "quote": "Emily Vandenberg: … And then also just the fact that we can add new links. So you'll set it up and then the record and like the links can change. and just making sure there's like kind of two-way communication around that",
+   "summary_agreement": "yes"
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": "Kobi Kunasekaran (as stated by Emily)",
+   "due": "start of next week (garbled)",
+   "supersedes_hint": null,
+   "added_by": "critic",
+   "item_id": "2026-09-11-1100-61",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Kobi to re-look at next-phase scope",
+   "statement": "Emily said Kobi will take another look at the scope for the next phases at the start of next week. The sentence is garbled and Kobi did not respond to it directly, so the owner and timing are not firm.",
+   "speakers": [
+    "Emily Vandenberg"
+   ],
+   "timestamp": "00:52:59",
+   "line_start": 584,
+   "line_end": 584,
+   "quote": "Emily Vandenberg: … I would say you know if like in the back part of next week Kobi just going to take a reook at the scope for kind of the next phases start of the week.",
+   "summary_agreement": "not in summary",
+   "asr_note": "'reook' = 're-look' [ASR?]; sentence mixes 'back part of next week' and 'start of the week'"
   }
  ],
  "gemini_disagreements": [
@@ -1315,9 +1382,22 @@
    "transcript_quote": "Strahinja Vladetic: So I'll update the payload with basically the to give you guys room to send me links and then send me the operators and partners with some basic information for now.",
    "line": 575,
    "why": "Firmer than transcript. The approach was agreed, but nothing is established yet; Strahinja still has to update the payload."
+  },
+  {
+   "summary_text": "Emily Vandenberg noted the need to handle backdated Cost Per Acquisition changes, and Kobi Kunasekaran confirmed they could automate updates to related signups when past commercial terms are updated (00:32:38).",
+   "transcript_quote": "Kobi Kunasekaran: … we could add that functional like we if we do the commercial terms related object we could have it so when you update the CPA for an existing commercial term any related signup for that commercial term also",
+   "line": 403,
+   "why": "Firmer than transcript (Details section). Kobi offered this as a conditional option tied to the commercial terms object, which is itself still one of several design options. Added by critic."
+  },
+  {
+   "summary_text": "Joyce Kiddell proposed scheduling a discovery meeting for next week to discuss redeposits and payouts (00:54:18).",
+   "transcript_quote": "Joyce Kiddell: probably just redeposits to start and then pay out like a separate discovery / Joyce Kiddell: discussion.",
+   "line": 598,
+   "why": "Contradicted (Details section). Joyce scoped the Wednesday meeting to redeposits; payouts is a separate discovery discussion. Added by critic."
   }
  ],
  "rule5_redactions": 0,
  "secret_exposed": false,
- "notes": "Attendees list = speakers in the transcript. Invite list also shows Lina (traveling, said not likely to attend), Waleed Alasadi and Cedrick Infantado; they did not speak. Recording note says 'Some recordings unavailable'. No Jira keys were said out loud. Opening travel chit-chat (lines 135-163) was skipped as non-delivery content (not a rule 5 skip). CPA dollar figures ($100/$120) are hypothetical examples used in the discussion and are not recorded as terms. Strahinja's options A/B for deal retire-replace refer to a document not in the transcript. A 'meeting booked Monday' on DRA change handling is mentioned at line 524."
+ "notes": "Attendees list = speakers in the transcript. Invite list also shows Lina (traveling, said not likely to attend), Waleed Alasadi and Cedrick Infantado; they did not speak. Recording note says 'Some recordings unavailable'. No Jira keys were said out loud. Opening travel chit-chat (lines 135-163) was skipped as non-delivery content (not a rule 5 skip). CPA dollar figures ($100/$120) are hypothetical examples used in the discussion and are not recorded as terms. Strahinja's options A/B for deal retire-replace refer to a document not in the transcript. A 'meeting booked Monday' on DRA change handling is mentioned at line 524. | Critic: read all 643 lines; all 58 extractor quotes verified at stated lines; added -59..-61; updated summary_agreement on -40; added 2 Gemini disagreements (Details section).",
+ "critic_read_complete": true
 }

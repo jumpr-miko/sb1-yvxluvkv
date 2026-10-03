@@ -1221,6 +1221,99 @@
    "summary_agreement": "yes",
    "asr_note": null,
    "quote_verified": true
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": "Strahinja Vladetic",
+   "due": null,
+   "supersedes_hint": null,
+   "added_by": "critic",
+   "item_id": "2026-07-24-1201-54",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "CMS Integration",
+   "topic": "Strahinja to build survey completion push",
+   "statement": "Strahinja said he has only stubbed survey completion and offered to review the survey sections of the requirements and push whatever information WagerTech has access to; Kobi said yes. Later Emily said WagerTech will action the survey work once Kobi sends the survey details.",
+   "speakers": [
+    "Strahinja Vladetic",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:45:54",
+   "line_start": 690,
+   "line_end": 697,
+   "quote": "Strahinja Vladetic: Uh, but I could start looking through the if those sections are in the requirements / Strahinja Vladetic: do I could start looking through there and then pushing whatever information we have access to if that's what you guys / Kobi Kunasekaran: Yes.",
+   "summary_agreement": "yes",
+   "critic_note": "Dependent on Kobi's survey payload details (item -39). Emily's 'you'll send over the survey stuff and we'll action that' is at line 772."
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": "Emily Vandenberg / WagerTech",
+   "due": null,
+   "supersedes_hint": null,
+   "added_by": "critic",
+   "item_id": "2026-07-24-1201-55",
+   "type": "action-item",
+   "firmness": "decided",
+   "feature_area": "Data Migration / Import",
+   "topic": "WagerTech to send active partner/book list",
+   "statement": "Emily committed that WagerTech will provide the current list of active partner/book combinations and asked whether Jumpr also wants it by market and province/state. Kobi answered with separate operator and partner sheets, plus a deal mapping sheet for testing.",
+   "speakers": [
+    "Emily Vandenberg",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:53:03",
+   "line_start": 772,
+   "line_end": 775,
+   "quote": "Emily Vandenberg: yes, we will get you the like list of like the current list of active like partner book combinations. Do you want to buy market too?",
+   "summary_agreement": "yes",
+   "asr_note": "'buy market' = 'by market' [ASR?]",
+   "critic_note": "Overlaps items -22 (Jay Airtable cleanup) and -47 (Kobi sheets); added because it is a separate WagerTech commitment and opens the question of market granularity."
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": "Jay, Strahinja Vladetic",
+   "due": null,
+   "supersedes_hint": null,
+   "added_by": "critic",
+   "item_id": "2026-07-24-1201-56",
+   "type": "action-item",
+   "firmness": "proposed",
+   "feature_area": "Operator & Partner",
+   "topic": "Jay/Strahinja to work out partner parsing",
+   "statement": "Emily suggested Jay and Strahinja take offline how the partner is parsed out of the operator name. Unless the CMS changes, a table mapping the partner shorthand codes would be needed on Jumpr's side.",
+   "speakers": [
+    "Emily Vandenberg"
+   ],
+   "timestamp": "00:24:05",
+   "line_start": 372,
+   "line_end": 376,
+   "quote": "Emily Vandenberg: Okay. Then I think in the current state but maybe J and Star you have to take it offline is that / Emily Vandenberg: um the partner would need to be parsed out from the like operator / Emily Vandenberg: name value and then like your there'd need to be like mapping Kobe on your end unless we make a change on the CMS",
+   "summary_agreement": "yes",
+   "asr_note": "J = Jay, Star = Strahinja, Kobe = Kobi [ASR?]",
+   "critic_note": "Soft assignment ('maybe ... take it offline'). Jay then said mapping would happen on WagerTech's side (item -18). Related offer from Strahinja at lines 188-195 to confirm fields if sent the list."
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "added_by": "critic",
+   "item_id": "2026-07-24-1201-57",
+   "type": "risk-blocker",
+   "firmness": "discussed",
+   "feature_area": "CMS Integration",
+   "topic": "Past data inconsistency; API guardrails needed",
+   "statement": "Kobi said Joyce reported that data in the previous iteration came through inconsistently, so he wants guardrails on the API side when WagerTech sends data. Strahinja shared the concern and wants proof on his side.",
+   "speakers": [
+    "Kobi Kunasekaran",
+    "Strahinja Vladetic"
+   ],
+   "timestamp": "00:50:12",
+   "line_start": 736,
+   "line_end": 743,
+   "quote": "Kobi Kunasekaran: Okay, awesome. Yeah, I think like Joyce mentioned like in the previous iteration like the data there was a lot of get inconsistently. So, just want to make sure that we have the the guard bails on the API end when you're sending it / Strahinja Vladetic: Yeah, that's my my worry too. / Strahinja Vladetic: I just want to have the have the proof on my side in case I need it.",
+   "summary_agreement": "yes",
+   "asr_note": "'guard bails' = 'guardrails' [ASR?]"
   }
  ],
  "gemini_disagreements": [
@@ -1259,9 +1352,17 @@
    "transcript_quote": "Kobi Kunasekaran: I'll send you like an updated list of fields and what values we expect for those. / Kobi Kunasekaran: I can work through those spreadsheets uh probably today. I'll send it over uh by the end of the day",
    "line": 758,
    "why": "The end-of-day target was for the spreadsheets only ('probably today'); no due date was given for the updated field list."
+  },
+  {
+   "summary_text": "Because some representatives have different slugs for US and Canada sites (e.g., Luca), which causes duplicate records, Kobi Kunasekaran recommended moving to a unique identifier system for reps [Details]",
+   "transcript_quote": "Jay: So all of those play slugs will disappear and they'll get merged with the uh the normal like uh slugs for all these reps. I could provide you a list if you need",
+   "line": 629,
+   "why": "No one said the separate US/Canada slugs cause duplicate records. The transcript says the 'play' slugs will be merged at Lena's request, and Jay said no rep will have two slugs going forward (line 638). Added by critic."
   }
  ],
  "rule5_redactions": 0,
  "secret_exposed": false,
- "notes": "Gemini-format doc; transcript runs lines 76-909 (footer says 'Transcription ended after 01:36:16' but the last timestamp is 01:02:11). No Jira keys spoken. Status-update items marked 'decided' when the owning party stated them as fact. Common ASR variants: Kobe=Kobi, Straw/Star/draw/STR=Strahinja, J/NJ=Jay, 'survey link click'=study link click. The quote check passed for every segment (verbatim, no filler removed). Joyce and Lena are mentioned but did not attend."
+ "notes": "Gemini-format doc; transcript runs lines 76-909 (footer says 'Transcription ended after 01:36:16' but the last timestamp is 01:02:11). No Jira keys spoken. Status-update items marked 'decided' when the owning party stated them as fact. Common ASR variants: Kobe=Kobi, Straw/Star/draw/STR=Strahinja, J/NJ=Jay, 'survey link click'=study link click. The quote check passed for every segment (verbatim, no filler removed). Joyce and Lena are mentioned but did not attend.",
+ "critic_read_complete": true,
+ "critic_notes": "Critic read all 909 lines. Added 4 items (-54 to -57) and 1 Gemini disagreement. All existing quotes verified verbatim at stated lines (several use a 'Name:' prefix on a mid-line span, which is acceptable). No firmness changes needed: decided items are backed by client confirmation or explicit owner statements. No secrets and no rule-5 content found."
 }
