@@ -75,8 +75,9 @@
       "owner": "Kobi Kunasekaran",
       "due": null,
       "supersedes_hint": "We had created deal country and deal state fields for the raw deal makeup; now moving to Deal IDs and removing that logic.",
-      "summary_agreement": "yes",
-      "asr_note": "'move all this logic' likely = 'remove all this logic' [ASR?]"
+      "summary_agreement": "no",
+      "asr_note": "'move all this logic' likely = 'remove all this logic' [ASR?]",
+      "critic_note": "summary_agreement changed yes->no: Summary (line 13) says the duplicate errors 'prompted a transition to unique deal identifiers'; transcript (line 146) says the move to deal IDs had already happened and the errors led to removing the leftover deal-makeup logic. Decisions line 24 is correct."
     },
     {
       "item_id": "2026-08-25-1130-04",
@@ -178,7 +179,8 @@
       "owner": "Emily Vandenberg",
       "due": null,
       "supersedes_hint": null,
-      "summary_agreement": "yes"
+      "summary_agreement": "yes",
+      "critic_note": "Next steps (line 40) also gives Emily 'potential link tracking requirements' with Straw; in the transcript the link-identifier feedback to Straw is Kobi's (line 368, item -27). Dedup follow-up itself matches; logged in gemini_disagreements."
     },
     {
       "item_id": "2026-08-25-1130-09",
@@ -404,8 +406,9 @@
       "owner": null,
       "due": null,
       "supersedes_hint": null,
-      "summary_agreement": "yes",
-      "asr_note": "'user page' may be 'player page' (person account is a special object) [ASR?]; feature area inferred"
+      "summary_agreement": "no",
+      "asr_note": "'user page' may be 'player page' (person account is a special object) [ASR?]; feature area inferred",
+      "critic_note": "summary_agreement changed yes->no: Details (line 66) says that for the user page 'they can implement conditional visibility settings'; transcript (line 293) says conditional visibility is possible generally but 'not straightforward for the user page'. Logged in gemini_disagreements."
     },
     {
       "item_id": "2026-08-25-1130-20",
@@ -467,7 +470,8 @@
       "owner": null,
       "due": null,
       "supersedes_hint": null,
-      "summary_agreement": "yes"
+      "summary_agreement": "no",
+      "critic_note": "summary_agreement changed yes->no: Summary (line 16) says the team 'finalized' ban and pause reason codes; transcript (lines 328-330) says 'we can start with these... we can always change them up later' and 'it's not like you know set in stone'. Decisions line 27 ('approved for use') is closer."
     },
     {
       "item_id": "2026-08-25-1130-23",
@@ -574,7 +578,8 @@
       "owner": "Kobi Kunasekaran",
       "due": null,
       "supersedes_hint": null,
-      "summary_agreement": "yes"
+      "summary_agreement": "no",
+      "critic_note": "summary_agreement changed yes->no: Details line 58 matches (Kobi to consult Straw on link name/URL), but Next steps line 40 assigns link-tracking follow-up with Straw to Emily. Logged in gemini_disagreements."
     },
     {
       "item_id": "2026-08-25-1130-28",
@@ -594,7 +599,8 @@
       "owner": "Kobi Kunasekaran",
       "due": null,
       "supersedes_hint": null,
-      "summary_agreement": "yes"
+      "summary_agreement": "no",
+      "critic_note": "summary_agreement changed yes->no: Next steps line 47 ('Scope Link Tracking: ... fields required to track link URLs for signups and deals') merges two separate points. In the transcript (line 372) Kobi will scope adding Source as a field on the deal and SLC; link identifier fields are a separate item owed to Straw (item -27)."
     },
     {
       "item_id": "2026-08-25-1130-29",
@@ -683,7 +689,8 @@
       "owner": "Kobi Kunasekaran",
       "due": null,
       "supersedes_hint": "Superseded in-meeting: Kobi's 'only show if Source has a value' and Joyce's 'only for direct deals' were replaced by 'show it for all'.",
-      "summary_agreement": "no"
+      "summary_agreement": "no",
+      "critic_note": "Added context: lines 480-494 show an interim position (Joyce: 'Can you only do that for direct deals though?' Kobi: 'Yes.'; Kobi then offered to show it only when Source has a value). Both were replaced by Lina's 'there will always be a source' and Kobi's 'show it for all of it' (lines 496-522). Firmness decided kept."
     },
     {
       "item_id": "2026-08-25-1130-33",
@@ -830,8 +837,9 @@
       "owner": "WagerTech (Emily / Straw)",
       "due": null,
       "supersedes_hint": null,
-      "summary_agreement": "yes",
-      "asr_note": "'FLC' (line 597) = 'SLC' [ASR?]"
+      "summary_agreement": "no",
+      "asr_note": "'FLC' (line 597) = 'SLC' [ASR?]",
+      "critic_note": "summary_agreement changed yes->no: Summary line 19 says manual reprocess was 'prioritized' and Details line 75 says Emily 'confirmed this request is added to the backlog'; transcript (line 607) says 'we will add it to the backlog' (future, no priority stated; 'high priority' in line 607 refers to the CMS endpoint)."
     },
     {
       "item_id": "2026-08-25-1130-40",
@@ -960,6 +968,163 @@
       "supersedes_hint": null,
       "summary_agreement": "yes",
       "asr_note": "'Kobe' = 'Kobi' [ASR?]"
+    },
+    {
+      "item_id": "2026-08-25-1130-46",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "asr_note": "'seated' = 'seeded' [ASR?]",
+      "added_by": "critic",
+      "type": "status-update",
+      "firmness": "decided",
+      "feature_area": "CMS Integration",
+      "topic": "CMS deal setup and endpoint not built",
+      "statement": "WagerTech has not yet built the deal setup work and the deal endpoint in the CMS; for now the deal IDs were seeded in the CMS database.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:03:48",
+      "line_start": 152,
+      "line_end": 152,
+      "quote": "Emily Vandenberg: Yeah, that would make sense because we haven't handled the in the CMS the deal um like the kind of work on the deal setup and then the endpoint. So like we just seated the ids in database.",
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-25-1130-47",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "asr_note": null,
+      "added_by": "critic",
+      "type": "status-update",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Rep signups received via API until yesterday",
+      "statement": "The signup records shown came from the API and are not completed. They came through up until yesterday from reps Andy and Alex; Andy's are very minimal (only Hard Rock) and Alex's are the majority.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:35:42",
+      "line_start": 566,
+      "line_end": 580,
+      "quote": "Emily Vandenberg: These are from the API. / Emily Vandenberg: So, they came through up until yesterday through Andy and / Emily Vandenberg: Alex. / Emily Vandenberg: Uh, Andy's like very minimal. Just Hard Rock came through and Alex is like majority.",
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-25-1130-48",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "asr_note": "'theyident' = 'they identify' [ASR?]",
+      "added_by": "critic",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Deal",
+      "topic": "Identifying source for direct deals",
+      "statement": "Emily raised that multiple sources break the current deal setup logic, for example BetMGM is actually a direct deal with Jersey, and asked how the source will be identified. This led to the source column/field and deal-name suffix discussion (items -30, -32).",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:26:53",
+      "line_start": 395,
+      "line_end": 397,
+      "quote": "Emily Vandenberg: Well, I guess like just walk through the logic of so cuz like Bet MGMs kind of / Emily Vandenberg: breaks how we've set this up, right? Um, so how would theyident how would it be identified when we're following the logic of like bet MGM is actually a direct deal with Jersey?",
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-25-1130-49",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": "Not adopted; replaced in the same meeting by one-letter source suffix on all deal names and keeping 'Direct' (items -32, -33).",
+      "asr_note": null,
+      "added_by": "critic",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Deal",
+      "topic": "Source name instead of 'Direct' in name",
+      "statement": "Joyce suggested that for direct deals the deal name could show the source name (e.g. Jersey) instead of 'Direct'. Lina noted a direct deal could be with Jersey or an agency, so this was not adopted; the meeting kept 'Direct' plus a one-letter source suffix (items -32, -33).",
+      "speakers": [
+        "Joyce Kiddell",
+        "Kobi Kunasekaran",
+        "Lina Ceniccola"
+      ],
+      "timestamp": "00:28:43",
+      "line_start": 438,
+      "line_end": 446,
+      "quote": "Joyce Kiddell: can we just default to the the source name? Like instead of putting it as direct, we would put Jersey or whatever the source / Kobi Kunasekaran: We can Yeah. / Lina Ceniccola: but you could have direct you could have direct Jersey and direct agency and",
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-25-1130-50",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "asr_note": null,
+      "added_by": "critic",
+      "type": "status-update",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Completed-items list shared; page updates to follow",
+      "statement": "Kobi said he put together a list of all completed items, and Jumpr will also send a page-by-page update so it is easier for WagerTech to review.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:34:44",
+      "line_start": 552,
+      "line_end": 552,
+      "quote": "Kobi Kunasekaran: I did put a list of like all the things that we've completed, but again, like I'll we'll we'll send you like page by page update. Um, so easier to go through and uh and process.",
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-25-1130-51",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "asr_note": "'Kobe' = 'Kobi' [ASR?]",
+      "added_by": "critic",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "Tell WagerTech when items are ready",
+      "statement": "Emily asked Kobi to let WagerTech know as other items are completed so they can review them; Kobi acknowledged.",
+      "speakers": [
+        "Emily Vandenberg",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:15:11",
+      "line_start": 285,
+      "line_end": 287,
+      "quote": "Emily Vandenberg: But if there's anything else, Kobe, as like things come off the line, please let us know and we'll take a / Kobi Kunasekaran: Okay. Yeah. / Emily Vandenberg: look.",
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-25-1130-52",
+      "jira_keys_mentioned": [],
+      "owner": "Emily Vandenberg / WagerTech",
+      "due": null,
+      "supersedes_hint": null,
+      "asr_note": "'let The to know' unclear; possibly 'let the team know' or 'let Taryn know' [ASR?]",
+      "added_by": "critic",
+      "type": "action-item",
+      "firmness": "proposed",
+      "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+      "topic": "WagerTech to state preferred feedback channel",
+      "statement": "Emily said that as items come through WagerTech will give feedback and let Jumpr know its preferred way to give feedback. The wording is unclear in the transcript.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:38:32",
+      "line_start": 607,
+      "line_end": 607,
+      "quote": "Emily Vandenberg: Yeah, I think the um you know as other things come through we will we'll kind of like get feedback um let The to know what preferred way for feedback is.",
+      "summary_agreement": "not in summary"
     }
   ],
   "gemini_disagreements": [
@@ -1004,9 +1169,46 @@
       "transcript_quote": "Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce.",
       "line": 617,
       "why": "Transcript says 'storage' (on hold, WagerTech to take back and get back), not 'link storage'; the summary may conflate it with the separate link-tracking fields topic. Deferral itself matches."
+    },
+    {
+      "summary_text": "Signup processing failures caused by duplicate deal records prompted a transition to unique deal identifiers.",
+      "transcript_quote": "Kobi Kunasekaran: ...because we move from using the makeup of the deal to having the deal IDs. Um I could just remove that logic entirely as well, which is what I'm thinking.",
+      "line": 146,
+      "why": "Causality inverted: the move to deal IDs had already happened; the errors led to removing the leftover deal-makeup (country/state) logic. [critic]"
+    },
+    {
+      "summary_text": "Kobi Kunasekaran mentioned that while the user page has limited flexibility for custom layouts, they can implement conditional visibility settings to show specific fields as needed (00:15:11).",
+      "transcript_quote": "Kobi Kunasekaran: Um we can do a lot of like uh conditional based visibility settings like show some fields for some people versus uh different fields for others. It's not uh straightforward for the user page, but I don't think there was anything like that in the mockup anyway.",
+      "line": 293,
+      "why": "Inverted: transcript says conditional visibility is NOT straightforward on the user (player) page. [critic]"
+    },
+    {
+      "summary_text": "The team also finalized specific ban and pause reason codes for account management.",
+      "transcript_quote": "Kobi Kunasekaran: Okay. So if these are good like we can start with these again like we can always change them up later too. / Kobi Kunasekaran: So it's not like you know set in stone.",
+      "line": 328,
+      "why": "Summary is firmer: lists were accepted as a starting point, explicitly not set in stone. [critic]"
+    },
+    {
+      "summary_text": "[Emily Vandenberg] Follow up with Straw: Contact Straw to discuss click deduplication logic and potential link tracking requirements.",
+      "transcript_quote": "Kobi Kunasekaran: Um, I think I owe straw some additional uh feedback on some fields that we want to add like specifically to track the links for these clicks so we know where they're coming from.",
+      "line": 368,
+      "why": "Link-tracking feedback to Straw is Kobi's action, not Emily's; Emily's follow-up was on click de-duplication only (line 208). [critic]"
+    },
+    {
+      "summary_text": "[Kobi Kunasekaran] Scope Link Tracking: Define and document the fields required to track link URLs for signups and deals.",
+      "transcript_quote": "Kobi Kunasekaran: ...and then we were going to add source as one of the fields as well for the uh for the deal and the SLC's so that it's like that unique combination. Um, so that's still on my plate. I'll scope that out",
+      "line": 372,
+      "why": "Conflates two items: Kobi will scope the Source field on deal and SLC; link identifier fields are separate feedback owed to Straw. [critic]"
+    },
+    {
+      "summary_text": "System improvements like manual reprocess capabilities were prioritized for future backlog inclusion. / Emily Vandenberg confirmed this request is added to the backlog.",
+      "transcript_quote": "Emily Vandenberg: Yeah, he hasn't built that yet. I was checking in yesterday, but we will add it to the backlog.",
+      "line": 607,
+      "why": "Summary is firmer: no priority was stated for the manual push (the 'high priority' remark was about the CMS endpoint), and it 'will' be added, not already added. [critic]"
     }
   ],
   "rule5_redactions": 1,
   "secret_exposed": false,
-  "notes": "Invited also Marc Cabantog, Miko Sumagang, Waleed Alasadi; they did not speak (Kobi said Waleed may join later). Affiliations inferred from email domains/context. No Jira keys spoken. Straw = WagerTech CMS developer (named in transcript). Rule 5: one passage on client resourcing (line 607, evaluating another resource) not recorded. Gemini Decisions/Details otherwise broadly match; Details 'user page' likely ASR for player page."
+  "notes": "Invited also Marc Cabantog, Miko Sumagang, Waleed Alasadi; they did not speak (Kobi said Waleed may join later). Affiliations inferred from email domains/context. No Jira keys spoken. Straw = WagerTech CMS developer (named in transcript). Rule 5: one passage on client resourcing (line 607, evaluating another resource) not recorded. Gemini Decisions/Details otherwise broadly match; Details 'user page' likely ASR for player page. | Critic pass: read all 652 lines; all 45 extractor quotes verified at stated lines; added 7 items (-46 to -52), annotated 8 items, added 6 Gemini disagreements. Rule 5 redaction at line 607 (client resourcing) respected.",
+  "critic_read_complete": true
 }

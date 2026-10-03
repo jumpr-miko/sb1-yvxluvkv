@@ -1,602 +1,679 @@
 {
- "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0",
- "title": "Emily / Kobi (client working session)",
- "meeting_date": "2026-08-27",
- "meeting_time": "13:41",
- "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
- "meeting_type": "client working session",
- "tier": "tier1",
- "attendees": [
-  "Emily Vandenberg (WagerTech)",
-  "Kobi Kunasekaran (Jumpr)"
- ],
- "lines_total": 269,
- "read_complete": true,
- "items": [
-  {
-   "item_id": "2026-08-27-1341-01",
-   "type": "requirement",
-   "firmness": "decided",
-   "feature_area": "Deal",
-   "topic": "Deal currency means operator-to-WagerTech payment",
-   "statement": "The currency field under the deal's commercial terms states the currency in which the operator pays WagerTech (typically USD). It must not be assumed to be the currency WagerTech pays out on the sign-up.",
-   "speakers": [
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:00:49",
-   "line_start": 71,
-   "line_end": 71,
-   "quote": "Emily Vandenberg: So the commercial terms of the deal which would be labeled in the currency field don't always match what we would pay have the currency we would pay out to the sign up. So that's just telling you how they're going to pay like what funds they're going to pay us in. And typically they pay us in USDU and it's our affiliates. So that can't be assumed. Currency to currency can't be assumed.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes",
-   "asr_note": "'USDU' = USD [ASR?]"
-  },
-  {
-   "item_id": "2026-08-27-1341-02",
-   "type": "status-update",
-   "firmness": "decided",
-   "feature_area": "Sign-Up",
-   "topic": "Clicks currently all arrive as CAD",
-   "statement": "Kobi stated that all incoming clicks currently come in as CAD regardless of whether the deal is US or Canadian; Emily did not contest this.",
-   "speakers": [
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:01:54",
-   "line_start": 79,
-   "line_end": 79,
-   "quote": "Kobi Kunasekaran: Um, right now they're all coming in as CAD for all of those clicks. Um, and when we create the signup record from that lick that comes in, um, the currency for that signup, uh, shouldn't be the one from the deal.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary",
-   "asr_note": "'lick' = click [ASR?]"
-  },
-  {
-   "item_id": "2026-08-27-1341-03",
-   "type": "requirement",
-   "firmness": "decided",
-   "feature_area": "Sign-Up",
-   "topic": "Deal market country sets signup payout currency",
-   "statement": "The market country of the deal (not the deal's commercial-terms currency) determines the payout currency for the sign-up. Emily confirmed this when Kobi restated it.",
-   "speakers": [
-    "Emily Vandenberg",
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:05:40",
-   "line_start": 134,
-   "line_end": 140,
-   "quote": "Kobi Kunasekaran: So the market currency for The deal determines the payout currency for the sign / Emily Vandenberg: The market country. / Kobi Kunasekaran: up. / Emily Vandenberg: Yes. For the deal determines the payout / Kobi Kunasekaran: Okay. / Emily Vandenberg: currency.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-04",
-   "type": "requirement",
-   "firmness": "decided",
-   "feature_area": "Sign-Up",
-   "topic": "Deal players only from deal's market country",
-   "statement": "For a deal whose market is Canada, the player can only come from Canada, so the payout is in Canadian currency.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:03:07",
-   "line_start": 94,
-   "line_end": 95,
-   "quote": "Kobi Kunasekaran: have signups coming in from like various regions um and not well when I say Canada like the market for the deal is Canada um your payout regardless of where the player comes from is going to be Canadian. / Emily Vandenberg: The player can only come from Canada.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  },
-  {
-   "item_id": "2026-08-27-1341-05",
-   "type": "requirement",
-   "firmness": "decided",
-   "feature_area": "Player",
-   "topic": "Player relocation edge case drives USD payouts",
-   "statement": "Edge case: a player who first signed up on a Canadian book may later move to the US and sign up for US books; those later sign-ups pay the rep and referral in USD. The book defines currency from a payout perspective.",
-   "speakers": [
-    "Emily Vandenberg",
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:03:07",
-   "line_start": 99,
-   "line_end": 109,
-   "quote": "Emily Vandenberg: but we technically could have a player in our ecosystem that has like that they come in as a Canadian like on a Canadian book like the book really defines currency from a payout perspective. um and then maybe two years down the road they move to the US which they're then eligible to sign up for books in the US they would come through and if they signed / Kobi Kunasekaran: Mhm. / Emily Vandenberg: up then the rep's payout would be uh you and like um and the referral / Kobi Kunasekaran: in USD that title. / Emily Vandenberg: USD",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes",
-   "asr_note": "'uh you' likely = USD [ASR?]"
-  },
-  {
-   "item_id": "2026-08-27-1341-06",
-   "type": "decision",
-   "firmness": "decided",
-   "feature_area": "Sign-Up",
-   "topic": "Stamp currency on signup, not player formula",
-   "statement": "Because of the relocation edge case, signup currency is not derived by a formula from the player; it is stamped on the sign-up record. Emily's reply is cut off at the time, but she later confirms the deal-market-country default for sign-up (lines 193-194, 245-246).",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:04:35",
-   "line_start": 110,
-   "line_end": 111,
-   "quote": "Kobi Kunasekaran: Uh okay. So that means we shouldn't just uh automatically use formula fields based on player. We need to stamp it on the sign up. / Emily Vandenberg: That's the",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-07",
-   "type": "open-question",
-   "firmness": "discussed",
-   "feature_area": "Sign-Up",
-   "topic": "Separate signup/payout currency field option",
-   "statement": "Emily said the current currency field under commercial terms will not work for sign-up payout currency and suggested a new field such as 'sign up currency' could be created, noting it could be solutioned several ways. No field design was fixed here.",
-   "speakers": [
-    "Emily Vandenberg",
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:04:35",
-   "line_start": 115,
-   "line_end": 131,
-   "quote": "Emily Vandenberg: Unless you want to create a new field which is / Kobi Kunasekaran: deal / Emily Vandenberg: like sign up, you know what I mean? Sign up currency. / Kobi Kunasekaran: like pay out currency or sign up currency. / Emily Vandenberg: But the way you currently have currency, / Kobi Kunasekaran: Yeah. / Emily Vandenberg: it's under commercial terms and it's just not Yeah. / Kobi Kunasekaran: Yeah. / Emily Vandenberg: going to work that way.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  },
-  {
-   "item_id": "2026-08-27-1341-08",
-   "type": "decision",
-   "firmness": "decided",
-   "feature_area": "Sign-Up",
-   "topic": "Market country to currency mapping",
-   "statement": "Jumpr will map deal market country to signup currency: Canada to CAD and US to USD. Emily later confirms Kobi will go with market country from the deal for sign-up.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:05:40",
-   "line_start": 140,
-   "line_end": 140,
-   "quote": "Kobi Kunasekaran: And then not necessarily the deal currency. So yeah. Okay. So I think what we'll do is like we'll do like a mapping, right? It's simple like if it's Canadian uh sorry if the market country is Canadian or Canada then uh currency is CAD and if market country is US currency is USD",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-09",
-   "type": "status-update",
-   "firmness": "decided",
-   "feature_area": "Deal",
-   "topic": "Market country has combined US and Canada option",
-   "statement": "The deal market country field currently includes a 'US and Canada' option because Joyce asked for an option for deals that span both countries.",
-   "speakers": [
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:05:40",
-   "line_start": 142,
-   "line_end": 149,
-   "quote": "Kobi Kunasekaran: Yeah. But one of the options for market country um we have is US and Canada because I think that that that was supposed to be one of the options. ... Kobi Kunasekaran: Yeah. And it is like I think that's the case for most for the most part. Um but she wanted that option for deals that span both countries. So we have like an option for market country to be Canada and US at the same time.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  },
-  {
-   "item_id": "2026-08-27-1341-10",
-   "type": "open-question",
-   "firmness": "discussed",
-   "feature_area": "Deal",
-   "topic": "Can deals span US and Canada",
-   "statement": "Open whether a deal can span both the US and Canada. Emily understood a deal is defined by a unique market, country and state combination; she thinks combined deals would break things and should be separate (with separate links), but will confirm with Joyce.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:07:03",
-   "line_start": 147,
-   "line_end": 156,
-   "quote": "Kobi Kunasekaran: You might have deals that span both. / Emily Vandenberg: Okay, I think I need to talk to Joyce about that cuz I didn't like I thought like the unique like what made it a deal was like the um unique market country market um state combination. ... Emily Vandenberg: Yeah. I just don't think that would work though cuz like let me take that back with her just to make sure I'm not missing something. But like if I think of it, it would break break everything if you if you put them / Kobi Kunasekaran: Okay. / Emily Vandenberg: as like combined. They should be separate. Like that's how we treat them.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-11",
-   "type": "action-item",
-   "firmness": "decided",
-   "feature_area": "Deal",
-   "topic": "Emily to confirm combined deals with Joyce",
-   "statement": "Emily will ask Joyce whether combined US and Canada deals are still needed and tell Kobi.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:16:16",
-   "line_start": 248,
-   "line_end": 251,
-   "quote": "Kobi Kunasekaran: Yeah. And then let me know about the Canada and US deals if that's still a thing or if we don't need to worry about that case / Emily Vandenberg: Yeah, / Kobi Kunasekaran: anymore. / Emily Vandenberg: I'm going into a meeting right now um with Joyce, so I'll ask her.",
-   "jira_keys_mentioned": [],
-   "owner": "Emily Vandenberg",
-   "due": "same day (Emily's next meeting with Joyce)",
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-12",
-   "type": "decision",
-   "firmness": "proposed",
-   "feature_area": "Deal",
-   "topic": "Deal payout currency field if no combined option",
-   "statement": "Kobi said that if the combined US/Canada option is not needed, a payout currency (or similar) on the deal based on market country could be stamped on the sign-up. This is conditional on Emily's check with Joyce.",
-   "speakers": [
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:08:16",
-   "line_start": 161,
-   "line_end": 161,
-   "quote": "Kobi Kunasekaran: Okay. If Yeah. If we don't need that option, then it becomes simple like we just map we have like a payout currency or something like that on the deal that's based on the market country and then that's the currency that we would stamp on the signup.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  },
-  {
-   "item_id": "2026-08-27-1341-13",
-   "type": "requirement",
-   "firmness": "discussed",
-   "feature_area": "Referral and Payouts",
-   "topic": "Payout rates in USD with FX conversion",
-   "statement": "Emily, reviewing contracts, said success pay rates are set in USD and Canadian amounts are a conversion; the payout module will need to handle FX when payouts are built. She was unsure and will confirm with Lena.",
-   "speakers": [
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:09:39",
-   "line_start": 177,
-   "line_end": 184,
-   "quote": "Emily Vandenberg: ... Yeah. Um the success pay rate for each is in USD and they have a Canadian which is a conversion. Yeah. like the I think the payout module has to handle the like like that when we get there. ... Emily Vandenberg: I can confirm that with Lena.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "no"
-  },
-  {
-   "item_id": "2026-08-27-1341-14",
-   "type": "action-item",
-   "firmness": "decided",
-   "feature_area": "Referral and Payouts",
-   "topic": "Emily to confirm payout structure with Lena",
-   "statement": "Emily will confirm the payout/FX structure with Lena.",
-   "speakers": [
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:11:53",
-   "line_start": 184,
-   "line_end": 184,
-   "quote": "Emily Vandenberg: I can confirm that with Lena.",
-   "jira_keys_mentioned": [],
-   "owner": "Emily Vandenberg",
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-15",
-   "type": "requirement",
-   "firmness": "discussed",
-   "feature_area": "Referral and Payouts",
-   "topic": "Referral currency set at referral level",
-   "statement": "When Kobi raised referral currency, Emily said they will set it and it will stay at the referral level. The exchange is fragmented.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:11:53",
-   "line_start": 187,
-   "line_end": 190,
-   "quote": "Kobi Kunasekaran: Cuz like there's also like the concept of like referrals as well, right? And the referral currency that determines the payout or / Emily Vandenberg: yeah and we'll set that we will set that um and that will stay / Kobi Kunasekaran: referrals. Yeah. / Emily Vandenberg: yeah at a referral",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  },
-  {
-   "item_id": "2026-08-27-1341-16",
-   "type": "decision",
-   "firmness": "decided",
-   "feature_area": "Sign-Up",
-   "topic": "Default signup currency from deal, editable",
-   "statement": "For now, Kobi will use the existing sign-up currency field, default it from the deal based on market country, and surface it so Ops can change it. Emily agreed and restated it at the end of the call.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:11:53",
-   "line_start": 193,
-   "line_end": 194,
-   "quote": "Kobi Kunasekaran: revisit payouts when we start like going through the discovery for it and we can come back and update that. So maybe what I can do for now in uh for the currency for the sign up is uh make it I mean we already have the field to set it and I will set it from the deal based on the market country um as a default and then uh it is surface for ops. / Emily Vandenberg: Yeah.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-17",
-   "type": "action-item",
-   "firmness": "decided",
-   "feature_area": "Sign-Up",
-   "topic": "Kobi to implement signup currency default",
-   "statement": "Kobi will set the sign-up currency default from the deal's market country and keep it editable for Ops.",
-   "speakers": [
-    "Emily Vandenberg",
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:16:16",
-   "line_start": 245,
-   "line_end": 246,
-   "quote": "Emily Vandenberg: Okay, for sign up then you'll go with market country um from the deal and then I / Kobi Kunasekaran: Yeah. Yeah.",
-   "jira_keys_mentioned": [],
-   "owner": "Kobi Kunasekaran",
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-18",
-   "type": "deferral",
-   "firmness": "decided",
-   "feature_area": "Referral and Payouts",
-   "topic": "Separate payout currency field deferred",
-   "statement": "Any separate payout currency field (in addition to the base sign-up currency) is deferred until payouts discovery and implementation.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:11:53",
-   "line_start": 195,
-   "line_end": 201,
-   "quote": "Kobi Kunasekaran: So if you do need to change the default currency on the signup, you could. And then when we implement payouts and if that needs like a separate field to track payout currency or anything like that in addition to like the base signup currency, uh we could we could add that in uh at that / Emily Vandenberg: Okay. / Kobi Kunasekaran: point.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-19",
-   "type": "risk-blocker",
-   "firmness": "decided",
-   "feature_area": "CMS Integration",
-   "topic": "Player country not currently passing",
-   "statement": "Player country is not currently being passed to Salesforce; Emily will look into why and will pass the country the player signed up from.",
-   "speakers": [
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:13:07",
-   "line_start": 204,
-   "line_end": 204,
-   "quote": "Emily Vandenberg: passed. I going to look into why it's not passing, but we will have it in the we will have it to pass you like where they've signed up from the the country that they've signed up with as like the country they belong",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  },
-  {
-   "item_id": "2026-08-27-1341-20",
-   "type": "action-item",
-   "firmness": "decided",
-   "feature_area": "CMS Integration",
-   "topic": "Emily to fix passing player country",
-   "statement": "Emily will sort out passing the player country to Jumpr.",
-   "speakers": [
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:16:16",
-   "line_start": 245,
-   "line_end": 247,
-   "quote": "Emily Vandenberg: Okay, for sign up then you'll go with market country um from the deal and then I / Kobi Kunasekaran: Yeah. Yeah. / Emily Vandenberg: will figure out passing the country to you.",
-   "jira_keys_mentioned": [],
-   "owner": "Emily Vandenberg",
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-21",
-   "type": "open-question",
-   "firmness": "discussed",
-   "feature_area": "Player",
-   "topic": "Need for player-level currency",
-   "statement": "Emily questioned whether a currency is needed on the player since it rolls up under the book or deal. Kobi said it is not needed now but future aggregates (e.g. total paid to player, redeposits) would need it.",
-   "speakers": [
-    "Emily Vandenberg",
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:13:07",
-   "line_start": 202,
-   "line_end": 216,
-   "quote": "Emily Vandenberg: And then player like I don't know if you just cuz I don't really know if you need the concept of a currency at a player like um but because it really rolls up under like the book um or the deal but you tell me if you need something ... Kobi Kunasekaran: right now we don't I'm just like future thinking because uh we're probably going to have like, you know, total amounts paid paid to the player and things like that added later.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  },
-  {
-   "item_id": "2026-08-27-1341-22",
-   "type": "requirement",
-   "firmness": "decided",
-   "feature_area": "Player",
-   "topic": "Player currency must not default to CAD",
-   "statement": "Player currency should not all default to Canadian; it can be assumed from the country the player signed up from.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:15:01",
-   "line_start": 221,
-   "line_end": 224,
-   "quote": "Kobi Kunasekaran: So it's just it's just like a currency field for now. I just want to make sure there's there's some value and that it's not all default to / Emily Vandenberg: Yeah. Yeah. Okay. Yeah. / Kobi Kunasekaran: Canadian. / Emily Vandenberg: I think um we definitely shouldn't default to Canadian. So, you can assume based on the country that they sent up, I'll get that sorted.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes",
-   "asr_note": "'sent up' likely = signed up [ASR?]"
-  },
-  {
-   "item_id": "2026-08-27-1341-23",
-   "type": "decision",
-   "firmness": "decided",
-   "feature_area": "Player",
-   "topic": "Player currency defaults from player country",
-   "statement": "Kobi will set the player currency from the player country for now; it stays editable (e.g. if the player moves) and has no effect on sign-ups or other records at this time.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:16:16",
-   "line_start": 242,
-   "line_end": 244,
-   "quote": "Kobi Kunasekaran: I think let's let's use the player country for now um and set the currency. It can always be changed and then if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that / Emily Vandenberg: Okay, / Kobi Kunasekaran: point.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-24",
-   "type": "action-item",
-   "firmness": "decided",
-   "feature_area": "Player",
-   "topic": "Kobi to set player currency logic",
-   "statement": "Kobi will implement setting player currency from player country, editable, with no implications on sign-ups or other records.",
-   "speakers": [
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:14:08",
-   "line_start": 216,
-   "line_end": 216,
-   "quote": "Kobi Kunasekaran: ... I can do the same thing as we're doing for deal um where we set the player country based on the the sorry where we set the player currency based on the player country for now and then it can still be editable so you can change it later if they if they move or change addresses or anything like that. It's not going to have any implications on signups or any other record at this time.",
-   "jira_keys_mentioned": [],
-   "owner": "Kobi Kunasekaran",
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "yes"
-  },
-  {
-   "item_id": "2026-08-27-1341-25",
-   "type": "requirement",
-   "firmness": "decided",
-   "feature_area": "Redeposits",
-   "topic": "Redeposit currency follows the deal",
-   "statement": "A redeposit is made against a deal, so it uses the same currency as the deal (follows the deal country). Kobi agreed.",
-   "speakers": [
-    "Emily Vandenberg",
-    "Kobi Kunasekaran"
-   ],
-   "timestamp": "00:15:01",
-   "line_start": 226,
-   "line_end": 232,
-   "quote": "Emily Vandenberg: deal cuz like at the redeposit / Kobi Kunasekaran: Yeah, / Emily Vandenberg: level you're just going back you're just redepositing against a deal right and so then you would assume the same currency. / Kobi Kunasekaran: correct. Yeah. / Emily Vandenberg: So like the redeposit will follow the deal / Kobi Kunasekaran: Yeah, that that makes sense. / Emily Vandenberg: country.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "no"
-  },
-  {
-   "item_id": "2026-08-27-1341-26",
-   "type": "decision",
-   "firmness": "proposed",
-   "feature_area": "Player",
-   "topic": "Player aggregates convert to base currency",
-   "statement": "Kobi described how future player-level totals would work: amounts in different currencies are added using each currency's conversion rate at the time of aggregation and displayed in the player's base currency. Emily said 'got it'; no build commitment was made.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:15:01",
-   "line_start": 233,
-   "line_end": 241,
-   "quote": "Kobi Kunasekaran: So when it's being added up it's going to respect each currency's conversion rate at the time that we do the uh the aggregation. And then when it's displayed on the player record, uh it's going to be displayed with the base currency of the player. ... Emily Vandenberg: got / Kobi Kunasekaran: Um so yeah, / Emily Vandenberg: it.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "no"
-  },
-  {
-   "item_id": "2026-08-27-1341-27",
-   "type": "deferral",
-   "firmness": "decided",
-   "feature_area": "Player",
-   "topic": "Player rollup logic deferred",
-   "statement": "Any additional currency logic for player rollups is deferred until rollups are built.",
-   "speakers": [
-    "Kobi Kunasekaran",
-    "Emily Vandenberg"
-   ],
-   "timestamp": "00:16:16",
-   "line_start": 242,
-   "line_end": 244,
-   "quote": "Kobi Kunasekaran: It can always be changed and then if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that / Emily Vandenberg: Okay, / Kobi Kunasekaran: point.",
-   "jira_keys_mentioned": [],
-   "owner": null,
-   "due": null,
-   "supersedes_hint": null,
-   "summary_agreement": "not in summary"
-  }
- ],
- "gemini_disagreements": [
-  {
-   "summary_text": "Payout structures remain based on USD with foreign exchange conversions applied for local disbursements.",
-   "transcript_quote": "Emily Vandenberg: ... the success pay rate for each is in USD and they have a Canadian which is a conversion. Yeah. like the I think the payout module has to handle the like like that when we get there. ... Emily Vandenberg: I can confirm that with Lena.",
-   "line": 177,
-   "why": "Summary states the USD/FX payout structure as settled; in the transcript Emily is unsure while reading contracts and says she will confirm with Lena. Summary is firmer than the transcript."
-  },
-  {
-   "summary_text": "Future financial aggregations will utilize historical conversion rates to display totals in base currency.",
-   "transcript_quote": "Kobi Kunasekaran: So when it's being added up it's going to respect each currency's conversion rate at the time that we do the uh the aggregation. ... Kobi Kunasekaran: ... if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that point.",
-   "line": 238,
-   "why": "Summary turns Kobi's illustrative explanation into a firm plan ('will utilize') and says 'historical conversion rates'; the transcript says the rate at the time of aggregation and defers rollup logic."
-  },
-  {
-   "summary_text": "(Details) Kobi Kunasekaran proposed setting the initial player currency based on the player country, making it editable for address changes, while redeposits will follow the deal country's currency (00:14:08).",
-   "transcript_quote": "Emily Vandenberg: level you're just going back you're just redepositing against a deal right and so then you would assume the same currency. / Kobi Kunasekaran: correct. Yeah. / Emily Vandenberg: So like the redeposit will follow the deal",
-   "line": 228,
-   "why": "Misattribution: the redeposit-follows-deal rule was stated by Emily (client) and agreed by Kobi, not proposed by Kobi."
-  }
- ],
- "rule5_redactions": 1,
- "secret_exposed": false,
- "notes": "17-minute 1:1 on currency logic (sign-up, deal, player, redeposit, payout). No Jira keys spoken. Rule 5: specific referral/success pay-rate amounts read from contracts (line 177/179) not recorded. Joyce and Lena are named but not present; outcomes of those follow-ups are not in this doc. Gemini Decisions/Next steps broadly match the transcript; the Summary hardens the payout/FX structure and the aggregation approach."
+  "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0",
+  "title": "Emily / Kobi (client working session)",
+  "meeting_date": "2026-08-27",
+  "meeting_time": "13:41",
+  "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+  "meeting_type": "client working session",
+  "tier": "tier1",
+  "attendees": [
+    "Emily Vandenberg (WagerTech)",
+    "Kobi Kunasekaran (Jumpr)"
+  ],
+  "lines_total": 269,
+  "read_complete": true,
+  "items": [
+    {
+      "item_id": "2026-08-27-1341-01",
+      "type": "requirement",
+      "firmness": "decided",
+      "feature_area": "Deal",
+      "topic": "Deal currency means operator-to-WagerTech payment",
+      "statement": "The currency field under the deal's commercial terms states the currency in which the operator pays WagerTech (typically USD). It must not be assumed to be the currency WagerTech pays out on the sign-up.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:00:49",
+      "line_start": 71,
+      "line_end": 71,
+      "quote": "Emily Vandenberg: So the commercial terms of the deal which would be labeled in the currency field don't always match what we would pay have the currency we would pay out to the sign up. So that's just telling you how they're going to pay like what funds they're going to pay us in. And typically they pay us in USDU and it's our affiliates. So that can't be assumed. Currency to currency can't be assumed.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "'USDU' = USD [ASR?]"
+    },
+    {
+      "item_id": "2026-08-27-1341-02",
+      "type": "status-update",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Clicks currently all arrive as CAD",
+      "statement": "Kobi stated that all incoming clicks currently come in as CAD regardless of whether the deal is US or Canadian; Emily did not contest this.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:01:54",
+      "line_start": 79,
+      "line_end": 79,
+      "quote": "Kobi Kunasekaran: Um, right now they're all coming in as CAD for all of those clicks. Um, and when we create the signup record from that lick that comes in, um, the currency for that signup, uh, shouldn't be the one from the deal.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary",
+      "asr_note": "'lick' = click [ASR?]",
+      "critic_note": "Kept as status-update; the CAD claim is Kobi's own restatement ('let me see if I understand correctly') and Emily only responded to the deal-currency part, so the CAD status is Jumpr's statement, not client-confirmed."
+    },
+    {
+      "item_id": "2026-08-27-1341-03",
+      "type": "requirement",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Deal market country sets signup payout currency",
+      "statement": "The market country of the deal (not the deal's commercial-terms currency) determines the payout currency for the sign-up. Emily confirmed this when Kobi restated it.",
+      "speakers": [
+        "Emily Vandenberg",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:05:40",
+      "line_start": 134,
+      "line_end": 140,
+      "quote": "Kobi Kunasekaran: So the market currency for The deal determines the payout currency for the sign / Emily Vandenberg: The market country. / Kobi Kunasekaran: up. / Emily Vandenberg: Yes. For the deal determines the payout / Kobi Kunasekaran: Okay. / Emily Vandenberg: currency.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-04",
+      "type": "requirement",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Deal players only from deal's market country",
+      "statement": "For a deal whose market is Canada, the player can only come from Canada, so the payout is in Canadian currency.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:03:07",
+      "line_start": 94,
+      "line_end": 95,
+      "quote": "Kobi Kunasekaran: have signups coming in from like various regions um and not well when I say Canada like the market for the deal is Canada um your payout regardless of where the player comes from is going to be Canadian. / Emily Vandenberg: The player can only come from Canada.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-27-1341-05",
+      "type": "requirement",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Player relocation edge case drives USD payouts",
+      "statement": "Edge case: a player who first signed up on a Canadian book may later move to the US and sign up for US books; those later sign-ups pay the rep and referral in USD. The book defines currency from a payout perspective.",
+      "speakers": [
+        "Emily Vandenberg",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:03:07",
+      "line_start": 99,
+      "line_end": 109,
+      "quote": "Emily Vandenberg: but we technically could have a player in our ecosystem that has like that they come in as a Canadian like on a Canadian book like the book really defines currency from a payout perspective. um and then maybe two years down the road they move to the US which they're then eligible to sign up for books in the US they would come through and if they signed / Kobi Kunasekaran: Mhm. / Emily Vandenberg: up then the rep's payout would be uh you and like um and the referral / Kobi Kunasekaran: in USD that title. / Emily Vandenberg: USD",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "'uh you' likely = USD [ASR?]"
+    },
+    {
+      "item_id": "2026-08-27-1341-06",
+      "type": "decision",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Stamp currency on signup, not player formula",
+      "statement": "Because of the relocation edge case, signup currency is not derived by a formula from the player; it is stamped on the sign-up record. Emily's reply is cut off at the time, but she later confirms the deal-market-country default for sign-up (lines 193-194, 245-246).",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:04:35",
+      "line_start": 110,
+      "line_end": 111,
+      "quote": "Kobi Kunasekaran: Uh okay. So that means we shouldn't just uh automatically use formula fields based on player. We need to stamp it on the sign up. / Emily Vandenberg: That's the",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-07",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Sign-Up",
+      "topic": "Separate signup/payout currency field option",
+      "statement": "Emily said the current currency field under commercial terms will not work for sign-up payout currency and suggested a new field such as 'sign up currency' could be created, noting it could be solutioned several ways. No field design was fixed here.",
+      "speakers": [
+        "Emily Vandenberg",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:04:35",
+      "line_start": 115,
+      "line_end": 131,
+      "quote": "Emily Vandenberg: Unless you want to create a new field which is / Kobi Kunasekaran: deal / Emily Vandenberg: like sign up, you know what I mean? Sign up currency. / Kobi Kunasekaran: like pay out currency or sign up currency. / Emily Vandenberg: But the way you currently have currency, / Kobi Kunasekaran: Yeah. / Emily Vandenberg: it's under commercial terms and it's just not Yeah. / Kobi Kunasekaran: Yeah. / Emily Vandenberg: going to work that way.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-27-1341-08",
+      "type": "decision",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Market country to currency mapping",
+      "statement": "Jumpr will map deal market country to signup currency: Canada to CAD and US to USD. Emily later confirms Kobi will go with market country from the deal for sign-up.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:05:40",
+      "line_start": 140,
+      "line_end": 140,
+      "quote": "Kobi Kunasekaran: And then not necessarily the deal currency. So yeah. Okay. So I think what we'll do is like we'll do like a mapping, right? It's simple like if it's Canadian uh sorry if the market country is Canadian or Canada then uh currency is CAD and if market country is US currency is USD",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-09",
+      "type": "status-update",
+      "firmness": "decided",
+      "feature_area": "Deal",
+      "topic": "Market country has combined US and Canada option",
+      "statement": "The deal market country field currently includes a 'US and Canada' option because Joyce asked for an option for deals that span both countries.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:05:40",
+      "line_start": 142,
+      "line_end": 149,
+      "quote": "Kobi Kunasekaran: Yeah. But one of the options for market country um we have is US and Canada because I think that that that was supposed to be one of the options. ... Kobi Kunasekaran: Yeah. And it is like I think that's the case for most for the most part. Um but she wanted that option for deals that span both countries. So we have like an option for market country to be Canada and US at the same time.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-27-1341-10",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Deal",
+      "topic": "Can deals span US and Canada",
+      "statement": "Open whether a deal can span both the US and Canada. Emily understood a deal is defined by a unique market, country and state combination; she thinks combined deals would break things and should be separate (with separate links), but will confirm with Joyce.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:07:03",
+      "line_start": 147,
+      "line_end": 156,
+      "quote": "Kobi Kunasekaran: You might have deals that span both. / Emily Vandenberg: Okay, I think I need to talk to Joyce about that cuz I didn't like I thought like the unique like what made it a deal was like the um unique market country market um state combination. ... Emily Vandenberg: Yeah. I just don't think that would work though cuz like let me take that back with her just to make sure I'm not missing something. But like if I think of it, it would break break everything if you if you put them / Kobi Kunasekaran: Okay. / Emily Vandenberg: as like combined. They should be separate. Like that's how we treat them.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-11",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Deal",
+      "topic": "Emily to confirm combined deals with Joyce",
+      "statement": "Emily will ask Joyce whether combined US and Canada deals are still needed and tell Kobi.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:16:16",
+      "line_start": 248,
+      "line_end": 251,
+      "quote": "Kobi Kunasekaran: Yeah. And then let me know about the Canada and US deals if that's still a thing or if we don't need to worry about that case / Emily Vandenberg: Yeah, / Kobi Kunasekaran: anymore. / Emily Vandenberg: I'm going into a meeting right now um with Joyce, so I'll ask her.",
+      "jira_keys_mentioned": [],
+      "owner": "Emily Vandenberg",
+      "due": "same day (Emily's next meeting with Joyce)",
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-12",
+      "type": "decision",
+      "firmness": "proposed",
+      "feature_area": "Deal",
+      "topic": "Deal payout currency field if no combined option",
+      "statement": "Kobi said that if the combined US/Canada option is not needed, a payout currency (or similar) on the deal based on market country could be stamped on the sign-up. This is conditional on Emily's check with Joyce.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:08:16",
+      "line_start": 161,
+      "line_end": 161,
+      "quote": "Kobi Kunasekaran: Okay. If Yeah. If we don't need that option, then it becomes simple like we just map we have like a payout currency or something like that on the deal that's based on the market country and then that's the currency that we would stamp on the signup.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-27-1341-13",
+      "type": "requirement",
+      "firmness": "discussed",
+      "feature_area": "Referral and Payouts",
+      "topic": "Payout rates in USD with FX conversion",
+      "statement": "Emily, reviewing contracts, said success pay rates are set in USD and Canadian amounts are a conversion; the payout module will need to handle FX when payouts are built. She was unsure and will confirm with Lena.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:09:39",
+      "line_start": 177,
+      "line_end": 184,
+      "quote": "Emily Vandenberg: ... Yeah. Um the success pay rate for each is in USD and they have a Canadian which is a conversion. Yeah. like the I think the payout module has to handle the like like that when we get there. ... Emily Vandenberg: I can confirm that with Lena.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no"
+    },
+    {
+      "item_id": "2026-08-27-1341-14",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Referral and Payouts",
+      "topic": "Emily to confirm payout structure with Lena",
+      "statement": "Emily will confirm the payout/FX structure with Lena.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:11:53",
+      "line_start": 184,
+      "line_end": 184,
+      "quote": "Emily Vandenberg: I can confirm that with Lena.",
+      "jira_keys_mentioned": [],
+      "owner": "Emily Vandenberg",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-15",
+      "type": "requirement",
+      "firmness": "discussed",
+      "feature_area": "Referral and Payouts",
+      "topic": "Referral currency set at referral level",
+      "statement": "When Kobi raised referral currency, Emily said they will set it and it will stay at the referral level. The exchange is fragmented.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:11:53",
+      "line_start": 187,
+      "line_end": 190,
+      "quote": "Kobi Kunasekaran: Cuz like there's also like the concept of like referrals as well, right? And the referral currency that determines the payout or / Emily Vandenberg: yeah and we'll set that we will set that um and that will stay / Kobi Kunasekaran: referrals. Yeah. / Emily Vandenberg: yeah at a referral",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-27-1341-16",
+      "type": "decision",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Default signup currency from deal, editable",
+      "statement": "For now, Kobi will use the existing sign-up currency field, default it from the deal based on market country, and surface it so Ops can change it. Emily agreed and restated it at the end of the call.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:11:53",
+      "line_start": 193,
+      "line_end": 194,
+      "quote": "Kobi Kunasekaran: revisit payouts when we start like going through the discovery for it and we can come back and update that. So maybe what I can do for now in uh for the currency for the sign up is uh make it I mean we already have the field to set it and I will set it from the deal based on the market country um as a default and then uh it is surface for ops. / Emily Vandenberg: Yeah.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-17",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Sign-Up",
+      "topic": "Kobi to implement signup currency default",
+      "statement": "Kobi will set the sign-up currency default from the deal's market country and keep it editable for Ops.",
+      "speakers": [
+        "Emily Vandenberg",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:16:16",
+      "line_start": 245,
+      "line_end": 246,
+      "quote": "Emily Vandenberg: for sign up then you'll go with market country um from the deal and then I / Kobi Kunasekaran: Yeah. Yeah.",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "critic_note": "Quote corrected: 'Okay,' belongs to line 243, not line 245; removed so the quote matches lines 245-246 verbatim."
+    },
+    {
+      "item_id": "2026-08-27-1341-18",
+      "type": "deferral",
+      "firmness": "decided",
+      "feature_area": "Referral and Payouts",
+      "topic": "Separate payout currency field deferred",
+      "statement": "Any separate payout currency field (in addition to the base sign-up currency) is deferred until payouts discovery and implementation.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:11:53",
+      "line_start": 195,
+      "line_end": 201,
+      "quote": "Kobi Kunasekaran: So if you do need to change the default currency on the signup, you could. And then when we implement payouts and if that needs like a separate field to track payout currency or anything like that in addition to like the base signup currency, uh we could we could add that in uh at that / Emily Vandenberg: Okay. / Kobi Kunasekaran: point.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-19",
+      "type": "risk-blocker",
+      "firmness": "decided",
+      "feature_area": "CMS Integration",
+      "topic": "Player country not currently passing",
+      "statement": "Player country is not currently being passed to Salesforce; Emily will look into why and will pass the country the player signed up from.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:13:07",
+      "line_start": 204,
+      "line_end": 204,
+      "quote": "Emily Vandenberg: passed. I going to look into why it's not passing, but we will have it in the we will have it to pass you like where they've signed up from the the country that they've signed up with as like the country they belong",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-27-1341-20",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "CMS Integration",
+      "topic": "Emily to fix passing player country",
+      "statement": "Emily will sort out passing the player country to Jumpr.",
+      "speakers": [
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:16:16",
+      "line_start": 245,
+      "line_end": 247,
+      "quote": "Emily Vandenberg: for sign up then you'll go with market country um from the deal and then I / Kobi Kunasekaran: Yeah. Yeah. / Emily Vandenberg: will figure out passing the country to you.",
+      "jira_keys_mentioned": [],
+      "owner": "Emily Vandenberg",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "critic_note": "Quote corrected: 'Okay,' belongs to line 243, not line 245; removed so the quote matches lines 245-247 verbatim."
+    },
+    {
+      "item_id": "2026-08-27-1341-21",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Player",
+      "topic": "Need for player-level currency",
+      "statement": "Emily questioned whether a currency is needed on the player since it rolls up under the book or deal. Kobi said it is not needed now but future aggregates (e.g. total paid to player, redeposits) would need it.",
+      "speakers": [
+        "Emily Vandenberg",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:13:07",
+      "line_start": 202,
+      "line_end": 209,
+      "quote": "Emily Vandenberg: And then player like I don't know if you just cuz I don't really know if you need the concept of a currency at a player like um but because it really rolls up under like the book um or the deal but you tell me if you need something ... Kobi Kunasekaran: right now we don't I'm just like future thinking because uh we're probably going to have like, you know, total amounts paid paid to the player and things like that added later.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary",
+      "critic_note": "line_end corrected from 216 to 209 (quote ends on line 209)."
+    },
+    {
+      "item_id": "2026-08-27-1341-22",
+      "type": "requirement",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Player currency must not default to CAD",
+      "statement": "Player currency should not all default to Canadian; it can be assumed from the country the player signed up from.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:15:01",
+      "line_start": 221,
+      "line_end": 224,
+      "quote": "Kobi Kunasekaran: So it's just it's just like a currency field for now. I just want to make sure there's there's some value and that it's not all default to / Emily Vandenberg: Yeah. Yeah. Okay. Yeah. / Kobi Kunasekaran: Canadian. / Emily Vandenberg: I think um we definitely shouldn't default to Canadian. So, you can assume based on the country that they sent up, I'll get that sorted.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "asr_note": "'sent up' likely = signed up [ASR?]"
+    },
+    {
+      "item_id": "2026-08-27-1341-23",
+      "type": "decision",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Player currency defaults from player country",
+      "statement": "Kobi will set the player currency from the player country for now; it stays editable (e.g. if the player moves) and has no effect on sign-ups or other records at this time.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:16:16",
+      "line_start": 242,
+      "line_end": 244,
+      "quote": "Kobi Kunasekaran: I think let's let's use the player country for now um and set the currency. It can always be changed and then if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that / Emily Vandenberg: Okay, / Kobi Kunasekaran: point.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-24",
+      "type": "action-item",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Kobi to set player currency logic",
+      "statement": "Kobi will implement setting player currency from player country, editable, with no implications on sign-ups or other records.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:14:08",
+      "line_start": 216,
+      "line_end": 216,
+      "quote": "Kobi Kunasekaran: ... I can do the same thing as we're doing for deal um where we set the player country based on the the sorry where we set the player currency based on the player country for now and then it can still be editable so you can change it later if they if they move or change addresses or anything like that. It's not going to have any implications on signups or any other record at this time.",
+      "jira_keys_mentioned": [],
+      "owner": "Kobi Kunasekaran",
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes"
+    },
+    {
+      "item_id": "2026-08-27-1341-25",
+      "type": "requirement",
+      "firmness": "decided",
+      "feature_area": "Redeposits",
+      "topic": "Redeposit currency follows the deal",
+      "statement": "A redeposit is made against a deal, so it uses the same currency as the deal (follows the deal country). Kobi agreed.",
+      "speakers": [
+        "Emily Vandenberg",
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:15:01",
+      "line_start": 226,
+      "line_end": 232,
+      "quote": "Emily Vandenberg: deal cuz like at the redeposit / Kobi Kunasekaran: Yeah, / Emily Vandenberg: level you're just going back you're just redepositing against a deal right and so then you would assume the same currency. / Kobi Kunasekaran: correct. Yeah. / Emily Vandenberg: So like the redeposit will follow the deal / Kobi Kunasekaran: Yeah, that that makes sense. / Emily Vandenberg: country.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no"
+    },
+    {
+      "item_id": "2026-08-27-1341-26",
+      "type": "decision",
+      "firmness": "proposed",
+      "feature_area": "Player",
+      "topic": "Player aggregates convert to base currency",
+      "statement": "Kobi described how future player-level totals would work: amounts in different currencies are added using each currency's conversion rate at the time of aggregation and displayed in the player's base currency. Emily said 'got it'; no build commitment was made.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:15:01",
+      "line_start": 233,
+      "line_end": 241,
+      "quote": "Kobi Kunasekaran: So when it's being added up it's going to respect each currency's conversion rate at the time that we do the uh the aggregation. And then when it's displayed on the player record, uh it's going to be displayed with the base currency of the player. ... Emily Vandenberg: got / Kobi Kunasekaran: Um so yeah, / Emily Vandenberg: it.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "no"
+    },
+    {
+      "item_id": "2026-08-27-1341-27",
+      "type": "deferral",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Player rollup logic deferred",
+      "statement": "Any additional currency logic for player rollups is deferred until rollups are built.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:16:16",
+      "line_start": 242,
+      "line_end": 244,
+      "quote": "Kobi Kunasekaran: It can always be changed and then if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that / Emily Vandenberg: Okay, / Kobi Kunasekaran: point.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary"
+    },
+    {
+      "item_id": "2026-08-27-1341-28",
+      "type": "status-update",
+      "firmness": "decided",
+      "feature_area": "Player",
+      "topic": "Player record has only signup count",
+      "statement": "Kobi stated that the player record currently only has a total signups count (a flat number), so there is no currency concept on the player yet; currency matters only if amounts paid or redeposits are aggregated later.",
+      "speakers": [
+        "Kobi Kunasekaran"
+      ],
+      "timestamp": "00:14:08",
+      "line_start": 216,
+      "line_end": 216,
+      "quote": "Kobi Kunasekaran: But then when we like if we want to start doing aggregates, right? Like right now we just have like total signups. So it's just a flat like number of signups. So accounts there's no currency concept.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary",
+      "added_by": "critic"
+    },
+    {
+      "item_id": "2026-08-27-1341-29",
+      "type": "requirement",
+      "firmness": "discussed",
+      "feature_area": "Referral and Payouts",
+      "topic": "Payout records carry their own currency",
+      "statement": "Kobi explained that payout objects are separate from the player and show whatever currency is set on those payout records; the player currency only governs displayed aggregates. Emily acknowledged with 'Yeah'; no payout design was fixed.",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:14:08",
+      "line_start": 214,
+      "line_end": 215,
+      "quote": "Kobi Kunasekaran: So like the payout objects is separate like whatever currency we set on those records is what going to show up there. / Emily Vandenberg: Yeah.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "not in summary",
+      "added_by": "critic"
+    },
+    {
+      "item_id": "2026-08-27-1341-30",
+      "type": "open-question",
+      "firmness": "discussed",
+      "feature_area": "Deal",
+      "topic": "Selectable currency for dual-country deals",
+      "statement": "Kobi asked whether there will be deals where the country could be both US and Canada and, if so, whether the currency should be selectable. Emily replied that a deal is defined by the market, country and state combination; the question folds into the open Joyce check (items 10-11).",
+      "speakers": [
+        "Kobi Kunasekaran",
+        "Emily Vandenberg"
+      ],
+      "timestamp": "00:05:40",
+      "line_start": 140,
+      "line_end": 141,
+      "quote": "Kobi Kunasekaran: ... do we are are we going to have deals where uh the country could be both and in that case should we make it selectable / Emily Vandenberg: But the deal is defined by market by the combination of market, country and state.",
+      "jira_keys_mentioned": [],
+      "owner": null,
+      "due": null,
+      "supersedes_hint": null,
+      "summary_agreement": "yes",
+      "added_by": "critic"
+    }
+  ],
+  "gemini_disagreements": [
+    {
+      "summary_text": "Payout structures remain based on USD with foreign exchange conversions applied for local disbursements.",
+      "transcript_quote": "Emily Vandenberg: ... the success pay rate for each is in USD and they have a Canadian which is a conversion. Yeah. like the I think the payout module has to handle the like like that when we get there. ... Emily Vandenberg: I can confirm that with Lena.",
+      "line": 177,
+      "why": "Summary states the USD/FX payout structure as settled; in the transcript Emily is unsure while reading contracts and says she will confirm with Lena. Summary is firmer than the transcript."
+    },
+    {
+      "summary_text": "Future financial aggregations will utilize historical conversion rates to display totals in base currency.",
+      "transcript_quote": "Kobi Kunasekaran: So when it's being added up it's going to respect each currency's conversion rate at the time that we do the uh the aggregation. ... Kobi Kunasekaran: ... if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that point.",
+      "line": 238,
+      "why": "Summary turns Kobi's illustrative explanation into a firm plan ('will utilize') and says 'historical conversion rates'; the transcript says the rate at the time of aggregation and defers rollup logic."
+    },
+    {
+      "summary_text": "(Details) Kobi Kunasekaran proposed setting the initial player currency based on the player country, making it editable for address changes, while redeposits will follow the deal country's currency (00:14:08).",
+      "transcript_quote": "Emily Vandenberg: level you're just going back you're just redepositing against a deal right and so then you would assume the same currency. / Kobi Kunasekaran: correct. Yeah. / Emily Vandenberg: So like the redeposit will follow the deal",
+      "line": 228,
+      "why": "Misattribution: the redeposit-follows-deal rule was stated by Emily (client) and agreed by Kobi, not proposed by Kobi."
+    },
+    {
+      "summary_text": "(Details) Emily Vandenberg stated they would confirm this payout structure and referral currency configuration with Lena (00:09:39).",
+      "transcript_quote": "Emily Vandenberg: I can confirm that with Lena. / ... / Kobi Kunasekaran: Cuz like there's also like the concept of like referrals as well, right? And the referral currency that determines the payout or / Emily Vandenberg: yeah and we'll set that we will set that um and that will stay",
+      "line": 184,
+      "why": "Emily's Lena follow-up is about the USD/FX payout structure; the referral-currency exchange comes after it and Emily says 'we will set that', not that she will confirm it with Lena. Summary extends the Lena action to referral currency.",
+      "added_by": "critic"
+    }
+  ],
+  "rule5_redactions": 1,
+  "secret_exposed": false,
+  "notes": "17-minute 1:1 on currency logic (sign-up, deal, player, redeposit, payout). No Jira keys spoken. Rule 5: specific referral/success pay-rate amounts read from contracts (line 177/179) not recorded. Joyce and Lena are named but not present; outcomes of those follow-ups are not in this doc. Gemini Decisions/Next steps broadly match the transcript; the Summary hardens the payout/FX structure and the aggregation approach. Critic: read all 269 lines; added 3 items (28-30); fixed quotes on items 17 and 20 ('Okay,' was from line 243); corrected line_end on item 21; annotated item 02; added 1 Gemini disagreement (Lena/referral currency). All other quotes verified verbatim.",
+  "critic_read_complete": true
 }

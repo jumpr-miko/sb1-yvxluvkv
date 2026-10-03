@@ -925,7 +925,8 @@
    "due": null,
    "supersedes_hint": null,
    "summary_agreement": "yes",
-   "quote_verified": true
+   "quote_verified": true,
+   "critic_note": "Firmness kept as decided for the requirement (no clunky multi-screen process; one guided process). Joyce accepted the guided multi-step direction ('Sure.', line 734). The detailed workflow design is still pending from Kobi (item 42)."
   },
   {
    "item_id": "2026-09-25-1030-42",
@@ -1637,6 +1638,101 @@
    "supersedes_hint": null,
    "summary_agreement": "no",
    "quote_verified": true
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "asr_note": null,
+   "quote_verified": true,
+   "added_by": "critic",
+   "item_id": "2026-09-25-1030-74",
+   "type": "requirement",
+   "firmness": "decided",
+   "feature_area": "Referral and Payouts",
+   "topic": "Two currencies and amounts per signup",
+   "statement": "Each signup carries two currency concepts and two amounts: the currency/amount used to pay the player, and the referrer's payout currency/amount (from the referrer's payment preference and the matrix). The referrer's typical currency (e.g. Ontario vs New Jersey) should feed in automatically so the BA has one less field to choose. Kobi agreed; Emily said it is 'blurry' but accepted, and Kobi will diagram it (see item 33).",
+   "speakers": [
+    "Joyce Kiddell",
+    "Kobi Kunasekaran",
+    "Emily Vandenberg"
+   ],
+   "timestamp": "00:33:10",
+   "line_start": 565,
+   "line_end": 578,
+   "quote": "Joyce Kiddell: There's two concepts of currencies if I'm correct um with each signup where there's a currency for / Joyce Kiddell: how you pay the player and then there's a currency associated with the the refer / Emily Vandenberg: Okay. Yeah, it's blurry, but it's fine if you guys got it. / Joyce Kiddell: No, it's confusing because we were like talking in terms of currency per sign up, but like there's really two currencies and there's two amounts. / Kobi Kunasekaran: There's two currencies. Yeah.",
+   "summary_agreement": "not in summary"
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "asr_note": "VA = BA [ASR?]",
+   "quote_verified": true,
+   "added_by": "critic",
+   "item_id": "2026-09-25-1030-75",
+   "type": "deferral",
+   "firmness": "decided",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "topic": "Payout/commission calculation automation deferred",
+   "statement": "Joyce said more automation of player payout and BA commission calculation (e.g. audit trails on bank account activity) is possible but not for now. Kobi agreed: get the data coming out of Salesforce first, then layer in automation later because commission rules change often.",
+   "speakers": [
+    "Joyce Kiddell",
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:04:59",
+   "line_start": 965,
+   "line_end": 966,
+   "quote": "Joyce Kiddell: and there's probably more stuff that we can do to automate like the player and VA commission calculation for like you know audit trails around like bank account activity blah blah blah but like for right now / Kobi Kunasekaran: might be better to make sure we have the data uh coming out of Salesforce first and then we can start layering in bits and pieces to automate that later.",
+   "summary_agreement": "not in summary"
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "asr_note": null,
+   "quote_verified": true,
+   "added_by": "critic",
+   "item_id": "2026-09-25-1030-76",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Referral and Payouts",
+   "topic": "Signups leave selection list when batched",
+   "statement": "Kobi described the happy path: once signups are added to a payout record, they are removed from the list of signups eligible for the next batch. This is triggered by adding to a payout, which is earlier than the 'paid' status update in item 34; how this interacts with removing signups from an unpaid batch (item 68) was not explicitly confirmed by the client.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "01:09:38",
+   "line_start": 1024,
+   "line_end": 1024,
+   "quote": "Kobi Kunasekaran: Um as I choose signups to be paid out, once they're added to a payout record, uh those signups will be removed from the list of signups that are eligible for the next batch that they create.",
+   "summary_agreement": "not in summary"
+  },
+  {
+   "jira_keys_mentioned": [],
+   "owner": null,
+   "due": null,
+   "supersedes_hint": null,
+   "asr_note": null,
+   "quote_verified": true,
+   "added_by": "critic",
+   "item_id": "2026-09-25-1030-77",
+   "type": "requirement",
+   "firmness": "proposed",
+   "feature_area": "Referral and Payouts",
+   "topic": "Payout status gated by completion steps",
+   "statement": "Kobi said the payout status will be driven by completion steps: for cash, required payout details must be filled before the rep can mark it complete; for bet credit, the rep must create the redeposit records in the next step. No explicit client confirmation of the gating rule.",
+   "speakers": [
+    "Kobi Kunasekaran"
+   ],
+   "timestamp": "00:53:27",
+   "line_start": 819,
+   "line_end": 819,
+   "quote": "Kobi Kunasekaran: I mean we decided on like we uh a status right on the payout. So for cash payment before they mark it as complete they should they have to fill out what what type of payout type it is for the bet credit they would have to create the redeposit records in the next step. So I think that will kind of feed into the status.",
+   "summary_agreement": "not in summary"
   }
  ],
  "gemini_disagreements": [
@@ -1687,9 +1783,22 @@
    "transcript_quote": "Kobi Kunasekaran: Correct. Yeah. My goal is like make sure everything's like designed and scoped out for the team and it I'm hoping it's just a matter of like powering through the build. So between uh Wy Taran and Cedric, they should be able to go through.",
    "line": 188,
    "why": "Kobi wants discovery finished before his vacation so the team covers the build; the transcript does not say the team covers discovery."
+  },
+  {
+   "summary_text": "[Kobi Kunasekaran] Design Secondary Referral: Develop the secondary referral payout process to trigger after 10 signups. Include an eligibility flag on the referer account to allow for discretionary payout management.",
+   "transcript_quote": "Kobi Kunasekaran: Yeah, I think we can do that. So, we could have a flag on the refer and then that flag could prevent the auto creation of the payout record once the 10 eligible ones are created. Um, but if they do want to go back and like pay the refer then they would do it manually",
+   "line": 856,
+   "why": "'Trigger after 10 signups' implies automatic payout creation. The transcript ends with the payout being discretionary: the flag shows eligibility and prevents auto-creation, and the rep creates the payout manually. Added by critic."
   }
  ],
  "rule5_redactions": 2,
  "secret_exposed": false,
- "notes": "Invite list includes Cedrick Infantado and Waleed Alasadi; neither speaks in the transcript (Taryn speaks one word). Speakers: Joyce, Emily, Lina (WagerTech); Kobi, Taryn (Jumpr). Rule 5: skipped BA manager pay structure details (lines ~238-244) and BA commission signup threshold specifics (lines ~1080-1093). No Jira keys spoken. Meeting is the referral/payout discovery; key outcomes: payout record batching per referrer, single payout type/currency/referral type per payout, paid status locks payout and marks signups paid, bet credit allocated into rep-created redeposit records via guided workflow, secondary bonus discretionary via referrer eligibility flag, commissions out of scope for Nov 1. Gemini 'payment matrix outside Salesforce' decision is a misattribution (Joyce corrected to BA commission). Transcript header says 'Some recordings unavailable'. ASR: Kobe=Kobi, Lena=Lina, Beimo=BMO, VA/VAS=BA, bad credit=bet credit."
+ "notes": "Invite list includes Cedrick Infantado and Waleed Alasadi; neither speaks in the transcript (Taryn speaks one word). Speakers: Joyce, Emily, Lina (WagerTech); Kobi, Taryn (Jumpr). Rule 5: skipped BA manager pay structure details (lines ~238-244) and BA commission signup threshold specifics (lines ~1080-1093). No Jira keys spoken. Meeting is the referral/payout discovery; key outcomes: payout record batching per referrer, single payout type/currency/referral type per payout, paid status locks payout and marks signups paid, bet credit allocated into rep-created redeposit records via guided workflow, secondary bonus discretionary via referrer eligibility flag, commissions out of scope for Nov 1. Gemini 'payment matrix outside Salesforce' decision is a misattribution (Joyce corrected to BA commission). Transcript header says 'Some recordings unavailable'. ASR: Kobe=Kobi, Lena=Lina, Beimo=BMO, VA/VAS=BA, bad credit=bet credit.",
+ "critic_read_complete": true,
+ "critic_summary": {
+  "items_added": 4,
+  "items_modified": 1,
+  "quote_not_found": 0,
+  "notes": "All 73 original quotes verified against transcript lines (token match after filler removal). Rule 5 respected: BA threshold and manager pay content not recorded."
+ }
 }
