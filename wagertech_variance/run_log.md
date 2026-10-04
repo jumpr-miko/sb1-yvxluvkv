@@ -39,3 +39,7 @@ Working directory: wagertech_variance/ (all writes local only; every external sy
 - Tier 2: 52 docs (39 fetch+screen+extract, 7 pre-screened range-restricted, 6 management/business docs rule-5 strict) → 4 parallel Workflow pipelines.
 - Deterministic quote verification (work/check_quotes.py) runs on every extract: whitespace-normalized verbatim match against the raw transcript; speaker-prefix and ellipsis tolerant; filler words um/uh ignored. Early run: 92%+ verified; failures reviewed and traced to formatting, not wording changes.
 - Calendar coverage check done: sources/calendar_meetings_without_transcript.tsv. Real gap: 20 Jul 2026 "Wagertech <> Jumpr: Deal Rep Assignment" (5 attendees) has no notes doc.
+
+## 2026-10-04: matching stage
+- 2026-10-03 late: all 36 matching agents (24 finders, 12 sweeps) failed instantly on an account weekly usage limit ("resets 3pm UTC"). No partial output. Relaunched 2026-10-04 16:02 UTC after the reset, same inputs.
+- Added at the project lead's request: gap completeness — every decided ask with no ticket is reported as V1 regardless of severity; each finder also returns a module_coverage object; the report gains a "Gaps: decided asks and modules with no Jira ticket" section and a module coverage table (decided items vs Jira tickets per feature area).

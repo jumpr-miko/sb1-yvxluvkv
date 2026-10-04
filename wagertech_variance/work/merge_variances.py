@@ -5,13 +5,14 @@ from collections import defaultdict
 B="/home/user/sb1-yvxluvkv/wagertech_variance"
 AREA_ORDER=["Sign-Up","Deal","Deal Rep Assignment","Referrer / Brand Ambassador","Player","Operator & Partner","Redeposits","Referral and Payouts","CMS Integration","Ops list views / Console UX","Global Search","Reporting & Dashboards","Access & Permissions / Org Setup","Data Migration / Import","Storage / Proofs","Testing, UAT & Go-Live","Training & Enablement","Project Mgmt / Scope / Phase / Timeline","Other"]
 SEV={"High":0,"Medium":1,"Low":2}
-allv=[]; leads=[]; v9=defaultdict(set); sweep_rows=[]
+allv=[]; leads=[]; v9=defaultdict(set); sweep_rows=[]; modcov=[]; gaps_noticed=[]
 for f in sorted(glob.glob(f"{B}/work/variances/*.json")):
     try: d=json.load(open(f))
     except Exception as e: print("BAD",f,e); continue
     for v in d.get("variances",[]): v["_source"]=os.path.basename(f); v.setdefault("feature_area",d.get("area")); allv.append(v)
     for l in d.get("unverified_leads",[]): l["_source"]=os.path.basename(f); l.setdefault("feature_area",d.get("area")); leads.append(l)
     for k in d.get("v9_reviewed_no_support",[]) or []: v9[k].add("finder:"+d.get("area",""))
+    if d.get("module_coverage"): mc=d["module_coverage"]; mc["_source"]=os.path.basename(f); modcov.append(mc)
 for f in sorted(glob.glob(f"{B}/work/jira_sweep/*.json")):
     try: d=json.load(open(f))
     except Exception as e: print("BAD",f,e); continue
@@ -19,6 +20,7 @@ for f in sorted(glob.glob(f"{B}/work/jira_sweep/*.json")):
     for i in d.get("issues",[]):
         sweep_rows.append(i)
         if i.get("classification")=="no_transcript_support": v9[i["key"]].add("sweep")
+    for g in d.get("gaps_noticed",[]) or []: g["_source"]=os.path.basename(f); gaps_noticed.append(g)
 def keyset(v): return tuple(sorted({j.get("key") for j in (v.get("jira") or []) if j.get("key")}))
 def words(s): return set(re.findall(r"[a-z0-9]{4,}",(s or "").lower()))
 # dedup: same category + overlapping jira keys (or both V1 with same ledger evidence) + title word overlap >= 0.5
@@ -48,7 +50,7 @@ for v in allv:
         merged.append(v)
 merged.sort(key=lambda v:(AREA_ORDER.index(v.get("feature_area")) if v.get("feature_area") in AREA_ORDER else 99, SEV.get(v.get("severity"),3), v.get("category","")))
 for n,v in enumerate(merged,1): v["var_id"]=f"VAR-{n:03d}"
-json.dump({"variances":merged,"unverified_leads":leads,"v9":{k:sorted(s) for k,s in v9.items()},"sweep_issues":sweep_rows},open(f"{B}/work/variances_merged.json","w"),indent=1,ensure_ascii=False)
+json.dump({"variances":merged,"unverified_leads":leads,"v9":{k:sorted(s) for k,s in v9.items()},"sweep_issues":sweep_rows,"module_coverage":modcov,"gaps_noticed":gaps_noticed},open(f"{B}/work/variances_merged.json","w"),indent=1,ensure_ascii=False)
 from collections import Counter
 print("raw",len(allv),"merged",len(merged),"leads",len(leads),"v9 keys",len(v9))
 print(Counter(v["category"] for v in merged)); print(Counter(v["severity"] for v in merged)); print(Counter(v.get("feature_area") for v in merged))

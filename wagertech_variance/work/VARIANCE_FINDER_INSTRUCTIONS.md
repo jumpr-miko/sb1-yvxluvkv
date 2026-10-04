@@ -48,3 +48,9 @@ For each topic with a decided item (and for material client-asked-not-agreed / o
  "v9_reviewed_no_support":["WAGR-nnn", ...]  (issues in your area TSV you examined and found no transcript item for; optional),
  "notes":"..."}
 Validate JSON with python before finishing. Return the structured summary requested.
+
+## Gap completeness (added 2026-10-04 at the project lead's request)
+The project lead wants EVERY gap visible. The "prefer few" rule applies to arguable V2–V7 claims, NOT to V1:
+- List every *decided* client ask, requirement, change or action item that has no Jira ticket as a V1, even when the severity is Low. Do not drop V1s for brevity. The precision bar still applies: the item must be decided (tier1 transcript evidence, or client-confirmed), the search must be documented (terms + nearest tickets), and comments count as coverage.
+- Also add a doc-level `module_coverage` object to your output: for your feature area, say whether Jira has an epic and tickets for the module at all, how many tickets you found for it, and list any sub-module or capability the meetings decided on that has no ticket cluster (e.g. "Redeposits: discovery decided 20+ rules; Jira holds 5 tickets, no epic"). Format: {"area":"...","jira_epics":["WAGR-nn"],"ticket_count":n,"uncovered_capabilities":[{"capability":"...","ledger_ids":[...],"note":"..."}]}.
+- Client asks that Jumpr did NOT agree to (client-asked-not-agreed) with no ticket go in `unverified_leads` with why_unverified "client ask not agreed; no ticket" so they are still visible.

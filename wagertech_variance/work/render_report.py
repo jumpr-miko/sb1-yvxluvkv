@@ -88,6 +88,39 @@ for v in final:
     L.append(f"- **What differs:** {v.get('what_differs')}")
     L.append(f"- **Suggested action:** {v.get('suggested_action')}")
     L.append(f"- **Confidence:** {v.get('confidence')}"+(f" · **Verifier note:** {v.get('verification_reason')}" if v.get('verification_reason') else "")+"\n")
+# Gaps section (project lead request): every ask/module with no Jira ticket
+L.append("\n## 3b. Gaps: decided asks and modules with no Jira ticket\n")
+v1=[v for v in final if v["category"]=="V1"]
+L.append(f"{len(v1)} decided asks/changes/actions have no ticket (every V1 above, listed here in one place; severity in brackets). Client asks Jumpr did not agree to are listed separately below.\n")
+L.append("| ID | Area | Sev | Ask with no ticket | First decided (meeting, date) | Verification |\n|---|---|---|---|---|---|")
+for v in v1:
+    e=(v.get("transcript_evidence") or [{}])[0]
+    L.append(f"| {v['var_id']} | {v['feature_area']} | {v['severity']} | {esc(v['title'])} | {esc(re.sub(r' - 2026.*','',e.get('meeting_title') or ''))}, {e.get('date')} | {v.get('verification')} |")
+cl=[l for l in M.get("unverified_leads",[]) if "not agreed" in (l.get("why_unverified") or "").lower()]
+if cl:
+    L.append("\n**Client asks that Jumpr did not agree to and that have no ticket (visibility only):**\n")
+    for l in cl: L.append(f"- ({l.get('feature_area')}) {l.get('title')} — ledger {', '.join(l.get('ledger_ids',[]) or [])}")
+# Module coverage table: ledger decided items vs Jira tickets per area
+L.append("\n### Module coverage (meeting decisions vs Jira tickets per feature area)\n")
+ledger=json.load(open(f"{B}/work/ledger.json")); amap=json.load(open(f"{B}/work/jira_area_map.json"))
+from collections import defaultdict as dd
+dec=dd(int); allit=dd(int); jc=dd(int)
+for r in ledger:
+    allit[r["feature_area"]]+=1
+    if r.get("firmness")=="decided" and r.get("tier")!="tier2": dec[r["feature_area"]]+=1
+for k,areas in amap.items():
+    for a in areas: jc[a]+=1
+mc_by={m.get("area"):m for m in M.get("module_coverage",[])}
+L.append("| Feature area | Decided items (tier 1) | All ledger items | Jira tickets (approx. bucket) | Epics named by finder | Uncovered capabilities named by finder |\n|---|---|---|---|---|---|")
+for a in AREA_ORDER:
+    if allit.get(a,0)==0 and jc.get(a,0)==0: continue
+    m=mc_by.get(a) or next((x for x in M.get("module_coverage",[]) if (x.get("area") or "").lower().startswith(a.lower()[:8])),{})
+    unc="; ".join(esc(u.get("capability","")) for u in (m.get("uncovered_capabilities") or [])) if m else ""
+    flag=" **⚠ thin coverage**" if dec.get(a,0)>=15 and jc.get(a,0)<=10 else ""
+    L.append(f"| {a}{flag} | {dec.get(a,0)} | {allit.get(a,0)} | {jc.get(a,0)} | {', '.join(jl(k) for k in (m.get('jira_epics') or [])) if m else ''} | {unc} |")
+if M.get("gaps_noticed"):
+    L.append("\n**Additional gaps noticed by the Jira-side sweep (not separately verified):**\n")
+    for g in M["gaps_noticed"]: L.append(f"- {esc(g.get('topic'))} — ledger {g.get('ledger_id')}: {esc(g.get('note'))}")
 # V8 list
 L.append("\n## 4. Unresolved open questions (V8) — agenda for the next client sync\n")
 for v in [x for x in final if x["category"]=="V8"]:
