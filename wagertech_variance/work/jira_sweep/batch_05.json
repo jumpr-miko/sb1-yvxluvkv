@@ -1,0 +1,913 @@
+{
+ "batch": "batch_05",
+ "range": "WAGR-176..WAGR-218",
+ "issues": [
+  {
+   "key": "WAGR-176",
+   "summary": "BUILD-202 — Brand Ambassador: Object + Core Status",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1946",
+    "L1947",
+    "L1950",
+    "L1952",
+    "L1953",
+    "L1954"
+   ],
+   "search_terms": [],
+   "note": "Fields, required Brand Manager lookup (standard Manager field, L1950), market fields (L1952), roll-up removal (L1953) and End Date automation (L1954) match the Aug 18 sync. Conflict: the ticket keeps 'Inactive' as a BA Status value; on the same Aug 18 call Lina and Joyce reduced the list to three values (Active, Paused, Terminated). See JS05-01 (same finding as area RBA-01). Ledger rows whose jira_keys say WAGR-176 (L2255-L2257) are about BUILD-176 player ban automation, not this ticket."
+  },
+  {
+   "key": "WAGR-177",
+   "summary": "BUILD-232 — Referrer: Ban Button — Confirm Reason/Notes Capture",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2094",
+    "L2096",
+    "L2171",
+    "L2389",
+    "L2390"
+   ],
+   "search_terms": [],
+   "note": "Ban Reason list incl. 'Associated with Banned Network' matches the Aug 25 client decision (L2094). Ticket text still describes the optional 'Flag related Player record' checkbox; the Sep 3 internal sync removed it (L2390, internal, client confirmation not recorded). The removal is recorded in a WAGR-157 comment (2026-09-03), so it is covered in Jira; WAGR-177 description is stale hygiene only. Payout-to-Hold on ban is part of area RP-05 (Sep 25 payout redesign)."
+  },
+  {
+   "key": "WAGR-178",
+   "summary": "BUILD-235 — Referrer: Pause Button — Confirm Reason Capture",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2095",
+    "L2096",
+    "L2171",
+    "L2389",
+    "L2396",
+    "L2392"
+   ],
+   "search_terms": [],
+   "note": "Pause Reason list matches the Aug 25 client confirmation (L2095). The ticket comment (2026-08-27) asked whether Paused needs a banner; the Sep 3 internal sync decided a yellow Paused banner (L2392), but no ticket carries it (see gaps_noticed; area RBA-02). Area RP-04 (WAGR-159 still says pause blocks attribution) is related. Ledger rows L2259/L2260 tagged WAGR-178 refer to a different 'epic 178', not this ticket."
+  },
+  {
+   "key": "WAGR-179",
+   "summary": "BUILD-237 — Deal Rep Assignment: Deal Cross-Reference Formula Fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1647",
+    "L1357"
+   ],
+   "search_terms": [],
+   "note": "Ticket is Slack-sourced (build blocker on WAGR-180). Ledger is consistent in intent: the DRA record page shows the key deal info a rep needs, incl. market, vertical and deal status (L1647). Ledger row L2254 tagged WAGR-179 is BUILD-179 player attribution mismatch, not this ticket."
+  },
+  {
+   "key": "WAGR-180",
+   "summary": "BUILD-209 — Brand Ambassador: Assigned Deals Related List",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1357",
+    "L1647",
+    "L2774"
+   ],
+   "search_terms": [],
+   "note": "Ticket says 'not confirmed in the transcript' (prototype-sourced). Weak support only: reps work from a list of assigned deals with operator/market/vertical (L1357, L1647); Sep 21 action to confirm BA access to Deal and DRA records (L2774)."
+  },
+  {
+   "key": "WAGR-181",
+   "summary": "BUILD-211 — Brand Ambassador: Activity Feed",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "chatter",
+    "activity feed",
+    "feed",
+    "BA record page"
+   ],
+   "note": "No meeting item about Chatter/activity feed on the BA record. Prototype-sourced; built (comment 2026-08-25)."
+  },
+  {
+   "key": "WAGR-182",
+   "summary": "BUILD-203 — Brand Ambassador: Contact & Payment Fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1955",
+    "L1956",
+    "L1957",
+    "L1958",
+    "L1959",
+    "L2722"
+   ],
+   "search_terms": [],
+   "note": "Two emails, phone, currency, general Notes, and removal of contact method / payment method / frequency all match Aug 18 (L1955-L1959). Later refinement L2722 (Sep 18, internal): primary (login) email stays the WagerTech email and a separate secondary (personal) email field goes on User; tracked in a WAGR-393 comment checklist, so not a gap. Ticket open question on E-Transfer Email requiredness has no answer in the ledger."
+  },
+  {
+   "key": "WAGR-183",
+   "summary": "BUILD-205 — Brand Ambassador: CMS Identity Fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1961",
+    "L1964",
+    "L1936"
+   ],
+   "search_terms": [],
+   "note": "External ID (mapping), slug, and Landing Page renamed to Agency Site match L1961; copy-to-clipboard not for launch matches L1964. Note: Kobi's comment (2026-08-25) that user fields are set manually differs from the Aug 18 rep workflow where the CMS sends its unique rep ID matched by email (L1936); that conflict is owned by area CMSB-03 (WAGR-390)."
+  },
+  {
+   "key": "WAGR-184",
+   "summary": "BUILD-229 — Player: Source System & Source Reference Fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "source system",
+    "source reference",
+    "player external id",
+    "possible duplicate flag",
+    "dedup"
+   ],
+   "note": "Fields removed per client request in Slack (comment 2026-08-24). Aug 24 Kobi/Taryn planning is not in the ledger. No ledger item on Source System / Source Reference."
+  },
+  {
+   "key": "WAGR-185",
+   "summary": "BUILD-177 — Player: System / Integration Fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1978",
+    "L1979",
+    "L2213",
+    "L2440",
+    "L2475"
+   ],
+   "search_terms": [],
+   "note": "First Completed Sign-Up sets Player to Active (L1978, built per L2440/L2475); Last Activity Date feeds 90-day inactivity (L1979; open scope L2213 tier2). Review Required checkbox / CMS Last Sync have no ledger item. Remaining logic split to BUILD-252/253 per comment."
+  },
+  {
+   "key": "WAGR-186",
+   "summary": "BUILD-221 — Brand Ambassador user setup runbook (Rep External ID, Rep Slug, manager, WT Rep permission set group)",
+   "status": "Done",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1911",
+    "L1913",
+    "L1935",
+    "L1936",
+    "L1950"
+   ],
+   "search_terms": [],
+   "note": "Runbook matches: test with Alex and Andy (L1911), Kobi sets up deals/DRAs with external IDs (L1913), rep user creation and permissions stay a manual admin task (L1935), CMS matches rep by unique ID/email (L1936), standard Manager field (L1950). The ticket's open follow-up (WT Rep permission set group not auto-assigned) has no meeting decision; L1935 says user setup stays manual, which is consistent with a checklist approach."
+  },
+  {
+   "key": "WAGR-187",
+   "summary": "BUILD-191 — Referrer: System / Integration Fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "referral code",
+    "referrer external id",
+    "referrer id",
+    "possible duplicate",
+    "account record type",
+    "field-level security"
+   ],
+   "note": "No meeting item about referrer system/integration fields. Adjacent only: email-based referrer dedup with a hard block (L1992) may make the 'Possible Duplicate Flag' checkbox redundant; not a conflict on its own."
+  },
+  {
+   "key": "WAGR-188",
+   "summary": "BUILD-201 — Referrer: Files Related List",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "files related list",
+    "cross-book",
+    "referral proof",
+    "redeposit payout proof",
+    "salesforce files",
+    "upload proof"
+   ],
+   "note": "No meeting item supports a Files related list for proofs on the Referrer. Tension (lead, not a variance): storage is on hold and proofs use URL fields for now (L1932 Aug 18, L2113 Aug 25), and Sep 25 decided no screenshot proof on cash payouts (L3114). The built list (comment 2026-08-24: 'for users to upload their proofs') may invite file uploads the client did not want in Salesforce. See unverified_leads."
+  },
+  {
+   "key": "WAGR-189",
+   "summary": "BUILD-188 — Referrer: Player Cross-Reference",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1987",
+    "L1993"
+   ],
+   "search_terms": [],
+   "note": "Active Operators removed and Player Status shown as formula (L1987); Convert Player to Referrer is a down-the-line request (L1993, proposed)."
+  },
+  {
+   "key": "WAGR-190",
+   "summary": "BUILD-192 — Referrer: Notes",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1984"
+   ],
+   "search_terms": [],
+   "note": "Payout preference folded into Notes at the bottom (L1984). Ledger rows L2249/L2253 tagged WAGR-190 refer to BUILD-190 referrer review fields (WAGR-76), not this ticket."
+  },
+  {
+   "key": "WAGR-191",
+   "summary": "BUILD-187 — Referrer: Referral Defaults",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1983",
+    "L1984",
+    "L1985",
+    "L3106",
+    "L3107"
+   ],
+   "search_terms": [],
+   "note": "Override rules (currency/payout type overridable; country/state not) match L1985. Two conflicts: (1) Aug 18 Joyce said to take out 'referral ro[le]' from the referrer defaults because role is per sign-up (L1983); the ticket flagged this as unresolved but built Default Referrer Role anyway (JS05-02). (2) Default Payout Type values are Cash/Redeposit; Sep 25 decided the term stays 'bet credit' and the sign-up payout type defaults from this field (L3106, L3107) (JS05-03; same as area RP-06)."
+  },
+  {
+   "key": "WAGR-192",
+   "summary": "BUILD-185 — Referrer: Object + Core Status",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1981",
+    "L1989",
+    "L1991",
+    "L2168",
+    "L2335"
+   ],
+   "search_terms": [],
+   "note": "Status values Active/Inactive/Paused/Banned (L1981), BA visibility incl. manager (L1991), primary/secondary referral lists and counts (L1989, DLRS per L2168, completed-only per L2335 - rule owned by WAGR-168, area RBA-07)."
+  },
+  {
+   "key": "WAGR-193",
+   "summary": "BUILD-186 — Referrer: Contact Fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1988",
+    "L1986"
+   ],
+   "search_terms": [],
+   "note": "Secondary email renamed E-Transfer Email (L1988); Preferred Contact Method removed (L1986, proposed by Joyce; built as removed). Ledger rows tagged WAGR-193 (L2249-L2252) are BUILD-193 referrer inactive automation (WAGR-74), not this ticket."
+  },
+  {
+   "key": "WAGR-194",
+   "summary": "BUILD-227 — Player: Total Sign-Ups (DLRS Rollup)",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1963",
+    "L2061",
+    "L2169"
+   ],
+   "search_terms": [],
+   "note": "Player roll-up of total sign-ups (L1963), completed only via DLRS (L2061, L2169 tier2). Ledger row L2249 tagged WAGR-194 is BUILD-194 (WAGR-73), not this ticket."
+  },
+  {
+   "key": "WAGR-195",
+   "summary": "BUILD-184 — Player: Fraud Flags Related List",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2046",
+    "L2591"
+   ],
+   "search_terms": [],
+   "note": "Weak/contested support: Aug 21 internal proposal of a fraud-filtered sign-up list on the player page (L2046, tier2) and Sep 15 client feedback that references the dedicated fraud flags list (L2591). Later items point to removing it (L2622 tier2 second-hand; L2913 tier1 is ambiguous: 'you had added it ... we can close out that'). Not raised as a variance because no tier1 decided item clearly removes the list; see unverified_leads and area SIGNUP-B-10. Ledger row L2170 tagged WAGR-195 is BUILD-195, not this ticket."
+  },
+  {
+   "key": "WAGR-196",
+   "summary": "BUILD-175 — Player: Ban Status + Banner",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1980",
+    "L2856"
+   ],
+   "search_terms": [],
+   "note": "Manual Banned status, banner, no restriction detail fields (L1980); fraud/primary-email banners dropped (L2856). Note: the ticket line 'No separate ban-reason fields get persisted on the Player record' is contradicted by later items (Aug 25 player ban reasons accepted, L2092; Sep 2 history tracking incl. ban reasons, L2350). Ban reason capture belongs to WAGR-154 and is owned by area PLAYER-01."
+  },
+  {
+   "key": "WAGR-197",
+   "summary": "BUILD-180 — Player: Sign Ups Related List",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2046",
+    "L2050",
+    "L2051",
+    "L2622"
+   ],
+   "search_terms": [],
+   "note": "VIP column via formula (L2050/L2051, tier2) and fraud columns on the sign-ups list (L2622, tier2) support the list. No tier1 decision on its columns (Aug 24 column decisions are from an unrecorded planning sync)."
+  },
+  {
+   "key": "WAGR-198",
+   "summary": "BUILD-228 — Set up External Deal ID auto-generation on Deal",
+   "status": "Done",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1268",
+    "L2099",
+    "L2497",
+    "L3264"
+   ],
+   "search_terms": [],
+   "note": "Generated External Deal ID with an incremental counter matches L2099/L2497/L3264. The closing comment (Kobi, 2026-09-29) says the target has 'no version suffix counter', which conflicts with L3264 (Sep 29: external ID keeps an increment). Ticket is Done; the live conflict sits in WAGR-448/WAGR-104 and is owned by area DEAL-B-10."
+  },
+  {
+   "key": "WAGR-199",
+   "summary": "BUILD-40 — Sign-Up Completion % field",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Marc Cabantog",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1207",
+    "L1240",
+    "L1320",
+    "L2337"
+   ],
+   "search_terms": [],
+   "note": "Completion % in the header (L1207), waiting on the required-field list (L1240, L1320), and Ops can complete below 100% (L2337). Field set was confirmed by Emily in the Open Questions doc (comment 2026-08-10), not in a meeting. Emily's Sep 28 idea to combine proof and completion fields (L3223) is proposed only."
+  },
+  {
+   "key": "WAGR-200",
+   "summary": "BUILD-139 — Partner: move Additional Information + System fields into a More Info tab",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1778",
+    "L1791",
+    "L1839",
+    "L1841",
+    "L1842"
+   ],
+   "search_terms": [],
+   "note": "Admin fields in a separate tab (L1778); CMS audit/error log scoped later (L1791 proposed); More Info contents and PNL book name left out (L1839-L1842, tier2)."
+  },
+  {
+   "key": "WAGR-201",
+   "summary": "BUILD-138 — Partner: Agreement fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1776",
+    "L1788"
+   ],
+   "search_terms": [],
+   "note": "Agreements stored as Salesforce files (L1776). 'Introduced By' removal and the field list are not individually in the ledger."
+  },
+  {
+   "key": "WAGR-202",
+   "summary": "BUILD-141 — Partner: assemble the Dynamic Lightning record page",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1775",
+    "L1657",
+    "L1820",
+    "L1821",
+    "L2245"
+   ],
+   "search_terms": [],
+   "note": "Bonus as a related object, no Bonus Configuration section (L1775, L1657); Dynamic Forms (L1820, L1821); page handed over to client Sep 1 (L2245). Jumpr Review after hand-over is consistent with 'built, pending review' (area OPS-B-07 raised it as Low V4)."
+  },
+  {
+   "key": "WAGR-203",
+   "summary": "BUILD-143 — Partner: add Primary + Billing Contact lookups and contact relationship fields to the layout",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1755",
+    "L1832",
+    "L1836",
+    "L1837",
+    "L1838"
+   ],
+   "search_terms": [],
+   "note": "Contacts as lookups only (L1755), primary/billing contact lookups created (L1836), email/phone through the relationship (L1837), separate billing email (L1838)."
+  },
+  {
+   "key": "WAGR-204",
+   "summary": "BUILD-137 — Partner: Billing Details fields",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1761",
+    "L1762",
+    "L1763",
+    "L1765",
+    "L1766",
+    "L1759"
+   ],
+   "search_terms": [],
+   "note": "Billing field types, Net 7/30/45, Monthly only, standard currency, PO Required yes/no, separate billing email all match Aug 13 (L1759-L1766). Note: Sep 15-17 discussed billing on the new Operator-Partner junction (L2608, L2678); outcome not quoted in the ledger, so not raised."
+  },
+  {
+   "key": "WAGR-205",
+   "summary": "BUILD-132 — Operator + Partner: Deals related lists (two of them) — this is where Deal-as-junction shows up",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1670",
+    "L1822",
+    "L1845"
+   ],
+   "search_terms": [],
+   "note": "Two Deals related lists with renamed child relationships, no New action, sort by Effective Start, no Deal Version column (L1822, L1845 tier2; L1670 tier1)."
+  },
+  {
+   "key": "WAGR-206",
+   "summary": "BUILD-136 — Partner: Core Details + Partner Details section",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1743",
+    "L1744",
+    "L1745",
+    "L1747",
+    "L1750",
+    "L1751",
+    "L1754",
+    "L1757",
+    "L1777",
+    "L1834"
+   ],
+   "search_terms": [],
+   "note": "Partner Type in Partner Details starting with Affiliate Network (L1743-L1745), Direct is a Partner record (L1747), status inferred from deals (L1750), Parent Company text (L1751), portal link/no asset library (L1754), notes (L1757), no owner/duplicate status (L1777), Secondary Contact deferred (L1834). Joyce's owed Partner Type list (L1746) has no ticket (area OPPT-A-08)."
+  },
+  {
+   "key": "WAGR-207",
+   "summary": "BUILD-130 — Operator: conditional field visibility driven by Billing Relationship",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Taryn Reithofer",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1758",
+    "L1849",
+    "L1850"
+   ],
+   "search_terms": [],
+   "note": "Field-level visibility driven by Billing Relationship = Direct (L1758, L1849, L1850). Possible staleness after the Sep junction-object work and WAGR-385 removing Billing_Relationship__c is tracked as an area lead (Operator_Partner_A/B); the ledger does not quote the new rule, so not raised here."
+  },
+  {
+   "key": "WAGR-208",
+   "summary": "BUILD-170 — Vertical: add Prediction Markets",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1681"
+   ],
+   "search_terms": [],
+   "note": "Prediction Markets vertical requested by Lina, Kobi agreed (L1681)."
+  },
+  {
+   "key": "WAGR-209",
+   "summary": "BUILD-163 — Deal: Owner not required, moved to Additional Details",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1661",
+    "L1670"
+   ],
+   "search_terms": [],
+   "note": "Owner and Deal Version moved lower (L1661); Deal Version removed (L1670)."
+  },
+  {
+   "key": "WAGR-210",
+   "summary": "BUILD-121 — Deal New/Edit modal layout rebuild (per 2026-08-10 screenshots)",
+   "status": "Done",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1649",
+    "L1651",
+    "L1660",
+    "L1661",
+    "L1662",
+    "L1663",
+    "L1664",
+    "L1665",
+    "L1670"
+   ],
+   "search_terms": [],
+   "note": "Modal rebuild matches the Aug 11 walkthrough. Done; closing comment says it is superseded by WAGR-485/WAGR-450 (Deal lifecycle). Priority Tier has no values here; the Aug 11 value set includes 'Blacklisted' (L1662), which WAGR-175 omits (area DEAL-B-13 / DEAL-A-06)."
+  },
+  {
+   "key": "WAGR-211",
+   "summary": "BUILD-160 — Deal: Payout Model + conditional Rev Share",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1663",
+    "L3269",
+    "L3416"
+   ],
+   "search_terms": [],
+   "note": "Payout Model CPA / Rev Share / Hybrid with Rev Share % shown for hybrid matches L1663 (Kobi agreed, so the ticket's 'confirm' open question is answered). Sep 29-30 decided commercial terms (payout model, rev share, CPA) move to a dated child object (L3269, L3416); WAGR-462 owns that redesign, so the deal-level field build may need rework. Not raised as a variance because the redesign is ticketed."
+  },
+  {
+   "key": "WAGR-212",
+   "summary": "BUILD-161 — Deal: Monthly Cap (numeric, 0 = unlimited) + delete CPA Target Type / CPA Target",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1664",
+    "L3269",
+    "L3416"
+   ],
+   "search_terms": [],
+   "note": "Numeric Monthly Cap, 0 = unlimited, replacing CPA Target Type (L1664). Same commercial-terms redesign note as WAGR-211 (WAGR-462)."
+  },
+  {
+   "key": "WAGR-213",
+   "summary": "BUILD-159 — Deal: Redeposit settings + conditional redeposit range",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1690",
+    "L1650",
+    "L3436",
+    "L3437"
+   ],
+   "search_terms": [],
+   "note": "Redeposit Required / Type (Assigned, Immediate) / conditional Immediate range match Aug 11 (L1690). Sep 30 decided redeposit requirements need their own lifecycle and multiple thresholds (L3436, L3437), which the single deal-level config does not model; area REDEP-16 already raises this (V3) and WAGR-464 holds the redesign. Not duplicated here."
+  },
+  {
+   "key": "WAGR-214",
+   "summary": "BUILD-164 — Deal: remove Deal Version entirely",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1670"
+   ],
+   "search_terms": [],
+   "note": "Deal Version removed; replaced by field history (L1670). Later 'versions not needed' (L3414, proposed) is consistent."
+  },
+  {
+   "key": "WAGR-215",
+   "summary": "BUILD-156 — Deal: Effective End Date — remove from list view, keep on record, stamp at close",
+   "status": "Done",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1660"
+   ],
+   "search_terms": [],
+   "note": "End date off list view, kept on record, filled at close (L1660). Done; automation superseded by WAGR-486 per closing comment."
+  },
+  {
+   "key": "WAGR-216",
+   "summary": "BUILD-153 — Deal: Exclude from Partner Bonuses checkbox",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1773",
+    "L1813"
+   ],
+   "search_terms": [],
+   "note": "Kobi proposed the global exclusion checkbox; per-bonus exclusion is complex (L1773 proposed, L1813). Ticket says 'confirmed 2026-08-17' (internal); the transcript shows proposed only (area lead in Deal_B)."
+  },
+  {
+   "key": "WAGR-217",
+   "summary": "BUILD-154 — Deal: Source picklist",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1739",
+    "L1741",
+    "L1811",
+    "L2101",
+    "L2102",
+    "L2292",
+    "L2299",
+    "L3244"
+   ],
+   "search_terms": [],
+   "note": "Source field on Deal (L1739, L1741), candidate values (L1811), WagerTech name kept (L2101). Ticket text 'Restricted picklist ... no automation depends on it' and no 'required' is stale: Source is mandatory (L2299), defaults to WT (L2292), drives the deal-name suffix and External Deal ID (L2102, L2292) and is a makeup field (L3244). These are covered by WAGR-93, WAGR-139, WAGR-147, WAGR-167, so no variance; hygiene only."
+  },
+  {
+   "key": "WAGR-218",
+   "summary": "BUILD-155 — Deal: two fields moved down from Operator — Default Redirect URL + Pitch & Positioning",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "assignee": "Kobi Kunasekaran",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1783",
+    "L1785",
+    "L1940"
+   ],
+   "search_terms": [],
+   "note": "Redirect URL moved to Deal (L1783); pitch document at Deal level as a Salesforce file (L1785). Aug 18 decided 'one pitch link per deal' (L1940), which WAGR-173 holds as 'Deal Pitch Link (file link)'; WAGR-218 still says Salesforce File and allows uploading a deck to several Deals, and its comment says 'TBD on Pitch & Positioning'. Two tickets describe the pitch differently; see unverified_leads (area Deal_B lead)."
+  }
+ ],
+ "variances": [
+  {
+   "temp_id": "JS05-01",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "BA Status in WAGR-176 keeps 'Inactive'; Aug 18 sync decided only Active, Paused, Terminated",
+   "jira": [
+    {
+     "key": "WAGR-176",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-202 — Brand Ambassador: Object + Core Status",
+     "quote": "BA Status — Picklist: Active, Paused, Inactive, Terminated. Trimmed from an initial five-value list that included a Review status.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1946",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:47:53",
+     "line_start": 814,
+     "quote": "Joyce Kiddell: ...Kobi live, we're going to remove review. / Lina Ceniccola: if it's I think it's really only active, paused, or terminated cuz like they don't / Joyce Kiddell: Okay. Um so active uh paused and terminated are the / Joyce Kiddell: three statuses. Um brand manager cannot be easily added as like a"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1947",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:50:24",
+     "line_start": 845,
+     "quote": "Kobi Kunasekaran: We terminating like are we talking about like deactivating the user from Salesforce as well? / Joyce Kiddell: Yes. / Lina Ceniccola: Yeah."
+    }
+   ],
+   "what_differs": "On Aug 18 Joyce first read out four statuses, then Lina said there are only three (Active, Paused, Terminated) and Joyce confirmed 'three statuses'. WAGR-176 removed only Review and still specifies Inactive (it cites the earlier 'four statuses' moment at 47:03).",
+   "suggested_action": "Suggest removing Inactive from the BA Status picklist spec in WAGR-176 (and the four-value mapping in WAGR-91), or confirm with WagerTech if Inactive is wanted after all.",
+   "checked_later_meetings": true,
+   "reasoning": "Decided tier1 item later in the same meeting than the moment the ticket cites; no later ledger item re-adds a BA Inactive status (searched 'terminat', 'BA status', 'ambassador status').",
+   "also_reported_as": [
+    "RBA-01 (Referrer_Brand_Ambassador)"
+   ]
+  },
+  {
+   "temp_id": "JS05-02",
+   "category": "V2",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Referral and Payouts",
+   "title": "WAGR-191 built Default Referrer Role although Aug 18 sync said to take the referrer role out of the referrer defaults",
+   "jira": [
+    {
+     "key": "WAGR-191",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-187 — Referrer: Referral Defaults",
+     "quote": "Default Referrer Role — pre-fill only; the Sign Up holds the final value",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-191",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-187 — Referrer: Referral Defaults",
+     "quote": "**Built per spec:** Default Referrer Role (pre-fill only, final value held on the Sign Up)",
+     "quote_source": "comment (author not recorded) 2026-08-24"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1983",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "01:34:45",
+     "line_start": 1590,
+     "quote": "Joyce Kiddell: ...I think we would take out referral ro."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Joyce said 'we would take out referral ro[le] ... because like they're only secondary referrers on specific signups', i.e. role is set per sign-up, not as a referrer default. The ticket recorded this as 'unresolved which field' but the field was built.",
+   "suggested_action": "Suggest confirming with Joyce that 'referral ro' meant Default Referrer Role; if yes, hide or remove the field from the Referrer layout and update WAGR-191.",
+   "checked_later_meetings": true,
+   "reasoning": "Raw transcript line 1590 gives the reason (role is per sign-up), which fits only the role field in the defaults section. No later ledger item mentions a referrer default role. Confidence medium because the word is truncated ('ro').",
+   "also_reported_as": [
+    "Referral_and_Payouts unverified lead ('Take out referral ro')"
+   ]
+  },
+  {
+   "temp_id": "JS05-03",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Referral and Payouts",
+   "title": "WAGR-191 Default Payout Type values Cash/Redeposit; Sep 25 decided the term 'bet credit' and that the sign-up payout type defaults from this field",
+   "jira": [
+    {
+     "key": "WAGR-191",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-187 — Referrer: Referral Defaults",
+     "quote": "Default Payout Type — Picklist: Cash, Redeposit; overridable at the Sign Up level",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3107",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:18:49",
+     "line_start": 365,
+     "quote": "Joyce Kiddell: like are are we still clinging at credit because it's like technically a redeposit. / Lina Ceniccola: We do internally. We call it bad credit for referral payments. / Joyce Kiddell: Just keep it like that. / Lina Ceniccola: Yeah, I say keep it consistent."
+    },
+    {
+     "ledger_id": "L3106",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:16:52",
+     "line_start": 337,
+     "quote": "Joyce Kiddell: Yeah, but we would want the BA to have the ability to change it if for like that sign up for whatever reason. / Kobi Kunasekaran: when they Sorry, / Kobi Kunasekaran: I just wanted to like read that back. So when uh when a PA goes in to log a signup um and they select a referral or create a referral um the payout type or the signup should pull from the default payout type that's on the referral. Um and but they should be able to change that um to like bet credit or cash um if if they don't want to go with the default. / Joyce Kiddell: Yes, if they're an existing refer obviously, / Joyce Kiddell: but if they're not then you have to fight at that time."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1984",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "01:36:29",
+     "line_start": 1595,
+     "quote": "Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom."
+    }
+   ],
+   "what_differs": "The ticket used the Aug 18 wording 'cash or redeposit' (L1984). On Sep 25 WagerTech decided to keep calling it 'bet credit', and the sign-up payout type must default from the referrer's default (cash or bet credit). A 'Redeposit' value cannot map cleanly to the sign-up's Cash / Bet Credit types.",
+   "suggested_action": "Suggest renaming the Redeposit value to Bet Credit (API value aligned with the Sign-Up payout type) and adding the default-to-sign-up rule to WAGR-191 or the payouts design ticket WAGR-465.",
+   "checked_later_meetings": true,
+   "reasoning": "Sep 25 items are decided, tier1, later than the ticket (built Aug 24). No later item reverses the 'bet credit' term.",
+   "also_reported_as": [
+    "RP-06 (Referral_and_Payouts)"
+   ]
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "WAGR-195 Fraud Flags related list may be dropped in favour of fraud columns on the Sign-Ups list",
+   "why_unverified": "Removal is only reported second-hand in a tier2 internal meeting (L2622); the tier1 client remark (L2913) is ambiguous. Area SIGNUP-B-10 raised it as V3 Low.",
+   "ledger_ids": [
+    "L2622",
+    "L2913",
+    "L2591"
+   ],
+   "jira_keys": [
+    "WAGR-195"
+   ]
+  },
+  {
+   "title": "WAGR-188 Referrer Files related list invites proof uploads into Salesforce while storage is on hold and proofs are URL fields",
+   "why_unverified": "No meeting item addresses a Files list on the Referrer; the conflict is by inference from the storage decisions (L1932, L2113) and the no-screenshot payout decision (L3114).",
+   "ledger_ids": [
+    "L1932",
+    "L2113",
+    "L3114"
+   ],
+   "jira_keys": [
+    "WAGR-188"
+   ]
+  },
+  {
+   "title": "Pitch on Deal: WAGR-218 says Salesforce File (multi-deal upload); WAGR-173 and Aug 18 say one pitch link per deal",
+   "why_unverified": "'Link to the pitch' (L1940) may still mean a link to a Salesforce file; WAGR-218 comment says pitch is TBD. Needs a quick check of what was built.",
+   "ledger_ids": [
+    "L1785",
+    "L1940"
+   ],
+   "jira_keys": [
+    "WAGR-218",
+    "WAGR-173"
+   ]
+  },
+  {
+   "title": "WAGR-177 still specifies the 'Flag related Player record' checkbox; removal was an internal decision not yet confirmed with the client",
+   "why_unverified": "Removal is recorded in a WAGR-157 comment (coverage exists); only the client-confirmation step is missing (L2390 says 'not yet confirmed with the client').",
+   "ledger_ids": [
+    "L2390",
+    "L2391"
+   ],
+   "jira_keys": [
+    "WAGR-177",
+    "WAGR-157"
+   ]
+  }
+ ],
+ "gaps_noticed": [
+  {
+   "ledger_id": "L2392",
+   "topic": "Yellow banner for Referrer Paused status",
+   "note": "Decided Sep 3 (internal). WAGR-178 comment (2026-08-27) held the banner; WAGR-171 notes 'Paused banner held here'; no ticket or comment records the Sep 3 decision or a build. Same as area RBA-02 (V1)."
+  },
+  {
+   "ledger_id": "L1746",
+   "topic": "Joyce to send the Partner Type value list",
+   "note": "Client action item (Aug 13) behind WAGR-206's single 'Affiliate Network' value; no ticket tracks it. Same as area OPPT-A-08 (V1)."
+  }
+ ],
+ "notes": "All 43 keys in range exist. Ledger jira_keys_mentioned values 'WAGR-176/178/179/190/193/194/195' (L2170, L2249-L2260) are BUILD numbers spoken in meetings (e.g. BUILD-193 = WAGR-74), not these WAGR keys; they were not used as support. Many batch tickets are already covered by area variances (RBA-01, RP-04/05/06, SIGNUP-B-10, DEAL-B-10, REDEP-16, CMSB-03, PLAYER-01, OPS-B-07); cross-references are in each note and in also_reported_as."
+}

@@ -1,0 +1,1072 @@
+{
+ "batch": "batch_09",
+ "range": "WAGR-348..WAGR-390",
+ "issues": [
+  {
+   "key": "WAGR-348",
+   "status": "Done",
+   "phase": null,
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1204",
+    "L1356",
+    "L1646"
+   ],
+   "search_terms": [
+    "partner hidden reps",
+    "hide partner",
+    "short code",
+    "header"
+   ],
+   "note": "Supported by the July/Aug 'reps see Operator only' decisions, but the 09-23 weekly sync (L2920, L2921) reversed part of it: reps keep the full partner name on deal hover and the partner short code goes into the rep header. Replacement build is WAGR-422; WAGR-348 (Done) still states 'No Rep-facing surface exposes Partner'. Same finding as SIGNUP-B-03 / OPS-B-02."
+  },
+  {
+   "key": "WAGR-349",
+   "status": "Done",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1198",
+    "L1194",
+    "L1199",
+    "L1331",
+    "L1230"
+   ],
+   "search_terms": [
+    "emoji",
+    "country flag",
+    "status colour",
+    "red triangle"
+   ],
+   "note": "Status colorway (yellow/green/gray/red triangle), formula-driven country flag emojis and Lina's pending emoji suggestions all match the 07-22/07-28 decisions."
+  },
+  {
+   "key": "WAGR-350",
+   "status": "Done",
+   "phase": null,
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1191",
+    "L1386"
+   ],
+   "search_terms": [
+    "log sign up",
+    "in progress",
+    "status transition"
+   ],
+   "note": "Matches the 07-22/07-28 rule, but 09-11 (L2479, tier1) and 08-31 (L2188, tier2) changed it: Log Sign Up needs some input to move to In Progress, otherwise the record stays New. Built under WAGR-155 (BUILD-243). WAGR-350 (Done) AC still says opening and cancelling leaves the record In Progress. Same finding as SIGNUP-B-11."
+  },
+  {
+   "key": "WAGR-351",
+   "status": "Done",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1225",
+    "L1221",
+    "L1222",
+    "L1343",
+    "L2306",
+    "L1220"
+   ],
+   "search_terms": [
+    "flagged",
+    "fraud review status",
+    "fraud flag",
+    "lock"
+   ],
+   "note": "Four-value status set, Flagged->Fraud rename, fraud tracked separately, completed fraud stays Completed, lock on Ops confirm (L2306 09-01 re-confirms lock after Ops confirms)."
+  },
+  {
+   "key": "WAGR-352",
+   "status": "Done",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1207",
+    "L1209"
+   ],
+   "search_terms": [
+    "highlights panel",
+    "header",
+    "completion",
+    "player info"
+   ],
+   "note": "Header shows status colour, completion %, operator, market, vertical; contact info moves below (L1207). Note: later 09-23/09-28 header changes (L2912, L2919, L2921, L3221) are tracked in WAGR-421/WAGR-422, not here; WAGR-352 is Done and is not contradicted on its own scope except the partner exclusion covered under WAGR-348."
+  },
+  {
+   "key": "WAGR-353",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2392",
+    "L2478",
+    "L1982",
+    "L1980"
+   ],
+   "search_terms": [
+    "restriction",
+    "banner",
+    "referrer ban",
+    "pause"
+   ],
+   "note": "Ticket comment 09-21 says restriction fields removed, banner-only. Consistent with the banner approach for referrer ban/pause (L2392, L2478) and 'paused/banned referrers not restricted' (L1982); the player-side 'no restriction fields, banner only' is L1980. Status is still Jumpr Review although the work is now 'remove fields' - hygiene only. WAGR-171 says the Paused banner is held in BUILD-235, which may cover area finding RBA-02."
+  },
+  {
+   "key": "WAGR-354",
+   "status": "Open",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1964"
+   ],
+   "search_terms": [
+    "clipboard",
+    "copy icon",
+    "copy button"
+   ],
+   "note": "No transcript item on copy icons for the Sign-Up Name / E-Transfer Email (source is feedback sheet G10), but the 08-18 decision that a copy-to-clipboard component is 'not for launch' (L1964, for BA details on the player record) is consistent with this ticket being Deferred / Phase 2."
+  },
+  {
+   "key": "WAGR-355",
+   "status": "Requirements",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1334",
+    "L1331",
+    "L1194"
+   ],
+   "search_terms": [
+    "country flag",
+    "flag next to name",
+    "emoji"
+   ],
+   "note": "Flag next to player name agreed 07-28 (L1334). Jira-internal duplication: the flag-next-to-name is already built in WAGR-227 (Player_Display__c), while WAGR-355 stays Requirements / On Hold. Reported by area finders as OPS-A-07 / OPS-B-05 / SIGNUP-B-14 (V4); no transcript says 'done', so not re-raised here."
+  },
+  {
+   "key": "WAGR-356",
+   "status": "Requirements",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1336",
+    "L1389",
+    "L1335"
+   ],
+   "search_terms": [
+    "fraud flag position",
+    "red flag",
+    "split view",
+    "emoji"
+   ],
+   "note": "Moving the red fraud flag right of the name was asked 07-28 (L1336, proposed; client to sit with layout). WAGR-227 now places the fraud flag after the name; the gated items (drop proof circles, Lina format) have no later decision. Area OPS-A-07 / OPS-B-05 cover the status hygiene."
+  },
+  {
+   "key": "WAGR-357",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1354",
+    "L3279"
+   ],
+   "search_terms": [
+    "effective from",
+    "end date",
+    "manage DRA",
+    "DRA history"
+   ],
+   "note": "Kobi said on 07-28 the flow must keep Effective From on update (L1354); later the same meeting moved assignment to the CMS. 09-29 (L3279) puts the CMS->SF DRA push in Phase 2 of the CMS integration, so the On Hold reason ('may be unnecessary if CMS manages DRA') is still open, not contradicted."
+  },
+  {
+   "key": "WAGR-358",
+   "status": "Open",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1013",
+    "L0893",
+    "L3394",
+    "L1664"
+   ],
+   "search_terms": [
+    "pacing",
+    "forecast",
+    "caps",
+    "parent child deal",
+    "monthly cap"
+   ],
+   "note": "Rep-level targets/caps not Phase 1 (L1013), per-rep cap enforcement later (L0893), automated pause on caps 'down the road' (L3394). Phase 1 has a numeric monthly cap only (L1664). Consistent with Phase 2 parking."
+  },
+  {
+   "key": "WAGR-359",
+   "status": "Open",
+   "phase": "2",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1093",
+    "L2168",
+    "L2185",
+    "L2335"
+   ],
+   "search_terms": [
+    "secondary referrer",
+    "rollup",
+    "DLRS",
+    "secondary bonus"
+   ],
+   "note": "Ticket parks the secondary-referrer count rollup as a Phase 2 candidate with 'no Phase 1 consumer', but the primary/secondary referral rollups were decided (L1093) and built in Phase 1 with DLRS (L2168, L2185 tier2; L2335 tier1 09-02 decides they count only complete sign-ups). The 'future payout automation' half is now in launch scope: secondary one-time bonus at 10 (L3134, 09-25) to be automated (L3352, 09-30). Same family as RBA-06 / RP-05 / PMB-05."
+  },
+  {
+   "key": "WAGR-360",
+   "status": "Open",
+   "phase": "2",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "drive label",
+    "labels",
+    "label taxonomy",
+    "custom file properties",
+    "workspace admin",
+    "Business Standard"
+   ],
+   "note": "No meeting mentions Google Drive Labels or the label taxonomy; source is the Drive Storage design doc §3.2 / D5. Not a defect."
+  },
+  {
+   "key": "WAGR-361",
+   "status": "Open",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L3297",
+    "L1791",
+    "L1920",
+    "L1293"
+   ],
+   "search_terms": [
+    "error log",
+    "sync status",
+    "retry",
+    "dead letter",
+    "integration log"
+   ],
+   "note": "09-29 decided sync errors are stored on the Deal (sync tab) with field history, not in a new error object (L3297). That is the base build this optional ticket sits on top of, so parking the generic error log in Phase 2 is consistent. Joyce's 08-13 ask for an audit/error log view (L1791, proposed) is the nearest client ask."
+  },
+  {
+   "key": "WAGR-362",
+   "status": "Open",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0913",
+    "L0585",
+    "L1159",
+    "L1553"
+   ],
+   "search_terms": [
+    "dropbox",
+    "decommission",
+    "historical proof",
+    "public link",
+    "migration"
+   ],
+   "note": "Dropbox holds ~396 GB of proofs (L0585); decommission once the new storage works was proposed (L0913). No meeting decided historical migration, and no meeting records Jumpr raising the public-link exposure that the ticket says is 'worth raising with WagerTech separately'."
+  },
+  {
+   "key": "WAGR-363",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1759",
+    "L2180",
+    "L2560",
+    "L2607"
+   ],
+   "search_terms": [
+    "junction",
+    "operator partner relationship",
+    "related partners",
+    "derived from deals"
+   ],
+   "note": "Ticket (tabled 08-17, Done 09-17 'addressed as part of WAGR-382') says the junction object was ruled out on 08-13 (L1759). Later decided direction: build the junction object (L2560 09-14). The closing comment points to WAGR-382, so Jira already reflects the reversal."
+  },
+  {
+   "key": "WAGR-364",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2733",
+    "L3034",
+    "L3057",
+    "L3190",
+    "L3216"
+   ],
+   "search_terms": [
+    "related list",
+    "partner page",
+    "operator relationship",
+    "OPR",
+    "DLRS"
+   ],
+   "note": "Partner-side Operator Relationships related list: parity ticket (L2733), list created (L3057), DLRS rollups being reworked (L3190). Jumpr Review is consistent with 'built, pending'."
+  },
+  {
+   "key": "WAGR-365",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1851",
+    "L1761"
+   ],
+   "search_terms": [
+    "billing notes",
+    "two column",
+    "full width",
+    "field section"
+   ],
+   "note": "Billing Notes cannot be two-column; separate section looked broken; leave as is, revisit later with a custom component (L1851, tier2 decided 08-17). On Hold matches."
+  },
+  {
+   "key": "WAGR-366",
+   "status": "Open",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1848",
+    "L2159",
+    "L2160",
+    "L2161",
+    "L1780"
+   ],
+   "search_terms": [
+    "suspend",
+    "suspension",
+    "phase two"
+   ],
+   "note": "Suspend Operator/Partner tabled to Phase 2 (L1848, L2159), behaviour described (L2160), direction 'originate in Salesforce' only directional (L1780). Deferred/Phase 2 matches."
+  },
+  {
+   "key": "WAGR-367",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1657",
+    "L1775",
+    "L1767",
+    "L1770"
+   ],
+   "search_terms": [
+    "bonus",
+    "partner bonus",
+    "bonus fields"
+   ],
+   "note": "08-11 decided to move bonus fields Deal->Partner (L1657); 08-13 replaced the design with a bonus related object per partner+market (L1775). On Hold pending WAGR-69 (BUILD-172 bonus model placeholder) is consistent."
+  },
+  {
+   "key": "WAGR-368",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "KYC",
+    "AML",
+    "regulatory",
+    "compliance",
+    "lawful"
+   ],
+   "note": "No meeting discusses AML/KYC or gaming-compliance scope. Nearest is L0633 (tier2, proposed: security compliance review left to client) - not the same topic. SOW-derived holding-pen item, closed 09-25 with the other legacy OOS tickets (L3020)."
+  },
+  {
+   "key": "WAGR-369",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0068",
+    "L0538",
+    "L3020"
+   ],
+   "search_terms": [
+    "operator data",
+    "LTV",
+    "reconciliation",
+    "postgres"
+   ],
+   "note": "Operator data join / reconciliation outside Salesforce scope (L0068, L0538). Closure matches the 09-24 decision to close legacy OOS tickets (L3020)."
+  },
+  {
+   "key": "WAGR-370",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0341",
+    "L1626",
+    "L3020"
+   ],
+   "search_terms": [
+    "historical",
+    "migration",
+    "sign-up data",
+    "import"
+   ],
+   "note": "Ticket excludes migration 'beyond agreed sign-up + reference data', consistent with L0341 (historical sign-up migration in Phase 1 for go-live objects) and L1626 (phased approach). Closed per L3020. The historical-migration scope conflict (DMI-01 / PMB-04) is on WAGR-470, not here."
+  },
+  {
+   "key": "WAGR-371",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0893",
+    "L1013",
+    "L0895",
+    "L3020"
+   ],
+   "search_terms": [
+    "per-rep cap",
+    "rep caps",
+    "deal rep assignment",
+    "phase"
+   ],
+   "note": "Per-rep caps not in Phase 1 (L0893, L1013); DRA brought forward (L0895) as the ticket comment says. Closed per L3020."
+  },
+  {
+   "key": "WAGR-372",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0151",
+    "L0672",
+    "L0720",
+    "L3020"
+   ],
+   "search_terms": [
+    "platform license",
+    "license migration",
+    "renewal"
+   ],
+   "note": "Platform-license move was to be evaluated in design (L0151) and treated as a future decision at renewal (L0672, L0720). Closed per L3020."
+  },
+  {
+   "key": "WAGR-373",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L3020"
+   ],
+   "search_terms": [
+    "affiliate link",
+    "subscription",
+    "out of scope",
+    "legacy tickets"
+   ],
+   "note": "Closed 09-25 with the comment 'Closed as out-of-scope ... no longer applicable to current project scope', but the 09-24 decision (L3020) closed it because scope changed and affiliate link generation / subscription workflows are now being done. Closing is right; the recorded reason is wrong. Same as PM-A-02."
+  },
+  {
+   "key": "WAGR-374",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0127",
+    "L0090",
+    "L0337",
+    "L3020"
+   ],
+   "search_terms": [
+    "bank transfer",
+    "transfer log",
+    "phase 2"
+   ],
+   "note": "Bank transfer object agreed for Phase 2 on 06-03 (L0127). Closed per L3020. Area lead (Referral_and_Payouts) notes the Phase 2 item now has no placeholder."
+  },
+  {
+   "key": "WAGR-375",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0117",
+    "L0864",
+    "L0082",
+    "L3020"
+   ],
+   "search_terms": [
+    "whatsapp",
+    "AI intake",
+    "screenshot"
+   ],
+   "note": "WhatsApp integration not in Phase 1 (L0117), not touched in current build (L0864); recommended as phased (L0082). Closed per L3020; area leads note no Phase 2 placeholder remains."
+  },
+  {
+   "key": "WAGR-376",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0128",
+    "L0130",
+    "L0274",
+    "L3020"
+   ],
+   "search_terms": [
+    "bank api",
+    "payment processor",
+    "bank integration"
+   ],
+   "note": "Payment-processor integration later (L0128); Jumpr to research bank API and report back (L0130). Closed per L3020. Area RP-10 (V4) covers the missing research outcome."
+  },
+  {
+   "key": "WAGR-377",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L0337",
+    "L2044"
+   ],
+   "search_terms": [
+    "referral payouts",
+    "payout batching",
+    "payout lines",
+    "phase 3"
+   ],
+   "note": "Ticket says payouts are out of Phase 1 / planned Phase 3, and it was closed 09-25 as 'out-of-scope ... no longer applicable'. The 09-25 Referral and Payouts discovery decided referral payments need their own Salesforce work stream (L3094) with detailed rules (L3134, L3115), and WAGR-465 now holds the design. Closure is fine; the recorded reason is wrong. Grouped with WAGR-373 (PM-A-02)."
+  },
+  {
+   "key": "WAGR-378",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0099",
+    "L0337",
+    "L3020"
+   ],
+   "search_terms": [
+    "payout dashboard",
+    "unified dashboard",
+    "cash flow"
+   ],
+   "note": "Payout dashboard flagged for later discussion (L0099); payouts Phase 3 in the PRD breakdown (L0337). Closed per L3020."
+  },
+  {
+   "key": "WAGR-379",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1077",
+    "L3327",
+    "L3020"
+   ],
+   "search_terms": [
+    "custom dashboard",
+    "LWC",
+    "custom component"
+   ],
+   "note": "Custom LWCs are costly and need clear criteria (L1077, L3327). Consistent with the SOW exclusion. Closed per L3020."
+  },
+  {
+   "key": "WAGR-380",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0672",
+    "L0720",
+    "L3020"
+   ],
+   "search_terms": [
+    "license fee",
+    "licence cost",
+    "renewal",
+    "procure"
+   ],
+   "note": "Licence matters are between WagerTech and Salesforce at renewal (L0672, L0720); no meeting says Jumpr pays licence fees. Weak but consistent. Closed per L3020."
+  },
+  {
+   "key": "WAGR-381",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0337",
+    "L3020"
+   ],
+   "search_terms": [
+    "redeposit",
+    "rep queue",
+    "phase 2"
+   ],
+   "note": "Deposits/redeposits were Phase 2 in the PRD breakdown (L0337). Closed per L3020. Note: redeposit design is active in Sep (L3343, L3436), so 'no longer applicable to current project scope' in the closing comment is not accurate; area REDEP leads already cover the redeposit phase question."
+  },
+  {
+   "key": "WAGR-382",
+   "status": "Open",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2560",
+    "L2607",
+    "L2608",
+    "L2678",
+    "L2672"
+   ],
+   "search_terms": [
+    "junction",
+    "operator partner relationship",
+    "direct billing"
+   ],
+   "note": "Epic for the Operator-Partner Relationship junction (decided 09-14, L2560). Billing-storage question (L2608) answered by the client (L2678); the epic comment records Lina's 09-16 answer (one set of direct terms per Operator). Scope text still lists 'retirement of the Operator-level billing section', superseded by the comment and by WAGR-386's cancellation - comments count as coverage."
+  },
+  {
+   "key": "WAGR-383",
+   "status": "Done",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2608",
+    "L2678"
+   ],
+   "search_terms": [
+    "direct billing",
+    "market",
+    "junction billing"
+   ],
+   "note": "Question 'can direct terms vary by market' was open on 09-15 (L2608) and answered by 09-17 (L2678). Done matches."
+  },
+  {
+   "key": "WAGR-384",
+   "status": "Jumpr Review",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2560",
+    "L2607",
+    "L2672",
+    "L2673",
+    "L2689",
+    "L2729"
+   ],
+   "search_terms": [
+    "operator partner relationship",
+    "relationship key",
+    "async",
+    "junction"
+   ],
+   "note": "OPR records created/deactivated from Deals: build in progress 09-17 (L2672), async issue (L2673, L2689), relationship-key flag approach (L2729). Jumpr Review matches. Area RD-10 (V3) notes the weekly email replaced by a report."
+  },
+  {
+   "key": "WAGR-385",
+   "status": "Jumpr Review",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2731",
+    "L2732",
+    "L2679"
+   ],
+   "search_terms": [
+    "direct billing details",
+    "billing section",
+    "385"
+   ],
+   "note": "Cedrick starts 385 (L2731); 385/411 are Emily's operator-page feedback items (L2732). Jumpr Review matches."
+  },
+  {
+   "key": "WAGR-386",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2678",
+    "L2608"
+   ],
+   "search_terms": [
+    "direct billing",
+    "migration",
+    "operator billing section"
+   ],
+   "note": "Cancelled 09-17 because the client confirmed direct terms do not vary by market; consistent with the 09-17 confirmation (L2678)."
+  },
+  {
+   "key": "WAGR-387",
+   "status": "Cancelled",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2678",
+    "L2608"
+   ],
+   "search_terms": [
+    "related record component",
+    "direct arrangement",
+    "direct billing"
+   ],
+   "note": "Cancelled with WAGR-386 once direct terms stayed on the Operator; consistent with L2678. No meeting discussed the Related Record component itself."
+  },
+  {
+   "key": "WAGR-388",
+   "status": "Jumpr Review",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L3054",
+    "L3190",
+    "L3216",
+    "L2601"
+   ],
+   "search_terms": [
+    "associated partners",
+    "associated operators",
+    "DLRS",
+    "count",
+    "active operators"
+   ],
+   "note": "Counts rebuilt from relationship rows; AC counts active relationships only, which matches 09-28 (L3216). The 09-28 retitle to 'Active Operators' is not in WAGR-388 (area OP_B-02 covers the label point on WAGR-389)."
+  },
+  {
+   "key": "WAGR-389",
+   "status": "Solution Review",
+   "phase": null,
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2556",
+    "L2582",
+    "L3217"
+   ],
+   "search_terms": [
+    "help text",
+    "highlights panel",
+    "hover"
+   ],
+   "note": "Ticket created per L2556. 09-14 comment by Taryn records that help text does not show in the dynamic highlights panel - the same finding as L2582 (09-15), so the ticket already covers it (comments count). Area findings OPS-A-06 / OPS-B-04 / TE-05 (V3) are arguable for that reason; TE-04 (V1, no training-doc ticket) is the real gap."
+  },
+  {
+   "key": "WAGR-390",
+   "status": "Open",
+   "phase": null,
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1934",
+    "L1961"
+   ],
+   "search_terms": [
+    "BA creation",
+    "rep creation",
+    "external ID",
+    "manual"
+   ],
+   "note": "Ticket says BA creation stays manual on both sides and no CMS->SF BA intake is built or scoped. The last transcript decision (08-18, L1934) is that creating a rep in the CMS pushes the rep to Salesforce; L1961 keeps the BA External ID for mapping. The ticket's source (Emily's Sep written feedback) is later and not in any transcript. Same finding as CMSB-03."
+  }
+ ],
+ "variances": [
+  {
+   "temp_id": "JS09-01",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Sign-Up",
+   "title": "WAGR-348 (Done) still says no rep-facing surface shows Partner; 09-23 decided reps see partner short code in header and full name on hover",
+   "jira": [
+    {
+     "key": "WAGR-348",
+     "status": "Done",
+     "assignee": null,
+     "summary": "BUILD-21 — Hide Partner from all Rep-facing views",
+     "quote": "No Rep-facing surface exposes Partner",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-422",
+     "status": "Requirements",
+     "assignee": "Taryn Reithofer",
+     "summary": "Sign-Up: Reorganize header — Proof/Completion right, Partner short code, Deal Info section",
+     "quote": "Add Partner to the header, displayed as the short code (not the full partner name), e.g. \"GDC\" not the full name.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2921",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:46:49",
+     "line_start": 753,
+     "quote": "Lina Ceniccola: Because now seeing this I'm wondering if in the header can we just at least add the partner. So operator partner / Kobi Kunasekaran: within these. Yeah, we can add the partner field here. / Lina Ceniccola: Originally I said no like not surfacing all that Gil information but if we can add in just that partner piece then we're good / Kobi Kunasekaran: we could uh we could display the partner short code instead of the full one."
+    },
+    {
+     "ledger_id": "L2920",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "00:27:49",
+     "line_start": 523,
+     "quote": "Lina Ceniccola: I think we said to start we can keep all info. / Emily Vandenberg: Okay, you're good with that. / Lina Ceniccola: Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "WAGR-348 sets an absolute rule that no rep-facing surface exposes Partner. On 09-23 the client decided reps see the partner short code in the sign-up header and keep the full partner name on deal hover (built as WAGR-422).",
+   "suggested_action": "Add a comment on WAGR-348 that the 09-23 decision partly supersedes its AC, and link it to WAGR-422 so UAT scripts do not test the old rule.",
+   "checked_later_meetings": true,
+   "reasoning": "Earlier basis L1204/L1356/L1646 (07-22 to 08-11). No ledger item after 09-23 reverts. Low because WAGR-422 already holds the new rule; risk is a failed UAT check or a regression fix against the old AC. Duplicate of SIGNUP-B-03 / OPS-B-02."
+  },
+  {
+   "temp_id": "JS09-02",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Sign-Up",
+   "title": "WAGR-350 (Done) says Log Sign Up moves to In Progress with no input; 09-11 decided input is required or the record stays New",
+   "jira": [
+    {
+     "key": "WAGR-350",
+     "status": "Done",
+     "assignee": null,
+     "summary": "BUILD-25 — Log Sign Up click transitions New to In Progress",
+     "quote": "Clicking Log Sign Up moves Status from New to In Progress even if no fields are completed",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-350",
+     "status": "Done",
+     "assignee": null,
+     "summary": "BUILD-25 — Log Sign Up click transitions New to In Progress",
+     "quote": "Opening and cancelling the Log Sign Up flow still leaves the record In Progress",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2479",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:04:14",
+     "line_start": 187,
+     "quote": "Kobi Kunasekaran: … the signup has also been updated so that you have to enter some information in the log signup screen for it to move to in progress. Um, otherwise there's a warning that says like, you know, nothing's been filled out. So, it's not it's going to remain as new."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2188",
+     "date": "2026-08-31",
+     "meeting_title": "Kobi <> Taryn: Weekly Planning - 2026/08/31 10:32 EDT - Notes by Gemini",
+     "doc_link": "https://docs.google.com/document/d/1KFx3AKFjEqNsrR5ZSSAJSqVCJ23cPR4WtM3tUtXxa0c/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:05:16",
+     "line_start": 118,
+     "quote": "Kobi Kunasekaran: So, if uh what's her name? Emilyy's also testing them. She knows that, you know, we're the ones that uh made the changes. Um but yeah, when you click on lock signup, um it'll it should transition the record to the next stage, / Kobi Kunasekaran: which we are going to change, but for now it's fine. Um and then under the referendary refer, this is where you're going to want to put in the referral records. / Kobi Kunasekaran: document that I shared. Yeah. For this one, initially we just had it so that uh we progress as soon as they click the button, but they only want it to progress if they fill any of the fields. So, um it's I think we just have to like listen for what the change is and make it so that it only updates if something was filled as opposed to like right now if I go and click on lock signup and click save, even if I don't edit anything, / Kobi Kunasekaran: it moves it in progress."
+    }
+   ],
+   "what_differs": "WAGR-350 AC requires the record to move to In Progress even with no input. The later rule (built in WAGR-155 / BUILD-243) keeps the record New and shows a warning when nothing is entered.",
+   "suggested_action": "Comment on WAGR-350 that WAGR-155 supersedes its AC, and link the two tickets.",
+   "checked_later_meetings": true,
+   "reasoning": "Earlier basis L1191 (07-22) and L1386 (07-28). L2188 is tier2 (Gemini) and only corroborates; L2479 is tier1 decided. Duplicate of SIGNUP-B-11."
+  },
+  {
+   "temp_id": "JS09-03",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Referral and Payouts",
+   "title": "WAGR-359 parks the secondary-referrer rollup and payout automation in Phase 2, but the rollup was built in Phase 1 and the secondary bonus is now in launch scope",
+   "jira": [
+    {
+     "key": "WAGR-359",
+     "status": "Open",
+     "assignee": null,
+     "summary": "BUILD-91 — Secondary-referrer count rollup + future payout automation (Phase 2 candidate)",
+     "quote": "ON HOLD: parked until Phase 2 scoping; no Phase 1 consumer.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2335",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:10:51",
+     "line_start": 366,
+     "quote": "Taryn Reithofer: thing that I thought of this morning because I was grabbing screenshots of the um examples for um primary and secondary referrals rolling up to the highlights um in the referral page. / Taryn Reithofer: And obviously we know it only counts it's set up to only count when the sign / Kobi Kunasekaran: Yeah. Wait, are we doing the So this roll up, is it based on players or based on / Taryn Reithofer: Sign / Kobi Kunasekaran: signups? / Taryn Reithofer: up."
+    },
+    {
+     "ledger_id": "L1093",
+     "date": "2026-07-17",
+     "meeting_title": "Wagertech <> Jumpr - 60 Min (Joyce Kiddell)",
+     "doc_link": "https://docs.google.com/document/d/1uCoi6pw3ckVsTv1im7Qc235RyfAUqb7UGFJs2Pd6uMY/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:38:08",
+     "line_start": 685,
+     "quote": "Joyce Kiddell: it should have like number of like primary referrals and secondary referrals. / Kobi Kunasekaran: Yeah. / Joyce Kiddell: Yeah. Yep. Okay."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3134",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:50:55",
+     "line_start": 793,
+     "quote": "Joyce Kiddell: um, then you get some sort of bonus. Uh, it's 200 bucks in redeposit or 100 bucks um in cash and it's a onetime thing. So to be clear, that means Lena and Emily that like after the first 10 signups, they're not getting like another bonus at 20 signups and then 30 and 40. Or are they? / Lina Ceniccola: Yes. No. No. 10. They're done. / Kobi Kunasekaran: quies. Okay, this sounds good. Um, so just send for the secondary refer after that's sent out. We're not doing anything else. / Joyce Kiddell: Uh-uh."
+    },
+    {
+     "ledger_id": "L3352",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "03:12:23",
+     "line_start": 2519,
+     "quote": "Kobi Kunasekaran: I we I think we said the secondary onetime bonus is going to be automated. So um we we'll come back to that. / Kobi Kunasekaran: I don't think I I built out the ability to change a payout type once it's been created. Um, so I'll have to come back to that."
+    }
+   ],
+   "what_differs": "WAGR-359 says the secondary-referrer count has no Phase 1 consumer and payout automation is out of scope. Meetings show the primary/secondary referral rollups were decided and built in Phase 1, and on 09-25/09-30 the secondary one-time bonus at 10 sign-ups was decided and is to be automated.",
+   "suggested_action": "Close or rewrite WAGR-359: mark the rollup part as delivered (link the referrer rollup ticket) and move the secondary-bonus automation into the referral payouts design (WAGR-465).",
+   "checked_later_meetings": true,
+   "reasoning": "L2185 (tier2) says Taryn built the rollups; L2335 (tier1, 09-02) decides their counting rule. L3134/L3352 are tier1 decided and later than the ticket. Duplicate family of RBA-06 / RP-05 / PMB-05."
+  },
+  {
+   "temp_id": "JS09-04",
+   "category": "V2",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Project Mgmt / Scope / Phase / Timeline",
+   "title": "Legacy OOS tickets WAGR-373 and WAGR-377 closed as 'out-of-scope', but the 09-24 decision closed them because the work is now in scope",
+   "jira": [
+    {
+     "key": "WAGR-373",
+     "status": "Cancelled",
+     "assignee": null,
+     "summary": "OOS: Affiliate-link generation & subscription workflows (incl. TechTakes/Tactics)",
+     "quote": "Closed as out-of-scope. Carried over from the Asana migration (06/15) and no longer applicable to current project scope.",
+     "quote_source": "comment by Taryn Reithofer 2026-09-25"
+    },
+    {
+     "key": "WAGR-377",
+     "status": "Cancelled",
+     "assignee": null,
+     "summary": "OOS: Referral payouts, batching & payout lines",
+     "quote": "Closed as out-of-scope. Carried over from the Asana migration (06/15) and no longer applicable to current project scope.",
+     "quote_source": "comment by Taryn Reithofer 2026-09-25"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3020",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:30:25",
+     "line_start": 537,
+     "quote": "Kobi Kunasekaran: Uh honestly, just just close them off because it's no longer relevant. / Kobi Kunasekaran: Like affiliate link generation, subscription workflows, / Taryn Reithofer: So, that'll that was that's 14 tickets that are going to leave our backlog, which is nice. / Kobi Kunasekaran: if it asks for a message um just say removing it from the working board or something like that."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3094",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Lina Ceniccola; Joyce Kiddell",
+     "timestamp": "00:05:55",
+     "line_start": 217,
+     "quote": "Lina Ceniccola: Yeah, I was just looking at this chart here real quick. Yeah, I mean, we only have primary and secondary referral payments, so / Joyce Kiddell: But yeah, so I agree that those are the only ones that require kind of a separate like work stream like probably like screens in Salesforce."
+    },
+    {
+     "ledger_id": "L3134",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:50:55",
+     "line_start": 793,
+     "quote": "Joyce Kiddell: um, then you get some sort of bonus. Uh, it's 200 bucks in redeposit or 100 bucks um in cash and it's a onetime thing. So to be clear, that means Lena and Emily that like after the first 10 signups, they're not getting like another bonus at 20 signups and then 30 and 40. Or are they? / Lina Ceniccola: Yes. No. No. 10. They're done. / Kobi Kunasekaran: quies. Okay, this sounds good. Um, so just send for the secondary refer after that's sent out. We're not doing anything else. / Joyce Kiddell: Uh-uh."
+    }
+   ],
+   "what_differs": "The closing comments say the items are out of scope. The meeting closed them because scope changed and affiliate link generation and subscription workflows are now being done; referral payouts got their own Salesforce work stream on 09-25.",
+   "suggested_action": "Edit the closing comment on WAGR-373 and WAGR-377 to say 'superseded: now in scope', and link them to the active tickets (affiliate link / CMS sync tickets; WAGR-465 for referral payouts).",
+   "checked_later_meetings": true,
+   "reasoning": "Hygiene only; status Cancelled is right. Matters because a reader of Jira would think payouts and affiliate links are excluded. Duplicate of PM-A-02."
+  },
+  {
+   "temp_id": "JS09-05",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "CMS Integration",
+   "title": "WAGR-390 says BA creation is manual on both sides with no CMS intake; 08-18 decided the CMS pushes the rep to Salesforce on rep creation",
+   "jira": [
+    {
+     "key": "WAGR-390",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BA: Define Manual BA Creation Process (CMS External ID Reference)",
+     "quote": "No automated intake or sync from the CMS into Salesforce for BA creation has been built or scoped",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1934",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Strahinja Vladetic",
+     "timestamp": "00:32:24",
+     "line_start": 592,
+     "quote": "Joyce Kiddell: ...and just use that as the event that then pushes the rep information to Salesforce. / Strahinja Vladetic: Yeah, that makes sense. Whenever it's created on our side, we just push it to them."
+    },
+    {
+     "ledger_id": "L1961",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "01:04:26",
+     "line_start": 1094,
+     "quote": "Kobi Kunasekaran: I think the external ID for sure we're going to need, right? / Joyce Kiddell: Should we have their slug and landing page here, Emily and Lena? / Lina Ceniccola: Yeah, / Emily Vandenberg: I think so. / Lina Ceniccola: Can we change it from landing page to agency page, / Lina Ceniccola: agency site? / Joyce Kiddell: Yep."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The ticket defines a manual BA creation process with no CMS feed. The last recorded meeting decision is that creating a rep in the CMS is the event that pushes the rep to Salesforce, with the External ID used for mapping.",
+   "suggested_action": "Confirm with WagerTech (Emily/Strahinja) whether the CMS rep-creation push is deferred. If deferred, record that on WAGR-390 with date and source; if not, add a CMS-integration ticket for the push and keep WAGR-390 as the interim process.",
+   "checked_later_meetings": true,
+   "reasoning": "No later ledger item on BA/rep creation (searched Sept items). The ticket cites Emily's Sep written feedback, which may be a real later change not in any transcript, so confidence is medium. Duplicate of CMSB-03."
+  }
+ ],
+ "gaps_noticed": [
+  {
+   "ledger_id": "L2582",
+   "topic": "Record-page documentation / training for highlights-panel fields",
+   "note": "Decided 09-15 that the purpose of highlights-panel count fields goes into record-page documentation and training because help text does not show. No ticket for that documentation found near WAGR-389 (searched 'training', 'documentation', 'help text'). Already reported as TE-04 (V1)."
+  },
+  {
+   "ledger_id": "L3216",
+   "topic": "Retitle Associated Operators to 'Active Operators'",
+   "note": "Decided 09-28 (Emily/Taryn). WAGR-388 covers the active-only count but not the label change; WAGR-389 still uses 'Associated'. Not a missing ticket, a detail gap; already raised as OP_B-02."
+  }
+ ],
+ "notes": "All 43 keys exist. All 5 candidate variances duplicate findings already in area files (SIGNUP-B-03/OPS-B-02, SIGNUP-B-11, RBA-06/RP-05, PM-A-02, CMSB-03) and cite shared ledger ids so the merge step folds them in. No new V1 gaps: nearby decided items checked for tickets (CMS retry/reports -> WAGR-451/457; fraud write-offs -> WAGR-466; rep fraud-field lock -> WAGR-494; referrer paused banner -> WAGR-171 says held in BUILD-235; partner short code -> WAGR-422; bonus model -> WAGR-69). Not raised: WAGR-389 help-text V3 (Taryn's 09-14 comment already records that help text does not display; comments count as coverage)."
+}
