@@ -1,0 +1,1518 @@
+{
+ "area": "Redeposits",
+ "variances": [
+  {
+   "temp_id": "REDEP-01",
+   "category": "V1",
+   "severity": "High",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket for the redeposit data model: monthly redeposit budget per deal (manual input) with allocations directly under it",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "redeposit",
+     "budget",
+     "allocation",
+     "monthly budget",
+     "budget entry",
+     "Redeposit object"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-108",
+     "WAGR-107",
+     "WAGR-468"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2785",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:02:55",
+     "line_start": 187,
+     "quote": "Joyce Kiddell: I think the first piece, like you just said, is the budget. budget setting by deal and I don't think we're at a point to be able to automate that piece where it's like we where we understand exactly the correct amount to like start with and then splice out. / Kobi Kunasekaran: Mhm. / Joyce Kiddell: So if to start if we can just like solution for being like a field or like something that we can input ourselves um and then Alli's process will take over. / Kobi Kunasekaran: Yes. / Emily Vandenberg: Yep."
+    },
+    {
+     "ledger_id": "L3343",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "02:58:50",
+     "line_start": 2326,
+     "quote": "Joyce Kiddell: But I think it's actually a lot more fluid and I I wouldn't put a ton of automation around making sure that like they can only hit that number and then we like stop them. / Kobi Kunasekaran: So if we don't need that I think we can skip we just do the monthly container because I think that you still want / Joyce Kiddell: Yep. / Kobi Kunasekaran: Okay, so I think then what I'm going to do is I'll remove this middle object. We're going to just have the monthly budget and the redeposit allocation."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3452",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:48:24",
+     "line_start": 1514,
+     "quote": "Kobi Kunasekaran: Um and the budget is essentially set up as a container for um the redeposit entries. / Kobi Kunasekaran: Um so every month there is a separate budget."
+    },
+    {
+     "ledger_id": "L3336",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "02:23:19",
+     "line_start": 1907,
+     "quote": "Kobi Kunasekaran: So the budget is per deal per month. So there's going to be like uh budget entries for each month for a deal. And then within the budget you have budget entries."
+    }
+   ],
+   "what_differs": "Meetings decided that WagerTech enters a monthly redeposit budget per deal manually, and on 2026-09-30 removed the budget-entry layer so allocations sit directly under the monthly budget. No Jira ticket defines these objects; WAGR-464 still lists 'Where does the budget live, and in what unit?' and 'Batch level' as open decisions, and WAGR-108 says the Redeposit object is not ticketed.",
+   "suggested_action": "Suggestion: record the 2026-09-30 data-model outcome on WAGR-464 (close the 'budget location' and 'batch level' open decisions) and create build stories for the Monthly Redeposit Budget and Redeposit Allocation objects, under a Redeposits epic.",
+   "checked_later_meetings": true,
+   "reasoning": "L2785 (decided, tier1) and L3343 (change-to-earlier-decision, tier1) are the latest decided items; L3336 (budget entries) is superseded. Searched all 505 issues; only WAGR-464 and WAGR-108 touch the object, and neither defines it. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-02",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "No ticket for manual and bulk allocation entry (rep + amount + volume, multiple batches per month)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "manual allocation",
+     "bulk",
+     "volume",
+     "batch",
+     "upload",
+     "Data Loader",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-477",
+     "WAGR-470"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2796",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:29:54",
+     "line_start": 464,
+     "quote": "Lina Ceniccola: so, as long as we have the ability to also create manual redeposit records, that's really important. / Kobi Kunasekaran: Yeah. I mean that that's what Salesforce is going to give you, right? like you do have the ability to um like the interface that we talked about last week um where you can add additional uh additional allocations for redeposits in bulk to deals to people."
+    },
+    {
+     "ledger_id": "L2798",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Lina Ceniccola; Ali Nawaz; Kobi Kunasekaran",
+     "timestamp": "00:41:21",
+     "line_start": 587,
+     "quote": "Lina Ceniccola: We just need a world where like we can have the assign redeposits in multiple batches but also the ability to manually add / Kobi Kunasekaran: Mhm. / Lina Ceniccola: any of these edge case redeposits and Aliwill he'll manage um manually to some extent because again it's art not a science whole thing but I think like there's a lot of things here that can be reduced at least so he can focus more on the strategy part of it than actually in copy and pasting into the different spreadsheets and whatnot and um potentially like the volume of the books too / Kobi Kunasekaran: Um, the adding the manual allocations and everything, I think that's all fine. I'm not concerned."
+    },
+    {
+     "ledger_id": "L3454",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "01:51:16",
+     "line_start": 1535,
+     "quote": "Emily Vandenberg: You would want you would want to have a volume right field / Kobi Kunasekaran: Um, but what you're asking for is like one more layer up where they could create these in bulk for when the amount and when the amount and the rep is the same and then we just create the individual breakdown behind the scenes. Uh, which we can do. / Emily Vandenberg: Okay. Yeah, it would be more to many,"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3338",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "02:41:54",
+     "line_start": 2133,
+     "quote": "Kobi Kunasekaran: So then I I would even like say like let's not spend time on the upload CSV because this is going to take time. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah, we we can like so like we always need a manual way so that we're going to have to build anyways and this is going to establish the guard rails, the rules, the fields that we we need and everything. / Kobi Kunasekaran: And then we can bolt on the CSV option afterwards."
+    }
+   ],
+   "what_differs": "WagerTech needs to create manual redeposit allocations in several batches per month, entered as rep + amount + volume with automation creating the individual records, and on 2026-09-30 the manual path was set to be built before the CSV upload. WAGR-464 describes only 'Ops uploads the monthly allocation from Jay's tool' and 'Ops handles exceptions'; no ticket states the manual/bulk entry or its build order.",
+   "suggested_action": "Suggestion: add the manual bulk-allocation requirement (rep, amount, volume; repeatable batches) and the manual-first build order to WAGR-464, then create a build story.",
+   "checked_later_meetings": true,
+   "reasoning": "L2796, L2798 and L3454 are decided tier1 items; L3338 (Data Migration area, decided) sets manual first, CSV later. WAGR-464's 're-runs in the middle of the month' line is close but does not state manual creation or the volume input. Confidence medium because 'Ops handles exceptions' could be read as covering manual records. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-03",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "No ticket for the eligible-signup date range on each allocation (ops-set, with a deal default)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "eligib",
+     "date range",
+     "signup window",
+     "start date",
+     "end date",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-107"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3346",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "03:02:50",
+     "line_start": 2384,
+     "quote": "Kobi Kunasekaran: Like start date, end date for eligible signups. And then that gets saved in the redeposit allocation record. So when they try to choose a player uh to allocate it to, it only displays anybody that had a sign up in those in those dates. / Kobi Kunasekaran: Maybe we can have like a default one on the deal that gets that pre-populates that field and then if / Joyce Kiddell: Yeah. Yes. Yeah. That's smart."
+    },
+    {
+     "ledger_id": "L3455",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:56:23",
+     "line_start": 1583,
+     "quote": "Joyce Kiddell: Just confirming sorry the date range for selecting when those users signed up that'll be configured by us right like ops not the Happy. / Kobi Kunasekaran: Um yeah, I it would be I assume it's part of the budget configuration. / Kobi Kunasekaran: So like I'll add that in and I can show you once uh once it gets added."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3341",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "02:51:07",
+     "line_start": 2227,
+     "quote": "Emily Vandenberg: in midmon if Jess opens up more budget, he might be like, you can go and you can there's an extended window. Maybe it's like 3 months, maybe it's four. / Emily Vandenberg: It's not global at a deal level."
+    },
+    {
+     "ledger_id": "L2820",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Ali Nawaz; Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "01:04:32",
+     "line_start": 898,
+     "quote": "Lina Ceniccola: But the problem with that is they are allowed to read up outside of that window. / Ali Nawaz: Yes. / Lina Ceniccola: I think this goes back to like those specific guard rails. we we're going to leave open-ended and / Emily Vandenberg: to start. / Lina Ceniccola: like we'll we'll determine what it is, / Emily Vandenberg: Yeah. / Lina Ceniccola: but you'll have to Still. monitor that uh process. / Lina Ceniccola: also given like our our timeline here for launch to set up these guard / Lina Ceniccola: rails but then actually have to go back and be like well actually we let people go against these all the time so doesn't really make sense to set it up. We just have to manage it internally."
+    }
+   ],
+   "what_differs": "On 2026-09-30 the team decided that each redeposit allocation stores start/end dates for eligible signups, set by ops and pre-populated from a default on the deal, and that reps can select only players with signups in that range. WAGR-464 says only 'A BA assigns slots to eligible players'; no ticket states the date-range rule or the deal default.",
+   "suggested_action": "Suggestion: add the eligibility date-range rule (allocation-level start/end, deal default, player picker filter) to WAGR-464 and to the allocation build story.",
+   "checked_later_meetings": true,
+   "reasoning": "L3346 and L3455 are decided tier1 items (Kobi: 'I'll add that in'). L2820 keeps freshness guard rails open for launch, which is consistent (the date range filters selection; no extra flags). Confidence medium because 'eligible players' in WAGR-464 is generic. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-04",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket for rep queue actions: 'try a different player' (stamped history) and 'request reallocation' (mandatory notes, ops review)",
+   "jira": [
+    {
+     "key": "WAGR-381",
+     "status": "Cancelled",
+     "assignee": null,
+     "summary": "OOS: Redeposit streams & rep queue",
+     "quote": "Out of scope for Phase 1 (per SOW). Planned Phase 2.",
+     "quote_source": "description"
+    }
+   ],
+   "no_ticket_search": {
+    "terms": [
+     "rep queue",
+     "reallocation",
+     "release",
+     "try a different player",
+     "return to operations",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-381",
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3324",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "02:02:43",
+     "line_start": 1676,
+     "quote": "Emily Vandenberg: Try different player just like stamps that what we try you stamps that they tried / Kobi Kunasekaran: Makes sense. / Kobi Kunasekaran: This could just be your view or we leave it for the reps. It's up to you."
+    },
+    {
+     "ledger_id": "L3459",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "02:00:38",
+     "line_start": 1630,
+     "quote": "Emily Vandenberg: But they can release it. Like they do need to be able to release it if it doesn't go through for like opening it up for another player. / Kobi Kunasekaran: like opening it up to another player. Yes, I think that's fine. So, um I can remove this option to like I can remove the option to like return allocation to operation."
+    },
+    {
+     "ledger_id": "L3461",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "02:02:43",
+     "line_start": 1663,
+     "quote": "Joyce Kiddell: And I wonder if it's like we just phrase it instead of saying return cuz that implies that like you don't need to worry about anymore. It's like maybe it's more of like request reallocation or / Kobi Kunasekaran: Okay. Yeah, actually that's a good idea. I like that instead of return to Russian. / Joyce Kiddell: notes mandatory um I don't know if it is right now but like that way they have to kind of explain if they're trying to send it back / Emily Vandenberg: No, not for a different pair player."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The 2026-09-30 review decided the rep queue actions: reps cannot return an allocation, can release it to try a different player (the attempt is stamped against the prior player), and can 'request reallocation', which ops reviews and which needs mandatory notes. The only rep-queue ticket, WAGR-381, is Cancelled as out of scope, and WAGR-464 does not state these actions.",
+   "suggested_action": "Suggestion: add the rep-queue actions and their note rules to WAGR-464 and create a build story for the rep redeposit queue; leave WAGR-381 closed with a link to the new story.",
+   "checked_later_meetings": true,
+   "reasoning": "L3461 refines L3459 (the return option is kept but renamed and gated by ops review). WAGR-381 is the nearest ticket; it is Cancelled (comment by Taryn Reithofer 2026-09-25) so it does not cover a current requirement. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-05",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "No ticket for redeposit completion: proof + actual amount, auto-populated player/book/date/region, locked completed queue",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "proof",
+     "complete",
+     "lock",
+     "actual amount",
+     "completed queue",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-108",
+     "WAGR-243"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3456",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:57:28",
+     "line_start": 1594,
+     "quote": "Kobi Kunasekaran: And I I need to go back on the call, but I I think the completion for redeposits, it's like we still want a proof um and the actual red deposit amount. And that's it, right? / Emily Vandenberg: Okay, so you have the player's name, you have the book, you have the redeposit amount, you have the redeposit date, you have the region, which it's automatically going to pull in from, and then just your proof. Yeah. / Kobi Kunasekaran: I can see the details but everything's locked away not editable once it's been completed."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0086",
+     "date": "2026-05-28",
+     "meeting_title": "Jumpr: Discovery (WagerTech end-user process walkthrough)",
+     "doc_link": "https://docs.google.com/document/d/153GXa2Bxzi2tRciqHschinynA20rOR89xr4fkYer7_o/edit",
+     "speakers": "Jay",
+     "timestamp": "00:54:49",
+     "line_start": 696,
+     "quote": "The ones that are highlighted yellow are are done. There's a video attached and they've been moved to our master sheet. It basically means it's been approved. It's been checked and approved. / Jay: correct. And then when the proof comes in, I remove the scent. I take I take the link. Uh, I uploaded the Dropbox. I take the link. I put uh I put the date. And then what will happen is tomorrow um a very uh great man uh will come on the sheet. Um he's in charge of the redeposits. he will confirm this redeposit and then he'll be like, \"Okay, I'm going to change this.\" Uh, it gets moved. It gets moved to a master sheet. When it gets moved, it gets turned yellow like that. And now John knows he no longer needs to worry about this because it's yellow."
+    }
+   ],
+   "what_differs": "On 2026-09-30 the team decided that a rep completes a redeposit by entering proof and the actual amount, other details auto-populate, and completed records move to a locked, non-editable completed queue. WAGR-464 states only that a BA 'logs proof for each one'; the actual-amount field, auto-population and the lock are not in any ticket.",
+   "suggested_action": "Suggestion: add the completion field set and the post-completion lock to WAGR-464 and to the completion build story.",
+   "checked_later_meetings": true,
+   "reasoning": "L3456 is decided (tier1). Proof logging is covered by WAGR-464, so the gap is the actual amount, auto-population and record lock. WAGR-243 (Sign-Up lock decision) is a different object. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-06",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket for the exact-amount rule and the 'amount differs' checkbox with notes",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "exact amount",
+     "differs",
+     "partial",
+     "checkbox",
+     "notes",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2807",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Kobi Kunasekaran; Ali Nawaz",
+     "timestamp": "00:49:32",
+     "line_start": 683,
+     "quote": "Kobi Kunasekaran: it like is there is it a different status because like they didn't do the full amount. / Ali Nawaz: Well, no, it it has to be the exact amount assigned. And if it's not, / Kobi Kunasekaran: Okay. / Ali Nawaz: that that's where this notes part is important."
+    },
+    {
+     "ledger_id": "L2808",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran; Lina Ceniccola; Ali Nawaz",
+     "timestamp": "00:50:23",
+     "line_start": 697,
+     "quote": "Emily Vandenberg: like you know how we do like if the wager amount or the initial deposit differs we have a check box maybe we like check box it so that we can report or like easily escalate and then the notes / Kobi Kunasekaran: That's what I'm thinking. / Emily Vandenberg: is where the context lives cuz it just then / Kobi Kunasekaran: Yeah, / Lina Ceniccola: Yeah, that's a good idea, / Kobi Kunasekaran: that's what I'm / Lina Ceniccola: Emily. / Emily Vandenberg: we can like kind of grab and push notification to ops as well. / Lina Ceniccola: Yeah, / Kobi Kunasekaran: Mhm. / Lina Ceniccola: I like that."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3456",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:57:28",
+     "line_start": 1594,
+     "quote": "Kobi Kunasekaran: And I I need to go back on the call, but I I think the completion for redeposits, it's like we still want a proof um and the actual red deposit amount. And that's it, right? / Emily Vandenberg: Okay, so you have the player's name, you have the book, you have the redeposit amount, you have the redeposit date, you have the region, which it's automatically going to pull in from, and then just your proof. Yeah. / Kobi Kunasekaran: I can see the details but everything's locked away not editable once it's been completed."
+    }
+   ],
+   "what_differs": "Discovery part 2 decided that a redeposit must match the assigned amount (no partial status), and that a checkbox flags when the actual deposit differs, with context in notes and a possible notification to ops. No ticket states this rule or the flag.",
+   "suggested_action": "Suggestion: add the exact-amount rule and the 'amount differs' flag (plus the open question on ops notification) to WAGR-464.",
+   "checked_later_meetings": true,
+   "reasoning": "L2807 and L2808 are decided tier1 items (Lina, Kobi and Ali agreed). L3456 later confirms an actual-amount field, which the flag compares against. The ops push notification was only suggested ('we can like kind of grab and push notification'), so it is noted as optional. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-07",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket for the BA edit restriction on assigned redeposits (notes only; ops makes changes)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "BA",
+     "edit",
+     "lock",
+     "permission",
+     "notes",
+     "assigned redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2809",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Ali Nawaz",
+     "timestamp": "00:52:37",
+     "line_start": 726,
+     "quote": "Ali Nawaz: So I think that's kind of the one main part that we need to make sure they they use the notes section and that they're not able to add any other like touches to it themselves because the tech takes part we they manually were typing it in in the past it but they were typing it in into whether the name section or into the book section instead of the notes and so I guess as long as the note makes it clear we're good. / Ali Nawaz: I don't think there's anything else extra that they need to that they have access to to touch or tweak when it comes to the assigned readups. And uh I think that's all from that side."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2805",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Ali Nawaz; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:47:31",
+     "line_start": 649,
+     "quote": "Ali Nawaz: So right now the assigned readab should not be touched uh other than how it's already already assigned to them or added to the sheets. / Kobi Kunasekaran: Okay. / Lina Ceniccola: I think if we if ops is able to go in and change it, / Kobi Kunasekaran: Yeah. / Lina Ceniccola: that's fine. If they want to request a change, / Kobi Kunasekaran: Yeah. / Ali Nawaz: Yeah, exactly. / Lina Ceniccola: they can just request it through ops and we'll change it. But let's let's not allow BAS to change the assigned / Kobi Kunasekaran: Perfect. / Kobi Kunasekaran: I mean with Salesforce like we can do hard lots right"
+    }
+   ],
+   "what_differs": "WagerTech decided that BAs may only use the notes field on assigned redeposits and must not edit name, book, amount or slot fields; changes go through ops. No ticket states this permission rule; WAGR-464 still lists 'Can BAs create their own redeposit rows, or only Ops?' as open.",
+   "suggested_action": "Suggestion: record the BA edit restriction on WAGR-464 and include field-level security or locking in the redeposit build stories.",
+   "checked_later_meetings": true,
+   "reasoning": "L2809 (Redeposits) and L2805 (Access & Permissions area, decided) say the same thing; this entry is the redeposit-side record. Not double-counted in this area. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-08",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket for incomplete-redeposit outcomes at the redeposit level (cancel, write-off/erosion, funds returned)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "cancel",
+     "write off",
+     "write-off",
+     "erosion",
+     "incomplete",
+     "funds returned",
+     "redeposit status"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-466",
+     "WAGR-465"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3155",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:17:22",
+     "line_start": 1118,
+     "quote": "Joyce Kiddell: But if um a redeposit does not end the way that we want it to and we get the money back, then we need a status on a payout level / Lina Ceniccola: I would just say have the ability to cancel or like either write it off or if they get the funds back then they can just cancel it. / Kobi Kunasekaran: should we track this at the red deposit level then and then maybe roll up any amounts that was like not completed uh to the payout as opposed to changing the payout status? / Joyce Kiddell: Yes. / Joyce Kiddell: I think it doesn't have to go back to the pool cuz if in the scenario of them going to jail, you're just like not going to continue to pay them. / Kobi Kunasekaran: maybe we'll we'll start with that and then if we do need to add additional layers and complexities around like how to handle the payout with incomplete redeposits, maybe you can come back around to that later."
+    },
+    {
+     "ledger_id": "L3156",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "01:18:45",
+     "line_start": 1139,
+     "quote": "Emily Vandenberg: cuz like at the redeposit level it's like it can in be incomplete and there's two things and I know we're not there but like it's going to end up being erosion and a write off because we've lost that money because they didn't send it back but we knew it no it didn't complete. / Emily Vandenberg: So you kind of have to track both or it cannot complete and we get the money back. So there's like a a record that will come back into us, but to be able down the line, right, to pull that, you know, more of the payment flow in, it's just like two separate statuses of incomplete."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3457",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:58:37",
+     "line_start": 1610,
+     "quote": "Kobi Kunasekaran: Um we did talk about like fraud flags and stuff or write offs. I haven't uh that's not incorporated in yet. So, um I will let you know once that's added."
+    },
+    {
+     "ledger_id": "L3458",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:59:31",
+     "line_start": 1618,
+     "quote": "Kobi Kunasekaran: Um they will have a way to say that can't be completed. Um reasons are TBD."
+    }
+   ],
+   "what_differs": "On 2026-09-25 the team decided that a redeposit that cannot complete is marked on the redeposit record (cancel or write off; cancel if funds come back), amounts roll up to the payout, and money does not return to the pool; Emily asked for two separate incomplete statuses. WAGR-464 still lists 'Cancelled or Archived?' as open, and WAGR-466 covers write-offs only for paid Sign-Ups.",
+   "suggested_action": "Suggestion: add the incomplete outcomes (status values, no return to pool, roll-up to payout) to WAGR-464 and WAGR-465, and close the 'Cancelled or Archived?' open decision.",
+   "checked_later_meetings": true,
+   "reasoning": "L3155 is decided (tier1); L3156 adds detail. On 2026-09-30 Kobi said fraud flags and write-offs are 'not incorporated in yet' (L3457) and the can't-complete reasons are TBD (L3458, reported separately as V8). WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-09",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket for the allocation type values (Assigned, Personal; keep Additional), informational only",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "allocation type",
+     "personal",
+     "additional",
+     "assigned",
+     "redeposit type"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-213"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2818",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Ali Nawaz; Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "01:00:25",
+     "line_start": 828,
+     "quote": "Ali Nawaz: I would say I would say that the same option of just being able to add additional readups throughout the month. That's that's same that's the step we would use for the personal readup because we don't we don't decide our personal readup like the budget that each BA is uh assigned until the middle of the month like around this time and that's when it's added. Right. remember usually I have to get Jess to approve some and maybe not as much uh in the near / Lina Ceniccola: can I just interject here for a second? I think for personal redeposits, it would fall under assigned, manual, and tagged as personal. / Ali Nawaz: Yeah, that that makes sense. / Emily Vandenberg: and and then um okay assigned manual tagged as personal. So we would need another kind of like identifier and then would you want any linkage in terms of where the redeposit actually went to at a like alternate player level if it's applicable?"
+    },
+    {
+     "ledger_id": "L3347",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "03:03:45",
+     "line_start": 2405,
+     "quote": "Joyce Kiddell: it would really just be assigned and personal, right? / Kobi Kunasekaran: Yeah. / Emily Vandenberg: So, leave additional for now even if we don't use it. But I think we will. / Emily Vandenberg: No."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2813",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:57:26",
+     "line_start": 783,
+     "quote": "Joyce Kiddell: the one thing I wanted to kind of uh anchor this back to is the idea of like having those three flows like and just double checking that we're not changing our minds from it, but like basically in terms of like the user journeys that we could take, it's broken down into assigned um what do we call it? assigned uh manual manual and then the third one would be like automated or / Lina Ceniccola: additional / Joyce Kiddell: immediate like the ones that are triggered based off the sign up. So I think everything that Ally was describing can still kind of fit in that context but Okay. All right."
+    }
+   ],
+   "what_differs": "Meetings decided that personal redeposits are assigned, manual and tagged personal, and on 2026-09-30 that allocation types are Assigned and Personal, with Additional kept for now and no logic attached. No ticket lists these allocation type values; WAGR-464 mentions only 'personal redeposit linking'.",
+   "suggested_action": "Suggestion: add the allocation type picklist values and the 'informational only' rule to WAGR-464.",
+   "checked_later_meetings": true,
+   "reasoning": "L3347 (decided, tier1) is the latest; L2818 refines L2813's three flows. The deal-level Redeposit Type picklist on WAGR-213 (Assigned; Immediate) is a different field. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-10",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket states that automated/immediate redeposit requirements are tracked outside the monthly budget",
+   "jira": [
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Automated redeposits are a placeholder only for now.",
+     "quote_source": "description"
+    }
+   ],
+   "no_ticket_search": {
+    "terms": [
+     "automated",
+     "immediate",
+     "budget",
+     "redeposit requirement"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-213"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3337",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "02:35:08",
+     "line_start": 2041,
+     "quote": "Joyce Kiddell: Because you're not you're not tracking the automated redeposit requirements against budget entries, right? / Kobi Kunasekaran: Yes, those I don't think we're tracking them under under like a monthly budget, right? That's just automatic independent redeposit."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2813",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:57:26",
+     "line_start": 783,
+     "quote": "Joyce Kiddell: the one thing I wanted to kind of uh anchor this back to is the idea of like having those three flows like and just double checking that we're not changing our minds from it, but like basically in terms of like the user journeys that we could take, it's broken down into assigned um what do we call it? assigned uh manual manual and then the third one would be like automated or / Lina Ceniccola: additional / Joyce Kiddell: immediate like the ones that are triggered based off the sign up. So I think everything that Ally was describing can still kind of fit in that context but Okay. All right."
+    }
+   ],
+   "what_differs": "On 2026-09-30 the team decided that automated redeposit requirements (for example a redeposit due days after signup) are independent and not tracked under the monthly budget. WAGR-464 holds automated redeposits as a placeholder and does not state the budget separation.",
+   "suggested_action": "Suggestion: add the 'automated redeposits are outside the monthly budget' rule to WAGR-464 so the budget model and later reporting do not count them.",
+   "checked_later_meetings": true,
+   "reasoning": "L3337 is decided (tier1). WAGR-464 is listed as the nearest ticket because it mentions automated redeposits, but it does not state this rule. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-11",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "No ticket states that a redeposit uses the deal's currency",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "currency",
+     "CurrencyIsoCode",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-462",
+     "WAGR-404",
+     "WAGR-35"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2147",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:15:01",
+     "line_start": 226,
+     "quote": "Emily Vandenberg: deal cuz like at the redeposit / Kobi Kunasekaran: Yeah, / Emily Vandenberg: level you're just going back you're just redepositing against a deal right and so then you would assume the same currency. / Kobi Kunasekaran: correct. Yeah. / Emily Vandenberg: So like the redeposit will follow the deal / Kobi Kunasekaran: Yeah, that that makes sense. / Emily Vandenberg: country."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Emily and Kobi agreed that a redeposit is made against a deal and so uses the deal's currency (follows the deal country). No redeposit ticket states currency; WAGR-462 asks only about the currency of copied CPA and deposit amounts.",
+   "suggested_action": "Suggestion: add 'redeposit currency = deal currency' to WAGR-464 and to the redeposit object story.",
+   "checked_later_meetings": true,
+   "reasoning": "L2147 is decided (tier1, client working session). No later meeting changes it. Searched currency tickets (WAGR-35, WAGR-153, WAGR-404, WAGR-413, WAGR-415, WAGR-462); none mention redeposits. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-12",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "No ticket states that VIP players must stay searchable in redeposit eligibility lists",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "VIP",
+     "searchable",
+     "eligib",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-420",
+     "WAGR-433",
+     "WAGR-435",
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2951",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:02:50",
+     "line_start": 995,
+     "quote": "Joyce Kiddell: like when we look up like players who are eligible for redeposits for example, like we would still want VIPs like in that list like they should be searchable. / Kobi Kunasekaran: Yeah, as of now, no, I think the external ID is it's just purely for CMS integration. So, / Kobi Kunasekaran: we shouldn't need it."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Joyce required that VIP players still appear and are searchable in lists such as redeposit eligibility, and Kobi confirmed the external ID would not block this. The VIP tickets (WAGR-420 cluster) and WAGR-464 do not state it.",
+   "suggested_action": "Suggestion: add the VIP visibility rule as acceptance criteria on the redeposit player-selection story and cross-reference it in WAGR-420.",
+   "checked_later_meetings": true,
+   "reasoning": "L2951 is decided (tier1). Confidence medium because default Salesforce visibility may already meet it, but VIP work (WAGR-435 excludes VIP links from the CMS feed) could hide VIPs if not stated. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-13",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "No ticket for the rule that any off-slot amount is additional budget and needs approval first",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "additional budget",
+     "approval",
+     "off-range",
+     "slot",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2806",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Ali Nawaz",
+     "timestamp": "00:46:25",
+     "line_start": 641,
+     "quote": "Ali Nawaz: but if they need to add an amount, it should it's always an additional budget and it has to be approved in the first place"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2804",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola; Ali Nawaz",
+     "timestamp": "00:45:18",
+     "line_start": 627,
+     "quote": "Lina Ceniccola: I think I lean more towards leave it open and / Ali Nawaz: Yeah. / Kobi Kunasekaran: Okay. / Lina Ceniccola: adjust later and see how it goes. Like we have people to manage the system. So I'm not overly concerned about people going rogue or anything like that. / Kobi Kunasekaran: Okay. / Lina Ceniccola: Let's leave it open and adjust later."
+    }
+   ],
+   "what_differs": "Ali stated that if a BA needs an amount outside the assigned slots, it is always additional budget and must be approved first. No ticket records this rule or how an additional allocation is requested and approved.",
+   "suggested_action": "Suggestion: record the rule on WAGR-464 and confirm whether Salesforce enforces it (ops-created additional allocation) or it stays a manual process.",
+   "checked_later_meetings": true,
+   "reasoning": "L2806 is decided (tier1). L2804 (no hard limits on amounts) and L2801 (no system approval process decided) mean this may be a process rule rather than a system build, hence confidence medium. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-14",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "Deferred item not tracked: rep filtering of signups by partner, to revisit after redeposit design",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "partner filter",
+     "filter",
+     "signups by partner",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-503",
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2969",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:19:54",
+     "line_start": 1191,
+     "quote": "Kobi Kunasekaran: Okay. Uh Okay. Let's let let's come back to it. Uh maybe like we we'll build out the redeposits and then depending on what the workflows look like / Kobi Kunasekaran: But I think I think you're right like let's let's get the solutioning for redeposits and then uh make sure that we have a way to optimize from that from those workflows."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Kobi and Emily agreed to revisit a partner filter for reps' redeposit work once the redeposit workflows are designed. No ticket or WAGR-464 line records this follow-up, so it can be lost.",
+   "suggested_action": "Suggestion: add a follow-up line to WAGR-464 (or a backlog story) to revisit partner filtering after the redeposit design.",
+   "checked_later_meetings": true,
+   "reasoning": "L2969 is a decided deferral (tier1) with an agreed revisit point. WAGR-503 (Done) filters Sign-Ups by BA, not by partner. WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-15",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "WagerTech-owned redeposit action items not tracked (tool inputs/outputs, September export, tool rename, wager-winner type, product redeposit flow)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "payment tracker",
+     "Jay's tool",
+     "export",
+     "wager winner",
+     "product redeposit",
+     "rename"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-477"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2815",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Lina Ceniccola; Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:58:28",
+     "line_start": 795,
+     "quote": "Lina Ceniccola: And can you I think we need to provide some additional info on our redeposit tool. / Emily Vandenberg: Yes. / Kobi Kunasekaran: Yeah, / Lina Ceniccola: So just we can get ahead of that or you can send us specific questions / Kobi Kunasekaran: like yeah, / Lina Ceniccola: whatever is easier. / Kobi Kunasekaran: I think the key thing is like just understanding what the inputs and outputs are. Um, so that we can make sure that, you know, when we move over to Salesforce, the tool still works, right? Or we have alternate inputs. Um because I'm assuming it's being driven by the spreadsheets right now and I'm curious about how manual it is and"
+    },
+    {
+     "ledger_id": "L2823",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Kobi Kunasekaran; Ali Nawaz; Emily Vandenberg",
+     "timestamp": "01:07:42",
+     "line_start": 938,
+     "quote": "Kobi Kunasekaran: Can we um the next time you use it to like generate the CSC or spreadsheet, / Ali Nawaz: Yeah. Yeah. / Kobi Kunasekaran: uh are you able to send us a copy of that? Um, / Ali Nawaz: Yes. / Emily Vandenberg: Ally, do you have an export from September that you could share with us? / Ali Nawaz: Yeah, like the Google sheet I could I could I could definitely share with you right now. See, I think I already did in the beginning, but I'll share it again with you, Emily."
+    },
+    {
+     "ledger_id": "L2790",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Lina Ceniccola",
+     "timestamp": "00:24:28",
+     "line_start": 382,
+     "quote": "Lina Ceniccola: Oh yeah, I've asked him to update this name a couple times just to avoid confusion. So, let me uh follow up on that. What?"
+    },
+    {
+     "ledger_id": "L3348",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "03:05:57",
+     "line_start": 2444,
+     "quote": "Joyce Kiddell: Yeah, I mean in that case we should add another uh type for if not do you want to call it wager winner or just like product / Emily Vandenberg: Yeah. And reread the It's new. Sorry, Kobe. How they're pulling from the budgets again. Um, but can we get back to Kobe on this Joyce? / Joyce Kiddell: Okay. Yeah. Yeah."
+    },
+    {
+     "ledger_id": "L3364",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "03:24:53",
+     "line_start": 2671,
+     "quote": "Emily Vandenberg: And then I'm gonna send you Joyce the like product redeposit um flow just so we can talk through that a bit more"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Five WagerTech action items from the 2026-09-21 and 2026-09-30 meetings have no tracking item: provide the payment-tracker tool's inputs/outputs, share the September export, rename the tool, confirm a wager-winner allocation type, and send the product redeposit flow. The tool inputs/outputs and export are needed to design the CSV mapping (L2824).",
+   "suggested_action": "Suggestion: add these as a 'Waiting on WagerTech' checklist on WAGR-464 (or internal tasks) and confirm in the next sync which are done.",
+   "checked_later_meetings": true,
+   "reasoning": "All five are decided tier1 action items. No later meeting confirms completion (latest ledger date is 2026-09-30). Confidence medium because the export may have been shared outside the recorded meetings (Ali: 'I think I already did in the beginning'). WAGR-464 (Requirements, design umbrella) was checked in full (description; it has no comments) and does not state this. Note: on 2026-09-16 the team decided to hold redeposit requirements in a Google Doc under one overarching ticket until the solution is validated (L2633), so this gap is expected by process, but no Jira item records the decision today.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-16",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "WAGR-213 (built) and WAGR-107 model one deal-level redeposit requirement; 2026-09-30 decided requirements need their own lifecycle and multiple thresholds",
+   "jira": [
+    {
+     "key": "WAGR-213",
+     "status": "Jumpr Review",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-159 — Deal: Redeposit settings + conditional redeposit range",
+     "quote": "Capture whether a redeposit is required, which type(s), and — only when Immediate applies — the redeposit range.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-107",
+     "status": "Ready",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-214 — Deal: Redeposit Details",
+     "quote": "Capture redeposit-specific terms for deals that require a redeposit before a referral qualifies.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-462",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Commercial Terms — design and user stories",
+     "quote": "A Deal's terms (CPA, Rev Share, deposit range, redeposit required) change over time.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3436",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:26:10",
+     "line_start": 1292,
+     "quote": "Kobi Kunasekaran: but veposit requirement, is this something that could also change similar to commercial terms that we might have to keep track of over time? / Emily Vandenberg: Yeah, we should. / Kobi Kunasekaran: Okay. So, it does sound like we need to keep track of this separately as well and like they kind of have their own life cycles and effective dates."
+    },
+    {
+     "ledger_id": "L3437",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "01:27:40",
+     "line_start": 1305,
+     "quote": "Emily Vandenberg: um and they have different thresholds that they need to meet. So like first is 80% or 90%, second is 50% of their players. So you're going to have to be able to report on that"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1690",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:51:28",
+     "line_start": 680,
+     "quote": "Joyce Kiddell: ... if there is a redeposit required like some books will have that as part of like our deal with them um then you have to say yes. / Joyce Kiddell: And then this would be like a pick list ideally that you can choose like do I need just sorry it shouldn't be standard it should be assigned do we need an assigned redeposit and an immediate redeposit um and if so then like if immediate redeposit selected at all then this uh range similar to deposit should appear and we can specify min and max values ... / Kobi Kunasekaran: I'll update the fields. I think those are pretty straightforward."
+    },
+    {
+     "ledger_id": "L1650",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:30:25",
+     "line_start": 457,
+     "quote": "Joyce Kiddell: ... we need to specify at a deal level if um we require both I think we call them like immediate and uh what was the other word Emily assigned um redeposits / Emily Vandenberg: Yes. / Joyce Kiddell: ... if we do require an immediate, then that's when redeposits require a range. But if there is no immediate, then you don't actually need to attach a range to redeposit"
+    }
+   ],
+   "what_differs": "WAGR-213 (Jumpr Review) and WAGR-107 (Ready) hold single deal fields: Redeposit Required, Redeposit Type and one Immediate range. On 2026-09-30 the client decided redeposit requirements change over a deal's life with their own effective dates, and a deal can have first and secondary immediate requirements with different thresholds (80%/90% and 50%) that must be reportable. WAGR-462 covers dated history of 'redeposit required' but no ticket covers multiple requirements or thresholds.",
+   "suggested_action": "Suggestion: hold WAGR-213 and WAGR-107 before release; fold redeposit requirements into the WAGR-462 dated-terms design (or a child object) with threshold fields, then repurpose or close WAGR-107/213 as WAGR-464's 'Done when' requires.",
+   "checked_later_meetings": true,
+   "reasoning": "L3436 and L3437 (decided, tier1) supersede the Aug 11 single-field model (L1650, L1690). WAGR-107 also duplicates WAGR-213 and says 'Not confirmed in the transcript' although the Aug 11 call confirmed it. Confidence medium because the final design may keep the deal fields as 'current value' with a history object behind them.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-17",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "WAGR-62 (Ready) still lists the redeposit type value 'Standard Redeposit'; the client renamed it 'Assigned' on 2026-08-11",
+   "jira": [
+    {
+     "key": "WAGR-62",
+     "status": "Ready",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-120 — Deal record page layout rebuild (Ops view, per 2026-08-10 screenshots)",
+     "quote": "R: Redeposit Type (multi-select: Standard Redeposit; Immediate Redeposit)",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-213",
+     "status": "Jumpr Review",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-159 — Deal: Redeposit settings + conditional redeposit range",
+     "quote": "BUILD-120's card body still says 'Standard Redeposit' and needs fixing.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1690",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:51:28",
+     "line_start": 680,
+     "quote": "Joyce Kiddell: ... if there is a redeposit required like some books will have that as part of like our deal with them um then you have to say yes. / Joyce Kiddell: And then this would be like a pick list ideally that you can choose like do I need just sorry it shouldn't be standard it should be assigned do we need an assigned redeposit and an immediate redeposit um and if so then like if immediate redeposit selected at all then this uh range similar to deposit should appear and we can specify min and max values ... / Kobi Kunasekaran: I'll update the fields. I think those are pretty straightforward."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "WAGR-62, the Ready deal layout story, still specifies 'Standard Redeposit' as a Redeposit Type value. Joyce corrected the label to 'Assigned' on 2026-08-11, and WAGR-213 itself notes WAGR-62 needs fixing; WAGR-62 has no comment or update that does so.",
+   "suggested_action": "Suggestion: update the WAGR-62 Section 3 text to 'Assigned; Immediate' (or point it at WAGR-213) before it is built.",
+   "checked_later_meetings": true,
+   "reasoning": "L1690 is decided (tier1). WAGR-62 was last updated 2026-09-14 and has no comments. Low severity because WAGR-213 carries the correct value, but a builder working from WAGR-62 would use the old label.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-18",
+   "category": "V8",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Redeposits",
+   "title": "Open: how manual/additional redeposits added in Salesforce feed back into the allocation tool for the next month",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "tool",
+     "feedback",
+     "re-run",
+     "manual additions",
+     "allocation tool"
+    ],
+    "nearest_considered": [
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2797",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:30:51",
+     "line_start": 475,
+     "quote": "Kobi Kunasekaran: and then we we'll have to figure out how we can get that back into this tool in case you know you're adding a new Ruby deposit and you need to factor those previous decisions for the next month. So we'll have to kind of figure that out."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3338",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "02:41:54",
+     "line_start": 2133,
+     "quote": "Kobi Kunasekaran: So then I I would even like say like let's not spend time on the upload CSV because this is going to take time. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah, we we can like so like we always need a manual way so that we're going to have to build anyways and this is going to establish the guard rails, the rules, the fields that we we need and everything. / Kobi Kunasekaran: And then we can bolt on the CSV option afterwards."
+    }
+   ],
+   "what_differs": "Kobi said the team must work out how manual allocations made in Salesforce get back into Jay's allocation tool so next month's run factors them. No later meeting answers this, and WAGR-464 lists only 're-runs in the middle of the month', not the return path to the tool.",
+   "suggested_action": "Suggestion: add this as an open decision on WAGR-464 and raise it with WagerTech with the tool inputs/outputs request.",
+   "checked_later_meetings": true,
+   "reasoning": "L2797 is an open point by Kobi (tier1). L3338 (2026-09-30) defers the CSV upload but does not answer the return path. Confidence medium because WAGR-464's late-data and re-run line is close in meaning.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-19",
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "Open: reasons for the rep 'can't complete' option are TBD",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "can't complete",
+     "reason",
+     "fraud reason",
+     "redeposit"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-253"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3458",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:59:31",
+     "line_start": 1618,
+     "quote": "Kobi Kunasekaran: Um they will have a way to say that can't be completed. Um reasons are TBD."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3457",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:58:37",
+     "line_start": 1610,
+     "quote": "Kobi Kunasekaran: Um we did talk about like fraud flags and stuff or write offs. I haven't uh that's not incorporated in yet. So, um I will let you know once that's added."
+    }
+   ],
+   "what_differs": "On 2026-09-30 Kobi said reps will have a 'can't complete' option and the reasons are TBD. No later meeting sets them and no ticket lists them (WAGR-464 asks only about a shared fraud-reason value set).",
+   "suggested_action": "Suggestion: add 'can't-complete reason values' as an open decision on WAGR-464 and agree them with WagerTech.",
+   "checked_later_meetings": true,
+   "reasoning": "L3458 is an open question (tier1, latest meeting). Related to REDEP-08 but a separate decision (reason values vs outcome statuses).",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-20",
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "Open: whether redeposit requirement terms must block overlapping effective dates",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "overlap",
+     "effective date",
+     "redeposit requirement",
+     "commercial terms"
+    ],
+    "nearest_considered": [
+     "WAGR-462",
+     "WAGR-98",
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3438",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:28:45",
+     "line_start": 1316,
+     "quote": "Kobi Kunasekaran: But are we good with like using a similar like framework of commercial terms where uh you know you can create a new term. Um maybe we're not we don't necessarily need to enforce / Kobi Kunasekaran: like no overlaps. Um, but I I come back and confirm if if that needs to be there or not, depending on how those gets assigned to the signups."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3436",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:26:10",
+     "line_start": 1292,
+     "quote": "Kobi Kunasekaran: but veposit requirement, is this something that could also change similar to commercial terms that we might have to keep track of over time? / Emily Vandenberg: Yeah, we should. / Kobi Kunasekaran: Okay. So, it does sound like we need to keep track of this separately as well and like they kind of have their own life cycles and effective dates."
+    }
+   ],
+   "what_differs": "Kobi proposed a commercial-terms-like framework for redeposit requirements and said he will confirm whether no-overlap must be enforced. Not answered later; WAGR-462 does not cover redeposit requirement overlaps.",
+   "suggested_action": "Suggestion: add the overlap question to WAGR-462 or WAGR-464 and decide it in the requirement-terms design.",
+   "checked_later_meetings": true,
+   "reasoning": "L3438 is a proposed open question (tier1, latest meeting).",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-21",
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "Open: eligibility window for personal redeposits (Emily to confirm with Owen; Joyce suggested a 6-month maximum)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "personal",
+     "eligibility window",
+     "6 months",
+     "look-back"
+    ],
+    "nearest_considered": [
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3340",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "02:47:53",
+     "line_start": 2195,
+     "quote": "Emily Vandenberg: That was my understanding, but we c I can confirm with Owen. / Joyce Kiddell: Can we just make it so like personal redeposits are like maxed at 6 months always"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3341",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "02:51:07",
+     "line_start": 2227,
+     "quote": "Emily Vandenberg: in midmon if Jess opens up more budget, he might be like, you can go and you can there's an extended window. Maybe it's like 3 months, maybe it's four. / Emily Vandenberg: It's not global at a deal level."
+    }
+   ],
+   "what_differs": "Personal redeposits may allow a longer look-back; Emily will confirm with Owen and Joyce suggested a universal 6-month maximum. Not answered later and not in any ticket.",
+   "suggested_action": "Suggestion: add as an open decision on WAGR-464 with Emily as the owner.",
+   "checked_later_meetings": true,
+   "reasoning": "L3340 is a proposed open question (tier1, latest meeting).",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "REDEP-22",
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Redeposits",
+   "title": "Open: whether 'request reallocation' is gated (time or failed attempts); to validate with Lena",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "gate",
+     "reallocation",
+     "send back",
+     "return to operations"
+    ],
+    "nearest_considered": [
+     "WAGR-464",
+     "WAGR-381"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3460",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "02:01:47",
+     "line_start": 1651,
+     "quote": "Emily Vandenberg: Um, I don't know. Maybe we like you can leave it. We can validate with Lena what she kind of wants them to be able to do. / Kobi Kunasekaran: We can gate it like if you know they can't push it back to operations uh in the first seven days it's been allocated or 30 days something we can time gate it or other gates so that this option only becomes available after they've tried like maybe they tried assigning to three different people"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3461",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "02:02:43",
+     "line_start": 1663,
+     "quote": "Joyce Kiddell: And I wonder if it's like we just phrase it instead of saying return cuz that implies that like you don't need to worry about anymore. It's like maybe it's more of like request reallocation or / Kobi Kunasekaran: Okay. Yeah, actually that's a good idea. I like that instead of return to Russian. / Joyce Kiddell: notes mandatory um I don't know if it is right now but like that way they have to kind of explain if they're trying to send it back / Emily Vandenberg: No, not for a different pair player."
+    }
+   ],
+   "what_differs": "Emily said they will validate with Lena what reps can do, and Kobi proposed time-gating the send-back option or unlocking it after several failed player assignments. Not answered later and not in any ticket.",
+   "suggested_action": "Suggestion: add as an open decision on WAGR-464 and confirm with Lena.",
+   "checked_later_meetings": true,
+   "reasoning": "L3460 is proposed (tier1, latest meeting). L3461 renamed the option but did not decide the gate.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Owner mismatch: redeposits feature assigned to Taryn on 2026-09-16; WAGR-464 is assigned to Kobi",
+   "why_unverified": "V7 only when it matters for delivery. Kobi presented the design on 2026-09-30, so Kobi may be the de facto owner; not a delivery risk on current evidence. L2637 is from an internal debrief.",
+   "ledger_ids": [
+    "L2637",
+    "L2640"
+   ],
+   "jira_keys": [
+    "WAGR-464",
+    "WAGR-107",
+    "WAGR-108"
+   ]
+  },
+  {
+   "title": "Redeposit build stories target may be slipping",
+   "why_unverified": "L2639 set Jira build cards for the week after the rough design (about Sep 28 to Oct 2) and L3162 set design documents for mid-to-end of that week; Jira (last update 2026-09-30) holds no build stories. The target week had not ended at the last data point, so this is not yet a status mismatch.",
+   "ledger_ids": [
+    "L2638",
+    "L2639",
+    "L3162"
+   ],
+   "jira_keys": [
+    "WAGR-464",
+    "WAGR-475"
+   ]
+  },
+  {
+   "title": "Redeposit phase/scope signals conflict in Jira",
+   "why_unverified": "WAGR-381 is Cancelled ('no longer applicable to current project scope'), WAGR-44's description says the redeposit workflow is out of Phase 1, and WAGR-464 has no Phase and lists 'Confirm the phase and scope with WagerTech'. Meetings treat redeposits as a launch item (L2820 'for launch', L3161, L3323) but no tier1 meeting explicitly decided redeposits are Phase 1, so V6 is not provable.",
+   "ledger_ids": [
+    "L2820",
+    "L3161",
+    "L3323",
+    "L2842",
+    "L2838"
+   ],
+   "jira_keys": [
+    "WAGR-381",
+    "WAGR-44",
+    "WAGR-464",
+    "WAGR-475"
+   ]
+  },
+  {
+   "title": "Historical data on extra assigned redeposits and additional budget per BA",
+   "why_unverified": "client ask not agreed; no ticket (Ali asked; no Jumpr response recorded).",
+   "ledger_ids": [
+    "L2799"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Option to cancel the rest of a month's open assigned redeposits when a book is overspent",
+   "why_unverified": "client ask not agreed; WAGR-464's 'kill switch stops a completed allocation' may cover it under different wording.",
+   "ledger_ids": [
+    "L2802"
+   ],
+   "jira_keys": [
+    "WAGR-464"
+   ]
+  },
+  {
+   "title": "Tag/checkbox for redeposits used as B2C compensation",
+   "why_unverified": "client ask not agreed; no ticket (solution left to Kobi, no Jumpr confirmation).",
+   "ledger_ids": [
+    "L2810",
+    "L2811"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "'Referral payout' as a redeposit type for budget reporting",
+   "why_unverified": "client ask not agreed; no ticket (Kobi acknowledged only). WAGR-465 lists naming 'Bet Credit or Redeposit?' as open.",
+   "ledger_ids": [
+    "L3132"
+   ],
+   "jira_keys": [
+    "WAGR-465"
+   ]
+  },
+  {
+   "title": "BAs filter their own signups by deal for redeposits (separate space, e.g. signups tab)",
+   "why_unverified": "discussed only; no ticket.",
+   "ledger_ids": [
+    "L2984"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Guided flow for monthly budget setup and object naming ('monthly redeposit budget')",
+   "why_unverified": "proposed only; final object names not confirmed.",
+   "ledger_ids": [
+    "L3372",
+    "L3371"
+   ],
+   "jira_keys": [
+    "WAGR-464"
+   ]
+  },
+  {
+   "title": "Product ownership of the payment tracker tool",
+   "why_unverified": "proposed; WagerTech to take offline; no ticket expected on Jumpr side.",
+   "ledger_ids": [
+    "L2789",
+    "L2840"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "One deposit may use several assigned slots (explained in notes)",
+   "why_unverified": "discussed only (current practice); may need a design rule for slot-to-player linking.",
+   "ledger_ids": [
+    "L2831"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Bet-credit redeposit creation: rep-created (Sep 25) vs inside payout flow, not rep queue (Sep 30)",
+   "why_unverified": "Cross-area; owned by Referral and Payouts. WAGR-465 says the rep splits the total into redeposit records; L3350/L3358 (Sep 30) place it in the payout flow with a separate queue. Left to the Referral and Payouts finder.",
+   "ledger_ids": [
+    "L3129",
+    "L3350",
+    "L3358"
+   ],
+   "jira_keys": [
+    "WAGR-465",
+    "WAGR-464"
+   ]
+  }
+ ],
+ "v9_reviewed_no_support": [],
+ "module_coverage": {
+  "area": "Redeposits",
+  "jira_epics": [],
+  "ticket_count": 5,
+  "ticket_notes": "5 tickets bucketed to Redeposits: WAGR-464 (Requirements; design umbrella), WAGR-213 (Jumpr Review; deal fields), WAGR-107 (Ready; duplicate deal fields), WAGR-108 (Open/On Hold; player related list), WAGR-381 (Cancelled; Holding Pen WAGR-443). No Redeposits epic exists (WAGR-464 says 'under a Redeposits epic, if one is created'). No build story exists for any redeposit object, queue or flow. Related mentions in WAGR-62, WAGR-44, WAGR-462, WAGR-465, WAGR-466, WAGR-468, WAGR-469, WAGR-470, WAGR-477.",
+  "summary": "Redeposits: discovery (Sep 16, Sep 21) and the Sep 30 design review produced about 57 decided tier1 items; Jira holds 5 tickets, no epic, and only deal-level fields are built (WAGR-213). The whole operational workflow exists only as the WAGR-464 requirements card, which predates the Sep 30 decisions.",
+  "uncovered_capabilities": [
+   {
+    "capability": "Monthly redeposit budget + allocation object model",
+    "ledger_ids": [
+     "L2785",
+     "L3343",
+     "L3452"
+    ],
+    "note": "No object story; WAGR-108 states the Redeposit object is not ticketed."
+   },
+   {
+    "capability": "Manual / bulk allocation entry (rep + amount + volume, multiple batches)",
+    "ledger_ids": [
+     "L2796",
+     "L2798",
+     "L3454",
+     "L3338"
+    ],
+    "note": "Built first per Sep 30; no ticket."
+   },
+   {
+    "capability": "CSV import of the allocation tool output",
+    "ledger_ids": [
+     "L2794",
+     "L2837",
+     "L3453",
+     "L3338"
+    ],
+    "note": "Stated in WAGR-464 only ('Ops uploads the monthly allocation'); deferred after manual path; no build story."
+   },
+   {
+    "capability": "Rep redeposit queue and player selection (eligibility date range, release, request reallocation)",
+    "ledger_ids": [
+     "L3455",
+     "L3346",
+     "L3324",
+     "L3459",
+     "L3461"
+    ],
+    "note": "Only ticket (WAGR-381) is Cancelled as out of scope."
+   },
+   {
+    "capability": "Completion and proof capture (actual amount, lock, amount-differs flag)",
+    "ledger_ids": [
+     "L3456",
+     "L2807",
+     "L2808"
+    ],
+    "note": "Proof capture stated in WAGR-464; no build story."
+   },
+   {
+    "capability": "Incomplete/cancel/write-off handling on redeposits",
+    "ledger_ids": [
+     "L3155",
+     "L3156",
+     "L3457",
+     "L3458"
+    ],
+    "note": "WAGR-466 covers Sign-Up write-offs only."
+   },
+   {
+    "capability": "Redeposit requirement terms over time with multiple thresholds",
+    "ledger_ids": [
+     "L3436",
+     "L3437",
+     "L3438"
+    ],
+    "note": "WAGR-462 covers dated 'redeposit required' only; thresholds untracked; WAGR-213 built as single fields."
+   },
+   {
+    "capability": "Automated / immediate redeposits",
+    "ledger_ids": [
+     "L2813",
+     "L3337",
+     "L0114"
+    ],
+    "note": "Placeholder only in WAGR-464."
+   },
+   {
+    "capability": "BA permissions on redeposits (notes-only edits)",
+    "ledger_ids": [
+     "L2809",
+     "L2805"
+    ],
+    "note": "No ticket."
+   },
+   {
+    "capability": "Personal redeposits (type, linking to real player, eligibility window)",
+    "ledger_ids": [
+     "L2818",
+     "L2819",
+     "L3347",
+     "L3340"
+    ],
+    "note": "WAGR-464 mentions 'personal redeposit linking' only."
+   }
+  ]
+ },
+ "notes": "Read-only run. Latest ledger date is 2026-09-30, so Sep 30 decisions are checked against Jira data last updated 2026-09-30 (WAGR-464 last updated 2026-09-28, no comments). Most V1s are expected by the agreed process (L2633: requirements stay in one overarching ticket and a Google Doc until validated), but they are listed per the project lead's completeness rule because no Jira item records them. WAGR-108 (player related list) is supported by L3140 (Player area) and WAGR-464; WAGR-381 is examined in REDEP-04. Internal Jumpr action items (L2629, L2635, L2636, L2653, L2735, L2780, L2783) were reviewed: covered by WAGR-464 or completed (later meetings held). Cross-area items left to other finders: L2805 (Access), L3338/L3453 (Data Migration), L3344/L3351/L2800 (Reporting; WAGR-468 covers redeposit budget pacing), L3129/L3350/L3358 (Referral and Payouts)."
+}

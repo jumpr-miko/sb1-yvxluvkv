@@ -1,0 +1,829 @@
+{
+ "area": "Reporting & Dashboards",
+ "variances": [
+  {
+   "temp_id": "RD-01",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Reporting & Dashboards",
+   "title": "No ticket for the committed reports on fraud-flagged, waiting-for-review and duplicate sign-ups; client asked again on Sep 25",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "fraud report",
+     "fraud + report",
+     "duplicate + report",
+     "review queue",
+     "waiting for review",
+     "flagged",
+     "Fraud Review Status",
+     "list view"
+    ],
+    "nearest_considered": [
+     "WAGR-285",
+     "WAGR-270",
+     "WAGR-304",
+     "WAGR-484",
+     "WAGR-429",
+     "WAGR-75"
+    ],
+    "nearest_ticket_quotes": [
+     {
+      "key": "WAGR-304",
+      "status": "Done",
+      "assignee": "Unassigned",
+      "summary": "Fraud Flags & Exception Handling",
+      "quote": "Closing as merged — fraud scope delivered via Epic E and BUILD-33/34/35/53 per 2026-07-04 note. No fraud-specific tooling separately scoped for Phase 1.",
+      "quote_source": "comment by (no author) 2026-07-29"
+     },
+     {
+      "key": "WAGR-270",
+      "status": "Done",
+      "assignee": "Kobi Kunasekaran",
+      "summary": "BUILD-48 — Update Console list views for the new status model",
+      "quote": "Updated the Fraudulent Sign Ups list to show records where Fraud = True",
+      "quote_source": "comment by (no author) 2026-08-10"
+     },
+     {
+      "key": "WAGR-285",
+      "status": "Done",
+      "assignee": "Unassigned",
+      "summary": "BUILD-36 — Sign-Up status dashboard and reports with rep filter",
+      "quote": "Reports covering each Sign-Up status",
+      "quote_source": "description"
+     }
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0834",
+     "date": "2026-07-07",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:43:57",
+     "line_start": 542,
+     "quote": "Kobi Kunasekaran: and we'll also create some like reports so you can see like anything that's been flagged for fraud. Um anything that's waiting for review for whatever reason. Maybe there's a duplicate. Um, all of those things. U, we'll create those reports as well and kind of show you what that looks like in Salesforce."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3151",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "01:09:38",
+     "line_start": 1023,
+     "quote": "Emily Vandenberg: definitely want like a report where ops is kind of like managing that to like confirm them. / Kobi Kunasekaran: Yeah, that'll be separate."
+    }
+   ],
+   "what_differs": "Jumpr said it would create reports for sign-ups flagged for fraud, sign-ups waiting for review and duplicates. Jira has a fraud list view (WAGR-270) and a status dashboard (WAGR-285, which covers the four core statuses, not fraud or duplicates), and the fraud epic was closed with no fraud-specific reporting scoped.",
+   "suggested_action": "Suggest a story under WAGR-24 for ops reports (fraud flagged / Fraud Review Status, review queue, duplicates), and link the Sep 25 ask from Emily. Confirm with ops whether the existing list view is enough.",
+   "checked_later_meetings": true,
+   "reasoning": "Tier1 Jumpr commitment (Jul 7). The fraud list view partly covers fraud visibility, so confidence is medium. No ticket covers duplicate or review-queue reports, and the client asked again on Sep 25.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-02",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Reporting & Dashboards",
+   "title": "WAGR-44 (TAC / Commission Cost auto-calc, Phase 1) still waits on Lina's formulas and plans in-Salesforce commission cost; Sep 1 gave the TAC formula and Sep 25 moved commission calculation outside Salesforce",
+   "jira": [
+    {
+     "key": "WAGR-44",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "BUILD-72 — Ops cost auto-calc fields (Deposit/Commission/Total Acquisition Cost)",
+     "quote": "Deposit Cost, Commission Cost, Total Acquisition Cost (incl. redeposit concept)",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-44",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "BUILD-72 — Ops cost auto-calc fields (Deposit/Commission/Total Acquisition Cost)",
+     "quote": "BLOCKED: exact formulas owed by Lina (feedback sheet). Keep scope to fields/formulas — redeposit workflow itself is out of Phase 1 scope.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-467",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BA commission data export for WagerTech's commission tool — requirements",
+     "quote": "At the Sep 25 call, we agreed that BA commissions stay outside Salesforce at launch. Salesforce supplies the data, and Jay's tool calculates the commissions.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2317",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:43:23",
+     "line_start": 564,
+     "quote": "Lina Ceniccola: But I think like basically if we start doing the signup flow and we want to download the data, it's important the total acquisition cost is the deposit amount plus the commission amount plus the equals the total acquisition. / Kobi Kunasekaran: Yeah, that's 100% doable."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3095",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "00:08:39",
+     "line_start": 248,
+     "quote": "Kobi Kunasekaran: Is the intention that like all of these are calculated within Salesforce or Salesforce provides the the data to calculate these outside of Salesforce? / Emily Vandenberg: So Lena, the way I would kind of see that is like an integration with um Jay's tool where now just like the data would be coming from like kind of Salesforce and then his tool still kind of doing the the magic in like the first phase. / Lina Ceniccola: Yeah, let's set it up that way because we do have a lot of nuances there. / Lina Ceniccola: So I would rather spend less time configuring everything / Lina Ceniccola: on that because it's we have a system for it internally anyway. So that can be a later thing."
+    },
+    {
+     "ledger_id": "L3141",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:58:10",
+     "line_start": 876,
+     "quote": "Joyce Kiddell: Um, so I mean we talked about the other streams not really being needed as like a separate workflow in Salesforce. So for player payouts, um I think all we'll need is to be able to see how much uh they have gotten in terms of like signups and then do we want to include any sort of like the payment matrix uh within Salesforce or just like handle that outside of the system for this phase? / Emily Vandenberg: Yeah, my gut is sorry. I'm like feeling like for this phase it's handled after. But what are you thinking? / Joyce Kiddell: Sorry. I was thinking commission already. I was jumping straight to the bottom. Um yeah, I have a baby so I'm very tired. Um but the uh so what I said apply that to VAcommission. / Kobi Kunasekaran: we're not doing commissions right now. What's that?"
+    }
+   ],
+   "what_differs": "WAGR-44 (Open, Phase 1, last updated Sep 14) plans in-Salesforce Commission Cost and TAC fields and is blocked on formulas. On Sep 1 the client defined TAC as deposit plus commission for P&L reporting, and on Sep 25 the team decided that BA commission calculation stays outside Salesforce at launch, so the commission part of TAC has no Salesforce source yet.",
+   "suggested_action": "Suggest re-grooming WAGR-44: record the Sep 1 TAC definition, decide whether TAC is computed in Salesforce (with commission data coming back from Jay's tool) or in the BI layer, and link WAGR-467/WAGR-468. Also remove the 'redeposit workflow out of Phase 1' line if redeposits are now in scope (see WAGR-464).",
+   "checked_later_meetings": true,
+   "reasoning": "WAGR-467 links WAGR-44 but WAGR-44 itself was not updated. No later meeting says where TAC is computed. The P&L need (L2317) is not cancelled, so this is a stale ticket, not a dead requirement.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-03",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Reporting & Dashboards",
+   "title": "Redeposits design card (WAGR-464) has only the inbound allocation upload; it lacks the decided Salesforce reports that feed sign-up and player inputs to the payment tool",
+   "jira": [
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Each month, Ops receives an allocation from Jay's tool.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Ops uploads the monthly allocation from Jay's tool.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2817",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "00:59:17",
+     "line_start": 819,
+     "quote": "Kobi Kunasekaran: like I'm imagining like we'll we'll have equivalent reports built in Salesforce to feed the input data like the signups, the player information and everything. And then the actual logic of the allocation will still remain with this payment tool for now. And then it would spin out either the CSV or be able to talk directly in Salesforce to create the uh the allocation records. / Lina Ceniccola: Yep."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The Sep 21 discovery decided that Salesforce will have equivalent reports to feed input data (sign-ups, player information) to the allocation tool, and Lina agreed. WAGR-464 (description; no comments) lists only the upload of the tool's allocation into Salesforce, not the outbound input reports.",
+   "suggested_action": "Suggest adding the outbound input reports (fields, grain, cadence) to WAGR-464's requirements, or a child story under WAGR-24, and align with the CSV mapping work decided on Sep 30 (L3338/L3339).",
+   "checked_later_meetings": true,
+   "reasoning": "Sep 30 meeting (L3338, L3339, L3453) keeps the tool and CSV upload path, so L2817 still stands. No ticket states the outbound feed.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-04",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Reporting & Dashboards",
+   "title": "Financial reporting capture card (WAGR-468) misses decided reporting rules: actual-else-expected deposit, redeposit progress, budget alerts and spend by type, bet credit as redeposit spend",
+   "jira": [
+    {
+     "key": "WAGR-468",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Financial reporting requirements — discovery session and capture",
+     "quote": "Redeposit budget use and pacing.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-468",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Financial reporting requirements — discovery session and capture",
+     "quote": "Deposits inside the Deal's min/max range.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-468",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Financial reporting requirements — discovery session and capture",
+     "quote": "the session is held, the report list is agreed, and each native report has a story.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3144",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "01:00:32",
+     "line_start": 911,
+     "quote": "Joyce Kiddell: I think when we're going to make the report, Kobe, it would just be like a requirement of um pulling from that field um if it's completed. / Joyce Kiddell: And if it's not, then you can default to the deposit amounts for both signups and redeposits."
+    },
+    {
+     "ledger_id": "L2800",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Ali Nawaz; Emily Vandenberg",
+     "timestamp": "00:32:12",
+     "line_start": 485,
+     "quote": "Ali Nawaz: Emily, are you guys going to does this have anything to do with like your redeposits pro progress throughout the month and like any anything like that or this is just about assigning how we assign the redeps? / Emily Vandenberg: Yeah, reporting would definitely be a part of it too, Ali. Kind of once everything's like flowing through, then we could easily and like as long as it's like being allocated to the right player, like we set up the right infrastructure, then yes, like we'll be able to take and report off of, you know, the uh percent complete and even like more easily kind of like player lists, etc."
+    },
+    {
+     "ledger_id": "L3344",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "03:00:47",
+     "line_start": 2358,
+     "quote": "Joyce Kiddell: I think when it comes to those like triggers of like, you know, you're close to being over your budget or your alerts or whatever, um, then we should talk about that when it comes time to build our reporting. Does that make sense? / Kobi Kunasekaran: Okay."
+    },
+    {
+     "ledger_id": "L3351",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "03:11:10",
+     "line_start": 2507,
+     "quote": "Emily Vandenberg: And then that payout like function has to be recognized as like redeposit money and but like that rolls up into like within the time period and when it was like bet that we we paid out against the deal. / Joyce Kiddell: Yes. Sorry, I got distracted."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3349",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "03:07:19",
+     "line_start": 2458,
+     "quote": "Kobi Kunasekaran: You're just talking about like, you know, outside of Salesforce when you're doing the reporting, you're seeing how the redeposit allocations are being uh spent against like what you're budgeting as a company. / Emily Vandenberg: Yes."
+    }
+   ],
+   "what_differs": "WAGR-468 (created Sep 25, no comments, not updated) lists five asks. It does not state the payout-report rule from the same Sep 25 call (use actual deposit if completed, else expected), redeposit progress reporting (percent complete, player lists), over-budget alerts and total redeposit spend by type (assigned, immediate, personal), or that bet credit payouts count as redeposit spend by period and deal. It also does not say that company budget versus spend is reported outside Salesforce (L3349).",
+   "suggested_action": "Suggest adding these items to WAGR-468's 'Requirements captured' list (with sources) so the financial reporting session starts from the full set.",
+   "checked_later_meetings": true,
+   "reasoning": "All four items are tier1 decided. WAGR-468 is the agreed home for reporting asks (L3160). Searched WAGR-464 and WAGR-465 too; neither states these reporting rules.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-05",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Reporting & Dashboards",
+   "title": "No ticket for brand-manager team rollup reporting",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "brand manager",
+     "manager",
+     "team view",
+     "roll-up reporting",
+     "team",
+     "rollup"
+    ],
+    "nearest_considered": [
+     "WAGR-391",
+     "WAGR-392",
+     "WAGR-176",
+     "WAGR-468"
+    ],
+    "nearest_ticket_quotes": [
+     {
+      "key": "WAGR-391",
+      "status": "Requirements",
+      "assignee": "Kobi Kunasekaran",
+      "summary": "Brand Manager: Determine Object Model, Record Creation, and Sharing Controls",
+      "quote": "BUILD-202 (BA-1, WAGR-176) already added a required Brand Manager lookup on the BA record — a BA without a Brand Manager is excluded from roll-up reporting — but the Brand Manager side of that relationship was never built out.",
+      "quote_source": "description"
+     }
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0395",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "00:16:47",
+     "line_start": 316,
+     "quote": "Emily Vandenberg: but I think like an ideal state would be that we're looking at brand manager rollups as well more easily. / Lina Ceniccola: Yeah, like a team view, how each team is doing, how that brand manager is managing their team and the numbers and"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0889",
+     "date": "2026-07-08",
+     "meeting_title": "Wagertech <> Jumpr: Onsite",
+     "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:33:03",
+     "line_start": 556,
+     "quote": "Kobi Kunasekaran: we do have a concept of brand manager here where we will have reporting for the people within their teams. Yeah, but it's not going to be like full on back end access to everybody like we'll have to figure out like what kind of data"
+    },
+    {
+     "ledger_id": "L2318",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "00:43:23",
+     "line_start": 569,
+     "quote": "Kobi Kunasekaran: And then we can add a section that captures the or displays the brand manager / Kobi Kunasekaran: tied to the brand ambassador at the time of the sign up. / Kobi Kunasekaran: Um and this is something that won't change when you change the manager on the brand"
+    }
+   ],
+   "what_differs": "The client's ideal state is easier brand-manager rollups (a team view of each brand manager's team), and Jumpr later said managers will get reporting on their teams. Jira has the Brand Manager object and visibility tickets (WAGR-391, WAGR-392) and WAGR-468 lists commission per manager, but no ticket for the team rollup reports.",
+   "suggested_action": "Suggest a story under WAGR-24 for brand-manager team reports (metrics, data scope per L0889), dependent on WAGR-391.",
+   "checked_later_meetings": true,
+   "reasoning": "WAGR-391 refers to roll-up reporting as an effect of the BA lookup but scopes only the object and sharing. Medium confidence because the team rollup may be planned inside WAGR-468's session.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-06",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "low",
+   "feature_area": "Reporting & Dashboards",
+   "title": "No ticket records the rule that rep reporting must not count a later conversion as not converted",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "converted",
+     "later conversion",
+     "first click",
+     "rep metrics",
+     "rep performance",
+     "conversion rate",
+     "lifecycle"
+    ],
+    "nearest_considered": [
+     "WAGR-219",
+     "WAGR-473",
+     "WAGR-285"
+    ],
+    "nearest_ticket_quotes": [
+     {
+      "key": "WAGR-473",
+      "status": "Open",
+      "assignee": "Kobi Kunasekaran",
+      "summary": "Repeat-click rule: when a new click joins an existing Sign-Up — confirm",
+      "quote": "when does a new click join an existing Sign-Up (same Player, Deal and Rep)? What happens to a click after the Sign-Up is Complete?",
+      "quote_source": "description"
+     }
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0571",
+     "date": "2026-06-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+     "speakers": "Joyce Kiddell; Waleed Alasadi",
+     "timestamp": "00:49:42",
+     "line_start": 749,
+     "quote": "Joyce Kiddell: under the bucket of like didn't convert? So like I'm even though it did, right? But like just later on. So like I don't want to hold you accountable for something that didn't / Waleed Alasadi: Yes. Yeah. I agree with Joyce completely on that one. / Waleed Alasadi: Like a signup has a life cycle, right?"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Joyce and Waleed agreed that rep reporting must not count a first-click sign-up as not converted when the player converts later. No Jira ticket states this reporting rule; there is no rep-performance report ticket.",
+   "suggested_action": "Suggest adding the rule as acceptance criteria on a future rep-performance report story (WAGR-24), and checking it against the repeat-click rule in WAGR-473.",
+   "checked_later_meetings": true,
+   "reasoning": "Low confidence: the sign-up lifecycle (WAGR-219 auto-reactivation, WAGR-473 repeat-click rule) may handle this in the data model under different wording.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-07",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "low",
+   "feature_area": "Reporting & Dashboards",
+   "title": "No ticket for scoping the reporting feed into Google Sheets",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "google sheet",
+     "sheets",
+     "feed",
+     "export",
+     "add-on",
+     "spreadsheet"
+    ],
+    "nearest_considered": [
+     "WAGR-470",
+     "WAGR-477",
+     "WAGR-468"
+    ],
+    "nearest_ticket_quotes": [
+     {
+      "key": "WAGR-470",
+      "status": "Open",
+      "assignee": "Kobi Kunasekaran",
+      "summary": "Historical data migration scope — decision",
+      "quote": "whether the legacy Google Sheets keep getting data during the switch-over.",
+      "quote_source": "description"
+     }
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0970",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:09:16",
+     "line_start": 276,
+     "quote": "Kobi Kunasekaran: So we did talk about like uh a reporting feed into Google Sheets. / Kobi Kunasekaran: Um so I'll I'll scope this out. This probably not going to be for this week. Maybe next week. Um I'll I'll work on this. I think right now we're trying to finalize the actual build itself."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Kobi said he would scope a reporting feed into Google Sheets. WAGR-470 asks only whether legacy sheets keep getting data during the switch-over (a decision), and no ticket holds the feed scoping. No later meeting reports the outcome.",
+   "suggested_action": "Suggest confirming whether the feed is still needed; if yes, add it to WAGR-470's decision or open a scoping task under WAGR-24.",
+   "checked_later_meetings": true,
+   "reasoning": "Low confidence because WAGR-470's switch-over question may be the same need.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-08",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Reporting & Dashboards",
+   "title": "Client action not tracked: Joyce to email the ideal-state executive reporting mockups",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "mockup",
+     "executive",
+     "exec",
+     "ideal state"
+    ],
+    "nearest_considered": [
+     "WAGR-468",
+     "WAGR-24"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0448",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "01:21:10",
+     "line_start": 1010,
+     "quote": "Emily Vandenberg: Yeah, Joyce, you pull we pulled together some mockups of ideal state, right, for the executive. / Joyce Kiddell: Yeah, I'll shoot that over via email."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1015",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Miko Sumagang",
+     "timestamp": "01:06:08",
+     "line_start": 866,
+     "quote": "Miko Sumagang: maybe like Emily the best way to properly like know whether or not like do we have like the right like info is like maybe like help us like visualize like what you're thinking about like the reporting"
+    }
+   ],
+   "what_differs": "Joyce agreed to email the executive mockups. No Jira item tracks receipt, and the Reporting epic (WAGR-24) has no description; WAGR-468 does not list executive reporting.",
+   "suggested_action": "Suggest asking whether the mockups were received and attaching them to WAGR-468 as input for the reporting session.",
+   "checked_later_meetings": true,
+   "reasoning": "Client-owned action item; listed for completeness. No later meeting mentions the mockups.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-09",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Reporting & Dashboards",
+   "title": "Client action not tracked: Joyce to check the DataBox agreement (possible end reporting tool)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "databox",
+     "data box",
+     "BI tool",
+     "visualization",
+     "snowflake"
+    ],
+    "nearest_considered": [
+     "WAGR-468"
+    ],
+    "nearest_ticket_quotes": [
+     {
+      "key": "WAGR-468",
+      "status": "Open",
+      "assignee": "Kobi Kunasekaran",
+      "summary": "Financial reporting requirements — discovery session and capture",
+      "quote": "do we mirror data to Snowflake, or does BI read from the API (Sep 11)?",
+      "quote_source": "description"
+     }
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0545",
+     "date": "2026-06-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:18:07",
+     "line_start": 339,
+     "quote": "Joyce Kiddell: Yeah, if we if we don't like that as like a end solution, / Joyce Kiddell: I'm happy to revisit it. It's just like I don't I need to check what kind of agreement we have sign with them, too."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Joyce agreed to check WagerTech's DataBox agreement and was open to it as the end solution. No Jira item mentions DataBox; WAGR-468 has only the Snowflake-versus-API open decision. No later meeting reports the outcome.",
+   "suggested_action": "Suggest adding the DataBox question to WAGR-468's open decisions.",
+   "checked_later_meetings": true,
+   "reasoning": "Client-owned action item; listed for completeness.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RD-10",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Reporting & Dashboards",
+   "title": "WAGR-384 description still specifies the weekly email automation that the Sep 17 sync replaced with a report",
+   "jira": [
+    {
+     "key": "WAGR-384",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "Operator–Partner Relationship records created and deactivated from Deals",
+     "quote": "Steps: Collect the Deals, email Kobi one message listing them with links.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-384",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "Operator–Partner Relationship records created and deactivated from Deals",
+     "quote": "A relationship row that fails to be created appears in the weekly email and does not block the Deal from saving.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-384",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "Operator–Partner Relationship records created and deactivated from Deals",
+     "quote": "Deals_Missing_Relationship_H8b",
+     "quote_source": "comment by Cedrick Infantado 2026-09-16"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2681",
+     "date": "2026-09-17",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+     "speakers": "Cedrick Infantado; Kobi Kunasekaran",
+     "timestamp": "00:40:50",
+     "line_start": 620,
+     "quote": "Cedrick Infantado: Okay. Okay. for that report. Should I include that in my story or no / Kobi Kunasekaran: Um yeah, like maybe just replace it. / Kobi Kunasekaran: So, we just create a report to flag the deal uh sorry flag the accounts or the deals like the deals the deals yeah deals without partners or relationship / Kobi Kunasekaran: IDs and then we'll call it a day simple"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2680",
+     "date": "2026-09-17",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+     "speakers": "Cedrick Infantado; Kobi Kunasekaran",
+     "timestamp": "00:39:40",
+     "line_start": 611,
+     "quote": "Kobi Kunasekaran: Uh, you know what? Let's let's let's skip that one. Let's skip that. I think what we can do instead of like a flow is just build a report where the relationship or partner info is blank and then set a scheduled report to send that out. / Kobi Kunasekaran: So we can catch it in a report. So we can cancel that uh that requirement. We'll keep it simple."
+    }
+   ],
+   "what_differs": "The build follows the meeting (Cedrick's comment lists a Deals_Missing_Relationship report and no scheduled email flow), but the description and acceptance criteria still describe Automation 4 as a weekly email. Reviewers testing against the description may flag the missing email.",
+   "suggested_action": "Suggest editing WAGR-384 to replace Automation 4 with the report (and a report subscription if wanted), citing the Sep 17 internal sync.",
+   "checked_later_meetings": true,
+   "reasoning": "Hygiene only; the build is correct. L2680 notes no WagerTech confirmation of the change in that transcript.",
+   "auto_checks": [
+    "jira_quote_not_in_issue:WAGR-384"
+   ]
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Report of records where owner does not equal rep",
+   "why_unverified": "Gemini-notes-only tier2 item; no ticket found (searched owner/rep/report)",
+   "ledger_ids": [
+    "L0950"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Live view of payments flowing per book to decide redeposit budget",
+   "why_unverified": "client ask not agreed; no ticket (WAGR-468 'Redeposit budget use and pacing' is nearest)",
+   "ledger_ids": [
+    "L2803"
+   ],
+   "jira_keys": [
+    "WAGR-468"
+   ]
+  },
+  {
+   "title": "Rep-level targets at deal rep assignment level",
+   "why_unverified": "client ask not agreed; no ticket (L0828 proposed, then L1013 client-asked-not-agreed: not in Phase 1; WAGR-358 Phase 2 parked is nearest)",
+   "ledger_ids": [
+    "L0828",
+    "L1013"
+   ],
+   "jira_keys": [
+    "WAGR-358"
+   ]
+  },
+  {
+   "title": "Executives need read-only access to Salesforce reports until a BI tool exists",
+   "why_unverified": "Discussed only; no ticket for executive report access found",
+   "ledger_ids": [
+    "L0410"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Ops reconciliation reports (weekly CPA vs logs, per-operator tracking benchmarks, BA network tracked vs logged, redeposit timelines)",
+   "why_unverified": "Discussed in discovery; Jun 23 decisions move operator data and joins outside Salesforce (L0537, L0538, L0542), so a Salesforce ticket may not be needed. No ticket defines the Salesforce data extract for these reports.",
+   "ledger_ids": [
+    "L0094",
+    "L0095",
+    "L0416",
+    "L0418",
+    "L0421",
+    "L0433"
+   ],
+   "jira_keys": [
+    "WAGR-320",
+    "WAGR-468"
+   ]
+  },
+  {
+   "title": "Unified cash-flow / payout dashboard",
+   "why_unverified": "Discussed goal only; WAGR-378 closed as out of scope ('no longer applicable'), while WAGR-468 lists 'One view of all cash flow (later phase)'. Visible, not a variance.",
+   "ledger_ids": [
+    "L0099",
+    "L3093"
+   ],
+   "jira_keys": [
+    "WAGR-378",
+    "WAGR-468"
+   ]
+  },
+  {
+   "title": "Completed sign-ups missing from the week view",
+   "why_unverified": "Proposed deferral (troubleshoot later) in a Jun 22 walkthrough; no later mention and no ticket; may relate to pre-Salesforce tools",
+   "ledger_ids": [
+    "L0511"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Pause/resume history lost when reps share links",
+   "why_unverified": "Discussed risk (Deal/links area); no ticket found for pause/resume history; WAGR-488 V1 explicitly needs no status snapshot",
+   "ledger_ids": [
+    "L0520"
+   ],
+   "jira_keys": [
+    "WAGR-488"
+   ]
+  },
+  {
+   "title": "Sample sign-up-level commission reports",
+   "why_unverified": "Proposed (no date); overtaken by Sep 25 decision that commissions stay outside Salesforce at launch",
+   "ledger_ids": [
+    "L2333",
+    "L3095"
+   ],
+   "jira_keys": [
+    "WAGR-467"
+   ]
+  },
+  {
+   "title": "Per-casino and casino-plus-partner reporting",
+   "why_unverified": "Gemini-notes-only tier2 item",
+   "ledger_ids": [
+    "L0473"
+   ],
+   "jira_keys": []
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-280",
+  "WAGR-379"
+ ],
+ "module_coverage": {
+  "area": "Reporting & Dashboards",
+  "jira_epics": [
+   "WAGR-24"
+  ],
+  "ticket_count": 13,
+  "ticket_note": "WAGR-24 epic has no description and 3 children (WAGR-25 Done POC dashboards; WAGR-467 and WAGR-468 Open requirements cards). 10 more reporting tickets sit outside the epic: WAGR-285 (Done), WAGR-75 (Jumpr Review), WAGR-457 and WAGR-488 (Requirements, CMS epic WAGR-39), WAGR-384 (report built in comments), WAGR-270 (fraud list view), WAGR-44 (Open, on hold), WAGR-120 (Cancelled), WAGR-378 and WAGR-379 (Cancelled, Holding Pen). No native report build story exists yet for any financial, redeposit, manager or executive report.",
+  "uncovered_capabilities": [
+   {
+    "capability": "Ops queue reports for fraud-flagged, review-queue and duplicate sign-ups",
+    "ledger_ids": [
+     "L0834",
+     "L3151"
+    ],
+    "note": "Only a fraud list view (WAGR-270) and the status dashboard (WAGR-285). See RD-01."
+   },
+   {
+    "capability": "Brand-manager / team rollup reporting",
+    "ledger_ids": [
+     "L0395",
+     "L0889"
+    ],
+    "note": "Brand Manager object tickets exist (WAGR-391/392); no report ticket. See RD-05."
+   },
+   {
+    "capability": "Redeposit reporting (progress, spend by type, budget alerts, bet credit as spend, input reports for the allocation tool)",
+    "ledger_ids": [
+     "L2800",
+     "L2817",
+     "L3344",
+     "L3351"
+    ],
+    "note": "No Redeposits epic and no report tickets; WAGR-468 lists only 'Redeposit budget use and pacing'. See RD-03, RD-04."
+   },
+   {
+    "capability": "Payout / P&L reporting (TAC, actual-else-expected deposit, commission per BA and manager)",
+    "ledger_ids": [
+     "L2317",
+     "L3144",
+     "L3160"
+    ],
+    "note": "Requirements card WAGR-468 and on-hold WAGR-44 only. See RD-02, RD-04."
+   },
+   {
+    "capability": "Executive reporting",
+    "ledger_ids": [
+     "L0410",
+     "L0447",
+     "L0448"
+    ],
+    "note": "No ticket; mockups not tracked. See RD-08."
+   },
+   {
+    "capability": "Reporting feed to Google Sheets",
+    "ledger_ids": [
+     "L0970"
+    ],
+    "note": "Only the WAGR-470 switch-over question. See RD-07."
+   },
+   {
+    "capability": "Rep performance reporting",
+    "ledger_ids": [
+     "L0571"
+    ],
+    "note": "No ticket. See RD-06."
+   },
+   {
+    "capability": "BI / warehouse data extract and join keys",
+    "ledger_ids": [
+     "L0537",
+     "L0539",
+     "L0542",
+     "L2507"
+    ],
+    "note": "Tool and mechanism undecided (WAGR-468 open decision). Join keys are covered indirectly by external ID tickets (WAGR-100, WAGR-198, WAGR-490, WAGR-118, WAGR-186); no ticket owns the end-to-end extract design."
+   }
+  ]
+ },
+ "notes": "Covered (no variance): L1215 sign-up dashboard = WAGR-285 Done; L3300 failed-sync reports = WAGR-457; L3160 financial reporting session = WAGR-468; L3421 deposit range = WAGR-468; L1025 static FX rate = WAGR-35 Done (its open question on static rates is answered by L1025, hygiene only); L1812 bonus trends = WAGR-468; L3391 paused-deal sign-ups = WAGR-488; L2681 report = built per WAGR-384 comment (description stale, RD-10). L0542 join-key decision is covered by meaning through external ID tickets, so it is not a V1. L1215's demo video is a one-off and not listed. No V2, V4, V6 or V7 found with enough evidence; no V8 met the bar (open questions such as tool choice and bonus trends are captured in WAGR-468). WAGR-378 cancellation wording ('no longer applicable') could be misread while WAGR-468 keeps the cash-flow view as a later phase; listed as a lead. Read-only: no Jira or other system was changed."
+}

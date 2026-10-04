@@ -1,0 +1,403 @@
+[
+ {
+  "topic": "Sign-up data model: Lead object vs custom Sign-Up object with lead stage",
+  "current_truth_ledger_id": "L1071",
+  "superseded": [
+   "L0124",
+   "L0305",
+   "L0464",
+   "L0466",
+   "L0602"
+  ],
+  "refined": [
+   "L0035",
+   "L0563",
+   "L1074"
+  ],
+  "reversed": [],
+  "note": "Lead object dropped (L0563, 6/23); leads and sign-ups are one Sign-Up object with a lead/New stage (L1071, 7/17). L1165 (tier2, 7/21) restates it after the client mockup asked for a separate read-only lead object."
+ },
+ {
+  "topic": "Repeat clicks and sign-up uniqueness",
+  "current_truth_ledger_id": "L3443",
+  "superseded": [
+   "L0570",
+   "L0574",
+   "L0577",
+   "L1131"
+  ],
+  "refined": [
+   "L0568",
+   "L0575",
+   "L1067",
+   "L1262",
+   "L1304"
+  ],
+  "reversed": [],
+  "note": "Every click is kept and rolled up to one Sign-Up (L1304, 7/24). On 9/30 the duplicate rule was stated as same player + same deal regardless of rep (L3443); Kobi to verify the SLC logic matches (L3445). Earlier per-click and staging-object options are superseded."
+ },
+ {
+  "topic": "Sign-Up status model and fraud handling",
+  "current_truth_ledger_id": "L1225",
+  "superseded": [
+   "L0878",
+   "L0987",
+   "L1105",
+   "L1113",
+   "L1114"
+  ],
+  "refined": [
+   "L1107",
+   "L1221",
+   "L1223",
+   "L1226"
+  ],
+  "reversed": [
+   "L1105"
+  ],
+  "note": "Won't Do and Fraud were first merged into a Flag status (L0878, L0987, L1105), then Flagged was removed and fraud is tracked separately via Fraud Flag + Fraud Review Status (L1221, L1225, 7/22). Final status set: New, In Progress, Completed, Archived."
+ },
+ {
+  "topic": "New to In Progress transition on Log Sign Up",
+  "current_truth_ledger_id": "L2479",
+  "superseded": [
+   "L1191",
+   "L1386"
+  ],
+  "refined": [
+   "L2188",
+   "L2189",
+   "L2407"
+  ],
+  "reversed": [
+   "L1191"
+  ],
+  "note": "7/22 rule (Log Sign Up moves to In Progress with no input) was reversed: a field must change, otherwise it stays New with a warning (L2407 9/3 internal tier1; L2479 9/11 client sync)."
+ },
+ {
+  "topic": "Sign-Up completion: auto-complete and Ops override",
+  "current_truth_ledger_id": "L2270",
+  "superseded": [
+   "L1108"
+  ],
+  "refined": [
+   "L2337",
+   "L1240",
+   "L1320"
+  ],
+  "reversed": [],
+  "note": "Log Sign Up may set Completed when all info is filled (accepted 9/1, L2270). Ops can complete below 100% (L2337, restated internally). Earlier 'manual Complete only' position (recorded in WAGR-243) is superseded."
+ },
+ {
+  "topic": "Fraud dismissal, confirmation and record lock",
+  "current_truth_ledger_id": "L2306",
+  "superseded": [
+   "L0988",
+   "L1878"
+  ],
+  "refined": [
+   "L1343",
+   "L1346",
+   "L2305"
+  ],
+  "reversed": [],
+  "note": "Dismiss removes the flag and the record keeps its prior status; confirm locks reps out (L2306, 9/1). L0988's 'unflag returns to In Progress' and the Gemini note L1878 are superseded."
+ },
+ {
+  "topic": "Fraud write-off and auto-archive on confirmed fraud",
+  "current_truth_ledger_id": "L2308",
+  "superseded": [],
+  "refined": [
+   "L2307",
+   "L3374"
+  ],
+  "reversed": [],
+  "note": "9/1 decided: confirmed fraud + Payment Sent -> Write-off checkbox; confirmed fraud without payment on a New record -> Archived (L2308). Follow-up on how write-offs roll into payouts/redeposits is open (L3374, 9/30)."
+ },
+ {
+  "topic": "Fraud flag presentation on Player record",
+  "current_truth_ledger_id": "L2622",
+  "superseded": [
+   "L2046"
+  ],
+  "refined": [
+   "L2591"
+  ],
+  "reversed": [],
+  "note": "Separate filtered fraud list (L2046, tier2 proposed) replaced by fraud columns on the Sign-Ups related list (L2622, tier2 decided 9/16, Emily's proposal reported second-hand). No tier1 decided item; L2591 is proposed."
+ },
+ {
+  "topic": "Ops control to reverse/confirm fraud flag",
+  "current_truth_ledger_id": "L2933",
+  "superseded": [],
+  "refined": [
+   "L2369"
+  ],
+  "reversed": [],
+  "note": "9/23 Kobi agreed to a button/action for Ops covering both confirm and dismiss (L2933)."
+ },
+ {
+  "topic": "Partner visibility for reps",
+  "current_truth_ledger_id": "L2921",
+  "superseded": [],
+  "refined": [
+   "L1205",
+   "L2920",
+   "L2922"
+  ],
+  "reversed": [
+   "L1204"
+  ],
+  "note": "7/22: reps see operator only, no partner (L1204). 9/23: reps get partner short code in header (L2921), full partner name on deal hover (L2920) and a Deal Information section with deal name (L2922). L1204 is reversed in part."
+ },
+ {
+  "topic": "Sign-Up header and highlights panel",
+  "current_truth_ledger_id": "L2919",
+  "superseded": [
+   "L1207"
+  ],
+  "refined": [
+   "L2912",
+   "L2921",
+   "L2922"
+  ],
+  "reversed": [],
+  "note": "7/22 header set (L1207) refined on 9/23: attribution in header for all statuses (L2912), proof status/completion far right (L2919), partner short code (L2921)."
+ },
+ {
+  "topic": "Sign-Up payout currency source",
+  "current_truth_ledger_id": "L2138",
+  "superseded": [
+   "L1028"
+  ],
+  "refined": [
+   "L2125",
+   "L2126",
+   "L2128",
+   "L2130",
+   "L2139",
+   "L3163"
+  ],
+  "reversed": [],
+  "note": "8/27 client session: sign-up payout currency defaults from the Deal market country (CAD/USD), stamped on the sign-up (not a player formula), editable by Ops (L2125, L2128, L2138). CONFLICT: L2704 (9/18, internal tier1) says the sign-up currency formula was pointed at CurrencyIsoCode to capture the player's country 'as agreed on Slack'; this is not a client meeting decision and contradicts L2128."
+ },
+ {
+  "topic": "Sign-Up date fields",
+  "current_truth_ledger_id": "L2925",
+  "superseded": [
+   "L1099"
+  ],
+  "refined": [
+   "L1100",
+   "L1348",
+   "L1349",
+   "L1350",
+   "L1351",
+   "L2926",
+   "L2927"
+  ],
+  "reversed": [],
+  "note": "Two dates: agency registration date from player (renamed L1351) and rep-entered Sign Up Date (relabelled L1350). 9/23: Sign Up Date not prefilled from click date (L2925); no future dates (L2926); deposit/wager not before sign-up date (L2927)."
+ },
+ {
+  "topic": "First bet vs First Wager Date",
+  "current_truth_ledger_id": "L2201",
+  "superseded": [
+   "L1190"
+  ],
+  "refined": [
+   "L2203"
+  ],
+  "reversed": [],
+  "note": "First bet date/amount removed from Log Sign Up (L1190, 7/22); First Wager Date added as the wager proof date (L2201/L2203, 8/31)."
+ },
+ {
+  "topic": "Referral information section layout",
+  "current_truth_ledger_id": "L2930",
+  "superseded": [
+   "L2313"
+  ],
+  "refined": [
+   "L1321",
+   "L1324",
+   "L2272",
+   "L2274",
+   "L2275"
+  ],
+  "reversed": [],
+  "note": "No Refer checkbox and referral notes evolved; 9/23 decided referral notes become a general full-width Notes section and No Referral moves up (L2930), replacing the 9/1 placement (L2313)."
+ },
+ {
+  "topic": "SLC deal resolution logic",
+  "current_truth_ledger_id": "L2073",
+  "superseded": [
+   "L1637"
+  ],
+  "refined": [
+   "L2072",
+   "L2074",
+   "L2300",
+   "L2484",
+   "L2485"
+  ],
+  "reversed": [],
+  "note": "8/11 test plan matched deals by operator/partner name or ID (L1637). 8/25: remove deal-makeup (country/state) logic and rely on Deal ID (L2073) with graceful error handling (L2072). 9/1: clicks without Deal External ID cannot be reprocessed (L2300)."
+ },
+ {
+  "topic": "SLC player matching",
+  "current_truth_ledger_id": "L1487",
+  "superseded": [
+   "L1480"
+  ],
+  "refined": [
+   "L1486"
+  ],
+  "reversed": [],
+  "note": "Flag SLCs without a player ID for ops (L1487, decided). L1486 (external-ID only matching) is proposed and was not confirmed in a later meeting."
+ },
+ {
+  "topic": "SLC review flagging rules",
+  "current_truth_ledger_id": "L1973",
+  "superseded": [],
+  "refined": [
+   "L1342",
+   "L1912"
+  ],
+  "reversed": [],
+  "note": "Missing data flagged and reprocessed (L1342); unconfigured agents flagged, no sign-up (L1912); BA mismatch flagged for ops (L1973)."
+ },
+ {
+  "topic": "Manual / VIP sign-up creation",
+  "current_truth_ledger_id": "L3449",
+  "superseded": [
+   "L2051",
+   "L2327"
+  ],
+  "refined": [
+   "L2942",
+   "L2944",
+   "L2945",
+   "L2946",
+   "L2947",
+   "L2948",
+   "L2955",
+   "L2956",
+   "L2960",
+   "L2986",
+   "L3440",
+   "L3441",
+   "L3443"
+  ],
+  "reversed": [
+   "L2051"
+  ],
+  "note": "Earlier 'no VIP on sign-up' (L2051 tier2) reversed by L2945. VIP manual entry decided 9/23 (button back, one-screen custom flow, starts In Progress) and refined 9/30 (BA defaults to current user, active+paused deals, duplicate block, link creation inside the flow)."
+ },
+ {
+  "topic": "Kanban view",
+  "current_truth_ledger_id": "L2940",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "9/23: do not offer Kanban at launch (L2940). Jira WAGR-430 later records a client confirmation (outside a meeting) that Kanban stays visible because it cannot be hidden natively."
+ },
+ {
+  "topic": "Payout code",
+  "current_truth_ledger_id": "L1507",
+  "superseded": [],
+  "refined": [
+   "L1506"
+  ],
+  "reversed": [],
+  "note": "Payout code generation deferred to the payouts phase (L1507, 8/4)."
+ },
+ {
+  "topic": "Payment Sent checkbox",
+  "current_truth_ledger_id": "L1509",
+  "superseded": [],
+  "refined": [
+   "L2308",
+   "L3145"
+  ],
+  "reversed": [],
+  "note": "Payment Sent checkbox added (L1509). L3145 (9/25) says the system does not track money sent to players for deposits or a BMO ID; the relationship to the Payment Sent checkbox is not stated."
+ },
+ {
+  "topic": "Past due / overdue rule",
+  "current_truth_ledger_id": "L1107",
+  "superseded": [],
+  "refined": [
+   "L0861"
+  ],
+  "reversed": [],
+  "note": "L0861 (7/8): nothing logged within 3 days -> past due. L1107 (7/17): flagged/archived records are not past due. L1108 (proposed) suggests past due applies to in-progress records; no later decided item defines whether New records go past due."
+ },
+ {
+  "topic": "Path component on Sign-Up",
+  "current_truth_ledger_id": "L1171",
+  "superseded": [],
+  "refined": [
+   "L1219"
+  ],
+  "reversed": [],
+  "note": "Path removed (L1171, tier2 decided 7/21); L1219 left re-adding a linear path open with no decision."
+ },
+ {
+  "topic": "SLC admin page cleanup",
+  "current_truth_ledger_id": "L2239",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Deferred as low priority on 9/1 (L2239)."
+ },
+ {
+  "topic": "Banned/paused referrer on sign-ups",
+  "current_truth_ledger_id": "L3038",
+  "superseded": [],
+  "refined": [
+   "L1982",
+   "L2866",
+   "L2868",
+   "L3039"
+  ],
+  "reversed": [],
+  "note": "No sign-up flow logic needed; banned referrers are selectable (L3038); WAGR-75 reworked to a report (L3039)."
+ },
+ {
+  "topic": "Banned player sign-ups",
+  "current_truth_ledger_id": "L1980",
+  "superseded": [],
+  "refined": [
+   "L1909",
+   "L2477"
+  ],
+  "reversed": [],
+  "note": "Salesforce does not block sign-ups for banned players (L1980, 8/18); CMS side prevents completion (L1909); 9/11 confirmed banned players stay banned while sign-ups flow (L2477)."
+ },
+ {
+  "topic": "Payout type default from referrer",
+  "current_truth_ledger_id": "L3106",
+  "superseded": [],
+  "refined": [
+   "L3104",
+   "L3105",
+   "L3120"
+  ],
+  "reversed": [],
+  "note": "9/25: sign-up payout type and currency default from the referrer, BA can override (L3106, L3120)."
+ },
+ {
+  "topic": "Welcome-email fraud tool integration",
+  "current_truth_ledger_id": "L1560",
+  "superseded": [],
+  "refined": [
+   "L1555",
+   "L1557",
+   "L1558",
+   "L1559",
+   "L1183"
+  ],
+  "reversed": [],
+  "note": "Fraud tool API integration is a fast follow, not Phase 1 (L1560). L1558 (welcome email moves sign-up to In Progress) is proposed only."
+ }
+]

@@ -1,0 +1,725 @@
+{
+ "area": "Ops list views / Console UX",
+ "lens": "A (transcript to Jira)",
+ "variances": [
+  {
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "No ticket for the standard (non-console) app Kobi committed to build so WagerTech can compare console and non-console",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "standard app",
+     "non-console",
+     "console vs",
+     "console and non",
+     "separate app",
+     "app per role",
+     "Lightning app",
+     "tab view",
+     "navigation",
+     "second app"
+    ],
+    "nearest_considered": [
+     "WAGR-307",
+     "WAGR-310",
+     "WAGR-244",
+     "WAGR-510"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3333",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "02:14:47",
+     "line_start": 1819,
+     "quote": "Emily Vandenberg: So I if you give me a couple if you can share me with like just to kind of play around with that a bit / Kobi Kunasekaran: we can what we can do is like uh we can create a like a widget widget uh standard app with the same uh same objects that we have here. So you can kind of see what the console versus non-console looks like. / Joyce Kiddell: Excellent."
+    },
+    {
+     "ledger_id": "L3332",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "02:14:47",
+     "line_start": 1812,
+     "quote": "Kobi Kunasekaran: we could have we could have multiple apps. So it is very common uh to have one app that's configured for / Kobi Kunasekaran: like reps um that have a specific working style and then another one that's more admins or managers um which is like more tab / Joyce Kiddell: We should do that."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1645",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:28:19",
+     "line_start": 440,
+     "quote": "Kobi Kunasekaran: ... you were looking at the uh the sales view, we removed that so that there's no more like confusion. People don't accidentally land there. So the main app that everybody uh would have access to is Wagertech console. ..."
+    },
+    {
+     "ledger_id": "L3331",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "02:12:07",
+     "line_start": 1793,
+     "quote": "Kobi Kunasekaran: Um the trade-off is I believe the split view I don't think it works there and because our like for the entire like signup experience we set it up so that split view is how they operate."
+    }
+   ],
+   "what_differs": "On 2026-09-30 Kobi told Emily and Joyce he would create a standard app with the same objects so they can compare console and non-console, and Joyce endorsed separate apps per role. No Jira issue records the comparison app, the role-based app option, or the known risk that the tab view may lose split view.",
+   "suggested_action": "Create a Jira story (WAGR-305 epic) for the comparison app with scope (objects, profiles, who reviews), note the split-view risk (L3331), and record the outcome of the per-role app decision. Suggestion only.",
+   "reasoning": "Decided tier1 action item to a client; it also changes the earlier \"one console app\" direction (L1645, L2199: other apps disabled). Searched summaries, descriptions and all comments in the 505-issue set, including Holding Pen and Phase 2 epics; no match.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "temp_id": "OPS-A-01",
+   "auto_checks": []
+  },
+  {
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "No ticket to keep Inactive/old Deals out of the default Deal working list views",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "inactive + list view",
+     "Active Deals",
+     "default view",
+     "clutter",
+     "pinned",
+     "pin list",
+     "active list view",
+     "Deal list view"
+    ],
+    "nearest_considered": [
+     "WAGR-61",
+     "WAGR-480",
+     "WAGR-506",
+     "WAGR-487",
+     "WAGR-307"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1628",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:12:35",
+     "line_start": 273,
+     "quote": "Kobi Kunasekaran: ... We could add another status that'll like help hide it away if if that'll be helpful. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah. Like we can create something that's like circle or something. / Joyce Kiddell: Or in inactive. Inactive is fine. ... / Joyce Kiddell: or we make the pin list the active ones like whatever you think is the best in terms of / Joyce Kiddell: like engineering the structure. I just don't want it to clutter kind of the default / Kobi Kunasekaran: Yeah. Yeah, that's there. We can do"
+    }
+   ],
+   "what_differs": "Joyce asked that inactive/old deals not clutter the default view and left the mechanism (status or a pinned active list view) to Jumpr; Kobi said \"We can do\". WAGR-61 sets Deal list columns only, WAGR-480 keeps the All list as is, and WAGR-487/WAGR-506 create the Inactive status but no ticket filters Inactive deals out of the default working list.",
+   "suggested_action": "Add an acceptance criterion to WAGR-61 or a new story: an \"Active Deals\" (or All Active) Deal list view as the working default, with Inactive/Closed/Archived excluded, and onboarding guidance to pin it. Suggestion only.",
+   "reasoning": "Decided tier1 client requirement (08-11). Later meetings (09-29, 09-30) add automated 90-day Inactive moves, which will increase inactive deal volume; no later meeting withdrew the ask. Confidence medium because the POC \"Active Deals by Partner\" view in WAGR-307 (Done, July) may partly cover it, but no current ticket states it.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "OPS-A-02",
+   "auto_checks": []
+  },
+  {
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "high",
+   "title": "No ticket for the Brand Ambassador navigation tab Kobi asked to log as low priority",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "BA tab",
+     "Brand Ambassador tab",
+     "ambassador tab",
+     "tab for brand",
+     "navigation item",
+     "Console navigation"
+    ],
+    "nearest_considered": [
+     "WAGR-307",
+     "WAGR-310",
+     "WAGR-176",
+     "WAGR-412"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2860",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:23:38",
+     "line_start": 423,
+     "quote": "Kobi Kunasekaran: I don't I don't think we have like a V8 tab. / Kobi Kunasekaran: Um maybe we can create a let's create a J ticket to like add it. Um low priority like we don't need to spend too much time."
+    }
+   ],
+   "what_differs": "On 2026-09-23 Kobi said there is no BA tab and asked for a low-priority Jira ticket to add one. No issue adds a Brand Ambassador tab to the WagerTech Console navigation; WAGR-307 lists navigation items without BA and WAGR-310 was closed on 07-29.",
+   "suggested_action": "Create the low-priority story Kobi asked for (add Brand Ambassador object tab to the WagerTech Console navigation for the relevant profiles). Suggestion only.",
+   "reasoning": "Explicit decided action item to create a ticket; transcript reads \"V8 tab\" (speech-to-text for BA tab), the ledger statement confirms BA. No later meeting revisits it.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "OPS-A-03",
+   "auto_checks": []
+  },
+  {
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "low",
+   "title": "No ticket for the hidden admin-only tab to hold helper fields not called out in tickets",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "admin-only",
+     "system admin only",
+     "hidden tab",
+     "admin tab",
+     "helper fields",
+     "API Data tab",
+     "More Info tab"
+    ],
+    "nearest_considered": [
+     "WAGR-48",
+     "WAGR-278",
+     "WAGR-200",
+     "WAGR-233"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3010",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:18:20",
+     "line_start": 381,
+     "quote": "Kobi Kunasekaran: So if it's not called out in the ticket um but the field is necessary for functionality generally just keep it behind the scenes. / Kobi Kunasekaran: maybe create a new tab hidden just for like our system admin user and then you can dump all the fields that we want in there."
+    }
+   ],
+   "what_differs": "Kobi set a convention that functional fields not called out in a ticket stay behind the scenes, with a hidden tab visible only to the system admin for troubleshooting. Existing tickets create an SLC \"API Data\" tab (WAGR-48) and Ops \"More Info\" tabs (WAGR-278, WAGR-200, WAGR-233), but no ticket creates an admin-only tab.",
+   "suggested_action": "Confirm whether the admin-only tab is wanted; if yes, add one story covering which record pages get it and its visibility rule. Suggestion only.",
+   "reasoning": "Ledger marks it decided, but the quote says \"maybe create a new tab\", so the commitment is soft. Listed for completeness per the gap rule; confidence low.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "OPS-A-04",
+   "auto_checks": []
+  },
+  {
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "Kanban: client asked that it not be an option at Phase 1 launch; Jira now says Kanban stays visible at go-live",
+   "jira": [
+    {
+     "key": "WAGR-430",
+     "status": "In Progress",
+     "assignee": "Taryn Reithofer",
+     "summary": "Sign-Up: Hide Kanban",
+     "quote": "Hide/disable the Kanban view option for Sign-Ups for the Phase 1 launch (don't leave a half-functional view available to reps).",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-430",
+     "status": "In Progress",
+     "assignee": "Taryn Reithofer",
+     "summary": "Sign-Up: Hide Kanban",
+     "quote": "Kanban stays visible at go-live. Requirements gathering is not urgent. We will prioritize it only if Emily asks, or if capacity allows.",
+     "quote_source": "comment by Taryn Reithofer 2026-09-29"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2940",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Emily Vandenberg; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:52:11",
+     "line_start": 824,
+     "quote": "Emily Vandenberg: for phase one like just don't have it as an option. / Lina Ceniccola: Yeah, I just think in the essence of time, let's save it not for launch, / Lina Ceniccola: but maybe once we gather feedback on the two workflows we already have, like the table and then the other, / Kobi Kunasekaran: okay. Yeah, I like that."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3318",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Taryn Reithofer",
+     "timestamp": "00:04:09",
+     "line_start": 409,
+     "quote": "Taryn Reithofer: The ones that I got to yesterday was that table view where now we're, you know, that providing that um spreadsheet is really helpful, Emily, for us to speed that up. And then the response about the Canva view."
+    }
+   ],
+   "what_differs": "On 2026-09-23 Emily said \"for phase one like just don't have it as an option\" and Kobi agreed. The 09-29 Jira comment reverses this (no native setting to hide Kanban) so Kanban stays visible at go-live; the comment says Emily confirmed the deferral, but no later meeting records the client accepting a visible Kanban. The ticket is also In Progress while parented to the Phase 2 epic WAGR-478.",
+   "suggested_action": "Confirm in writing with Emily that Kanban will remain visible at go-live (and whether rep onboarding should tell reps to ignore it); then move WAGR-430 out of In Progress to match its Phase 2 placement. Suggestion only.",
+   "reasoning": "The Jira text documents a technical reason, but the client-facing outcome (visible vs hidden) differs from the meeting decision. The 09-30 meeting only says Taryn sent \"the response about the Canva view\"; it does not record the client answer. Confidence medium for that reason.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "temp_id": "OPS-A-05",
+   "auto_checks": []
+  },
+  {
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "title": "WAGR-389 still targets highlights-panel help text after the team found it does not display and chose documentation/training instead",
+   "jira": [
+    {
+     "key": "WAGR-389",
+     "status": "Solution Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "Add help text to the Associated Partners and Associated Sources rollup fields",
+     "quote": "Hovering the info icon on Associated Partners and Associated Sources in the Operator Highlights Panel shows the help text above.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-389",
+     "status": "Solution Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "Add help text to the Associated Partners and Associated Sources rollup fields",
+     "quote": "Confirmed in sandbox that help text doesn’t show on fieldsthat are within the dynamic highlights panel, however I did go back into the fields and added descriptions and help text anyways",
+     "quote_source": "comment by Taryn Reithofer 2026-09-14"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2556",
+     "date": "2026-09-14",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1L-0V5h2VXU_6WRkO_IDZDjrMtsu15cuOk6AM0dHTUuk/edit",
+     "speakers": "Taryn Reithofer",
+     "timestamp": "00:36:33",
+     "line_start": 513,
+     "quote": "Taryn Reithofer: Oh, and I need to I need to create a ticket for um putting that help text for in the highlights panel for the associated sources rollups that I did. So, I'll need to create that."
+    },
+    {
+     "ledger_id": "L2582",
+     "date": "2026-09-15",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1c7jrcIZi-m-zYNVeSrkzols_CABo5p5IBp_0r1kBfUg/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:04:09",
+     "line_start": 143,
+     "quote": "Taryn Reithofer: Um so so we'll just have to highlight it in / Kobi Kunasekaran: that's fine. / Taryn Reithofer: um whoseever training um on how to use uh you know how to read and how to use the record pages that is just highlighted in some documentation on what those specific fields are actually for."
+    }
+   ],
+   "what_differs": "The 09-15 meeting accepted that help text does not show in a dynamic highlights panel and that the field purpose will be covered in record page documentation and training. WAGR-389 is still in Solution Review with acceptance criteria that cannot pass, and no ticket (the Training epic WAGR-22 has no child issues) captures the documentation fallback.",
+   "suggested_action": "Rewrite WAGR-389 acceptance criteria to \"description/help text set; purpose documented in record page guide\" and close it, or close it and add a training/documentation task under WAGR-22. Suggestion only.",
+   "reasoning": "Later decided meeting item supersedes the ticket AC; the comment records the finding but not the replacement deliverable.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "OPS-A-06",
+   "auto_checks": []
+  },
+  {
+   "category": "V4",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "WAGR-355 and WAGR-356 stay On Hold in Requirements although the country flag and fraud flag next to the player name are built in WAGR-227",
+   "jira": [
+    {
+     "key": "WAGR-355",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "BUILD-60 — Country flag next to player name in signup list view",
+     "quote": "ON HOLD (Kobi, 2026-07-29): parked as an idea",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-356",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "BUILD-62 — List view emoji cleanup: fraud flag position (+ pending client format decision)",
+     "quote": "NOW: reorder Status_Combined__c so",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-227",
+     "status": "Jumpr Review",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-124 — Sign Up List View Updates: Player Display with Market Country and Fraud/Overdue icons",
+     "quote": "Created new Player_Display__c field to display market country and Flag/overdue status for List Views.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1334",
+     "date": "2026-07-28",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+     "speakers": "Waleed Alasadi; Emily Vandenberg; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:18:57",
+     "line_start": 320,
+     "quote": "Waleed Alasadi: but can we add the flag next to the name like E2E tester like Canada? / Emily Vandenberg: Yeah. / Kobi Kunasekaran: that's something we can do. Like next to like Jake Morrison, it will just be either the Canadian flag or the US flag."
+    },
+    {
+     "ledger_id": "L1336",
+     "date": "2026-07-28",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:22:14",
+     "line_start": 371,
+     "quote": "Joyce Kiddell: So, what if is it possible to at least move the red flag to the right, like the more immediate right of the person's name? / Kobi Kunasekaran: Yeah. Yeah, we can do that. We can rearrange like some of these if it'll be helpful."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1607",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech (Kobi/Waleed internal, before client sync) - Transcript",
+     "doc_link": "https://docs.google.com/document/d/1Zd2YCtUmJkkT6LOpWVI_AipSlYx4yo_PMzU684wtkrI/edit",
+     "speakers": "Kobi Kunasekaran; Waleed Alasadi",
+     "timestamp": "00:15:00",
+     "line_start": 110,
+     "quote": "Kobi Kunasekaran: And I think in terms of feedbacks too, last week we said my understanding was that they were going to take away the signup UI and come back with okay, this is the final set of changes we want. And then after I shared the running list of all of the open items and everything, Emily basically asked are the updates ready? I'm like what updates? you're supposed to get back to me with the changes. So I preemptively made some of the things that we discussed didn't finalize… / Kobi Kunasekaran: what we discussed about moving around the icons and stuff. But I think today maybe we just need to be clear from here it's up to you. You tell us what it is because the back and… / Waleed Alasadi: That's on the list view. / Kobi Kunasekaran: Remember last time we talked about the icons were being cluttered and everything. We talked about a few options and I thought we came out of it with playing around with it, trying a few things out and then getting back to us with yeah,… / Kobi Kunasekaran: but I think that was not clear. So I went out and made some changes and I shared the video for it. But I think today I want to say there's nothing else on our plate. If you want more changes, we need a list."
+    }
+   ],
+   "what_differs": "The 07-28 meeting agreed the country flag next to the player name and moving the fraud flag right of the name; on 08-11 Kobi said he made the icon changes and shared a video. WAGR-227 (Jumpr Review) holds the built Player_Display__c formula with the country flag and fraud flag, but WAGR-355 and WAGR-356 still say On Hold / Requirements.",
+   "suggested_action": "Close WAGR-355 and the \"NOW\" part of WAGR-356 as delivered by WAGR-227; keep only the gated client-format items (proof circles, status text) open, or move them to a single follow-up. Suggestion only.",
+   "reasoning": "Status hygiene: duplicate open tickets for delivered work can lead to double build or wrong status reports. L1607 is tier2, so confidence is medium.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "temp_id": "OPS-A-07",
+   "auto_checks": []
+  },
+  {
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Sign-Up list sort tickets omit the agreed option for reps to sort the queue by player name",
+   "jira": [
+    {
+     "key": "WAGR-423",
+     "status": "Requirements",
+     "assignee": "Taryn Reithofer",
+     "summary": "Sign-Up: Default \"All Active\" list view + list sort/column fixes",
+     "quote": "All list views should sort by Created Date descending (newest at the top) — this was inconsistent/buggy as of 09/22.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-338",
+     "status": "Done",
+     "assignee": "Unassigned",
+     "summary": "BUILD-17 — Console list views and standard column set for Sign-Up",
+     "quote": "Every list view uses the column order: Player Name, Operator, Time Since Sign Up, ... , Status (last, with icons where possible)",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1212",
+     "date": "2026-07-22",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1BRZjXegzlnfZl33fIRA1KbnDiGYIpBts2oh3IO0U45k/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:35:07",
+     "line_start": 674,
+     "quote": "Joyce Kiddell: Can you still sort by player name though? / Kobi Kunasekaran: we could have it sorted by the player / Joyce Kiddell: Just to give them the option to sort by player name. Like I think having it still default um by like most recent makes sense, / Kobi Kunasekaran: Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2914",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "00:17:19",
+     "line_start": 425,
+     "quote": "Emily Vandenberg: we should default to all and but I think like all active. So, if it's already been archived or it's already been kind of like flagged as fraud, it shouldn't like list in that kind of all active / Joyce Kiddell: Yes. Yeah. / Joyce Kiddell: Like it should be their queue to get through for like the day or whatever."
+    }
+   ],
+   "what_differs": "On 07-22 Joyce asked that reps keep the option to sort by player name while the default stays most recent, and Kobi agreed. WAGR-423 and WAGR-338 define the default sort and columns but no ticket states that the player column must stay sortable; the player column is now the Player_Display__c HYPERLINK formula (WAGR-227).",
+   "suggested_action": "Add an acceptance criterion to WAGR-423: reps can sort each Sign-Up list view by player name (verify that the Player_Display__c column is sortable; if not, keep a sortable Player Name column). Suggestion only.",
+   "reasoning": "The 09-23 decision (L2914) sets the default sort only; it does not withdraw the sort-by-name option. Native column sorting may already satisfy this, so severity Low.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "temp_id": "OPS-A-08",
+   "auto_checks": []
+  },
+  {
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Open question: how reps filter Sign-Ups by market in split view was left for WagerTech to discuss and never answered",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "market filter",
+     "filter by market",
+     "country filter",
+     "region filter",
+     "market list view",
+     "My Sign-ups US",
+     "sort by country"
+    ],
+    "nearest_considered": [
+     "WAGR-227",
+     "WAGR-503",
+     "WAGR-423",
+     "WAGR-424"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1341",
+     "date": "2026-07-28",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:27:23",
+     "line_start": 450,
+     "quote": "Emily Vandenberg: And then Kobe, just to confirm, there's no like way that we'll be able to filter outside of creating a separate list view within like the different markets. / Kobi Kunasekaran: Like there's no concept of like quick filters. That that's the whole point of these lists. / Emily Vandenberg: Okay, we can talk about that internally."
+    },
+    {
+     "ledger_id": "L1388",
+     "date": "2026-07-28",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:18:57",
+     "line_start": 307,
+     "quote": "Kobi Kunasekaran: What we could do is create um additional list views that's like market focus. So we could show like my signups US, my signup Canada, just similar to like the new and in progress. / Joyce Kiddell: I feel like that that might get a bit confusing because like the user behavior / Joyce Kiddell: under that drop down would be like in my mind more of like a a funnel or like different stages,"
+    },
+    {
+     "ledger_id": "L1333",
+     "date": "2026-07-28",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+     "speakers": "Emily Vandenberg; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:17:24",
+     "line_start": 296,
+     "quote": "Lina Ceniccola: Can we just do a sort by market? / Kobi Kunasekaran: We can um but market is two fields though. Um do we want to combine this into a single field somehow just / Lina Ceniccola: country. / Kobi Kunasekaran: yeah we can."
+    }
+   ],
+   "what_differs": "On 07-28 Emily confirmed there are no quick filters in split view and said WagerTech would talk about market filtering internally; Joyce had rejected market-specific list views, and a sort by country was floated but not confirmed. No later meeting answers the question and no Jira issue records it (WAGR-227 only shows the country flag).",
+   "suggested_action": "Ask WagerTech for a decision (market list views, sort by country column, or table-view filters) and capture it on WAGR-423 or WAGR-424. Suggestion only.",
+   "reasoning": "Searched the full ledger after 07-28 for market/country/region filter items; only a redeposit region-filter question (L3325, other object) appears.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "OPS-A-09",
+   "auto_checks": []
+  },
+  {
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Open question: can the console navigation dropdown / quick nav buttons be configured (Kobi to check)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "navigation dropdown",
+     "nav bar",
+     "quick button",
+     "my signups",
+     "my redeposits",
+     "preset view",
+     "October Ontario"
+    ],
+    "nearest_considered": [
+     "WAGR-307",
+     "WAGR-310",
+     "WAGR-244",
+     "WAGR-482"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3335",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "02:16:41",
+     "line_start": 1841,
+     "quote": "Kobi Kunasekaran: Um, well, yeah, I I will have to look it. I don't think we can actually customize here. I think this is just what's standard."
+    },
+    {
+     "ledger_id": "L3330",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "02:10:55",
+     "line_start": 1783,
+     "quote": "Emily Vandenberg: you need quick buttons for like my signups like my redeposits versus that drop down / Emily Vandenberg: So like getting out of the gate, we would preconfigure October and then like we could do October Ontario, October Alberta."
+    }
+   ],
+   "what_differs": "Emily asked for quick navigation buttons (my signups, my redeposits) and preset views; Kobi said he will check but thinks the navigation dropdown contents are standard. No Jira issue records the question or the answer.",
+   "suggested_action": "Log the check (and its answer) on the comparison-app story or a small spike, and reply to Emily. Suggestion only.",
+   "reasoning": "Raised in the last meeting in the ledger (09-30); no later meeting exists yet, and no ticket captures it. The underlying ask (L3330) is proposed, not agreed.",
+   "feature_area": "Ops list views / Console UX",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "OPS-A-10",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Group queue records by player (client ask)",
+   "why_unverified": "client ask not agreed; no ticket. Kobi was unsure it is possible; internally he later said grouped list views are not possible (L1168, tier2) and sort options were offered instead (L1212).",
+   "ledger_ids": [
+    "L1075",
+    "L1168",
+    "L1078"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Colour the whole list row red for fraud (client ask)",
+   "why_unverified": "client ask not agreed; no ticket. Kobi said no on 07-28.",
+   "ledger_ids": [
+    "L1335"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Figma-style layout mockups before build (client ask)",
+   "why_unverified": "client ask not agreed; no ticket. Relayed in a tier2 internal meeting; Jumpr declined.",
+   "ledger_ids": [
+    "L1149"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Split-view format decisions pending since 07-28 (proof status placement, separate completion vs proof, drop status text, Lina screenshot format)",
+   "why_unverified": "Items are proposed/discussed only and are captured as GATED in WAGR-356 (on hold since 07-29). No later meeting records the final client format; confirm whether the 09-23 table/split decisions closed them.",
+   "ledger_ids": [
+    "L1337",
+    "L1340",
+    "L1390",
+    "L1391",
+    "L1338"
+   ],
+   "jira_keys": [
+    "WAGR-356",
+    "WAGR-423"
+   ]
+  },
+  {
+   "title": "Redeposit list views filtered by region (Ontario, Alberta, US)",
+   "why_unverified": "Proposed only (Kobi offered predefined list views); redeposit design is tracked at WAGR-464 without list-view detail.",
+   "ledger_ids": [
+    "L3325",
+    "L3326"
+   ],
+   "jira_keys": [
+    "WAGR-464"
+   ]
+  },
+  {
+   "title": "Rep Home Page POC marked Done while still \"pending rep feedback\"",
+   "why_unverified": "Only a tier2 status item (draft homepage not shown to client, 08-19); no tier1 decision on the homepage. WAGR-244 is Done but lists productionisation work after feedback.",
+   "ledger_ids": [
+    "L2031"
+   ],
+   "jira_keys": [
+    "WAGR-244"
+   ]
+  },
+  {
+   "title": "Overlapping Recently Viewed / search layout tickets",
+   "why_unverified": "Jira hygiene, not a transcript variance: WAGR-52 (Ready) with sub-tasks WAGR-53..57 cover the same Recently Viewed columns as WAGR-423, WAGR-480, WAGR-481, WAGR-483 (decided 09-23, L2861/L2917). Risk of double work.",
+   "ledger_ids": [
+    "L2861",
+    "L2917"
+   ],
+   "jira_keys": [
+    "WAGR-52",
+    "WAGR-53",
+    "WAGR-54",
+    "WAGR-55",
+    "WAGR-56",
+    "WAGR-57",
+    "WAGR-423",
+    "WAGR-480",
+    "WAGR-481",
+    "WAGR-483"
+   ]
+  },
+  {
+   "title": "Billing notes layout to be revisited later (possible custom component)",
+   "why_unverified": "Tier2 internal deferral only; no ticket to revisit.",
+   "ledger_ids": [
+    "L1851"
+   ],
+   "jira_keys": []
+  }
+ ],
+ "module_coverage": {
+  "area": "Ops list views / Console UX",
+  "jira_epics": [
+   "WAGR-305"
+  ],
+  "ticket_count": 105,
+  "note": "105 issues in the area shortlist; only 17 sit under epic WAGR-305 \"Sign-Up Logging Experience (UX)\" (In Progress); the other 88 have no epic. List views for Deal, Deal Rep Assignment and Account exist only as Open placeholders (WAGR-480 to WAGR-484). Training epic WAGR-22 has no child issues.",
+  "uncovered_capabilities": [
+   {
+    "capability": "Non-console / role-based app option (comparison app; reps vs admins apps)",
+    "ledger_ids": [
+     "L3333",
+     "L3332",
+     "L3331"
+    ],
+    "note": "Decided 09-30 action; no ticket. See OPS-A-01."
+   },
+   {
+    "capability": "Deal working list views that exclude Inactive/old deals",
+    "ledger_ids": [
+     "L1628"
+    ],
+    "note": "Deal list tickets (WAGR-61, WAGR-480) set columns only. See OPS-A-02."
+   },
+   {
+    "capability": "Brand Ambassador navigation tab",
+    "ledger_ids": [
+     "L2860"
+    ],
+    "note": "Ticket requested 09-23, not created. See OPS-A-03."
+   },
+   {
+    "capability": "Market/region filtering of Sign-Up queues",
+    "ledger_ids": [
+     "L1341",
+     "L1388",
+     "L1333"
+    ],
+    "note": "No ticket cluster; open question. See OPS-A-09."
+   },
+   {
+    "capability": "Console UX onboarding/training content (pin the All Active list per user; record page field-purpose guide)",
+    "ledger_ids": [
+     "L2916",
+     "L2582"
+    ],
+    "note": "Only mentioned inside WAGR-423 constraints and WAGR-389 comment; Training epic WAGR-22 has zero child tickets."
+   },
+   {
+    "capability": "Admin-only hidden tab for helper fields",
+    "ledger_ids": [
+     "L3010"
+    ],
+    "note": "Soft decision; no ticket. See OPS-A-04."
+   }
+  ]
+ },
+ "v9_reviewed_no_support": [
+  "WAGR-222"
+ ],
+ "notes": "Covered (no variance): All Active default + newest-first sort + Recently Viewed alignment (WAGR-423); table view to match spreadsheet, CSV export and freeze-columns check (WAGR-424, WAGR-423 comments); DRA Recently Viewed (WAGR-481); Source column on Deal list (WAGR-93); signup Source field superseded by 09-23 header decision (WAGR-422); wager date/proof inline (WAGR-426); click history tab and two-column details (WAGR-347); Edit button removal (WAGR-345); button styling (WAGR-292); emoji flags (WAGR-349, WAGR-227); list view search (WAGR-279); More Info / admin fields tabs (WAGR-278, WAGR-200, WAGR-233); bulk edit test outcome and row-action limits (WAGR-436, WAGR-510); referrer batch payout screen and guided allocation design (WAGR-465). Client feedback action items (L0871, L1232, L1239, L1380, L1680, L2937) were treated as completed by later meetings, not as V1. Tier2-only decided items were checked but not raised as V1 per the tier1/client-confirmed bar."
+}

@@ -1,0 +1,470 @@
+[
+ {
+  "topic": "Deal definition / unique makeup",
+  "current_truth_ledger_id": "L3244",
+  "superseded": [
+   "L1268"
+  ],
+  "refined": [
+   "L0415",
+   "L0704",
+   "L0805",
+   "L2296",
+   "L2022"
+  ],
+  "reversed": [],
+  "note": "09-29: makeup = operator, partner, market country, market state, vertical, source. Earlier 5-field makeup (L1268) superseded by adding Source. L0066 (operator+partner only) was an early proposal."
+ },
+ {
+  "topic": "Market model (one market per deal, picklist)",
+  "current_truth_ledger_id": "L1277",
+  "superseded": [
+   "L0692"
+  ],
+  "refined": [
+   "L0707",
+   "L0708",
+   "L2131"
+  ],
+  "reversed": [],
+  "note": "Picklist on deal (L0708) with country/state scenarios (L1277). Combined 'US and Canada' option (L2131) left open (L2132/L2133); Jira later deactivated it."
+ },
+ {
+  "topic": "Values set at deal level, not operator defaults",
+  "current_truth_ledger_id": "L1005",
+  "superseded": [],
+  "refined": [
+   "L0813",
+   "L0815",
+   "L0017",
+   "L0018"
+  ],
+  "reversed": [],
+  "note": "CPA and values stay on the deal; operator default fields hidden."
+ },
+ {
+  "topic": "Cap / CPA target type",
+  "current_truth_ledger_id": "L1664",
+  "superseded": [
+   "L1006"
+  ],
+  "refined": [],
+  "reversed": [
+   "L0886"
+  ],
+  "note": "Numeric monthly cap with 0 = unlimited replaces CPA Target Type (L1006) and the proposed numeric/unlimited picklist (L0886)."
+ },
+ {
+  "topic": "Deal version field",
+  "current_truth_ledger_id": "L1670",
+  "superseded": [
+   "L0884",
+   "L1661"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "Deal Version removed entirely (08-11); field history replaces it. L1661 (move version lower) superseded."
+ },
+ {
+  "topic": "Deal naming",
+  "current_truth_ledger_id": "L2965",
+  "superseded": [
+   "L1355"
+  ],
+  "refined": [
+   "L1654",
+   "L1655",
+   "L1656",
+   "L2102",
+   "L2103",
+   "L2298"
+  ],
+  "reversed": [],
+  "note": "Partner code kept in global name (L1654); format with vertical (L1655); one-letter source suffix (L2102) with 'Direct' spelled out (L2103); regional prefixes instead of 'multistate' (L2965, 09-23)."
+ },
+ {
+  "topic": "Rep visibility of deals and partner",
+  "current_truth_ledger_id": "L1647",
+  "superseded": [],
+  "refined": [
+   "L1357",
+   "L1356",
+   "L1646",
+   "L1611"
+  ],
+  "reversed": [],
+  "note": "07-28 reps use DRAs not deals (L1357); 08-11 partner hidden on deal for reps (L1646), reps work from DRA page (L1647). Partner code still in the global deal name (L1654)."
+ },
+ {
+  "topic": "DRA system of record and creation",
+  "current_truth_ledger_id": "L3279",
+  "superseded": [
+   "L0891",
+   "L1014",
+   "L1354",
+   "L1393"
+  ],
+  "refined": [
+   "L1362",
+   "L2522",
+   "L3411"
+  ],
+  "reversed": [
+   "L1354"
+  ],
+  "note": "07-28 assignment moved to CMS (L1362 reverses the SF Manage Deal Assignment button, L1354). 09-11 agreed flow (L2522); 09-29 CMS push of DRAs is Phase 2 (L3279). July one-DRA-per-rep-per-deal with history child (L0891/L1014) superseded."
+ },
+ {
+  "topic": "Test-phase DRAs",
+  "current_truth_ledger_id": "L1644",
+  "superseded": [],
+  "refined": [
+   "L1630",
+   "L1910",
+   "L1911",
+   "L1913"
+  ],
+  "reversed": [],
+  "note": "Test DRAs created in Salesforce / imported from Airtable for the initial test only."
+ },
+ {
+  "topic": "Bulk DRA assignment UI",
+  "current_truth_ledger_id": "L1228",
+  "superseded": [
+   "L0694"
+  ],
+  "refined": [
+   "L1230",
+   "L1575"
+  ],
+  "reversed": [
+   "L0694"
+  ],
+  "note": "Bulk screen flow built (L1228) reverses 'no simplified UI this phase' (L0694)."
+ },
+ {
+  "topic": "Affiliate link model",
+  "current_truth_ledger_id": "L2712",
+  "superseded": [
+   "L0820",
+   "L1907"
+  ],
+  "refined": [
+   "L1364",
+   "L1365",
+   "L1367",
+   "L1941",
+   "L1942",
+   "L1943",
+   "L1944",
+   "L3285",
+   "L3399"
+  ],
+  "reversed": [],
+  "note": "Links are a child object at deal level; core fields Link ID, code, URL, active, assignment cap (L2712). Link code required, not unique (L1942/L3285). Active/inactive sufficient (L3399)."
+ },
+ {
+  "topic": "Link active assignments rollup",
+  "current_truth_ledger_id": "L2713",
+  "superseded": [
+   "L1907"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "Skipped until the CMS returns link assignment info."
+ },
+ {
+  "topic": "Link editing and deletion",
+  "current_truth_ledger_id": "L3004",
+  "superseded": [],
+  "refined": [
+   "L2879",
+   "L2881",
+   "L2883"
+  ],
+  "reversed": [],
+  "note": "Edit flow adds/updates only; deletion from related list; separate later item for delete UX."
+ },
+ {
+  "topic": "Link auto-number prefix",
+  "current_truth_ledger_id": "L3012",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "TL to LNK agreed 09-24."
+ },
+ {
+  "topic": "Source field",
+  "current_truth_ledger_id": "L2299",
+  "superseded": [],
+  "refined": [
+   "L1739",
+   "L1740",
+   "L1741",
+   "L2098",
+   "L2101",
+   "L2292"
+  ],
+  "reversed": [],
+  "note": "Source mandatory on every deal (09-01); agency source = WagerTech; source code on new deal IDs only."
+ },
+ {
+  "topic": "Duplicate prevention",
+  "current_truth_ledger_id": "L3250",
+  "superseded": [],
+  "refined": [
+   "L2296",
+   "L2297",
+   "L2496",
+   "L2564"
+  ],
+  "reversed": [],
+  "note": "Block duplicates on the makeup; pre-activation edits recompute keys with a dup check; reused makeup allowed after Archive."
+ },
+ {
+  "topic": "Deal lifecycle status values",
+  "current_truth_ledger_id": "L3408",
+  "superseded": [
+   "L3245",
+   "L3302",
+   "L3262"
+  ],
+  "refined": [
+   "L3404",
+   "L3406",
+   "L3273",
+   "L3272",
+   "L3310"
+  ],
+  "reversed": [
+   "L3262"
+  ],
+  "note": "09-30: Retired renamed Archive (L3404 reverses the 'Retired/-R' naming of L3262), Review Required removed (L3408), Inactive after 90 days configurable (L3406). 'New' default (L3245) appears as 'Draft' in Jira (lead)."
+ },
+ {
+  "topic": "Status changes via controlled actions",
+  "current_truth_ledger_id": "L3246",
+  "superseded": [],
+  "refined": [
+   "L3389"
+  ],
+  "reversed": [],
+  "note": "No direct status edit."
+ },
+ {
+  "topic": "Activation gate",
+  "current_truth_ledger_id": "L3252",
+  "superseded": [],
+  "refined": [
+   "L3377"
+  ],
+  "reversed": [],
+  "note": "Pre-check on Activate; links/CT before activation were open (L3251/L3417)."
+ },
+ {
+  "topic": "Post-activation locking",
+  "current_truth_ledger_id": "L3254",
+  "superseded": [],
+  "refined": [
+   "L2532",
+   "L3255",
+   "L3257",
+   "L3247"
+  ],
+  "reversed": [],
+  "note": "Makeup locked after activation for all; manual admin override; non-CMS fields stay editable."
+ },
+ {
+  "topic": "Automatic inactive / reactivate",
+  "current_truth_ledger_id": "L3406",
+  "superseded": [],
+  "refined": [
+   "L3260"
+  ],
+  "reversed": [],
+  "note": "90 days, configurable; signup reactivates."
+ },
+ {
+  "topic": "Pause/close/archive effect on links and DRAs",
+  "current_truth_ledger_id": "L3410",
+  "superseded": [],
+  "refined": [
+   "L3395",
+   "L3409"
+  ],
+  "reversed": [],
+  "note": "Pause deactivates links, resume restores prior active set; close/archive set links inactive; history kept."
+ },
+ {
+  "topic": "Reactivated deal with new terms",
+  "current_truth_ledger_id": "L2495",
+  "superseded": [],
+  "refined": [
+   "L3265"
+  ],
+  "reversed": [],
+  "note": "Same deal with change logged; L3265 (proposed) restates for Closed deals."
+ },
+ {
+  "topic": "Deal versioning",
+  "current_truth_ledger_id": "L3416",
+  "superseded": [
+   "L2511"
+  ],
+  "refined": [
+   "L3267",
+   "L3414"
+  ],
+  "reversed": [],
+  "note": "No user-entered version; commercial terms object chosen (L3416). Full versioning still a risk/open item (L3413, L3405)."
+ },
+ {
+  "topic": "Commercial terms",
+  "current_truth_ledger_id": "L3423",
+  "superseded": [
+   "L2511"
+  ],
+  "refined": [
+   "L2500",
+   "L2502",
+   "L2512",
+   "L3269",
+   "L3415",
+   "L3416",
+   "L3420",
+   "L3422",
+   "L3424",
+   "L3425"
+  ],
+  "reversed": [],
+  "note": "09-30: custom object, one active term, correct-or-new path, CPA/payout drive new terms, signups tie by first-bet date; per-field tracking deferred."
+ },
+ {
+  "topic": "Commercial terms and payouts",
+  "current_truth_ledger_id": "L3159",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Ops reporting only; no impact on referral payouts."
+ },
+ {
+  "topic": "Deal currency",
+  "current_truth_ledger_id": "L2123",
+  "superseded": [],
+  "refined": [
+   "L2503"
+  ],
+  "reversed": [],
+  "note": "Currency = what operator pays WagerTech in; currency change = new deal for now."
+ },
+ {
+  "topic": "Deposit range and target",
+  "current_truth_ledger_id": "L1651",
+  "superseded": [],
+  "refined": [
+   "L1649",
+   "L1665"
+  ],
+  "reversed": [],
+  "note": "Min/max fields plus display formula; separate deposit target."
+ },
+ {
+  "topic": "Payout model",
+  "current_truth_ledger_id": "L1663",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "CPA, rev share, hybrid with conditional rev share %."
+ },
+ {
+  "topic": "Priority tier values",
+  "current_truth_ledger_id": "L1662",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Primary, secondary, blacklisted."
+ },
+ {
+  "topic": "Redirect URL and pitch at deal level",
+  "current_truth_ledger_id": "L1940",
+  "superseded": [],
+  "refined": [
+   "L1783",
+   "L1785"
+  ],
+  "reversed": [],
+  "note": "Both moved from operator to deal; one pitch link per deal."
+ },
+ {
+  "topic": "Effective end date",
+  "current_truth_ledger_id": "L1660",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Off list view; stamped at close."
+ },
+ {
+  "topic": "Deal creation UX",
+  "current_truth_ledger_id": "L3243",
+  "superseded": [
+   "L0748"
+  ],
+  "refined": [
+   "L0885",
+   "L3248",
+   "L3249"
+  ],
+  "reversed": [],
+  "note": "Screen flow replaces New button; CT optional section/bolt-on. Gemini-only 'buttons not screen flows' (L0748) superseded."
+ },
+ {
+  "topic": "Operator-partner relationship automation",
+  "current_truth_ledger_id": "L2729",
+  "superseded": [
+   "L2674"
+  ],
+  "refined": [
+   "L2676"
+  ],
+  "reversed": [],
+  "note": "Flag + before/after-save approach replaced the single-flow early-exit plan."
+ },
+ {
+  "topic": "Deal data import / incremental changes",
+  "current_truth_ledger_id": "L2967",
+  "superseded": [
+   "L1915"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "WagerTech stops sending incremental deal changes; ingest all once systems talk (replaces 'give us a log of changes', L1915)."
+ },
+ {
+  "topic": "Erroneous deal correction / merge",
+  "current_truth_ledger_id": "L2516",
+  "superseded": [],
+  "refined": [
+   "L2514"
+  ],
+  "reversed": [],
+  "note": "Kobi to give options and effort; not shown delivered by 09-30."
+ },
+ {
+  "topic": "DRA Brand Manager fields",
+  "current_truth_ledger_id": "L2863",
+  "superseded": [],
+  "refined": [
+   "L2862"
+  ],
+  "reversed": [],
+  "note": "Clean up duplicate BM fields; add population logic."
+ },
+ {
+  "topic": "VIP sign-ups and DRA",
+  "current_truth_ledger_id": "L3442",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Open question; assume DRA required."
+ }
+]

@@ -1,0 +1,351 @@
+[
+ {
+  "topic": "Market on Deal: structure (country then state, single-select picklists)",
+  "current_truth_ledger_id": "L0803",
+  "superseded": [
+   "L0015"
+  ],
+  "refined": [
+   "L0795",
+   "L0802",
+   "L0872",
+   "L0804"
+  ],
+  "reversed": [],
+  "note": "Market started as 'countries plus states selectable' (L0015). 2026-07-07: picklists, not objects (L0795), split into country then dependent state, one market per deal, single-select (L0802/L0803). L0016/L0551 (object vs value) resolved by this. Jira WAGR-302, WAGR-252, WAGR-332, WAGR-223."
+ },
+ {
+  "topic": "Market code convention (codes, no multi-state)",
+  "current_truth_ledger_id": "L3029",
+  "superseded": [],
+  "refined": [
+   "L0852",
+   "L1276",
+   "L1316"
+  ],
+  "reversed": [],
+  "note": "2026-09-24: Jumpr convention, US-<state>, bare Canadian province code, 'multi-state' goes away. Earlier open questions on code vs name (L0852) and an ID system for market values (L1276/L1316) are resolved by it. Matches WAGR-101 Region_Code__c; WAGR-408 does not record it (variance OPPT-A-02)."
+ },
+ {
+  "topic": "Supported Markets on Operator",
+  "current_truth_ledger_id": "L3212",
+  "superseded": [
+   "L2662",
+   "L3031"
+  ],
+  "refined": [
+   "L0807",
+   "L3208",
+   "L3215",
+   "L3030",
+   "L3052"
+  ],
+  "reversed": [],
+  "note": "2026-07-07 Joyce: operator markets roll up from deals (L0807). Sep 2026 build went to a manual multi-select (L2662, L3031; WAGR-408 Done). 2026-09-28 Emily confirmed roll-up from deals, not set manually (L3212), with an ask-Joyce-for-Phase-1 path if complex (L3215). L3211 dependent selection is moot under a roll-up."
+ },
+ {
+  "topic": "Verticals/markets rollup vs picklist on Operator",
+  "current_truth_ledger_id": "L3212",
+  "superseded": [
+   "L2398"
+  ],
+  "refined": [
+   "L1782",
+   "L2399"
+  ],
+  "reversed": [],
+  "note": "L2398 (Kobi doubts rollup needed) is superseded for markets by L3212 (roll-up from deals). Supported Verticals stays a multi-select picklist per WAGR-64 comment; no later meeting changes verticals."
+ },
+ {
+  "topic": "Operator and Partner as Account record types",
+  "current_truth_ledger_id": "L0122",
+  "superseded": [],
+  "refined": [
+   "L0033",
+   "L0472"
+  ],
+  "reversed": [],
+  "note": "Only proposed in meetings (L0033, L0122; L0472 tier2 Gemini). Implemented in Jira POC-03/POC-04 (WAGR-303/WAGR-301); no later contrary item."
+ },
+ {
+  "topic": "Operator/Partner ID convention",
+  "current_truth_ledger_id": "L1795",
+  "superseded": [],
+  "refined": [
+   "L1638",
+   "L1902",
+   "L1904"
+  ],
+  "reversed": [
+   "L1639"
+  ],
+  "note": "L1639 (2026-08-11) said operator IDs are 'OP-' plus a counter. L1795 (2026-08-13) reverses the counter part: Joyce approved Kobi's IDs and auto-number was dropped because numbers change between sandbox and production. WAGR-100 derives OP-<NAME> and PT-<code>, which matches the approved sheet (L1902)."
+ },
+ {
+  "topic": "Who owns operator/partner records and how the CMS receives them",
+  "current_truth_ledger_id": "L2525",
+  "superseded": [
+   "L1271"
+  ],
+  "refined": [
+   "L1633",
+   "L1933"
+  ],
+  "reversed": [],
+  "note": "L1271 (2026-07-24): IDs imported and kept in both systems by hand. L1633 (2026-08-11): Salesforce owns creation; CMS ingests IDs. L2525 (2026-09-11): no separate endpoint; operator/partner go in the deal payload and the CMS trusts Salesforce. L1933: Direct deals send the Direct partner, not null (WAGR-454). L1274 (Jay cleans Airtable list) is closed by L1902."
+ },
+ {
+  "topic": "Operator-Partner relationship structure",
+  "current_truth_ledger_id": "L2607",
+  "superseded": [
+   "L2178",
+   "L2180",
+   "L1728",
+   "L1729"
+  ],
+  "refined": [
+   "L2560",
+   "L2601",
+   "L2615",
+   "L3034",
+   "L2733",
+   "L3057"
+  ],
+  "reversed": [
+   "L1759"
+  ],
+  "note": "L1759 (2026-08-13, tier1): no junction object; Deal is the junction. Reversed by L2560/L2607 (2026-09-14/15): junction object (WAGR-382/384). Tier2 interim ideas (LWC L2178, programmatic list L2180, Gemini L1728/L1729) are superseded."
+ },
+ {
+  "topic": "Direct billing location on Operator",
+  "current_truth_ledger_id": "L2678",
+  "superseded": [
+   "L1758",
+   "L1849",
+   "L1850"
+  ],
+  "refined": [
+   "L2608",
+   "L2679",
+   "L2682",
+   "L1760"
+  ],
+  "reversed": [],
+  "note": "L1758/L1849: operator billing fields shown only when Billing Relationship = Direct (WAGR-207). After the 2026-08-28 doc feedback, billing details for direct stay on the Operator (Lina 2026-09-16, WAGR-382 comment) and partner terms come from the Partner on the junction; WAGR-385 makes Direct Billing Details always visible and removes Billing_Relationship__c. Transcript only confirms the junction billing answer (L2678) and the rework action (L2682); see unverified lead."
+ },
+ {
+  "topic": "Billing field set (Operator and Partner)",
+  "current_truth_ledger_id": "L1761",
+  "superseded": [],
+  "refined": [
+   "L1762",
+   "L1763",
+   "L1765",
+   "L1766",
+   "L1838",
+   "L1764",
+   "L2740",
+   "L2741",
+   "L2742",
+   "L2743"
+  ],
+  "reversed": [],
+  "note": "2026-08-13 field set (L1761-L1766), refined 2026-08-17 (separate billing email L1838) and 2026-09-21 (Currency ISO and Payment Terms on both layouts L2740/L2741; duplicate VAT field open L2742/L2743)."
+ },
+ {
+  "topic": "Partner bonus model",
+  "current_truth_ledger_id": "L1775",
+  "superseded": [
+   "L1657"
+  ],
+  "refined": [
+   "L1658",
+   "L1767",
+   "L1768",
+   "L1769",
+   "L1770",
+   "L1771",
+   "L1772",
+   "L1813",
+   "L2163"
+  ],
+  "reversed": [],
+  "note": "L1657 (2026-08-11): move bonus fields from Deal to Partner (WAGR-367). Superseded by L1775 (2026-08-13): bonus is a related object, one record per scheme, design pending Kobi's review (WAGR-69 placeholder). Criteria L1769/L1770; actuals wait for operator data L1768; still pending 2026-08-28 (L2163)."
+ },
+ {
+  "topic": "Operator/Partner suspension",
+  "current_truth_ledger_id": "L2159",
+  "superseded": [],
+  "refined": [
+   "L1779",
+   "L1781",
+   "L1818",
+   "L1848",
+   "L2160"
+  ],
+  "reversed": [],
+  "note": "Deferred to Phase 2 on 2026-08-13 (L1779), reconfirmed 2026-08-17 (L1848) and 2026-08-28 (L2159). Jira WAGR-366 Phase 2."
+ },
+ {
+  "topic": "Operator/Partner status automation",
+  "current_truth_ledger_id": "L1784",
+  "superseded": [],
+  "refined": [
+   "L1750",
+   "L1828",
+   "L1831"
+  ],
+  "reversed": [],
+  "note": "Status inferred from active deals (L1750/L1784); tier2 build approach DLRS count + flow (L1831). Jira WAGR-67 (Ready)."
+ },
+ {
+  "topic": "Contacts on Operator/Partner",
+  "current_truth_ledger_id": "L1755",
+  "superseded": [],
+  "refined": [
+   "L0031",
+   "L1756",
+   "L1832",
+   "L1834",
+   "L1836",
+   "L1837",
+   "L2043",
+   "L2164",
+   "L2165",
+   "L2166"
+  ],
+  "reversed": [],
+  "note": "Lookups only (primary, billing), no related list (L1755); secondary contact deferred (L1834); contact page shows related partners/operators (L1756, WAGR-66); billing contact fixed to Contact lookup (L2165/L2166)."
+ },
+ {
+  "topic": "Partner Type",
+  "current_truth_ledger_id": "L1744",
+  "superseded": [],
+  "refined": [
+   "L1743",
+   "L1745",
+   "L1746",
+   "L1747"
+  ],
+  "reversed": [],
+  "note": "Keep Partner Type in Partner Details (L1743/L1744); start with Affiliate Network, Joyce owes the list (L1745/L1746; variance OPPT-A-08). Direct is a partner record, not a type (L1747); L1748/L0414 parked question resolved in Jira by WAGR-146/WAGR-206."
+ },
+ {
+  "topic": "Associated / Active Operators count on Partner",
+  "current_truth_ledger_id": "L3216",
+  "superseded": [],
+  "refined": [
+   "L3218",
+   "L3217",
+   "L2156",
+   "L1749"
+  ],
+  "reversed": [],
+  "note": "Count only operators with active deals; retitle Active Operators (L3216/L3218). Covered by WAGR-364 and WAGR-388."
+ },
+ {
+  "topic": "Operator logos",
+  "current_truth_ledger_id": "L2854",
+  "superseded": [
+   "L1330"
+  ],
+  "refined": [
+   "L1752",
+   "L1753"
+  ],
+  "reversed": [],
+  "note": "L1330 (proposed load of 60-70 logos) refined by L1752/L1753 (WagerTech sends files, logos part of operator setup) and closed by L2854 (logo process doc done, WAGR-417). Go-live population remains on WAGR-125."
+ },
+ {
+  "topic": "Tracking benchmark last-reviewed date",
+  "current_truth_ledger_id": "L1827",
+  "superseded": [
+   "L1815"
+  ],
+  "refined": [
+   "L1786",
+   "L1826"
+  ],
+  "reversed": [],
+  "note": "L1786 manual last-reviewed date; L1815 (proposed auto-update) and L1826 (client wants automation) lead to L1827: before-save flow built (WAGR-237)."
+ },
+ {
+  "topic": "Operator data / Postgres",
+  "current_truth_ledger_id": "L0538",
+  "superseded": [],
+  "refined": [
+   "L0536",
+   "L0544",
+   "L0547",
+   "L0548",
+   "L0594"
+  ],
+  "reversed": [],
+  "note": "Operator data stays outside Salesforce in WagerTech's Postgres (L0536/L0538), not a blocker (L0544). Jira WAGR-369 cancelled OOS. L0594 loader-name action has no trace (variance OPPT-A-10)."
+ },
+ {
+  "topic": "Operator quick-create global action",
+  "current_truth_ledger_id": "L2764",
+  "superseded": [
+   "L2645"
+  ],
+  "refined": [
+   "L2586",
+   "L2757"
+  ],
+  "reversed": [],
+  "note": "Built as POC, no more time until allocated (L2764), deprioritized to backlog (L2757). WAGR-42 comment records it. L2758 inline contact creation is a client ask not agreed (WAGR-41)."
+ },
+ {
+  "topic": "Operator record as sales pipeline",
+  "current_truth_ledger_id": "L0810",
+  "superseded": [],
+  "refined": [
+   "L0873",
+   "L0032"
+  ],
+  "reversed": [],
+  "note": "Deferred to later (L0810); no backlog ticket (variance OPPT-A-09)."
+ },
+ {
+  "topic": "Vertical values",
+  "current_truth_ledger_id": "L1681",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Add Prediction Markets (WAGR-208)."
+ },
+ {
+  "topic": "Operator/Partner record page layout details",
+  "current_truth_ledger_id": "L1841",
+  "superseded": [],
+  "refined": [
+   "L1744",
+   "L1754",
+   "L1757",
+   "L1777",
+   "L1786",
+   "L1787",
+   "L1788",
+   "L1816",
+   "L1833",
+   "L1837",
+   "L1849",
+   "L2157",
+   "L2162",
+   "L2402"
+  ],
+  "reversed": [],
+  "note": "Mockup review 2026-08-13 and tier2 build sessions 2026-08-17/28 set the page sections; Emily's 2026-09-02 doc feedback produced WAGR-142..153. L1816 (ignore Deal Currency / Additional Information sections) is refined by L1841 (More Info tab contents) and WAGR-152/153."
+ },
+ {
+  "topic": "Client communication of Operator-Partner relationship work",
+  "current_truth_ledger_id": "L2762",
+  "superseded": [],
+  "refined": [
+   "L2748"
+  ],
+  "reversed": [],
+  "note": "Kobi frames it as an enhancement and will tell the client (L2762); Taryn sends release notes after her items close (L2748). No Jira trace (variances OPPT-A-06, OPPT-A-07)."
+ }
+]

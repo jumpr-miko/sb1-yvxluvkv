@@ -1,0 +1,224 @@
+[
+ {
+  "topic": "Deal-level redeposit requirement (required flag, type, immediate range, thresholds)",
+  "current_truth_ledger_id": "L3437",
+  "superseded": [],
+  "refined": [
+   "L1650",
+   "L1690",
+   "L3436"
+  ],
+  "reversed": [],
+  "note": "Aug 11 single-field model (L1650, L1690) refined on Sep 30: requirements have their own lifecycle and effective dates (L3436) and can be multiple with thresholds (L3437). Overlap rule open (L3438). Mockup label 'standard' = 'assigned' (L1690)."
+ },
+ {
+  "topic": "Redeposit flows and allocation types",
+  "current_truth_ledger_id": "L3347",
+  "superseded": [
+   "L0114"
+  ],
+  "refined": [
+   "L2813",
+   "L2818",
+   "L0088"
+  ],
+  "reversed": [],
+  "note": "PRD 'automatic' = rep's 'additional' entry (L0114) replaced by three flows (assigned, manual/additional, automated/immediate; L2813), then allocation types Assigned/Personal with Additional kept, informational only (L3347). Wager-winner type pending (L3348)."
+ },
+ {
+  "topic": "Monthly budget and allocation data model",
+  "current_truth_ledger_id": "L3343",
+  "superseded": [
+   "L3336"
+  ],
+  "refined": [
+   "L2785",
+   "L3452",
+   "L0084"
+  ],
+  "reversed": [],
+  "note": "Budget entered manually by WagerTech per deal (L2785); Sep 30 removed the budget-entry layer; allocations sit directly under the monthly budget (L3343). Targets are forecasts, not caps."
+ },
+ {
+  "topic": "Allocation input (manual/bulk vs tool CSV)",
+  "current_truth_ledger_id": "L3454",
+  "superseded": [],
+  "refined": [
+   "L2796",
+   "L2798",
+   "L2794",
+   "L2837"
+  ],
+  "reversed": [],
+  "note": "Manual bulk entry rep+amount+volume (L3454); manual path built first and CSV bolted on after (L3338, Data Migration area). CSV-first ideas (L2794, L2837) were proposed only."
+ },
+ {
+  "topic": "Allocation logic stays in client tool for V1",
+  "current_truth_ledger_id": "L2792",
+  "superseded": [],
+  "refined": [
+   "L2837",
+   "L2838",
+   "L2793"
+  ],
+  "reversed": [],
+  "note": "No decided item: L2792/L2793 are proposed (tier1) and L2837/L2838 tier2 proposed. Treated as working assumption only. Feedback of manual additions to tool open (L2797)."
+ },
+ {
+  "topic": "Eligible signup window",
+  "current_truth_ledger_id": "L3346",
+  "superseded": [],
+  "refined": [
+   "L3455",
+   "L3341",
+   "L2820"
+  ],
+  "reversed": [],
+  "note": "Allocation stores start/end dates with a deal default; ops-set (L3455). Freshness guard rails beyond that left open for launch (L2820). Personal window open (L3340)."
+ },
+ {
+  "topic": "Rep queue actions (release, try different player, request reallocation)",
+  "current_truth_ledger_id": "L3461",
+  "superseded": [],
+  "refined": [
+   "L3459",
+   "L3324"
+  ],
+  "reversed": [],
+  "note": "L3459 said remove return-to-ops; L3461 kept it as 'request reallocation' with ops review and mandatory notes. Gate open (L3460)."
+ },
+ {
+  "topic": "Redeposit completion",
+  "current_truth_ledger_id": "L3456",
+  "superseded": [],
+  "refined": [
+   "L2807",
+   "L2808",
+   "L0086"
+  ],
+  "reversed": [],
+  "note": "Proof + actual amount; auto-populated details; locked after completion. Exact-amount rule with 'differs' checkbox (L2807, L2808)."
+ },
+ {
+  "topic": "Incomplete redeposit outcomes",
+  "current_truth_ledger_id": "L3155",
+  "superseded": [],
+  "refined": [
+   "L3156"
+  ],
+  "reversed": [],
+  "note": "Tracked at redeposit level (cancel / write-off; funds returned), no return to pool. Fraud/write-off not yet in design (L3457); reasons TBD (L3458)."
+ },
+ {
+  "topic": "BA edit restrictions and amount guard rails",
+  "current_truth_ledger_id": "L2809",
+  "superseded": [],
+  "refined": [
+   "L2805",
+   "L2804",
+   "L2806"
+  ],
+  "reversed": [],
+  "note": "BAs use notes only; ops changes assigned redeposits (L2805 Access area). No hard limits (L2804); off-slot amounts need approved additional budget (L2806)."
+ },
+ {
+  "topic": "Automated redeposits vs monthly budget",
+  "current_truth_ledger_id": "L3337",
+  "superseded": [],
+  "refined": [
+   "L0114",
+   "L2813"
+  ],
+  "reversed": [],
+  "note": "Automated/immediate requirements tracked independently of the monthly budget."
+ },
+ {
+  "topic": "Redeposit currency",
+  "current_truth_ledger_id": "L2147",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Follows the deal currency."
+ },
+ {
+  "topic": "Attribution to signup origin",
+  "current_truth_ledger_id": "L0022",
+  "superseded": [],
+  "refined": [
+   "L0020"
+  ],
+  "reversed": [],
+  "note": "No percentage split across markets; redeposits tie to signup origin."
+ },
+ {
+  "topic": "Bet-credit referral payouts as redeposits",
+  "current_truth_ledger_id": "L3155",
+  "superseded": [],
+  "refined": [
+   "L3129"
+  ],
+  "reversed": [],
+  "note": "L3129 (rep creates redeposit records for referrer) refined on Sep 30 by Referral-area items L3350/L3358 (payout flow, separate queue). Owned by Referral and Payouts."
+ },
+ {
+  "topic": "VIP and partner filtering in redeposit selection",
+  "current_truth_ledger_id": "L2951",
+  "superseded": [],
+  "refined": [
+   "L2969",
+   "L2984"
+  ],
+  "reversed": [],
+  "note": "VIPs searchable for eligibility (L2951); partner filter deferred to redeposit design (L2969)."
+ },
+ {
+  "topic": "Discovery process, ticketing approach and targets",
+  "current_truth_ledger_id": "L2873",
+  "superseded": [
+   "L2112",
+   "L2529",
+   "L2735"
+  ],
+  "refined": [
+   "L2633",
+   "L2638",
+   "L2639",
+   "L2654",
+   "L2842"
+  ],
+  "reversed": [],
+  "note": "Discovery held Sep 16 and Sep 21 (L2654, L2842, L2873). Requirements in one overarching ticket until validated (L2633); design next week then Jira cards the week after (L2638, L2639)."
+ },
+ {
+  "topic": "Redeposits ownership",
+  "current_truth_ledger_id": "L2637",
+  "superseded": [],
+  "refined": [
+   "L2640"
+  ],
+  "reversed": [],
+  "note": "Taryn owns, Kobi supports (internal debrief). Builder not assigned (L2640)."
+ },
+ {
+  "topic": "Client design doc validity",
+  "current_truth_ledger_id": "L2631",
+  "superseded": [
+   "L2111"
+  ],
+  "refined": [
+   "L2616",
+   "L2620",
+   "L2630"
+  ],
+  "reversed": [],
+  "note": "Joyce's PRD/design doc treated as unvalidated input; Jumpr works back from the business."
+ },
+ {
+  "topic": "Existing redeposit backlog stories",
+  "current_truth_ledger_id": "L2663",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Keep mid-August stories until design done, then cancel/merge (matches WAGR-464 'Done when')."
+ }
+]

@@ -1,0 +1,793 @@
+{
+ "area": "Data Migration / Import",
+ "variances": [
+  {
+   "temp_id": "DMI-01",
+   "category": "V2",
+   "severity": "High",
+   "confidence": "medium",
+   "feature_area": "Data Migration / Import",
+   "title": "Historical sign-up migration: WAGR-470 says the agreed scope mostly excludes it; at kickoff Jumpr put sign-up data migration in Phase 1 and Jumpr later called it a go-live blocker",
+   "jira": [
+    {
+     "key": "WAGR-470",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Historical data migration scope — decision",
+     "quote": "Joyce wants historical Sign-Ups in Salesforce. The agreed scope mostly excludes them. The plan (WAGR-20) cannot be final until the scope is.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-370",
+     "status": "Cancelled",
+     "assignee": "Unassigned",
+     "summary": "OOS: Historical data migration beyond agreed sign-up + reference data",
+     "quote": "OOS: Historical data migration beyond agreed sign-up + reference data",
+     "quote_source": "summary"
+    },
+    {
+     "key": "WAGR-370",
+     "status": "Cancelled",
+     "assignee": "Unassigned",
+     "summary": "OOS: Historical data migration beyond agreed sign-up + reference data",
+     "quote": "Closed as out-of-scope. Carried over from the Asana migration (06/15) and no longer applicable to current project scope.",
+     "quote_source": "comment by Taryn Reithofer 2026-09-25"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0341",
+     "date": "2026-06-17",
+     "meeting_title": "Jumpr <> Wagertech: Project Kickoff",
+     "doc_link": "https://docs.google.com/document/d/1A44vvYCwMm62m9KF7XbI4p33qpxIbN9T_r5AHCKH4RQ/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:32:48",
+     "line_start": 463,
+     "quote": "Joyce Kiddell: Um, so maybe like knowing we're doing process flows in phases, like if we could potentially import all of our signup related data in phase one and then do the same for like redeposits and uh payout tracking in the later phases. / Kobi Kunasekaran: So I did include data migration in this phase um at least for the objects that we go live with. / Joyce Kiddell: Okay."
+    },
+    {
+     "ledger_id": "L1375",
+     "date": "2026-07-28",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+     "speakers": "Joyce Kiddell; Waleed Alasadi; Kobi Kunasekaran",
+     "timestamp": "01:08:17",
+     "line_start": 942,
+     "quote": "Joyce Kiddell: Great. Yeah. And would you say this takes um priority probably over the historical data? Okay. / Waleed Alasadi: They're both well I think they're both like go live blockers right like one / Joyce Kiddell: We'll do both, but I'm just wondering like in terms of by end of week, what what would you prioritize? / Waleed Alasadi: The this this stuff, not the not the not the data migration."
+    },
+    {
+     "ledger_id": "L1377",
+     "date": "2026-07-28",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+     "speakers": "Waleed Alasadi",
+     "timestamp": "01:09:07",
+     "line_start": 951,
+     "quote": "Waleed Alasadi: Um, and then the the data migration is also necessary for your reps to be there and see it from day / Waleed Alasadi: one."
+    },
+    {
+     "ledger_id": "L1624",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:09:35",
+     "line_start": 232,
+     "quote": "Joyce Kiddell: we don't have historical level signups in Air Table. ... / Joyce Kiddell: ... I feel like that's a bit of something that we still need to solution. / Joyce Kiddell: ... I just want to make it clear that I do think we should import historical signup data,"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1626",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:11:26",
+     "line_start": 263,
+     "quote": "Kobi Kunasekaran: like we can start like a phase approach too. We don't need to do all of it all at once. We can just start with anything that's active, / Joyce Kiddell: Sure. / Kobi Kunasekaran: record new signups moving forward, and then we can work backwards on the historical data afterwards based on what you / Joyce Kiddell: Yeah. / Kobi Kunasekaran: need."
+    },
+    {
+     "ledger_id": "L1643",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:25:57",
+     "line_start": 415,
+     "quote": "Kobi Kunasekaran: ... I don't think we need to solve for all of the data migration questions now um because that's still kind of in flux ... / Kobi Kunasekaran: ... So uh we can come back to that once that's solidified. / Joyce Kiddell: Uh, no. I think there's like just a few smaller comments on there, but nothing too / Joyce Kiddell: crazy."
+    },
+    {
+     "ledger_id": "L2454",
+     "date": "2026-09-09",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1YFECsE8N0jzoN4Xk6QH2dPT4yDinYrrbel-WHyQLT88/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:05:11",
+     "line_start": 160,
+     "quote": "Kobi Kunasekaran: Yeah. Because I think like the historical import. I don't expect them to do it on a regular basis, right? Like maybe we'll do it during like production go live."
+    }
+   ],
+   "what_differs": "At the 6/17 kickoff Joyce asked to import all sign-up related data in Phase 1, and Kobi said data migration is included in this phase for the go-live objects. On 7/28 Waleed called historical data migration a go-live blocker. WAGR-470 (9/25) says the agreed scope mostly excludes historical sign-ups, and the title of WAGR-370 says that sign-up data was part of the agreed scope.",
+   "suggested_action": "Check the SOW wording on data migration. Then change the WAGR-470 summary so that it states the kickoff position correctly, and record the decision with Joyce in writing (the 8/11 phased approach was only proposed, then parked). Before anyone tells the client that historical sign-ups are out of scope, review the client-optics risk.",
+   "checked_later_meetings": true,
+   "reasoning": "The kickoff quote is a direct Jumpr answer to a direct client scope question. No later meeting reverses it: L1626 is a proposal and L1643 parks the questions, it does not descope them. The SOW is not in the local sources, so confidence is medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DMI-02",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Data Migration / Import",
+   "title": "WAGR-20 production migration plan still reflects the July POC (Jumpr transforms the Agency-side rates/links file); later meetings moved to Jumpr import templates that WagerTech populates, for more objects",
+   "jira": [
+    {
+     "key": "WAGR-20",
+     "status": "Ready",
+     "assignee": "Unassigned",
+     "summary": "BUILD-07 — Produce production data migration plan and transform rules",
+     "quote": "Turn the sample-load transform into a documented, repeatable production migration for the Agency-side data.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-20",
+     "status": "Ready",
+     "assignee": "Unassigned",
+     "summary": "BUILD-07 — Produce production data migration plan and transform rules",
+     "quote": "Codify transforms: multi-vertical row splits, vertical value mapping, market value mapping, brand-to-Operator derivation with alias entries, error-row cleansing, monthly-rate-to-Deal-Version strategy",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-20",
+     "status": "Ready",
+     "assignee": "Unassigned",
+     "summary": "BUILD-07 — Produce production data migration plan and transform rules",
+     "quote": "ESCALATION NEEDED: the Agency-side rates/links file has been outstanding from Wagertech since 2026-07-04",
+     "quote_source": "comment (author not recorded in export) 2026-07-28"
+    },
+    {
+     "key": "WAGR-477",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Build data import templates — Sign Up, Referral, Secondary Referral, Player",
+     "quote": "Build import templates for the four objects above so WagerTech can populate and send back clean data for ingestion.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0346",
+     "date": "2026-06-17",
+     "meeting_title": "Jumpr <> Wagertech: Project Kickoff",
+     "doc_link": "https://docs.google.com/document/d/1A44vvYCwMm62m9KF7XbI4p33qpxIbN9T_r5AHCKH4RQ/edit",
+     "speakers": "Joyce Kiddell; Waleed Alasadi",
+     "timestamp": "00:35:46",
+     "line_start": 485,
+     "quote": "Joyce Kiddell: we can actually handle the data transformation on our end. Um, and then you guys would just have to worry about like doing the import and making sure like everything lands within the structure you set / Waleed Alasadi: Yeah. No, for sure."
+    },
+    {
+     "ledger_id": "L1299",
+     "date": "2026-07-24",
+     "meeting_title": "Wagertech <> Jumpr: API Testing for SLC Creation in SF",
+     "doc_link": "https://docs.google.com/document/d/1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:53:03",
+     "line_start": 775,
+     "quote": "Kobi Kunasekaran: Uh we can do another spreadsheet to figure out how these deals map to the data and fields we have in Salesforce. We can do an upload and then we can we can try to test with actual uh examples of like people clicking through uh a specific rep uh link and make sure that it actually maps it to the right deal. / Emily Vandenberg: Okay. Yeah, cuz like it we could pass. Yeah. Okay. Okay. Yeah, I think we should, right? Because we have to have to prepare for that. / Kobi Kunasekaran: I can work through those spreadsheets uh probably today. I'll send it over uh by the end of the day and then next week we can work on like populating them um and importing the"
+    },
+    {
+     "ledger_id": "L1678",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:00:27",
+     "line_start": 788,
+     "quote": "Kobi Kunasekaran: ... let's test out the signup logging flow, the agency website and everything. Um so, uh Joyce, like maybe you and I can work together on that deal uh import sheet that we need to get into Salesforce. Um if we can get that tested next week, ..."
+    },
+    {
+     "ledger_id": "L2104",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:33:16",
+     "line_start": 544,
+     "quote": "Kobi Kunasekaran: I might have to give you new deal names if we're going to update it. / Kobi Kunasekaran: we can load updated data when we start when we go to prod right like this is not production data. / Emily Vandenberg: This isn't production / Emily Vandenberg: data."
+    },
+    {
+     "ledger_id": "L2299",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:15:00",
+     "line_start": 266,
+     "quote": "but yeah, moving forward like every deal is going to require uh the source code and or sorry the source and uh you have the option for like widget tech or anything else. All the old deals if you make any updates to them it'll ask you to select a source. / when we go into production when we do the clean import we'll make sure it's all there."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "WAGR-20 (Ready, unassigned) plans a Jumpr-side transform of one Agency-side rates/links file into Deals and waits for that file. The meetings decided that WagerTech does the transformation into Jumpr sheets (6/17), that deals load through a deal mapping/import sheet built with Joyce (7/24, 8/11), and that the clean production import includes Source (9/1). WAGR-477 now adds Player, Sign Up and Referral templates.",
+   "suggested_action": "Rewrite WAGR-20 as the production migration plan for all go-live objects (operators, partners, deals with Source, DRAs if in scope, players, sign-ups, referrals). Use the template approach and load order, remove the dependency on the rates/links file or confirm it is still needed, and assign an owner.",
+   "checked_later_meetings": true,
+   "reasoning": "WAGR-20 was written on 7/4. Its only update (7/28) still waits for the rates file. Later decided items (L1299, L1678, L2104, L2299) and the Done ticket WAGR-239 use a different path. Medium confidence because the rates/links transform rules may still apply to the deal part.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DMI-03",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Data Migration / Import",
+   "title": "Import templates and scope card do not state the decided rule that historical sign-ups need their Deal and Operator in Salesforce first (including deals that are not in the current Airtable snapshot)",
+   "jira": [
+    {
+     "key": "WAGR-477",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Build data import templates — Sign Up, Referral, Secondary Referral, Player",
+     "quote": "Build import templates for the four objects above so WagerTech can populate and send back clean data for ingestion.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-470",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Historical data migration scope — decision",
+     "quote": "**Decide:** historical Sign-Ups, yes or no; historical redeposit and payout data; US Deals and Deal Rep Assignments; the 26 Deals with no Source; whether the legacy Google Sheets keep getting data during the switch-over.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1625",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:10:39",
+     "line_start": 250,
+     "quote": "Joyce Kiddell: ... in order to import historical signups, we need like a version of that deal somewhere in the system. ... / Kobi Kunasekaran: Yeah, exactly. Yeah, like we need to be able to link it to the respective like operator uh deal information and all of that, / Joyce Kiddell: you're / Kobi Kunasekaran: right? Otherwise, it's just going to be uh like signups without any relationships."
+    },
+    {
+     "ledger_id": "L1687",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:09:35",
+     "line_start": 232,
+     "quote": "Joyce Kiddell: we don't have historical level signups in Air Table. I thought it was more of just like a a snapshot of like where we're at today, like what the deals are and like what's active and what's not. / Joyce Kiddell: ... like the goal is to have some sort of migration between air table and our / Joyce Kiddell: um our like centralized database as well so we can look up the historical information. Um, but I think that's a separate conversation from like previous signups, right? Like I feel like that's a bit of something that we still need to solution."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1688",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:11:26",
+     "line_start": 259,
+     "quote": "Emily Vandenberg: Yeah, we might have to like almost the list might almost have to come from the historical um data to know what the full list of like operators really I think is the biggest one."
+    },
+    {
+     "ledger_id": "L1627",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:11:26",
+     "line_start": 268,
+     "quote": "Joyce Kiddell: ... it makes sense to just bring in all of the inactive deals and operators and stuff too, but if we can in the UI just make sure that they're like either hidden or like in a separate tab ... / Kobi Kunasekaran: That makes sense. ..."
+    }
+   ],
+   "what_differs": "On 8/11 the team agreed that a historical sign-up import needs a version of the related deal (and operator) in Salesforce, otherwise the sign-ups have no relationships. Airtable holds only a current snapshot. WAGR-477 and WAGR-470 do not state this dependency, the Deal/Operator key on the Sign Up template, or the need to load historical or inactive deals first.",
+   "suggested_action": "Add acceptance criteria to WAGR-477: the Sign Up template carries the Deal key (External Deal ID) and the Operator/Partner keys, and the load order is operators/partners, deals (including historical or inactive deals that historical sign-ups reference), then players, then sign-ups and referrals. Add the inactive-deal question to WAGR-470.",
+   "checked_later_meetings": true,
+   "reasoning": "L1625 is decided (tier1). No later meeting changes it. Neither ticket's description mentions the relationship dependency, and neither ticket has comments.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DMI-04",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Data Migration / Import",
+   "title": "No ticket step to validate the final operator/partner list and IDs in both the CMS and Salesforce before production (current list comes from Airtable, is not validated, and may hold inactive records)",
+   "jira": [
+    {
+     "key": "WAGR-460",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "CMS Sync — Production cutover",
+     "quote": "build/confirm Salesforce External Deal ID ↔ CMS row map;",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-460",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "CMS Sync — Production cutover",
+     "quote": "WagerTech completes any manual Operator/Partner CMS mappings;",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-100",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "BUILD-274 — Account: Auto-generate Operator and Partner External IDs",
+     "quote": "The current 63 values were typed into a spreadsheet during the initial import",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1808",
+     "date": "2026-08-13",
+     "meeting_title": "Wagertech <> Jumpr - 60 Min (Joyce Kiddell)",
+     "doc_link": "https://docs.google.com/document/d/1jcr9oC55uUZqovDGyI_odU0PSFQdavpADjF3c_R443s/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "01:06:40",
+     "line_start": 1223,
+     "quote": "Emily Vandenberg: Okay, perfect because we haven't really validated that list / Kobi Kunasekaran: Correct. Yeah, we can always change it. Like not none of this is set in stone, right? / ... / Kobi Kunasekaran: Like we're still working in parts of sandbox. So if we need to change those IDs before we go into production, we just have to make sure we change it on both systems like CMS and Salesforce. / ... / Kobi Kunasekaran: too, because we these two lists are from whatever was in Air Table. So, yeah, I imagine some of them are probably not active"
+    },
+    {
+     "ledger_id": "L1271",
+     "date": "2026-07-24",
+     "meeting_title": "Wagertech <> Jumpr: API Testing for SLC Creation in SF",
+     "doc_link": "https://docs.google.com/document/d/1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY/edit",
+     "speakers": "Kobi Kunasekaran; Jay",
+     "timestamp": "00:26:11",
+     "line_start": 393,
+     "quote": "Kobi Kunasekaran: uh we can we can set that up in Salesforce and we can use the Salesforce ID as the mapping um or that universal ID and we can share that table of operator name, operator ID, partner name, partner ID uh to you guys and you can send those ids uh through uh through the API when when you're submitting those SLC's. / Jay: Yeah, that'd be Good."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1904",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:10:27",
+     "line_start": 290,
+     "quote": "Kobi Kunasekaran: Yeah. This is all sandbox data. So again, all of this can be changed. Um it doesn't necessarily need to be like the final uh data set that we move forward with. / Kobi Kunasekaran: So I'm sure as we set up the rest of the integration, things might change. You might send different information. So um we figured like at least we have a starting point to work off"
+    },
+    {
+     "ledger_id": "L1688",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:11:26",
+     "line_start": 259,
+     "quote": "Emily Vandenberg: Yeah, we might have to like almost the list might almost have to come from the historical um data to know what the full list of like operators really I think is the biggest one."
+    }
+   ],
+   "what_differs": "The meetings agreed that the operator/partner IDs loaded so far are a sandbox starting point from Airtable, are not validated, and must be changed in both the CMS and Salesforce before production. WAGR-460 maps only Deal IDs before cutover and leaves Operator/Partner CMS mappings to hypercare. WAGR-20 does not cover operators/partners.",
+   "suggested_action": "Add a pre-production step (to WAGR-460 or WAGR-20): WagerTech confirms the authoritative active and inactive operator/partner list, Jumpr loads it, and both sides reconcile Operator/Partner External IDs in the CMS and Salesforce before the first production SLC.",
+   "checked_later_meetings": true,
+   "reasoning": "L1808 and L1904 (decided, tier1) make a pre-production ID sync a condition. The only Jira text is a hypercare line after go-live. SLC matching depends on these IDs (L1271).",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DMI-05",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Data Migration / Import",
+   "title": "WAGR-464 redeposit design card lacks the 9/30 decisions: manual allocation first, CSV upload added later, and CSV mapping scoping that may need extra fields in WagerTech's tool",
+   "jira": [
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Ops uploads the monthly allocation from Jay's tool.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Custom upload screen, or Data Loader?",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3338",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "02:41:54",
+     "line_start": 2133,
+     "quote": "Kobi Kunasekaran: So then I I would even like say like let's not spend time on the upload CSV because this is going to take time. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah, we we can like so like we always need a manual way so that we're going to have to build anyways and this is going to establish the guard rails, the rules, the fields that we we need and everything. / Kobi Kunasekaran: And then we can bolt on the CSV option afterwards."
+    },
+    {
+     "ledger_id": "L3339",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "02:40:56",
+     "line_start": 2117,
+     "quote": "Kobi Kunasekaran: So, we may need to update your tool to add additional uh, things that we might need for Salesforce to be able to map it to the right person, the right deal, and things like that potentially. / Emily Vandenberg: Oh, and we'll definitely do it. / Emily Vandenberg: We'll we'll make it happen."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3453",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:49:48",
+     "line_start": 1524,
+     "quote": "Kobi Kunasekaran: Um and then from here um we need to create the actual allocation or distribute the uh number of redeposits to the different uh reps. Um so two ways one is CSC upload um which the intention is / Kobi Kunasekaran: uh you know we have a way to parse what comes out of your tool and then you can just simply update uh but we always need a manual way"
+    }
+   ],
+   "what_differs": "WAGR-464 (created 9/25) lists the monthly allocation upload as the first requirement and keeps the upload method open. On 9/30 the team decided to build manual allocation first and add the CSV upload afterwards, and that the CSV mapping needs scoping. WagerTech's tool may need extra fields so Salesforce can map rows to the right person and deal, and Emily agreed to add them.",
+   "suggested_action": "Add the 9/30 outcome to WAGR-464: build order (manual allocation path first, CSV later) and a CSV-mapping scoping item with the WagerTech dependency (tool output must carry person and deal identifiers). Track the CSV import as its own story when the redeposit build stories are created.",
+   "checked_later_meetings": true,
+   "reasoning": "Both ledger items are decided (tier1, 9/30). The design card has no comments and was written before the meeting. No later Jira ticket covers redeposit CSV import.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DMI-06",
+   "category": "V8",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Data Migration / Import",
+   "title": "Go-live cutover for in-flight spreadsheet sign-ups is unresolved and has no ticket; WAGR-51 removes the only manual create path",
+   "jira": [
+    {
+     "key": "WAGR-51",
+     "status": "Ready",
+     "assignee": "Unassigned",
+     "summary": "BUILD-114 — Reps cannot create Sign-Up records (SLC automation is the only create path)",
+     "quote": "records must originate ONLY from the Study Link Click automation (BUILD-04 / SLC async flow).",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-125",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-77 — Operator logo load plan (~60-70 operators at go-live)",
+     "quote": "Fold into migration cutover checklist",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0998",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:41:27",
+     "line_start": 611,
+     "quote": "Emily Vandenberg: when we cut over there's going to be instances where like things might have been started within the spreadsheet right and then it would be seen as like net new because there'd be no record of it uh in some cases within Salesforce / Emily Vandenberg: and so I think that's more of the cut over we need to plan"
+    },
+    {
+     "ledger_id": "L0999",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:44:04",
+     "line_start": 623,
+     "quote": "Kobi Kunasekaran: but for the ones that are kind of halfway through you know they might have started the signup already um but they haven't finished it those things we might just have to have like a manual path for the rep to like create the signup manually because it's not going to be triggered through play can anymore. / Kobi Kunasekaran: For deals and deal assignments, that's another one. So deals, the historical data for the signups that we import for players, we we we want those to be related to the deals. / Kobi Kunasekaran: So I I think we should try to import as much as as far back as possible uh as you have data that's relevant for your reporting."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1676",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:59:20",
+     "line_start": 775,
+     "quote": "Kobi Kunasekaran: ... So, are we saying like we're going to hold off on this like fully going live until all those pieces that are in like including like the later / Emily Vandenberg: Yeah. / Kobi Kunasekaran: phases / Emily Vandenberg: ... the gap and running two parallel systems um we just don't feel like we could get it over the line with your rep reps from an adoption perspective ..."
+    }
+   ],
+   "what_differs": "On 7/15 Emily said that sign-ups started in the spreadsheet will appear net new in Salesforce at cutover, and that this cutover needs planning. Kobi suggested a manual rep path. No later meeting answered it. No ticket holds a cutover plan (WAGR-125 refers to a 'migration cutover checklist' that does not exist as a ticket). WAGR-51 (Ready) removes rep Create on Sign-Up.",
+   "suggested_action": "Create a cutover-plan ticket under WAGR-19. It should cover how in-flight spreadsheet sign-ups enter Salesforce (Ops/admin create path or a final delta import, since WAGR-51 blocks reps), the spreadsheet freeze date, and the logo and checklist items WAGR-125 refers to. Confirm the approach with Emily.",
+   "checked_later_meetings": true,
+   "reasoning": "I searched the full ledger for cutover, switch-over, in-flight and net new: there is no later answer. L1676 decides there will be no parallel run, but it does not say how in-flight items move. In Jira, only WAGR-460 says 'cutover', and it covers CMS Deal sync only.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DMI-07",
+   "category": "V2",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Data Migration / Import",
+   "title": "WAGR-470 and WAGR-477 still list 'legacy Google Sheets keep getting data during switch-over' as undecided; on 8/11 WagerTech decided against running two parallel systems",
+   "jira": [
+    {
+     "key": "WAGR-470",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Historical data migration scope — decision",
+     "quote": "whether the legacy Google Sheets keep getting data during the switch-over.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-477",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Build data import templates — Sign Up, Referral, Secondary Referral, Player",
+     "quote": "Whether legacy Google Sheets keep getting data during the switch-over",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1676",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:59:20",
+     "line_start": 775,
+     "quote": "Kobi Kunasekaran: ... So, are we saying like we're going to hold off on this like fully going live until all those pieces that are in like including like the later / Emily Vandenberg: Yeah. / Kobi Kunasekaran: phases / Emily Vandenberg: ... the gap and running two parallel systems um we just don't feel like we could get it over the line with your rep reps from an adoption perspective ..."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1701",
+     "date": "2026-08-11",
+     "meeting_title": "Kobi <> Taryn: Daily Sync",
+     "doc_link": "https://docs.google.com/document/d/1bO8ROF-yQxejtI70hSl2Mn0wTe7EFzXVb8WVZj8qpqs/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:13:07",
+     "line_start": 205,
+     "quote": "Kobi Kunasekaran: ... And we talked about like them still recording some of that stuff in their spreadsheets just to make sure that until we're up to speed and we validated everything and then we deprecate the spreadsheets."
+    },
+    {
+     "ledger_id": "L0903",
+     "date": "2026-07-08",
+     "meeting_title": "Wagertech <> Jumpr: Onsite",
+     "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:43:31",
+     "line_start": 691,
+     "quote": "Kobi Kunasekaran: in phase one can make sure that we're scoping new starting like later this week on how to make sure that whatever we're launching in phase one still connects to the other spreadsheets that we haven't migrated to the system yet / Kobi Kunasekaran: I think like worst case scenario We should be able to create reports that we can then export into your spreadsheets."
+    }
+   ],
+   "what_differs": "On 8/11 Emily said that WagerTech will not run two parallel systems, because of rep adoption, and that full go-live waits for the later phases. The Jira cards (9/25, 9/28) still treat continued feeding of the legacy sheets as an open question.",
+   "suggested_action": "Update WAGR-470 and WAGR-477: record the 8/11 decision of no parallel run as the baseline, and narrow the open question to any short freeze or transition window (see DMI-06).",
+   "checked_later_meetings": true,
+   "reasoning": "L1676 is decided (tier1 transcript). L1701 (tier2, the same day) recalls an earlier parallel-recording idea, and L0903 is an earlier proposal. Low severity because the ticket is a decision card, not a build.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DMI-08",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "low",
+   "feature_area": "Data Migration / Import",
+   "title": "Agreed alignment sessions with WagerTech's new data architect (data mapping aligned to the Salesforce structure) have no ticket",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "architect",
+     "senior engineer",
+     "data mapping",
+     "alignment",
+     "data architecture",
+     "mapping session",
+     "operator data"
+    ],
+    "nearest_considered": [
+     "WAGR-298",
+     "WAGR-369",
+     "WAGR-320",
+     "WAGR-322"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0101",
+     "date": "2026-05-28",
+     "meeting_title": "Jumpr: Discovery (WagerTech end-user process walkthrough)",
+     "doc_link": "https://docs.google.com/document/d/153GXa2Bxzi2tRciqHschinynA20rOR89xr4fkYer7_o/edit",
+     "speakers": "Joyce Kiddell; Waleed Alasadi",
+     "timestamp": "01:20:43",
+     "line_start": 934,
+     "quote": "If you can bake into that too, just like um like steps taken with our data architect like the the senior engineer that we just brought in. We want to make sure that whatever he's mapping um for eventually like being able to uh match our data with like the operators downstream. / We want to make sure it aligns with what you guys are planning for like structure within Salesforce. So there might be some sessions there where where you guys collaborate, but like I don't see it being in conflict at all. / Waleed Alasadi: Okay. Yeah, I know that makes sense. Um,"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0068",
+     "date": "2026-05-28",
+     "meeting_title": "Jumpr: Discovery (WagerTech end-user process walkthrough)",
+     "doc_link": "https://docs.google.com/document/d/153GXa2Bxzi2tRciqHschinynA20rOR89xr4fkYer7_o/edit",
+     "speakers": "Joyce Kiddell; Waleed Alasadi",
+     "timestamp": "00:31:56",
+     "line_start": 436,
+     "quote": "Joyce Kiddell: Well, I'll say right now that pulling in operator data and joining that with our internal logging data is / like a whole other beast that we're like scoping outside of the initial Salesforce implementation. Um because I think there's a whole like cleaning process that needs to happen to match the data. So, um, it's good for you to know and I think we we can definitely dive deeper into it, but just for the sake of your proposal, / Joyce Kiddell: I wouldn't go too far down the operator data hole. / Waleed Alasadi: Okay. No, that's fair. That's a fair warning. Thank you. Okay. Um lastly then on the BA side are they like do they have their own sheets to understand how much of their cap have they"
+    }
+   ],
+   "what_differs": "On 5/28 Joyce asked Jumpr to include steps with their new data architect, so that his data mapping aligns with the Salesforce structure, and Waleed agreed. No Jira item records these sessions or their outcome. WAGR-298 (Solution Design & Data Architecture) is Done and has no description.",
+   "suggested_action": "Confirm with Joyce whether these sessions are still wanted (the downstream operator-data join is out of scope per WAGR-369), and whether the CMS sessions with Strahinja met the need. If not, add a small task under WAGR-19.",
+   "checked_later_meetings": true,
+   "reasoning": "Low confidence: the purpose (operator-data matching downstream) was scoped out in the same meeting, and later CMS integration sessions may have met the need informally.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Import inactive deals and operators (hidden in UI or a separate tab) - Joyce ask, Kobi said 'That makes sense', then parked",
+   "why_unverified": "client ask not agreed; no ticket. Firmness is proposed and the topic was parked by L1643. WAGR-470 does not list inactive deals/operators.",
+   "ledger_ids": [
+    "L1627",
+    "L1643"
+   ],
+   "jira_keys": [
+    "WAGR-470"
+   ]
+  },
+  {
+   "title": "DRA import scope: 8/11 decided DRAs come from Airtable for the initial test only and are configured fresh afterwards; WAGR-470 still lists US Deals/DRAs import as open",
+   "why_unverified": "WAGR-470 cites later sources (Slack 8/11, internal sync 8/20) that are not in the local ledger, so the later position cannot be verified.",
+   "ledger_ids": [
+    "L1644"
+   ],
+   "jira_keys": [
+    "WAGR-470",
+    "WAGR-124"
+   ]
+  },
+  {
+   "title": "One-time backfill of First/Last Completed Sign-Up dates after any historical import (the WAGR-140 flow will not handle backdated imports)",
+   "why_unverified": "The backfill (DLRS one-time run) is only proposed (L2453), and depends on the WAGR-470 decision. No ticket.",
+   "ledger_ids": [
+    "L2452",
+    "L2453"
+   ],
+   "jira_keys": [
+    "WAGR-140",
+    "WAGR-470"
+   ]
+  },
+  {
+   "title": "Player import must use the new CMS player ID; no secondary legacy ID in Salesforce",
+   "why_unverified": "proposed only (L1484); Emily said WagerTech needs to look into it more. WagerTech's dedup roll-up (L1898) is client-side. WAGR-477 does not say which player ID the template uses.",
+   "ledger_ids": [
+    "L1481",
+    "L1482",
+    "L1483",
+    "L1484",
+    "L1898"
+   ],
+   "jira_keys": [
+    "WAGR-477"
+   ]
+  },
+  {
+   "title": "Batch import of all deals before the Salesforce-to-CMS deal endpoint",
+   "why_unverified": "client ask not confirmed in the meeting (L2486). The production deal load is nominally under WAGR-20, which is stale (see DMI-02).",
+   "ledger_ids": [
+    "L2486"
+   ],
+   "jira_keys": [
+    "WAGR-20",
+    "WAGR-460"
+   ]
+  },
+  {
+   "title": "WAGR-245 Airtable data-quality items C1-C9 marked Done with comment 'Closing, not necessary, will revisit'",
+   "why_unverified": "No transcript item ties C1-C9 to a later decision. The status may hide open pre-migration data issues (duplicate link codes, authoritative partner/book list).",
+   "ledger_ids": [
+    "L1307",
+    "L1808"
+   ],
+   "jira_keys": [
+    "WAGR-245"
+   ]
+  },
+  {
+   "title": "Return Salesforce unique IDs to WagerTech's legacy tracking systems",
+   "why_unverified": "proposed only (L0343). The operator/partner ID table was shared (L1271, L1902), but there is no decision for players.",
+   "ledger_ids": [
+    "L0343"
+   ],
+   "jira_keys": []
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-245",
+  "WAGR-263",
+  "WAGR-124",
+  "WAGR-362",
+  "WAGR-372",
+  "WAGR-251",
+  "WAGR-280",
+  "WAGR-322"
+ ],
+ "module_coverage": {
+  "area": "Data Migration / Import",
+  "jira_epics": [
+   "WAGR-19"
+  ],
+  "ticket_count": 7,
+  "ticket_note": "Epic WAGR-19 children: WAGR-20 (Ready, unassigned), WAGR-21 (Done), WAGR-470 (Open decision), WAGR-477 (Open, Sprint 2). Tagged Epic=Data Migration outside the epic: WAGR-124, WAGR-239 (Done), WAGR-245 (Done). Related elsewhere: WAGR-87, WAGR-97, WAGR-100, WAGR-125, WAGR-460, WAGR-370 and WAGR-369 (OOS, Cancelled). There is no build or load ticket for any production import.",
+  "uncovered_capabilities": [
+   {
+    "capability": "Production historical import of players, sign-ups and referrals (load and reconcile)",
+    "ledger_ids": [
+     "L0341",
+     "L1375",
+     "L1377",
+     "L1624",
+     "L1625",
+     "L0997",
+     "L0999"
+    ],
+    "note": "Only a decision card (WAGR-470) and a template card (WAGR-477). No load, dry-run or reconciliation ticket for these objects; WAGR-20 covers Agency-side deal data only. See DMI-01, DMI-03."
+   },
+   {
+    "capability": "Go-live cutover plan (in-flight spreadsheet sign-ups, sheet freeze, cutover checklist)",
+    "ledger_ids": [
+     "L0998",
+     "L0999",
+     "L1676",
+     "L0351"
+    ],
+    "note": "No ticket. WAGR-125 refers to a 'migration cutover checklist' that does not exist. WAGR-460 covers CMS Deal sync cutover only. See DMI-06."
+   },
+   {
+    "capability": "Production reference-data load: operators, partners, deals (with Source), and DRAs if in scope",
+    "ledger_ids": [
+     "L2104",
+     "L2299",
+     "L1644",
+     "L1299"
+    ],
+    "note": "Only WAGR-20, which still reflects the July rates/links-file approach. Sandbox loads are Done (WAGR-21, WAGR-239, WAGR-87). See DMI-02."
+   },
+   {
+    "capability": "Operator/partner master list validation and ID sync in both the CMS and Salesforce before production",
+    "ledger_ids": [
+     "L1808",
+     "L1904",
+     "L1688"
+    ],
+    "note": "Only a hypercare line in WAGR-460. See DMI-04."
+   },
+   {
+    "capability": "Redeposit allocation CSV import (after the manual path)",
+    "ledger_ids": [
+     "L3338",
+     "L3339",
+     "L3453"
+    ],
+    "note": "Only design card WAGR-464; no build story. See DMI-05."
+   },
+   {
+    "capability": "Data architect alignment sessions",
+    "ledger_ids": [
+     "L0101"
+    ],
+    "note": "No ticket. See DMI-08."
+   },
+   {
+    "capability": "One-time First/Last Completed Sign-Up date backfill after historical import",
+    "ledger_ids": [
+     "L2452",
+     "L2453"
+    ],
+    "note": "Conditional on WAGR-470. Lead only."
+   }
+  ]
+ },
+ "notes": "Data Migration / Import, 62 ledger items. Decided action items whose completion is shown by later evidence or Done tickets are not reported as V1: L0808 (WAGR-21), L1275/L1296/L1640/L1807 (operator/partner ID sheet and import, confirmed L1902; WAGR-87, WAGR-100), L1299/L1641/L1678/L2007 (WAGR-239), L0375/L0996/L3227 (WAGR-477). L0068 (operator data join out of scope) matches WAGR-369. L1483 (WagerTech player dedup plan) is client-owned; L1898 follows up. L1643 deferral matches WAGR-470. Client-asked or proposed items are in unverified_leads. Gemini-only items (L0463, L0765, L0944) were not used. No SOW is in the local sources, so DMI-01 needs an SOW check before anyone acts on it."
+}

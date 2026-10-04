@@ -1,0 +1,636 @@
+{
+ "area": "Referrer / Brand Ambassador",
+ "variances": [
+  {
+   "temp_id": "RBA-01",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "BA Status picklist in Jira keeps 'Inactive'; Aug 18 sync decided only Active, Paused, Terminated",
+   "jira": [
+    {
+     "key": "WAGR-176",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-202 — Brand Ambassador: Object + Core Status",
+     "quote": "BA Status — Picklist: Active, Paused, Inactive, Terminated. Trimmed from an initial five-value list that included a Review status.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-91",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-236 — Brand Ambassador: Status Automation (via User Active Checkbox)",
+     "quote": "BA Status (BUILD-202 / BA-1) has four values — Active, Paused, Inactive, Terminated — but the User object's Active checkbox is only a two-value boolean",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1946",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:47:53",
+     "line_start": 814,
+     "quote": "Joyce Kiddell: ...Kobi live, we're going to remove review. / Lina Ceniccola: if it's I think it's really only active, paused, or terminated cuz like they don't / Joyce Kiddell: Okay. Um so active uh paused and terminated are the / Joyce Kiddell: three statuses. Um brand manager cannot be easily added as like a"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1947",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:50:24",
+     "line_start": 845,
+     "quote": "Kobi Kunasekaran: We terminating like are we talking about like deactivating the user from Salesforce as well? / Joyce Kiddell: Yes. / Lina Ceniccola: Yeah."
+    }
+   ],
+   "what_differs": "The client removed both 'Under Review' and 'Inactive' (Lina: 'it's really only active, paused, or terminated'); Joyce confirmed three statuses. WAGR-176 removed only Review and specifies four values including Inactive, and WAGR-91 designs the User-Active mapping around those four values.",
+   "suggested_action": "Remove 'Inactive' from the BA Status value set in WAGR-176 (and the built picklist, if present). Update WAGR-91 so the mapping covers Active / Paused / Terminated only (Terminated = user deactivated, per WAGR-79).",
+   "checked_later_meetings": true,
+   "reasoning": "Searched all ledger items after 2026-08-18 on BA status; none re-introduces Inactive for BAs. Referrer status (Active, Inactive, Paused, Banned) is a separate picklist and is not affected.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-02",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "No ticket for the yellow 'Paused' banner on the Referrer record (decided Sep 3)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "pause banner",
+     "paused banner",
+     "yellow",
+     "banner",
+     "Referrer Pause",
+     "Paused status"
+    ],
+    "nearest_considered": [
+     "WAGR-171",
+     "WAGR-178",
+     "WAGR-159",
+     "WAGR-353",
+     "WAGR-157"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2392",
+     "date": "2026-09-03",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1y57PArEtR_WrDVNsTMP8P4PVl_VoWfEqhVhlV-1vPvE/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:19:45",
+     "line_start": 335,
+     "quote": "Taryn Reithofer: they didn't ask for a banner for pause, I believe. Um, but I feel like we should probably keep it the same as ban. / Kobi Kunasekaran: Yeah, I think we should have a banner just so it's a bit more prominent, / Kobi Kunasekaran: we can use this like same yellow one instead of the red if that makes any / Taryn Reithofer: Yeah. Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The team decided that Paused gets a banner like Banned, in yellow. WAGR-171 (Inactive Status Banner) says it was 'Updated 2026-08-27 to drop Paused from scope', and the WAGR-178 comment of 2026-08-27 only flags the idea as 'not a confirmed decision yet'. No ticket or later comment records the Sep 3 decision.",
+   "suggested_action": "Add a small task (or a comment on WAGR-178 / WAGR-171) for the yellow Paused banner on the Referrer page. Because the client did not ask for it, show it to the client in the next page review.",
+   "checked_later_meetings": true,
+   "reasoning": "Internal design decision, tier1 transcript, decided. Full-text search of all 505 issue descriptions and comments for pause/banner/yellow found no coverage after 2026-09-03.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-03",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "No backlog ticket for the 'link existing player as referrer' screen flow (decided for V1 on Jul 15, later called a down-the-line request)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "convert player",
+     "player to referrer",
+     "existing player",
+     "screen flow referrer",
+     "pre-fill from player",
+     "Related Player Record"
+    ],
+    "nearest_considered": [
+     "WAGR-189",
+     "WAGR-427",
+     "WAGR-440",
+     "WAGR-439",
+     "WAGR-28"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1033",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "01:28:31",
+     "line_start": 1168,
+     "quote": "Kobi Kunasekaran: we could create a screen flow um that give them the option like create new refer or pick pick an existing player / Lina Ceniccola: Yeah, let's let's go with the reduced and manual steps for sure / Kobi Kunasekaran: Well, I I'll scope it out, but I don't want to put in the automation yet until we finalize the fields. / Kobi Kunasekaran: So we'll we'll we'll make sure that it's in for V1 but uh it won't be in for when you're doing the"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1993",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:42:45",
+     "line_start": 1698,
+     "quote": "Joyce Kiddell: This is probably like a down the line request, but is it easy to like press a button and be like, I'm going to convert this player into a refer? / Kobi Kunasekaran: ...we could set up a screen flow that essentially prefills those fields from the player record. / Joyce Kiddell: I like that."
+    }
+   ],
+   "what_differs": "Jul 15: Kobi committed to scope a screen flow that creates a new referrer or picks an existing player and links it, 'in for V1'. Aug 18 reframed it as a down-the-line request. Jira only mentions it as a note inside WAGR-189 ('\"Convert Player to Referrer\" screen-flow is a Phase 2 candidate, not this build'); there is no ticket in Phase 1, the Phase 2 Stories epic (WAGR-478) or the Holding Pen (WAGR-443).",
+   "suggested_action": "Create a Phase 2 backlog story (Convert/link Player to Referrer screen flow, pre-fills from the Player record) under WAGR-478, and confirm with the client that the Jul 15 'V1' commitment is now Phase 2.",
+   "checked_later_meetings": true,
+   "reasoning": "Original item is decided tier1. The later Aug 18 item is 'proposed' in the ledger and does not cancel the ask; it only moves timing. Either way a trackable ticket is missing. Confidence medium because WAGR-427 (streamlined new-referrer creation) covers part of the creation path but not the link-to-existing-player step.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-04",
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "WAGR-434 (Referrer VIP toggle) lacks the Sep 30 rule: a non-VIP referrer added to a VIP sign-up is set to VIP",
+   "jira": [
+    {
+     "key": "WAGR-434",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Referrer: Add VIP toggle (VIP)",
+     "quote": "A referrer is not exclusively VIP or non-VIP — the same referrer can refer both VIP and non-VIP sign-ups; leave this open rather than locking a referrer to one type.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3448",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:42:05",
+     "line_start": 1445,
+     "quote": "Kobi Kunasekaran: And if I think same question, if we add a refer to a signup that isn't already tagged as a VIP, who you want to set the refer to be VIP? / Emily Vandenberg: I think it's fine to do it."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2952",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "01:03:55",
+     "line_start": 1009,
+     "quote": "Joyce Kiddell: Um on the refer side uh we definitely need the uh another toggle just to indicate if that refer is VIP or not and I don't think there's anything else required for it. / Joyce Kiddell: So really it's just like one unique refer and then they can have a toggle that's on off for VIP. / Lina Ceniccola: I would leave it open."
+    }
+   ],
+   "what_differs": "On Sep 30 Kobi asked whether a referrer added to a VIP sign-up who is not tagged VIP should be set to VIP, and Emily agreed. WAGR-434 (created Sep 23, no comments) and the other VIP epic tickets (WAGR-432, WAGR-433) do not state this automation.",
+   "suggested_action": "Add the rule to WAGR-434 acceptance criteria (or to WAGR-432 if it belongs in the VIP sign-up flow): when a VIP sign-up is saved with a referrer whose VIP toggle is off, set it on.",
+   "checked_later_meetings": true,
+   "reasoning": "Sep 30 is the latest meeting in the ledger. Searched descriptions and comments of WAGR-420, 431-435 for referrer + VIP.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-05",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "WAGR-391 treats the Brand Manager object as undefined; meetings decided a BM is a BA (a Salesforce user) who manages other BAs",
+   "jira": [
+    {
+     "key": "WAGR-391",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Brand Manager: Determine Object Model, Record Creation, and Sharing Controls",
+     "quote": "Brand Manager exists today only as a lookup field on BA (BUILD-202), pointing at an object/record type that has not been defined. No Brand Manager object, record type, or creation process exists yet",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0394",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Lina Ceniccola; Jay",
+     "timestamp": "00:15:37",
+     "line_start": 290,
+     "quote": "Lina Ceniccola: They could turn into a brand manager if they were to bring on a brand ambassador under them. But you only convert to brand manager once you are managing someone else. / Lina Ceniccola: The brand operations team would be managing the / Lina Ceniccola: brand managers and the / Lina Ceniccola: Brand managers are also brand ambassadors. In any case, the brand if you convert to a brand manager, you are still your own brand ambassador running your own sales network. Now you just have like many use that you manage."
+    },
+    {
+     "ledger_id": "L1617",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:01:08",
+     "line_start": 147,
+     "quote": "Joyce Kiddell: do we have a brand ambassador record yet? Like a screen I could look at? / Kobi Kunasekaran: a brand ambassador screen. Um like as in for the rep um it / Kobi Kunasekaran: because the reps are just users. Um it's just a user screen. ... / Kobi Kunasekaran: Brand ambassadors aren't necessarily contacts, right? Like they're technically users because it's it's assigned to people. ..."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2699",
+     "date": "2026-09-18",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:23:09",
+     "line_start": 410,
+     "quote": "Kobi Kunasekaran: their uh I want to say either ops or brand managers, one or the other. / Kobi Kunasekaran: Yeah, they manage your BAS. Yeah, but they can also be deferred in it. They can also be BAS. So, it's kind of a all all inclusive role. / Kobi Kunasekaran: Yeah. Yeah. It gets confusing and that's why like you know when we do the player referral uh objects like there is like a section to track players who are also referers because they can also send"
+    }
+   ],
+   "what_differs": "Discovery (Jun 17) decided that a BA becomes a brand manager only once managing another BA and remains a BA; Aug 11 decided BAs are Salesforce users. Together this means a BM is a User with BAs reporting to them (WAGR-176 comment already renamed 'BA Manager → Manager'). WAGR-391 does not carry this rule and lists 'User or Contact' and a possible new object as open options.",
+   "suggested_action": "Add the discovery definition to WAGR-391 and state the proposed model (BM = BA User; BA → BM via the User Manager field; brand operations manages BMs and BAs without a manager). Confirm with the client, then close the object-model question.",
+   "checked_later_meetings": true,
+   "reasoning": "No later meeting reverses the BM definition; Sep 18 internal sync restates that BMs can also be BAs. Confidence medium because WAGR-391 was raised from Emily's written feedback, which may ask about BM record creation rather than the data model.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-06",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "WAGR-359 still parks the secondary-referrer count roll-up as a Phase 2 candidate; it was decided and built in Phase 1",
+   "jira": [
+    {
+     "key": "WAGR-359",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "BUILD-91 — Secondary-referrer count rollup + future payout automation (Phase 2 candidate)",
+     "quote": "ON HOLD: parked until Phase 2 scoping; no Phase 1 consumer.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-168",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-238 — Referrer: Primary/Secondary Referrals Roll-Up Automation",
+     "quote": "After discussing with Kobi, these rollups can be completed by a DLRS. Screenshots from the two created and both tested ✅",
+     "quote_source": "comment (author not recorded) 2026-08-31"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1093",
+     "date": "2026-07-17",
+     "meeting_title": "Wagertech <> Jumpr - 60 Min (Joyce Kiddell)",
+     "doc_link": "https://docs.google.com/document/d/1uCoi6pw3ckVsTv1im7Qc235RyfAUqb7UGFJs2Pd6uMY/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:38:08",
+     "line_start": 685,
+     "quote": "Joyce Kiddell: it should have like number of like primary referrals and secondary referrals. / Kobi Kunasekaran: Yeah. / Joyce Kiddell: Yeah. Yep. Okay."
+    },
+    {
+     "ledger_id": "L2335",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:10:51",
+     "line_start": 366,
+     "quote": "Taryn Reithofer: thing that I thought of this morning because I was grabbing screenshots of the um examples for um primary and secondary referrals rolling up to the highlights um in the referral page. / Taryn Reithofer: And obviously we know it only counts it's set up to only count when the sign / Kobi Kunasekaran: Yeah. Wait, are we doing the So this roll up, is it based on players or based on / Taryn Reithofer: Sign / Kobi Kunasekaran: signups? / Taryn Reithofer: up."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The client asked for primary and secondary referral counts on the referrer screen (Jul 17), and the Sep 2 sync confirmed the roll-ups are live. WAGR-359 (Open, Phase 2, Nice to Have) still says the count has 'no Phase 1 consumer'.",
+   "suggested_action": "Rescope WAGR-359 to the secondary payout automation only (now driven by the Referral & Payouts design), or close it and point to WAGR-168.",
+   "checked_later_meetings": true,
+   "reasoning": "Hygiene: duplicate/stale ticket could cause double work or a wrong Phase 2 estimate.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-07",
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "Referral count roll-up tickets do not state the 'count completed sign-ups only' rule",
+   "jira": [
+    {
+     "key": "WAGR-168",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-238 — Referrer: Primary/Secondary Referrals Roll-Up Automation",
+     "quote": "On create, update, or delete, recalculate the affected Referrer's count by querying and counting matching Sign Up records fresh each time",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2335",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:10:51",
+     "line_start": 366,
+     "quote": "Taryn Reithofer: thing that I thought of this morning because I was grabbing screenshots of the um examples for um primary and secondary referrals rolling up to the highlights um in the referral page. / Taryn Reithofer: And obviously we know it only counts it's set up to only count when the sign / Kobi Kunasekaran: Yeah. Wait, are we doing the So this roll up, is it based on players or based on / Taryn Reithofer: Sign / Kobi Kunasekaran: signups? / Taryn Reithofer: up."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2336",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:11:59",
+     "line_start": 375,
+     "quote": "Taryn Reithofer: up record is complete. Um, so I at just a glance I I thought it might be confusing for users if they saw for example two primary referrals in the related list but then only one count in the rollup. So I was thinking perhaps we can put in the field column completion and I added that this morning so that it can surface. / Kobi Kunasekaran: the uh signup status that that serves the same purpose right / Kobi Kunasekaran: So I think status will cover both."
+    }
+   ],
+   "what_differs": "The Sep 2 sync (client meeting) states the primary and secondary roll-ups count a sign-up only when it is complete. WAGR-168 and WAGR-192 describe counting all matching Sign Up records; the only later comment says DLRS was used, with no filter stated.",
+   "suggested_action": "Add the filter (Sign-Up status = Completed) to WAGR-168 acceptance criteria and record the DLRS filter in a comment so testers and the client can verify it.",
+   "checked_later_meetings": true,
+   "reasoning": "Ledger item L2335 sits in the Referral and Payouts area; reported here because WAGR-168/WAGR-192 are Referrer tickets. Merge with any duplicate from the Referral and Payouts finder.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-08",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "WAGR-47 (Referrer creation experience) is still 'Ready' though its own comment says it will be closed and WAGR-427 delivered the change",
+   "jira": [
+    {
+     "key": "WAGR-47",
+     "status": "Ready",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-89 — Referrer creation experience (skip record-type prompt, defaults, required fields)",
+     "quote": "Will close this and replace with separate tickets to create New Referrer, New Player, Partner, Operator that would have unique field sets",
+     "quote_source": "comment (author not recorded) 2026-08-17"
+    },
+    {
+     "key": "WAGR-427",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "Referrer: Streamline new referrer creation flow",
+     "quote": "Emily confirmed reps ONLY create Referrers",
+     "quote_source": "comment by Taryn Reithofer 2026-09-25"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3073",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1MRQrsyv_XCgKEIoXR2_t4hTUfH3t5f-lGztLxIfTWZg/edit",
+     "speakers": "Cedrick Infantado",
+     "timestamp": "00:19:50",
+     "line_start": 400,
+     "quote": "Cedrick Infantado: ...when they click the new account um the default is the refer or once we remove the um other record types for profile only the uh it would go straight to new record for with the refer record type."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2851",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:13:46",
+     "line_start": 308,
+     "quote": "Kobi Kunasekaran: I did go through the activation and uh added / Kobi Kunasekaran: the assignment for the record type for referral. / Kobi Kunasekaran: I saved that and seems like it's uh like it's working now."
+    }
+   ],
+   "what_differs": "The record-type prompt was removed through profile record-type settings (tested Sep 25, WAGR-427 in Jumpr Review). WAGR-47 still shows Ready with Kobi and still asks to skip the record-type prompt and add a validation rule.",
+   "suggested_action": "Close WAGR-47 as superseded by WAGR-427 (and WAGR-92 for the email validation rule), after checking that its 'Default Status = Active on create' item is covered.",
+   "checked_later_meetings": true,
+   "reasoning": "Hygiene; a stale Ready ticket can be picked up and rebuilt.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RBA-09",
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "Referrer Inactive automation ticket lacks the rule told to the client: a banned referrer's status does not move",
+   "jira": [
+    {
+     "key": "WAGR-74",
+     "status": "Ready",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-193 — Referrer: Inactive Status Automation",
+     "quote": "What counts as \"activity\" for Referrer isn't defined",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2478",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:04:14",
+     "line_start": 187,
+     "quote": "Kobi Kunasekaran: … the ban pause reactivation logic is also there for the referers as well. Um, same thing like it's it's not necessarily going to prevent any signups from coming in. Um, but uh it will it'll uh prevent statuses from moving when they're banned."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2250",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:07:03",
+     "line_start": 164,
+     "quote": "Taryn Reithofer: 193. / Kobi Kunasekaran: 96 / ... Kobi Kunasekaran: refer inactive status automation. Uh long period 6 months. / Kobi Kunasekaran: Uh okay. I can scope out a story for this and uh add this afterwards."
+    }
+   ],
+   "what_differs": "On Sep 11 Kobi told the client that referrer ban/pause logic 'will prevent statuses from moving when they're banned'. WAGR-74 (Inactive automation, not built, no comments) and WAGR-158 (Reactivate) do not state that the automation must skip Banned (or Paused) referrers.",
+   "suggested_action": "When Kobi scopes WAGR-74 (action from Sep 1), add an entry criterion: only Active referrers move to Inactive; Banned and Paused are never changed by automation.",
+   "checked_later_meetings": true,
+   "reasoning": "Confidence medium: the Sep 11 statement may describe player logic generalized to referrers. The rule is still a client-facing statement with no ticket text.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Referrer ban no longer flags the related Player (departs from client mockup); client confirmation not recorded",
+   "why_unverified": "Internal decision only (Sep 3). WAGR-157 comment records the removal, but no later meeting or ticket shows the client agreed. WAGR-177 description still specifies the 'Flag related Player record' checkbox (stale text).",
+   "ledger_ids": [
+    "L2390",
+    "L2391"
+   ],
+   "jira_keys": [
+    "WAGR-157",
+    "WAGR-177"
+   ]
+  },
+  {
+   "title": "Payout-hold on referrer ban is not ticketed",
+   "why_unverified": "Gap is stated only in Jira (WAGR-157 comment 2026-09-02: 'payout-hold logic — blocked on the Payout object, not yet ticketed'); no transcript item in this area. Likely belongs to Referral and Payouts design (WAGR-465).",
+   "ledger_ids": [],
+   "jira_keys": [
+    "WAGR-157",
+    "WAGR-177",
+    "WAGR-465"
+   ]
+  },
+  {
+   "title": "WAGR-73 dedup-on-create may already be built but shows Ready",
+   "why_unverified": "Kobi said 'I think I've actually probably already did this. Just need to test' (discussed, not confirmed).",
+   "ledger_ids": [
+    "L2249"
+   ],
+   "jira_keys": [
+    "WAGR-73",
+    "WAGR-28"
+   ]
+  },
+  {
+   "title": "Referrer / BA pages handed to the client, but tickets stay in Jumpr Review; client feedback on the referral page still outstanding",
+   "why_unverified": "Project-wide pattern (no ticket in the project uses Client Review), so not an area-specific status variance. Client feedback was still pending on Sep 28 (L3230).",
+   "ledger_ids": [
+    "L2245",
+    "L2247",
+    "L2777",
+    "L3230"
+   ],
+   "jira_keys": [
+    "WAGR-192",
+    "WAGR-176"
+   ]
+  },
+  {
+   "title": "WAGR-412 still lists the BA Players Related List as a candidate table after the client removed that list",
+   "why_unverified": "Low hygiene; WAGR-412 can still apply to the Deal Rep Assignments list.",
+   "ledger_ids": [
+    "L3220"
+   ],
+   "jira_keys": [
+    "WAGR-412",
+    "WAGR-166"
+   ]
+  },
+  {
+   "title": "Client ask: make the BA players related list searchable and renamed",
+   "why_unverified": "client ask not agreed; Jumpr said it is not possible on the User page. Tracked in WAGR-166 (Cancelled); resolved when Emily decided to remove the list on Sep 28.",
+   "ledger_ids": [
+    "L2858",
+    "L3219",
+    "L3220"
+   ],
+   "jira_keys": [
+    "WAGR-166"
+   ]
+  },
+  {
+   "title": "Can a BA fund themselves as a player?",
+   "why_unverified": "Internal open question (discussed), not answered later, no ticket; business-process understanding rather than a build requirement.",
+   "ledger_ids": [
+    "L2700"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "WagerTech to merge 'play' slugs into each rep's normal slug (Jay to send list)",
+   "why_unverified": "Client-owned CMS action; Jumpr Jira not expected to track it. Slug is no longer the rep mapping key (BA External ID is used, WAGR-186).",
+   "ledger_ids": [
+    "L1284",
+    "L1285"
+   ],
+   "jira_keys": [
+    "WAGR-186",
+    "WAGR-118"
+   ]
+  },
+  {
+   "title": "Kobi to confirm what can be done for referred-by and BA fields on the referral page",
+   "why_unverified": "tier2-only action item (Kobi/Taryn daily sync); cannot support a V1 alone.",
+   "ledger_ids": [
+    "L2063"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "WAGR-74 is 'Ready' although its trigger ('activity') is undefined",
+   "why_unverified": "Gap is already written in the ticket; Kobi's Sep 1 action to scope it shows no Jira update. Status hygiene only.",
+   "ledger_ids": [
+    "L2250",
+    "L2252"
+   ],
+   "jira_keys": [
+    "WAGR-74"
+   ]
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-80",
+  "WAGR-81",
+  "WAGR-187",
+  "WAGR-188",
+  "WAGR-180",
+  "WAGR-181"
+ ],
+ "module_coverage": {
+  "area": "Referrer / Brand Ambassador",
+  "jira_epics": [
+   "WAGR-27"
+  ],
+  "ticket_count": 58,
+  "uncovered_capabilities": [
+   {
+    "capability": "Paused-status banner on Referrer (yellow)",
+    "ledger_ids": [
+     "L2392"
+    ],
+    "note": "Decided Sep 3; WAGR-171 dropped Paused from scope; no ticket (RBA-02)."
+   },
+   {
+    "capability": "Link / convert existing Player to Referrer screen flow",
+    "ledger_ids": [
+     "L1033",
+     "L1993"
+    ],
+    "note": "Decided for V1 Jul 15, later a down-the-line request; only a note in WAGR-189, no Phase 1 or Phase 2 ticket (RBA-03)."
+   },
+   {
+    "capability": "Referrer auto-set to VIP from VIP sign-up",
+    "ledger_ids": [
+     "L3448"
+    ],
+    "note": "Rule absent from WAGR-434 and VIP epic WAGR-420 (RBA-04)."
+   },
+   {
+    "capability": "Brand Manager model and setup",
+    "ledger_ids": [
+     "L0394",
+     "L1617",
+     "L2699"
+    ],
+    "note": "No epic; only WAGR-391 (Requirements) and WAGR-392 (Ready), neither carries the decided BM definition (RBA-05)."
+   },
+   {
+    "capability": "Brand Ambassador module as a whole",
+    "ledger_ids": [
+     "L1617",
+     "L1946",
+     "L1947",
+     "L1954"
+    ],
+    "note": "No dedicated BA epic. ~20 BA tickets (BUILD-202..211, 221, 236, WAGR-390/393/395/396/412) are unparented and carry only the Asana 'Players & Referrers' Epic field; BA lifecycle automations WAGR-79 (termination/End Date) and WAGR-91 (status sync) are not started."
+   }
+  ]
+ },
+ "notes": "Ticket count 58 = Referrer tickets (WAGR-28, 29, 47, 73-77, 89, 92, 110, 111, 157-159, 161, 168, 171, 177, 178, 187-193, 257, 339, 353, 359, 418, 427, 428, 434, 437, 439, 440) plus BA/BM tickets (WAGR-78-81, 91, 166, 176, 180-183, 186, 390-393, 395, 396, 412, 469). Ledger mis-mapping: L2249-L2253 tag 'WAGR-193?/WAGR-190?' but the meeting means Asana BUILD numbers: BUILD-193 = WAGR-74 (Referrer Inactive Status Automation), BUILD-190 = WAGR-76 (Duplicate Review Fields), BUILD-194 = WAGR-73 (Dedup-on-Create). Covered decided items (no variance): L0057/L1031 (WAGR-29), L1030/L1082 (Referrer lookup + '+ Add New', WAGR-418/427), L1093 (WAGR-192/168), L1617/L1618 (WAGR-186/176), L1947/L1954 (WAGR-79), L1952 (WAGR-176/395), L1953/L1955/L1956/L1958 (WAGR-176/182), L1961 (WAGR-183), L2248 (WAGR-77), L2250/L2253 (WAGR-74/76), L2390 (WAGR-157 comment), L2396 (WAGR-158), L2593 (WAGR-397), L2594 (WAGR-398), L2851/L2852/L3064 (WAGR-418/437), L2859/L3037/L3192/L3220 (WAGR-166 Cancelled), L2952 (WAGR-434). L1960 (remove BA verticals): no Jira BA ticket ever specified a verticals field, so nothing to change. L1285/L1286 (slug vs rep ID) resolved by BA External ID (WAGR-186, WAGR-118). L0385 (Ali trend call) treated as closed by the Jun 22 Kobi/Ali/Jay session. READ-ONLY run; no Jira writes."
+}

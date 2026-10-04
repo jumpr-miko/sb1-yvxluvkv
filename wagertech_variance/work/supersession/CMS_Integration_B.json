@@ -1,0 +1,274 @@
+[
+ {
+  "topic": "WhatsApp integration",
+  "current_truth_ledger_id": "L0117",
+  "superseded": [],
+  "refined": [
+   "L0082"
+  ],
+  "reversed": [],
+  "note": "Decided 2026-06-03: WhatsApp rep-work capture is not Phase 1. L0082 (part of recommendation, phasing TBD) is refined by the deferral. Later items (L0156, L0179, L0193, L0237, L0278) are discussed/proposed only. Jira WAGR-375 (Holding Pen, Cancelled OOS) matches."
+ },
+ {
+  "topic": "SLC deal resolution (how a click finds its Deal)",
+  "current_truth_ledger_id": "L2285",
+  "superseded": [
+   "L1263",
+   "L1303",
+   "L1465"
+  ],
+  "refined": [
+   "L1278",
+   "L1281"
+  ],
+  "reversed": [
+   "L0974"
+  ],
+  "note": "2026-09-01: SLC flow matches deals by Deal External ID only; deal-makeup matching removed. Interim makeup approach (L1263, L1303) and makeup fields on SLC for deal lookup (L1465) are superseded. Mostly Sign-Up/SLC area."
+ },
+ {
+  "topic": "Deal External ID ownership between SF and CMS",
+  "current_truth_ledger_id": "L2492",
+  "superseded": [
+   "L1800",
+   "L1914",
+   "L1264"
+  ],
+  "refined": [
+   "L3263",
+   "L1795"
+  ],
+  "reversed": [],
+  "note": "2026-09-11 client meeting: Salesforce drives the Deal External ID and CMS trusts it. L3263 (2026-09-29, internal) refines: CMS keys on external ID, not makeup. Interim seeding/CSV workarounds (L1800, L1914) superseded. Jira WAGR-448/WAGR-454 match."
+ },
+ {
+  "topic": "Survey completion inbound (CMS to Player)",
+  "current_truth_ledger_id": "L2904",
+  "superseded": [],
+  "refined": [
+   "L1476",
+   "L1488",
+   "L1029"
+  ],
+  "reversed": [],
+  "note": "2026-09-23: store Survey 1 and Survey 2 completion status + date (L2904), binary only (L2906), relabel existing fields as Survey 1 and add Survey 2 (L2908). Refines the single-survey separate-event design (L1476). Test integration worked 2026-08-11 (L1621) but barely tested since (L2981). Jira WAGR-441 matches; WAGR-46 lags (see variance)."
+ },
+ {
+  "topic": "SF to CMS integration architecture and phasing",
+  "current_truth_ledger_id": "L3282",
+  "superseded": [
+   "L1515",
+   "L1371"
+  ],
+  "refined": [
+   "L1361",
+   "L1924",
+   "L2491",
+   "L2520",
+   "L2685"
+  ],
+  "reversed": [],
+  "note": "2026-09-29: this phase strictly sends Deals and Affiliate Links; deal lifecycle tickets are prerequisites in the same epic. Builds on 2026-09-11 three-phase plan (L2520) and single CMS-hosted endpoint (L1924, L2491). Jira WAGR-39 matches."
+ },
+ {
+  "topic": "CMS to SF Deal Rep Assignment inbound",
+  "current_truth_ledger_id": "L3279",
+  "superseded": [
+   "L1373",
+   "L1407"
+  ],
+  "refined": [
+   "L1363",
+   "L2864"
+  ],
+  "reversed": [],
+  "note": "2026-09-29: DRA push from CMS is phase two of the CMS integration, not scoped, needs client input; starts after deals/links are live. Earlier direct-upsert scoping (L1373, L1407 proposed) is superseded. Jira WAGR-444 (later phase) matches; child Phase field ambiguity logged as lead."
+ },
+ {
+  "topic": "Affiliate Links in the Deal payload and end-of-life",
+  "current_truth_ledger_id": "L3400",
+  "superseded": [
+   "L2489"
+  ],
+  "refined": [
+   "L2488",
+   "L2521",
+   "L3295",
+   "L3399"
+  ],
+  "reversed": [],
+  "note": "2026-09-30: client asked that users only archive links (Kobi agreed, L3400); in the same meeting Emily said active/inactive is sufficient (L3399). 2026-09-29 L3295 full-list send stands; omission-as-deletion semantics put in question by L3401 (proposed, needs Strah). 2026-09-11 L2489 (CMS deactivates a deleted link) superseded by later design. Jira WAGR-456/491/509/463 track the open part."
+ },
+ {
+  "topic": "Link External ID",
+  "current_truth_ledger_id": "L3286",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "2026-09-29: link code + deal ID, immutable once set, admin clear to regenerate. Jira WAGR-490 matches."
+ },
+ {
+  "topic": "CMS sync triggers",
+  "current_truth_ledger_id": "L3259",
+  "superseded": [],
+  "refined": [
+   "L3256",
+   "L3275"
+  ],
+  "reversed": [],
+  "note": "2026-09-29: activation triggers first sync; only payload fields and every post-activation status change re-sync; link changes flag resync. Status list inside L3259 (review required, retired) is itself superseded by 2026-09-30 Deal-area decisions L3404 (retire renamed archive) and L3408 (review required removed). Jira WAGR-455/456 match the newer list."
+ },
+ {
+  "topic": "Deal status value set (Deal-area decisions that drive CMS payload)",
+  "current_truth_ledger_id": "L3404",
+  "superseded": [
+   "L3302",
+   "L3262"
+  ],
+  "refined": [
+   "L3406",
+   "L3408",
+   "L3410",
+   "L3409"
+  ],
+  "reversed": [],
+  "note": "Cross-area context. 2026-09-30 client meeting: rename Retired to Archive (L3404), remove Review Required (L3408), Inactive informational after 90 days (L3406), Pause deactivates links and resume restores prior-active set (L3410). 2026-09-29 L3302 ('new and retired need to be added') superseded for Retired; no meeting records renaming New to Draft."
+ },
+ {
+  "topic": "Sync error storage, logging and alerts",
+  "current_truth_ledger_id": "L3297",
+  "superseded": [
+   "L0604"
+  ],
+  "refined": [
+   "L3277",
+   "L3278",
+   "L3298",
+   "L1920"
+  ],
+  "reversed": [],
+  "note": "2026-09-29: errors on Deal sync tab, no new error object, sync status decoupled from deal status, field history. L3278 corrects L3277 (store result only, not payload). Dedicated error object deferred (L3298). Jira WAGR-451/457/452(Cancelled)/361(Phase 2) match."
+ },
+ {
+  "topic": "Retry behaviour",
+  "current_truth_ledger_id": "L3288",
+  "superseded": [],
+  "refined": [
+   "L3290"
+  ],
+  "reversed": [],
+  "note": "2026-09-29: no auto-retry on business rejections / 400; auto-retry timeouts/network; manual + bulk retry checkbox (L3290). L3289 progressive window is proposed only. Jira WAGR-454/451 match (WAGR-454 adds a one-time retry of unaffected Deals in a 400 batch: refinement, not contradiction)."
+ },
+ {
+  "topic": "Outbound implementation technology (Flow vs Apex)",
+  "current_truth_ledger_id": "L3301",
+  "superseded": [
+   "L1405",
+   "L1406"
+  ],
+  "refined": [
+   "L3179"
+  ],
+  "reversed": [],
+  "note": "2026-09-29 (internal walkthrough): Flow vs Apex left to Cedrick, Apex if payload size/batching is a problem. L3179 is Cedrick's Flow POC action. Earlier Apex-outbound suggestions (L1405, L1406) were proposed only. Jira locks Queueable Apex (see variance)."
+ },
+ {
+  "topic": "Outbound authentication / credentials",
+  "current_truth_ledger_id": "L3174",
+  "superseded": [
+   "L1927"
+  ],
+  "refined": [
+   "L1928",
+   "L3182"
+  ],
+  "reversed": [],
+  "note": "2026-09-28: CMS endpoint called from Salesforce via named credentials (status 200). L1928: no extra SF-side IP restriction for now. Jira WAGR-446 (Jumpr Review), WAGR-445 (rotation) consistent."
+ },
+ {
+  "topic": "Commercial terms in CMS payload",
+  "current_truth_ledger_id": "L2770",
+  "superseded": [
+   "L2506"
+  ],
+  "refined": [],
+  "reversed": [
+   "L2505"
+  ],
+  "note": "2026-09-21: CMS integration does not need commercial terms. Jira WAGR-39 out-of-scope and WAGR-454 match."
+ },
+ {
+  "topic": "VIP links excluded from CMS",
+  "current_truth_ledger_id": "L2953",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "2026-09-23: users can mark links VIP and exclude from CMS. Jira WAGR-435 (VIP flag) + WAGR-491 (generic Exclude from CMS) cover it; L3383 (2026-09-30) shows the toggle in design."
+ },
+ {
+  "topic": "Rep identity from CMS (rep creation event)",
+  "current_truth_ledger_id": "L1936",
+  "superseded": [],
+  "refined": [
+   "L1934",
+   "L1935"
+  ],
+  "reversed": [],
+  "note": "2026-08-18 client meeting: SF user created first (manual admin task, L1935); when the rep is created in CMS, CMS pushes rep info / sets the external ID matched by email (L1934, L1936). No later meeting revisits it. Jira WAGR-390 states BA creation is manual on both sides (see variance)."
+ },
+ {
+  "topic": "Affiliate links required before first push",
+  "current_truth_ledger_id": "L3378",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "2026-09-30: client confirmed a deal can be pushed without links. Reverses Kobi's 2026-09-29 assumption (L3251, Deal area, discussed). Jira WAGR-450 matches."
+ },
+ {
+  "topic": "Player dedup and identifiers from CMS",
+  "current_truth_ledger_id": "L1900",
+  "superseded": [],
+  "refined": [
+   "L1897"
+  ],
+  "reversed": [],
+  "note": "2026-08-18: CMS dedupes before sending; no SF-side player dedup logic; email fallback. Player area mostly."
+ },
+ {
+  "topic": "CMS-side manual resync / reprocess",
+  "current_truth_ledger_id": "L2109",
+  "superseded": [],
+  "refined": [
+   "L2302"
+  ],
+  "reversed": [],
+  "note": "2026-08-25: WagerTech to add an admin manual push on the CMS side to its backlog; 2026-09-01 L2302 (proposed) asks to have it before production. No Jira tracking (see V1)."
+ },
+ {
+  "topic": "Postback events",
+  "current_truth_ledger_id": "L0868",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "2026-07-08: postback events must be stored against the signup. L0869 routing open; L0956 (tier2 internal, proposed) says post-go-live; no client agreement and no later meeting. No Jira ticket anywhere (see V1)."
+ },
+ {
+  "topic": "Player email change via API",
+  "current_truth_ledger_id": "L1899",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "2026-08-18: deferred until needed; would reuse the player update endpoint. No Phase 2 / Holding Pen ticket (module_coverage)."
+ },
+ {
+  "topic": "First CMS test scope",
+  "current_truth_ledger_id": "L3080",
+  "superseded": [],
+  "refined": [
+   "L3081",
+   "L2999"
+  ],
+  "reversed": [],
+  "note": "2026-09-25: first test uses V2 doc example payload; deal-sourced payload later (internal). Jira WAGR-476 In Progress matches."
+ }
+]

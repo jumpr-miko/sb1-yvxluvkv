@@ -1,0 +1,630 @@
+{
+ "area": "CMS Integration",
+ "lens": "A",
+ "variances": [
+  {
+   "temp_id": "CMS-A-01",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "Postback events stored against the Sign-Up: decided on 2026-07-08, no Jira ticket anywhere (incl. Holding Pen / Phase 2)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "postback",
+     "post-back",
+     "server-to-server",
+     "s2s",
+     "click id",
+     "click_id",
+     "registration event",
+     "first-time deposit event",
+     "operator event"
+    ],
+    "nearest_considered": [
+     "WAGR-6",
+     "WAGR-3",
+     "WAGR-112",
+     "WAGR-373",
+     "WAGR-443",
+     "WAGR-478"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0868",
+     "date": "2026-07-08",
+     "meeting_title": "Wagertech <> Jumpr: Onsite",
+     "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:17:04",
+     "line_start": 331,
+     "quote": "Kobi Kunasekaran: we're also piloting these like uh postbacks server store postbacks. So we're going to get like uh URLs click IDs associated with it / Kobi Kunasekaran: So those events firing back to us we need to be able to store against the signup."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0869",
+     "date": "2026-07-08",
+     "meeting_title": "Wagertech <> Jumpr: Onsite",
+     "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:18:34",
+     "line_start": 351,
+     "quote": "Kobi Kunasekaran: So I figured like it it makes more sense to go into play kind of like the back end first because you already have all that information there to map it, right? / Kobi Kunasekaran: But like I said, like if you do have all that information from the postback already to map it to sign up, then yeah, we can skip the middleman and do it directly. / Kobi Kunasekaran: But I don't know I don't know enough about it to say confident."
+    },
+    {
+     "ledger_id": "L0956",
+     "date": "2026-07-13",
+     "meeting_title": "Meeting started 2026/07/13 11:50 EDT - Notes by Gemini",
+     "doc_link": "https://docs.google.com/document/d/1VCJx1Yre2wngHTtL1aPUm4gzCun12MABzmoI9DDFGWY/edit",
+     "speakers": "Waleed Alasadi",
+     "timestamp": "02:38:37",
+     "line_start": 796,
+     "quote": "Waleed Alasadi: ... What about the API work? um the postback stuff that they were talking about that one like I don't think we're going to be able to scope that in or space. So it's probably going to be in post like what"
+    }
+   ],
+   "what_differs": "The 2026-07-08 onsite stated that postback events (URLs, click IDs) from WagerTech's server-to-server pilot must be stored against the Sign-Up. No WAGR issue mentions postbacks in summary, description or comments, and the routing question (backend first or direct to Salesforce) was never answered later.",
+   "suggested_action": "Suggestion only: create a parked ticket (Holding Pen WAGR-443 or Phase 2 WAGR-478) for postback ingestion that records the open routing question (L0869), and confirm the phase with WagerTech. Jumpr's internal 2026-07-13 view (L0956, tier2) was 'probably after go-live' but no client agreement is recorded.",
+   "reasoning": "Tier1 transcript, firmness decided. Grep of all 505 issue JSONs (description + comments) for postback/server-to-server/click ID returned no postback coverage; WAGR-6 only covers the SLC click External Id. Later ledger has no decided item on postbacks (L0956 is tier2 internal proposed).",
+   "feature_area": "CMS Integration",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMS-A-02",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Player email-address change via CMS API: client-agreed deferral (2026-08-18) not parked in any ticket",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "email change",
+     "update email",
+     "player update endpoint",
+     "change email",
+     "email endpoint",
+     "player optional ID"
+    ],
+    "nearest_considered": [
+     "WAGR-46",
+     "WAGR-40",
+     "WAGR-185",
+     "WAGR-28"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1899",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:07:25",
+     "line_start": 241,
+     "quote": "Kobi Kunasekaran: Um, but I think like we can cross that bridge when we get there. It's it's not that complicated. / Emily Vandenberg: Yeah. / Kobi Kunasekaran: ...It would be the same API endpoint for you to, you know, look up a player ID or player optional ID and update the email address."
+    }
+   ],
+   "what_differs": "The 2026-08-18 weekly sync agreed to defer player email-address updates from the CMS until needed, reusing the player-update endpoint used for survey completion. No ticket records this future capability; WAGR-46 covers only survey completion and WAGR-40 mentions email changes only as a duplicate cause.",
+   "suggested_action": "Suggestion only: add a Holding Pen or Phase 2 ticket 'CMS to SF player email update via player-update endpoint' so the deferred ask stays visible.",
+   "reasoning": "Decided deferral with client acknowledgement (Emily 'Yeah'). No later meeting revisits it. Low severity because it is explicitly not needed for go-live.",
+   "feature_area": "CMS Integration",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMS-A-03",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Action to find the maximum Affiliate Links per Deal from Airtable data (payload sizing) has no ticket",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "Airtable",
+     "links per deal",
+     "max links",
+     "number of links",
+     "link count",
+     "payload size"
+    ],
+    "nearest_considered": [
+     "WAGR-454",
+     "WAGR-499",
+     "WAGR-463",
+     "WAGR-456"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3293",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:02:22",
+     "line_start": 606,
+     "quote": "Kobi Kunasekaran: So I'm going to try to see if we can find that out from the air table uh data that we have right now."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3292",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:01:08",
+     "line_start": 601,
+     "quote": "Kobi Kunasekaran: the API spec, I think it says like it can accept up to like 200 deals per call, but it doesn't say if there was any limits to the number of affiliate links per deals or like the total number of characters that we can send in the JSON payload. / Kobi Kunasekaran: keep that in mind in terms of like how much how many characters we can store for like uh an API call because that might change flow versus"
+    }
+   ],
+   "what_differs": "On 2026-09-29 Kobi took an action to find the upper limit of Affiliate Links per Deal from the current Airtable data, because the CMS spec gives no per-Deal link limit. WAGR-454 sets deal-count and byte batching limits but no ticket records the per-Deal link count check or its result.",
+   "suggested_action": "Suggestion only: record the check and its result on WAGR-454 or WAGR-463 (single-Deal payload that cannot fit is already a failure case in WAGR-454).",
+   "reasoning": "Decided action item in tier1 transcript (internal Jumpr walkthrough). The Flow-vs-Apex reason is partly moot since Jira chose Queueable Apex, but the payload-size risk for a single Deal remains open.",
+   "feature_area": "CMS Integration",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMS-A-04",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Promised future-enhancement card (stop re-sending Affiliate Links already synced as Closed) was not created",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "closed links",
+     "already sent",
+     "skip",
+     "future enhancement",
+     "payload size",
+     "historical payload",
+     "omission"
+    ],
+    "nearest_considered": [
+     "WAGR-509",
+     "WAGR-463",
+     "WAGR-456",
+     "WAGR-454"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3296",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:04:35",
+     "line_start": 630,
+     "quote": "Kobi Kunasekaran: maybe this warrants another bure ticket to not sync an affiliate link once it's already been sent to the CMS in a closed status … But we also need to make sure that they interpret that same behavior uh and don't assume that if a affiliate link is no longer in the payload that is deleted / Kobi Kunasekaran: So for current design, I don't think it should matter but uh I'm I will take this away as a card for uh future enhancement."
+    }
+   ],
+   "what_differs": "Kobi said he would take away a card for a future enhancement that stops syncing links already sent to the CMS in a closed status, to control payload growth. WAGR-509 and WAGR-463 track Archived-link and omission semantics, but no ticket states the payload-growth enhancement.",
+   "suggested_action": "Suggestion only: create the future-enhancement card in Phase 2 (WAGR-478) and link it to WAGR-509 so the payload-growth reason is not lost.",
+   "reasoning": "Explicit commitment to create a card; nearest tickets cover a related but different question (Link Archived status, omission meaning). Confidence medium because WAGR-509 'historical payload treatment' may be read as covering it.",
+   "feature_area": "CMS Integration",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMS-A-05",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "WagerTech-owned CMS-side commitments (manual push/reprocess, Slack error alerts, store SF record ID) are not tracked as dependencies in WAGR",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "manual push",
+     "CMS-side reprocess",
+     "resync button",
+     "resync to Salesforce",
+     "Slack connector",
+     "error channel",
+     "dead letter",
+     "Pub/Sub",
+     "store Salesforce ID"
+    ],
+    "nearest_considered": [
+     "WAGR-265",
+     "WAGR-472",
+     "WAGR-88",
+     "WAGR-457",
+     "WAGR-5"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2109",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:37:34",
+     "line_start": 597,
+     "quote": "Kobi Kunasekaran: So um it would be good to have something like that on the CMS side that you know an admin can do. So it doesn't need to be a developer. / Kobi Kunasekaran: But it's always good to have a way to manually push / Emily Vandenberg: Yeah, he hasn't built that yet. I was checking in yesterday, but we will add it to the backlog."
+    },
+    {
+     "ledger_id": "L1921",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Strahinja Vladetic; Emily Vandenberg",
+     "timestamp": "00:18:45",
+     "line_start": 415,
+     "quote": "Joyce Kiddell: Um, is that a quick thing you could set up or if it isn't then don't worry about it. It would just be good for us to have like kind of real time / Strahinja Vladetic: Uh yeah, that's not a bad idea. / Strahinja Vladetic: It's it be good to get a Slack connector on there regardless. / Joyce Kiddell: I can add you to the existing one. / Joyce Kiddell: Are you doing that? / Emily Vandenberg: I do that."
+    },
+    {
+     "ledger_id": "L1305",
+     "date": "2026-07-24",
+     "meeting_title": "Wagertech <> Jumpr: API Testing for SLC Creation in SF",
+     "doc_link": "https://docs.google.com/document/d/1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY/edit",
+     "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+     "timestamp": "01:01:16",
+     "line_start": 873,
+     "quote": "Kobi Kunasekaran: Um, I would Yeah. And I would recommend storing that on the database. / Strahinja Vladetic: Yeah. / Kobi Kunasekaran: So then now you have a two-way lookup for troubleshooting. / Strahinja Vladetic: That makes / Strahinja Vladetic: sense."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2302",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:16:01",
+     "line_start": 275,
+     "quote": "Kobi Kunasekaran: Okay. Yeah. I think the pushing is something to have ready before we go into production so we have it tested / So the better option is uh from the CMS side have a have a button on the SLC level to reync to Salesforce. / Emily Vandenberg: Okay. Yeah, I just I just kind of backlogged it for the week, but we can pull it in before"
+    },
+    {
+     "ledger_id": "L2301",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:16:01",
+     "line_start": 272,
+     "quote": "Emily Vandenberg: Yeah, and I talked to Straw like we can he can re like write a script to repush anything that we need, but right now we don't have the functionality like reprocess from the CMS."
+    }
+   ],
+   "what_differs": "WagerTech agreed to add an admin-usable manual push/reprocess on the CMS side (backlog), a Slack connector for queue errors, and to store the Salesforce click record ID for two-way troubleshooting. On 2026-09-01 the CMS still had no reprocess function and Kobi wanted it tested before production. No WAGR ticket tracks these client-side dependencies; WAGR-265 is the Salesforce-side SLC reprocess button only.",
+   "suggested_action": "Suggestion only: add one client-dependency ticket (owner WagerTech) for CMS-side resend/reprocess and error alerting, with a pre-production test checkpoint, so the go-live readiness review can see it.",
+   "reasoning": "Decided client commitments in tier1 transcripts; not Jumpr build work, so severity Medium for go-live visibility rather than High. L2302 (proposed) shows it was still not committed scope on 2026-09-01.",
+   "feature_area": "CMS Integration",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMS-A-06",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "Client-agreed 'archive links only' rule (2026-09-30) is not in Jira; WAGR-509/463 still frame Link Archived as undecided and WAGR-491 allows deletes",
+   "jira": [
+    {
+     "key": "WAGR-509",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Affiliate Link — Evaluate and design Archived status / historical payload treatment",
+     "quote": "Capture the explicit follow-up for tomorrow's WagerTech review: decide whether Affiliate Links need their own terminal **Archived** state rather than relying only on Active/Inactive + Exclude from CMS.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-491",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "Affiliate Link — Exclude from CMS, publication markers and safe deletion",
+     "quote": "Never-published Link may be deleted through the guided confirmation path.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-463",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Deal lifecycle/CMS — close remaining design and contract follow-ups",
+     "quote": "Decide with WagerTech whether Affiliate Links gain an explicit Archived status.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3400",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:41:45",
+     "line_start": 824,
+     "quote": "Joyce Kiddell: Uh why don't we just only give the user the ability to archive links and then we would always have some sort of trail of what the links are within Salesforce and then we don't need any sort of log or history of links in the CMS, right? / Kobi Kunasekaran: that I think that's fine with me. That works."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3384",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:19:01",
+     "line_start": 607,
+     "quote": "Kobi Kunasekaran: But once I save this and it's in in the database, we um we won't be able to delete it once the deal is activated and it's synced to C uh CMS. / Kobi Kunasekaran: Um but basically uh what what we're doing is once once the deal is synced we can't delete uh the link but you can deactivate it."
+    },
+    {
+     "ledger_id": "L3401",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:41:45",
+     "line_start": 829,
+     "quote": "Kobi Kunasekaran: The I think the one thing that I wanted to just make sure and like confirm with straw is that if we send a payload without a link that it's not going to assume that it's automatically deleted. / Kobi Kunasekaran: But if we remove from the payload as the API endpoint set up today, it'll remove that link from the CMS."
+    }
+   ],
+   "what_differs": "On 2026-09-30 Joyce proposed that users only get the ability to archive links, so Salesforce keeps the trail and the CMS needs no link history, and Kobi agreed. Jira (WAGR-509 created 2026-10-02, WAGR-463) still lists this as a question for WagerTech, and WAGR-491 keeps a delete path for never-published links.",
+   "suggested_action": "Suggestion only: record the 2026-09-30 agreement on WAGR-509 (and the Confluence decision log), then confirm in the planned WagerTech review whether 'archive only' also removes the never-published delete path in WAGR-491. The CMS omission question (L3401) stays open as tracked.",
+   "reasoning": "Decided client ask with Jumpr agreement in a tier1 transcript; three tickets read in full (description + comments) and none records it. WAGR-509 mentions a later review, so the gap may close soon; confidence medium.",
+   "feature_area": "CMS Integration",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMS-A-07",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "CMS keeps a fixed Deal Status validation until Jumpr sends final values (2026-09-23); no ticket carries this hand-off",
+   "jira": [
+    {
+     "key": "WAGR-506",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "Deal — Final Deal Status value set (Draft, Active, Paused, Inactive, Closed, Archived)",
+     "quote": "This story defines values only; behavior belongs to lifecycle action stories.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-454",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses",
+     "quote": "Published Deal Status values are Active, Paused, Inactive, Closed and Archived. Review Required/Retired are obsolete.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-463",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Deal lifecycle/CMS — close remaining design and contract follow-ups",
+     "quote": "Confirm CMS final acceptance/display/terminal behavior for Deal Status = Archived.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2901",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Strahinja Vladetic; Kobi Kunasekaran",
+     "timestamp": "00:12:13",
+     "line_start": 360,
+     "quote": "Strahinja Vladetic: but uh I can open it up just so that it's free form for the for the most part just until we agree on whatever the the pick lists are / Kobi Kunasekaran: Okay. I mean, leave it as it is. I I'll get back to you. I'll confirm once we finalize and then if changes are needed,"
+    }
+   ],
+   "what_differs": "Strahinja offered to make the CMS deal-status validation free form; Kobi asked him to keep it and said he would confirm the final values. Jira changed the value set (Draft and Archived added, Review Required and Retired obsolete) but no ticket records sending the final list to Strahinja or checking that the CMS validation accepts it; WAGR-463 covers only Archived behaviour.",
+   "suggested_action": "Suggestion only: add an AC to WAGR-454 or WAGR-458 (staging verification) that the CMS deal-status validation is updated to Active/Paused/Inactive/Closed/Archived after Jumpr sends the final list, so staging sends do not fail with 4xx on status.",
+   "reasoning": "Decided tier1 agreement with a clear Jumpr action. Searched WAGR-39 children for Strah/validation/picklist; only Archived behaviour is tracked.",
+   "feature_area": "CMS Integration",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMS-A-08",
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "WAGR-464 (Redeposits workflow) lacks the 2026-09-21 path: WagerTech to scope moving the allocation tool into the CMS to reuse Salesforce hooks",
+   "jira": [
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "* Ops uploads the monthly allocation from Jay's tool.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2825",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "01:08:32",
+     "line_start": 956,
+     "quote": "Emily Vandenberg: And then we'll get a bit closer to on the inputs and uh from Jay. So we'll we'll break that down and then we can loop back. But agreed we need to kind of then scope out the integration and the and how we pull it into the CMS. So leave that with us. Um I ping Joyce on the side as well for that. So"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2816",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "00:24:28",
+     "line_start": 383,
+     "quote": "Joyce Kiddell: Yeah, like I I think the only way it works um to integrate would be like if we can move this into the CMS and then recreate a similar flow to what we're doing on like the deal assignment. / Kobi Kunasekaran: I think seeing what that is like through what Joyce was saying like if it makes sense to move that over to CMS so that we can leverage uh the existing hooks and everything we have with Salesforce / Lina Ceniccola: For sure. / Kobi Kunasekaran: And yeah, / Lina Ceniccola: I think it definitely that's the move."
+    }
+   ],
+   "what_differs": "At Redeposits Discovery Part 2, Emily said WagerTech will break down the tool inputs with Jay and scope the integration and how it is pulled into the CMS. WAGR-464 still describes an Ops upload from Jay's tool and asks 'Custom upload screen, or Data Loader?' with no mention of the CMS integration path or the pending WagerTech scoping.",
+   "suggested_action": "Suggestion only: add the CMS-integration option and the WagerTech scoping dependency to WAGR-464's open questions.",
+   "reasoning": "Client-owned decided action; L2816 (proposed) gives the direction. Cross-area (Redeposits) item found in the CMS ledger.",
+   "feature_area": "CMS Integration",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Deal Inactive status: Jira asserts 'informational only, CMS must not hide links' but the 2026-09-30 meeting asked WagerTech to confirm",
+   "why_unverified": "Jira captures an answer (WAGR-454, WAGR-506), so it is not a V8; no later meeting records client confirmation. Check the post-2026-09-30 WagerTech review.",
+   "ledger_ids": [
+    "L3407",
+    "L3274",
+    "L3398",
+    "L3392"
+   ],
+   "jira_keys": [
+    "WAGR-454",
+    "WAGR-506",
+    "WAGR-455",
+    "WAGR-463"
+   ]
+  },
+  {
+   "title": "Lens B candidate: SLC flow now matches deals by Deal External ID only (2026-09-01) but WAGR-5 comments still describe makeup fallback",
+   "why_unverified": "V3 (stale ticket) is outside lens A; not double-reported here.",
+   "ledger_ids": [
+    "L2285",
+    "L2492"
+   ],
+   "jira_keys": [
+    "WAGR-5"
+   ]
+  },
+  {
+   "title": "Lens B candidate: no Salesforce-side player dedup (CMS dedups, 2026-08-18) vs WAGR-28 still requiring duplicate-player blocking",
+   "why_unverified": "V2/V3 is outside lens A; area overlap with Players.",
+   "ledger_ids": [
+    "L1900",
+    "L1897"
+   ],
+   "jira_keys": [
+    "WAGR-28"
+   ]
+  },
+  {
+   "title": "Lens B candidate: Flow vs Apex left to Cedrick (2026-09-29) while WAGR-454/463 fix Queueable Apex as the single sender",
+   "why_unverified": "Possible V2/V3; Jira may reflect a later internal decision with no transcript.",
+   "ledger_ids": [
+    "L3301",
+    "L3179",
+    "L3184"
+   ],
+   "jira_keys": [
+    "WAGR-454",
+    "WAGR-463"
+   ]
+  },
+  {
+   "title": "Lens B candidate: WhatsApp integration agreed as a later phase (L0082, L0117, L0864) but WAGR-375 is Cancelled, not parked in Phase 2",
+   "why_unverified": "A ticket exists (Cancelled in Holding Pen), so not V1; phase/status question belongs to lens B.",
+   "ledger_ids": [
+    "L0082",
+    "L0117"
+   ],
+   "jira_keys": [
+    "WAGR-375"
+   ]
+  },
+  {
+   "title": "Lens B candidate: signup currency 'now comes from the deal' (2026-09-01) vs WAGR-404/WAGR-415 deriving currency from player country",
+   "why_unverified": "Cross-area (Sign-Up/Player); V2 outside lens A.",
+   "ledger_ids": [
+    "L2285"
+   ],
+   "jira_keys": [
+    "WAGR-404",
+    "WAGR-415"
+   ]
+  },
+  {
+   "title": "CMS rep-creation event pushes rep ID to Salesforce (2026-08-18) vs WAGR-390 'BA creation manual on both sides to start'",
+   "why_unverified": "WAGR-390 cites a later WagerTech feedback doc (not a transcript), which likely supersedes the meeting; automated push is noted there as a future possibility.",
+   "ledger_ids": [
+    "L1934",
+    "L1936"
+   ],
+   "jira_keys": [
+    "WAGR-390",
+    "WAGR-118",
+    "WAGR-183"
+   ]
+  },
+  {
+   "title": "Timeline of WagerTech's automated proof pull (affects automated lead-to-signup path) never answered",
+   "why_unverified": "Low materiality; asked only 'to get a sense of urgency'; belongs to Sign-Up/Storage areas.",
+   "ledger_ids": [
+    "L1203"
+   ],
+   "jira_keys": [
+    "WAGR-112"
+   ]
+  }
+ ],
+ "v9_reviewed_no_support": [],
+ "module_coverage": {
+  "area": "CMS Integration",
+  "jira_epics": [
+   "WAGR-39",
+   "WAGR-444",
+   "WAGR-3"
+  ],
+  "ticket_count": 83,
+  "uncovered_capabilities": [
+   {
+    "capability": "Postback event ingestion (operator server-to-server events stored against Sign-Up)",
+    "ledger_ids": [
+     "L0868",
+     "L0869",
+     "L0956"
+    ],
+    "note": "Decided 2026-07-08; zero WAGR issues mention postbacks, not even in Holding Pen or Phase 2."
+   },
+   {
+    "capability": "CMS-side resilience owned by WagerTech (manual push/reprocess, Slack error alerts, SF ID stored in CMS)",
+    "ledger_ids": [
+     "L2109",
+     "L2302",
+     "L1921",
+     "L1305"
+    ],
+    "note": "Client commitments; no dependency ticket. Salesforce-side reprocess exists (WAGR-265)."
+   },
+   {
+    "capability": "Player email update via CMS API (deferred)",
+    "ledger_ids": [
+     "L1899"
+    ],
+    "note": "Client-agreed deferral not parked anywhere."
+   },
+   {
+    "capability": "WhatsApp integration (client-agreed later phase)",
+    "ledger_ids": [
+     "L0082",
+     "L0117"
+    ],
+    "note": "Only a Cancelled Holding Pen ticket (WAGR-375); no live Phase 2 ticket."
+   },
+   {
+    "capability": "Redeposit allocation tool via CMS integration",
+    "ledger_ids": [
+     "L2816",
+     "L2825"
+    ],
+    "note": "WagerTech to scope; WAGR-464 does not mention the CMS path."
+   }
+  ],
+  "note": "SF to CMS Deals and Affiliate Links (WAGR-39, ~35 child tickets) is detailed and covers almost every 2026-09-29/30 decision (sync triggers, retry rules, manual/bulk retry, error email with payload, Link External ID, VIP exclusion, links not required). CMS to SF DRA is a later-phase epic (WAGR-444) with 4 open children. CMS to SF SLC and survey completion sit in WAGR-3, WAGR-46, WAGR-441, WAGR-415, WAGR-472, WAGR-473 (outside the area shortlist count of 83)."
+ },
+ "notes": "Lens A (V1/V5/V8) for CMS Integration. 359 ledger items read; 136 decided tier1 transcript non-status items checked against all 505 issue JSONs (description and every comment). Most decided items are covered: SF to CMS sync design in WAGR-39 children, DRA inbound in WAGR-444/WAGR-276, survey completion in WAGR-46/WAGR-441, player location in WAGR-415, UTC and lost clicks in WAGR-472, VIP in WAGR-432/435/491, WhatsApp in WAGR-375, discovery in WAGR-317. Excluded as not ticket-worthy or completed later: meeting logistics (L1809, L3361, L3397, L2563, L2989), doc actions later delivered (L0697, L1291, L1295, L1374, L1415, L1796, L1939, L2385, L2386), client actions later confirmed done (L1236, L1298, L1914, L1926, L2527, L2899), one-off interim CSV sync (L1800, superseded by L1914 and L2602), Flow POC (L3179, superseded by Apex decision in WAGR-463). No V8 met the bar: every material open question was answered in a later meeting or is captured in Jira (WAGR-456 omission semantics, WAGR-441 survey questions, WAGR-446 integration user, WAGR-454 effective dates). Postback routing (L0869) is folded into CMS-A-01. Ledger ends 2026-09-30; WAGR-509 refers to a later WagerTech review that may close CMS-A-06."
+}

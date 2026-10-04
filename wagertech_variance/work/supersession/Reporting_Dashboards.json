@@ -1,0 +1,232 @@
+[
+ {
+  "topic": "Reporting architecture: Salesforce as a data source, BI/warehouse joins outside Salesforce",
+  "current_truth_ledger_id": "L0542",
+  "superseded": [],
+  "refined": [
+   "L0332",
+   "L0363",
+   "L0410",
+   "L0447",
+   "L0537",
+   "L0541",
+   "L0543",
+   "L2507"
+  ],
+  "reversed": [],
+  "note": "Jun 23 tier1: Salesforce is one source; most use is pulling data out to join with operator data; Jumpr makes IDs joinable. This answers the Jun 17 question of importing operator reports into Salesforce (L0447). The BI tool is still not chosen; L2507 (Sep 11, proposed) recommends a warehouse/BI connector (e.g. Snowflake) over the API. WAGR-468 holds this as an open decision."
+ },
+ {
+  "topic": "DataBox as the reporting tool",
+  "current_truth_ledger_id": "L0545",
+  "superseded": [],
+  "refined": [
+   "L0543",
+   "L0546"
+  ],
+  "reversed": [],
+  "note": "Joyce to check the DataBox agreement (client action). No later meeting reports the outcome."
+ },
+ {
+  "topic": "Forecast (logged) vs actual (operator-tracked) gap analysis and operator reconciliation",
+  "current_truth_ledger_id": "L0539",
+  "superseded": [],
+  "refined": [
+   "L0069",
+   "L0094",
+   "L0095",
+   "L0416",
+   "L0417",
+   "L0418",
+   "L0421",
+   "L0433"
+  ],
+  "reversed": [],
+  "note": "L0417 (keep both, see the gap) and L0539 (match Salesforce sales data to affiliate data) are decided. Cross-area L0538 (Jun 23, decided) puts operator data outside Salesforce (Postgres), so the comparison runs outside Salesforce; Salesforce must keep logged sign-ups and joinable IDs."
+ },
+ {
+  "topic": "Website insights married to operator data",
+  "current_truth_ledger_id": "L0540",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Out of Jumpr scope; handled by Strahinja in Postgres. No ticket needed."
+ },
+ {
+  "topic": "Ops queue dashboard of sign-ups",
+  "current_truth_ledger_id": "L1215",
+  "superseded": [],
+  "refined": [
+   "L0755",
+   "L0756",
+   "L0783",
+   "L0784",
+   "L1177"
+  ],
+  "reversed": [],
+  "note": "Kobi to build a sign-ups dashboard of the reps' queue (Jul 22). Delivered as WAGR-285 (Done). Tier2/Gemini items about simple POC reports are earlier internal context (WAGR-25 Done)."
+ },
+ {
+  "topic": "Reports for fraud-flagged, waiting-for-review and duplicate sign-ups",
+  "current_truth_ledger_id": "L0834",
+  "superseded": [],
+  "refined": [
+   "L0782",
+   "L3151"
+  ],
+  "reversed": [],
+  "note": "Jumpr committed on Jul 7 (tier1). On Sep 25 (L3151, discussed) Emily asked again for an ops report to manage and confirm flagged sign-ups; Kobi said it will be separate from payout selection."
+ },
+ {
+  "topic": "Brand manager / team rollup reporting",
+  "current_truth_ledger_id": "L0395",
+  "superseded": [],
+  "refined": [
+   "L0889"
+  ],
+  "reversed": [],
+  "note": "Ideal state: brand-manager team rollups (Jun 17). Jul 8 (discussed): manager reporting on their teams, data scope to be figured out. Cross-area L2318 (Sep 1) snapshots the brand manager on the sign-up."
+ },
+ {
+  "topic": "Rep metrics must not penalize later conversions",
+  "current_truth_ledger_id": "L0571",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Reporting rule agreed by Joyce and Waleed (Jun 23). No later change found."
+ },
+ {
+  "topic": "Reporting feed into Google Sheets",
+  "current_truth_ledger_id": "L0970",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Kobi to scope (Jul 15). Earlier context L0903 (Jul 8, proposed, Data Migration): Salesforce reports exported to sheets via a Google Sheets add-on to keep unmigrated sheets connected. No later meeting reports the scoping outcome."
+ },
+ {
+  "topic": "FX conversion to CAD for reporting",
+  "current_truth_ledger_id": "L1025",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Fixed, manually updated rate decided by WagerTech. Matches WAGR-35 (Done, static rates)."
+ },
+ {
+  "topic": "Executive reporting mockups / visualize reporting needs",
+  "current_truth_ledger_id": "L0448",
+  "superseded": [],
+  "refined": [
+   "L1015"
+  ],
+  "reversed": [],
+  "note": "Joyce to email ideal-state executive mockups (Jun 17). Jul 15 (proposed): Miko suggested Emily sketch reporting needs. No later meeting confirms receipt."
+ },
+ {
+  "topic": "Total acquisition cost and commission reporting for P&L",
+  "current_truth_ledger_id": "L2317",
+  "superseded": [],
+  "refined": [
+   "L2333"
+  ],
+  "reversed": [],
+  "note": "Sep 1: TAC = deposit + commission, needed from sign-up data for P&L. Cross-area L3095/L3141/L3164 (Sep 25, decided): BA commission calculation stays outside Salesforce at launch; Salesforce supplies data. This changes where the commission part of TAC comes from but does not cancel the P&L need."
+ },
+ {
+  "topic": "Missing-relationship deal report replaces email automation",
+  "current_truth_ledger_id": "L2681",
+  "superseded": [],
+  "refined": [
+   "L2680"
+  ],
+  "reversed": [],
+  "note": "Internal Sep 17: automation 4 (email) cancelled, replaced by a (scheduled) report of deals without partner/relationship IDs. Report built per WAGR-384 comment; description still lists the email automation."
+ },
+ {
+  "topic": "Redeposit reporting (progress, spend, budget, tool inputs)",
+  "current_truth_ledger_id": "L3344",
+  "superseded": [],
+  "refined": [
+   "L2800",
+   "L2803",
+   "L2817",
+   "L3349",
+   "L3351"
+  ],
+  "reversed": [],
+  "note": "Several decided items: progress reporting (L2800), Salesforce reports feed the allocation tool (L2817), budget alerts and total spend by type deferred to the reporting build (L3344), company budget tracked outside Salesforce (L3349), bet credit counted as redeposit spend by period and deal (L3351). They do not conflict; each adds a requirement."
+ },
+ {
+  "topic": "Financial / payout reporting",
+  "current_truth_ledger_id": "L3160",
+  "superseded": [],
+  "refined": [
+   "L0099",
+   "L1812",
+   "L3093",
+   "L3144"
+  ],
+  "reversed": [],
+  "note": "Sep 25: separate scoping session for financial reporting (WAGR-468). L3144 adds the rule: use actual deposit if completed, else expected deposit. L0099/L3093 (cash-flow dashboard) are discussed goals, captured as later phase in WAGR-468."
+ },
+ {
+  "topic": "Deposit range compliance by term period",
+  "current_truth_ledger_id": "L3421",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Captured in WAGR-468 ('Deposits inside the Deal's min/max range')."
+ },
+ {
+  "topic": "CMS sync failure reports",
+  "current_truth_ledger_id": "L3300",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Covered by WAGR-457 (supersedes cancelled WAGR-120)."
+ },
+ {
+  "topic": "Sign-ups on paused / non-live deals",
+  "current_truth_ledger_id": null,
+  "superseded": [],
+  "refined": [
+   "L0520",
+   "L3391"
+  ],
+  "reversed": [],
+  "note": "No decided item. L3391 (proposed) offers reports/notifications; WAGR-488 covers reporting sign-ups against non-live deal states."
+ },
+ {
+  "topic": "Targets at deal rep assignment level",
+  "current_truth_ledger_id": null,
+  "superseded": [
+   "L0828"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "L0828 (Jul 7, proposed) superseded by cross-area L1013 (Jul 15, client-asked-not-agreed): rep-level targets are not in Phase 1 now."
+ },
+ {
+  "topic": "Timing and scope of reporting in Phase 1",
+  "current_truth_ledger_id": null,
+  "superseded": [],
+  "refined": [
+   "L0363",
+   "L0911"
+  ],
+  "reversed": [],
+  "note": "Only proposed items: reporting usually starts after go-live; a light version of reports could be added to Phase 1. No decision recorded."
+ },
+ {
+  "topic": "Miscellaneous context (no action)",
+  "current_truth_ledger_id": null,
+  "superseded": [],
+  "refined": [
+   "L0462",
+   "L0473",
+   "L0511",
+   "L0950"
+  ],
+  "reversed": [],
+  "note": "Status updates, Gemini-only or proposed items. See unverified_leads for L0511 and L0950."
+ }
+]

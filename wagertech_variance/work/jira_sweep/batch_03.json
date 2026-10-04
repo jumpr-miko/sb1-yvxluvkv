@@ -1,0 +1,792 @@
+{
+ "batch": "batch_03",
+ "issue_range": "WAGR-87..WAGR-132 (126, 128, 129 do not exist)",
+ "issues": [
+  {
+   "key": "WAGR-87",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1271",
+    "L1296",
+    "L1902",
+    "L1261"
+   ],
+   "search_terms": [],
+   "note": "Cleanup rule (keep accounts with external ID from client upload, delete the rest) matches the decided operator/partner import with external IDs. Done."
+  },
+  {
+   "key": "WAGR-88",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2072",
+    "L2286",
+    "L2285"
+   ],
+   "search_terms": [],
+   "note": "SLC flow error handling and duplicate-player work are discussed in meetings; the five specific bugs come from an internal trace, not a meeting."
+  },
+  {
+   "key": "WAGR-89",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1989",
+    "L2336",
+    "L2341"
+   ],
+   "search_terms": [],
+   "note": "Primary/secondary referral lists decided 2026-08-18; status column direction 2026-09-02. Comment drops Referral Status/Payment Status columns; consistent."
+  },
+  {
+   "key": "WAGR-90",
+   "status": "Cancelled",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2091"
+   ],
+   "search_terms": [],
+   "note": "Log Referral button question closed 2026-08-25; Jira Cancelled. Consistent."
+  },
+  {
+   "key": "WAGR-91",
+   "status": "Open",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1946",
+    "L1947"
+   ],
+   "search_terms": [],
+   "note": "Ticket says BA Status has four values incl. Inactive and that Inactive-vs-Terminated mapping is undefined; 2026-08-18 client meeting decided three statuses (Active, Paused, Terminated) and that terminating deactivates the user. See variance B03-01."
+  },
+  {
+   "key": "WAGR-92",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2665",
+    "L2664",
+    "L2093"
+   ],
+   "search_terms": [],
+   "note": "Validation blocking blank primary email confirmed and demonstrated to client 2026-09-17."
+  },
+  {
+   "key": "WAGR-93",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1741",
+    "L2100",
+    "L2299"
+   ],
+   "search_terms": [],
+   "note": "Source mandatory on deal and shown as a deal list column (2026-08-13, 2026-08-25, 2026-09-01). Consistent with Dynamic Forms required approach."
+  },
+  {
+   "key": "WAGR-94",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1009",
+    "L1353",
+    "L1668",
+    "L1081"
+   ],
+   "search_terms": [],
+   "note": "Reps cannot edit operator/partner; deal rep view read-only; DRA list read-only. Placeholder still needs a spec."
+  },
+  {
+   "key": "WAGR-95",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1008",
+    "L2861"
+   ],
+   "search_terms": [],
+   "note": "Weak: reps/ops work from DRA list views (proposed 2026-07-15); DRA list view column update asked 2026-09-23 (that ask itself is ticketed as WAGR-481)."
+  },
+  {
+   "key": "WAGR-96",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1008",
+    "L0887"
+   ],
+   "search_terms": [],
+   "note": "Rep DRA list filtered to own assignments proposed 2026-07-15; reps see only own records decided 2026-07-08."
+  },
+  {
+   "key": "WAGR-97",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2104",
+    "L2299",
+    "L2460"
+   ],
+   "search_terms": [],
+   "note": "Current sandbox deals are test data and will get new names/IDs; deal cleanup ongoing 2026-09-09. Hygiene note: step 3 (explicit clear of External Deal ID) and BUILD-272 references predate the 2026-09-29 pre-activation recompute rule (L3250) and WAGR-448/453; recheck before executing. Not raised as a variance."
+  },
+  {
+   "key": "WAGR-98",
+   "status": "Requirements",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L2495",
+    "L2496",
+    "L2500",
+    "L2510",
+    "L3262",
+    "L3263",
+    "L3416",
+    "L3396",
+    "L3397"
+   ],
+   "search_terms": [],
+   "note": "DECISION-07 still frames the decision on pre-2026-09-11 assumptions and leans to Option 1 (field history); later meetings decided a dated custom object for terms, a Retired/Archived status that releases the makeup, and CMS keys on External Deal ID. Versioning itself is still open (call with CMS side). See variance B03-02."
+  },
+  {
+   "key": "WAGR-99",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2499",
+    "L2564",
+    "L2603",
+    "L2605",
+    "L3250"
+   ],
+   "search_terms": [],
+   "note": "Makeup dedupe built and Done; closing comment (2026-09-29) points to WAGR-448/450/453 for the superseding design. Consistent."
+  },
+  {
+   "key": "WAGR-100",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1271",
+    "L1275",
+    "L1296",
+    "L2602"
+   ],
+   "search_terms": [],
+   "note": "Operator/partner external IDs decided 2026-07-24; Cedrick reported them done 2026-09-15. Jumpr Review consistent."
+  },
+  {
+   "key": "WAGR-101",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0707",
+    "L2965"
+   ],
+   "search_terms": [],
+   "note": "One market per deal; regional naming. Region formula Done."
+  },
+  {
+   "key": "WAGR-102",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2544",
+    "L2545"
+   ],
+   "search_terms": [],
+   "note": "Test checkbox on all objects under WAGR-102 decided 2026-09-14; Sign-Up/SLC already done by Cedrick; DRA in WAGR-103; Deal has Test_Deal__c."
+  },
+  {
+   "key": "WAGR-103",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2544"
+   ],
+   "search_terms": [],
+   "note": "Part of the 2026-09-14 'test checkbox on all objects' action."
+  },
+  {
+   "key": "WAGR-104",
+   "status": "Requirements",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L2496",
+    "L2497",
+    "L3262",
+    "L3264"
+   ],
+   "search_terms": [],
+   "note": "Card still in Requirements, unsized, waiting on answers that the 2026-09-11 and 2026-09-29 meetings gave (keep the counter; allow repeat makeup after retirement). WAGR-448 now carries 'retain automatic collision suffixing'. See variance B03-03."
+  },
+  {
+   "key": "WAGR-105",
+   "status": "Requirements",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "security notification",
+    "SaaScend",
+    "frozen user",
+    "security contact",
+    "MFA",
+    "anonymiz"
+   ],
+   "note": "Source is a Salesforce automated email and a Jumpr email to the client; no meeting item found."
+  },
+  {
+   "key": "WAGR-106",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2500",
+    "L2501",
+    "L2517",
+    "L2727",
+    "L2768",
+    "L3415"
+   ],
+   "search_terms": [],
+   "note": "Snapshot field list action 2026-09-11; decided 2026-09-18 and 2026-09-21 to attach the design doc and close the ticket. Hygiene: still in Jumpr Review, not closed; not raised (Jumpr Review = built pending review). Current requirements live in WAGR-462."
+  },
+  {
+   "key": "WAGR-107",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1650",
+    "L1690",
+    "L3436"
+   ],
+   "search_terms": [],
+   "note": "Fields confirmed in the 2026-08-11 client meeting, although the ticket says 'not confirmed in the transcript'. Overlaps WAGR-213 (same fields, Jumpr Review). The 2026-09-30 decision that redeposit requirements need their own dated lifecycle (L3436) is captured at design level in WAGR-462/WAGR-464, so not raised as a variance. Recommend merging or cancelling WAGR-107 into WAGR-213/WAGR-464."
+  },
+  {
+   "key": "WAGR-108",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2045",
+    "L2663",
+    "L2756"
+   ],
+   "search_terms": [],
+   "note": "Redeposit/payout backlog stories kept as placeholders until redeposit design is done (decided 2026-09-17)."
+  },
+  {
+   "key": "WAGR-109",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2045",
+    "L2663",
+    "L2756"
+   ],
+   "search_terms": [],
+   "note": "Same as WAGR-108; player payouts list waits on payout design."
+  },
+  {
+   "key": "WAGR-110",
+   "status": "Requirements",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1989",
+    "L2663"
+   ],
+   "search_terms": [],
+   "note": "Referrer shows payouts later (2026-08-18); placeholder kept per 2026-09-17."
+  },
+  {
+   "key": "WAGR-111",
+   "status": "Ready",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1957",
+    "L2044",
+    "L2663",
+    "L3092",
+    "L3100"
+   ],
+   "search_terms": [],
+   "note": "Placeholder 'do not build, next phase' matched the August position. Note: 2026-09-25 client meeting set this release's focus on referrer payout batching (L3100), which is the Pay Out Referrals action; design now sits in WAGR-465. Placeholder wording is stale but L2663 explicitly keeps these placeholders until design; not raised."
+  },
+  {
+   "key": "WAGR-112",
+   "status": "Requirements",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1548",
+    "L1540",
+    "L1549",
+    "L1552",
+    "L1606"
+   ],
+   "search_terms": [],
+   "note": "POC go-ahead 2026-08-04, walled garden, no compression/encryption, service account. Phase field = 2 while comment records client approval to proceed; no later meeting item on the POC after 2026-08-18."
+  },
+  {
+   "key": "WAGR-113",
+   "status": "Requirements",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1552",
+    "L1605",
+    "L1888"
+   ],
+   "search_terms": [],
+   "note": "Service account and shared folder prerequisites from WagerTech."
+  },
+  {
+   "key": "WAGR-114",
+   "status": "Open",
+   "phase": "2",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1733",
+    "L1886"
+   ],
+   "search_terms": [],
+   "note": "File-record vs URL storage discussed (gemini/tier2 only). On hold until POC."
+  },
+  {
+   "key": "WAGR-115",
+   "status": "Open",
+   "phase": null,
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "(empty ticket: no summary, no description)"
+   ],
+   "note": "Ticket has no summary or description; nothing to match. Recommend cancel or fill."
+  },
+  {
+   "key": "WAGR-116",
+   "status": "Cancelled",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L3290",
+    "L3297"
+   ],
+   "search_terms": [],
+   "note": "Cancelled, superseded by WAGR-451; sync status/retry decided 2026-09-29. Consistent."
+  },
+  {
+   "key": "WAGR-117",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0891",
+    "L2523"
+   ],
+   "search_terms": [],
+   "note": "One DRA per rep per deal with history child (2026-07-08); frequent DRA change handling deferred until links are in place (2026-09-11). Open status consistent with deferral."
+  },
+  {
+   "key": "WAGR-118",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1285",
+    "L2023"
+   ],
+   "search_terms": [],
+   "note": "Rep mapping via rep slug decided 2026-07-24; DRA managed in CMS."
+  },
+  {
+   "key": "WAGR-119",
+   "status": "Cancelled",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L3259"
+   ],
+   "search_terms": [],
+   "note": "Cancelled, superseded by WAGR-455/456/491; post-activation sync triggers decided 2026-09-29."
+  },
+  {
+   "key": "WAGR-120",
+   "status": "Cancelled",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L3385",
+    "L3297"
+   ],
+   "search_terms": [],
+   "note": "Cancelled, superseded by WAGR-457; errors on deal record plus admin alerts."
+  },
+  {
+   "key": "WAGR-121",
+   "status": "Cancelled",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L3246",
+    "L3254",
+    "L3377"
+   ],
+   "search_terms": [],
+   "note": "Cancelled, superseded by WAGR-450 activation gate."
+  },
+  {
+   "key": "WAGR-122",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0891",
+    "L0830"
+   ],
+   "search_terms": [],
+   "note": "One assignment record per rep per deal decided 2026-07-08. On hold pending CMS integration."
+  },
+  {
+   "key": "WAGR-123",
+   "status": "Cancelled",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1927",
+    "L1928",
+    "L3174"
+   ],
+   "search_terms": [],
+   "note": "Cancelled, superseded by WAGR-446; API key auth and named credential connected 2026-09-28."
+  },
+  {
+   "key": "WAGR-124",
+   "status": "Open",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "Link_Slug",
+    "link slug",
+    "DRA_Temp_Ext_Id",
+    "migration-only",
+    "retire migration",
+    "deprecate"
+   ],
+   "note": "Source is the CMS Integration Design doc. L1365 (rep link slug not needed on the Deal) is a different object; no meeting item on retiring DRA migration fields."
+  },
+  {
+   "key": "WAGR-125",
+   "status": "Requirements",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1330",
+    "L1753"
+   ],
+   "search_terms": [],
+   "note": "Logos for 60-70 operators for go-live; WagerTech sends logo files."
+  },
+  {
+   "key": "WAGR-127",
+   "status": "Open",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0887"
+   ],
+   "search_terms": [],
+   "note": "Reps see only their own records is a client 'deal breaker' (2026-07-08)."
+  },
+  {
+   "key": "WAGR-130",
+   "status": "In Progress",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1649"
+   ],
+   "search_terms": [],
+   "note": "Deposit range re-added, separate from redeposit range (2026-08-11). The later decision to move commercial terms (incl. deposit range) to a dated child object (L3269, L3416) is captured in WAGR-462; not raised."
+  },
+  {
+   "key": "WAGR-131",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2474",
+    "L2480",
+    "L3174"
+   ],
+   "search_terms": [],
+   "note": "CMS integration groundwork and named credential connection discussed."
+  },
+  {
+   "key": "WAGR-132",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "affiliate link internal notes",
+    "link notes",
+    "audit fields",
+    "Last Modified",
+    "affiliate link fields"
+   ],
+   "note": "Ticket says prototype-only. Only general affiliate-link-field backlog items exist (L2551, deprioritized 2026-09-14); nothing on notes/audit fields."
+  }
+ ],
+ "variances": [
+  {
+   "temp_id": "B03-01",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Brand Ambassador",
+   "title": "BA status automation ticket assumes an 'Inactive' BA status that the client removed on 2026-08-18",
+   "jira": [
+    {
+     "key": "WAGR-91",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-236 — Brand Ambassador: Status Automation (via User Active Checkbox)",
+     "quote": "Exact mapping not yet defined. BA Status (BUILD-202 / BA-1) has four values — Active, Paused, Inactive, Terminated — but the User object's Active checkbox is only a two-value boolean (checked/unchecked).",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-176",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-202 — Brand Ambassador: Object + Core Status",
+     "quote": "BA Status — Picklist: Active, Paused, Inactive, Terminated. Trimmed from an initial five-value list that included a Review status.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1946",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:47:53",
+     "line_start": 814,
+     "quote": "Joyce Kiddell: ...Kobi live, we're going to remove review. / Lina Ceniccola: if it's I think it's really only active, paused, or terminated cuz like they don't / Joyce Kiddell: Okay. Um so active uh paused and terminated are the / Joyce Kiddell: three statuses. Um brand manager cannot be easily added as like a"
+    },
+    {
+     "ledger_id": "L1947",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:50:24",
+     "line_start": 845,
+     "quote": "Kobi Kunasekaran: We terminating like are we talking about like deactivating the user from Salesforce as well? / Joyce Kiddell: Yes. / Lina Ceniccola: Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Jira (WAGR-91, and the BA-1 build ticket WAGR-176) uses four BA statuses including Inactive and says it is undefined whether user deactivation maps to Inactive or Terminated. The client meeting decided only Active, Paused and Terminated, and that terminating a BA deactivates the Salesforce user.",
+   "suggested_action": "Remove Inactive from the BA Status picklist spec (WAGR-176) and rewrite WAGR-91: Terminated <-> user deactivated (already in WAGR-79), Paused keeps the user active. Then decide if WAGR-91 is still needed or merges into WAGR-79.",
+   "checked_later_meetings": true,
+   "reasoning": "Tier1 client meeting, decided by Lina (ops owner) with Joyce confirming 'three statuses'. No later ledger item re-adds an Inactive BA status (later 'inactive' items concern referrers and deals). WAGR-91 was created 2026-08-25, after the decision. WAGR-176 is outside batch_03; included so the fix covers the build ticket.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "B03-02",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Deal",
+   "title": "DECISION-07 (deal versioning) still reflects pre-2026-09-11 assumptions and a reversed lean",
+   "jira": [
+    {
+     "key": "WAGR-98",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "DECISION-07 — Deal versioning when commercial terms change",
+     "quote": "**Jumpr's lean:** Option 1 now; Option 2 only if WagerTech needs historical-terms reporting — the Sign-Up already stamps its own payout, so Option 2 buys less than it appears to.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-98",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "DECISION-07 — Deal versioning when commercial terms change",
+     "quote": "The CMS allows one deal per Operator x Partner x Region x Vertical x Source, and an Inactive deal keeps its combination because it can be reactivated.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2496",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:15:00",
+     "line_start": 278,
+     "quote": "Emily Vandenberg: … So like I don't want to say that could never happen, right? Like because in the future we will need to go potentially and have and assign a bet MGM direct jersey deal like that that will be / Emily Vandenberg: a scenario. And if we would have like been operating off of you know not having this kind of sorted and like it being not being able to create a new um deal for that because it was once deleted from like that unique makeup perspective like we would have been completely blocked."
+    },
+    {
+     "ledger_id": "L3262",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:28:17",
+     "line_start": 361,
+     "quote": "Kobi Kunasekaran: So to get around that, that's where we have the retired status. And I scoped this out as well. So when a deal is retired, um this is the only time where we update the deal makeup key / Kobi Kunasekaran: whatever the current deal makeup key is, once the deal is retired, we'll just add the Salesforce deal ID and a dash r to indicate that it's retired. This way it releases a deal makeup key / Cedrick Infantado: Yeah, makes sense."
+    },
+    {
+     "ledger_id": "L3263",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:29:48",
+     "line_start": 370,
+     "quote": "Kobi Kunasekaran: also talked about in the in the last meeting where stra was in uh we said that they he's like they're not going to do any enforcement of unique deal makeup. Um, they're just going to make sure that like we we're we're going to operate with the deal external ID specifically. So, as long as we keep the same deal ID on this retired deal, um, any changes to that deal is just going to upsert into uh the existing record."
+    },
+    {
+     "ledger_id": "L3416",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:05:01",
+     "line_start": 1050,
+     "quote": "Kobi Kunasekaran: So if we need to track how a commercial terms uh changes over the uh lifetime of the deal uh that becomes a custom object underneath it. / Kobi Kunasekaran: But it sounds like we do need that historical tracking ability. So, uh the separate object is warranted."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3396",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "00:35:40",
+     "line_start": 751,
+     "quote": "Kobi Kunasekaran: Um we can start introducing like the concept of hierarchies uh where you have like uh container that holds different versions of the same makeup if and then we can roll up all the numbers to the parent level. / Joyce Kiddell: I think that makes sense. It's like a version history. / Kobi Kunasekaran: Mhm. But I think I think for that we just need to like think with the CMS side, right?"
+    },
+    {
+     "ledger_id": "L3397",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:36:53",
+     "line_start": 762,
+     "quote": "Kobi Kunasekaran: Because that I have a feeling that's going to change how your workflows are uh being done on the CMS side. / Emily Vandenberg: Okay, we can set up a call to kind of chat that through."
+    }
+   ],
+   "what_differs": "The ticket assumes the CMS blocks any repeat makeup and leans to editing terms in place with field history. Later meetings decided a new deal must be allowed on a previously used makeup, a Retired (now 'Archived') status releases the makeup key, the CMS keys on External Deal ID, and commercial terms history is a custom child object. Deal versioning itself is still open, pending a call with the CMS side.",
+   "suggested_action": "Rewrite DECISION-07 to the current position: terms history = custom object (WAGR-462), same-makeup reuse = Archived status (WAGR-448). Keep only the open question (versions under a parent container) and link the CMS-side call Emily will set up.",
+   "checked_later_meetings": true,
+   "reasoning": "All cited items are tier1 transcript, firmness decided (L3396 is proposed and is used only as later context showing versioning is still open). The ticket's last comment is 2026-09-10; nothing on it reflects the 2026-09-11, 2026-09-29 or 2026-09-30 outcomes.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "B03-03",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Deal",
+   "title": "External Deal ID suffix card (BUILD-276) is still open and unsized although the question was answered and WAGR-448 now owns it",
+   "jira": [
+    {
+     "key": "WAGR-104",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-276 — Deal: External Deal ID version suffix — remove, replace, or keep",
+     "quote": "This card holds that scope. It is deliberately unsized and has no acceptance criteria yet; both follow from the 2026-09-11 sync and from DECISION-07.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2496",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:15:00",
+     "line_start": 278,
+     "quote": "Emily Vandenberg: … So like I don't want to say that could never happen, right? Like because in the future we will need to go potentially and have and assign a bet MGM direct jersey deal like that that will be / Emily Vandenberg: a scenario. And if we would have like been operating off of you know not having this kind of sorted and like it being not being able to create a new um deal for that because it was once deleted from like that unique makeup perspective like we would have been completely blocked."
+    },
+    {
+     "ledger_id": "L2497",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:16:04",
+     "line_start": 292,
+     "quote": "Kobi Kunasekaran: … we already have logic built in to add in like an incremental counter if somebody creates the same deal with the same makeup um that results in the same ID. / Kobi Kunasekaran: And then uh with Salesforce driving the external ids, as long as CMS is able to accept those as is, we're good there."
+    },
+    {
+     "ledger_id": "L3262",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:28:17",
+     "line_start": 361,
+     "quote": "Kobi Kunasekaran: So to get around that, that's where we have the retired status. And I scoped this out as well. So when a deal is retired, um this is the only time where we update the deal makeup key / Kobi Kunasekaran: whatever the current deal makeup key is, once the deal is retired, we'll just add the Salesforce deal ID and a dash r to indicate that it's retired. This way it releases a deal makeup key / Cedrick Infantado: Yeah, makes sense."
+    },
+    {
+     "ledger_id": "L3264",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:30:59",
+     "line_start": 375,
+     "quote": "Kobi Kunasekaran: The deal external ID formula I believe it's already built to add like a 001 at the end so that it's always going to be unique. / Kobi Kunasekaran: so the deal makeup ID is not something we send through the uh API. This is internal only. Uh and we use this uh to dduplicate deal creation. / Cedrick Infantado: I thought that's the external ID. So for the external ID it would remain the same and for the new one that / Kobi Kunasekaran: Correct."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The card waits on the 2026-09-11 sync to choose remove/replace/keep for the -002 counter. That sync and the 2026-09-29 walkthrough decided to keep the counter and allow a repeat makeup once the old deal is retired; WAGR-448 now states 'Keep existing automatic collision suffixing'. The card was not updated after 2026-09-14.",
+   "suggested_action": "Close or cancel WAGR-104 with a pointer to WAGR-448 (direction: keep the counter; release makeup on Archived).",
+   "checked_later_meetings": true,
+   "reasoning": "Hygiene: the current design exists in WAGR-448, so delivery risk is low, but an open Requirements card invites rework on a settled point. Later 2026-09-30 versioning talk (L3396/L3413) does not reopen the suffix choice.",
+   "auto_checks": []
+  }
+ ],
+ "gaps_noticed": [
+  {
+   "ledger_id": "L2860",
+   "topic": "Brand Ambassador tab",
+   "note": "2026-09-23 tier1 decided: Kobi asked for a low-priority Jira ticket to add a Brand Ambassador tab (no BA tab exists; fastest path is via DRA). Searched jira_digest and raw issues for 'ambassador', 'BA tab', 'tab', 'navigation': no ticket found (nearest WAGR-176, WAGR-412, WAGR-482)."
+  }
+ ],
+ "notes": "43 issues. Hygiene items noted but not raised: WAGR-107 duplicates WAGR-213; WAGR-106 decided-to-close but still Jumpr Review; WAGR-115 is empty; WAGR-97 steps predate the 2026-09-29 pre-activation recompute rule; WAGR-111 placeholder wording predates the 2026-09-25 referrer payout batching focus (design in WAGR-465)."
+}

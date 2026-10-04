@@ -1,0 +1,588 @@
+{
+ "area": "Storage / Proofs",
+ "variances": [
+  {
+   "temp_id": "STORAGE_PROOFS-01",
+   "category": "V4",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Storage / Proofs",
+   "title": "WAGR-32 (Proof Files object, upload component, storage service) is Done, but the storage build was never delivered and is on hold",
+   "jira": [
+    {
+     "key": "WAGR-32",
+     "status": "Done",
+     "assignee": "Unassigned",
+     "summary": "BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service",
+     "quote": "Governed proof storage: Proof Files object with category metadata, an upload component on Sign-Up, a storage service writing to the selected platform, and proof-completion logic.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-32",
+     "status": "Done",
+     "assignee": "Unassigned",
+     "summary": "BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service",
+     "quote": "Storage build gated on client GCP prerequisites (service account, DWD, shared drive, file types/max size).",
+     "quote_source": "comment by (no author name) 2026-07-29"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0865",
+     "date": "2026-07-08",
+     "meeting_title": "Wagertech <> Jumpr: Onsite",
+     "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:15:12",
+     "line_start": 306,
+     "quote": "Kobi Kunasekaran: what we've done is we've set up these check boxes um that reps will have to check manually right now. Um this will drive the proof completion status. / Kobi Kunasekaran: Sorry this is all manual because like we haven't built out all the interfaces"
+    },
+    {
+     "ledger_id": "L1931",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:30:12",
+     "line_start": 562,
+     "quote": "Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead"
+    },
+    {
+     "ledger_id": "L2113",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:39:33",
+     "line_start": 617,
+     "quote": "Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1932",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:30:12",
+     "line_start": 565,
+     "quote": "Kobi Kunasekaran: ...are are we good with like for the time being like if we start pressing the like a setup workflow with reps that the expectation is you just base links for the different proofs in Salesforce. / Joyce Kiddell: Mhm. Mhm."
+    }
+   ],
+   "what_differs": "Jira marks the storage build story Done. The meetings say the upload interfaces are not built, storage was paused on 2026-08-18 and is still on hold on 2026-08-25, and reps only paste proof links into URL fields.",
+   "suggested_action": "Reopen WAGR-32 or set it to an On Hold/Cancelled state with a comment, or split it: close the delivered bridge (URL fields, proof status) and move the remaining Proof Files object, upload component and storage service into an open ticket under WAGR-31. Today no open ticket holds the post-POC storage build.",
+   "checked_later_meetings": true,
+   "reasoning": "WAGR-32's own last comment (2026-07-29) says the storage build is gated on client prerequisites; no comment records delivery. WAGR-112 (POC) and WAGR-114 (container) are open, but WAGR-112 says the build is authorised separately after the POC, so the ~49h build has no open ticket. Full ledger grep after 2026-08-25 shows no storage restart.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "STORAGE_PROOFS-02",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Storage / Proofs",
+   "title": "WAGR-112 / epic WAGR-31 still read 'approved to proceed'; the 2026-08-18 pause and 2026-08-25 hold are not recorded",
+   "jira": [
+    {
+     "key": "WAGR-112",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "BUILD-93 — Google Drive proof storage: Proof of Concept (12h)",
+     "quote": "**APPROVED TO PROCEED — 2026-08-04. Client explicitly reprioritised this ahead of the CMS API work.**",
+     "quote_source": "comment by (no author name) 2026-08-10"
+    },
+    {
+     "key": "WAGR-31",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Epic H — Sign-Up Proofs & Storage",
+     "quote": "Proof Files object, upload component, storage service (platform decision pending client), and proof completion logic.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-114",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "BUILD-95 — Cloud_File__c generic file container (8h)",
+     "quote": "On Hold until POC Completed",
+     "quote_source": "comment by (no author name) 2026-08-10"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1931",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:30:12",
+     "line_start": 562,
+     "quote": "Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead"
+    },
+    {
+     "ledger_id": "L2113",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:39:33",
+     "line_start": 617,
+     "quote": "Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1548",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "00:52:23",
+     "line_start": 625,
+     "quote": "Kobi Kunasekaran: ... like for the purpose of the PC, I want to make sure that we're able to send the files, uh, build out the API calls and everything, get those working, and then we can, uh, talk through the actual like locations, folder structure, and everything, um, as an iterative process. / Joyce Kiddell: You're not you're not blocked on that piece. / Joyce Kiddell: Like you can just do this. / Emily Vandenberg: like if everything else is like pretty like standard to what we've talked about, nothing like deviates from I think like what we've been talking around here, Kobe, then I think you're good."
+    }
+   ],
+   "what_differs": "The latest WAGR-112 comment records the 2026-08-04 go-ahead and says the client put storage ahead of the CMS work. On 2026-08-18 the client paused proof storage for a possible alternate solution and Jumpr moved focus to the deal/CMS work; on 2026-08-25 storage was confirmed on hold.",
+   "suggested_action": "Add a dated comment on WAGR-112, WAGR-113, WAGR-114 and WAGR-31 that storage is on hold pending WagerTech's alternate-solution decision (2026-08-18 / 2026-08-25 syncs), and that the interim is pasted proof URLs.",
+   "checked_later_meetings": true,
+   "reasoning": "WAGR-112 status (Requirements) and its custom Status 'Awaiting Client Feedback' do not contradict a hold, so this is a stale-text issue, not a status mismatch. The approval comment points readers to the superseded 08-04 decision. WAGR-114's 'On Hold until POC Completed' gives the wrong reason for the hold.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "STORAGE_PROOFS-03",
+   "category": "V8",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Storage / Proofs",
+   "title": "WagerTech's alternate proof solution and whether Salesforce must accept proof data by API are unresolved and not tracked in Jira",
+   "jira": [
+    {
+     "key": "WAGR-32",
+     "status": "Done",
+     "assignee": "Unassigned",
+     "summary": "BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service",
+     "quote": "Storage platform confirmation (GCP selected pending client's technical sign-off) — do not start the storage service until confirmed.",
+     "quote_source": "description (Open Questions)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0977",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:15:33",
+     "line_start": 344,
+     "quote": "Emily Vandenberg: I think like if we were to build this tool, we would then just like send you uh we'd send Salesforce kind of like confirmation of the completion statuses for each versus you doing the Salesforce doing the heavy lifting on storage and um upload. / Emily Vandenberg: leaning towards sending them information through the API versus them having to build for it."
+    },
+    {
+     "ledger_id": "L0978",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:16:46",
+     "line_start": 349,
+     "quote": "Kobi Kunasekaran: what we already have is are these check boxes on the signups, right? So whether these checkboxes are checked manually by the reps or through the API / Kobi Kunasekaran: by extension, I'm also assuming we're not like required to have the list of those like proof files within Salesforce either at this time. / Emily Vandenberg: at this time. / Emily Vandenberg: No, at this time we we just like want to kind of just like pause on solutioning for what we want to do / Emily Vandenberg: with this other than being able to accept information."
+    },
+    {
+     "ledger_id": "L1931",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:30:12",
+     "line_start": 562,
+     "quote": "Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead"
+    },
+    {
+     "ledger_id": "L2113",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:39:33",
+     "line_start": 617,
+     "quote": "Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0846",
+     "date": "2026-07-07",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:54:13",
+     "line_start": 650,
+     "quote": "Emily Vandenberg: So question we had or straw had was like is the option of like doing the upload outside of Salesforce and then pushing like reference um like a reference data point back to Salesforce something we could do relatively easily. / Kobi Kunasekaran: we could also have URL fields like three URL fields and um you could update those fields through the API from external system to fill that in and we could have it so that when that's filled the respective checkbox is checked that will drive the proof completion that will then drive the signup completion. So yes absolutely we can do that. / Kobi Kunasekaran: But if you're doing all of that uh externally and you're you have the signup ID, like the exact signup that you're sending the proofs for and you're sending it directly there, then I don't think there's like anything else besides just adding the fields for you to fill / Kobi Kunasekaran: out."
+    }
+   ],
+   "what_differs": "Meetings left open whether WagerTech's own tool will hold proofs and send proof URLs or completion status to Salesforce by API. Jira's only open question still frames the decision as GCP sign-off and no ticket covers an inbound proof API.",
+   "suggested_action": "Add an open-question or decision ticket under WAGR-31 for the WagerTech alternate-solution decision, with owner and date, and note the inbound-API option (sign-up ID + proof URLs to the URL fields) so it can be sized if chosen. Raise it at the next weekly sync.",
+   "checked_later_meetings": true,
+   "reasoning": "Grep of ledger after 2026-08-25 shows no storage/proof-API decision. Grep of all 505 Jira issues for proof + API/inbound/postback/alternate found nothing. WAGR-112's custom Status 'Awaiting Client Feedback' partly signals the wait, hence medium confidence.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "STORAGE_PROOFS-04",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Storage / Proofs",
+   "title": "Client walkthrough of the proof upload interface (agreed with Joyce) has no ticket or acceptance step",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "upload interface",
+     "walk through",
+     "walkthrough",
+     "review upload",
+     "upload component",
+     "upload pattern",
+     "Upload Proof button"
+    ],
+    "nearest_considered": [
+     "WAGR-32",
+     "WAGR-112",
+     "WAGR-114"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1551",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:55:12",
+     "line_start": 663,
+     "quote": "Joyce Kiddell: Yeah. And I the one thing I will care about is like the upload interface. So talking through kind of when what that looks like when we get to that / Kobi Kunasekaran: Okay."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1931",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:30:12",
+     "line_start": 562,
+     "quote": "Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead"
+    },
+    {
+     "ledger_id": "L2113",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:39:33",
+     "line_start": 617,
+     "quote": "Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that"
+    }
+   ],
+   "what_differs": "Joyce asked to talk through the upload interface when the work reaches that stage and Kobi agreed. No Jira ticket, AC or comment records this client review step; WAGR-32 lists the upload pattern only as an open question.",
+   "suggested_action": "When storage resumes, add the client upload-interface walkthrough as an AC on the upload-component ticket (or a review task under WAGR-31).",
+   "checked_later_meetings": true,
+   "reasoning": "Decided tier1 commitment to the client; low severity because storage is on hold. WAGR-112 comment covers the POC scope boundaries but not this review.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "STORAGE_PROOFS-05",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Storage / Proofs",
+   "title": "Proof retention rule (retrievable possibly indefinitely for fraud) and Jumpr's archiving-option research have no ticket",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "retention",
+     "indefinite",
+     "archive",
+     "archiving",
+     "cold storage",
+     "30 day",
+     "third-party",
+     "1 TB",
+     "file storage extension"
+    ],
+    "nearest_considered": [
+     "WAGR-32",
+     "WAGR-321",
+     "WAGR-362",
+     "WAGR-114"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0680",
+     "date": "2026-07-02",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1kuuQd6CVZyatxvznKIOeYyLTZu76r2Qk8T7qQgUDbRg/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:29:28",
+     "line_start": 378,
+     "quote": "Joyce Kiddell: Yeah, the 30 days is kind of arbitrary. Lena, do you see like a world where like the players or ops will have to like not players / Lina Ceniccola: Yes. Um if if there is a case of fraud that isn't somehow it like slips under the rug. Oh, one second. Sorry. / Joyce Kiddell: I agree that we'll we'll want to go back in time like probably to an indefinite period / Joyce Kiddell: But it's not like we need every single proof like queryable like like accessible through Salesforce every single time. You know what I mean?"
+    },
+    {
+     "ledger_id": "L0681",
+     "date": "2026-07-02",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1kuuQd6CVZyatxvznKIOeYyLTZu76r2Qk8T7qQgUDbRg/edit",
+     "speakers": "Miko Sumagang; Joyce Kiddell",
+     "timestamp": "00:28:24",
+     "line_start": 364,
+     "quote": "Miko Sumagang: So if you are looking to have like an automatic archiving tool um we could like as a a takeaway we could like look at some options like for you then maybe like a combination between that third party tool plus um a license a file storage extension of like one terabyte should be like sufficient for you all. / Joyce Kiddell: That sounds good to me, especially if it cuts down on the build"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0688",
+     "date": "2026-07-02",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1kuuQd6CVZyatxvznKIOeYyLTZu76r2Qk8T7qQgUDbRg/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "00:44:05",
+     "line_start": 546,
+     "quote": "Joyce Kiddell: let's do it. No, no, I'm converted. That makes sense. / Lina Ceniccola: Yeah. / Emily Vandenberg: Yeah, I think like that's where we're leaning. / Emily Vandenberg: Yeah, maybe we just like quickly take it offline by and confirm. / Emily Vandenberg: but let's just get you final confirmation and review a little bit closer with"
+    }
+   ],
+   "what_differs": "The client said proofs must stay retrievable back to an indefinite period for fraud cases, and Miko took away researching an archiving tool plus a 1 TB extension. Jira has no retention rule; WAGR-32 says 'Automated archiving (client researching third-party tools).' (Out of Scope), which names the client, not Jumpr, as owner; WAGR-321 only lists 'retention period' as a question.",
+   "suggested_action": "Add the retention requirement as an AC on the storage design (WAGR-114 / future build ticket). Confirm with Joyce whether the archiving research is still needed under the Drive direction, and close it with a note if not.",
+   "checked_later_meetings": true,
+   "reasoning": "L0680/L0681 are tier1 decided. The archiving research may be moot after the same meeting leaned to GCP (L0688), hence Low.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "STORAGE_PROOFS-06",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Storage / Proofs",
+   "title": "Miko's follow-up on whether Snowflake can store proof images/videos has no ticket and no recorded answer",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "Snowflake",
+     "blob",
+     "media",
+     "images",
+     "videos"
+    ],
+    "nearest_considered": [
+     "WAGR-321",
+     "WAGR-468"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0043",
+     "date": "2026-05-27",
+     "meeting_title": "Jumpr <> WagerTech: Salesforce PRD Review",
+     "doc_link": "https://docs.google.com/document/d/1Ha5oDS_JGfc-esDrrTVH_KnFVlX5hAYUzSz7dVUOmo4/edit",
+     "speakers": "Joyce Kiddell; Miko Sumagang",
+     "timestamp": "00:32:36",
+     "line_start": 494,
+     "quote": "does it have the capability of storing like images and videos and would you recommend / Miko Sumagang: it stores it as blobs. So like they'll have to like transform it like back into like the system like afterwards. Um as far as like I remember things may have like changed. / So like I wouldn't like recommends it like right right like away. U but like let me get back to you like on that just in case that there's been updates."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Miko said he would get back to Joyce on Snowflake media storage. No ticket or later meeting closes it; WAGR-321 compares storage options without Snowflake, and WAGR-468 mentions Snowflake only for BI.",
+   "suggested_action": "Close the loop with a one-line answer to Joyce (likely: not recommended; Drive direction chosen) or log it as a closed spike note on WAGR-321.",
+   "checked_later_meetings": true,
+   "reasoning": "Tier1 decided action item; practically overtaken by the storage options work, so Low.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "STORAGE_PROOFS-07",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "low",
+   "feature_area": "Storage / Proofs",
+   "title": "Project shared drive set-up (internal kickoff action) has no ticket",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "shared drive",
+     "share drive",
+     "project folder",
+     "Google Drive folder",
+     "transcripts"
+    ],
+    "nearest_considered": [
+     "WAGR-113"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0261",
+     "date": "2026-06-11",
+     "meeting_title": "Wagertech Internal Kickoff",
+     "doc_link": "https://docs.google.com/document/d/1VLSpzYsg65ncEtNqzm0T5PuAXzpSCysaRlYfhVCnRAU/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:51:37",
+     "line_start": 689,
+     "quote": "Kobi Kunasekaran: We'll do like a share drive together."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Kobi said the team would set up a shared drive together. No Jira item tracks it; WAGR-113's shared drive is the client's proof Shared Drive, not the project drive.",
+   "suggested_action": "Probably no ticket needed (internal project admin). Confirm it exists and drop this item, or track it in the PM board.",
+   "checked_later_meetings": true,
+   "reasoning": "Listed for gap completeness only; this is internal project administration bucketed into Storage / Proofs, and it may already be done outside Jira.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Wager proof 'optional' (07-17) vs completion % that counts Wager Proof as one of 10 criteria (WAGR-199) and 3/3 proof indicator (WAGR-226)",
+   "why_unverified": "Jira records a later client decision (Open Questions doc, 2026-07-28/08-10) adding Wager Proof to completion, which is outside the meeting ledger; L2337 says Ops can still complete below 100% when the wager proof is missing, so the two may be consistent. Confirm WAGR-474 states that a missing wager proof does not block completion.",
+   "ledger_ids": [
+    "L1094",
+    "L1096",
+    "L2337"
+   ],
+   "jira_keys": [
+    "WAGR-199",
+    "WAGR-226",
+    "WAGR-474",
+    "WAGR-293"
+   ]
+  },
+  {
+   "title": "AI extraction of sign-up/deposit/wager dates from proof screenshots",
+   "why_unverified": "client ask not agreed; no ticket",
+   "ledger_ids": [
+    "L0078",
+    "L0687",
+    "L1095"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "30-day live / archive older proofs to cold storage rule",
+   "why_unverified": "client ask not agreed; no ticket (called arbitrary in the same meeting; retention captured as STORAGE_PROOFS-05)",
+   "ledger_ids": [
+    "L0679"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Automated audits of proof images (amount matching) outside Salesforce",
+   "why_unverified": "client ask not agreed; no ticket (discussed as not a Salesforce function; no scope decision)",
+   "ledger_ids": [
+    "L0723"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Proof deletion / replacement edge cases to raise with client",
+   "why_unverified": "tier2 internal item only; WAGR-114 partly covers (Status Active/Superseded, orphan cleanup) but no later meeting shows the client was asked",
+   "ledger_ids": [
+    "L1886"
+   ],
+   "jira_keys": [
+    "WAGR-114"
+   ]
+  },
+  {
+   "title": "Kobi to check POC access and set up Google service accounts (record steps)",
+   "why_unverified": "tier2 internal action items; overtaken by the same-day client pause (L1931)",
+   "ledger_ids": [
+    "L1890",
+    "L1891"
+   ],
+   "jira_keys": [
+    "WAGR-112",
+    "WAGR-113"
+   ]
+  },
+  {
+   "title": "Drive folder hierarchy / naming and per-rep walled-garden visibility only live in a WAGR-112 comment",
+   "why_unverified": "items are proposed/open (L1542, L1568) or belong to Access area (L1540); recorded in Jira as 'not final', so no variance while storage is on hold",
+   "ledger_ids": [
+    "L1540",
+    "L1542",
+    "L1568"
+   ],
+   "jira_keys": [
+    "WAGR-112"
+   ]
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-360",
+  "WAGR-362",
+  "WAGR-188"
+ ],
+ "module_coverage": {
+  "area": "Storage / Proofs",
+  "jira_epics": [
+   "WAGR-31"
+  ],
+  "ticket_count": 8,
+  "ticket_keys": [
+   "WAGR-32",
+   "WAGR-112",
+   "WAGR-113",
+   "WAGR-114",
+   "WAGR-309",
+   "WAGR-321",
+   "WAGR-360",
+   "WAGR-362"
+  ],
+  "note": "Epic WAGR-31 (Phase 2) has one parented child (WAGR-32). WAGR-112/113/114/360/362 carry the Epic custom field 'Sign-Up Proofs & Storage' but no parent link. Proof fields on Sign-Up are covered outside the epic by WAGR-7, WAGR-275, WAGR-199, WAGR-226, WAGR-346, WAGR-426, WAGR-432; agreement/other files by WAGR-188, WAGR-201, WAGR-231, WAGR-236.",
+  "uncovered_capabilities": [
+   {
+    "capability": "Post-POC storage build (upload component + storage service, ~49h)",
+    "ledger_ids": [
+     "L1539",
+     "L1548",
+     "L1931",
+     "L2113"
+    ],
+    "note": "WAGR-32 is Done and WAGR-112 says the build is authorised separately; no open build ticket exists (see STORAGE_PROOFS-01)."
+   },
+   {
+    "capability": "Inbound proof data from a WagerTech external tool via API",
+    "ledger_ids": [
+     "L0846",
+     "L0977",
+     "L0978",
+     "L1931"
+    ],
+    "note": "No ticket or open question (see STORAGE_PROOFS-03)."
+   },
+   {
+    "capability": "Proof retention / archiving",
+    "ledger_ids": [
+     "L0680",
+     "L0681"
+    ],
+    "note": "No ticket; WAGR-32 lists archiving out of scope as client-researched (see STORAGE_PROOFS-05)."
+   },
+   {
+    "capability": "Client review of the upload interface",
+    "ledger_ids": [
+     "L1551"
+    ],
+    "note": "No ticket/AC (see STORAGE_PROOFS-04)."
+   },
+   {
+    "capability": "Drive folder mapping logic and per-rep proof visibility",
+    "ledger_ids": [
+     "L1540",
+     "L1541",
+     "L1542",
+     "L1568"
+    ],
+    "note": "Only in a WAGR-112 comment; no ticket cluster. Open by design until storage resumes."
+   }
+  ]
+ },
+ "notes": "Area TSV contains mis-bucketed issues with no storage content: WAGR-63, WAGR-207, WAGR-288, WAGR-349, WAGR-400, WAGR-499 (not examined further). WAGR-360 (Drive Labels) and WAGR-362 (Dropbox migration) come from the Drive Storage doc, not a meeting decision; L0722 only discusses cutting Dropbox users. Hygiene outside this area: WAGR-201 is in Jumpr Review but its 2026-08-24 comment says 'Not yet built'. Covered (no variance): L0684 manual fallback (WAGR-275 URL fields), L1096/L1932 URL fields (WAGR-275, WAGR-32 comment, WAGR-226, WAGR-199), L1541/L1549 Google-side boundary (WAGR-112 comment, WAGR-113), L1776 agreements as SF files (WAGR-231/201), L1789 operator files (WAGR-236), L2957 VIP proofs (WAGR-432), early storage action items L0330/L0583/L0584/L0590/L0591/L0600 (WAGR-321 spike, Drive Storage doc). Gemini-notes-only and tier2 items were used as context only."
+}

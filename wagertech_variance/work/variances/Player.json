@@ -1,0 +1,962 @@
+{
+ "area": "Player",
+ "variances": [
+  {
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "Player ban reason: 08-25 client call accepted the mockup ban reasons; Jira says player ban reasons were cut, and WAGR-154 AC still requires a reason",
+   "jira": [
+    {
+     "key": "WAGR-154",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+     "quote": "Ops bans a Player through a button that requires a reason and sets Status to Banned.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-154",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+     "quote": "1. Ban action requires a reason, sets Banned, audit fields stamped (via BUILD-251).",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-154",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+     "quote": "No Ban Reason/Notes modal for Player — explicitly cut (\"we don't need those restriction detail fields,\" reasoning inferred from flagged Sign Ups instead, just a banner).",
+     "quote_source": "comment (author not recorded) 2026-09-03"
+    },
+    {
+     "key": "WAGR-156",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-176 — Player: Ban Automation",
+     "quote": "No Ban Reason/Notes modal for Player — explicitly cut (\"we don't need those restriction detail fields,\" reasoning inferred from flagged Sign Ups instead, just a banner).",
+     "quote_source": "comment (author not recorded) 2026-09-03"
+    },
+    {
+     "key": "WAGR-403",
+     "status": "Cancelled",
+     "assignee": "Taryn Reithofer",
+     "summary": "Player: Surface Fraud Flag and Blank Primary Email Banner",
+     "quote": "Fraud Flag banner: not building as a separate banner. Emily confirmed the existing Banned Banner (BUILD-175 / WAGR-196) is sufficient for the banned-for-fraud case — no need to bring back Ban Reason or add fraud-specific banner logic.",
+     "quote_source": "comment by Taryn Reithofer 2026-09-22"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2092",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "00:17:10",
+     "line_start": 308,
+     "quote": "Lina Ceniccola: I think it looks fine. / Kobi Kunasekaran: Okay. So if these are good like we can start with these again like we can always change them up later too. / Emily Vandenberg: Perfect."
+    },
+    {
+     "ledger_id": "L2257",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:10:11",
+     "line_start": 200,
+     "quote": "Kobi Kunasekaran: Um, and this is honestly I think it's going to be almost the same logic as what whatever it is that you're building for refer. So we might just be able to uh copy the same thing. / Taryn Reithofer: Yes. / Kobi Kunasekaran: Maybe the reasons might be different for player versus referer ... / Kobi Kunasekaran: let's just use their mockup values as a starting point and build that out. / Taryn Reithofer: Okay."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1980",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "01:26:54",
+     "line_start": 1468,
+     "quote": "Kobi Kunasekaran: ...So, the band status on the player is going to be manually done by somebody. / Kobi Kunasekaran: ...Like we don't necessarily need to automate or restrict creation of the signup or anything based off of the player status at least at this point. / Emily Vandenberg: Yeah, I don't think so. And it would be it would almost be / Kobi Kunasekaran: So those fields uh are we saying like we don't need those like restriction detail fields for / Joyce Kiddell: correct. it. / Joyce Kiddell: We should have some sort of like banner at the top though."
+    },
+    {
+     "ledger_id": "L2588",
+     "date": "2026-09-15",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1c7jrcIZi-m-zYNVeSrkzols_CABo5p5IBp_0r1kBfUg/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:06:46",
+     "line_start": 168,
+     "quote": "Taryn Reithofer: Some of it's very easy like just removing a field or whatever and some of it needs more of a discussion like she had mentioned on the um player record page under ban and reactivate reactivate button automation. She she asked you to refresh your memory. Did we land on no reason code for the button B which is / Kobi Kunasekaran: I don't remember. People have to check on the calls. / Taryn Reithofer: from from my notes it was it was we landed on no reason and I have that in in the writing too. / Kobi Kunasekaran: way I like I think either either direction is fine with me. I just I just don't remember."
+    },
+    {
+     "ledger_id": "L2669",
+     "date": "2026-09-17",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:22:19",
+     "line_start": 445,
+     "quote": "Kobi Kunasekaran: if I'm not mistaken, like we decided on the ban and one of the banned reasons was fraud. / Taryn Reithofer: So I think for for refer we kept the uh ban reasons / Taryn Reithofer: and that one's confirmed fraud there. But for player we decided to keep it simple and not have the reasons and it was just a simple ban. / Kobi Kunasekaran: you can check let's check this like outside like let me know loop back around on this."
+    },
+    {
+     "ledger_id": "L2687",
+     "date": "2026-09-17",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:24:07",
+     "line_start": 465,
+     "quote": "Kobi Kunasekaran: I wouldn't rely on it being the checkbox. If it if they're gonna ban players, 99% they're gonna need to know like why the player was banned. So, either we would have like a screen flow to drive that behavior and capture the reason or it was supposed to be tied to the uh the ban button along with the reason that comes with the ban. Um, and we just need to confirm either or."
+    },
+    {
+     "ledger_id": "L2856",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:19:18",
+     "line_start": 387,
+     "quote": "Taryn Reithofer: she kind of reverted on everything just saying, \"Okay, like we don't need this.\" / Kobi Kunasekaran: Like so she said like we don't need the banner for fraud and she's good with not having one for the email because it's it should be a nonexistent case, right? / Taryn Reithofer: Yeah, non-issue."
+    }
+   ],
+   "what_differs": "On 08-25 the client accepted the mockup ban-reason list for the player, and on 09-01 Jumpr decided to build the player ban from those mockup values. On 09-03 Jira (WAGR-154/156 comments) recorded that player ban reasons were cut, based on the earlier 08-18 call about restriction-detail fields. The WAGR-154 description and AC1 still require a reason. The only later 'no reason' confirmation is second-hand, in a Jira comment about the fraud banner.",
+   "suggested_action": "Get one explicit written client answer: does the player Ban button capture a reason (picklist) or not? Then make the WAGR-154 description and acceptance criteria match the answer, and record the answer on WAGR-156.",
+   "reasoning": "The 08-18 quote cuts the restriction-detail fields and does not mention a ban-reason picklist. The transcript at line 300 of the 08-25 call shows Kobi say 'This is for player' about the mockup ban reasons, and Lina and Emily accept them. On 09-15 and 09-17 the team still did not know the answer, and Kobi said ops will '99%' need the reason. Medium confidence, because the 09-22 Jira comment may be the client's real final position.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-01",
+   "auto_checks": []
+  },
+  {
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "Player currency: client said currency must not default to CAD; Jira calls the CAD fallback for a blank country 'working as designed'",
+   "jira": [
+    {
+     "key": "WAGR-415",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Player Country/State missing on majority of SLC entries — driving unwanted CAD currency fallback",
+     "quote": "Our Player currency logic is working as designed: it correctly uses Country when provided, and only falls back to CAD when Country is absent. This was validated in the Sep 22 sync.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-415",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Player Country/State missing on majority of SLC entries — driving unwanted CAD currency fallback",
+     "quote": "Track resolution status with the client; no fix required on our side beyond confirming the mapping.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2144",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:15:01",
+     "line_start": 221,
+     "quote": "Kobi Kunasekaran: So it's just it's just like a currency field for now. I just want to make sure there's there's some value and that it's not all default to / Emily Vandenberg: Yeah. Yeah. Okay. Yeah. / Kobi Kunasekaran: Canadian. / Emily Vandenberg: I think um we definitely shouldn't default to Canadian. So, you can assume based on the country that they sent up, I'll get that sorted."
+    },
+    {
+     "ledger_id": "L2145",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:16:16",
+     "line_start": 242,
+     "quote": "Kobi Kunasekaran: I think let's let's use the player country for now um and set the currency. It can always be changed and then if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that / Emily Vandenberg: Okay, / Kobi Kunasekaran: point."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2749",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1_l8MYortzD4pYnKzsoFaq7WBdKkM7YnRj011wn2Uz_c/edit",
+     "speakers": "Taryn Reithofer",
+     "timestamp": "00:11:21",
+     "line_start": 237,
+     "quote": "Taryn Reithofer: wager 404 and 413. Um, it was that message that I sent to you about the player record page and I was investigating if all players or why all players are defaulting to um CAD with the um signup currency, whether that was um something that I did wrong or if that was just like just the nature of the data that we had in Salesforce already."
+    },
+    {
+     "ledger_id": "L2753",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1_l8MYortzD4pYnKzsoFaq7WBdKkM7YnRj011wn2Uz_c/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:15:43",
+     "line_start": 272,
+     "quote": "Kobi Kunasekaran: So that one is blocking the um it's just blocking some of the feedback clarifications from the player page, right? / Taryn Reithofer: Mhm."
+    }
+   ],
+   "what_differs": "On 08-27 the client said player currency 'definitely shouldn't default to Canadian'. Jira (WAGR-415) calls the CAD fallback for a blank country correct by design and says Jumpr needs no fix. WAGR-415 also reports that about 96.5% of SLCs have no country, so most players get CAD.",
+   "suggested_action": "Decide the blank-country behaviour with the client: leave the currency blank and flag the player for review, or accept CAD until the CMS sends a country. Record the decision on WAGR-415 and WAGR-404, and keep the CMS country fix tracked.",
+   "reasoning": "Both quotes are direct. Impact today is limited, because on 08-27 the team agreed player currency has no effect on sign-ups (L2145), but the stated design is the opposite of the client's words. Medium confidence, because the client may accept CAD as an interim fallback.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-02",
+   "auto_checks": []
+  },
+  {
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "WAGR-109 Player Payouts related list assumes a player-level Payout object with batches; on 09-25 the team decided player payouts have no separate workflow",
+   "jira": [
+    {
+     "key": "WAGR-109",
+     "status": "Open",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-183 — Player: Payouts Related List",
+     "quote": "Columns: Payout ID, Recipient, Type, Status, Amount, Period, Batch",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-109",
+     "status": "Open",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-183 — Player: Payouts Related List",
+     "quote": "Depends on the Payout object existing — no Asana ticket for it yet.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3142",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "01:01:33",
+     "line_start": 917,
+     "quote": "Kobi Kunasekaran: Okay. But so for the player payouts, we don't need to track this separately, right? Uh outside of just on the signup records themselves. Okay. / Kobi Kunasekaran: okay just one to one okay / Joyce Kiddell: Yeah. No, no separate workflow required. It's more like just um pulling from the correct fields when we go to surface this in terms of reports"
+    },
+    {
+     "ledger_id": "L3146",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "01:03:47",
+     "line_start": 954,
+     "quote": "Kobi Kunasekaran: Okay. Okay, that seems straightforward. Okay, so payouts really is just for referrals uh or referers uh based on the / Joyce Kiddell: Yeah, / Kobi Kunasekaran: signups that they're bringing in. / Joyce Kiddell: for sure. Hence why we combine the two flows. / Emily Vandenberg: You're just talking about referral payment payout. / Kobi Kunasekaran: Yes. Yes. That's that's all we're tracking with the payouts here, right?"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3140",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:56:51",
+     "line_start": 860,
+     "quote": "Emily Vandenberg: just um more just like thinking through as a whole. So like when you're thinking of building out redeposits, you're going to be like bolting them on to the like if you look up player like at a player or like whatever refer you can kind of see all the redeposits and the different statuses that are sitting there for that player. So, / Kobi Kunasekaran: Yeah, like uh as long as there's like a lookup field or like we're relating something to another object, generally speaking, yeah, we can create that related list on either or, right?"
+    }
+   ],
+   "what_differs": "WAGR-109 (Open, Phase 1, Should Have) plans a Payouts related list on the Player with Payout ID, Period and Batch columns. That design came from the prototype. On 09-25 the team decided that player payouts need no separate workflow or batching: the signup and redeposit records track them. The payout build covers referrer payments only.",
+   "suggested_action": "Re-scope or cancel WAGR-109. If the client still wants to see player payout data on the Player, define it from signup and redeposit fields (for example in a report or the existing Sign-Ups related list), not from a Payout object.",
+   "reasoning": "The ticket's own text says it came from the mock-up only and that no Payout object existed. The later client decision (L3142, confirmed by Joyce) and the scope statement (L3146) remove the player-payout record. Do not build this ticket as written.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-03",
+   "auto_checks": []
+  },
+  {
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "WAGR-1 (DECISION-03) is still open and Must Have, waiting for an answer on a 'Flagged for Fraud' player status that later meetings removed",
+   "jira": [
+    {
+     "key": "WAGR-1",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "DECISION-03 — Define Fraud Flag impact on Player Status (carried from DECISION-02)",
+     "quote": "Should flagging a Sign Up auto-set the Player's status to 'Flagged for Fraud' — and at which point (rep Suspected vs Ops Confirmed)?",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-1",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "DECISION-03 — Define Fraud Flag impact on Player Status (carried from DECISION-02)",
+     "quote": "Status: awaiting client feedback via Open Questions doc.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-410",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "Player: Add Fraud columns to Sign-Ups related list",
+     "quote": "The underlying fraud business rule / automation (what sets these fields, when) — tracked separately under WAGR-295 and WAGR-1, still open.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1978",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:23:07",
+     "line_start": 1399,
+     "quote": "Joyce Kiddell: ...Um and then statuses for players would be pending, active, inactive, banned. / Kobi Kunasekaran: I think when the first lineup is completed uh that's related to the player, we can move them to active / Joyce Kiddell: Correct."
+    },
+    {
+     "ledger_id": "L1980",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "01:26:54",
+     "line_start": 1468,
+     "quote": "Kobi Kunasekaran: ...So, the band status on the player is going to be manually done by somebody. / Kobi Kunasekaran: ...Like we don't necessarily need to automate or restrict creation of the signup or anything based off of the player status at least at this point. / Emily Vandenberg: Yeah, I don't think so. And it would be it would almost be / Kobi Kunasekaran: So those fields uh are we saying like we don't need those like restriction detail fields for / Joyce Kiddell: correct. it. / Joyce Kiddell: We should have some sort of like banner at the top though."
+    },
+    {
+     "ledger_id": "L2856",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:19:18",
+     "line_start": 387,
+     "quote": "Taryn Reithofer: she kind of reverted on everything just saying, \"Okay, like we don't need this.\" / Kobi Kunasekaran: Like so she said like we don't need the banner for fraud and she's good with not having one for the email because it's it should be a nonexistent case, right? / Taryn Reithofer: Yeah, non-issue."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2670",
+     "date": "2026-09-17",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:25:21",
+     "line_start": 470,
+     "quote": "Kobi Kunasekaran: Um, but then like you're going to have two banners, right? One that says a player is banned and then one that says uh the account is or the player is fraudulent. So that might be redundant. / Taryn Reithofer: Yeah, I agree. I agree. You know, maybe like I found where Joyce said, she said uh it would just be inferred from the signups that it was flagged for fraud. She said I think it just says banned and we just have a banner and then see signups for more details. / Kobi Kunasekaran: If we're going to infer from signup, then we need to define what that means. like what? So you you you're going to have multiple signups for a player, right? Um at what point does the player get marked as fraud and what implications does it have on the rest of the statuses on the player?"
+    }
+   ],
+   "what_differs": "On 08-18 the client set the player statuses to pending, active, inactive and banned (no 'Flagged for Fraud'). A person sets Banned manually, with no automation based on player status. On 09-23 the fraud banner was dropped, because the ban banner covers it. WAGR-1 still asks whether fraud should set a 'Flagged for Fraud' player status, is in Requirements as Must Have, and other tickets cite it as an open blocker.",
+   "suggested_action": "Close WAGR-1 (and fix the WAGR-410 reference). Cite the 08-18 decision (four statuses, manual ban) and the 09-22/09-23 banner outcome. If ops still needs a rule for when a player is banned for fraud, open a new, narrower ticket.",
+   "reasoning": "The ticket question assumes a status value that was removed. The WAGR-72 guardrail also says automation never sets Banned. Low severity, because this is grooming hygiene, but the ticket shows a Must-Have decision as still blocking.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-04",
+   "auto_checks": []
+  },
+  {
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "WAGR-28 (BUILD-03) still plans Salesforce matching and duplicate rules across Primary/E-Transfer/Secondary email; later calls moved dedup to the CMS and retired E-Transfer Email",
+   "jira": [
+    {
+     "key": "WAGR-28",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "BUILD-03 — Build Player/Referrer matching, duplicate prevention, and cross-linking",
+     "quote": "Matching and duplicate rules scoped per record type across Primary/E-Transfer/Secondary email",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-28",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "BUILD-03 — Build Player/Referrer matching, duplicate prevention, and cross-linking",
+     "quote": "After-save flow maintaining Related_Referrer_Profile\\__c / Related_Player_Profile_\\_c cross-links",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-163",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-241 — Sign-Up & Player: Use Email as the single email field (retire E-Transfer Email display)",
+     "quote": "Remove E-Transfer Email from any remaining layouts, popups, and SLC field mappings.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1965",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "01:08:40",
+     "line_start": 1181,
+     "quote": "Kobi Kunasekaran: But like the primary and secondary email like uh based on what we just chatted like it's all going to be sent from the CMS, right? / Joyce Kiddell: Yes. / Kobi Kunasekaran: Like we're not trying to do any dduplication or managing players on the send. / Joyce Kiddell: No, no, no, no. Yeah."
+    },
+    {
+     "ledger_id": "L2093",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:19:07",
+     "line_start": 314,
+     "quote": "Kobi Kunasekaran: there should only be like one player uh one player record per / Emily Vandenberg: Yes. / Kobi Kunasekaran: email and then when we do the manual player creation path um we we'll set up dloop rules so that if if somebody's trying to create another player record with the same email address, it'll flag that before they can create it."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2286",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:04:34",
+     "line_start": 152,
+     "quote": "So we put in like a hard lock um where uh there is a unique ID being created at the database level. / Kobi Kunasekaran: So it should prevent um any duplicate player from being created even if uh even if they get processed at the same time."
+    },
+    {
+     "ledger_id": "L1908",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:22:11",
+     "line_start": 1383,
+     "quote": "Joyce Kiddell: and then this is like what you had before where it's like if they are a refer as well, then you would click this. / Kobi Kunasekaran: Right."
+    }
+   ],
+   "what_differs": "WAGR-28 (Requirements, Phase 1, Must Have, unassigned, a stated dependency of WAGR-5) plans Salesforce matching and duplicate rules across three emails, including E-Transfer, plus automatic cross-linking. On 08-18 the team agreed that the CMS sends the primary and secondary emails and that Salesforce does no deduplication. On 08-25 the team agreed on one player per email, with a duplicate rule only on the manual-create path. The per-record-type unique email key is already built under other work (WAGR-92 context), and WAGR-163 retired E-Transfer Email.",
+   "suggested_action": "Re-scope WAGR-28 to what is still needed (the duplicate check on manual player creation, and whether cross-links are automatic or manual), or close it and link WAGR-92, WAGR-405 and WAGR-40. Remove E-Transfer Email from its scope.",
+   "reasoning": "The ticket text is from July and has not been updated since the 07-28 note. Later decided client calls changed who deduplicates. Medium confidence, because part of the ticket (one email per record type) still holds.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-05",
+   "auto_checks": []
+  },
+  {
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "WAGR-148 records status-audit date fields added to the Player page; on 09-24 Kobi said to hide them",
+   "jira": [
+    {
+     "key": "WAGR-148",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "BUILD-251 — Player Status: Centralized Status Audit Stamp",
+     "quote": "Player_Account_Page1 | Flexipage | Update Component | Add Account.Player_Status_Last_Updated_By\\__c, Account.Player_Status_Set_Date_\\_c",
+     "quote_source": "comment (author not recorded) 2026-09-03"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3011",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:19:22",
+     "line_start": 387,
+     "quote": "Kobi Kunasekaran: I let's remove those and we'll add it back because the other fields they they were actually part of their / Kobi Kunasekaran: So like the status set date and all those things let's hide it for now. / Cedrick Infantado: I removed them."
+    }
+   ],
+   "what_differs": "The WAGR-148 change log says Status Set Date and Last Updated By were added to the Player record page. On 09-24 Kobi said to hide the date-tracking fields that Cedrick had added to the Player system tab, and Cedrick removed them during the call. No ticket or comment records this removal.",
+   "suggested_action": "Add a comment to WAGR-148 (and WAGR-140, if its date fields were also removed) that lists the fields now hidden from Player_Account_Page1, so the deployment manifest and requirements doc match the sandbox.",
+   "reasoning": "This is a layout hygiene item. The ticket closure rule asks for an accurate component list. Medium confidence on exactly which fields were hidden ('status set date and all those things').",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "PLAYER-06",
+   "auto_checks": []
+  },
+  {
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "VIP manual-entry tickets do not include the 09-30 rule that players created in the VIP flow default to VIP, or that converting an existing player is allowed",
+   "jira": [
+    {
+     "key": "WAGR-432",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+     "quote": "All standard sign-up fields should be available, same as regular (non-VIP) intake, plus the VIP flag (see separate VIP flag/indicator ticket).",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-433",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Player & Sign-Up: VIP flag + visual indicator (VIP)",
+     "quote": "Player: confirm the existing VIP toggle/field on the Player record (Joyce referenced one already existing) and add a visual indicator — a small crown or star icon next to the Player's name — in list views and on the record itself.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3447",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:40:46",
+     "line_start": 1434,
+     "quote": "Joyce Kiddell: That's what I understand it to be as well. Um, but I mean if there is the the odd edge case where they have to search for an existing player and then convert them to VIP, like I don't think it's a big deal if they are allowed to do that. / Kobi Kunasekaran: Okay. So, we're saying like any player that's created as part of this process though defaults to being a VIP player, right? / Joyce Kiddell: Craft field / Kobi Kunasekaran: Okay. And that we'll put that in."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2941",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:54:29",
+     "line_start": 863,
+     "quote": "Joyce Kiddell: So um we basically need to bring these signups in manually. / Joyce Kiddell: Yeah. It's not going to come in through the agency website automation."
+    },
+    {
+     "ledger_id": "L3446",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "01:39:35",
+     "line_start": 1420,
+     "quote": "Emily Vandenberg: You would want Yeah. Like you would want a VIP tag at a player level. / Kobi Kunasekaran: yeah I think This VIP flag should already be there. I I think I don't think it like does any icons or anything right now. So, that's still like part of this build when you build this out."
+    }
+   ],
+   "what_differs": "On 09-30 the client confirmed that any player created in the VIP flow defaults to VIP, and that ops may convert an existing player to VIP in edge cases. Kobi said 'we'll put that in'. WAGR-432 and WAGR-433 (both Open, no comments) do not state the default or the conversion path.",
+   "suggested_action": "Add an acceptance criterion to WAGR-432 or WAGR-433: the Player VIP flag is set to true by default when the VIP flow creates the player, and ops can set VIP on an existing player.",
+   "reasoning": "These tickets were written from the 09-23 call. The 09-30 rule came later and is not in their descriptions. Both tickets have no comments.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-07",
+   "auto_checks": []
+  },
+  {
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "WAGR-413 does not record the accepted limitation that the custom Country/State fields will not re-sync if the address changes later",
+   "jira": [
+    {
+     "key": "WAGR-413",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "Player: Investigate All Players Defaulting to CAD Signup Currency",
+     "quote": "Added mapping to the Player custom fields for country and state/province.",
+     "quote_source": "comment by Cedrick Infantado 2026-09-23"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2875",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:43:33",
+     "line_start": 687,
+     "quote": "Cedrick Infantado: the value here, it would not sync up. So that's the only catch for that. / Kobi Kunasekaran: Yeah, I think that's okay. You know what? / Kobi Kunasekaran: Let's do that. Let's do that. / Kobi Kunasekaran: Um let's keep it syncing to the original field. And these look like just text fields. So um can we just update that logic to set these fields as well?"
+    }
+   ],
+   "what_differs": "On 09-23 the team kept the SLC mapping to the standard billing address and also set the custom country and state text fields, and accepted that later edits will not re-sync the custom fields. The WAGR-413 change log records the mapping but not the limitation.",
+   "suggested_action": "Add the limitation to WAGR-413 (and to the requirements doc), so testers and the client know that the two address sets can differ after a manual edit. The currency formula reads the country value.",
+   "reasoning": "This is an internal decision with a known data-drift risk. The ticket comments do not mention it.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "later_or_conflicting_evidence": [],
+   "temp_id": "PLAYER-08",
+   "auto_checks": []
+  },
+  {
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "high",
+   "title": "No ticket for the field history tracking on Player (status, money, email, ban reason fields) or the Person Account History related list set up live on 09-02",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "field history",
+     "History Tracking",
+     "Person Account History",
+     "history",
+     "audit",
+     "More Info"
+    ],
+    "nearest_considered": [
+     "WAGR-137",
+     "WAGR-148",
+     "WAGR-43",
+     "WAGR-68"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2350",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:20:51",
+     "line_start": 508,
+     "quote": "Taryn Reithofer: like a history record of who's been previously banned and then reactivated in a reporting / Kobi Kunasekaran: Yes. / Kobi Kunasekaran: And that's where we should turn on field history tracking for those fields if we don't already have it. / Taryn Reithofer: Probably all the financial ones too, like tied to money. / Kobi Kunasekaran: Uh yeah. Yeah. And like I would do the email too. / Kobi Kunasekaran: Um except I don't see Oh, there we go. Okay. This one we don't need to worry about the record type. I don't think we need to track the band reasons. Actually, you know what? Let's do it."
+    },
+    {
+     "ledger_id": "L2351",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:23:32",
+     "line_start": 528,
+     "quote": "Kobi Kunasekaran: Well, I think these ones they won't necessarily drop the actual values. Okay, we can start with these. If there's anything else we can add here. So, that'll give us like basic tracking. Um, it is a related list that needs to be added into the page layout. I would add it underneath like uh the more info tab for the records. / Kobi Kunasekaran: has built. That's how I learned all the flows and uh everything that we've done. Okay. So, if I go to more info now, there's uh uh person account history."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2352",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:26:13",
+     "line_start": 556,
+     "quote": "Kobi Kunasekaran: Um, so there are some caveats with this. I think it there's a limited number of records it can store and I believe these get cleared after a year or two. Uh, so if they need like persistent tracking then it does need to be a separate custom object. But I think at this phase given like we're trying to keep the scope minimal this is good enough to start."
+    },
+    {
+     "ledger_id": "L2353",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Cedrick Infantado; Kobi Kunasekaran",
+     "timestamp": "00:28:32",
+     "line_start": 593,
+     "quote": "Cedrick Infantado: Yeah, of I think for the band notes um it is a long text. / Cedrick Infantado: So the history tracking couldn't um really capture what's the previous value in that / Kobi Kunasekaran: Yeah, I think that's okay. / Kobi Kunasekaran: Um, as long as like if we trap the statuses for now, that's probably okay. If they uh let them go through it and if they come back with feedback that they do want to see the uh the reasons changed too, then we can talk about adding a separate"
+    }
+   ],
+   "what_differs": "On 09-02 the team decided to track field history on the Player for status, money, email and ban-reason fields, and Kobi turned it on live and added the Person Account History related list under More Info. Jira only records history tracking on Player_Status__c (WAGR-137).",
+   "suggested_action": "Create a small ticket (or add a comment to WAGR-137) that lists the tracked Account fields and the related-list layout change, so they reach the deployment manifest and the requirements doc.",
+   "reasoning": "A decided configuration change was made with no ticket. The risk is that it is missed in the production deployment. The 20-field limit also makes the chosen list worth recording.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-09",
+   "auto_checks": []
+  },
+  {
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "No ticket tracks WagerTech's planned swap from player ID to a person-level ID, or its effect on Player External ID upserts",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "swap",
+     "person ID",
+     "person-level",
+     "Player External",
+     "Player_External_Id",
+     "resend",
+     "legacy ID",
+     "old ID"
+    ],
+    "nearest_considered": [
+     "WAGR-29",
+     "WAGR-5",
+     "WAGR-46",
+     "WAGR-441",
+     "WAGR-40",
+     "WAGR-470",
+     "WAGR-477"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1896",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:02:41",
+     "line_start": 166,
+     "quote": "Emily Vandenberg: ...I know we were kind of saying player, but like we went through our data / Emily Vandenberg: ...we're going to layer up the logic for a person for a person um account and that's what we need to send you. We have not built that, / Emily Vandenberg: ...we can assume that the the ID we're sending you will work and then once we're ready, we'll swap it out."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1965",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "01:08:40",
+     "line_start": 1181,
+     "quote": "Kobi Kunasekaran: But like the primary and secondary email like uh based on what we just chatted like it's all going to be sent from the CMS, right? / Joyce Kiddell: Yes. / Kobi Kunasekaran: Like we're not trying to do any dduplication or managing players on the send. / Joyce Kiddell: No, no, no, no. Yeah."
+    },
+    {
+     "ledger_id": "L2093",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:19:07",
+     "line_start": 314,
+     "quote": "Kobi Kunasekaran: there should only be like one player uh one player record per / Emily Vandenberg: Yes. / Kobi Kunasekaran: email and then when we do the manual player creation path um we we'll set up dloop rules so that if if somebody's trying to create another player record with the same email address, it'll flag that before they can create it."
+    }
+   ],
+   "what_differs": "On 08-18 WagerTech said it will roll duplicate player accounts into a person account and send that person ID, which is not built yet. Testing uses the current ID, and WagerTech will swap and resend later. Player_External_Id__c is the upsert key for survey completion (WAGR-46/441). No ticket tracks the swap, the re-key of existing players, or a re-test.",
+   "suggested_action": "Create a dependency ticket (owner: WagerTech, with Jumpr re-test). Confirm the swap date. Decide how existing Player records get the new external ID (re-key, or match by email and update). Re-test the SLC and survey upserts after the swap.",
+   "reasoning": "This is a decided client change with a direct Salesforce impact. No later meeting confirms that it is done. Medium confidence on the size of the Salesforce work, because email matching may absorb part of it.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-10",
+   "auto_checks": []
+  },
+  {
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Open question: will B2C (tech takes) subscription signups be tracked in Salesforce? The client said it would get back to Jumpr; no answer or ticket",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "B2C",
+     "subscription",
+     "tech take",
+     "TechTakes"
+    ],
+    "nearest_considered": [
+     "WAGR-373",
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2812",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "00:57:26",
+     "line_start": 778,
+     "quote": "Kobi Kunasekaran: Um is that something that we are planning on tracking in Salesforce as well as like a separate thing? / Joyce Kiddell: Let's get back to you on that. / Kobi Kunasekaran: Okay. / Lina Ceniccola: Yeah. / Emily Vandenberg: It's evolving in current time."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3020",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:30:25",
+     "line_start": 537,
+     "quote": "Kobi Kunasekaran: Uh honestly, just just close them off because it's no longer relevant. / Kobi Kunasekaran: Like affiliate link generation, subscription workflows, / Taryn Reithofer: So, that'll that was that's 14 tickets that are going to leave our backlog, which is nice. / Kobi Kunasekaran: if it asks for a message um just say removing it from the working board or something like that."
+    }
+   ],
+   "what_differs": "On 09-21 Kobi asked if B2C subscription signups will be tracked in Salesforce, and Joyce said WagerTech will get back on that. No later meeting answers it. WAGR-373 (subscription workflows) was closed as out of scope on 09-24 without capturing the question.",
+   "suggested_action": "Add the question to the client open-questions doc or a Clarify ticket, and get an answer before redeposit and B2C compensation design is final.",
+   "reasoning": "This is an unanswered client question. The 09-24 note says some subscription workflows 'are now being done', which makes it more uncertain.",
+   "feature_area": "Player",
+   "checked_later_meetings": true,
+   "temp_id": "PLAYER-11",
+   "auto_checks": []
+  }
+ ],
+ "module_coverage": {
+  "area": "Player",
+  "jira_epics": [
+   "WAGR-27",
+   "WAGR-72",
+   "WAGR-420"
+  ],
+  "ticket_count": 73,
+  "note": "73 digest issues mention Player. Most Player-record build tickets (BUILD-173..184, BUILD-227/229/230/240, and the Sep-15 feedback tickets WAGR-397..413) have no epic. Only WAGR-28/29 and the 2026-09 clarify tickets sit under Epic D (WAGR-27). Player status automation has its own epic (WAGR-72, 6 children). VIP has WAGR-420 (5 children).",
+  "uncovered_capabilities": [
+   {
+    "capability": "Field history tracking on Player (status, money, email, ban reason) and the Person Account History related list",
+    "ledger_ids": [
+     "L2350",
+     "L2351"
+    ],
+    "note": "Set up live on 09-02; Jira only covers Player_Status__c history (WAGR-137). See PLAYER-09."
+   },
+   {
+    "capability": "Player external ID swap to a WagerTech person-level ID",
+    "ledger_ids": [
+     "L1896"
+    ],
+    "note": "Decided 08-18 as a later WagerTech change; no dependency or re-key ticket. See PLAYER-10."
+   },
+   {
+    "capability": "Player payouts view",
+    "ledger_ids": [
+     "L3140",
+     "L3142"
+    ],
+    "note": "Decided 09-25: no separate player payout workflow; tracked on signup/redeposit. The only ticket (WAGR-109) plans a Payout-object related list. See PLAYER-03."
+   },
+   {
+    "capability": "Player ban reason capture",
+    "ledger_ids": [
+     "L2092",
+     "L2257",
+     "L2669",
+     "L2687"
+    ],
+    "note": "No ticket owns the final yes/no decision; WAGR-154 description and comments disagree. See PLAYER-01."
+   },
+   {
+    "capability": "B2C subscription signup tracking",
+    "ledger_ids": [
+     "L2812"
+    ],
+    "note": "Open client question; no ticket. See PLAYER-11."
+   }
+  ]
+ },
+ "unverified_leads": [
+  {
+   "title": "Save Player External ID on the Account during SLC processing (08-04 action) is implied but not stated in any ticket",
+   "why_unverified": "WAGR-5 (external-ID-first matching) and WAGR-46 (survey upsert by external ID) imply it is done; no ticket text states that the SLC flow writes Player_External_Id__c. Check the flow in the sandbox.",
+   "ledger_ids": [
+    "L1479",
+    "L1491"
+   ],
+   "jira_keys": [
+    "WAGR-5",
+    "WAGR-46",
+    "WAGR-441"
+   ]
+  },
+  {
+   "title": "'Is referrer' checkbox on the Player (08-18) has no explicit field in Jira",
+   "why_unverified": "Meaning match only: Jira has the Related Referrer Record lookup (WAGR-43, WAGR-399), which may be the same thing. Confirm that no separate checkbox is expected.",
+   "ledger_ids": [
+    "L1908"
+   ],
+   "jira_keys": [
+    "WAGR-43",
+    "WAGR-399",
+    "WAGR-189"
+   ]
+  },
+  {
+   "title": "Player_Status__c picklist may still contain Deactivated and Flagged for Fraud",
+   "why_unverified": "WAGR-29 (Done) lists six values. On 08-18 the client set four (L1978). The WAGR-160 comment asked Kobi whether to change the values and got no recorded answer. WAGR-72 assumes four. Check the sandbox picklist.",
+   "ledger_ids": [
+    "L1978"
+   ],
+   "jira_keys": [
+    "WAGR-29",
+    "WAGR-160",
+    "WAGR-72"
+   ]
+  },
+  {
+   "title": "The historical import would leave First Completed Sign-Up dates wrong; migration tickets do not mention this",
+   "why_unverified": "Internal decision L2452 (no client present). WAGR-72 already lists historical backfill as out of scope with a runbook note. WAGR-470/WAGR-20/WAGR-477 do not mention it. Cross-area (Data Migration).",
+   "ledger_ids": [
+    "L2451",
+    "L2452",
+    "L2455"
+   ],
+   "jira_keys": [
+    "WAGR-72",
+    "WAGR-140",
+    "WAGR-470",
+    "WAGR-20"
+   ]
+  },
+  {
+   "title": "Duplicate check on manual player creation sits in WAGR-40 (Phase 2, Nice to Have) while manual VIP creation is planned for launch",
+   "why_unverified": "The unique email key (WAGR-92 context) probably blocks duplicates on manual create already, and WAGR-405 includes duplicate prevention in its scope, so this is probably covered. Confirm with a test.",
+   "ledger_ids": [
+    "L2093",
+    "L1970"
+   ],
+   "jira_keys": [
+    "WAGR-40",
+    "WAGR-405",
+    "WAGR-92"
+   ]
+  },
+  {
+   "title": "The inactivity threshold was set to 2 days for testing and must go back to 90 before release",
+   "why_unverified": "Tracked in a WAGR-137 comment ('Threshold to be reverted to 90 days before this is considered final'). This is a release-checklist item, not a variance.",
+   "ledger_ids": [
+    "L2476"
+   ],
+   "jira_keys": [
+    "WAGR-137"
+   ]
+  },
+  {
+   "title": "WAGR-108 (Player Redeposits related list) still says 'not confirmed in transcript' and 'no ticket for Redeposit object'",
+   "why_unverified": "On 09-25 the client confirmed the need (L3140), and WAGR-464 now covers the redeposit design. This is a ticket hygiene update only.",
+   "ledger_ids": [
+    "L3140"
+   ],
+   "jira_keys": [
+    "WAGR-108",
+    "WAGR-464"
+   ]
+  },
+  {
+   "title": "Name/phone fallback matching for players",
+   "why_unverified": "client ask not agreed; no ticket",
+   "ledger_ids": [
+    "L0579",
+    "L0599"
+   ],
+   "jira_keys": [
+    "WAGR-5"
+   ]
+  },
+  {
+   "title": "Group signups under players (POC suggested later)",
+   "why_unverified": "client ask not agreed; no ticket",
+   "ledger_ids": [
+    "L1211"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Automated player outreach / reminders with embedded operator requirements (future phase)",
+   "why_unverified": "Proposed or deferred only (L0864 decided WhatsApp is not touched now); no Phase 2 or Holding Pen ticket found",
+   "ledger_ids": [
+    "L0425",
+    "L0458",
+    "L0864"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Optional flag for players who are also Salesforce users",
+   "why_unverified": "Proposed by Kobi only; not taken up; no ticket",
+   "ledger_ids": [
+    "L0844"
+   ],
+   "jira_keys": []
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-2",
+  "WAGR-30",
+  "WAGR-38",
+  "WAGR-55",
+  "WAGR-184",
+  "WAGR-263",
+  "WAGR-310",
+  "WAGR-333",
+  "WAGR-334",
+  "WAGR-406",
+  "WAGR-439",
+  "WAGR-440"
+ ],
+ "notes": "Read-only run. All 180 Player ledger items and all 79 area-TSV issues were reviewed (descriptions and every comment), with full-text search across all 505 issue JSONs. Comment-covered items are not reported: reactivate button (WAGR-154 comment), ban automation scope cut (WAGR-156 comment), Profile Status removal (WAGR-160 comment), fraud flag on the Sign-Ups list (WAGR-407/410), and the fraud and primary-email banners cancelled (WAGR-403). Communication-only action items (share in Slack, send doc, tell Emily) are not V1. Later Jira or meetings show them done: L2355, L2589, L2665, L2671, L2686, L2857, L2877. L1505 and L1971 were overtaken by later meetings (08-18 player ID decision; the 09-23 VIP session produced WAGR-420). Client asks with a ticket (WAGR-403 banners) are not repeated in leads. Hygiene noted, not reported: the WAGR-154 description says unban is a manual status edit, but a comment shows a Reactivate button. The WAGR-160 description still says Signup Currency is a picklist defaulted from the first sign-up (superseded by L2145; WAGR-404/413 comments). WAGR-398 renamed the label back to Agency Sign-Up Date after L2343 relabelled it Registration Date."
+}

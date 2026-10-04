@@ -1,0 +1,785 @@
+{
+ "area": "Sign-Up",
+ "variances": [
+  {
+   "temp_id": "SIGNUP-01",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Sign-Up",
+   "title": "Welcome-email fraud tool API integration agreed as fast follow has no Jira ticket (not in Holding Pen or Phase 2)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "fraud tool",
+     "welcome email",
+     "welcome-email",
+     "A3S",
+     "fraud detection",
+     "fraud vendor",
+     "fraud check",
+     "fraud results",
+     "postback",
+     "endpoint",
+     "fast follow"
+    ],
+    "nearest_considered": [
+     "WAGR-474",
+     "WAGR-220",
+     "WAGR-1",
+     "WAGR-195",
+     "WAGR-410",
+     "WAGR-443 (Holding Pen children WAGR-368..381)",
+     "WAGR-478 (Phase 2 children WAGR-408, WAGR-430)"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1560",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "01:00:27",
+     "line_start": 737,
+     "quote": "Kobi Kunasekaran: but I guess a big question is like are do we intend to have this go live as part of phase one or fast follow. / Joyce Kiddell: follow let's just treat everything as it comes in right like that's where I'm like hey sign flow done"
+    },
+    {
+     "ledger_id": "L1555",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:57:04",
+     "line_start": 703,
+     "quote": "Joyce Kiddell: ... So, we have another vendor who's building a um a fraud tool for us specific to the welcome email stage. ... / Joyce Kiddell: ... Once we have the results, it's going to um write that to a Google sheet plus also send a notification to the rep ..."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1556",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:58:05",
+     "line_start": 708,
+     "quote": "Joyce Kiddell: ... Phase two will be actually um pulling out the results from the Google Sheets obviously and storing that against the individual player records. / Joyce Kiddell: So I'm assuming at that point we'll do it via API. Um and they're building it for us. / Joyce Kiddell: So we're going to own all the code like it's being pulled into our GitHub um or uh so we'll just have to build you probably an endpoint for that one as well."
+    },
+    {
+     "ledger_id": "L1559",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "01:00:27",
+     "line_start": 734,
+     "quote": "Joyce Kiddell: We are heading into testing with it hopefully like later this week. Um, so it's not like super far off like it's mostly built. / Joyce Kiddell: Uh, so just wanted to give you visibility on the timeline. Um, but once we have confidence in it actually like working properly. Um, which is where like that could take you know a few weeks. I don't know how long um then yeah that's when we will um have a solutioning discussion around uh the API connection"
+    }
+   ],
+   "what_differs": "The client set the welcome-email fraud tool API integration (fraud results written back to Salesforce) as a fast follow on 2026-08-04. No Jira issue, epic, Holding Pen or Phase 2 item records it; WAGR-474 only asks whether moving a Sign-Up to In Progress sends a welcome email.",
+   "suggested_action": "Create a Phase 2 / fast-follow story under WAGR-478 or WAGR-304 for the fraud-tool integration (record matching key, which object receives results, endpoint direction), and link the open question from 2026-07-15 on how tool results identify the sign-up.",
+   "checked_later_meetings": true,
+   "reasoning": "Joyce answered 'follow' (fast follow) to Kobi's phase question. Later meetings (to 2026-09-30) only restate that fraud flags/write-offs are not in other flows; no meeting reverses the fast-follow decision and no Jira text (summaries, descriptions, comments) mentions the fraud tool.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-02",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Sign-Up",
+   "title": "Client-confirmed rule 'Sign-Up currency defaults from the deal market country (CAD/USD), stamped and Ops-editable' has no ticket; Jira currency tickets use player country instead",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "market country",
+     "signup currency",
+     "sign-up currency",
+     "Signup_Currency",
+     "CurrencyIsoCode",
+     "currency from deal",
+     "CAD",
+     "USD",
+     "stamp currency"
+    ],
+    "nearest_considered": [
+     "WAGR-404",
+     "WAGR-413",
+     "WAGR-415",
+     "WAGR-160",
+     "WAGR-289",
+     "WAGR-5",
+     "WAGR-454"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2125",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:05:40",
+     "line_start": 134,
+     "quote": "Kobi Kunasekaran: So the market currency for The deal determines the payout currency for the sign / Emily Vandenberg: The market country. / Kobi Kunasekaran: up. / Emily Vandenberg: Yes. For the deal determines the payout / Kobi Kunasekaran: Okay. / Emily Vandenberg: currency."
+    },
+    {
+     "ledger_id": "L2128",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:04:35",
+     "line_start": 110,
+     "quote": "Kobi Kunasekaran: Uh okay. So that means we shouldn't just uh automatically use formula fields based on player. We need to stamp it on the sign up. / Emily Vandenberg: That's the"
+    },
+    {
+     "ledger_id": "L2130",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:05:40",
+     "line_start": 140,
+     "quote": "Kobi Kunasekaran: And then not necessarily the deal currency. So yeah. Okay. So I think what we'll do is like we'll do like a mapping, right? It's simple like if it's Canadian uh sorry if the market country is Canadian or Canada then uh currency is CAD and if market country is US currency is USD"
+    },
+    {
+     "ledger_id": "L2138",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:11:53",
+     "line_start": 193,
+     "quote": "Kobi Kunasekaran: revisit payouts when we start like going through the discovery for it and we can come back and update that. So maybe what I can do for now in uh for the currency for the sign up is uh make it I mean we already have the field to set it and I will set it from the deal based on the market country um as a default and then uh it is surface for ops. / Emily Vandenberg: Yeah."
+    },
+    {
+     "ledger_id": "L2139",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:16:16",
+     "line_start": 245,
+     "quote": "Emily Vandenberg: for sign up then you'll go with market country um from the deal and then I / Kobi Kunasekaran: Yeah. Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2285",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:04:34",
+     "line_start": 152,
+     "quote": "Kobi Kunasekaran: So hopefully this doesn't happen again. Um but since I made I made a lot of changes to that flow actually um I incorporated the uh source information um removed all of the matching by the deal makeup. So right now we're only relying on the delectional ID which seems to be working fine"
+    },
+    {
+     "ledger_id": "L2704",
+     "date": "2026-09-18",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:29:57",
+     "line_start": 506,
+     "quote": "today I'm going to make that um sign up currency formula field to point to the out of the box um currency field so that it captures the players country of origin. / Kobi Kunasekaran: Okay."
+    }
+   ],
+   "what_differs": "On 2026-08-27 Emily confirmed the deal's market country sets the sign-up payout currency (Canada=CAD, US=USD), stamped on the Sign-Up (not a player formula) and editable by Ops. No ticket records this rule. The only currency tickets (WAGR-404, WAGR-413, WAGR-415) derive 'Signup Currency' from the player's country and treat CAD as the fallback when the SLC has no country.",
+   "suggested_action": "Add a ticket (or a comment on WAGR-5) that documents the deal-market-country rule, the CAD/USD mapping and Ops edit access, and confirm with WagerTech how the Player-level 'Signup Currency' (WAGR-404, from the client's Sep notes) relates to the Sign-Up record currency so the two rules do not conflict.",
+   "checked_later_meetings": true,
+   "reasoning": "L2285 (2026-09-01) states signup currency now comes from the deal, so the build may exist without a ticket. L2704 (2026-09-18, internal) moves the 'sign up currency formula' to the player's country of origin, which is the opposite of the 08-27 'not a formula from player' decision; matching is by meaning, so confidence is medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-03",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Sign-Up",
+   "title": "Decision to create a VIP-tagged affiliate link inside the VIP sign-up flow has no ticket; WAGR-435 says link association was deferred",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "VIP",
+     "VIP link",
+     "affiliate link",
+     "create link",
+     "link inside flow",
+     "tagged VIP",
+     "Exclude from CMS"
+    ],
+    "nearest_considered": [
+     "WAGR-432",
+     "WAGR-435",
+     "WAGR-431",
+     "WAGR-433",
+     "WAGR-491",
+     "WAGR-456"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3449",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "01:43:51",
+     "line_start": 1463,
+     "quote": "Kobi Kunasekaran: maybe we give them the ability to create it in this workflow as opposed to going to deals, finding the deal, adding the link, / Joyce Kiddell: If you could make it automatically tagged as VIP as they're creating it. / Kobi Kunasekaran: yes. / Joyce Kiddell: Yeah, that makes sense."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "On 2026-09-30 Joyce and Kobi agreed users can create the affiliate link inside the VIP sign-up flow and that it is tagged VIP automatically. WAGR-432 (VIP entry flow) does not mention link creation, and WAGR-435 states: \"How VIP links get formally linked to specific sign-ups/players is still open and was explicitly deferred to a future discovery session\".",
+   "suggested_action": "Add the in-flow link creation (attached to the selected deal, VIP flag set, excluded from CMS via the WAGR-491 mechanism) to WAGR-432 or a new VIP story, and update the deferral note on WAGR-435.",
+   "checked_later_meetings": true,
+   "reasoning": "9/30 is the latest meeting in the ledger; all VIP tickets were created 2026-09-23 and have no comments that add this capability.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-04",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Sign-Up",
+   "title": "WAGR-432 (VIP manual entry flow) lacks the VIP rules decided on 2026-09-23/30: BA default, deal lookup filter, duplicate block, complete-in-one-pass",
+   "jira": [
+    {
+     "key": "WAGR-432",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+     "quote": "* Status: on manual creation, default directly to \"In Progress\" — no \"New\"/pending state, since this isn't coming from automated intake. Move to \"Completed\" or \"Archived\" from there using the existing status values; no new status values needed.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-432",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+     "quote": "* Sign-up must be relatable to an existing Deal (the deal will already exist by the time ops logs the sign-up) — confirm the related-list/relationship UX once the New button and flow are in place.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3440",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:30:55",
+     "line_start": 1338,
+     "quote": "Joyce Kiddell: Uh, yeah, we wouldn't have to link it. Could we just have it reflect whoever signed in? / Kobi Kunasekaran: yeah. Yeah, we can default to the current running user / Emily Vandenberg: I guess just default it to their name then and then if we're going to keep it. / Kobi Kunasekaran: Yeah, I can do that."
+    },
+    {
+     "ledger_id": "L3441",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "01:37:15",
+     "line_start": 1397,
+     "quote": "Emily Vandenberg: The only thing I would say with the act of the list of deals, you should put anything that's paused in there as well because these guys will log late / Kobi Kunasekaran: Okay. Yeah, I can do that. So, pause and active and then everything else we exclude from the list."
+    },
+    {
+     "ledger_id": "L3443",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "01:35:58",
+     "line_start": 1385,
+     "quote": "Emily Vandenberg: The duplicate should exist outside of like the rep because like if it's the same player, same book, that's a duplicate. / Kobi Kunasekaran: I think it's same player, same book. / Kobi Kunasekaran: Yeah, we can enforce the same one here. So if we detect that there the the same player is associated to a signup record for the same deal then it will flag that as a duplicate"
+    },
+    {
+     "ledger_id": "L2986",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:09:32",
+     "line_start": 1096,
+     "quote": "Kobi Kunasekaran: Like, do we do we want them to be able to like mark it as completed right away during the like as they fill this out? Yeah. Okay. / Kobi Kunasekaran: during the process like they'll fill out all the fields, mark it as complete. / Emily Vandenberg: I think if you get into it, like feel free to ask questions, but I think we're good."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2958",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:09:32",
+     "line_start": 1098,
+     "quote": "Kobi Kunasekaran: so I just want to confirm that it's the same logic um so we can make sure that validation is there / Emily Vandenberg: Yeah, / Kobi Kunasekaran: okay / Emily Vandenberg: we'll we'll confirm that is a little"
+    },
+    {
+     "ledger_id": "L3370",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:30:00",
+     "line_start": 1328,
+     "quote": "Kobi Kunasekaran: but as I understand it once the signup record is created it's more or less the same process. the logging, the completion, the fraud, all of that is more or less the same. / Kobi Kunasekaran: but I believe in terms of everything else it was supposed to be the same like there's no other linkages needed uh the tracking is the same"
+    }
+   ],
+   "what_differs": "Meetings decided: the BA on a VIP sign-up defaults to the running user (changeable); the deal lookup lists only Active and Paused deals; a duplicate is the same player and same deal regardless of rep and the flow blocks it; users can fill all fields and complete in the same pass. WAGR-432 (created 09-23, no comments) states none of these rules, and the client has not yet confirmed whether VIP completion validation is the same as standard (L2958).",
+   "suggested_action": "Add these rules as acceptance criteria on WAGR-432, and track the open VIP completion-validation confirmation (L2958) on the ticket.",
+   "checked_later_meetings": true,
+   "reasoning": "Searched all VIP tickets (WAGR-420, 431-435, 405, 160) for 'current user', 'running user', 'paused', 'duplicate'; none carry these rules. 2026-09-30 is the last meeting.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-05",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Sign-Up",
+   "title": "SLC without a player external ID: meeting said flag for Ops review; WAGR-5 build note falls back to email matching",
+   "jira": [
+    {
+     "key": "WAGR-5",
+     "status": "Jumpr Review",
+     "assignee": "Marc Cabantog",
+     "summary": "BUILD-04 — Build production Study Link Click resolution flow (all branches)",
+     "quote": "* If no match, fall back to **email & secondary email (current logic)**",
+     "quote_source": "comment by (author not recorded) 2026-08-10"
+    },
+    {
+     "key": "WAGR-40",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-230 — Player: Manage Duplicate Player",
+     "quote": "The agency/CMS handles deduplication at player creation, so a duplicate should only arise if a player is created manually and bypasses that check, or an email address changes afterward.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1487",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: API Flow Testing",
+     "doc_link": "https://docs.google.com/document/d/1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:19:00",
+     "line_start": 325,
+     "quote": "Kobi Kunasekaran: Okay. Yeah. Worst case, like if something comes in like if we get a SLC without a player ID, / Kobi Kunasekaran: I would just flag that for review by ops anyways. So, that's what we'll do. And then we can see if when we hook up actual like uh player data and then actual clicks coming in from your agency sites u for the one that we're going to test with. Uh we can see if if we get if we run into that scenario at all, but we'll make sure that there's some sort of uh way to capture those errors on our end. / Emily Vandenberg: Okay, that makes sense. Okay, so although polarity is coming through, we need to like also be sending it within the um survey payload completion and you're saving that off into the account record. Um,"
+    },
+    {
+     "ledger_id": "L1486",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: API Flow Testing",
+     "doc_link": "https://docs.google.com/document/d/1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:18:02",
+     "line_start": 316,
+     "quote": "Kobi Kunasekaran: remove like in our flow right now we are looking up the email address to map the SLC to a player. So we'll remove that and base it off of the external ID. Um, and then that way we just rely on whatever comes from CMS. Um, so it should be ideally one to one. So we don't need to there's not going to be any overlap because the last thing I want is for us to look up the email and then your ID ends up being different than what we might have actually captured before and then we have to do some updates and that could get that could cause like data integrity issues. So I'm fine relying on whatever comes from CMS for the players. / Emily Vandenberg: Yeah. Okay. You can just like we'll just like note that in the agenda as like to Joyce today as well, but like we had already Yeah. / Emily Vandenberg: agreed on like kind of taking this offline and getting back to you with the player ID and how we need to clean up the ddups. Um, so"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1485",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: API Flow Testing",
+     "doc_link": "https://docs.google.com/document/d/1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran; Strahinja Vladetic",
+     "timestamp": "00:16:59",
+     "line_start": 302,
+     "quote": "Emily Vandenberg: But is that the right like shouldn't we always have a player ID? Like isn't like that where we need to be? So, you should never receive something without a player / Kobi Kunasekaran: because we now have a player external ID coming in from the system, maybe we don't necessarily need to do any of the email lookups to resolve it ourselves because it it would would be safe to assume that you're sending it. But that comes back to the whole dduplication. Does this mean that you're going to handle the dduplication on your end to make sure that like one email address or a player always maps to uh the same email and player information? / Emily Vandenberg: straw maybe we have to get back to you. I would like to say yes, but I don't know feasibility. / Strahinja Vladetic: It's something that we could do. So, we have access to the player base, right? / Strahinja Vladetic: Um, so yeah, we could do Yeah, it's something we could talk about."
+    },
+    {
+     "ledger_id": "L1504",
+     "date": "2026-08-04",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:02:46",
+     "line_start": 120,
+     "quote": "Emily Vandenberg: We need to resolve it on our end, but what we kind of lean towards is like we own player ID um and dduping and cleaning and making sure we're always passing one through from the CMS. Excuse me."
+    },
+    {
+     "ledger_id": "L2208",
+     "date": "2026-08-31",
+     "meeting_title": "Kobi <> Cedrick: Weekly Planning - 2026/08/31 11:30 EDT - Notes by Gemini",
+     "doc_link": "https://docs.google.com/document/d/1-X6uxr5Z56gf9rzah9xViDAoUALdR8BZwJ9ygEIYj-Q/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:24:04",
+     "line_start": 279,
+     "quote": "Kobi Kunasekaran: ... Our SLC processing automation is going to either find a player that exists for that click based on email address or external ID. Um, if that player doesn't exist, then it's going to create a player record. And when it creates a player record, the status on the player record is set to pending um automatically."
+    }
+   ],
+   "what_differs": "On 2026-08-04 Kobi proposed dropping the email lookup and relying on the CMS external ID, and said an SLC without a player ID is flagged for Ops review (Emily agreed). The WAGR-5 comment of 2026-08-10 keeps email/secondary-email fallback when the external ID does not match, and WAGR-40 assumes the CMS owns de-duplication, which WagerTech said it still had to resolve.",
+   "suggested_action": "Confirm with WagerTech who owns player ID and de-duplication, then record the final matching rule (external ID only vs email fallback, and handling of a blank player ID) on WAGR-5 and WAGR-40.",
+   "checked_later_meetings": true,
+   "reasoning": "No later client meeting resolves the player-ID ownership question (Emily said she would book a separate session, L1505). L2208 (tier2, 2026-08-31) says the build matches by email or external ID. The 08-04 decision was partly conditional, so confidence is medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-06",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Sign-Up",
+   "title": "WAGR-5 still documents deal-makeup fallback matching that was removed on 2026-08-25/09-01 (Deal External ID only)",
+   "jira": [
+    {
+     "key": "WAGR-5",
+     "status": "Jumpr Review",
+     "assignee": "Marc Cabantog",
+     "summary": "BUILD-04 — Build production Study Link Click resolution flow (all branches)",
+     "quote": "* **Deal resolution**\n\n* Prefer **external deal ID**\n* If not found, fall back to the other deal fields we discussed:\n\n* state / country\n* partner / operator id/name\n\n* If there are duplicates, flag for review",
+     "quote_source": "comment by (author not recorded) 2026-08-10"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2073",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:02:57",
+     "line_start": 146,
+     "quote": "Kobi Kunasekaran: I could just remove that logic entirely as well, which is what I'm thinking. And then we just rely on the deal ID to give us the mapping for it. / Emily Vandenberg: Yeah, that would make sense because we haven't handled the in the CMS the deal um like the kind of work on the deal setup and then the endpoint. / Kobi Kunasekaran: because we're moving away from having the raw data that makes up a deal to the deal ids I can just move all this logic from the flow. It'll make it a lot simpler too."
+    },
+    {
+     "ledger_id": "L2285",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:04:34",
+     "line_start": 152,
+     "quote": "Kobi Kunasekaran: So hopefully this doesn't happen again. Um but since I made I made a lot of changes to that flow actually um I incorporated the uh source information um removed all of the matching by the deal makeup. So right now we're only relying on the delectional ID which seems to be working fine"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2300",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:15:00",
+     "line_start": 266,
+     "quote": "and then I already talked about the reprocess button where if you do see an error and if we fix it, uh, like if it's like a missing assignment or something like that, then once that's fixed, you can just click on reprocess and it'll relink it. / Kobi Kunasekaran: The only ones that it won't like kind of work for is uh, the deal or the clicks where we received no delectional ID."
+    }
+   ],
+   "what_differs": "Meetings agreed to remove matching by deal makeup and rely only on the Deal External ID, and Kobi reported it done on 2026-09-01. WAGR-5 (Jumpr Review) still describes a fallback to state/country and partner/operator, with no later comment.",
+   "suggested_action": "Add a comment to WAGR-5 that records the Deal-External-ID-only rule and the reprocess limitation for clicks without a Deal External ID, so review and UAT test the current behaviour.",
+   "checked_later_meetings": true,
+   "reasoning": "Last WAGR-5 comment is 2026-08-17; L2285 and L2300 (2026-09-01) confirm the change and its effect on reprocessing.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-07",
+   "category": "V4",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Sign-Up",
+   "title": "Write-off checkbox and confirm-fraud auto-archive (decided 2026-09-01) live only as 'new scope' in a comment on Done WAGR-165; no open build ticket",
+   "jira": [
+    {
+     "key": "WAGR-165",
+     "status": "Done",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-245 — Sign-Up: Enable fraud flagging at New status",
+     "quote": "* Fraud confirmed, payment sent → do not change status. Set a new \"Write-off\" checkbox instead.",
+     "quote_source": "comment by (author not recorded) 2026-09-03"
+    },
+    {
+     "key": "WAGR-466",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Write-offs and clawbacks for paid Sign-Ups — design",
+     "quote": "Today there is no way to write off that Sign-Up or to show which payment it was part of.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2308",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "00:27:33",
+     "line_start": 388,
+     "quote": "Kobi Kunasekaran: Um but if the prod review status is uh marked as confirmed, then we can check if the payment status is uh checked. And if this is checked, we'll check the write- off check box. And then that's what you'll use on the reporting side to make sure that it's included in the write-offs regardless of the status. Um, and then if payment sent is unchecked, then we will move new to archived once the fraud is confirmed. Okay, / Lina Ceniccola: Yeah."
+    },
+    {
+     "ledger_id": "L2307",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "00:23:39",
+     "line_start": 343,
+     "quote": "Lina Ceniccola: in progress and basically if like the client received funds then it has to go it has to be a write off and we have to consider it as part of erosion. / Emily Vandenberg: to write it off like click for kind of like a write off because really at any / Emily Vandenberg: status um you know this could happen"
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3040",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "01:06:27",
+     "line_start": 1003,
+     "quote": "Kobi Kunasekaran: Enable fraud flagging at new status. This should be closed off. I think we uh Cedric already updated this uh in a different ticket. / Kobi Kunasekaran: I do have the ability to flag the fraud, / Taryn Reithofer: I offer 165. I will um append it somehow to that equals off to just so they're together. / Kobi Kunasekaran: just close the loop like let her know in there that it's it's already been uh sorted"
+    },
+    {
+     "ledger_id": "L3357",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "03:18:21",
+     "line_start": 2581,
+     "quote": "Kobi Kunasekaran: but we'll uh stamp the sign up as having been paid so that it doesn't show up again when they try to go through to create another payout for that same referral. / Kobi Kunasekaran: And I need to like think through like how that applies or how that kind of rolls back into the redeposits, the payouts, and things like that. So, I'll get back to you on that"
+    }
+   ],
+   "what_differs": "The client agreed that on confirmed fraud a Write-off checkbox is set when Payment Sent is checked, and a New record moves to Archived when it is not. Jira records this only as 'New scope added' in a comment on WAGR-165, which is Done, and WAGR-466 (2026-09-25) says no write-off capability exists today.",
+   "suggested_action": "Open a build ticket (or reopen WAGR-165) for the Write-off checkbox and the confirm-fraud automation, and link it to WAGR-220 and WAGR-466. Confirm in the sandbox whether any of it was built.",
+   "checked_later_meetings": true,
+   "reasoning": "WAGR-165's original scope (fraud flag at New) is done per L2237/L3040, but the write-off scope was added after that. No other ticket mentions a Write-off checkbox; build state is not stated in any later meeting, so confidence is medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-08",
+   "category": "V4",
+   "severity": "Low",
+   "confidence": "high",
+   "feature_area": "Sign-Up",
+   "title": "WAGR-336 (Path component on Sign-Up) shows Done, but it was closed as Won't Do after the client asked to remove the Path",
+   "jira": [
+    {
+     "key": "WAGR-336",
+     "status": "Done",
+     "assignee": "Unassigned",
+     "summary": "POC-19 — Add Status Path Components to Signup and Player Records",
+     "quote": "Closing as Won't Do — superseded.",
+     "quote_source": "comment by (author not recorded) 2026-07-28"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1079",
+     "date": "2026-07-17",
+     "meeting_title": "Wagertech <> Jumpr - 60 Min (Joyce Kiddell)",
+     "doc_link": "https://docs.google.com/document/d/1uCoi6pw3ckVsTv1im7Qc235RyfAUqb7UGFJs2Pd6uMY/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:29:25",
+     "line_start": 520,
+     "quote": "Joyce Kiddell: But basically like these colors would map to like whatever the status is here. Um and I to be honest I did away with like the chevron thing here. / Joyce Kiddell: But with this like it yeah I just I think a status just saying like did we flag it for fraud? You know is it past due? / Kobi Kunasekaran: But I'm with you. / Kobi Kunasekaran: This makes sense."
+    },
+    {
+     "ledger_id": "L1171",
+     "date": "2026-07-21",
+     "meeting_title": "Wagertech sync (Kobi/Waleed internal) - Transcript",
+     "doc_link": "https://docs.google.com/document/d/1YS-MEJ-VY6htjOuNiTj3G44DtDV2SvfzfKKz2nHpZlw/edit",
+     "speakers": "Waleed Alasadi; Kobi Kunasekaran",
+     "timestamp": "00:15:00",
+     "line_start": 119,
+     "quote": "Waleed Alasadi: You should add a path here. Why don't we have a path? / Kobi Kunasekaran: It's not a linear process. / Waleed Alasadi: Really? Who… / Kobi Kunasekaran: So, they wanted us to remove it. We had it in the original one."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1219",
+     "date": "2026-07-22",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1BRZjXegzlnfZl33fIRA1KbnDiGYIpBts2oh3IO0U45k/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Waleed Alasadi",
+     "timestamp": "00:45:04",
+     "line_start": 837,
+     "quote": "Kobi Kunasekaran: Joyce, you wanted us to remove the path like the see the new in progress completed. Uh do we want to add that one back in? / Joyce Kiddell: but if we're just doing new in progress completed, / Joyce Kiddell: I I think we can introduce it again. / Waleed Alasadi: then maybe we just don't show the path and just keep the status like field as is."
+    }
+   ],
+   "what_differs": "The client dropped the path/chevron on the Sign-Up record (2026-07-17) and Kobi confirmed it was removed because the process is not linear. WAGR-336 status is Done, which reads as delivered, while its own comment says Won't Do.",
+   "suggested_action": "Move WAGR-336 to Cancelled (or add a resolution note) so delivery reports do not count a Path component as built.",
+   "checked_later_meetings": true,
+   "reasoning": "L1219 (2026-07-22) left reintroducing a 3-step path as an open idea, not a decision; no later meeting adds the Path back. L1079 is tagged to the Ops list views area but is the tier1 client evidence.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "SIGNUP-09",
+   "category": "V8",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Sign-Up",
+   "title": "Open question: can a sign-up have a Secondary Referrer without a Primary Referrer? Not answered in a later meeting or in Jira",
+   "jira": [
+    {
+     "key": "WAGR-162",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "BUILD-244 — Sign-Up: Rearrange Referral Information section layout",
+     "quote": "Counter-proposal from the ticket implemented, and extended: No Referrer now also hides when either Referrer or Secondary Referrer is filled in.",
+     "quote_source": "comment by (author not recorded) 2026-09-01"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2273",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:22:08",
+     "line_start": 399,
+     "quote": "Kobi Kunasekaran: ... because the no referral was supposed to be mainly for the primary referral, which is the the first lookup. Um, I don't know if they could have like a secondary referral without a primary referral. So, I'll need to check that with them and confirm."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Kobi said he would confirm with the client whether a secondary referral can exist without a primary. No later meeting answers it, and WAGR-162's build lets Secondary Referrer alone hide 'No Referrer', which assumes the answer is yes.",
+   "suggested_action": "Ask WagerTech and record the answer on WAGR-162; if 'no', add validation in the Log/Complete flows.",
+   "checked_later_meetings": true,
+   "reasoning": "Grepped full ledger for 'secondary referr' after 2026-09-01: only payout/rollup items, none answer this. Raised in an internal meeting, so severity is Low.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Log Sign Up auto-completes the record when all fields are filled, while DECISION-04 (WAGR-293) and a WAGR-199 comment say completion is manual via the Complete button only",
+   "why_unverified": "Only internal (Jumpr) meeting evidence (L2270); the WAGR-199 comment targets record-triggered automation, and WAGR-343 allows the Log/Complete flow to set Completed. Needs a product owner check, not a client decision.",
+   "ledger_ids": [
+    "L2270",
+    "L2202",
+    "L2271"
+   ],
+   "jira_keys": [
+    "WAGR-293",
+    "WAGR-199",
+    "WAGR-343"
+   ]
+  },
+  {
+   "title": "WAGR-429 scopes only an Ops 'un-flag' control; Kobi said the control would cover both confirm and dismiss",
+   "why_unverified": "Kobi's design was offered as 'maybe' (L2933) and the ticket says the approach is not final; arguable detail gap.",
+   "ledger_ids": [
+    "L2933"
+   ],
+   "jira_keys": [
+    "WAGR-429"
+   ]
+  },
+  {
+   "title": "WAGR-88 (SLC bugs incl. 'No fault connectors anywhere in the flow') is still Ready although meetings report click-intake bugs fixed and graceful error handling planned",
+   "why_unverified": "L2230 is tier2 and does not say which bugs were fixed; L2072 is an action item. Cannot confirm WAGR-88 items are done.",
+   "ledger_ids": [
+    "L2072",
+    "L2230",
+    "L2084"
+   ],
+   "jira_keys": [
+    "WAGR-88"
+   ]
+  },
+  {
+   "title": "SLC record page cleanup was deprioritized/deferred internally, but WAGR-48 is Phase 1 'Should Have' and Ready",
+   "why_unverified": "Internal meeting only (L2239); 'Should Have' is compatible with low priority.",
+   "ledger_ids": [
+    "L2239",
+    "L1997"
+   ],
+   "jira_keys": [
+    "WAGR-48"
+   ]
+  },
+  {
+   "title": "WagerTech wants a bucket of leads that did not progress for follow-up and non-conversion reporting",
+   "why_unverified": "Client ask discussed, not agreed (L1070); no specific ticket (Archived status and WAGR-285 dashboards are adjacent).",
+   "ledger_ids": [
+    "L1070"
+   ],
+   "jira_keys": [
+    "WAGR-285"
+   ]
+  },
+  {
+   "title": "Whether one player can have several sign-ups for the same operator (separate promotions/deals) and how a 'book' is defined",
+   "why_unverified": "Internal speculation (L2701, L2702, L2738); partly answered by the 09-30 duplicate rule (same player + same deal, L3443). WAGR-473 holds the repeat-click rule.",
+   "ledger_ids": [
+    "L2701",
+    "L2702",
+    "L2738",
+    "L3443"
+   ],
+   "jira_keys": [
+    "WAGR-473"
+   ]
+  },
+  {
+   "title": "Epic hygiene: WAGR-304 'Fraud Flags & Exception Handling' is Done while its child WAGR-429 is Open; 98 of 145 Sign-Up tickets have no epic",
+   "why_unverified": "Jira-only observation; no transcript decision involved.",
+   "ledger_ids": [],
+   "jira_keys": [
+    "WAGR-304",
+    "WAGR-429"
+   ]
+  }
+ ],
+ "module_coverage": {
+  "area": "Sign-Up",
+  "jira_epics": [
+   "WAGR-3",
+   "WAGR-305",
+   "WAGR-304",
+   "WAGR-420",
+   "WAGR-31"
+  ],
+  "ticket_count": 145,
+  "uncovered_capabilities": [
+   {
+    "capability": "Welcome-email fraud tool integration (fraud results to Salesforce, matching to sign-up)",
+    "ledger_ids": [
+     "L1555",
+     "L1556",
+     "L1558",
+     "L1560",
+     "L0985"
+    ],
+    "note": "Agreed fast follow 2026-08-04; no ticket or epic anywhere. WAGR-474 holds only the welcome-email to In Progress trigger question."
+   },
+   {
+    "capability": "Sign-Up currency from deal market country (stamped, Ops-editable)",
+    "ledger_ids": [
+     "L2125",
+     "L2128",
+     "L2130",
+     "L2138",
+     "L2139"
+    ],
+    "note": "No ticket; the Jira currency cluster (WAGR-404/413/415) is player-country based."
+   },
+   {
+    "capability": "Confirmed-fraud write-off (Write-off checkbox, auto-archive New records)",
+    "ledger_ids": [
+     "L2307",
+     "L2308"
+    ],
+    "note": "Only a 'new scope' comment on Done WAGR-165; WAGR-466 is design-only for paid write-offs."
+   },
+   {
+    "capability": "VIP: in-flow affiliate link creation and the 09-30 flow rules",
+    "ledger_ids": [
+     "L3440",
+     "L3441",
+     "L3443",
+     "L3449",
+     "L2986"
+    ],
+    "note": "VIP epic WAGR-420 has 5 tickets created 09-23; none carry the 09-30 rules."
+   }
+  ],
+  "note": "Sign-Up is well ticketed overall: about 145 shortlisted issues, but 98 have no epic. Epic E WAGR-3 holds 7 and Sign-Up Logging UX WAGR-305 holds 17 in the digest; WAGR-304 (Fraud) is Done with one open child."
+ },
+ "notes": "Lens A (transcript to Jira). 463 ledger items read (227 decided). Checked every decided requirement/decision/change/action item against Jira summaries, descriptions and all comments, including Done/Cancelled, Holding Pen WAGR-443 and Phase 2 WAGR-478. Ledger 'build/story NNN' numbers are BUILD-NNN, not WAGR keys (e.g. build 243 = WAGR-155, 242 = WAGR-164, 245 = WAGR-165, 241 = WAGR-163, 244 = WAGR-162, 250 = WAGR-149). Dropped candidates after checking: past-due rule (07-17 meeting clarified past due applies to in-progress records, consistent with Log_Overdue on In Progress); write-off and BA/referrer defaulting are covered by WAGR-165 comments and WAGR-397/43/71; payout type default from referrer is in WAGR-465; Log Sign Up field-change gating is WAGR-155; date validation WAGR-425; header WAGR-421/422; date-only rule WAGR-269. One-off communication action items (send doc, share diagram) that later meetings show as done were not listed as V1. Not Jumpr build items: last name required at sign-up (CMS validation, L1255) and showing names not IDs (native lookup behaviour, L1273)."
+}

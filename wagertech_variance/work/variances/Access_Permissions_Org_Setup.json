@@ -1,0 +1,508 @@
+{
+ "area": "Access & Permissions / Org Setup",
+ "variances": [
+  {
+   "temp_id": "ACCESS-01",
+   "category": "V2",
+   "severity": "High",
+   "confidence": "medium",
+   "feature_area": "Access & Permissions / Org Setup",
+   "title": "WAGR-271 (Done) lets Reps reactivate archived Sign-Ups, but the client decided that only Ops can unarchive",
+   "jira": [
+    {
+     "key": "WAGR-271",
+     "status": "Done",
+     "assignee": "Unassigned",
+     "summary": "BUILD-50 — Reactivate Archived Sign-Up button",
+     "quote": "Let Reps pull an archived Sign-Up back into the working queue.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-271",
+     "status": "Done",
+     "assignee": "Unassigned",
+     "summary": "BUILD-50 — Reactivate Archived Sign-Up button",
+     "quote": "Closing — ♻️ Reactivate button + dedicated flow (Screen_Sign_Up_Reactivate v1) live: clears Archive Reason/Other Reason, re-enables editing.",
+     "quote_source": "comment by unknown author (Asana import) 2026-07-29"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1224",
+     "date": "2026-07-22",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1BRZjXegzlnfZl33fIRA1KbnDiGYIpBts2oh3IO0U45k/edit",
+     "speakers": "Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:56:15",
+     "line_start": 993,
+     "quote": "Lina Ceniccola: I just want to make sure that once they archive it they can't unarchchive / Kobi Kunasekaran: Yeah, like we can restrict that. So only like ops can unarchive something. / Kobi Kunasekaran: you can still go in and you can move the status to in progress"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "On 2026-07-22 Lina asked that reps cannot unarchive a sign-up and Kobi agreed that only Ops can unarchive. WAGR-271, created 2026-07-28 and closed as Done, states the objective as letting Reps reactivate archived Sign-Ups and has no Ops-only restriction in its description or comments.",
+   "suggested_action": "Check in PartialSB, logged in as a Rep (WT Rep PSG), whether the Reactivate button on an Archived Sign-Up is visible. If it is, restrict the button/flow to Ops (for example with a custom permission or a permission set, the same pattern as the Referrer Reactivate in WAGR-158) and add the rule to WAGR-271 or to the access matrix in WAGR-495.",
+   "checked_later_meetings": true,
+   "reasoning": "Tier1 transcript, client request with Jumpr agreement; no later meeting reverses it (grepped full ledger for unarchive/reactivate archived). The ticket text explicitly targets Reps. Confidence is medium because the sandbox may already hide the button through permissions that the ticket does not describe.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "ACCESS-02",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Access & Permissions / Org Setup",
+   "title": "WAGR-391 treats the Brand Manager object as undecided; the 2026-08-18 meeting decided to use the standard User Manager field and role hierarchy",
+   "jira": [
+    {
+     "key": "WAGR-391",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Brand Manager: Determine Object Model, Record Creation, and Sharing Controls",
+     "quote": "Brand Manager exists today only as a lookup field on BA (BUILD-202), pointing at an object/record type that has not been defined.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-391",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Brand Manager: Determine Object Model, Record Creation, and Sharing Controls",
+     "quote": "Decide the object Brand Manager records live on — most likely a standard object (User or Contact) used out-of-the-box rather than a new custom object, per Emily's note.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-176",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-202 — Brand Ambassador: Object + Core Status",
+     "quote": "BA Manager → Manager",
+     "quote_source": "comment by unknown author (Asana import) 2026-08-25"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1950",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:54:07",
+     "line_start": 915,
+     "quote": "Kobi Kunasekaran: ...So I I would recommend trying to like see if we can set it up that way first / Kobi Kunasekaran: ...assuming it's like one to one right like a BA is only going to have a single manager right / Joyce Kiddell: Yes. Yeah, I think that should be fine. / Joyce Kiddell: Yeah, I think we can use out of the box manager."
+    },
+    {
+     "ledger_id": "L1951",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:55:09",
+     "line_start": 934,
+     "quote": "Joyce Kiddell: see the actual like sign up names like all the the actual sign up details for their brand ambassadors. / Lina Ceniccola: Yeah, that's fine. / Lina Ceniccola: We want that. / Kobi Kunasekaran: ...BAS won't necessarily be able to see other people's signups / Emily Vandenberg: it would just be based on who the manager"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The meeting decided that the BA-to-Brand-Manager link is the out-of-the-box Salesforce Manager field (one manager per BA) and that manager visibility follows the hierarchy. WAGR-391 (Requirements, Sprint 2) does not record this decision; it still lists User or Contact as options and says the Brand Manager lookup points at an undefined object.",
+   "suggested_action": "Add the 2026-08-18 decision (User.Manager plus role hierarchy, one manager per BA) to WAGR-391 as the baseline, and scope the ticket down to Brand Manager user setup and baseline sharing. This prevents a Contact-based or custom Brand Manager design that would break the manager-hierarchy visibility that WAGR-392 and WAGR-37 depend on.",
+   "checked_later_meetings": true,
+   "reasoning": "Tier1 decided item (Joyce agreed). WAGR-176 comment and WAGR-186 runbook show the Manager field is already in use, so WAGR-391's 'not defined' framing is out of date. Only L2862 (two brand manager fields on Deal need cleanup) is later; it does not change the decision.",
+   "auto_checks": [
+    "jira_quote_not_in_issue:WAGR-391"
+   ]
+  },
+  {
+   "temp_id": "ACCESS-03",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Access & Permissions / Org Setup",
+   "title": "WAGR-37 still specifies 'No profile-based access', but later decisions put record-type access on the Rep profile and plan a profile-per-role cleanup at go-live",
+   "jira": [
+    {
+     "key": "WAGR-37",
+     "status": "In Progress",
+     "assignee": "Unassigned",
+     "summary": "BUILD-01 — Configure users, roles, sharing, and the 4-tier permission model",
+     "quote": "Deliver all access through Permission Sets and Permission Set Groups across four tiers: Rep, Manager, Ops, Admin. No profile-based access.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-427",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "Referrer: Streamline new referrer creation flow",
+     "quote": "Record type assignment will be handled through profiles moving forward.",
+     "quote_source": "comment by Cedrick Infantado 2026-09-28"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3016",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:24:29",
+     "line_start": 463,
+     "quote": "Taryn Reithofer: I was just doing if the profile profile name does not equal Wagertechsales / Kobi Kunasekaran: So for visibility perspective like leave it as it is for now. / Kobi Kunasekaran: we just have to remember that when we start preparing for go live like we're going to go through all these permission do do a full review."
+    },
+    {
+     "ledger_id": "L3025",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:38:13",
+     "line_start": 669,
+     "quote": "Kobi Kunasekaran: reps would be the ones creating referrals if we remove access for them to create operator, partner or player. Do you think the screen will disappear? / Kobi Kunasekaran: Can you can you test that out as part of the ticket or like break it off into a separate ticket if possible? / Cedrick Infantado: Yeah, I think I can do it in the same ticket. I'll just uh test that out. / Cedrick Infantado: But I'm around 90% sure that it would work."
+    },
+    {
+     "ledger_id": "L3074",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1MRQrsyv_XCgKEIoXR2_t4hTUfH3t5f-lGztLxIfTWZg/edit",
+     "speakers": "Cedrick Infantado; Kobi Kunasekaran",
+     "timestamp": "00:19:50",
+     "line_start": 404,
+     "quote": "Cedrick Infantado: ...So what I'm thinking here is that we can remove those permission um the permission to record types on the permission set and move the that to the profile like I've originally stated yesterday. / Cedrick Infantado: ...they cannot create any um accounts with that record type. / Kobi Kunasekaran: ...if they can they're they can confirm that reps only create referers and not players, operators or partners, then uh we can disable the create access and that would eliminate that middle screen and just default them to create refer when they click on any of the new button. / Cedrick Infantado: So once we confirm that then we can do that."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "WAGR-37 (In Progress, Sprint 2) says all access goes through permission sets and permission set groups with no profile-based access. On 2026-09-24/25 the team decided that record-type access is controlled on the profile (now built per WAGR-427) and that the go-live permissions review will set up a profile per role; the new epic WAGR-449 and tasks WAGR-495/496 also plan a separate consolidation pass.",
+   "suggested_action": "Update WAGR-37 to the current model (PSG-based object/field access plus profile-level record-type assignment, profile per role at cleanup), or close it into WAGR-495/WAGR-496 so that two tickets do not describe the permission model differently.",
+   "checked_later_meetings": true,
+   "reasoning": "Tier1 internal-sync decisions (L3016, L3025) are later than the 2026-07-04 ticket text; WAGR-427's Done-state comment confirms the profile change. Not a client-facing contradiction, so Medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "ACCESS-04",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Access & Permissions / Org Setup",
+   "title": "Access matrix tickets (WAGR-449/495) have no WagerTech review step and do not use the persona-by-field markup requested from the client",
+   "jira": [
+    {
+     "key": "WAGR-449",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Access and Permissions",
+     "quote": "Kobi / Taryn review and approve the matrix.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-495",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Consolidate WagerTech access requirements and produce persona access matrix",
+     "quote": "Use Jira as the source of business requirements and Salesforce metadata as the source of current configuration.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0411",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:28:55",
+     "line_start": 485,
+     "quote": "Kobi Kunasekaran: ... I have a good idea of like what the break off of break up of the roles and responsibilities are going to be. Um, obviously nothing final like we'll we'll put together the proposal that we can decide on uh what happens uh when we go live."
+    },
+    {
+     "ledger_id": "L1010",
+     "date": "2026-07-15",
+     "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "00:57:48",
+     "line_start": 798,
+     "quote": "Kobi Kunasekaran: just take a screenshot of this and then for each of these fields, you can put like a a color or like a description to say repon, manager, uh, ops, admin, uh, and then read, write. And we can take that and set up the different page views for each of those permissions accordingly. / Lina Ceniccola: So I think for us when we go in here the first step would be / Lina Ceniccola: determine what the rep should see from all of these details."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "In discovery Jumpr said it would put together a roles and access proposal for WagerTech to decide on before go-live, and on 2026-07-15 asked WagerTech to mark each field by persona (rep, manager, ops, admin) and read/write. The Jira plan has only Kobi/Taryn approving the matrix, builds it from Jira and metadata only, and no ticket tracks the client's field markup.",
+   "suggested_action": "Add a WagerTech review/sign-off step (Emily, Lina, Joyce) to WAGR-495 before WAGR-496 deploys, and record whether the client's persona field markup from 2026-07-15 was ever received; if not, use the matrix itself as the client review artifact.",
+   "checked_later_meetings": true,
+   "reasoning": "Both items are tier1 transcript and decided action items. No later meeting records delivery of the markup or a client review of the matrix (grepped full ledger for persona/screenshot). Kept as one V5 to avoid double-reporting the same gap as a V1.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "ACCESS-05",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Access & Permissions / Org Setup",
+   "title": "Redeposits design card WAGR-464 does not record the decided rule that BAs cannot change assigned redeposits (Ops makes changes)",
+   "jira": [
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Can BAs create their own redeposit rows, or only Ops?",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2805",
+     "date": "2026-09-21",
+     "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+     "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+     "speakers": "Ali Nawaz; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:47:31",
+     "line_start": 649,
+     "quote": "Ali Nawaz: So right now the assigned readab should not be touched uh other than how it's already already assigned to them or added to the sheets. / Kobi Kunasekaran: Okay. / Lina Ceniccola: I think if we if ops is able to go in and change it, / Kobi Kunasekaran: Yeah. / Lina Ceniccola: that's fine. If they want to request a change, / Kobi Kunasekaran: Yeah. / Ali Nawaz: Yeah, exactly. / Lina Ceniccola: they can just request it through ops and we'll change it. But let's let's not allow BAS to change the assigned / Kobi Kunasekaran: Perfect. / Kobi Kunasekaran: I mean with Salesforce like we can do hard lots right"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "On 2026-09-21 the client decided that BAs must not change assigned redeposit amounts or slots; changes are requested through Ops and Ops makes them, and Kobi noted Salesforce can hard-lock this. WAGR-464 lists BA create rights as an open decision but does not state the edit lock rule.",
+   "suggested_action": "Add the access rule to WAGR-464 (and later to the Redeposit build stories and the WAGR-495 matrix): Rep/BA read-only on assigned redeposit amount and slot fields; Ops edit.",
+   "checked_later_meetings": true,
+   "reasoning": "Tier1 transcript, client decision. Later redeposit meetings (2026-09-30) did not revise it. WAGR-464 description and comments lack the rule.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "ACCESS-06",
+   "category": "V8",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Access & Permissions / Org Setup",
+   "title": "BA sales-assistant (and hybrid BA/Ops) login and audit model is unresolved and not in Jira",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "assistant",
+     "shared login",
+     "sales assistant",
+     "hybrid",
+     "persona",
+     "license count"
+    ],
+    "nearest_considered": [
+     "WAGR-37",
+     "WAGR-495",
+     "WAGR-186",
+     "WAGR-393"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0393",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Lina Ceniccola",
+     "timestamp": "00:14:30",
+     "line_start": 277,
+     "quote": "Lina Ceniccola: would be I mean I can go top down. So like you have operations team then you have the sales / Lina Ceniccola: manager then the brand ambassador that falls under the sales manager and then their sales assistant if they have one. So it's also like if they have a manager and if they have a sales assistant but if they are a brand ambassador they would be using Salesforce regardless."
+    },
+    {
+     "ledger_id": "L0399",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Joyce Kiddell; Emily Vandenberg; Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "00:19:03",
+     "line_start": 370,
+     "quote": "Joyce Kiddell: I'm wondering if it's useful to have their own role. um if we can keep it under the cap of our total licenses. / Lina Ceniccola: We can think about it. / Kobi Kunasekaran: Yeah, we don't need to make a decision on the call right now, but it's good to know like if we do need to build any um anything to indicate, you know, signups log by assistance versus brand ambassadors"
+    },
+    {
+     "ledger_id": "L0845",
+     "date": "2026-07-07",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "00:53:09",
+     "line_start": 636,
+     "quote": "Emily Vandenberg: for BA assistants in a world where that there's people that are assisting the reps, do we want them to just use shared login or are you hoping to have unique but a relationship? / Joyce Kiddell: Uh, I mean unique would be great, but um I think it comes down to cost, right? Like I don't we need to scope out exactly how many users we're going to need internally, like excluding them and then understand if there's any left over like based off of our current agreement. Like I don't think we're going to have / Joyce Kiddell: like the ideal state is that they have their own login even if it's like a lower permission level just from like an audit perspective so we can see like what they've done in the system but um I don't think that's possible so like let's you mean Lena talk about like the agreement details Listen."
+    },
+    {
+     "ledger_id": "L0452",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Jay; Lina Ceniccola",
+     "timestamp": "00:03:23",
+     "line_start": 139,
+     "quote": "Jay: ... I think I'm more of a hybrid. Like I I can be both a BA and um operations. / Lina Ceniccola: Yeah, Jay will actually log the signups for one of our BAS. So, that's an important thing to note as"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Discovery named the BA's sales assistant as a Salesforce user group and Jay as an Ops/BA hybrid who logs sign-ups for a BA. Whether assistants get unique lower-permission logins (for audit) or share the BA login was left open on 2026-06-17 and again on 2026-07-07, pending license counts. No later meeting answers it, and no Jira ticket mentions assistants; WAGR-495 covers only Rep, Manager, Ops and Admin.",
+   "suggested_action": "Add the question to WAGR-495 as an open persona decision (assistant: unique login vs shared; hybrid BA/Ops users: PSG combination) and ask WagerTech to decide before go-live user activation, since it affects license count and the audit trail.",
+   "checked_later_meetings": true,
+   "reasoning": "Raised twice in tier1 meetings, never resolved (grepped full ledger for assistant); zero Jira hits for 'assistant'.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "ACCESS-07",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Access & Permissions / Org Setup",
+   "title": "No ticket for the open Salesforce licensing check (Emily to forward the Salesforce 'Lightning' product email; Kobi to confirm if extra licensing is needed)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "licen",
+     "Lightning",
+     "Platform Plus",
+     "console add",
+     "AE",
+     "MCP",
+     "credits"
+    ],
+    "nearest_considered": [
+     "WAGR-372",
+     "WAGR-380",
+     "WAGR-34"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3429",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:21:15",
+     "line_start": 1219,
+     "quote": "Kobi Kunasekaran: uh do you want to send me that email so I can just confirm but uh lightning / Emily Vandenberg: Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0669",
+     "date": "2026-07-02",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1kuuQd6CVZyatxvznKIOeYyLTZu76r2Qk8T7qQgUDbRg/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:13:39",
+     "line_start": 218,
+     "quote": "Kobi Kunasekaran: and then I think we flagged a few things that we weren't able to like confidently determine from our end. So those are things to check with your AE and confirm before we do the full switch. / Emily Vandenberg: Okay, we can take that away."
+    }
+   ],
+   "what_differs": "On 2026-09-30 Emily agreed to send Kobi the Salesforce product email so he can confirm whether it needs extra licensing. The only licensing tickets (WAGR-372 platform-license migration, WAGR-380 license fees) are Cancelled in the Holding Pen, so nothing tracks this follow-up or the earlier client check with the Salesforce AE.",
+   "suggested_action": "Track the follow-up as a small task (for example under WAGR-479 Go Live Tasks): receive Emily's email, confirm licensing impact, reply to the client.",
+   "checked_later_meetings": true,
+   "reasoning": "Decided action item in a tier1 client meeting; documented search found no open ticket. Low severity: Kobi expects no extra cost.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Org Company Information primary contact change from Pablo to Lina (2026-08-25)",
+   "why_unverified": "Decided action item with no ticket, but Kobi was in Setup on the call and likely did it live; no later confirmation. Verify in the production org.",
+   "ledger_ids": [
+    "L2083"
+   ],
+   "jira_keys": [
+    "WAGR-105",
+    "WAGR-409"
+   ]
+  },
+  {
+   "title": "Salesforce agent seats / MCP access for Owen during testing and rollout",
+   "why_unverified": "Discussed only (no decision); Kobi flagged MCP access may consume paid credits. No ticket. Emily proposed a session on the AI/MCP approach (L3433, no owner).",
+   "ledger_ids": [
+    "L3430",
+    "L3431"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Rep filter field list shows all fields because field view access is not restricted",
+   "why_unverified": "Discussed; Emily raised cleanup, no action set. Should feed the FLS view decisions in WAGR-495 but is not a decided requirement.",
+   "ledger_ids": [
+    "L2987"
+   ],
+   "jira_keys": [
+    "WAGR-495",
+    "WAGR-94"
+   ]
+  },
+  {
+   "title": "'Super ops' permission tier to reactivate Closed Deals",
+   "why_unverified": "Proposed by Joyce, who said she was unsure it is required. WAGR-508 says Reactivate is shown 'only to permitted users' but does not define the tier.",
+   "ledger_ids": [
+    "L3393"
+   ],
+   "jira_keys": [
+    "WAGR-508"
+   ]
+  },
+  {
+   "title": "Executive view-only and BA reporting personas",
+   "why_unverified": "Proposed/discussed in discovery (not decided). WAGR-495 lists only Rep, Manager, Ops, Admin; worth an explicit yes/no in the matrix.",
+   "ledger_ids": [
+    "L0409",
+    "L0454",
+    "L0405"
+   ],
+   "jira_keys": [
+    "WAGR-495"
+   ]
+  },
+  {
+   "title": "Eric and Jay access (2026-07-08 client action)",
+   "why_unverified": "Client was to email details; no ticket. Jay joined feedback from 2026-07-28 (L1384), so it was likely done informally. Not raised as V1.",
+   "ledger_ids": [
+    "L0897",
+    "L1384"
+   ],
+   "jira_keys": [
+    "WAGR-222"
+   ]
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-59",
+  "WAGR-48",
+  "WAGR-268",
+  "WAGR-416"
+ ],
+ "module_coverage": {
+  "area": "Access & Permissions / Org Setup",
+  "jira_epics": [
+   "WAGR-33",
+   "WAGR-449"
+  ],
+  "ticket_count": 46,
+  "uncovered_capabilities": [
+   {
+    "capability": "Non-core personas: BA sales assistant, hybrid BA/Ops user, executive view-only, BA reporting function, referrer (no access)",
+    "ledger_ids": [
+     "L0393",
+     "L0397",
+     "L0399",
+     "L0845",
+     "L0452",
+     "L0405",
+     "L0409",
+     "L0454"
+    ],
+    "note": "Discovery named these user groups; Jira persona model (WAGR-37, WAGR-495, WAGR-496) covers only Rep, Manager, Ops, Admin. No ticket mentions assistants or hybrids. See ACCESS-06."
+   },
+   {
+    "capability": "Client review/sign-off of the access model",
+    "ledger_ids": [
+     "L0411",
+     "L1010"
+    ],
+    "note": "Meetings committed a roles proposal for WagerTech to decide; WAGR-449 plans Kobi/Taryn approval only. See ACCESS-04."
+   },
+   {
+    "capability": "Salesforce licensing follow-ups (Platform Plus / Lightning console / product email)",
+    "ledger_ids": [
+     "L0669",
+     "L0672",
+     "L3429"
+    ],
+    "note": "License migration moved out of scope (WAGR-372 Cancelled in Holding Pen); no open ticket holds the remaining client licensing checks. See ACCESS-07."
+   }
+  ]
+ },
+ "notes": "Two epics hold this module: WAGR-33 'Epic A — Org Setup & Security' (4 children incl. WAGR-37 In Progress) and WAGR-449 'Access and Permissions' (created after the 2026-09-24 sync; children WAGR-392, 494, 495, 496, 505). Many access tickets sit outside both epics (WAGR-94, 59, 51, 60, 127, 63, 222, 391, 401). 46 issues in the area shortlist; about 35 are access/org-setup specific. Most decided access rules ARE covered somewhere: rep-own-records/manager-team (WAGR-37 AC, WAGR-127), reps cannot edit Operator/Partner/Deal/Link (WAGR-94, WAGR-84 comment), referrer visibility by assigned BA (WAGR-192), Referrer Reactivate Ops-only (WAGR-158), New Signup button via permission set (WAGR-431), fraud fields locked for reps (WAGR-220, WAGR-429), Survey date Ops-only (WAGR-401), user search (WAGR-63), Victor/Imdad users (WAGR-222), manual BA user creation runbook (WAGR-186), BA WagerTech email + secondary email field (WAGR-393 incl. comment checklist), Brand Manager Deal/DRA visibility deferred to the epic (WAGR-392 Ready in WAGR-449, consistent with L3035), record-type defaulting (WAGR-427 comments), credentials hygiene (WAGR-445 also escalates WAGR-249), Drive walled garden and permission scope (WAGR-112, WAGR-113), sandbox (WAGR-315), admin handoff (WAGR-22, empty). Not raised: L1347 (Ops keep sign-up deal/partner edit) is consistent with WAGR-37 AC 'Ops can override and reassign'; L2319 commission field visibility is superseded by the 2026-09-25 decision that BA commissions stay outside Salesforce this phase (L3095/L3141, WAGR-467); org time zone (L2080) was set live on the call. Hygiene only: rep link-edit restriction (L3036) was not moved under WAGR-449; WAGR-47 and WAGR-427 overlap on referrer record-type defaulting. V1 completeness: every tier1 decided action item/requirement in this area was checked; all but ACCESS-07 have a covering ticket or later evidence of completion (L0011 WAGR-325, L0052 L0103, L0190/L0191 internal Jumpr tooling later used per L2405, L0318/L2543 internal one-off access, L0369 WAGR-315, L0851/L0930/L0965/L1035 done per L1038 and WAGR-63, L1552/L1554 WAGR-112/113, L2519 WAGR-476, L2998 WAGR-445, L3036 WAGR-449). Gemini-notes-only and proposed items (licensing, PS naming, public list views, field history) were used only as context."
+}

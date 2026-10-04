@@ -1,0 +1,884 @@
+{
+ "batch": "batch_06",
+ "range": "WAGR-219..WAGR-261",
+ "issues": [
+  {
+   "key": "WAGR-219",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1725",
+    "L1872",
+    "L1345"
+   ],
+   "search_terms": [
+    "reactivat",
+    "grace period",
+    "time window",
+    "archived sign-up click"
+   ],
+   "note": "Comment (2026-08-10) replaces the description: any click on an Archived Sign-Up sets Status = New, no grace period. Matches tier2 Gemini items L1725/L1872 (grace period removed, immediate reactivation). L1345 (tier1, 07-28) is the separate manual Reactivate button (WAGR-271). No tier1 transcript item fixes the auto-reactivation target status (New vs In Progress); see Sign_Up_B lead. Description still says In Progress + 2-day custom setting; comment overrides it."
+  },
+  {
+   "key": "WAGR-220",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1111",
+    "L1220",
+    "L1346",
+    "L2306"
+   ],
+   "search_terms": [
+    "dismiss",
+    "previous status",
+    "fraud review status",
+    "lock"
+   ],
+   "note": "Dismissed -> restore previous status and clear fraud fields (comments 08-10, 08-17) matches L2306 (09-01, tier1 decided: dismissed record stays in its prior status). L1878 (Gemini only) says revert to In Progress; not used."
+  },
+  {
+   "key": "WAGR-221",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0812",
+    "L1355",
+    "L1654",
+    "L1655",
+    "L1656"
+   ],
+   "search_terms": [
+    "deal name",
+    "deal label",
+    "auto-number",
+    "partner code"
+   ],
+   "note": "Comments (08-10/08-11) move to OOTB Name set by flow with partner code; consistent with the 08-11 deal name decisions. Later source suffix (L2102) is in WAGR-147."
+  },
+  {
+   "key": "WAGR-222",
+   "status": "Jumpr Review",
+   "phase": null,
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "victor",
+    "imdad",
+    "licen",
+    "sandbox user",
+    "add users"
+   ],
+   "note": "Slack-sourced access request. No meeting item about Victor/Imdad. License items (L0405: 30 licenses) are context only."
+  },
+  {
+   "key": "WAGR-223",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1652",
+    "L1331",
+    "L2131"
+   ],
+   "search_terms": [
+    "country code",
+    "state code",
+    "short code",
+    "multi-state"
+   ],
+   "note": "Short-code formulas match L1652 (08-11). 'Multi-state' output is questioned by L2965/L3029 (09-23/09-24); already raised by Deal_B DEAL-B-05 and WAGR-471 holds the decision, so not re-raised here."
+  },
+  {
+   "key": "WAGR-224",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1194",
+    "L1331",
+    "L1652"
+   ],
+   "search_terms": [
+    "flag emoji",
+    "emoji",
+    "market display",
+    "multi-state"
+   ],
+   "note": "Display formula with country flag, editable fields underneath matches L1194/L1331. Multi-state wording see WAGR-223 note."
+  },
+  {
+   "key": "WAGR-225",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1654",
+    "L1655"
+   ],
+   "search_terms": [
+    "deal name",
+    "partner code",
+    "drop partner",
+    "multi-state",
+    "source code"
+   ],
+   "note": "Candidate variance JS06-01 (V3). Duplicates area finding Deal_B DEAL-B-04; keep one at merge."
+  },
+  {
+   "key": "WAGR-226",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1389",
+    "L1198",
+    "L1194"
+   ],
+   "search_terms": [
+    "status (c)",
+    "emoji",
+    "overdue icon",
+    "red flag",
+    "icon legend"
+   ],
+   "note": "Moves fraud/overdue icons out of Status (C) into Player Display (WAGR-227). Icon set matches L1389."
+  },
+  {
+   "key": "WAGR-227",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1389",
+    "L1331",
+    "L1194"
+   ],
+   "search_terms": [
+    "player display",
+    "country flag",
+    "overdue",
+    "red flag",
+    "list view emoji"
+   ],
+   "note": "Country flag + overdue/fraud icons next to player name match L1389/L1331. Area findings OPS-A-07 / SIGNUP-B-14 cover the stale WAGR-355/356."
+  },
+  {
+   "key": "WAGR-228",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1350",
+    "L1351"
+   ],
+   "search_terms": [
+    "sign up date",
+    "registration date",
+    "affiliate sign",
+    "agency sign"
+   ],
+   "note": "Relabels match L1350/L1351. Minor: L1351 says 'Agency registration date'; ticket uses 'Registration Date'. WAGR-398 later reconciles this field. Not raised (hygiene)."
+  },
+  {
+   "key": "WAGR-229",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1751",
+    "L1755",
+    "L1834",
+    "L1836",
+    "L1837",
+    "L2165",
+    "L2166"
+   ],
+   "search_terms": [
+    "primary contact",
+    "billing contact",
+    "secondary contact",
+    "parent company",
+    "operator portal"
+   ],
+   "note": "Matches 08-13 (tier1) and 08-17/08-28 (tier2) decisions."
+  },
+  {
+   "key": "WAGR-230",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1758",
+    "L1761",
+    "L1762",
+    "L1763",
+    "L1765",
+    "L1766",
+    "L1838",
+    "L2682"
+   ],
+   "search_terms": [
+    "billing relationship",
+    "payment terms",
+    "invoicing",
+    "billing email",
+    "PO required",
+    "billing address"
+   ],
+   "note": "Field set matches 08-13 decisions. L1758 said Direct billing fields are 'required'; the ticket builds none as required. Not raised: client written feedback in WAGR-385 (09-14) makes the section always visible and optional to fill, and L2682 (09-17) records applying that feedback. Area lead (Operator_Partner_B) covers the WAGR-207/230/231 vs WAGR-385 Jira-to-Jira conflict."
+  },
+  {
+   "key": "WAGR-231",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1776",
+    "L1788"
+   ],
+   "search_terms": [
+    "agreement",
+    "notice period",
+    "auto-renew",
+    "exclusivity",
+    "salesforce files"
+   ],
+   "note": "Agreement block and Salesforce Files storage match L1776/L1788. Free-text Notice Period/Exclusivity come from Slack, not a transcript."
+  },
+  {
+   "key": "WAGR-232",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1786",
+    "L1787",
+    "L1783"
+   ],
+   "search_terms": [
+    "benchmark",
+    "RG language",
+    "operational notes",
+    "redirect"
+   ],
+   "note": "Matches 08-13 decisions; redirect moved to Deal (L1783, WAGR-218)."
+  },
+  {
+   "key": "WAGR-233",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1841",
+    "L1778",
+    "L1791"
+   ],
+   "search_terms": [
+    "alias",
+    "brand family",
+    "external id",
+    "cms last sync",
+    "audit log"
+   ],
+   "note": "More Info contents match L1841 (tier2). L1791 (client asked for CMS audit/error log view, proposed) is deferred in the ticket; WAGR-361/WAGR-457 hold integration logging."
+  },
+  {
+   "key": "WAGR-234",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1844"
+   ],
+   "search_terms": [
+    "operator sign-ups related list",
+    "SLC related list",
+    "dynamic related list"
+   ],
+   "note": "Matches L1844 (tier2, 08-17). Area lead notes WAGR-151 (remove Sign-Ups table) conflicts; L2157 (tier2) says sign-ups are not on the client's operator page."
+  },
+  {
+   "key": "WAGR-235",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1819",
+    "L1820",
+    "L1821",
+    "L2887"
+   ],
+   "search_terms": [
+    "highlights panel",
+    "dynamic form",
+    "lightning page",
+    "operator page"
+   ],
+   "note": "Matches tier2 08-17 build items; L2887 (09-23) confirms operator page renders. Area finding OPS-B-07 covers status staying in Jumpr Review."
+  },
+  {
+   "key": "WAGR-236",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1789",
+    "L1846"
+   ],
+   "search_terms": [
+    "files related list",
+    "pitch",
+    "notes and attachments"
+   ],
+   "note": "Matches L1789 (Joyce 'Okay') and L1846."
+  },
+  {
+   "key": "WAGR-237",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1786",
+    "L1815",
+    "L1827"
+   ],
+   "search_terms": [
+    "benchmark",
+    "last reviewed",
+    "before-save flow"
+   ],
+   "note": "Auto-stamp flow matches L1815/L1827."
+  },
+  {
+   "key": "WAGR-238",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1943"
+   ],
+   "search_terms": [
+    "assignment cap",
+    "CMS validation",
+    "link cap"
+   ],
+   "note": "Matches L1943 (08-18, tier1 decided): CMS validates the cap, no Salesforce validation."
+  },
+  {
+   "key": "WAGR-239",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1299",
+    "L1913"
+   ],
+   "search_terms": [
+    "assignment sheet",
+    "test deals",
+    "deal load",
+    "reference workbook",
+    "BetRivers",
+    "GoGoGold"
+   ],
+   "note": "Load of client deals/DRAs matches L1913/L1299. The BetRivers-NJ/GoGoGold open question has no ledger answer."
+  },
+  {
+   "key": "WAGR-240",
+   "status": "Done",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L3243"
+   ],
+   "search_terms": [
+    "list view button",
+    "new button",
+    "change owner",
+    "printable",
+    "deal creation screen flow"
+   ],
+   "note": "Candidate variance JS06-02 (V3, Low): keeps standard New on Deal; 09-29 decision moves deal creation to a screen flow."
+  },
+  {
+   "key": "WAGR-241",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1190",
+    "L2201",
+    "L2203",
+    "L2267"
+   ],
+   "search_terms": [
+    "first wager",
+    "first bet"
+   ],
+   "note": "First Wager Date field matches L2201; flows added under BUILD-242 (WAGR-164). Date rules L2926/L2927 are in WAGR-425."
+  },
+  {
+   "key": "WAGR-242",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1509",
+    "L2308",
+    "L2341"
+   ],
+   "search_terms": [
+    "payment sent"
+   ],
+   "note": "Matches L1509 (08-04 decided). Redeposit payment checkbox (L1511) was only discussed."
+  },
+  {
+   "key": "WAGR-243",
+   "status": "Done",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "locked after completion",
+    "lock complet",
+    "editable after",
+    "complete button",
+    "read-only completed"
+   ],
+   "note": "No meeting item on locking a Sign-Up after completion. Closing comment (admins edit, reps cannot) has no transcript source. L1192 (standard Edit removed) is related only."
+  },
+  {
+   "key": "WAGR-244",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2031"
+   ],
+   "search_terms": [
+    "home page",
+    "landing",
+    "draft homepage"
+   ],
+   "note": "Only tier2 L2031 (draft homepage built, not yet shown). Area lead says 'Done' while not shown to client; OPS-B-02 covers the stale 'remove Partner' rule in this ticket."
+  },
+  {
+   "key": "WAGR-245",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1643",
+    "L1274"
+   ],
+   "search_terms": [
+    "airtable",
+    "data quality",
+    "duplicate link",
+    "replaced",
+    "link code"
+   ],
+   "note": "Closing comment (revisit later) matches L1643 (08-11: migration questions parked until CMS integration). Area lead DMI covers it."
+  },
+  {
+   "key": "WAGR-246",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1747",
+    "L1933"
+   ],
+   "search_terms": [
+    "direct deal",
+    "direct partner",
+    "no partner"
+   ],
+   "note": "Closing comment (use Direct partner record) matches L1747/L1933."
+  },
+  {
+   "key": "WAGR-247",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0339"
+   ],
+   "search_terms": [
+    "test script",
+    "UAT",
+    "test guideline"
+   ],
+   "note": "Related to L0339 (test guideline). Closed to recreate later; area finding TUG-02 (V1) covers the missing open UAT script ticket."
+  },
+  {
+   "key": "WAGR-248",
+   "status": "Done",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "referrer id",
+    "mangled",
+    "https_nosoftware",
+    "field rename"
+   ],
+   "note": "Source is an internal reconciliation doc. No meeting item."
+  },
+  {
+   "key": "WAGR-249",
+   "status": "Done",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "consumer key",
+    "consumer secret",
+    "credential",
+    "rotate",
+    "vault"
+   ],
+   "note": "Internal security audit card. No meeting item (L0770 vault move is tier2 and unrelated). Closed as not necessary; no secret values appear in the ticket."
+  },
+  {
+   "key": "WAGR-250",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0815"
+   ],
+   "search_terms": [
+    "default field",
+    "default_",
+    "cascade",
+    "operator default"
+   ],
+   "note": "Weak support: L0815 (07-07) Kobi to re-check PRD operator default fields. Closing comment (deprioritized in POC review) has no transcript source."
+  },
+  {
+   "key": "WAGR-251",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0855",
+    "L1517"
+   ],
+   "search_terms": [
+    "overlap",
+    "effective from",
+    "multiple reps",
+    "same deal"
+   ],
+   "note": "Closing comment (same deal can have multiple reps at once) matches L0855/L1517."
+  },
+  {
+   "key": "WAGR-252",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1268",
+    "L2131"
+   ],
+   "search_terms": [
+    "market country",
+    "market state",
+    "alberta",
+    "united states & canada",
+    "MI/NJ"
+   ],
+   "note": "Separate Market Country/State fields match L1268. Combined 'US & Canada' value still exists per L2131 (08-27); area lead Deal_A covers the missing client confirmation."
+  },
+  {
+   "key": "WAGR-253",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1226",
+    "L1227",
+    "L1345"
+   ],
+   "search_terms": [
+    "archive reason",
+    "fraud reason",
+    "reason code"
+   ],
+   "note": "Split archive/fraud reason lists match L1226/L1345; values come from the open-questions doc."
+  },
+  {
+   "key": "WAGR-254",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1326",
+    "L1086",
+    "L2314"
+   ],
+   "search_terms": [
+    "payout amount",
+    "payout matrix"
+   ],
+   "note": "Auto payout amount from matrix matches L1326/L2314."
+  },
+  {
+   "key": "WAGR-255",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1055",
+    "L0596"
+   ],
+   "search_terms": [
+    "ERD",
+    "data dictionary",
+    "label rename"
+   ],
+   "note": "L1055 (07-17 decided) says UI labels must match the ERD; ticket closed 08-10 as 'ERD out of date'. Area finding OTHER-01 and an Other lead cover this; not re-raised."
+  },
+  {
+   "key": "WAGR-256",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1374",
+    "L1400"
+   ],
+   "search_terms": [
+    "api requirements doc",
+    "upsert",
+    "DRA api"
+   ],
+   "note": "Matches L1374 (07-28 decided: Jumpr to send API requirements doc)."
+  },
+  {
+   "key": "WAGR-257",
+   "status": "Done",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "one active BA",
+    "different BA",
+    "another BA",
+    "referrer ownership",
+    "BA lookup"
+   ],
+   "note": "No meeting item on one-active-BA-per-referrer. L1972 (reassign player to another BA) is a different rule."
+  },
+  {
+   "key": "WAGR-258",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1324",
+    "L2275",
+    "L2930"
+   ],
+   "search_terms": [
+    "referral notes",
+    "general notes"
+   ],
+   "note": "Matches L1324. Later L2930 (09-23) turns it into a general notes section; covered by WAGR-426."
+  },
+  {
+   "key": "WAGR-259",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1327",
+    "L1387"
+   ],
+   "search_terms": [
+    "referrer currency",
+    "referral currency"
+   ],
+   "note": "Matches L1327 (keep referral currency visible)."
+  },
+  {
+   "key": "WAGR-260",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1528",
+    "L1942",
+    "L2712"
+   ],
+   "search_terms": [
+    "link code",
+    "deal links",
+    "links object",
+    "affiliate link"
+   ],
+   "note": "Link object, non-unique link code match L1942/L2712."
+  },
+  {
+   "key": "WAGR-261",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1325",
+    "L1322"
+   ],
+   "search_terms": [
+    "secondary referrer",
+    "secondary referral",
+    "move lower"
+   ],
+   "note": "Matches L1325 (proposed; Kobi 'Yeah')."
+  }
+ ],
+ "variances": [
+  {
+   "temp_id": "JS06-01",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "WAGR-225 builds the Deal label formulas without the partner code (and with 'Multi-state'); the client decided the global deal name keeps the partner code",
+   "jira": [
+    {
+     "key": "WAGR-225",
+     "status": "Jumpr Review",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-125 — Deal Name + Deal hyperlink: drop Partner, use market short codes (REVISES BUILD-117)",
+     "quote": "1\\. Partner is REMOVED from the label (intentional - see Decisions below).",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-225",
+     "status": "Jumpr Review",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-125 — Deal Name + Deal hyperlink: drop Partner, use market short codes (REVISES BUILD-117)",
+     "quote": "Bet99 | United States | (blank) | Sports | Bet99 - US · Multi-state - Sports",
+     "quote_source": "description (EXPECTED OUTPUT table)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1654",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "00:39:43",
+     "line_start": 537,
+     "quote": "Emily Vandenberg: ... are we okay to um put into like the rep facing views the like kind of partner code CTM CGD on the kind of like global deal name. ... / Lina Ceniccola: No, we can we can keep it. / Emily Vandenberg: it. / Lina Ceniccola: That's easier. Let's just do that."
+    },
+    {
+     "ledger_id": "L1655",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "00:41:03",
+     "line_start": 550,
+     "quote": "Kobi Kunasekaran: ... Do we want the vertical added in here or is this fine like with the state and if it's multi-state the country and then the operator and the partner code? / Lina Ceniccola: We Yeah, keep the vertical / Kobi Kunasekaran: Okay, we can add the vertical uh after that one so it shows up closer to what we have here. ... / Kobi Kunasekaran: ... Yeah, we'll we'll make that default ..."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2102",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Lina Ceniccola; Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:31:22",
+     "line_start": 475,
+     "quote": "Lina Ceniccola: yeah, I like at the end having the identifier as - / Lina Ceniccola: well there will always be a source. / Lina Ceniccola: Adding one more letter okay makes it more clear. / Kobi Kunasekaran: Okay. Okay. So, I'll just use the onelet code at the end. / Kobi Kunasekaran: Um, show it for all of it. Um, and then let's see what that looks like in a"
+    },
+    {
+     "ledger_id": "L2965",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "01:15:02",
+     "line_start": 1143,
+     "quote": "Kobi Kunasekaran: do we want to keep it as multistate like that or um do we want to use like what we have uh in the V ID naming convention / Emily Vandenberg: so see the like region like the Canada, Ontario versus Alberta breakout and then US there's / Emily Vandenberg: going to be some but if not then you can kind we'll keep it as um multi. / Lina Ceniccola: I agree."
+    }
+   ],
+   "what_differs": "WAGR-225 (Jumpr Review, Sprint 2) rebuilds Deal_Name__c and the Deal__c hyperlink as Operator - Market - Vertical with Partner deliberately removed and 'Multi-state' for country-wide deals. The 2026-08-11 client sync decided the single global deal name includes the partner code, and 2026-08-25 added a one-letter source suffix; the flow-set Name (WAGR-147) follows those decisions, so two different deal labels now exist.",
+   "suggested_action": "Suggestion only: before WAGR-225 passes review, either retire the Deal_Name__c / Deal__c formula labels in favour of the flow-set Name, or align them to the decided format (state/country, operator, partner code, vertical, source suffix). Resolve the ticket's own open question on duplicate labels. Coordinate the multi-state wording with WAGR-471.",
+   "checked_later_meetings": true,
+   "reasoning": "Decided tier1 client items (L1654/L1655) on the same day as the ticket text, plus later decided items (L2102, L2965); no later item removes the partner code from the deal name. Duplicate of area finding Deal_B DEAL-B-04; keep one at merge. Confidence medium because the formula fields may be secondary to the flow-set Name.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "JS06-02",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "WAGR-240 keeps the standard New button on Deal; the 09-29 decision moves deal creation to a screen flow, and no ticket removes or overrides the New button",
+   "jira": [
+    {
+     "key": "WAGR-240",
+     "status": "Done",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BUILD-116 — Remove standard list-view buttons across Console objects",
+     "quote": "'New' button:\n\n* KEEP on: Account, Deal",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-507",
+     "status": "Open",
+     "assignee": "Cedrick Infantado",
+     "summary": "Deal — Guided New Deal creation flow (Draft + optional Commercial Terms handoff)",
+     "quote": "Provide a controlled New Deal Screen Flow that creates a Deal in Draft with only the agreed setup fields",
+     "quote_source": "description (no step removes or overrides the standard New action)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3243",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:14:22",
+     "line_start": 297,
+     "quote": "Kobi Kunasekaran: they're using the standard new button um to create the deals. Um, except I want to move away from this. So, we are going to do a screen flow um that uh it's mostly packed out um that they're going to use instead to create a new deal."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3248",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:16:44",
+     "line_start": 307,
+     "quote": "Kobi Kunasekaran: there I'm thinking about an additional section for commercial terms uh which is a another design that I'm working on um that I will I still need to finish and add in um but we decided that on deals right now there's this there's a bunch of fields called commercial terms that uh is going to be its own section uh in that screen flow for the user to either choose to add it during dual creation or they can skip it and add it later on through a screen"
+    }
+   ],
+   "what_differs": "WAGR-240 (Done, 08-10) keeps the standard New list-view button on Deal. On 2026-09-29 Kobi decided deal creation moves away from the standard New button to a screen flow; WAGR-507 builds that flow but does not say to remove or override the standard New action, so users could still bypass the guided Draft-only creation.",
+   "suggested_action": "Suggestion only: add an acceptance criterion to WAGR-507 to override or remove the standard New action on Deal (list views and related lists), or record why it stays for admins.",
+   "checked_later_meetings": true,
+   "reasoning": "L3243 is a tier1 transcript decision (internal Kobi/Cedrick walkthrough) later than WAGR-240. No later meeting keeps the New button. Low severity: hygiene/bypass risk, not a wrong build.",
+   "auto_checks": []
+  }
+ ],
+ "gaps_noticed": [
+  {
+   "ledger_id": "L3243",
+   "topic": "Override/remove standard New button on Deal",
+   "note": "Decided 09-29. WAGR-507 builds the New Deal screen flow but no ticket removes or overrides the standard New action; recorded as JS06-02. Deal area owns V1."
+  }
+ ],
+ "notes": "43 issues swept. Ledger 'WAGR-2xx?' tags (e.g. L2203-L2472) are spoken BUILD numbers (BUILD-241..255 = WAGR-137..165), not these keys; ignored for matching. Checked coverage for nearby decided items: sign-up reactivate button (WAGR-271), general notes (WAGR-426), fraud un-flag button (WAGR-429), date validation (WAGR-425), redirect/pitch to Deal (WAGR-218), source suffix in deal name (WAGR-147). Overlaps with area findings: JS06-01 = Deal_B DEAL-B-04."
+}

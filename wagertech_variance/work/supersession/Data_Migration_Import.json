@@ -1,0 +1,209 @@
+[
+ {
+  "topic": "Historical data migration scope (sign-ups, players; later redeposits/payouts)",
+  "current_truth_ledger_id": "L1643",
+  "superseded": [],
+  "refined": [
+   "L0341",
+   "L1377",
+   "L1375"
+  ],
+  "reversed": [],
+  "note": "Kickoff (L0341) put data migration in Phase 1 for go-live objects. L1375/L1377 (7/28) call it a go-live blocker and needed for day one. 8/11: Joyce wants historical sign-ups (L1624, proposed); phased approach proposed (L1626); remaining questions parked until CMS integration (L1643, decided). L2454 (9/9): no decision yet. Jira holds it as WAGR-470 (Open)."
+ },
+ {
+  "topic": "Division of labour: WagerTech transforms, Jumpr provides templates and imports",
+  "current_truth_ledger_id": "L0346",
+  "superseded": [],
+  "refined": [
+   "L0375",
+   "L0996",
+   "L1275",
+   "L1299"
+  ],
+  "reversed": [],
+  "note": "L0346 (6/17) is the baseline. Templates were promised mid-July (L0375), deferred until fields were final (L0996), produced for operators/partners/deals (L1275/L1299), and requested again for sign-up/referral/player on 9/28 (L3226/L3227, WAGR-477)."
+ },
+ {
+  "topic": "Import templates for key objects",
+  "current_truth_ledger_id": "L3227",
+  "superseded": [
+   "L0375"
+  ],
+  "refined": [
+   "L0996",
+   "L3226",
+   "L3233"
+  ],
+  "reversed": [],
+  "note": "The 9/28 request is captured in WAGR-477 (Open, Sprint 2)."
+ },
+ {
+  "topic": "Sample / sandbox data loads",
+  "current_truth_ledger_id": "L2104",
+  "superseded": [
+   "L0808",
+   "L0765"
+  ],
+  "refined": [
+   "L1435"
+  ],
+  "reversed": [],
+  "note": "Sample data loaded (WAGR-21 Done). Sandbox data is not production; updated data loads at go-live (L2104, 8/25)."
+ },
+ {
+  "topic": "Operator/partner IDs and import sheet",
+  "current_truth_ledger_id": "L1808",
+  "superseded": [
+   "L0990"
+  ],
+  "refined": [
+   "L1275",
+   "L1296",
+   "L1307",
+   "L1640",
+   "L1807"
+  ],
+  "reversed": [],
+  "note": "IDs are defined and loaded from the Airtable lists; the list is not validated and may change in sandbox, but both the CMS and Salesforce must be updated before production (L1808; L1904 in the Operator area confirms it is a starting point)."
+ },
+ {
+  "topic": "Deal import sheet / deal data for testing",
+  "current_truth_ledger_id": "L1678",
+  "superseded": [
+   "L1299"
+  ],
+  "refined": [
+   "L1641",
+   "L2007"
+  ],
+  "reversed": [],
+  "note": "The deal import sheet was built with Joyce; sandbox load is Done in WAGR-239 (8/20). The production clean import includes Source (L2299, Deal area)."
+ },
+ {
+  "topic": "Data needed in Salesforce for agency-site test",
+  "current_truth_ledger_id": "L1629",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Operators, partners with CMS external IDs, deals and DRAs. Met by WAGR-87 and WAGR-239."
+ },
+ {
+  "topic": "Historical sign-ups need related deal records",
+  "current_truth_ledger_id": "L1625",
+  "superseded": [],
+  "refined": [
+   "L0999"
+  ],
+  "reversed": [],
+  "note": "Decided rule (8/11). L1627 (proposed) adds bringing in inactive deals and operators too."
+ },
+ {
+  "topic": "Inactive deals/operators in import",
+  "current_truth_ledger_id": "L1627",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Within the 8/11 meeting Joyce reversed her earlier view (supersedes_hint): bring in inactive records, hidden in the UI. Proposed only; parked by L1643."
+ },
+ {
+  "topic": "Coexistence with legacy spreadsheets / parallel run",
+  "current_truth_ledger_id": "L1676",
+  "superseded": [
+   "L0903",
+   "L1701"
+  ],
+  "refined": [
+   "L0995"
+  ],
+  "reversed": [],
+  "note": "L1676 (8/11, tier1 decided, Project Mgmt area): no parallel systems; full go-live waits for the later phases. L0903 (proposed) and L1701 (tier2 recollection) are earlier ideas."
+ },
+ {
+  "topic": "Cutover of in-flight spreadsheet sign-ups",
+  "current_truth_ledger_id": "L0998",
+  "superseded": [],
+  "refined": [
+   "L0999"
+  ],
+  "reversed": [],
+  "note": "Raised as a risk on 7/15. Only a proposal (manual rep path, L0999). No later answer."
+ },
+ {
+  "topic": "Player IDs after WagerTech CMS consolidation",
+  "current_truth_ledger_id": "L1898",
+  "superseded": [],
+  "refined": [
+   "L1481",
+   "L1482",
+   "L1483",
+   "L1484"
+  ],
+  "reversed": [],
+  "note": "WagerTech rolls duplicates into a person in its historical migration (L1898). No secondary ID build in Salesforce is proposed (L1484); this is not confirmed."
+ },
+ {
+  "topic": "Import depth / what to import",
+  "current_truth_ledger_id": "L1622",
+  "superseded": [],
+  "refined": [
+   "L0997",
+   "L1626",
+   "L1687",
+   "L1688"
+  ],
+  "reversed": [],
+  "note": "Discussed only: the client chooses; reporting starts from the imported data. Captured as open in WAGR-470."
+ },
+ {
+  "topic": "Historical import timing and first-sign-up backfill",
+  "current_truth_ledger_id": "L2454",
+  "superseded": [],
+  "refined": [
+   "L2453"
+  ],
+  "reversed": [],
+  "note": "Discussed and proposed only (9/9). L2452 (Player area, decided): the flow will not handle backdated imports."
+ },
+ {
+  "topic": "Redeposit allocation: manual first, CSV later",
+  "current_truth_ledger_id": "L3338",
+  "superseded": [],
+  "refined": [
+   "L3339",
+   "L3453"
+  ],
+  "reversed": [],
+  "note": "9/30: manual allocation is built first; the CSV upload is added later and needs mapping scoping plus extra fields in the WagerTech tool."
+ },
+ {
+  "topic": "Operator data join out of initial scope",
+  "current_truth_ledger_id": "L0068",
+  "superseded": [],
+  "refined": [
+   "L0101"
+  ],
+  "reversed": [],
+  "note": "Matches WAGR-369 (OOS, Cancelled)."
+ },
+ {
+  "topic": "Historical load route (direct into Salesforce via CSV)",
+  "current_truth_ledger_id": "L0550",
+  "superseded": [
+   "L0140"
+  ],
+  "refined": [
+   "L0944"
+  ],
+  "reversed": [],
+  "note": "Proposed only."
+ },
+ {
+  "topic": "Batch import of deals",
+  "current_truth_ledger_id": "L2486",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Client suggestion, not confirmed."
+ }
+]

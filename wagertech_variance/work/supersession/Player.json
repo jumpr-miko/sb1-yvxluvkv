@@ -1,0 +1,479 @@
+[
+ {
+  "topic": "Player data model (Person Account, separate from User)",
+  "current_truth_ledger_id": "L1620",
+  "superseded": [
+   "L0029",
+   "L0120",
+   "L0180",
+   "L0223",
+   "L0252",
+   "L0270"
+  ],
+  "refined": [
+   "L0030",
+   "L0036",
+   "L0251",
+   "L0271",
+   "L0272",
+   "L0843"
+  ],
+  "reversed": [],
+  "note": "Person Accounts were chosen (WAGR-36/29). The open questions from May and June are closed."
+ },
+ {
+  "topic": "Player lifecycle entry (lead conversion vs SLC-created Pending player)",
+  "current_truth_ledger_id": "L1978",
+  "superseded": [
+   "L0125",
+   "L0573"
+  ],
+  "refined": [
+   "L2208",
+   "L2174"
+  ],
+  "reversed": [],
+  "note": "Players are created at Pending from the SLC; there is no lead or contact conversion step."
+ },
+ {
+  "topic": "Player status values",
+  "current_truth_ledger_id": "L1978",
+  "superseded": [
+   "L0771",
+   "L0773",
+   "L0774",
+   "L0775",
+   "L0776"
+  ],
+  "refined": [
+   "L0772"
+  ],
+  "reversed": [],
+  "note": "Four statuses: pending, active, inactive, banned. The gemini-notes 'Flagged for Fraud' status and the Path items are superseded (see PLAYER-04, WAGR-1)."
+ },
+ {
+  "topic": "Activation on completed sign-up",
+  "current_truth_ledger_id": "L2475",
+  "superseded": [
+   "L2338"
+  ],
+  "refined": [
+   "L2209",
+   "L2440",
+   "L2450",
+   "L2472",
+   "L2415"
+  ],
+  "reversed": [],
+  "note": "Built (WAGR-140, Jumpr Review). Status reported to the client on 09-11."
+ },
+ {
+  "topic": "Inactive after 90 days",
+  "current_truth_ledger_id": "L1979",
+  "superseded": [],
+  "refined": [
+   "L2210",
+   "L2214",
+   "L2457",
+   "L2476"
+  ],
+  "reversed": [],
+  "note": "Built (WAGR-137). The test threshold of 2 days must be reverted."
+ },
+ {
+  "topic": "Status audit stamp (BUILD-251)",
+  "current_truth_ledger_id": "L2433",
+  "superseded": [
+   "L2449"
+  ],
+  "refined": [
+   "L2431",
+   "L2432",
+   "L2435",
+   "L2436"
+  ],
+  "reversed": [],
+  "note": "Moving the stamp into the ban flows was dropped."
+ },
+ {
+  "topic": "Last activity date definition",
+  "current_truth_ledger_id": "L2440",
+  "superseded": [],
+  "refined": [
+   "L2213"
+  ],
+  "reversed": [],
+  "note": "v1 counts completed sign-ups only (WAGR-141/72). There is no explicit decided ledger item; L2440 sets the sequence."
+ },
+ {
+  "topic": "Backdated historical sign-ups vs first completed sign-up",
+  "current_truth_ledger_id": "L2452",
+  "superseded": [
+   "L2451"
+  ],
+  "refined": [
+   "L2455",
+   "L2472"
+  ],
+  "reversed": [],
+  "note": "Internal decision: the flow does not handle backdated imports."
+ },
+ {
+  "topic": "Ban mechanism (manual ban, banner, no restriction fields, reactivate button)",
+  "current_truth_ledger_id": "L2347",
+  "superseded": [
+   "L0883"
+  ],
+  "refined": [
+   "L1980",
+   "L1909",
+   "L2448",
+   "L2255",
+   "L2256",
+   "L2258",
+   "L2346",
+   "L2349",
+   "L2477"
+  ],
+  "reversed": [],
+  "note": "One reactivate button and screen flow; signups are not blocked by player status."
+ },
+ {
+  "topic": "Player ban reasons",
+  "current_truth_ledger_id": "L2092",
+  "superseded": [],
+  "refined": [
+   "L2257",
+   "L2370",
+   "L2588",
+   "L2589",
+   "L2590",
+   "L2669",
+   "L2686",
+   "L2687"
+  ],
+  "reversed": [],
+  "note": "CONFLICT: the latest decided client item (08-25) accepts the mockup ban reasons. Later internal calls (L2588, L2590, L2669, L2686, L2687, L2370) are unsure. A 09-22 Jira comment (WAGR-403) says no ban reason is needed. See PLAYER-01."
+ },
+ {
+  "topic": "Field history on Player",
+  "current_truth_ledger_id": "L2350",
+  "superseded": [],
+  "refined": [
+   "L2351",
+   "L2352",
+   "L2353"
+  ],
+  "reversed": [],
+  "note": "No ticket (PLAYER-09)."
+ },
+ {
+  "topic": "Fraud impact on player and fraud banner",
+  "current_truth_ledger_id": "L2856",
+  "superseded": [
+   "L0882",
+   "L2598",
+   "L2667",
+   "L2670",
+   "L2671",
+   "L2705",
+   "L2706",
+   "L2754"
+  ],
+  "refined": [
+   "L2688",
+   "L2857"
+  ],
+  "reversed": [],
+  "note": "The client said the fraud banner is not needed and the ban banner covers it (WAGR-403 Cancelled). WAGR-1 is stale (PLAYER-04)."
+ },
+ {
+  "topic": "Primary email blank banner",
+  "current_truth_ledger_id": "L2856",
+  "superseded": [
+   "L2664"
+  ],
+  "refined": [
+   "L2665"
+  ],
+  "reversed": [],
+  "note": "Validation makes a blank primary email impossible (WAGR-92)."
+ },
+ {
+  "topic": "Player matching and deduplication",
+  "current_truth_ledger_id": "L2093",
+  "superseded": [
+   "L0579",
+   "L0599",
+   "L1485",
+   "L1504"
+  ],
+  "refined": [
+   "L0578",
+   "L1965",
+   "L2286",
+   "L0487"
+  ],
+  "reversed": [],
+  "note": "One player per email. The CMS deduplicates. Duplicate rule on manual create. WAGR-28 is stale (PLAYER-05)."
+ },
+ {
+  "topic": "Secondary / e-transfer email",
+  "current_truth_ledger_id": "L1965",
+  "superseded": [
+   "L0581"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "The CMS sends the primary and secondary emails. E-Transfer Email display retired by WAGR-163 (Emily doc comment 08-28)."
+ },
+ {
+  "topic": "Player external ID",
+  "current_truth_ledger_id": "L1896",
+  "superseded": [
+   "L1505"
+  ],
+  "refined": [
+   "L1282",
+   "L1478",
+   "L1479",
+   "L1491"
+  ],
+  "reversed": [],
+  "note": "WagerTech will later swap to a person-level ID; no ticket (PLAYER-10). VIP players have a blank external ID (L2949, CMS Integration)."
+ },
+ {
+  "topic": "Survey completion on player",
+  "current_truth_ledger_id": "L1977",
+  "superseded": [
+   "L0566"
+  ],
+  "refined": [
+   "L0564",
+   "L0565",
+   "L1290"
+  ],
+  "reversed": [],
+  "note": "Yes/no plus date; no survey object. Survey 2 extension in WAGR-441."
+ },
+ {
+  "topic": "Player currency",
+  "current_truth_ledger_id": "L2145",
+  "superseded": [
+   "L1966",
+   "L2054",
+   "L2055"
+  ],
+  "refined": [
+   "L2143",
+   "L2144",
+   "L2146",
+   "L2148",
+   "L2149",
+   "L2150",
+   "L2127",
+   "L2749"
+  ],
+  "reversed": [],
+  "note": "Set from player country, editable, no effect on sign-ups. The CAD fallback contradicts L2144 (PLAYER-02). Investigation: L2749, L2753."
+ },
+ {
+  "topic": "Player country/state fields",
+  "current_truth_ledger_id": "L2875",
+  "superseded": [],
+  "refined": [
+   "L1001",
+   "L0750",
+   "L2874",
+   "L2876",
+   "L2877",
+   "L2894"
+  ],
+  "reversed": [],
+  "note": "Free text. The flow sets the standard address and the custom fields; accepted no-resync caveat (PLAYER-08)."
+ },
+ {
+  "topic": "Agency sign-up date / Registration Date label",
+  "current_truth_ledger_id": "L2343",
+  "superseded": [
+   "L1975"
+  ],
+  "refined": [
+   "L1101",
+   "L2053"
+  ],
+  "reversed": [],
+  "note": "Later than the ledger: WAGR-398 (09-15, Emily doc) renamed the label back to Agency Sign-Up Date."
+ },
+ {
+  "topic": "Total sign-ups rollup",
+  "current_truth_ledger_id": "L2169",
+  "superseded": [],
+  "refined": [
+   "L1963",
+   "L2061",
+   "L2150"
+  ],
+  "reversed": [],
+  "note": "DLRS rollup of completed sign-ups (WAGR-194)."
+ },
+ {
+  "topic": "Player-referrer / BA cross-reference",
+  "current_truth_ledger_id": "L2595",
+  "superseded": [
+   "L2041"
+  ],
+  "refined": [
+   "L0250",
+   "L1908",
+   "L2057",
+   "L2596"
+  ],
+  "reversed": [],
+  "note": "Related Referrer Record moved (WAGR-399); BA link added (WAGR-400)."
+ },
+ {
+  "topic": "VIP players",
+  "current_truth_ledger_id": "L3447",
+  "superseded": [],
+  "refined": [
+   "L1969",
+   "L1970",
+   "L1971",
+   "L2941",
+   "L2959",
+   "L2985",
+   "L3018",
+   "L3446",
+   "L2050"
+  ],
+  "reversed": [],
+  "note": "VIP-flow players default to VIP (PLAYER-07). VIP epic WAGR-420."
+ },
+ {
+  "topic": "Player notes field",
+  "current_truth_ledger_id": "L1976",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "General notes (WAGR-43)."
+ },
+ {
+  "topic": "Reassign player to another BA",
+  "current_truth_ledger_id": "L1972",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "WAGR-469 (design)."
+ },
+ {
+  "topic": "Redeposits and payouts on player",
+  "current_truth_ledger_id": "L3142",
+  "superseded": [],
+  "refined": [
+   "L3140",
+   "L2756",
+   "L2819"
+  ],
+  "reversed": [],
+  "note": "No separate player payout workflow. WAGR-109 is stale (PLAYER-03)."
+ },
+ {
+  "topic": "Copy-to-clipboard on player",
+  "current_truth_ledger_id": "L1964",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Not at launch (WAGR-354, Phase 2)."
+ },
+ {
+  "topic": "Player page layout",
+  "current_truth_ledger_id": "L3011",
+  "superseded": [
+   "L2058",
+   "L2059"
+  ],
+  "refined": [
+   "L1381",
+   "L2089",
+   "L2251",
+   "L2344",
+   "L2355",
+   "L2587",
+   "L2614",
+   "L2753",
+   "L1968",
+   "L2056"
+  ],
+  "reversed": [],
+  "note": "Hide the extra status-date fields (PLAYER-06). Profile status was dropped."
+ },
+ {
+  "topic": "WhatsApp and automated outreach",
+  "current_truth_ledger_id": "L0864",
+  "superseded": [],
+  "refined": [
+   "L0425",
+   "L0427",
+   "L0458",
+   "L0863",
+   "L0456"
+  ],
+  "reversed": [],
+  "note": "Deferred."
+ },
+ {
+  "topic": "Ticket 179 attribution mismatch",
+  "current_truth_ledger_id": "L2254",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "WAGR-71 (Requirements)."
+ },
+ {
+  "topic": "Require person email priority",
+  "current_truth_ledger_id": "L2550",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "WAGR-92."
+ },
+ {
+  "topic": "B2C subscription signups",
+  "current_truth_ledger_id": "L2812",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Open question only (PLAYER-11)."
+ },
+ {
+  "topic": "Players who are users",
+  "current_truth_ledger_id": "L1620",
+  "superseded": [],
+  "refined": [
+   "L0843",
+   "L0844"
+  ],
+  "reversed": [],
+  "note": ""
+ },
+ {
+  "topic": "Grouping signups under players",
+  "current_truth_ledger_id": "L1211",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Client ask not agreed."
+ },
+ {
+  "topic": "Player status automation stories",
+  "current_truth_ledger_id": "L2192",
+  "superseded": [],
+  "refined": [
+   "L2196",
+   "L2211"
+  ],
+  "reversed": [],
+  "note": "WAGR-72 children."
+ }
+]

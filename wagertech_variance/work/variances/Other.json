@@ -1,0 +1,269 @@
+{
+ "area": "Other",
+ "lens": "A (ledger to Jira), all categories V1-V8",
+ "variances": [
+  {
+   "temp_id": "OTHER-01",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Other (data model governance)",
+   "title": "No Jira item tracks the agreed hand-off of the final Salesforce data model and ERD deviations to WagerTech's data engineer (Strahinja)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "data model",
+     "final data model",
+     "data dictionary",
+     "ERD",
+     "deviation",
+     "schema",
+     "diagram",
+     "entity relationship",
+     "Strahinja",
+     "share ... data model"
+    ],
+    "nearest_considered": [
+     "WAGR-255",
+     "WAGR-319",
+     "WAGR-298",
+     "WAGR-48",
+     "WAGR-414"
+    ],
+    "nearest_notes": "WAGR-255 'BUILD-90 — ERD naming alignment audit + label renames' (Done) was closed without the audit: 'Closing this as the naming conventions will be based on the latest feedback since ERD is out of date.' (comment, 2026-08-10). WAGR-319 'Discovery: ERD and Data Requirements' (Done) covers the June ERD walkthrough only. Epic WAGR-298 'Solution Design & Data Architecture' (Done) has no child issues. WAGR-414 mentions internal Confluence/Miro documentation, not a client hand-off. Full-text search of all 505 issue descriptions and comments found no item for sharing the data model or a deviation list with WagerTech."
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0553",
+     "date": "2026-06-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+     "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+     "timestamp": "00:26:54",
+     "line_start": 485,
+     "quote": "Kobi Kunasekaran: I think I'm okay like given that like this is like we don't need to necessarily follow the model that's here. I'm good with proceeding with the build on the Salforce side. Um, and we'll share what what the final data model looks like from there / Strahinja Vladetic: uh yeah, that should be okay. Ideally,"
+    },
+    {
+     "ledger_id": "L0554",
+     "date": "2026-06-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+     "speakers": "Strahinja Vladetic; Joyce Kiddell",
+     "timestamp": "00:27:49",
+     "line_start": 493,
+     "quote": "Strahinja Vladetic: if you guys could let me know as you're working what deviations from all of this just so I know what's coming down the pipe. / Joyce Kiddell: Yeah, ideally we don't deviate too much."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0595",
+     "date": "2026-06-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+     "speakers": "Strahinja Vladetic; Kobi Kunasekaran",
+     "timestamp": "00:29:34",
+     "line_start": 514,
+     "quote": "Strahinja Vladetic: So if anything if you guys know that there's a change coming um you guys can just point me to the diagram and I can make the updates. / Kobi Kunasekaran: Okay. Like next steps for for my end is to write up the user stories for like the objects that we need to create or update."
+    },
+    {
+     "ledger_id": "L0592",
+     "date": "2026-06-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+     "speakers": "Emily Vandenberg; Strahinja Vladetic",
+     "timestamp": "00:03:38",
+     "line_start": 144,
+     "quote": "Emily Vandenberg: I think you know Kobe you said like the ERD we don't need to go super deep on / Strahinja Vladetic: Uh yeah. Yeah, I don't think we need to go too deep into the er. We'll probably do that as as the as we get more stuff into Salesforce."
+    },
+    {
+     "ledger_id": "L2330",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:01:31",
+     "line_start": 136,
+     "quote": "Emily Vandenberg: need him, we can pull him in if there's anything you need. But after kind of getting the table information yesterday, he was good."
+    }
+   ],
+   "what_differs": "On 2026-06-23 Kobi said Jumpr would share the final data model, and Strahinja (with Joyce's support) asked to be told about deviations from his ERD as work proceeds. No Jira task, story or acceptance criterion tracks this hand-off, and WAGR-255 now calls the ERD 'out of date'.",
+   "suggested_action": "Suggestion only: add one internal task (for example under WAGR-19 or the go-live checklist) to send Strahinja the final Salesforce object/field model and a short list of deviations from his ERD before go-live, as input for his Postgres operator-data joins (L0553). First confirm with Kobi whether the 2026-08-31 'table information' (L2330) already covers this.",
+   "checked_later_meetings": true,
+   "reasoning": "Decided tier1 items (L0553 commitment, L0554 client ask). The mechanism was never fixed (L0595 proposed only) and no later meeting closes it. L2330 shows some table information reached 'Straw' on 2026-08-31, which may cover part of it, so confidence is medium and severity is Medium, not High.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Interim feed from Salesforce sign-ups to the legacy redeposit/referral Google Sheets has no build ticket; Jira holds it only as an open decision",
+   "why_unverified": "L0354 (decided 2026-06-17) required sign-ups to keep feeding the redeposit and referral sheets until all flows are live. L1676 (decided 2026-08-11, Project Mgmt area) removed the interim period: full go-live waits for the later phases and there is no parallel run. So no V1 is raised. Risk stays if WagerTech holds redeposits or referrals back from the November launch (L2973), because WAGR-470 and WAGR-477 still list 'Whether legacy Google Sheets keep getting data during the switch-over' as undecided, and the old Push_Lead_To_Sheet flow was deleted from production (WAGR-313 comment, 2026-07-02). Close this in WAGR-470.",
+   "ledger_ids": [
+    "L0354",
+    "L0355",
+    "L1676",
+    "L2973",
+    "L0903",
+    "L0916"
+   ],
+   "jira_keys": [
+    "WAGR-470",
+    "WAGR-477",
+    "WAGR-313"
+   ]
+  },
+  {
+   "title": "Connect Salesforce to the redeposit and payout tracking spreadsheets at the end of Phase 1",
+   "why_unverified": "client ask not agreed; no ticket. Joyce asked for it (L0353); Kobi parked it for a discovery session. Only the open decision in WAGR-470 refers to legacy sheets; no build ticket exists.",
+   "ledger_ids": [
+    "L0353"
+   ],
+   "jira_keys": [
+    "WAGR-470"
+   ]
+  },
+  {
+   "title": "Naming consistency: ERD label-alignment audit (WAGR-255) was closed without the client before/after sign-off list",
+   "why_unverified": "Joyce asked for consistent naming (L0555) and, later, for UI labels to match the ERD and data dictionary (L1055, Ops area; Kobi agreed). WAGR-255 planned a 'short before/after list for client sign-off' but was closed on 2026-08-10 because the 'ERD is out of date'. Labels may follow later client feedback, which can also be the client's current direction, and no 'lead record' or 'BA ID' wording was found in Jira. This is arguable, so it is not raised as a V2.",
+   "ledger_ids": [
+    "L0555",
+    "L0596",
+    "L1055"
+   ],
+   "jira_keys": [
+    "WAGR-255",
+    "WAGR-48"
+   ]
+  },
+  {
+   "title": "WhatsApp notifications, AI WhatsApp intake and sign-up leaderboards have no Phase 2 placeholder after WAGR-375 was cancelled",
+   "why_unverified": "These were only proposed or discussed (L0118, L0119, L0170, L0171, L0923), so they are not requirements. WAGR-375 said 'WhatsApp notifications discussed Jun 3 — position as Phase 2' but was Cancelled on 2026-09-25 as 'no longer applicable to current project scope'. If the team wants these kept as Phase 2 candidates, a WAGR-478 placeholder is needed.",
+   "ledger_ids": [
+    "L0118",
+    "L0119",
+    "L0170",
+    "L0171",
+    "L0923",
+    "L0428"
+   ],
+   "jira_keys": [
+    "WAGR-375",
+    "WAGR-443",
+    "WAGR-478"
+   ]
+  },
+  {
+   "title": "No org-wide source control on the project; no Jira item",
+   "why_unverified": "Internal tier2 status (L2217), not a decided requirement. It is a delivery risk for the production push before go-live. WAGR-496 step 2 assumes 'source control / deployment format'.",
+   "ledger_ids": [
+    "L2217"
+   ],
+   "jira_keys": [
+    "WAGR-496"
+   ]
+  },
+  {
+   "title": "Client design documentation location: Google Docs (L2542) vs Confluence as the living requirements source in Jira",
+   "why_unverified": "L2542 (2026-09-14) said client design docs will likely stay in Google Docs; L3313 (2026-09-29, PM area) moved the design spec to Confluence for the build team. WAGR-39, WAGR-82 and WAGR-116 cite Confluence as the current requirements source. It is not known whether WagerTech can see those Confluence pages. Low; confirm client access.",
+   "ledger_ids": [
+    "L2542",
+    "L3313"
+   ],
+   "jira_keys": [
+    "WAGR-39",
+    "WAGR-82",
+    "WAGR-116"
+   ]
+  },
+  {
+   "title": "Strahinja's deeper ERD review 'as more is built' never happened in a later meeting",
+   "why_unverified": "Deferral (L0592) and earlier proposal (L0371), not a requirement. Folded into OTHER-01 as context; listed here so it stays visible.",
+   "ledger_ids": [
+    "L0371",
+    "L0592"
+   ],
+   "jira_keys": []
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-115",
+  "WAGR-299",
+  "WAGR-312",
+  "WAGR-314",
+  "WAGR-315",
+  "WAGR-316",
+  "WAGR-323",
+  "WAGR-326",
+  "WAGR-328"
+ ],
+ "excluded_items": {
+  "covered_by_jira": {
+   "L0379": "WAGR-318 Discovery: Salesforce Build walkthrough (Done); WAGR-313 Prod Clean up (Done)",
+   "L0131/L0160/L0340": "WAGR-319 Discovery: ERD and Data Requirements (Done); superseded by L0553",
+   "L0556": "BUILD/POC object stories (e.g. WAGR-301, WAGR-303); WAGR-462/464/465",
+   "L0794": "WAGR-301, WAGR-303 Done",
+   "L1830": "WAGR-262, WAGR-64, WAGR-194 (DLRS)",
+   "L3054": "WAGR-364 comments by Taryn Reithofer 2026-09-28",
+   "L2278/L2429": "WAGR-155 (BUILD-243) Jumpr Review; WAGR-164 (BUILD-242) Jumpr Review",
+   "L2566": "WAGR-100 Jumpr Review",
+   "L2603": "WAGR-99 Done",
+   "L3185": "WAGR-425, WAGR-426 Jumpr Review",
+   "L2734": "WAGR-445, WAGR-446 (staging key via password manager)",
+   "L1682": "client action; Prediction Markets vertical in WAGR-208"
+  },
+  "logistics_or_client_action_no_ticket_expected": {
+   "L0053": "pre-sale: share meeting recording",
+   "L1238": "client to download the Salesforce mobile app",
+   "L2191": "internal tier2: Taryn re-checks a page and writes a doc (page name unclear in transcript)",
+   "L2197": "internal tier2: Slack follow-ups",
+   "L2542": "documentation convention (see lead)",
+   "L0592": "deferral (see OTHER-01 and lead)"
+  }
+ },
+ "module_coverage": {
+  "area": "Other",
+  "jira_epics": [
+   "WAGR-298"
+  ],
+  "ticket_count": 9,
+  "note": "'Other' is a residual bucket, not one module. The area shortlist has 9 issues (mostly Done setup/milestone tasks and empty WAGR-115). About 20 more issues relate to items here (WAGR-155, 164, 99, 100, 425, 426, 364, 255, 318, 319, 313, 375, 470, 477, 445, 446, 262, 208). Epic WAGR-298 'Solution Design & Data Architecture' is Done and has no child issues.",
+  "uncovered_capabilities": [
+   {
+    "capability": "Data model hand-off to WagerTech's data engineer (final SF data model + ERD deviation list)",
+    "ledger_ids": [
+     "L0553",
+     "L0554",
+     "L0595",
+     "L0592"
+    ],
+    "note": "Decided 2026-06-23; no ticket (OTHER-01). L2330 shows partial sharing of table info on 2026-08-31."
+   },
+   {
+    "capability": "Interim Salesforce to legacy Google Sheets feed (sign-ups to redeposit/referral sheets)",
+    "ledger_ids": [
+     "L0353",
+     "L0354",
+     "L0355"
+    ],
+    "note": "No build ticket. Likely moot after L1676 (no parallel run), but WAGR-470/477 still list it as undecided and the old Push_Lead_To_Sheet flow was deleted (WAGR-313). Becomes a gap if redeposits/referrals are held back from launch."
+   },
+   {
+    "capability": "WhatsApp notifications / AI WhatsApp intake / gamification",
+    "ledger_ids": [
+     "L0118",
+     "L0119",
+     "L0170",
+     "L0923"
+    ],
+    "note": "Proposed only; WAGR-375 (Holding Pen) Cancelled 2026-09-25; no Phase 2 placeholder in WAGR-478."
+   },
+   {
+    "capability": "Source control and deployment pipeline",
+    "ledger_ids": [
+     "L2217"
+    ],
+    "note": "Internal; no ticket."
+   }
+  ]
+ },
+ "notes": "All 65 'Other' ledger items were projected; every decided item (27) was checked against Jira by key, summary search (area TSV + jira_digest.tsv) and a full-text search of all issue descriptions and comments, including Done, Cancelled, Holding Pen WAGR-443 and Phase 2 WAGR-478. Result: 1 V1 (OTHER-01). Most decided items here are status checkpoints that match Jira (WAGR-99, 100, 155, 164, 425, 426, 364) or client/internal logistics with no ticket expected (listed in excluded_items). No V2-V8 met the precision bar. LEDGER TAG FIX for the consolidator: L2278, L2279, L2280 and L2429 are tagged 'WAGR-243?/WAGR-242?', but the transcript refers to BUILD-243 = WAGR-155 and BUILD-242 = WAGR-164; WAGR-243 is DECISION-06 and WAGR-242 is BUILD-123. Hygiene: WAGR-115 is Open with no summary and no description. The interim Google Sheets feed (L0354) is the main residual gap to watch: see the first unverified lead and module_coverage. Cross-area items used for later-meeting checks: L1676, L2328, L2973 (Project Mgmt), L1055 (Ops), L3313 (PM). READ-ONLY: no Jira or other system was changed."
+}

@@ -1,0 +1,52 @@
+{
+  "area": "Global Search",
+  "variances": [],
+  "unverified_leads": [
+    {
+      "title": "Global user search scope: role-based permission sets (managers, operations, administrators) vs WAGR-63 scoped to Joyce/Lina/Emily; closure verification not recorded for Lina and Emily",
+      "why_unverified": "The role-based scope comes only from gemini-notes-only, proposed item L1877 (tier2), so it cannot support a variance alone. The decided ask (L1619, 2026-08-11) names Joyce only, and WAGR-63 covers it. In the 2026-09-24 internal sync (L3033) Kobi confirmed search worked from Joyce's account and asked Taryn to confirm and close. WAGR-63 is Done (updated 2026-09-29), but its only comment says: \"Might be done but login as each user in inspector to confirm\" (comment by Taryn Reithofer 2026-09-24). No comment records that Lina or Emily were checked, and no ticket names a managers/operations/administrators permission set. Suggested check: confirm with Kobi whether role-based user search was set up in permission sets, and add a closing note to WAGR-63 for each named user.",
+      "ledger_ids": [
+        "L1877",
+        "L1619",
+        "L3033"
+      ],
+      "jira_keys": [
+        "WAGR-63"
+      ]
+    },
+    {
+      "title": "Rep entry point (queue search vs player record) not decided in a later meeting; WAGR-504 does not cite the 2026-07-22 meeting or name Sign-Up status",
+      "why_unverified": "L1216 (2026-07-22, tier1) is 'discussed', not decided: Waleed said \"let's take that back\" and Joyce asked Jumpr to \"work through some options\". No later ledger item decides the entry point (grep of the full ledger for queue / entry point / player record after 2026-07-22). The search parts are covered in Jira: WAGR-279 and WAGR-263 (Done) make console queue search return Sign-Ups by player name, and WAGR-504 (Requirements, Sprint 2) covers Sign-Up details in global search results, with open questions on which fields. WAGR-504 cites only Emily's Slack ask of 2026-09-30 and does not name the Sign-Up status field that Waleed raised. Suggested check: when grooming WAGR-504, confirm whether Sign-Up status is in the agreed field set and whether the preferred rep entry point was settled.",
+      "ledger_ids": [
+        "L1216"
+      ],
+      "jira_keys": [
+        "WAGR-504",
+        "WAGR-279",
+        "WAGR-263"
+      ]
+    }
+  ],
+  "v9_reviewed_no_support": [],
+  "module_coverage": {
+    "area": "Global Search",
+    "jira_epics": [],
+    "ticket_count": 11,
+    "ticket_keys": [
+      "WAGR-52",
+      "WAGR-53",
+      "WAGR-54",
+      "WAGR-55",
+      "WAGR-56",
+      "WAGR-57",
+      "WAGR-58",
+      "WAGR-63",
+      "WAGR-263",
+      "WAGR-279",
+      "WAGR-504"
+    ],
+    "uncovered_capabilities": [],
+    "note": "No dedicated Global Search epic. WAGR-504 sits under WAGR-305 (Sign-Up Logging Experience (UX)); WAGR-52 (with sub-tasks WAGR-53 to WAGR-58) has no epic link (custom Epic field 'Org Setup & Security'); WAGR-63, WAGR-263 and WAGR-279 have no epic link. 11 tickets: WAGR-52 plus its 6 sub-tasks, WAGR-63, WAGR-263, WAGR-279 and WAGR-504 (WAGR-483, linked from WAGR-504, is list-view work and is not counted). Every search capability the meetings decided (user search for Joyce, L1619; console queue search on Sign-Up player name, L1217) has a ticket. The only capability with no ticket is role-based global user search in permission sets for managers/operations/administrators (L1877), but that is gemini-notes-only and proposed, so it is listed as an unverified lead, not a gap."
+  },
+  "notes": "Area ledger has 3 items: none is a decided item (L1216 discussed, L1877 gemini-notes-only proposed, L3033 discussed status-update). Therefore no V1-V8 variance meets the citation and firmness bar. V1 completeness check: searched the full ledger for decided items about search (terms: search, global, user record, search layout, search result, entry point, queue, WAGR-63, WAGR-504). Decided search items in other areas all map to tickets: L1619 (Access & Permissions) -> WAGR-63 Done; L1217 (Ops list views) -> WAGR-279 / WAGR-263 Done; L2951 (Redeposits, VIP players searchable) and L1082 (Referrer lookup) belong to their own areas. Status check: L3033 says WAGR-63 is probably done and should be confirmed then closed; Jira status is Done, so no V4. WAGR-52 (Search Layouts for Recently Viewed, Ready) relates to L2379 (proposed, Ops list views area) and is left to that area."
+}

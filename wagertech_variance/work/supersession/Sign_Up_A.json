@@ -1,0 +1,411 @@
+[
+ {
+  "topic": "Sign-up data model: Lead object vs Signup object",
+  "current_truth_ledger_id": "L1071",
+  "superseded": [
+   "L0124",
+   "L0305",
+   "L0464",
+   "L0466",
+   "L0602",
+   "L1059",
+   "L1060",
+   "L1065",
+   "L1128"
+  ],
+  "refined": [
+   "L0035",
+   "L0563",
+   "L1165",
+   "L1074"
+  ],
+  "reversed": [],
+  "note": "One Signup object with a lead stage (New) instead of a Lead object; Jira WAGR-7/WAGR-344/WAGR-351 match."
+ },
+ {
+  "topic": "Repeat clicks and duplicate handling",
+  "current_truth_ledger_id": "L1304",
+  "superseded": [
+   "L0570",
+   "L0572",
+   "L0574",
+   "L0577",
+   "L0647",
+   "L1131"
+  ],
+  "refined": [
+   "L0568",
+   "L1067",
+   "L1262",
+   "L3443"
+  ],
+  "reversed": [],
+  "note": "Every click is its own SLC; Salesforce rolls clicks into one sign-up. Rule for clicks after a Completed sign-up still open in WAGR-473 / WAGR-5."
+ },
+ {
+  "topic": "SLC to player matching and unmatched clicks",
+  "current_truth_ledger_id": "L1487",
+  "superseded": [
+   "L0124",
+   "L0567",
+   "L0822",
+   "L0859",
+   "L1480"
+  ],
+  "refined": [
+   "L1486",
+   "L1342",
+   "L1912",
+   "L1973"
+  ],
+  "reversed": [
+   "L0582"
+  ],
+  "note": "L0582 (rep review queue, no auto-create) reversed by the built auto-create flow (L0822/L0859). 08-04: missing player ID flagged for Ops; Jira WAGR-5 keeps email fallback (see SIGNUP-05)."
+ },
+ {
+  "topic": "Sign-up status model",
+  "current_truth_ledger_id": "L1221",
+  "superseded": [
+   "L0878",
+   "L0987",
+   "L1105",
+   "L1107",
+   "L1113",
+   "L1129",
+   "L1130",
+   "L1114"
+  ],
+  "refined": [
+   "L1223",
+   "L1225",
+   "L1110",
+   "L1167"
+  ],
+  "reversed": [],
+  "note": "Status = New, In Progress, Completed, Archived; fraud tracked by Fraud Flag + Fraud Review Status (WAGR-351)."
+ },
+ {
+  "topic": "Past due / overdue",
+  "current_truth_ledger_id": "L0861",
+  "superseded": [],
+  "refined": [
+   "L1107",
+   "L1108"
+  ],
+  "reversed": [],
+  "note": "07-17 discussion (L1108 context) applies past due to in-progress records; Jira Log_Overdue + In Progress filter is consistent."
+ },
+ {
+  "topic": "Fraud and archive reason codes",
+  "current_truth_ledger_id": "L1226",
+  "superseded": [],
+  "refined": [
+   "L0420",
+   "L1103",
+   "L1227",
+   "L1345"
+  ],
+  "reversed": [],
+  "note": "Split reason lists (WAGR-284, WAGR-253)."
+ },
+ {
+  "topic": "Fraud review lifecycle (suspected / confirmed / dismissed), lock and New-status flagging",
+  "current_truth_ledger_id": "L2306",
+  "superseded": [
+   "L0881",
+   "L0988",
+   "L1220"
+  ],
+  "refined": [
+   "L1111",
+   "L1343",
+   "L1346",
+   "L2305",
+   "L3152"
+  ],
+  "reversed": [],
+  "note": "Dismiss returns prior status; confirm locks the record (WAGR-220, WAGR-165)."
+ },
+ {
+  "topic": "Fraud write-off",
+  "current_truth_ledger_id": "L2308",
+  "superseded": [],
+  "refined": [
+   "L2307",
+   "L0420"
+  ],
+  "reversed": [],
+  "note": "Write-off checkbox when Payment Sent; New moves to Archived when not paid. Only a comment on Done WAGR-165 (SIGNUP-07)."
+ },
+ {
+  "topic": "Ops un-flag / fraud review control",
+  "current_truth_ledger_id": "L2933",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "WAGR-429 open; approach not final."
+ },
+ {
+  "topic": "Log Sign Up progression New to In Progress",
+  "current_truth_ledger_id": "L2407",
+  "superseded": [
+   "L0876",
+   "L1386"
+  ],
+  "refined": [
+   "L2188",
+   "L2189",
+   "L2205",
+   "L2412",
+   "L2413",
+   "L2479"
+  ],
+  "reversed": [
+   "L1191"
+  ],
+  "note": "Moves to In Progress only when a field changes (WAGR-155 supersedes WAGR-350)."
+ },
+ {
+  "topic": "Sign-up completion and Complete action",
+  "current_truth_ledger_id": "L2270",
+  "superseded": [
+   "L0077"
+  ],
+  "refined": [
+   "L2202",
+   "L2271"
+  ],
+  "reversed": [],
+  "note": "Required-field set confirmed off-meeting (WAGR-199, 2026-08-10). L2270 is internal; see lead on DECISION-04."
+ },
+ {
+  "topic": "Sign-up date fields and validation",
+  "current_truth_ledger_id": "L2926",
+  "superseded": [
+   "L1099"
+  ],
+  "refined": [
+   "L1100",
+   "L1348",
+   "L1349",
+   "L1350",
+   "L1351",
+   "L2925",
+   "L2927",
+   "L1241"
+  ],
+  "reversed": [],
+  "note": "WAGR-425, WAGR-228, WAGR-269."
+ },
+ {
+  "topic": "First bet / first wager fields",
+  "current_truth_ledger_id": "L2201",
+  "superseded": [],
+  "refined": [
+   "L2203",
+   "L1190"
+  ],
+  "reversed": [],
+  "note": "First Bet Date/Amount removed (07-22); First Wager Date added (08-31) as a separate field (WAGR-241, WAGR-164)."
+ },
+ {
+  "topic": "Referral information section and notes",
+  "current_truth_ledger_id": "L2930",
+  "superseded": [
+   "L1325"
+  ],
+  "refined": [
+   "L1324",
+   "L1321",
+   "L2272",
+   "L2274",
+   "L2275",
+   "L2313",
+   "L2345"
+  ],
+  "reversed": [],
+  "note": "WAGR-162, WAGR-426."
+ },
+ {
+  "topic": "Sign-up header and rep view fields",
+  "current_truth_ledger_id": "L2921",
+  "superseded": [
+   "L1207"
+  ],
+  "refined": [
+   "L2912",
+   "L2919",
+   "L2920",
+   "L2922",
+   "L1206",
+   "L1188",
+   "L1210"
+  ],
+  "reversed": [
+   "L1204"
+  ],
+  "note": "Partner short code returns to the header (reverses operator-only rule). WAGR-421/422."
+ },
+ {
+  "topic": "Sign-up currency",
+  "current_truth_ledger_id": "L2138",
+  "superseded": [
+   "L1028"
+  ],
+  "refined": [
+   "L2125",
+   "L2126",
+   "L2128",
+   "L2130",
+   "L2139",
+   "L2285"
+  ],
+  "reversed": [],
+  "note": "L2704 (internal, 09-18) points a 'sign up currency' formula at player country; conflict noted in SIGNUP-02."
+ },
+ {
+  "topic": "SLC deal matching",
+  "current_truth_ledger_id": "L2285",
+  "superseded": [
+   "L1637"
+  ],
+  "refined": [
+   "L2073",
+   "L2300",
+   "L2484"
+  ],
+  "reversed": [],
+  "note": "Deal External ID only; WAGR-5 not updated (SIGNUP-06)."
+ },
+ {
+  "topic": "SLC error handling and review flags",
+  "current_truth_ledger_id": "L2072",
+  "superseded": [],
+  "refined": [
+   "L1342",
+   "L1912",
+   "L1973",
+   "L2300"
+  ],
+  "reversed": [],
+  "note": "WAGR-5 review reasons, WAGR-265 reprocess, WAGR-88 fault handling, WAGR-71 BA mismatch."
+ },
+ {
+  "topic": "BA / referrer defaulting on player from first sign-up",
+  "current_truth_ledger_id": "L1974",
+  "superseded": [],
+  "refined": [
+   "L1973",
+   "L2725"
+  ],
+  "reversed": [],
+  "note": "WAGR-397, WAGR-43, WAGR-71."
+ },
+ {
+  "topic": "VIP manual sign-ups",
+  "current_truth_ledger_id": "L3443",
+  "superseded": [
+   "L3439"
+  ],
+  "refined": [
+   "L2942",
+   "L2944",
+   "L2946",
+   "L2947",
+   "L2948",
+   "L2955",
+   "L2956",
+   "L2960",
+   "L2986",
+   "L3440",
+   "L3441",
+   "L3449"
+  ],
+  "reversed": [
+   "L2051"
+  ],
+  "note": "L2945 adds a VIP flag on the sign-up, reversing L2051. 09-30 rules missing from WAGR-432 (SIGNUP-04) and link creation has no ticket (SIGNUP-03)."
+ },
+ {
+  "topic": "Welcome-email fraud tool",
+  "current_truth_ledger_id": "L1560",
+  "superseded": [
+   "L1183"
+  ],
+  "refined": [
+   "L1555",
+   "L1559"
+  ],
+  "reversed": [],
+  "note": "Fast follow; no ticket (SIGNUP-01)."
+ },
+ {
+  "topic": "Path component on Sign-Up",
+  "current_truth_ledger_id": "L1079",
+  "superseded": [
+   "L1219"
+  ],
+  "refined": [
+   "L1171"
+  ],
+  "reversed": [],
+  "note": "No Path; WAGR-336 Done but closed Won't Do (SIGNUP-08)."
+ },
+ {
+  "topic": "Payment sent / money sent tracking",
+  "current_truth_ledger_id": "L1509",
+  "superseded": [],
+  "refined": [
+   "L3145"
+  ],
+  "reversed": [],
+  "note": "Payment Sent checkbox (WAGR-242) for referral payment; no tracking of deposit money sent to players."
+ },
+ {
+  "topic": "Fraud flags on player page",
+  "current_truth_ledger_id": "L2622",
+  "superseded": [
+   "L2046"
+  ],
+  "refined": [
+   "L2592"
+  ],
+  "reversed": [],
+  "note": "WAGR-410, WAGR-407."
+ },
+ {
+  "topic": "Banned / paused referrer on sign-up",
+  "current_truth_ledger_id": "L3038",
+  "superseded": [
+   "L2866"
+  ],
+  "refined": [
+   "L2867",
+   "L2868"
+  ],
+  "reversed": [],
+  "note": "Report only (WAGR-75)."
+ },
+ {
+  "topic": "Sign-up email field",
+  "current_truth_ledger_id": "L2310",
+  "superseded": [],
+  "refined": [
+   "L2309",
+   "L2911"
+  ],
+  "reversed": [],
+  "note": "WAGR-163."
+ },
+ {
+  "topic": "Payout type default from referrer",
+  "current_truth_ledger_id": "L3106",
+  "superseded": [],
+  "refined": [
+   "L3105"
+  ],
+  "reversed": [],
+  "note": "Captured in WAGR-465 requirements."
+ }
+]

@@ -1,0 +1,270 @@
+[
+ {
+  "topic": "WhatsApp integration phasing",
+  "current_truth_ledger_id": "L0117",
+  "superseded": [],
+  "refined": [
+   "L0082"
+  ],
+  "reversed": [],
+  "note": "Included in recommendation (L0082), then agreed not Phase 1 (L0117). Jira WAGR-375 Cancelled in Holding Pen."
+ },
+ {
+  "topic": "SLC deal identification",
+  "current_truth_ledger_id": "L2285",
+  "superseded": [
+   "L1303",
+   "L1465",
+   "L1263"
+  ],
+  "refined": [
+   "L1278",
+   "L1281",
+   "L1270"
+  ],
+  "reversed": [
+   "L1263",
+   "L1303"
+  ],
+  "note": "Deal makeup on the SLC (interim, 2026-07-24/08-04) replaced by Deal External ID only matching (2026-09-01)."
+ },
+ {
+  "topic": "Deal External ID ownership",
+  "current_truth_ledger_id": "L2492",
+  "superseded": [
+   "L1914"
+  ],
+  "refined": [
+   "L2285"
+  ],
+  "reversed": [],
+  "note": "Salesforce drives the Deal External ID; CMS trusts it. Interim CMS seeding (L1914) superseded."
+ },
+ {
+  "topic": "Player matching and dedup",
+  "current_truth_ledger_id": "L1900",
+  "superseded": [],
+  "refined": [
+   "L1897"
+  ],
+  "reversed": [],
+  "note": "CMS dedups before sending; Salesforce does not add player dedup logic; email fallback stays (L1897)."
+ },
+ {
+  "topic": "Survey completion contract",
+  "current_truth_ledger_id": "L2904",
+  "superseded": [
+   "L1476"
+  ],
+  "refined": [
+   "L1488",
+   "L2905",
+   "L2906",
+   "L1291",
+   "L1306"
+  ],
+  "reversed": [],
+  "note": "Separate player-level event (L1476) extended to Survey 1 and Survey 2 status/date, binary only (2026-09-23)."
+ },
+ {
+  "topic": "SF/CMS integration direction and phasing",
+  "current_truth_ledger_id": "L2520",
+  "superseded": [
+   "L1361"
+  ],
+  "refined": [
+   "L1363",
+   "L1373",
+   "L1923",
+   "L1924",
+   "L2685",
+   "L2711"
+  ],
+  "reversed": [],
+  "note": "Deal config in SF pushed to CMS, assignments back to SF; phased plan: deals, then links, then DRAs (2026-09-11)."
+ },
+ {
+  "topic": "Links in deal payload",
+  "current_truth_ledger_id": "L2898",
+  "superseded": [],
+  "refined": [
+   "L2488",
+   "L2521",
+   "L2491"
+  ],
+  "reversed": [],
+  "note": "One endpoint, deal payload carries links array (V2 payload)."
+ },
+ {
+  "topic": "Link lifecycle: delete vs deactivate vs archive",
+  "current_truth_ledger_id": "L3400",
+  "superseded": [
+   "L3295"
+  ],
+  "refined": [
+   "L2489",
+   "L3384"
+  ],
+  "reversed": [],
+  "note": "Full-list/absence-means-removal (L3295) moved to deactivate-only after sync and then archive-only (L3400). CMS omission semantics still to confirm (L3401)."
+ },
+ {
+  "topic": "Link creation location",
+  "current_truth_ledger_id": "L2711",
+  "superseded": [],
+  "refined": [
+   "L2524"
+  ],
+  "reversed": [],
+  "note": "New links created and managed in SF; assignment to reps in CMS."
+ },
+ {
+  "topic": "Link External ID",
+  "current_truth_ledger_id": "L3286",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Link code + deal ID; immutable once set."
+ },
+ {
+  "topic": "CMS sync triggers",
+  "current_truth_ledger_id": "L3259",
+  "superseded": [],
+  "refined": [
+   "L3256",
+   "L3275"
+  ],
+  "reversed": [],
+  "note": "Activation sends first sync; every post-activation status change and link change re-syncs."
+ },
+ {
+  "topic": "CMS sync error handling and retry",
+  "current_truth_ledger_id": "L3297",
+  "superseded": [],
+  "refined": [
+   "L3277",
+   "L3278",
+   "L3288",
+   "L3290"
+  ],
+  "reversed": [],
+  "note": "Errors stored on Deal, response saved (not payload, L3278 corrects L3277), retry by response type, manual/bulk retry checkbox."
+ },
+ {
+  "topic": "Dedicated error object",
+  "current_truth_ledger_id": "L3298",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Deferred to later phase; WAGR-361 Phase 2."
+ },
+ {
+  "topic": "Outbound implementation: Flow vs Apex",
+  "current_truth_ledger_id": "L3301",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Ledger leaves choice to Cedrick; Jira WAGR-454/463 state Queueable Apex (lens B lead)."
+ },
+ {
+  "topic": "CMS endpoint security",
+  "current_truth_ledger_id": "L1928",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "API key enough; no extra SF-side IP restriction for now."
+ },
+ {
+  "topic": "Rep creation and matching",
+  "current_truth_ledger_id": "L1936",
+  "superseded": [],
+  "refined": [
+   "L1934"
+  ],
+  "reversed": [],
+  "note": "SF user first, CMS sets external ID by email. WAGR-390 later cites client doc: BA creation manual on both sides."
+ },
+ {
+  "topic": "Operator/partner data to CMS",
+  "current_truth_ledger_id": "L2527",
+  "superseded": [
+   "L1800"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "Interim CSV upload (L1800) replaced by operator/partner basics in the deal payload."
+ },
+ {
+  "topic": "Commercial terms in CMS",
+  "current_truth_ledger_id": "L2770",
+  "superseded": [
+   "L2506"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "Not in CMS integration."
+ },
+ {
+  "topic": "Postback events",
+  "current_truth_ledger_id": "L0868",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "No later decided item; L0956 (tier2 internal) suggests post-go-live; no ticket."
+ },
+ {
+  "topic": "CMS-side manual reprocess",
+  "current_truth_ledger_id": "L2109",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "WagerTech backlog; L2302 (proposed) not committed by 2026-09-01."
+ },
+ {
+  "topic": "Player location on SLC",
+  "current_truth_ledger_id": "L2895",
+  "superseded": [
+   "L2141",
+   "L2142"
+  ],
+  "refined": [
+   "L2289"
+  ],
+  "reversed": [],
+  "note": "Fixed going forward, no backfill (2026-09-23)."
+ },
+ {
+  "topic": "CMS deal status validation",
+  "current_truth_ledger_id": "L2901",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "CMS keeps validation until Jumpr confirms final values."
+ },
+ {
+  "topic": "VIP handling in CMS flow",
+  "current_truth_ledger_id": "L2953",
+  "superseded": [],
+  "refined": [
+   "L2949"
+  ],
+  "reversed": [],
+  "note": "VIP links excluded; VIP player external ID blank."
+ },
+ {
+  "topic": "Links required before first push",
+  "current_truth_ledger_id": "L3378",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Not required."
+ },
+ {
+  "topic": "Player email change via API",
+  "current_truth_ledger_id": "L1899",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Deferred until needed."
+ }
+]

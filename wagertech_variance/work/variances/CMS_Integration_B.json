@@ -1,0 +1,579 @@
+{
+ "area": "CMS Integration",
+ "lens": "B (Jira to transcript)",
+ "variances": [
+  {
+   "temp_id": "CMSB-01",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "CMS Integration",
+   "title": "WAGR-39 epic and stories WAGR-498, WAGR-489, WAGR-458 still use superseded Deal statuses (Review Required, Retired, New)",
+   "jira": [
+    {
+     "key": "WAGR-39",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+     "quote": "* Retired, not Replaced, is terminal for normal users.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-39",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+     "quote": "    * Paused / Inactive / Closed / Review Required;",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-498",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "Sign-Up — Stamp First Click Date and reactivate Inactive Deal from qualifying activity",
+     "quote": "* New / Paused / Closed / Review Required / Retired → do not auto-activate/reactivate.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-489",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "Account — Protect Operator/Partner integration identity fields after Deal activation",
+     "quote": "Do not use current Deal Status = Active; Paused/Inactive/Closed/Retired Deals still count as having been activated.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-458",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "CMS Sync — Staging verification: Deals, lifecycle and integration engine",
+     "quote": "* Replacement activation remains blocked until predecessor's latest Retired/successor state is Synced.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3404",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:47:25",
+     "line_start": 883,
+     "quote": "Joyce Kiddell: Can we maybe rename it to archive and that way it's like / Kobi Kunasekaran: consistent. / Joyce Kiddell: yeah / Kobi Kunasekaran: Yeah. Yeah. We can do that."
+    },
+    {
+     "ledger_id": "L3408",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "00:52:03",
+     "line_start": 926,
+     "quote": "Joyce Kiddell: No, just no. That's not in it. / Joyce Kiddell: No, not at all. It just creates extra work."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3259",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:25:39",
+     "line_start": 349,
+     "quote": "Kobi Kunasekaran: essentially only the fields that are part of the payload that we're sending to CMS should trigger another sync. … they could move it to paused, inactive, closed, review acquired, retired. All of these should trigger a CMS sync with the latest makeup of the deal information. / Kobi Kunasekaran: every status change gets synced to CMS."
+    },
+    {
+     "ledger_id": "L3302",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:10:01",
+     "line_start": 664,
+     "quote": "Kobi Kunasekaran: The only thing is the new and retired need to be added as new statuses. Um there should be us stories for that."
+    }
+   ],
+   "what_differs": "On 2026-09-30 WagerTech and Jumpr agreed to rename Retired to Archive and to remove Review Required. The WAGR-39 epic (baseline v0.12, last updated before that meeting) and the build stories WAGR-498, WAGR-489 and WAGR-458 still name Retired, Review Required and New in their rules and acceptance criteria, while WAGR-506/485/486/454 already use Draft/Archived.",
+   "suggested_action": "Suggestion only: update the WAGR-39 outbound-scope and identity-rule sections to the v0.13.1 status set, and replace Retired/Review Required/New in WAGR-498 (rule list and AC 8), WAGR-489 and WAGR-458 with Archived/Draft. Also confirm with WagerTech the 'Draft' label: the last meeting record (L3302, 2026-09-29) says 'New', and no meeting records the rename to Draft.",
+   "checked_later_meetings": true,
+   "reasoning": "L3259 and L3302 (2026-09-29, internal) are the earlier items the stale text reflects; L3404 and L3408 (2026-09-30 client weekly sync) supersede them. WAGR-506 (Jumpr Review) deployed Draft and Archived on 2026-10-01, so the stale ACs in Requirements-status stories will be unclear to the builder. Not a wrong build yet, so Medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMSB-02",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "CMS Integration",
+   "title": "Jira locks Queueable Apex as the outbound sender; latest meeting left Flow vs Apex to Cedrick",
+   "jira": [
+    {
+     "key": "WAGR-454",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses",
+     "quote": "* **Queueable Apex is the single outbound sender.**",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-454",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses",
+     "quote": "* Flow/record automation may request sync; it does not maintain a second JSON/callout implementation.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-463",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Deal lifecycle/CMS — close remaining design and contract follow-ups",
+     "quote": "* Queueable Apex is the common outbound sender.",
+     "quote_source": "description (under 'Resolved elsewhere')"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3301",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:10:01",
+     "line_start": 662,
+     "quote": "Kobi Kunasekaran: And then flow versus Apex. I'm going to leave this up to you. … if that's going to be a problem then it might make sense to work uh go with Apex."
+    },
+    {
+     "ledger_id": "L3179",
+     "date": "2026-09-28",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1i1AH0eRraoA3czYyZC9nWRiFTeGcGYyAMfvxTpAes3Y/edit",
+     "speakers": "Cedrick Infantado",
+     "timestamp": "00:18:02",
+     "line_start": 369,
+     "quote": "Cedrick Infantado: I'll check / Cedrick Infantado: I'll do a quick check on that and uh I'll and let you know if that's possible on flow. I'll do a quick P on triggering of uh on the deals and then see if we can do retries and after that save it on on a log if if maybe that's possible"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "The 2026-09-29 walkthrough left the Flow vs Apex choice to Cedrick (Apex only if payload size or batching is a problem), and on 2026-09-28 Cedrick took an action to prove a Flow-based callout with retries. Jira (updated 2026-10-02) states Queueable Apex is the single sender and lists it as resolved, with no meeting record of that decision or of the Flow POC result.",
+   "suggested_action": "Suggestion only: confirm with Cedrick and Kobi that the Flow POC (L3179) concluded in favour of Queueable Apex, and record the rationale in WAGR-454 or WAGR-463 so the build follows one agreed approach before the October 9 target.",
+   "checked_later_meetings": true,
+   "reasoning": "No ledger item after 2026-09-29 decides the technology. Jira may reflect a decision made in Slack/Confluence, so confidence is medium. Risk: Cedrick builds a Flow callout per the meeting while the stories and AC 12 (HttpCalloutMock Apex tests) assume Apex, or the reverse; this is rework, so Medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMSB-03",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "CMS Integration",
+   "title": "Rep/BA identity: 2026-08-18 decision has CMS push rep ID on rep creation; WAGR-390 says no automated CMS intake, manual on both sides",
+   "jira": [
+    {
+     "key": "WAGR-390",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "BA: Define Manual BA Creation Process (CMS External ID Reference)",
+     "quote": "No automated intake or sync from the CMS into Salesforce for BA creation has been built or scoped — BAs are created manually today.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-183",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-205 — Brand Ambassador: CMS Identity Fields",
+     "quote": "* BAs are created upstream via the CMS, same as Player.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-183",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-205 — Brand Ambassador: CMS Identity Fields",
+     "quote": "No I believe this was going to be set manually, all user fields are generally going to be set manually during user provisioning.",
+     "quote_source": "comment by (no author name) 2026-08-25"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1934",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell; Strahinja Vladetic",
+     "timestamp": "00:32:24",
+     "line_start": 592,
+     "quote": "Joyce Kiddell: ...and just use that as the event that then pushes the rep information to Salesforce. / Strahinja Vladetic: Yeah, that makes sense. Whenever it's created on our side, we just push it to them."
+    },
+    {
+     "ledger_id": "L1936",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+     "timestamp": "00:35:47",
+     "line_start": 632,
+     "quote": "Kobi Kunasekaran: ...It's going to flag it in Salesforce anyways to say like there's no rep found, fix the rep, / Kobi Kunasekaran: and then uh reprocess the SLC. Um, but yeah, like I think the process is like create the rep record or the user record in Salesforce and then / Kobi Kunasekaran: if as long as the email match, we could have the CMS set the external ID once that's created in CMS. / Strahinja Vladetic: That seems good."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1935",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+     "timestamp": "00:33:24",
+     "line_start": 604,
+     "quote": "Kobi Kunasekaran: ...so for reps like they need to be Salesforce users. So generally you would set like that would be part of like an admin task on Salesforce / Kobi Kunasekaran: ...it's so infrequent that it's probably best to leave it for an event to / Strahinja Vladetic: That makes sense."
+    }
+   ],
+   "what_differs": "In the 2026-08-18 client sync, Joyce and Strahinja agreed that creating a rep in the CMS is the event that pushes rep information to Salesforce, and that the CMS sets the external ID by email match after the Salesforce user exists. WAGR-390 (Open, Kobi) says no CMS-to-Salesforce BA intake is built or scoped and the external ID is entered manually on both sides; WAGR-183 says the opposite (created upstream via CMS). No ticket exists for the agreed CMS push.",
+   "suggested_action": "Suggestion only: confirm with WagerTech (Emily/Strahinja) whether the 2026-08-18 rep-creation push was replaced by the manual process in Emily's September written feedback. If the push stands, add a ticket for the Salesforce-side handling (match by email, set Rep/BA External ID, flag when no match); if not, record the reversal in WAGR-390 and correct WAGR-183.",
+   "checked_later_meetings": true,
+   "reasoning": "No later meeting revisits rep creation. WAGR-390 cites Emily's Sep 2026 written feedback, which may legitimately supersede the meeting, so confidence is medium. L1935 (user creation stays manual) is consistent with both. SLC rep resolution depends on this external ID (L1936 says a missing rep flags the SLC), so a wrong assumption causes reprocessing work: Medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMSB-04",
+   "category": "V4",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "CMS Integration",
+   "title": "WAGR-46 survey-completion inbound event sits in Requirements although the callout was built and tested in August",
+   "jira": [
+    {
+     "key": "WAGR-46",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "BUILD-69 — Survey completion inbound API event → Player",
+     "quote": "Objective: replace click-inference with an explicit CMS→SF survey-completion event.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-46",
+     "status": "Requirements",
+     "assignee": "Unassigned",
+     "summary": "BUILD-69 — Survey completion inbound API event → Player",
+     "quote": "Provided updated fields to Emily/Strah and sits with Wagertech to test and confirm this works.",
+     "quote_source": "comment by (no author name) 2026-08-10"
+    },
+    {
+     "key": "WAGR-441",
+     "status": "In Progress",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Player: Capture Survey 2 completion from CMS alongside Survey 1",
+     "quote": "WAGR-46: the inbound survey-completion event to the Player. It is in Requirements, and the CMS side is owned by WagerTech. This story extends its contract to two surveys.",
+     "quote_source": "description (Dependencies)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1621",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:06:08",
+     "line_start": 209,
+     "quote": "Kobi Kunasekaran: ... I did take a look at the uh survey completion for the test integration that uh uh Strad did and it looks like it did come through. ... / Emily Vandenberg: Not after you like unblocked him this last whatnot. / Kobi Kunasekaran: ... the survey completion uh check box and the dates are filled in. So it looks like it's good. ..."
+    },
+    {
+     "ledger_id": "L2981",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:05:06",
+     "line_start": 280,
+     "quote": "Kobi Kunasekaran: But I believe uh as we work through and set up the actual integration um there is a separate call out from the CMS to set the survey completion on the player. We tested it only for like a couple of records way back. It's been a while and I don't think we've tested that since."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2908",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:08:39",
+     "line_start": 323,
+     "quote": "Kobi Kunasekaran: So then yeah the existing field we'll just re label them like survey one um and like I'll send over like the updated API names for those um and then we'll create same fields for survey 2 / Emily Vandenberg: Perfect. Can we do that this week? / Kobi Kunasekaran: Yeah, we can get the fields up and running like today."
+    }
+   ],
+   "what_differs": "On 2026-08-11 Kobi confirmed the CMS survey-completion test populated the checkbox and dates through the integration user; on 2026-09-23 he said it was tested on a couple of records and not since. WAGR-46 is still in Requirements (not started) with no assignee, and its single-survey field contract was replaced by the Survey 1/Survey 2 design now tracked in WAGR-441.",
+   "suggested_action": "Suggestion only: move WAGR-46 to a status that reflects 'built, awaiting retest' (or close it as superseded and link it to WAGR-441, whose AC 4 already owns the end-to-end retest), so the board does not show survey completion as unstarted.",
+   "checked_later_meetings": true,
+   "reasoning": "Requirements means not started under this project's status semantics; the meetings show the SF side built and a CMS test passed. Hygiene and reporting accuracy only, because WAGR-441 carries the live work: Low.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMSB-05",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "CMS Integration",
+   "title": "No ticket anywhere for storing postback events against the signup",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "postback",
+     "post-back",
+     "server-to-server",
+     "S2S",
+     "click ID",
+     "conversion event"
+    ],
+    "nearest_considered": [
+     "WAGR-49",
+     "WAGR-46",
+     "WAGR-50",
+     "WAGR-443 (Holding Pen children WAGR-368..381)",
+     "WAGR-478 (Phase 2 Stories)"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0868",
+     "date": "2026-07-08",
+     "meeting_title": "Wagertech <> Jumpr: Onsite",
+     "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:17:04",
+     "line_start": 331,
+     "quote": "Kobi Kunasekaran: we're also piloting these like uh postbacks server store postbacks. So we're going to get like uh URLs click IDs associated with it / Kobi Kunasekaran: So those events firing back to us we need to be able to store against the signup."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L0869",
+     "date": "2026-07-08",
+     "meeting_title": "Wagertech <> Jumpr: Onsite",
+     "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:18:34",
+     "line_start": 351,
+     "quote": "Kobi Kunasekaran: So I figured like it it makes more sense to go into play kind of like the back end first because you already have all that information there to map it, right? / Kobi Kunasekaran: But like I said, like if you do have all that information from the postback already to map it to sign up, then yeah, we can skip the middleman and do it directly. / Kobi Kunasekaran: But I don't know I don't know enough about it to say confident."
+    },
+    {
+     "ledger_id": "L0956",
+     "date": "2026-07-13",
+     "meeting_title": "Meeting started 2026/07/13 11:50 EDT - Notes by Gemini",
+     "doc_link": "https://docs.google.com/document/d/1VCJx1Yre2wngHTtL1aPUm4gzCun12MABzmoI9DDFGWY/edit",
+     "speakers": "Waleed Alasadi",
+     "timestamp": "02:38:37",
+     "line_start": 796,
+     "quote": "Waleed Alasadi: ... What about the API work? um the postback stuff that they were talking about that one like I don't think we're going to be able to scope that in or space. So it's probably going to be in post like what"
+    }
+   ],
+   "what_differs": "The 2026-07-08 onsite recorded that postback events (URLs, click IDs) must be stored against the signup. No Jira issue (any status, including the Holding Pen and Phase 2 epics, descriptions and comments) mentions postbacks.",
+   "suggested_action": "Suggestion only: create a ticket for postback event storage, placed in Phase 2 or the Holding Pen if Jumpr's internal 'post-go-live' view (L0956) is agreed with WagerTech, and carry the open routing question (L0869: backend first vs direct) into it.",
+   "checked_later_meetings": true,
+   "reasoning": "Full-text search of all 505 raw issue JSON files for 'postback' returns nothing. L0956 is a tier2 internal remark with no client agreement, and no later meeting closes the topic, so the client requirement is untracked. Not a go-live item per the internal view, so Medium, not High.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "CMSB-06",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "CMS Integration",
+   "title": "CMS-side admin manual resync/reprocess (WagerTech-owned) is not tracked as a dependency in Jira",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "resync",
+     "re-sync",
+     "reprocess",
+     "repush",
+     "manual push",
+     "CMS button",
+     "retry"
+    ],
+    "nearest_considered": [
+     "WAGR-265 (SLC reprocess button, Salesforce side, Done)",
+     "WAGR-119 (Link changes trigger a deal re-sync, Cancelled)",
+     "WAGR-451 (Salesforce outbound manual/bulk retry)",
+     "WAGR-460 (production cutover)"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2109",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:37:34",
+     "line_start": 597,
+     "quote": "Kobi Kunasekaran: So um it would be good to have something like that on the CMS side that you know an admin can do. So it doesn't need to be a developer. / Kobi Kunasekaran: But it's always good to have a way to manually push / Emily Vandenberg: Yeah, he hasn't built that yet. I was checking in yesterday, but we will add it to the backlog."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2302",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:16:01",
+     "line_start": 275,
+     "quote": "Kobi Kunasekaran: Okay. Yeah. I think the pushing is something to have ready before we go into production so we have it tested / So the better option is uh from the CMS side have a have a button on the SLC level to reync to Salesforce. / Emily Vandenberg: Okay. Yeah, I just I just kind of backlogged it for the week, but we can pull it in before"
+    }
+   ],
+   "what_differs": "On 2026-08-25 Kobi recommended, and Emily agreed to backlog, an admin-usable manual push on the CMS side for API failures or Salesforce outages; on 2026-09-01 Kobi asked for it before production. Jira has only the Salesforce-side SLC reprocess (WAGR-265) and outbound retry (WAGR-451); nothing tracks the CMS-side capability or its go-live readiness.",
+   "suggested_action": "Suggestion only: add a WagerTech-owned dependency task (like WAGR-46's owner pattern) or a checklist line in WAGR-460 production cutover, so readiness of the CMS-side resync is checked before go-live.",
+   "checked_later_meetings": true,
+   "reasoning": "The build is WagerTech's, so a Jumpr ticket is optional, but the project lead asked for every decided gap. L2302 is proposed only, so the item stays Low.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Link Archive: 2026-09-30 client ask 'only archive links' vs Jira treating Link Archived as undecided and keeping a guided delete path",
+   "why_unverified": "Same meeting is mixed: L3400 (Joyce asks archive-only, Kobi 'that works') but L3399 (Emily: active/inactive is sufficient). WAGR-509 (Open) and WAGR-463 item 3 capture the decision as pending WagerTech/Strah review, and WAGR-491 still allows deleting never-published links. Confirm at the next WagerTech review.",
+   "ledger_ids": [
+    "L3400",
+    "L3399",
+    "L3401",
+    "L3384"
+   ],
+   "jira_keys": [
+    "WAGR-509",
+    "WAGR-491",
+    "WAGR-463",
+    "WAGR-456"
+   ]
+  },
+  {
+   "title": "Deal versioning reopened on 2026-09-30; Jira says Deal Version was scrapped and WAGR-463 follow-ups do not list it",
+   "why_unverified": "Supporting items are proposed/discussed (L3396 versions under a parent container 'makes sense' to Joyce/Emily but must align with CMS; L3413 decision needed ASAP; L3414 single living deal) plus a decided action L3397 (Emily to set up a call on how versioning affects CMS workflows). No decided outcome, so not a V3. Jira: WAGR-68 'Deal Version was scrapped', WAGR-39 'No user-entered Deal Version field'. Likely a Deal-area V8.",
+   "ledger_ids": [
+    "L3396",
+    "L3397",
+    "L3413",
+    "L3414"
+   ],
+   "jira_keys": [
+    "WAGR-68",
+    "WAGR-39",
+    "WAGR-463"
+   ]
+  },
+  {
+   "title": "WAGR-444 children (WAGR-117, 118, 122, 124) carry Phase=1 / Must Have while the epic and 2026-09-29 meeting place inbound DRA in a later CMS phase",
+   "why_unverified": "L3279 says 'phase two of the CMS integration', which may still sit inside project Phase 1; L1675 says WagerTech wants two-way DRA sync before a scaled rollout. Whether these belong in project Phase 1 is not stated, so a V6 cannot be proven. Confirm the Phase field.",
+   "ledger_ids": [
+    "L3279",
+    "L2864",
+    "L1675"
+   ],
+   "jira_keys": [
+    "WAGR-444",
+    "WAGR-117",
+    "WAGR-118",
+    "WAGR-122",
+    "WAGR-124",
+    "WAGR-83"
+   ]
+  },
+  {
+   "title": "CMS-side behaviour for Inactive (and other synced statuses) not confirmed with WagerTech",
+   "why_unverified": "L3407 (2026-09-30) and L3274 (2026-09-29) are open questions. Jira WAGR-506/454 state 'CMS must not interpret Inactive as Pause/hide Links', but WAGR-463 only lists CMS confirmation for Archived. V8 candidate for Lens A; not a V2-V7.",
+   "ledger_ids": [
+    "L3407",
+    "L3274",
+    "L3406"
+   ],
+   "jira_keys": [
+    "WAGR-463",
+    "WAGR-506",
+    "WAGR-454"
+   ]
+  },
+  {
+   "title": "Two-way sync for link changes made on the CMS side",
+   "why_unverified": "L2533 (2026-09-11) open: Emily asked for two-way communication for link changes after setup; only brand-new link creation was settled (L2524). No later meeting resolves it and no Jira story covers CMS-originated link edits. V8 candidate.",
+   "ledger_ids": [
+    "L2533",
+    "L2524"
+   ],
+   "jira_keys": [
+    "WAGR-39",
+    "WAGR-444"
+   ]
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-48",
+  "WAGR-94",
+  "WAGR-222",
+  "WAGR-409",
+  "WAGR-354",
+  "WAGR-376"
+ ],
+ "module_coverage": {
+  "area": "CMS Integration",
+  "jira_epics": [
+   "WAGR-39",
+   "WAGR-444"
+  ],
+  "ticket_count": 61,
+  "ticket_count_note": "WAGR-39 has 35 children (25 Requirements, 3 Open, 1 Ready, 1 In Progress, 3 Jumpr Review, 2 Cancelled). WAGR-444 has 4 Open children (WAGR-117/118/122/124) plus WAGR-83 referenced. About 21 standalone CMS tickets outside both epics (e.g. WAGR-34, 46, 116, 119, 120, 121, 123, 131, 256, 264, 276, 296, 317, 361, 375, 390, 435, 441, 476, 500). Count is approximate.",
+  "uncovered_capabilities": [
+   {
+    "capability": "Postback events stored against signups",
+    "ledger_ids": [
+     "L0868",
+     "L0869",
+     "L0956"
+    ],
+    "note": "Decided requirement 2026-07-08; zero Jira issues mention postbacks (see CMSB-05)."
+   },
+   {
+    "capability": "CMS-to-Salesforce rep identity push on rep creation (external ID by email match)",
+    "ledger_ids": [
+     "L1934",
+     "L1936"
+    ],
+    "note": "Decided 2026-08-18; no build ticket; WAGR-390 says manual on both sides (see CMSB-03)."
+   },
+   {
+    "capability": "CMS-side admin manual resync/reprocess",
+    "ledger_ids": [
+     "L2109",
+     "L2302"
+    ],
+    "note": "WagerTech-owned; not tracked as a go-live dependency (see CMSB-06)."
+   },
+   {
+    "capability": "Player email change via player update endpoint",
+    "ledger_ids": [
+     "L1899"
+    ],
+    "note": "Decided deferral 2026-08-18 ('cross that bridge when we get there'); no Phase 2 or Holding Pen ticket keeps it visible."
+   },
+   {
+    "capability": "Inbound DRA (CMS to Salesforce) phase-two design",
+    "ledger_ids": [
+     "L3279",
+     "L3280",
+     "L3281"
+    ],
+    "note": "Epic WAGR-444 exists with 4 legacy Open tickets; the staging-object intake design (L3280, proposed) and DRA flow diagram (L3281) have no stories yet. Expected, since phase two is not scoped."
+   },
+   {
+    "capability": "Deal versioning impact on CMS workflows",
+    "ledger_ids": [
+     "L3397",
+     "L3396",
+     "L3413"
+    ],
+    "note": "Emily to set up a call (decided action 2026-09-30); no Jira follow-up and WAGR-68/WAGR-39 still say versioning is scrapped (lead)."
+   }
+  ]
+ },
+ "notes": "Lens B (Jira to transcript) for CMS Integration. Jira for this module is unusually current: WAGR-39 children were rewritten to a v0.13.1 contract on 2026-09-30 to 2026-10-02 and match most 2026-09-29/30 decisions (status set, pause/close/archive link behaviour, links not required at activation, errors on Deal, manual/bulk retry, Link External ID, VIP/Exclude from CMS, commercial terms excluded). Variances therefore concentrate on residual stale text (CMSB-01), decisions made outside meetings (CMSB-02, CMSB-03), and status hygiene (CMSB-04). Two V1 gaps (CMSB-05, CMSB-06) are included per the project lead's gap-completeness request; Lens A should own the full V1 sweep and may dedupe. V1 filter used: decided requirements/changes and open build actions; meeting logistics and action items already completed (e.g. API docs sent, test payload sent, Airtable link-count check, now reflected in WAGR-459) were not listed. No V7 found: unassigned Requirements-status CMS stories match L3083 (Cedrick picks up ready stories from the epic). Survey 2 (WAGR-441), WAGR-415 (country/state, Kobi to verify and close) and WAGR-446 (connection, Jumpr Review) match the meetings. Jira quotes were checked programmatically against description+comments; transcript quotes are copied from ledger.json. Secrets: WAGR-445 discusses exposed CMS keys but contains no values; none were reproduced."
+}

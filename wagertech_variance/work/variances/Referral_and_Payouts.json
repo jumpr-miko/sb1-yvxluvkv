@@ -1,0 +1,1131 @@
+{
+ "area": "Referral and Payouts",
+ "variances": [
+  {
+   "temp_id": "RP-01",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "WAGR-465 (referral payout design) is missing several payout rules decided on Sep 25 and still lists the decided secondary bonus amount as open",
+   "jira": [
+    {
+     "key": "WAGR-465",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Referral payouts — design and user stories",
+     "quote": "A batch holds one currency only.",
+     "quote_source": "description (Requirements captured, Sep 25 call)"
+    },
+    {
+     "key": "WAGR-465",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Referral payouts — design and user stories",
+     "quote": "Secondary bonus amount: $100 cash / $200 bet credit, or $250 bet credit (Joyce, Jul 17)? _(Lina)_",
+     "quote_source": "description (Open questions)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3111",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:21:29",
+     "line_start": 404,
+     "quote": "Joyce Kiddell: but I I wouldn't like within a single payout record if we are creating a separate record type or object type whatever it's called. Um I would not combine cash and redeposit into one, right? / Lina Ceniccola: You would have to then create like two different payout records. / Lina Ceniccola: you can only batch one of the same kind of touch."
+    },
+    {
+     "ledger_id": "L3115",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:24:56",
+     "line_start": 456,
+     "quote": "Emily Vandenberg: Um, sorry. In terms of batching, did we say this? Like you can only batch like your primary, you can't cross like secondary and primary referral. / Kobi Kunasekaran: is that one one payout per payout type per uh I guess referral type like primary versus secondary. Okay. / Kobi Kunasekaran: So, it might be better to keep it separate at least for the initial layers and then if we do need a additional combination, maybe we can layer that in afterwards."
+    },
+    {
+     "ledger_id": "L3158",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:26:00",
+     "line_start": 1239,
+     "quote": "Kobi Kunasekaran: we're marking the sign up as paid, but paid for like I think we'll separate like uh primary referral payment or and secondary referral payments just so we can keep track of uh both. But yeah, ultimately the signup record will be marked as paid for the referral commission or referral payout. / Emily Vandenberg: Yeah. Okay."
+    },
+    {
+     "ledger_id": "L3110",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "00:20:11",
+     "line_start": 388,
+     "quote": "Kobi Kunasekaran: Is it possible for a player to have one sign up as cash and one as bad credit? / Lina Ceniccola: Yes. / Lina Ceniccola: allocates half of them as cash half of them as bet credit. It's probably like 1% of people, but leave it open."
+    },
+    {
+     "ledger_id": "L3109",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "00:20:11",
+     "line_start": 383,
+     "quote": "Emily Vandenberg: They can do onetoone, right, Lena? If it's like an odd, like it's not that they couldn't, but they typically batch / Lina Ceniccola: they strategically they prefer to badge. Work-wise, they prefer to badge. But if someone does one sign up and they're like, I want referral payment, they could do it."
+    },
+    {
+     "ledger_id": "L3148",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "01:07:06",
+     "line_start": 990,
+     "quote": "Joyce Kiddell: Um you should be able to take signups out of that batch, / Joyce Kiddell: Kobe. Um, and you should be able to cancel um, obviously or delete that same payout."
+    },
+    {
+     "ledger_id": "L3150",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:08:15",
+     "line_start": 1014,
+     "quote": "Joyce Kiddell: even if it is confirmed as fraud, my gut is leaning towards like keeping it in the queue, but just like not allowing them to add it at all and then have like a big like X or like some sort visual cue / Emily Vandenberg: It should though. It should clear out if it's confirmed, / Kobi Kunasekaran: they would see that on the player record as oppo uh sorry not player but the referral record as opposed to like the screen where they select the batches is what I'm thinking. / Joyce Kiddell: Okay. And that's fine as long as it's all visible in the same view. You know what I mean? / Kobi Kunasekaran: Yeah. / Emily Vandenberg: Yeah."
+    },
+    {
+     "ledger_id": "L3153",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "01:13:57",
+     "line_start": 1078,
+     "quote": "Joyce Kiddell: All right. Is there some sort of minimum thresholds for primary referers before they qualify for commission? / Lina Ceniccola: No."
+    },
+    {
+     "ledger_id": "L3134",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:50:55",
+     "line_start": 793,
+     "quote": "Joyce Kiddell: um, then you get some sort of bonus. Uh, it's 200 bucks in redeposit or 100 bucks um in cash and it's a onetime thing. So to be clear, that means Lena and Emily that like after the first 10 signups, they're not getting like another bonus at 20 signups and then 30 and 40. Or are they? / Lina Ceniccola: Yes. No. No. 10. They're done. / Kobi Kunasekaran: quies. Okay, this sounds good. Um, so just send for the secondary refer after that's sent out. We're not doing anything else. / Joyce Kiddell: Uh-uh."
+    }
+   ],
+   "what_differs": "The Sep 25 discovery decided that one payout cannot mix cash and bet credit, that primary and secondary signups go in separate payouts, that the signup paid flag is split primary/secondary, that one-to-one payment, mixed types per referrer and cancel/delete of an unpaid payout must be possible, that confirmed fraud shows on the referrer record, that primary referrers have no minimum threshold, and that the secondary bonus is a one-time 200 bet credit / 100 cash. WAGR-465 states only the single-currency rule for batches and lists the bonus amount as an open question; the other rules are not in its description, and it has no comments.",
+   "suggested_action": "Add these rules to WAGR-465 as acceptance criteria (or to the build stories when they are created), and move the secondary bonus amount from Open questions to Requirements after a quick confirmation with Lina.",
+   "reasoning": "All items are decided, tier1 transcript, verified quotes, latest meeting on the topic (Sep 30 did not change them). Read WAGR-465 description in full; no comments exist. Payment-type mixing and primary/secondary separation affect the batch screen logic, so building from the ticket as written risks rework.",
+   "feature_area": "Referral and Payouts",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-02",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "Sep 30 bet-credit decisions (separate referral queue, no deal-level budget entries, allocation to referrer inside payout flow) are not in WAGR-465 or WAGR-464",
+   "jira": [
+    {
+     "key": "WAGR-465",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Referral payouts — design and user stories",
+     "quote": "**Bet credit:** the rep splits the total into smaller redeposit records for the referrer. These follow the redeposit proof process. The Payout status follows the status of its redeposits.",
+     "quote_source": "description (Requirements captured)"
+    },
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Where does the budget live, and in what unit?",
+     "quote_source": "description (Open decisions)"
+    },
+    {
+     "key": "WAGR-464",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Redeposits workflow — design and user stories",
+     "quote": "Bet-credit referral payouts create redeposit records for the referrer (see the \"Referral payouts — design and user stories\" ticket).",
+     "quote_source": "description (Requirements captured)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3358",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "03:19:31",
+     "line_start": 2590,
+     "quote": "Emily Vandenberg: Can you can we create a separate although it still would be a redeposit like I agree it follows it but like a separate um drop down for it so it doesn't go right into redeposit it goes into referral payments / Kobi Kunasekaran: Um but for the redeposit records um instead of going through the same flow that we had for the regular redeposits like this queue um we just want a separate queue that's maybe like streamlined / Kobi Kunasekaran: Yeah. Yeah, we can do that. Yeah."
+    },
+    {
+     "ledger_id": "L3342",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "02:57:54",
+     "line_start": 2304,
+     "quote": "Joyce Kiddell: against the same one. So, you can't do like budget entries at a deal level because it's all going to be / Kobi Kunasekaran: Okay, then we don't necessarily need to do budget entries for those types of allocation. We we can just related to uh like a DLM month and then they can distribute it however they want."
+    },
+    {
+     "ledger_id": "L3350",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "03:08:49",
+     "line_start": 2475,
+     "quote": "Kobi Kunasekaran: That bet credit then needs to be assigned slallocated to a refer and then that doesn't / Kobi Kunasekaran: then get assigned to a player or anything like that. It's just it's just a refer is the one that gets paid that amount. Okay. / Emily Vandenberg: Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3373",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "03:07:19",
+     "line_start": 2460,
+     "quote": "Kobi Kunasekaran: Uh when it comes for payouts, um instead of the payout creating like a like a budget entry, um I will think through the best way to relate these redeposit allocations to the bet credit payout."
+    },
+    {
+     "ledger_id": "L3451",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:48:24",
+     "line_start": 1514,
+     "quote": "Kobi Kunasekaran: I didn't add the payout that becomes a redeposit uh, here yet, so that's still uh, TBD."
+    }
+   ],
+   "what_differs": "On Sep 30 the team decided that referral bet-credit redeposits get their own streamlined queue/tab (no player selection), are not tracked as deal-level budget entries, and are allocated to the referrer inside the payout flow. WAGR-464 and WAGR-465 were last updated Sep 28 and do not contain these decisions; WAGR-464 still lists budget location as open.",
+   "suggested_action": "Add the Sep 30 decisions to WAGR-465 (referral side) and WAGR-464 (redeposit side) and record the open follow-up L3373 (how allocations relate to the bet credit payout) on one of them.",
+   "reasoning": "Decided tier1 transcript items from the latest meeting on the topic. Both design tickets were read in full (no comments). Grep of all issues for 'queue', 'budget entr', 'streamlined' found no other coverage.",
+   "feature_area": "Referral and Payouts",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-03",
+   "category": "V1",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "No ticket for the agreed Ops override of the matrix payout amount ('payout amount differs' / new payout amount) on the Sign-Up",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "payout amount differs",
+     "override",
+     "new payout amount",
+     "manual amount",
+     "Payout Amount",
+     "read-only",
+     "read only"
+    ],
+    "nearest_considered": [
+     "WAGR-465",
+     "WAGR-266",
+     "WAGR-289",
+     "WAGR-342",
+     "WAGR-254",
+     "WAGR-428",
+     "WAGR-162"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2315",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Lina Ceniccola; Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:37:17",
+     "line_start": 510,
+     "quote": "Lina Ceniccola: Um I'm just thinking we if we could have it as ops first. / Lina Ceniccola: payout amount differs, new payout amount, / Kobi Kunasekaran: Yeah. Okay. Yeah, we can do"
+    },
+    {
+     "ledger_id": "L2277",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit",
+     "speakers": "Cedrick Infantado; Kobi Kunasekaran",
+     "timestamp": "00:24:08",
+     "line_start": 429,
+     "quote": "Kobi Kunasekaran: So I think it actually I think it is read only but because I'm logged in as an admin uh I believe it's showing up as editable ... / ... Kobi Kunasekaran: but like a lot of these fields are supposed to be read only on the layout. / Kobi Kunasekaran: Um, and it is for reps, but for non-reps it, uh, they are editable. / Cedrick Infantado: Sure. I just check that one."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2314",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "00:36:07",
+     "line_start": 490,
+     "quote": "Kobi Kunasekaran: Uh the payout amount is getting auto set based on like the referral that's chosen and the referral type that's chosen, right? / Kobi Kunasekaran: It's it comes from that matrix."
+    }
+   ],
+   "what_differs": "On Sep 1 Lina asked for, and Kobi agreed to, an Ops-first override of the matrix payout amount using a 'payout amount differs' / new payout amount pattern (like Deposit Amount Differs, WAGR-266). No build ticket exists; WAGR-465 lists it only as an open question ('Can Ops override a Sign-Up's payout amount? (Lina, Sep 1)'). The related internal check that Payout Amount is read-only for reps (L2277) is also not tracked.",
+   "suggested_action": "Create a Sign-Up story for the Ops payout amount override (checkbox + override amount, Ops-only FLS, payout batch uses the override) and include the rep read-only check; or confirm with Lina whether the Sep 25 payout design replaces it.",
+   "reasoning": "L2315 is decided with a verbatim 'Yeah. Okay. Yeah, we can do'. No later meeting reverses it (grep 'override|differs' after Sep 1 finds only redeposit items). Listing a decided item as an open question in a design card is not coverage.",
+   "feature_area": "Referral and Payouts",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-04",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "WAGR-159 Pause Automation says a paused referrer 'blocks new attribution' and uses the unconfirmed prototype reason list; meetings decided no restriction and a different reason list",
+   "jira": [
+    {
+     "key": "WAGR-159",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-197 — Referrer: Pause Automation",
+     "quote": "Reversible; blocks new attribution only",
+     "quote_source": "description (AUTOMATION)"
+    },
+    {
+     "key": "WAGR-159",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-197 — Referrer: Pause Automation",
+     "quote": "Reason — Picklist: Awaiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review, Referrer Request, Other",
+     "quote_source": "description (AUTOMATION)"
+    },
+    {
+     "key": "WAGR-159",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-197 — Referrer: Pause Automation",
+     "quote": "Pause automation is complete and tested! Referrer - Pause Button V2",
+     "quote_source": "comment 2026-09-02 (author not shown)"
+    },
+    {
+     "key": "WAGR-178",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-235 — Referrer: Pause Button — Confirm Reason Capture",
+     "quote": "Pause Reason — Picklist (single-select), required. Values: Waiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review / Possible Duplicate Referral Record.",
+     "quote_source": "description (FIELDS)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1982",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+     "timestamp": "01:34:45",
+     "line_start": 1587,
+     "quote": "Kobi Kunasekaran: ...So, are we saying that for paused and banned, we're not going to restrict signups from being uh or reps from being uh adding referers or signups, even if they're banned or paused. / Lina Ceniccola: Yeah, that works."
+    },
+    {
+     "ledger_id": "L2095",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola; Joyce Kiddell",
+     "timestamp": "00:22:52",
+     "line_start": 349,
+     "quote": "Lina Ceniccola: Yeah. Waiting ops proof quality under review. Sure. Payout details missing or invalid. Sure. Duplicate under review. Possible duplicate referral record. Sure. / Kobi Kunasekaran: Yeah. Yeah. Okay. We'll keep these again."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3039",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "01:03:48",
+     "line_start": 982,
+     "quote": "Kobi Kunasekaran: the followup is potentially creating a report or a way for them to see a list of um, signups with banned referers. Um, I would dep prioritize this / Taryn Reithofer: deep part 75. / Kobi Kunasekaran: really we just need to surface a way for them to see signups against uh bad referers / Kobi Kunasekaran: let's rework the ticket so that it doesn't seem like we have to do anything in the signup flow for now. / Kobi Kunasekaran: No, Let's just put it in the back hog for now. We we'll categorize it later."
+    }
+   ],
+   "what_differs": "On Aug 18 the client agreed that paused or banned referrers do not restrict signups (reconfirmed internally Sep 24, and WAGR-75 was rescoped to a report). WAGR-159, created Aug 20 from the prototype and marked built and tested, still says Pause 'blocks new attribution' and lists six prototype reasons, while WAGR-178 holds the four reasons the client confirmed on Aug 25.",
+   "suggested_action": "Check the built Pause flow in the sandbox: confirm it does not block attribution and uses the WAGR-178 reason values; then correct the WAGR-159 description (or close it as superseded by WAGR-178/WAGR-75).",
+   "reasoning": "Contradiction between Jira text and a decided tier1 item. Confidence medium because the comment does not say whether blocking was actually built.",
+   "feature_area": "Referral and Payouts",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-05",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "Prototype-era payout tickets (WAGR-109, 110, 111, 359, 157/177 payout Hold) are not reconciled with the Sep 25 referrer-only payout design",
+   "jira": [
+    {
+     "key": "WAGR-110",
+     "status": "Requirements",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-200 — Referrer: Payouts Related List",
+     "quote": "Batch-payment action selecting eligible (New/Logged) referrals; requires a transaction code and proof for redeposits.",
+     "quote_source": "description (FIELDS)"
+    },
+    {
+     "key": "WAGR-109",
+     "status": "Open",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-183 — Player: Payouts Related List",
+     "quote": "Related list of Payouts made to this player.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-111",
+     "status": "Ready",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-234 — Referrer: Payouts (Placeholder — Not Yet Scoped)",
+     "quote": "Do not build. Payouts logic, including the \"Pay Out Referrals\" batch action, is out of scope until scoped in a later phase.",
+     "quote_source": "description; status is Ready"
+    },
+    {
+     "key": "WAGR-359",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "BUILD-91 — Secondary-referrer count rollup + future payout automation (Phase 2 candidate)",
+     "quote": "ON HOLD: parked until Phase 2 scoping; no Phase 1 consumer.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-157",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-196 — Referrer: Ban Automation",
+     "quote": "All unpaid payouts (Status = New or Logged) move to Hold. Payouts already at Paid are not affected.",
+     "quote_source": "description (AUTOMATION)"
+    },
+    {
+     "key": "WAGR-177",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-232 — Referrer: Ban Button — Confirm Reason/Notes Capture",
+     "quote": "On submission, the flow moves all unpaid payouts (Status = New or Logged) on this Referrer to Hold.",
+     "quote_source": "description (IMPLEMENTATION REQUIREMENTS)"
+    },
+    {
+     "key": "WAGR-157",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-196 — Referrer: Ban Automation",
+     "quote": "**Outstanding:** payout-hold logic — blocked on the Payout object, not yet ticketed, picking up next week once scoped.",
+     "quote_source": "comment 2026-09-02 (author not shown)"
+    },
+    {
+     "key": "WAGR-465",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Referral payouts — design and user stories",
+     "quote": "WAGR-109, 110, 111, 359 and 377 are repurposed or closed. WAGR-111 is a placeholder but sits in Ready — move it back.",
+     "quote_source": "description (Done when)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3146",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "01:03:47",
+     "line_start": 954,
+     "quote": "Kobi Kunasekaran: Okay. Okay, that seems straightforward. Okay, so payouts really is just for referrals uh or referers uh based on the / Joyce Kiddell: Yeah, / Kobi Kunasekaran: signups that they're bringing in. / Joyce Kiddell: for sure. Hence why we combine the two flows. / Emily Vandenberg: You're just talking about referral payment payout. / Kobi Kunasekaran: Yes. Yes. That's that's all we're tracking with the payouts here, right?"
+    },
+    {
+     "ledger_id": "L3092",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:02:58",
+     "line_start": 200,
+     "quote": "Joyce Kiddell: we need a way of um ensuring that like refer referers um can get uh paid across multiple signups and it's kind of up to the BA to um collect signups together and then convert that into what I would assume is a separate record type of um payout."
+    },
+    {
+     "ledger_id": "L3114",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:23:41",
+     "line_start": 440,
+     "quote": "Joyce Kiddell: like what if they put in ID or something just so you can quickly refer to Beimo for auditing purposes. / Lina Ceniccola: Yeah, we can add that field for sure. / Lina Ceniccola: I just want to avoid another screenshot. / Lina Ceniccola: The I the ID is good. / Kobi Kunasekaran: can leave it off show. Just have the field there and then if it makes sense, you can add it later."
+    },
+    {
+     "ledger_id": "L3134",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:50:55",
+     "line_start": 793,
+     "quote": "Joyce Kiddell: um, then you get some sort of bonus. Uh, it's 200 bucks in redeposit or 100 bucks um in cash and it's a onetime thing. So to be clear, that means Lena and Emily that like after the first 10 signups, they're not getting like another bonus at 20 signups and then 30 and 40. Or are they? / Lina Ceniccola: Yes. No. No. 10. They're done. / Kobi Kunasekaran: quies. Okay, this sounds good. Um, so just send for the secondary refer after that's sent out. We're not doing anything else. / Joyce Kiddell: Uh-uh."
+    },
+    {
+     "ledger_id": "L3139",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg; Lina Ceniccola; Kobi Kunasekaran",
+     "timestamp": "00:54:28",
+     "line_start": 829,
+     "quote": "Lina Ceniccola: um you could I don't know like um what I'm trying to say is like it doesn't necessarily need to be paid out. It's more if they want to / Emily Vandenberg: I was thinking like a flag at the referer account like just that eligible to and then it would come off like once it's paid out. / Kobi Kunasekaran: Yeah, I think we can do that. So, we could have a flag on the refer and then that flag could prevent the auto creation of the payout record once the 10 eligible ones are created. Um, but if they do want to go back and like pay the refer then they would do it manually like they just / Kobi Kunasekaran: pick use 10 similar to the primary uh and then pay it out. Yeah, I think we can do that. That could work."
+    },
+    {
+     "ledger_id": "L3148",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "01:07:06",
+     "line_start": 990,
+     "quote": "Joyce Kiddell: Um you should be able to take signups out of that batch, / Joyce Kiddell: Kobe. Um, and you should be able to cancel um, obviously or delete that same payout."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3100",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "00:11:35",
+     "line_start": 284,
+     "quote": "Joyce Kiddell: directly but okay so for the purpose of what we need to build as part of this release um do we want to just focus on the refer payout batching process Emily? / Emily Vandenberg: I think so. And then yeah, just like the reporting to support like the yeah"
+    }
+   ],
+   "what_differs": "Sep 25 decided that payouts cover referrers only, batch signups (not referrals), capture a BMO transaction ID with no screenshot proof, include the secondary one-time bonus in this release, and let the rep remove signups or cancel an unpaid payout. The legacy tickets still describe a Player payouts list, a referral-based batch with proof, a Phase 2 'no consumer' secondary payout, a Ready 'do not build' placeholder, and an automatic Hold status on ban. WAGR-465 already plans to clean up 109/110/111/359 but does not list the payout-Hold logic in WAGR-157/WAGR-177.",
+   "suggested_action": "When the payout build stories are written, close or repurpose WAGR-109/110/111/359 with a reason, move WAGR-111 out of Ready, and add WAGR-157/WAGR-177 payout-Hold logic to the WAGR-465 reconcile list (confirm with the client whether a ban should auto-hold unpaid payouts).",
+   "reasoning": "Tickets reflect the prototype/earlier phase plan; Sep 25 superseded it. Not double-counted with RP-01 (that is missing rules in the new design; this is stale old tickets). Note: WAGR-377 'OOS: Referral payouts' was cancelled on Sep 25 as 'no longer applicable to current project scope' on the same day referral payouts entered launch scope; the wording can mislead readers.",
+   "feature_area": "Referral and Payouts",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-06",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "title": "Referrer Default Payout Type values are 'Cash, Redeposit' while the Sign-Up type and the decided term are 'Bet Credit'",
+   "jira": [
+    {
+     "key": "WAGR-191",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-187 — Referrer: Referral Defaults",
+     "quote": "Default Payout Type — Picklist: Cash, Redeposit; overridable at the Sign Up level",
+     "quote_source": "description (FIELDS)"
+    },
+    {
+     "key": "WAGR-428",
+     "status": "Open",
+     "assignee": "Unassigned",
+     "summary": "Referrer: Fix auto-population when selecting an existing referrer",
+     "quote": "Verify/fix: selecting a referrer should auto-default the Referral Type field based on the referrer's typical/set referral type; user should still be able to override it manually.",
+     "quote_source": "description (Requirements)"
+    },
+    {
+     "key": "WAGR-465",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Referral payouts — design and user stories",
+     "quote": "Naming: \"Bet Credit\" or \"Redeposit\"? The matrix has no Redeposit type.",
+     "quote_source": "description (Open questions)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3107",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Lina Ceniccola",
+     "timestamp": "00:18:49",
+     "line_start": 365,
+     "quote": "Joyce Kiddell: like are are we still clinging at credit because it's like technically a redeposit. / Lina Ceniccola: We do internally. We call it bad credit for referral payments. / Joyce Kiddell: Just keep it like that. / Lina Ceniccola: Yeah, I say keep it consistent."
+    },
+    {
+     "ledger_id": "L3106",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:16:52",
+     "line_start": 337,
+     "quote": "Joyce Kiddell: Yeah, but we would want the BA to have the ability to change it if for like that sign up for whatever reason. / Kobi Kunasekaran: when they Sorry, / Kobi Kunasekaran: I just wanted to like read that back. So when uh when a PA goes in to log a signup um and they select a referral or create a referral um the payout type or the signup should pull from the default payout type that's on the referral. Um and but they should be able to change that um to like bet credit or cash um if if they don't want to go with the default. / Joyce Kiddell: Yes, if they're an existing refer obviously, / Joyce Kiddell: but if they're not then you have to fight at that time."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1984",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "01:36:29",
+     "line_start": 1595,
+     "quote": "Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom."
+    }
+   ],
+   "what_differs": "WAGR-191 built the referrer Default Payout Type with the Aug 18 wording (Cash, Redeposit). On Sep 25 WagerTech decided to keep the term 'bet credit', and the signup payout type must default from the referrer default. The Sign-Up Referral Type and payout matrix use Cash/Bet Credit (WAGR-289), so the default cannot map cleanly; WAGR-465 still lists the naming as open.",
+   "suggested_action": "Rename the WAGR-191 picklist value Redeposit to Bet Credit (or add an explicit mapping) as part of WAGR-428, and close the naming question on WAGR-465.",
+   "reasoning": "Decided tier1 item (L3107) later than the ticket's source (L1984). Medium confidence because a value mapping might already exist in the WAGR-428 fix, which is still Open.",
+   "feature_area": "Referral and Payouts",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-07",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Referrer primary/secondary related-list columns in WAGR-161/WAGR-77 do not reflect the Sep 2 column decision",
+   "jira": [
+    {
+     "key": "WAGR-161",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-198 — Referrer: Primary Referrals Related List",
+     "quote": "Keep the confirmed columns only: Sign Up, Player, Operator, Proof Status, Payout Type.",
+     "quote_source": "comment 2026-08-24 (author not shown)"
+    },
+    {
+     "key": "WAGR-77",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-199 — Referrer: Secondary Referrals Related List",
+     "quote": "Confirmed columns for this related list: Sign Up, Player, Operator, Proof Status, Payout Type.",
+     "quote_source": "comment 2026-08-24 (author not shown)"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2341",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:16:37",
+     "line_start": 441,
+     "quote": "Kobi Kunasekaran: ... So instead of operator this could be the deal name because that has the entire string. Uh proof status is fine. Uh this is payment sent. Payment sent is probably fine too. Uh we can always swap it out later. Uh we could add payout type. We don't have payout code, so we can leave that one out. Um there's no roll, so we can leave that one out because we just have two separate lists to show the uh show the role. / Taryn Reithofer: Okay. So, pretty much just operator deal / Kobi Kunasekaran: Yeah. Yeah, I just swap this out with for deal. / Kobi Kunasekaran: I guess that's the only one that and add payout type. Yeah. And then you already added the status."
+    },
+    {
+     "ledger_id": "L2336",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:11:59",
+     "line_start": 375,
+     "quote": "Taryn Reithofer: up record is complete. Um, so I at just a glance I I thought it might be confusing for users if they saw for example two primary referrals in the related list but then only one count in the rollup. So I was thinking perhaps we can put in the field column completion and I added that this morning so that it can surface. / Kobi Kunasekaran: the uh signup status that that serves the same purpose right / Kobi Kunasekaran: So I think status will cover both."
+    }
+   ],
+   "what_differs": "On Sep 2 Kobi and Taryn decided to replace Operator with Deal Name, keep Payment Sent, add Payout Type, and show signup Status (instead of a completion column). Both tickets still record the Aug 24 set with Operator and without Payment Sent or Status.",
+   "suggested_action": "Update WAGR-161 and WAGR-77 with the Sep 2 column set (or confirm the build already matches and note it), before Emily's referral page review closes.",
+   "reasoning": "Internal tier1 decision, later than the ticket comments; no later meeting changes it. Low because the build may already match.",
+   "feature_area": "Referral and Payouts",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-08",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "No ticket for Kobi's Sep 25 action to diagram the referral payout currency flow for Emily",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "diagram",
+     "draw",
+     "currency flow",
+     "payout currency"
+    ],
+    "nearest_considered": [
+     "WAGR-465",
+     "WAGR-289"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3122",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:33:10",
+     "line_start": 552,
+     "quote": "Emily Vandenberg: What do you think? I It's kind of confusing and I'm like wondering if / Kobi Kunasekaran: I'll I'll I'll draw it out. I'll draw it out."
+    },
+    {
+     "ledger_id": "L3163",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "00:33:10",
+     "line_start": 565,
+     "quote": "Joyce Kiddell: There's two concepts of currencies if I'm correct um with each signup where there's a currency for / Joyce Kiddell: how you pay the player and then there's a currency associated with the the refer / Emily Vandenberg: Okay. Yeah, it's blurry, but it's fine if you guys got it. / Joyce Kiddell: No, it's confusing because we were like talking in terms of currency per sign up, but like there's really two currencies and there's two amounts. / Kobi Kunasekaran: There's two currencies. Yeah."
+    }
+   ],
+   "what_differs": "Emily found the two-currency explanation confusing and Kobi committed to draw it out. No Jira item or WAGR-465 'Done when' line tracks this, and no later meeting records it as delivered.",
+   "suggested_action": "Add the diagram as a Done-when item on WAGR-465 (or a Confluence task per the Sep 29 lean-Jira decision) and confirm delivery to Emily.",
+   "reasoning": "Decided client-facing action item; searched all issues for 'diagram' (only WAGR-465 and WAGR-5 match, neither tracks this).",
+   "feature_area": "Referral and Payouts",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-09",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "low",
+   "title": "No ticket for the agreed recorded demo of WagerTech's current reconciliation process (client action, Jun 17)",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "reconciliation video",
+     "recorded video",
+     "reconciliation process",
+     "demo"
+    ],
+    "nearest_considered": [
+     "WAGR-465",
+     "WAGR-466"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0430",
+     "date": "2026-06-17",
+     "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+     "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:02:16",
+     "line_start": 796,
+     "quote": "Kobi Kunasekaran: ... but it could just be like a recorded video or something, but to actually see what the, uh, what that reconciliation process looks like in practice / Emily Vandenberg: we can definitely get that. Get that for"
+    }
+   ],
+   "what_differs": "Kobi asked for a recorded video of the current reconciliation process and Emily agreed. No Jira item tracks it and no later meeting mentions receiving it.",
+   "suggested_action": "Confirm with Emily whether the video was sent; if not and it is still useful for the payout/write-off design, track it as a client dependency on WAGR-465 or WAGR-466.",
+   "reasoning": "Decided action item, client-owned; low confidence because it may have been delivered outside the recorded meetings.",
+   "feature_area": "Referral and Payouts",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-10",
+   "category": "V4",
+   "severity": "Low",
+   "confidence": "medium",
+   "title": "Jun 3 commitment to research a bank API connection and report back to Lina was closed in Jira with no recorded outcome",
+   "jira": [
+    {
+     "key": "WAGR-376",
+     "status": "Cancelled",
+     "assignee": "Unassigned",
+     "summary": "OOS: Bank / payment-processor integration",
+     "quote": "Out of scope for Phase 1 (per SOW). Feasibility assessment only; not committed.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-376",
+     "status": "Cancelled",
+     "assignee": "Unassigned",
+     "summary": "OOS: Bank / payment-processor integration",
+     "quote": "Closed as out-of-scope. Carried over from the Asana migration (06/15) and no longer applicable to current project scope. Closed per team decision, 09/24/2026 sync.",
+     "quote_source": "comment by Taryn Reithofer 2026-09-25"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L0130",
+     "date": "2026-06-03",
+     "meeting_title": "Jumpr - Wagertech Next Steps",
+     "doc_link": "https://docs.google.com/document/d/1CiCF1Kmv2QPJOeKn7mRRoUY1G-tldtZ1rdeomsW_Cp8/edit",
+     "speakers": "Waleed Alasadi",
+     "timestamp": "00:17:15",
+     "line_start": 201,
+     "quote": "Waleed Alasadi: Okay. Let's uh we can do some research and get back to you, Lena, on what we know."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3124",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:37:04",
+     "line_start": 607,
+     "quote": "Emily Vandenberg: I'm just thinking through like what we said from like a payout like Salesforce just being able to kind of like report and then obviously mark as paid here. So just like for scoping of phase one, right? / Emily Vandenberg: they take it from there. They they handle it and they and then it just marks as complete. Okay. / Kobi Kunasekaran: Yeah."
+    }
+   ],
+   "what_differs": "Jumpr told Lina it would research a Salesforce-to-bank API connection and get back to her. The only matching ticket (WAGR-376) was cancelled on Sep 25 with no feasibility finding, and no later meeting records a report-back. Sep 25 set Phase 1 payouts as mark-paid only, so the build need is gone, but the client commitment is still open.",
+   "suggested_action": "Close the loop with Lina in writing (short note: not in launch scope; feasibility to be revisited later), and record that on WAGR-376.",
+   "reasoning": "Client-optics item. Grep of the full ledger for bank API/research found no later follow-up.",
+   "feature_area": "Referral and Payouts",
+   "checked_later_meetings": true,
+   "auto_checks": []
+  },
+  {
+   "temp_id": "RP-11",
+   "category": "V8",
+   "severity": "Medium",
+   "confidence": "high",
+   "title": "Open: how strictly referral bet credit must be limited to books the referrer signed up for at launch",
+   "jira": [],
+   "no_ticket_search": {
+    "terms": [
+     "book",
+     "eligible books",
+     "signed up with",
+     "verify referrer"
+    ],
+    "nearest_considered": [
+     "WAGR-465",
+     "WAGR-464"
+    ]
+   },
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3354",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "03:15:49",
+     "line_start": 2554,
+     "quote": "Joyce Kiddell: Uh it's if that specific referral has signed up for that book or not. / Emily Vandenberg: sometimes I'll find other people's books to play through. So, I don't know how hard like I don't know how hard we need to be on this for launch otherwise."
+    },
+    {
+     "ledger_id": "L3127",
+     "date": "2026-09-25",
+     "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+     "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:42:09",
+     "line_start": 681,
+     "quote": "Joyce Kiddell: they could still like log the total amount and then if we just had fields like we'd have to like verify that that refer is signed up with specific books through the system ideally"
+    }
+   ],
+   "what_differs": "Joyce wants the system to check that the referrer is signed up with the book before a bet-credit split is logged; Emily said referrers sometimes play through other books and was unsure how strict this must be for launch. No later meeting answers it, and WAGR-465/WAGR-464 do not mention book eligibility.",
+   "suggested_action": "Add this as an open question on WAGR-465 with Emily as owner, and decide before the bet-credit allocation story is written (hard block, warning, or no check).",
+   "reasoning": "Raised Sep 30 (latest meeting); not answered later; not captured in Jira (WAGR-465/464 read in full).",
+   "feature_area": "Referral and Payouts",
+   "later_or_conflicting_evidence": [],
+   "checked_later_meetings": true,
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "Secondary bonus payout: Sep 30 says 'automated', Sep 25 decided manual creation via eligibility flag",
+   "why_unverified": "L3352 is Kobi's recollection ('I think we said... we'll come back to that') and conflicts with the decided L3139; WAGR-465 follows L3139 ('The system does not create the Payout automatically'). Needs a confirmation, not a Jira change yet.",
+   "ledger_ids": [
+    "L3352",
+    "L3139"
+   ],
+   "jira_keys": [
+    "WAGR-465"
+   ]
+  },
+  {
+   "title": "WAGR-168 roll-ups: completed-only counting rule not stated in the ticket",
+   "why_unverified": "L2335 quote is truncated ('only count when the sign'); the rule is plausible (also L3137 'everything that's eligible') but cannot be cited cleanly.",
+   "ledger_ids": [
+    "L2335",
+    "L3137"
+   ],
+   "jira_keys": [
+    "WAGR-168"
+   ]
+  },
+  {
+   "title": "WAGR-44 Commission Cost / Total Acquisition Cost still Phase 1 Open after commissions moved outside Salesforce",
+   "why_unverified": "Sep 25 (L3095, L3141) moved commission calculation outside Salesforce, but Sep 1 (L2317, Reporting area) wants TAC from signup data. Unclear whether commission amounts will still be stored in Salesforce; no meeting resolved it.",
+   "ledger_ids": [
+    "L3095",
+    "L3141",
+    "L2316",
+    "L2321",
+    "L1021"
+   ],
+   "jira_keys": [
+    "WAGR-44",
+    "WAGR-467"
+   ]
+  },
+  {
+   "title": "'Take out referral ro' (Aug 18) vs WAGR-191 building Default Referrer Role",
+   "why_unverified": "Quote is ASR-ambiguous; WAGR-191 itself flags the field as unresolved. Confirm with Joyce which field was meant.",
+   "ledger_ids": [
+    "L1983"
+   ],
+   "jira_keys": [
+    "WAGR-191"
+   ]
+  },
+  {
+   "title": "Bank transfer object (agreed Phase 2 on Jun 3) silently dropped",
+   "why_unverified": "WAGR-374 cancelled Sep 25 as no longer applicable; Sep 25 says cash ties to bank transactions 'not necessarily required'. No meeting explicitly dropped it.",
+   "ledger_ids": [
+    "L0127",
+    "L3133"
+   ],
+   "jira_keys": [
+    "WAGR-374"
+   ]
+  },
+  {
+   "title": "Bank payments via Salesforce API (Jay)",
+   "why_unverified": "client ask not agreed; no ticket (WAGR-376 cancelled as out of scope)",
+   "ledger_ids": [
+    "L0089"
+   ],
+   "jira_keys": [
+    "WAGR-376"
+   ]
+  },
+  {
+   "title": "Bank API connection in scope (Lina)",
+   "why_unverified": "client ask not agreed; no ticket (WAGR-376 cancelled as out of scope). Related commitment tracked as RP-10.",
+   "ledger_ids": [
+    "L0129"
+   ],
+   "jira_keys": [
+    "WAGR-376"
+   ]
+  },
+  {
+   "title": "Running tally of amount owed to each referrer (Lina)",
+   "why_unverified": "proposed, no explicit agreement; no ticket",
+   "ledger_ids": [
+    "L3103"
+   ],
+   "jira_keys": []
+  },
+  {
+   "title": "Signups past the 10th secondary signup marked 'not payable'",
+   "why_unverified": "proposed by Joyce after Emily's question, not confirmed; no ticket",
+   "ledger_ids": [
+    "L3138"
+   ],
+   "jira_keys": [
+    "WAGR-465"
+   ]
+  },
+  {
+   "title": "Signups leave the selection list when added to a payout; payout status gated by completion steps",
+   "why_unverified": "described by Kobi, no explicit client confirmation; not in WAGR-465",
+   "ledger_ids": [
+    "L3165",
+    "L3166"
+   ],
+   "jira_keys": [
+    "WAGR-465"
+   ]
+  },
+  {
+   "title": "Proof upload per book for referral bet credit inside the referral list",
+   "why_unverified": "Emily's ask, Kobi offered the streamlined queue instead; not explicitly agreed",
+   "ledger_ids": [
+    "L3376"
+   ],
+   "jira_keys": [
+    "WAGR-465"
+   ]
+  },
+  {
+   "title": "Convert Player to Referrer button",
+   "why_unverified": "proposed 'down the line'; WAGR-189 notes it as a Phase 2 candidate but no Phase 2 ticket exists",
+   "ledger_ids": [
+    "L1993"
+   ],
+   "jira_keys": [
+    "WAGR-189"
+   ]
+  },
+  {
+   "title": "Should reps see the sign-up currency that drives the payout amount?",
+   "why_unverified": "discussed open question (Jul 28); later meetings changed the currency model (L3163) and may have made it moot",
+   "ledger_ids": [
+    "L1387",
+    "L3163"
+   ],
+   "jira_keys": []
+  }
+ ],
+ "v9_reviewed_no_support": [
+  "WAGR-69",
+  "WAGR-367",
+  "WAGR-216",
+  "WAGR-211",
+  "WAGR-461",
+  "WAGR-477"
+ ],
+ "module_coverage": {
+  "area": "Referral and Payouts",
+  "jira_epics": [],
+  "epic_note": "No Payouts or Referral epic exists. Referrer record tickets sit mostly without an epic (some under WAGR-27 Players & Referrers); legacy payout tickets sit in WAGR-443 (cancelled) or no epic; BA commission export sits under WAGR-24.",
+  "ticket_count": 53,
+  "ticket_breakdown": {
+   "payout_and_payment": 18,
+   "signup_referral_fields": 8,
+   "referrer_record": 27
+  },
+  "uncovered_capabilities": [
+   {
+    "capability": "Payout object and referrer batch-payout build (select signups, create payout, mark paid/lock, BMO ID, date sent)",
+    "ledger_ids": [
+     "L3092",
+     "L3117",
+     "L3119",
+     "L3121",
+     "L3123",
+     "L3113",
+     "L3114",
+     "L3157"
+    ],
+    "note": "Launch scope per Sep 25 (L3100). Jira holds only the design card WAGR-465 (Requirements); no build stories, no epic; 4 legacy placeholders (WAGR-109/110/111/359) not yet repurposed."
+   },
+   {
+    "capability": "Secondary referrer one-time bonus (10 eligible signups, eligibility flag on referrer, manual payout)",
+    "ledger_ids": [
+     "L3134",
+     "L3137",
+     "L3139"
+    ],
+    "note": "Only text in WAGR-465; WAGR-359 still Phase 2 'no Phase 1 consumer'. No build story for the eligibility flag."
+   },
+   {
+    "capability": "Referral bet credit to redeposit allocation, separate referral redeposit queue",
+    "ledger_ids": [
+     "L3125",
+     "L3126",
+     "L3133",
+     "L3342",
+     "L3350",
+     "L3358"
+    ],
+    "note": "Mentioned only in WAGR-464/465 text; Sep 30 queue decision not in Jira (RP-02)."
+   },
+   {
+    "capability": "Signup referral paid flags split primary/secondary",
+    "ledger_ids": [
+     "L3102",
+     "L3158"
+    ],
+    "note": "Only a single Payment Sent checkbox exists (WAGR-242, Done); split not ticketed (RP-01)."
+   },
+   {
+    "capability": "Ops override of matrix payout amount",
+    "ledger_ids": [
+     "L2315"
+    ],
+    "note": "No ticket (RP-03)."
+   },
+   {
+    "capability": "Write-off / clawback for paid fraud signups",
+    "ledger_ids": [
+     "L3101",
+     "L3157",
+     "L3374"
+    ],
+    "note": "Design card WAGR-466 only (Open); no build stories."
+   },
+   {
+    "capability": "BA commission data to Jay's tool",
+    "ledger_ids": [
+     "L3095",
+     "L3096"
+    ],
+    "note": "Design card WAGR-467 only (Open); export spec undefined."
+   }
+  ],
+  "tickets_examined": {
+   "payout_and_payment": [
+    "WAGR-465",
+    "WAGR-466",
+    "WAGR-467",
+    "WAGR-109",
+    "WAGR-110",
+    "WAGR-111",
+    "WAGR-359",
+    "WAGR-377",
+    "WAGR-378",
+    "WAGR-374",
+    "WAGR-376",
+    "WAGR-242",
+    "WAGR-289",
+    "WAGR-254",
+    "WAGR-342",
+    "WAGR-4",
+    "WAGR-294",
+    "WAGR-44"
+   ],
+   "signup_referral_fields": [
+    "WAGR-162",
+    "WAGR-258",
+    "WAGR-259",
+    "WAGR-261",
+    "WAGR-339",
+    "WAGR-346",
+    "WAGR-428",
+    "WAGR-257"
+   ],
+   "referrer_record": [
+    "WAGR-192",
+    "WAGR-193",
+    "WAGR-191",
+    "WAGR-189",
+    "WAGR-190",
+    "WAGR-187",
+    "WAGR-353",
+    "WAGR-73",
+    "WAGR-74",
+    "WAGR-75",
+    "WAGR-76",
+    "WAGR-77",
+    "WAGR-89",
+    "WAGR-90",
+    "WAGR-161",
+    "WAGR-168",
+    "WAGR-157",
+    "WAGR-158",
+    "WAGR-159",
+    "WAGR-177",
+    "WAGR-178",
+    "WAGR-171",
+    "WAGR-188",
+    "WAGR-418",
+    "WAGR-427",
+    "WAGR-47",
+    "WAGR-70"
+   ]
+  }
+ },
+ "notes": "Read-only run. Payout module: decided Sep 25/Sep 30 requirements exist only as design cards (WAGR-465/466/467); no Payouts epic and no build stories although Sep 25 put referrer payout batching in this release. Earlier decisions superseded (not reported): Jul 15 manual bonus entry (now matrix, WAGR-289), Aug 27 separate payout currency deferral (now two currencies per signup, WAGR-465), Sep 1 BA commission fields/placeholders (Sep 25 moved commissions outside Salesforce; WAGR-467). Most Aug 18 referrer record decisions are covered (WAGR-192/193/190/189/191/73/74/177/178/75). WAGR-69/367 (operator bonus), WAGR-211/216/461 (commercial terms) and WAGR-477 (import templates) are in the shortlist but belong to other areas. L1990 (referrer data not synced to CMS) needs no build and was not reported. Sep 25 actions L3131 (guided payout workflow design) and Sep 23-28 referrer creation items are covered by WAGR-465, WAGR-418, WAGR-427, WAGR-428."
+}

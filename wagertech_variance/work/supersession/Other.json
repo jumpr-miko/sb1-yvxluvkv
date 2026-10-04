@@ -1,0 +1,153 @@
+[
+ {
+  "topic": "Data model ownership: WagerTech ERD vs Salesforce build",
+  "current_truth_ledger_id": "L0553",
+  "superseded": [
+   "L0131"
+  ],
+  "refined": [
+   "L0160",
+   "L0340"
+  ],
+  "reversed": [],
+  "note": "06-03: client ERD is source of truth and data engineer owns final outlook (L0131); Jumpr to collaborate (L0160). 06-17: Kobi reuses ERD (80-90% there) and proposes changes (L0340). 06-23: Kobi proceeds without strictly following the ERD and shares the final data model; Strahinja agreed (L0553). Context-only items: L0028 (proposed), L0161/L0201 (discussed), L0300 (tier2), L0178/L0307 (gemini-only), L1152 (tier2). Jira: WAGR-319 Discovery: ERD and Data Requirements (Done); epic WAGR-298 Solution Design & Data Architecture (Done, no child issues)."
+ },
+ {
+  "topic": "Telling the data engineer about deviations from the ERD / sharing the final data model",
+  "current_truth_ledger_id": "L0554",
+  "superseded": [],
+  "refined": [
+   "L0595",
+   "L0596"
+  ],
+  "reversed": [],
+  "note": "Strahinja asked to be told of deviations; Joyce backed it (L0554, decided). Mechanism not confirmed (L0595 proposed: point him to the SF diagram, or review via user stories). L0596: names cannot match the ERD exactly; SF will have more fields. Later partial evidence: L2330 (09-01) 'Straw' received 'the table information'. No Jira item tracks the hand-off; WAGR-255 was closed 08-10 saying the 'ERD is out of date'."
+ },
+ {
+  "topic": "Deep ERD review session",
+  "current_truth_ledger_id": "L0592",
+  "superseded": [
+   "L0371"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "06-17 follow-up ERD session proposed (L0371); 06-23 agreed not to go deep now, Strahinja expects to go deeper as more is built in SF (L0592). No later ledger item shows the deeper review happened."
+ },
+ {
+  "topic": "Naming consistency across systems (signup record, rep ID)",
+  "current_truth_ledger_id": "L0555",
+  "superseded": [],
+  "refined": [
+   "L0596"
+  ],
+  "reversed": [],
+  "note": "Joyce's ask (L0555). Kobi noted SF naming limits (L0596). Cross-area later item L1055 (07-17, Ops area): UI labels must line up with the ERD and data dictionary; Kobi agreed. Jira WAGR-255 (ERD naming audit) closed 08-10 without the audit: 'naming conventions will be based on the latest feedback since ERD is out of date'. No 'lead record' or 'BA ID' wording found in Jira."
+ },
+ {
+  "topic": "Keep Salesforce sign-ups feeding legacy redeposit/referral sheets until all flows are live",
+  "current_truth_ledger_id": "L1676",
+  "superseded": [
+   "L0354",
+   "L0353",
+   "L0355"
+  ],
+  "refined": [],
+  "reversed": [],
+  "note": "06-17: client said sheets must stay connected until all flows are live (L0354 decided; L0353 client ask parked; L0355 Google Sheets plugin proposed). Cross-area: L0903/L0916 (07-08, proposed) scoping and transition plan. 08-11 L1676 (Project Mgmt area, decided): full go-live held until the later phases are in, no parallel systems; L2328 (09-01) November go-live with multiple phases. This removes the interim period that L0354 assumed. Residual risk: L2973 (09-23) WagerTech will decide what to hold back from launch. Jira: no build ticket; WAGR-470/WAGR-477 list 'whether the legacy Google Sheets keep getting data during the switch-over' as undecided; WAGR-313 comment (07-02) shows the old Push_Lead_To_Sheet flow was deleted from production."
+ },
+ {
+  "topic": "WhatsApp notifications, AI WhatsApp intake, leaderboards",
+  "current_truth_ledger_id": null,
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Only proposed/discussed items: L0118, L0119 (06-03), L0170, L0171 (tier2), L0923 (07-08), L0428 (proposed). No decision. Jira WAGR-375 'OOS: WhatsApp integration & AI / screenshot intake' (Holding Pen WAGR-443) said 'position as Phase 2', then Cancelled 09-25 as 'no longer applicable to current project scope'."
+ },
+ {
+  "topic": "Review existing Salesforce setup and custom UIs",
+  "current_truth_ledger_id": "L0379",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Covered by WAGR-318 Discovery: Salesforce Build walkthrough (Done) and WAGR-313 Prod Clean up (Done). Context: L0197, L0312 (gemini)."
+ },
+ {
+  "topic": "Object user stories with field/API/display names",
+  "current_truth_ledger_id": "L0556",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Covered by the BUILD/POC story set (e.g. WAGR-301, WAGR-303) and design-story tasks WAGR-462/464/465."
+ },
+ {
+  "topic": "Base objects created",
+  "current_truth_ledger_id": "L0794",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Status only; POC object tickets (WAGR-301, WAGR-303) are Done."
+ },
+ {
+  "topic": "DLRS for rollups on lookups",
+  "current_truth_ledger_id": "L1830",
+  "superseded": [],
+  "refined": [
+   "L3054"
+  ],
+  "reversed": [],
+  "note": "Convention covered in WAGR-262 (install DLRS), WAGR-64, WAGR-194. L3054 header fix tracked in WAGR-364 comments by Taryn Reithofer 09-28 ('Deleted old DLRS from WAGR-64')."
+ },
+ {
+  "topic": "BUILD-243: advance Sign-Up to In Progress only when a field is edited",
+  "current_truth_ledger_id": "L2429",
+  "superseded": [
+   "L2278"
+  ],
+  "refined": [
+   "L2279",
+   "L2280"
+  ],
+  "reversed": [],
+  "note": "Ledger tags these as 'WAGR-243?/WAGR-242?' but the transcripts mean BUILD-243 = WAGR-155 and BUILD-242 = WAGR-164 (WAGR-243 is DECISION-06, WAGR-242 is BUILD-123). WAGR-155 is Jumpr Review with a 09-03 'Changes made' comment; consistent with L2429."
+ },
+ {
+  "topic": "Where documentation lives (Confluence vs Google Docs)",
+  "current_truth_ledger_id": "L2542",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "L2542 (09-14): Confluence for internal docs; client design docs likely stay in Google Docs. Cross-area later item L3313 (09-29): Jira stories lean, design spec in Confluence. Jira WAGR-39/WAGR-82/WAGR-116 cite Confluence as the living requirements source."
+ },
+ {
+  "topic": "Source control",
+  "current_truth_ledger_id": "L2217",
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "Status: no org-wide source control; being considered. No Jira ticket (WAGR-496 step 2 assumes 'source control / deployment format')."
+ },
+ {
+  "topic": "Status checkpoints on specific tickets",
+  "current_truth_ledger_id": null,
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "L2566 'auto generate' = WAGR-100 (Jumpr Review, Cedrick 'Changes made' 09-14); L2603 = WAGR-99 (Done 09-29); L3185 = WAGR-425/426 (Jumpr Review). All consistent."
+ },
+ {
+  "topic": "Client and logistics action items",
+  "current_truth_ledger_id": null,
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "L0053 share recording; L1238 client to try SF mobile app; L1682 Joyce adds prediction markets to client doc (vertical itself in WAGR-208); L2191, L2197 internal follow-ups; L2734 sandbox key (WAGR-445/446). No Jira ticket expected."
+ },
+ {
+  "topic": "Gemini-only or tier2 design notes",
+  "current_truth_ledger_id": null,
+  "superseded": [],
+  "refined": [],
+  "reversed": [],
+  "note": "L0740/L0742 multicurrency (Jira WAGR-35, WAGR-404, WAGR-413, WAGR-415); L0743 lookup filters; L0948 help text (WAGR-389); L1737/L1738 suspension (Phase 2 WAGR-366); L0963 picklist vs object (unclear); L0787 demo data; L1695 ID mapping confusion. Not enough evidence for variances."
+ }
+]

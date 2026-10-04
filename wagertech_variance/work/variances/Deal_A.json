@@ -1,0 +1,873 @@
+{
+ "area": "Deal",
+ "lens": "A (transcript→Jira)",
+ "variances": [
+  {
+   "temp_id": "DEAL-A-01",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "No ticket to clean up the duplicate Brand Manager fields on Deal Rep Assignment and add logic that fills Brand Manager",
+   "jira": [],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2862",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:23:38",
+     "line_start": 431,
+     "quote": "Kobi Kunasekaran: Why do we have we have two fields? Okay. Need to clean this up. / Taryn Reithofer: Well, two brand managers. So, you know, let me make a note of that, too. / Kobi Kunasekaran: Yeah, still needs to be cleaned up."
+    },
+    {
+     "ledger_id": "L2863",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:24:26",
+     "line_start": 442,
+     "quote": "Kobi Kunasekaran: And we also I think I don't think we have a logic right now that pulls a brand manager into this field. Uh there might be a ticket for that already, but if not, let's let's create one to add that in."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "In the 2026-09-23 internal sync Kobi said the DRA has two Brand Manager fields that need clean-up, and that no logic fills the Brand Manager field; he asked for a ticket if none exists. No Jira issue covers either item.",
+   "suggested_action": "Create one ticket (or two) for the DRA Brand Manager field clean-up and population logic. Link it to WAGR-444 (CMS→SF DRA, Phase 2), because Kobi tied the fix to what the CMS will send.",
+   "checked_later_meetings": true,
+   "reasoning": "Searched summaries, descriptions and all comments of all 505 issues. WAGR-12 only defines the Sales_Manager__c lookup on the DRA; WAGR-9/WAGR-7 populate Brand Manager on Sign-Up (not DRA); WAGR-481/482 are DRA list-view tickets; WAGR-392/391 are Brand Manager visibility and object-model tickets. None mentions duplicate Brand Manager fields or DRA Brand Manager population.",
+   "no_ticket_search": {
+    "terms": [
+     "brand manager",
+     "Sales_Manager",
+     "two brand manager",
+     "duplicate manager",
+     "Deal Rep Assignment brand manager",
+     "BM population"
+    ],
+    "nearest_considered": [
+     "WAGR-12",
+     "WAGR-9",
+     "WAGR-7",
+     "WAGR-481",
+     "WAGR-482",
+     "WAGR-392",
+     "WAGR-391",
+     "WAGR-444"
+    ]
+   },
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-02",
+   "category": "V1",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "No ticket for the decided change of the Affiliate Link auto-number prefix from TL to LNK",
+   "jira": [],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3012",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Cedrick Infantado; Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:20:17",
+     "line_start": 407,
+     "quote": "Cedrick Infantado: actually for the link uh are we using the TL um prefix for this? / Cedrick Infantado: It's L nk. / Kobi Kunasekaran: object? Okay. Uh yeah, let's let's change it then."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "In the 2026-09-24 internal sync Kobi agreed to change the Affiliate Link auto-number prefix from 'TL' to 'LNK' to match the mockup. No Jira issue records the change.",
+   "suggested_action": "Add the prefix change to an open Affiliate Link ticket (for example a comment on WAGR-82 or WAGR-169), or create a small ticket, and confirm it before the production data load so Link IDs are stable.",
+   "checked_later_meetings": true,
+   "reasoning": "Searched for 'LNK', 'TL-', 'prefix', 'auto-number' in all issues and comments. WAGR-82 and WAGR-169 define 'Link ID (auto-numbered)' without a format; WAGR-85 shows test value 'TL-0001'. No ticket or comment records the LNK change.",
+   "no_ticket_search": {
+    "terms": [
+     "LNK",
+     "TL-",
+     "prefix",
+     "auto-number",
+     "autonumber",
+     "Link ID"
+    ],
+    "nearest_considered": [
+     "WAGR-82",
+     "WAGR-169",
+     "WAGR-84",
+     "WAGR-85"
+    ]
+   },
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-03",
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "WAGR-412 reads the client's 'assigned link' ask as a record hyperlink and plans to build it; Kobi said the assigned affiliate link cannot be shown with the current integration scope",
+   "jira": [
+    {
+     "key": "WAGR-412",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Brand Ambassador: Surface Link in Related List Table View",
+     "quote": "Emily asked whether it would be easy / very low lift to surface a link (to the underlying record) directly in one of the related list table views on the Brand Ambassador record page.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2709",
+     "date": "2026-09-18",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:32:43",
+     "line_start": 533,
+     "quote": "Taryn Reithofer: I think I delete that. / Kobi Kunasekaran: Oh yeah, if you want to do that and assign it to me like you can put it in to-do under my name in the sprint. I will respond to our comment and just follow up in the pick it too."
+    },
+    {
+     "ledger_id": "L2708",
+     "date": "2026-09-18",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:31:14",
+     "line_start": 521,
+     "quote": "I believe she had asked you a question um on the deal rep assignment related list if it would be easy lowift to surface the assigned link in this table. Um, / Kobi Kunasekaran: uh at the moment. No, I don't think it's going to be possible. I can follow up. Is is that uh in the document? / So at this point it's not possible but if they want to expand the integration to include that information we may be able to do it in the future."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "In the 2026-09-18 internal sync Kobi said the 'assigned link' Emily asked about is the affiliate link assigned in the CMS, and that it is not possible now because the scoped integration sends only deal-assignment data. Taryn was to create a ticket and Kobi was to reply with the reason. WAGR-412 (created that morning) interprets the ask as a hyperlink to the underlying record and says to implement it if low lift; it does not record Kobi's answer.",
+   "suggested_action": "Correct WAGR-412: state that the ask is the CMS-assigned affiliate link, record Kobi's 'not possible with current integration scope' answer, and link it to WAGR-444 (Phase 2 DRA) as the place where it could be revisited. Confirm Kobi replied to Emily's doc comment.",
+   "checked_later_meetings": true,
+   "reasoning": "L2708 is a client ask that Jumpr did not agree to; it is used only to show what the ask meant. The variance rests on L2709 (decided action: ticket plus reply with the reason) and the ticket text, which misstates the ask.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-04",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "WAGR-471 says the multi-state Deal Name rule is not settled; WagerTech agreed the rule in the 2026-09-23 weekly sync",
+   "jira": [
+    {
+     "key": "WAGR-471",
+     "status": "Open",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Deal Name convention for multi-state and multi-region Deals — decision",
+     "quote": "The multi-state naming rule is not settled, and nobody answered Kobi's Sep 9 naming proposal.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2965",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+     "timestamp": "01:15:02",
+     "line_start": 1143,
+     "quote": "Kobi Kunasekaran: do we want to keep it as multistate like that or um do we want to use like what we have uh in the V ID naming convention / Emily Vandenberg: so see the like region like the Canada, Ontario versus Alberta breakout and then US there's / Emily Vandenberg: going to be some but if not then you can kind we'll keep it as um multi. / Lina Ceniccola: I agree."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2966",
+     "date": "2026-09-23",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:16:30",
+     "line_start": 1162,
+     "quote": "Kobi Kunasekaran: So, need to review the spreadsheet and make sure this is still accurate. But yeah, / Kobi Kunasekaran: I'll clean that up."
+    }
+   ],
+   "what_differs": "On 2026-09-23 Emily and Lina agreed to region-specific naming (province/state, or CA/US for countrywide) and to keep 'multi' only where there is no regional breakout. WAGR-471 (created 2026-09-25) still states nobody answered and the rule is open, and it blocks WAGR-97 (regenerate Deal Names before the first production send).",
+   "suggested_action": "Record the 2026-09-23 decision on WAGR-471, close it, and update WAGR-97/WAGR-419 so the Deal Name regeneration can proceed. Confirm the market data clean-up Kobi took (Ontario changed to Alberta).",
+   "checked_later_meetings": true,
+   "reasoning": "The ticket was written two days after the meeting from Slack sources only. The quote is short, so confidence is medium; the transcript context (lines 1143-1162) supports the reading.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-05",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "high",
+   "feature_area": "Deal",
+   "title": "WAGR-462 (Commercial Terms) lacks the rules decided on 2026-09-30 and no build stories exist",
+   "jira": [
+    {
+     "key": "WAGR-462",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Commercial Terms — design and user stories",
+     "quote": "This card holds the requirements for dated terms. Its output is a design and the build stories.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-462",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Commercial Terms — design and user stories",
+     "quote": "* Keep a dated history of each Deal's terms. The Deal shows the current terms.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3416",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:05:01",
+     "line_start": 1050,
+     "quote": "Kobi Kunasekaran: So if we need to track how a commercial terms uh changes over the uh lifetime of the deal uh that becomes a custom object underneath it. / Kobi Kunasekaran: But it sounds like we do need that historical tracking ability. So, uh the separate object is warranted."
+    },
+    {
+     "ledger_id": "L3423",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+     "timestamp": "01:15:21",
+     "line_start": 1127,
+     "quote": "Kobi Kunasekaran: The way it's set up right now is it's restricted to one in that if I create a new commercial term and I try to overlap it is going to throw an error. / Joyce Kiddell: It should it should always in my mind create like it there should only be one running at a given time."
+    },
+    {
+     "ledger_id": "L3422",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "01:17:24",
+     "line_start": 1161,
+     "quote": "Joyce Kiddell: save it against that same record. Yeah, that's fine. / Kobi Kunasekaran: So we put that through like uh instead of doing it at the record level here there's a manage commercial term where you can decide if you're correcting the existing term. / Joyce Kiddell: and that's something for sure that should be a separate commercial term"
+    },
+    {
+     "ledger_id": "L3420",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "01:09:44",
+     "line_start": 1083,
+     "quote": "Emily Vandenberg: The like biggest thing for commercial terms that like I see change is just the like CPA amount typically / Emily Vandenberg: that's the payout model and amount is kind of like the biggest things for me that would create a new version of commercial term"
+    },
+    {
+     "ledger_id": "L3424",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+     "timestamp": "01:16:23",
+     "line_start": 1145,
+     "quote": "Kobi Kunasekaran: All the signups yeah from like whatever the effective date is for the commercial term where we set the payout model as uh refshare will be tied to the refshare CPA and like whatever the deposit range was for / Joyce Kiddell: Yeah. Yeah. I mean that just makes logic sense."
+    },
+    {
+     "ledger_id": "L3425",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+     "timestamp": "01:18:22",
+     "line_start": 1172,
+     "quote": "Kobi Kunasekaran: Okay. If you do find that like you need to start tracking like the father ranges and everything independently like maybe like let's make sure at least it's track on a spreadsheet with like tied to a deal ID and then we can come back and see if we need to redesign / Emily Vandenberg: Yeah."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L3269",
+     "date": "2026-09-29",
+     "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+     "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:38:27",
+     "line_start": 437,
+     "quote": "Kobi Kunasekaran: we're going to turn this into a child object that is dated so we are able to track those changes. … Um and then there'll be on whether this is required before activation or not. … there should be no overlaps in the dates"
+    },
+    {
+     "ledger_id": "L3415",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "01:03:47",
+     "line_start": 1042,
+     "quote": "Kobi Kunasekaran: Um and from our conversation, we said that this information um one it needs to get stamped on the signup. So when you report on a sign up, you can see what the commercial terms was at the time the sign up first bet was completed."
+    }
+   ],
+   "what_differs": "The 2026-09-30 client sync decided: a custom object under the Deal, only one active term per period with an error on overlap, a 'manage commercial term' path to correct a term or create a new one, CPA and payout model changes create a new term, sign-ups from a new term's start date tie to it, and per-field tracking (for example deposit range) is deferred. WAGR-462 (last written 2026-09-25) states none of these rules, and no Commercial Terms build stories exist in Jira.",
+   "suggested_action": "Add the 2026-09-30 rules to WAGR-462 as acceptance criteria and create the build stories (Kobi drafted them per L2728). Record that per-field tracking is deferred.",
+   "checked_later_meetings": true,
+   "reasoning": "Searched for 'Commercial Terms', 'Deal_Terms', 'overlap', 'manage commercial term' across all issues; only WAGR-462, WAGR-461 (tiered CPA), WAGR-98, WAGR-106 and WAGR-173 (current fields) exist. L3269 (2026-09-29) and L3415 confirm the object and the first-bet stamp; WAGR-462 already has the first-wager-date stamp, so that rule is not claimed.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-06",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "Priority Tier in Jira has Primary and Secondary only; the client asked for Primary, Secondary and Blacklisted",
+   "jira": [
+    {
+     "key": "WAGR-175",
+     "status": "Done",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-212 — Deal: Object + Core Details",
+     "quote": "* Priority Tier (picklist): Primary, Secondary",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-175",
+     "status": "Done",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-212 — Deal: Object + Core Details",
+     "quote": "Priority Tier → Deactivated: Tier 1, Tier 2, Tier 3. Added: Primary, Secondary",
+     "quote_source": "comment (author not recorded) 2026-08-27"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1662",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:48:05",
+     "line_start": 641,
+     "quote": "Joyce Kiddell: ... under priority tier, I had three options. there was like in the documentation I sent you, you should have it too, but it's I think primary, secondary, and then blacklisted. ..."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "On 2026-08-11 Joyce gave three Priority Tier values (primary, secondary, blacklisted) and Kobi said he would update the fields. WAGR-175 (Done) and the 2026-08-27 comment add only Primary and Secondary; no issue mentions Blacklisted.",
+   "suggested_action": "Confirm with WagerTech whether 'Blacklisted' is still needed; if yes, add it to Priority_Tier__c and to WAGR-133 (read-only mirror on Affiliate Link).",
+   "checked_later_meetings": true,
+   "reasoning": "Searched all issues for 'blacklist' (0 hits) and 'priority tier' (8 issues: WAGR-14, 61, 62, 68, 133, 175, 210, 507). No later meeting changes the value set. Joyce said 'I think' when listing the values, so confidence is medium.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-07",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "Deal currency meaning was defined by the client on 2026-08-27, but Jira still lists 'final currency semantics' as open and defaults Canada deals to CAD",
+   "jira": [
+    {
+     "key": "WAGR-39",
+     "status": "Requirements",
+     "assignee": "",
+     "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+     "quote": "* Final Deal currency semantics.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-39",
+     "status": "Requirements",
+     "assignee": "",
+     "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+     "quote": "* Working V1 currency mapping: CMS `currency` ← Deal `CurrencyIsoCode`; retain as explicit WagerTech confirmation.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-507",
+     "status": "Open",
+     "assignee": "Cedrick Infantado",
+     "summary": "Deal — Guided New Deal creation flow (Draft + optional Commercial Terms handoff)",
+     "quote": "* Canada → CAD;",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2123",
+     "date": "2026-08-27",
+     "meeting_title": "Emily / Kobi (client working session)",
+     "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+     "speakers": "Emily Vandenberg",
+     "timestamp": "00:00:49",
+     "line_start": 71,
+     "quote": "Emily Vandenberg: So the commercial terms of the deal which would be labeled in the currency field don't always match what we would pay have the currency we would pay out to the sign up. So that's just telling you how they're going to pay like what funds they're going to pay us in. And typically they pay us in USDU and it's our affiliates. So that can't be assumed. Currency to currency can't be assumed."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2503",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Emily Vandenberg; Joyce Kiddell; Kobi Kunasekaran",
+     "timestamp": "00:21:46",
+     "line_start": 341,
+     "quote": "Emily Vandenberg: I pinged her. Yeah, I think like for now it would be fine, but / Joyce Kiddell: Yeah, maybe it's something that we don't deal with until we have to deal with it. / Kobi Kunasekaran: … If you want the same deal, like if you want the ability for the same deal to change the currency, that's when we'll have to have a chat. But uh we're okay with creating a new deal."
+    }
+   ],
+   "what_differs": "Emily stated that the deal currency is the currency the operator pays WagerTech in (typically USD) and must not be assumed to be the currency WagerTech pays out on the sign-up. WAGR-39 keeps currency semantics as an open question, sends Deal currency to the CMS as 'currency', and WAGR-507 defaults Canada deals to CAD.",
+   "suggested_action": "Write the 2026-08-27 definition into WAGR-39/WAGR-454/WAGR-507. Confirm with WagerTech what the CMS uses the 'currency' value for, and whether the Canada→CAD default is correct given operators usually pay in USD.",
+   "checked_later_meetings": true,
+   "reasoning": "L2503 (2026-09-11) adds that a currency change means a new deal for now; that part is in WAGR-106. The gap is the meaning of the field and the default, which can cause wrong payout-currency assumptions downstream.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-08",
+   "category": "V5",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "Client asked for options and effort to merge or correct an erroneously created deal; Jira only parks sign-up remediation and lists sign-up movement as out of scope",
+   "jira": [
+    {
+     "key": "WAGR-463",
+     "status": "Requirements",
+     "assignee": "Kobi Kunasekaran",
+     "summary": "Deal lifecycle/CMS — close remaining design and contract follow-ups",
+     "quote": "7. Keep late-click / incorrect-Deal Signup remediation as a separate operational/business-process decision where still relevant.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-447",
+     "status": "Requirements",
+     "assignee": "",
+     "summary": "Deal — Archive & Replace: Archived status, makeup release and successor relationship",
+     "quote": "* Moving Sign-Ups, DRAs or Affiliate Links to a successor.",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2516",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:39:57",
+     "line_start": 469,
+     "quote": "Kobi Kunasekaran: … So, um yeah, I I'll think it through. I'll provide the option and we can go from there. / Kobi Kunasekaran: I think we're good. Yeah, and I'll get back to you on options on how we're going to design like the deal with the commercial terms changing and what that could look like, but I think I don't think that's going to block the CMS integration"
+    },
+    {
+     "ledger_id": "L2514",
+     "date": "2026-09-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+     "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+     "timestamp": "00:36:21",
+     "line_start": 443,
+     "quote": "Kobi Kunasekaran: Hey, saying like the signups that have come in in the direct version uh sorry in the old version should be reallocated to the new version so that when you report on it everything looks like it came from the new deal / Kobi Kunasekaran: … I think we talked about like a superseded field. So, if you mark that this deal takes over for another deal, um, you just relate it back. / Emily Vandenberg: Yeah, for me like what I was saying is like a quick functionality to merge. Like if it was an error, like you know what I mean? You can like merge. But maybe like think it through and just like kind of let us know what option and like effort looks like and we can take it from there."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "On 2026-09-11 Emily asked for a quick way to merge a deal created in error so historical sign-ups report against the corrected deal, and asked for options and effort; Kobi committed to provide options. WAGR-447 and WAGR-39 list moving sign-ups to a successor as out of scope, and WAGR-463 only keeps 'incorrect-Deal Signup remediation' as a separate decision. No ticket tracks giving the client the options/effort.",
+   "suggested_action": "Add an explicit follow-up (owner, date) to WAGR-463 or a Holding Pen ticket for 'erroneous deal correction/merge: options and effort for WagerTech', and tell the client that V1 Archive & Replace does not move sign-ups.",
+   "checked_later_meetings": true,
+   "reasoning": "L2514 is a proposal; L2516 is the decided action. No later meeting (through 2026-09-30) shows the options being presented; the 2026-09-30 discussion covered Archive & Replace and called cloning a possible V2 (L3403). Client optics risk: the client may assume merge is coming.",
+   "auto_checks": []
+  },
+  {
+   "temp_id": "DEAL-A-09",
+   "category": "V8",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "Open question: do VIP sign-ups need a Deal Rep Assignment, or should DRAs be bypassed/auto-created for VIP users?",
+   "jira": [
+    {
+     "key": "WAGR-432",
+     "status": "Open",
+     "assignee": "",
+     "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+     "quote": "* Sign-up must be relatable to an existing Deal (the deal will already exist by the time ops logs the sign-up)",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3442",
+     "date": "2026-09-30",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "01:33:04",
+     "line_start": 1364,
+     "quote": "Kobi Kunasekaran: Do we just create a deal assignment when they're creating VIP signups if one doesn't exist? / Kobi Kunasekaran: I just need to talk through that. I don't know if that's a requirement or we just need to bypass it for VIP. But for now, let's assume that DR is required"
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "On 2026-09-30 the team left open whether VIP sign-ups bypass the DRA requirement or get auto-created DRAs on every deal, assuming a DRA is required for now. No later meeting answers it, and the VIP tickets (WAGR-420, WAGR-432) do not mention DRAs.",
+   "suggested_action": "Add the question to WAGR-432 (VIP manual entry) or WAGR-420 and get a WagerTech answer before the VIP flow is built, because DRAs come from the CMS only in Phase 2 (WAGR-444).",
+   "checked_later_meetings": true,
+   "reasoning": "Searched 'VIP' with 'DRA'/'Deal Rep' across all issues (0 hits). WAGR-432 requires the sign-up to relate to an existing Deal but says nothing about the DRA.",
+   "auto_checks": []
+  }
+ ],
+ "unverified_leads": [
+  {
+   "title": "[V2 Medium, out of Lens A scope] Jira removes the partner from the rep-facing Deal label; the 2026-08-11 client decision keeps the partner code in the global deal name",
+   "why_unverified": "Evidence verified (verbatim ledger and Jira quotes), but the category is outside Lens A (V1/V5/V8); passed to Lens B (Deal_B) to avoid double-reporting. WagerTech (Lina) decided that the single global deal name keeps the partner code (for example CTM, GD), including in rep-facing views, and that this short form is used everywhere. WAGR-225 (Jumpr Review) removes Partner from Deal_Name__c and the Deal__c hyperlink label, and WAGR-45 (Ready) excludes partner from all rep-facing fields. Suggested: Align WAGR-225 and WAGR-45 with the 2026-08-11 decision: keep the partner code in the deal name/label; hide only the Partner lookup field from reps. Confirm that the Deal__c hyperlink and the flow-set Name (WAGR-147 already includes Partner_Code__c) show the same string.",
+   "ledger_ids": [
+    "L1654",
+    "L1655",
+    "L1656",
+    "L1653",
+    "L1646"
+   ],
+   "jira_keys": [
+    "WAGR-225",
+    "WAGR-45"
+   ],
+   "suggested_category": "V2",
+   "suggested_severity": "Medium",
+   "jira_quotes": [
+    {
+     "key": "WAGR-225",
+     "quote": "Partner is REMOVED from the label (intentional - see Decisions below).",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-45",
+     "quote": "* Rep DRA view: operator, market/country/state, vertical; partner excluded from all rep-facing layouts/views/fields",
+     "quote_source": "description"
+    }
+   ]
+  },
+  {
+   "title": "[V2 Medium, out of Lens A scope] WAGR-462 treats Deal CPA as a dependency for referral payouts; the client said commercial terms have no impact on referral payouts",
+   "why_unverified": "Evidence verified (verbatim ledger and Jira quotes), but the category is outside Lens A (V1/V5/V8); passed to Lens B (Deal_B) to avoid double-reporting. On 2026-09-25 Joyce confirmed that deal commercial terms are ops-level reporting only and have no implication on referral payouts. WAGR-462 (captured the same day from an internal sync) lists 'how the Deal CPA feeds the payouts' as a requirement and dependency for referral payouts. Suggested: Update WAGR-462 to state that commercial terms do not drive referral payouts (per 2026-09-25), and keep the redeposit link only if the redeposit design confirms it. Remove the payout dependency from the Commercial Terms build scope.",
+   "ledger_ids": [
+    "L3159",
+    "L3085"
+   ],
+   "jira_keys": [
+    "WAGR-462"
+   ],
+   "suggested_category": "V2",
+   "suggested_severity": "Medium",
+   "jira_quotes": [
+    {
+     "key": "WAGR-462",
+     "quote": "* Show clearly how the Deal CPA feeds the payouts. This is a dependency for referral payouts and redeposits.",
+     "quote_source": "description"
+    }
+   ]
+  },
+  {
+   "title": "[V3 Medium, out of Lens A scope] CMS epic WAGR-39 (and WAGR-454) still describe the pre-2026-09-30 status model: New, Review Required, Retired and the '-R-' suffix",
+   "why_unverified": "Evidence verified (verbatim ledger and Jira quotes), but the category is outside Lens A (V1/V5/V8); passed to Lens B (Deal_B) to avoid double-reporting. On 2026-09-30 WagerTech agreed to rename Retired to Archive and to remove Review Required. The child stories (WAGR-447, WAGR-485, WAGR-506) use Draft/Archived and drop Review Required, but the epic WAGR-39, which calls itself the source of truth and lists the CMS outbound scope, still lists Review Required and Retired, the '-R-' key suffix and 'New' as the default; WAGR-454 still says 'Retired'. Suggested: Update the WAGR-39 epic summary and WAGR-454 to the v0.13 status set (Draft, Active, Paused, Inactive, Closed, Archived), the '-A-' suffix decision, and remove Review Required from the outbound scope, so the CMS team (Strahinja) is not given stale status values.",
+   "ledger_ids": [
+    "L3404",
+    "L3408",
+    "L3245",
+    "L3302"
+   ],
+   "jira_keys": [
+    "WAGR-39",
+    "WAGR-454",
+    "WAGR-506"
+   ],
+   "suggested_category": "V3",
+   "suggested_severity": "Medium",
+   "jira_quotes": [
+    {
+     "key": "WAGR-39",
+     "quote": " * Paused / Inactive / Closed / Review Required;",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-39",
+     "quote": "* Only Retired releases the raw Makeup Key:",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-39",
+     "quote": "* New is the pre-activation default and is not sent.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-454",
+     "quote": "Successor activation is blocked until the predecessor's latest Retired/successor state is confirmed Synced.",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-506",
+     "quote": "Deactivate Review Required rather than delete it.",
+     "quote_source": "description"
+    }
+   ]
+  },
+  {
+   "title": "[V3 Low, out of Lens A scope] Decision tickets WAGR-98 and WAGR-104 still frame versioning and the External Deal ID counter as open; the 2026-09-29/30 meetings decided both",
+   "why_unverified": "Evidence verified (verbatim ledger and Jira quotes), but the category is outside Lens A (V1/V5/V8); passed to Lens B (Deal_B) to avoid double-reporting. On 2026-09-30 the team concluded that field history is not enough and commercial terms history is a custom object under the Deal (Option 2 in WAGR-98, not the Option 1 lean). On 2026-09-29 Kobi confirmed the External Deal ID keeps its incremental counter for a reused makeup (now in WAGR-448). WAGR-98 has no comment after 2026-09-10 and WAGR-104 still lists options A/B/C with output 'to be defined'. Suggested: Update WAGR-98 with the custom-object decision (keep the separate versioning question open per L3413) and close or re-point WAGR-104 to WAGR-448.",
+   "ledger_ids": [
+    "L3416",
+    "L3264",
+    "L3413"
+   ],
+   "jira_keys": [
+    "WAGR-104",
+    "WAGR-98"
+   ],
+   "suggested_category": "V3",
+   "suggested_severity": "Low",
+   "jira_quotes": [
+    {
+     "key": "WAGR-98",
+     "quote": "**Jumpr's lean:** Option 1 now; Option 2 only if WagerTech needs historical-terms reporting",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-104",
+     "quote": "To be defined after the 2026-09-11 sync.",
+     "quote_source": "description"
+    }
+   ]
+  },
+  {
+   "title": "[V3 Medium, out of Lens A scope] Deal layout ticket WAGR-62 (Ready) is built on 2026-08-10 screenshots that later meetings superseded",
+   "why_unverified": "Evidence verified (verbatim ledger and Jira quotes), but the category is outside Lens A (V1/V5/V8); passed to Lens B (Deal_B) to avoid double-reporting. WAGR-62 puts Owner and Deal Version in the top Deal Information section and says not to build the read-only CMS-owned DRA list until DRA ownership is decided. On 2026-08-11 the client moved Owner lower, removed Deal Version entirely, and made the DRA related list read-only and CMS-synced; 2026-09-29 confirmed DRAs come from the CMS in Phase 2. Suggested: Cancel WAGR-62 or rewrite it to point at the DL tickets that carry the current layout (WAGR-172, WAGR-174, WAGR-209, WAGR-214), so nobody builds the old layout or re-opens DRA ownership.",
+   "ledger_ids": [
+    "L1661",
+    "L1670",
+    "L1668",
+    "L3279"
+   ],
+   "jira_keys": [
+    "WAGR-62"
+   ],
+   "suggested_category": "V3",
+   "suggested_severity": "Medium",
+   "jira_quotes": [
+    {
+     "key": "WAGR-62",
+     "quote": "R: Vertical | Deal Status | Priority Tier | Owner | Deal Version",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-62",
+     "quote": "Do NOT build the read-only treatment until DECISION-01 lands",
+     "quote_source": "description"
+    }
+   ]
+  },
+  {
+   "title": "[V3 Low, out of Lens A scope] Duplicate-prevention ticket WAGR-13 still uses 'Version' in the Deal key and keeps block-vs-flag open; the meetings decided a Source-based makeup and a hard block",
+   "why_unverified": "Evidence verified (verbatim ledger and Jira quotes), but the category is outside Lens A (V1/V5/V8); passed to Lens B (Deal_B) to avoid double-reporting. The decided makeup is operator, partner, market country, market state, vertical and source; Deal Version was removed; duplicates must not exist and are blocked (built in WAGR-99, Done). WAGR-13 (Requirements) still lists Version in the key and the block-vs-flag question. Suggested: Narrow WAGR-13 to the Operator/Partner duplicate rules and note that the Deal part is delivered by WAGR-99, or close the Deal part.",
+   "ledger_ids": [
+    "L3244",
+    "L2296",
+    "L1670",
+    "L3250"
+   ],
+   "jira_keys": [
+    "WAGR-13"
+   ],
+   "suggested_category": "V3",
+   "suggested_severity": "Low",
+   "jira_quotes": [
+    {
+     "key": "WAGR-13",
+     "quote": "* Deal: enforce uniqueness on the Partner + Operator + Market + Vertical + Version combination",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-13",
+     "quote": "* For Deal duplicates: hard-block on save, or allow save + flag Review Required? Design doc permits either.",
+     "quote_source": "description"
+    }
+   ]
+  },
+  {
+   "title": "[V3 Low, out of Lens A scope] Links related list ticket WAGR-170 still includes the Active Assignments column that was struck on 2026-09-18",
+   "why_unverified": "Evidence verified (verbatim ledger and Jira quotes), but the category is outside Lens A (V1/V5/V8); passed to Lens B (Deal_B) to avoid double-reporting. On 2026-09-18 Kobi skipped the active-assignment count and rollup on links, because it is unknown whether the CMS will return link assignments; it was struck from WAGR-82. WAGR-170 (Jumpr Review) still specifies an Active Assignments column. Suggested: Strike the Active Assignments column from WAGR-170 (as was done on WAGR-82) before it moves to Client Review.",
+   "ledger_ids": [
+    "L2713",
+    "L2716"
+   ],
+   "jira_keys": [
+    "WAGR-170"
+   ],
+   "suggested_category": "V3",
+   "suggested_severity": "Low",
+   "jira_quotes": [
+    {
+     "key": "WAGR-170",
+     "quote": "* Columns: Link ID, Link Code, Tracking URL, Assignment Cap, Active Assignments (count of reps currently on that link), Active",
+     "quote_source": "description"
+    }
+   ]
+  },
+  {
+   "title": "Default Deal status label: meetings decided 'New'; Jira child stories use 'Draft'",
+   "why_unverified": "Label difference only. L3245/L3302 (2026-09-29 internal) decided a 'New' status; WAGR-506/WAGR-507/WAGR-486 use 'Draft' (WAGR-39 still says 'New'). No meeting renamed it, but Kobi authored both; confirm which label the client sees.",
+   "ledger_ids": [
+    "L3245",
+    "L3302",
+    "L3367"
+   ],
+   "jira_keys": [
+    "WAGR-506",
+    "WAGR-507",
+    "WAGR-486",
+    "WAGR-39"
+   ]
+  },
+  {
+   "title": "Deployed Deal Status value may be misspelled 'Archieved'",
+   "why_unverified": "Jira-internal (no transcript conflict). WAGR-506 comment by Cedrick 2026-10-01: 'Added Draft and Archieved status. Set Draft as default'; WAGR-506 asks to verify 'Archived' spelling. Status values are sent to the CMS as-is (L3404 decided 'archive').",
+   "ledger_ids": [
+    "L3404"
+   ],
+   "jira_keys": [
+    "WAGR-506"
+   ]
+  },
+  {
+   "title": "Affiliate Links before activation: Jira says not required; meeting assumption was at least one link",
+   "why_unverified": "L3251 is an open question (to clarify with the client), not a decision. WAGR-450/WAGR-463 resolved it as 'not required' without a recorded client confirmation.",
+   "ledger_ids": [
+    "L3251"
+   ],
+   "jira_keys": [
+    "WAGR-450",
+    "WAGR-463"
+   ]
+  },
+  {
+   "title": "Link Archived status re-opened in WAGR-509 though Emily said Active/Inactive is sufficient",
+   "why_unverified": "L3399 (Emily: active/inactive sufficient) and L3409 (Emily: links go to 'inactive, or archived') point both ways; WAGR-509 is an evaluation ticket, not a build.",
+   "ledger_ids": [
+    "L3399",
+    "L3409"
+   ],
+   "jira_keys": [
+    "WAGR-509",
+    "WAGR-463"
+   ]
+  },
+  {
+   "title": "Combined 'United States & Canada' deals removed in Jira without a recorded client confirmation",
+   "why_unverified": "L2133 Emily was to confirm with Joyce; no later meeting records the answer. WAGR-39/WAGR-252/WAGR-458 deactivate the value. Likely correct, but the confirmation is not visible.",
+   "ledger_ids": [
+    "L2131",
+    "L2132",
+    "L2133"
+   ],
+   "jira_keys": [
+    "WAGR-39",
+    "WAGR-252",
+    "WAGR-458"
+   ]
+  },
+  {
+   "title": "Client asked to block deal creation in unsupported verticals",
+   "why_unverified": "client ask not agreed; no ticket. Kobi said he would push back and clarify (L2400); WAGR-408 lists 'any restriction/gating logic on Verticals or Markets' as out of scope.",
+   "ledger_ids": [
+    "L2400"
+   ],
+   "jira_keys": [
+    "WAGR-408"
+   ]
+  },
+  {
+   "title": "WAGR-93 (require Source) still Ready though 09-01 meetings said Source is now required",
+   "why_unverified": "Possible V4. Kobi was unsure whether BUILD-249 was finished (L2241/L2242); L2299 told the client every deal now requires a source. No later status in the ledger; WAGR-507/WAGR-450 now require Source anyway.",
+   "ledger_ids": [
+    "L2241",
+    "L2242",
+    "L2299"
+   ],
+   "jira_keys": [
+    "WAGR-93",
+    "WAGR-507",
+    "WAGR-450"
+   ]
+  },
+  {
+   "title": "WAGR-106 still in Jumpr Review though 09-18/09-21 meetings decided to attach the doc and close it",
+   "why_unverified": "WAGR-462 (2026-09-25) explicitly keeps WAGR-106 open until the Commercial Terms design is approved, so the open status looks intentional.",
+   "ledger_ids": [
+    "L2727",
+    "L2768"
+   ],
+   "jira_keys": [
+    "WAGR-106",
+    "WAGR-462"
+   ]
+  },
+  {
+   "title": "Deal ID fields to be read-only for everyone, including admins, also before activation",
+   "why_unverified": "L3247 says user-editable Deal ID fields will be locked for all users; WAGR-453 locks identity only after first activation and does not say whether the External Deal ID field is manually editable in Draft. Could be covered by Confluence v0.13.",
+   "ledger_ids": [
+    "L3247"
+   ],
+   "jira_keys": [
+    "WAGR-453",
+    "WAGR-448"
+   ]
+  }
+ ],
+ "module_coverage": {
+  "area": "Deal",
+  "jira_epics": [
+   "WAGR-11",
+   "WAGR-39",
+   "WAGR-444"
+  ],
+  "ticket_count": 131,
+  "uncovered_capabilities": [
+   {
+    "capability": "Commercial Terms dated child object (build)",
+    "ledger_ids": [
+     "L3416",
+     "L3422",
+     "L3423",
+     "L3424",
+     "L3420",
+     "L3425",
+     "L2728"
+    ],
+    "note": "Design card WAGR-462 only (status Requirements) plus WAGR-461 tiered CPA; no build stories and no epic. 2026-09-30 rules are not in Jira (see DEAL-A-05)."
+   },
+   {
+    "capability": "Correction/merge of an erroneously created deal (re-point sign-ups)",
+    "ledger_ids": [
+     "L2514",
+     "L2516"
+    ],
+    "note": "Client asked for options and effort; Jira only lists it as out of scope (WAGR-447, WAGR-39) and parks it in WAGR-463 item 7. No Holding Pen or Phase 2 ticket."
+   },
+   {
+    "capability": "DRA Brand Manager field clean-up and population",
+    "ledger_ids": [
+     "L2862",
+     "L2863"
+    ],
+    "note": "No ticket (V1)."
+   },
+   {
+    "capability": "VIP sign-up DRA rule",
+    "ledger_ids": [
+     "L3442"
+    ],
+    "note": "Open question, not in WAGR-420/432 (V8)."
+   },
+   {
+    "capability": "Affiliate Link auto-number prefix (TL→LNK)",
+    "ledger_ids": [
+     "L3012"
+    ],
+    "note": "No ticket (V1, minor)."
+   }
+  ],
+  "notes": "Shortlist holds 131 Deal-related issues: 35 under WAGR-39 (Deal lifecycle + CMS sync, well covered), 5 under WAGR-11 (Deals & Rep Assignment epic), 1 under WAGR-444 (inbound DRA, Phase 2; children WAGR-117/118/122/124 also exist), and 80 with no epic (most Deal field/layout DL-tickets, Affiliate Link tickets WAGR-82..85/132/133/169/170, and decision tickets WAGR-98/104/106/471). Affiliate Links have a ticket cluster but no dedicated epic. Status mix: 27 Done, 33 Jumpr Review, 33 Requirements, 12 Ready, 14 Open, 6 In Progress, 6 Cancelled."
+ },
+ "v9_reviewed_no_support": [],
+ "notes": "Lens A only (transcript→Jira): V1/V5/V8 reported as variances. Step A supersession is in work/supersession/Deal_A.json. All 221 decided Deal items and 47 open questions were checked against summaries, descriptions and all comments of the 505 issues, including Done/Cancelled, Holding Pen WAGR-443 and Phase 2 WAGR-478. Gaps with no ticket at all: 2 decided asks (DEAL-A-01 DRA Brand Manager fields; DEAL-A-02 Link prefix) and 1 open question (DEAL-A-09 VIP DRA rule). Largest coverage gap: Commercial Terms has a design card only (WAGR-462), no build stories, and lacks the 2026-09-30 rules (DEAL-A-05). Most Deal lifecycle decisions are covered in detail by the WAGR-39 stories (Confluence v0.13, edited to 2026-10-02). Seven verified V2/V3 findings (stale WAGR-39 epic status model, WAGR-62 layout, WAGR-98/104, WAGR-13, WAGR-170; partner code dropped from deal label in WAGR-225/45; WAGR-462 payout dependency vs client) are recorded in unverified_leads with suggested_category, because they belong to Lens B (Deal_B). July DRA designs (one DRA per rep per deal with a history child; Salesforce Manage Assignment button) were superseded by CMS-owned DRAs (L1362, L2522, L3279) and are not variances. Ledger ends 2026-09-30."
+}
