@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-024",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Real but narrower than claimed: the payout-dependency line in WAGR-462 conflicts with the 2026-09-25 discovery (Kobi: commercial terms are ops-level reporting, no implication on referral payouts; Joyce: 'No,') and the 2026-09-30 reporting-stamp design, but Joyce's reply is terse and cut off, and the backdated/'paid Sign-Ups' rule is not clearly contradicted ('paid' may mean operator CPA revenue per L2501; 9/30 design itself recalculates Sign-Up term links when dates change). The card is a requirements-only design item, so the risk is stale text, not a wrong build.",
+ "q1": "Found. Live Google Doc 1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw re-fetched (text/html, converted): Kobi quote found verbatim at line 1241 (01:26:00), followed by 'Joyce Kiddell: No,'. 9/30 doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo also re-fetched; the L3415 quote is found verbatim. Both WAGR-462 description quotes exist verbatim in the live ticket.",
+ "q2": "Mostly supports. Context (01:24-01:29): discussion of referral payout records rolling up Sign-Ups; Kobi then asks whether any deal data feeds this and states commercial terms are ops-level reporting with no implication on referral payouts, 'right?'. Joyce answers 'No,' then the next timestamp block begins with 'Joyce Kiddell: this' (cut off); Kobi replies 'Okay... that makes sense' and moves on. Read as agreement, but it is a leading question with a one-word reply, not an explicit client statement. Emily (Ops owner) did not speak to it. On 9/30 Kobi said terms change 'the operational reporting for signups' and Emily stressed reporting/profitability; no one said terms feed BA payouts. Weakness: the second Jira quote (backdated change updates unpaid Sign-Ups, flags paid ones) is not directly contradicted; 9/30 Kobi said changing effective dates 'is going to recalculate the signup' term link, and per L2501 Sign-Up CPA is what WagerTech is paid by operators, so 'paid' may refer to revenue, not referral payouts.",
+ "q3": "No later reversal. Ledger has no rows after 2026-09-30. 9/30 rows L3415 (terms stamped on Sign-Up, Kobi believes reporting only), L3416, L3418-L3423 (dated custom object, one active term, correct vs new term) are consistent with reporting-only and do not reinstate a payout dependency. L3085 (internal sync 9/25 10:00, before the 10:30 discovery) is the open question that the discovery answered.",
+ "q4": "Not covered. WAGR-462 live: status Requirements, assignee Kobi Kunasekaran, 0 comments, created 2026-09-25 12:55 (after the discovery call) and last updated 2026-09-30 00:20 (before the 9/30 sync). Description still says 'Show clearly how the Deal CPA feeds the payouts. This is a dependency for referral payouts and redeposits.' Its sources cite the internal sync for the payout dependency, not the discovery call. JQL searches (commercial terms updated since 9/25; 'reporting only' / 'no implication' / 'operational reporting') found no ticket that records the reporting-only answer. Related cards seen: WAGR-461 (Tiered CPA), WAGR-507 (guided deal flow with optional Commercial Terms), WAGR-98, WAGR-106, WAGR-173.",
+ "corrections": [
+  "Narrow the variance to the payout-dependency line; treat the backdated/'paid Sign-Ups' rule as an open clarification (what does 'paid' mean: operator CPA paid or referral paid) rather than a confirmed conflict.",
+  "L3159 'No,' is a terse, cut-off reply to a leading question; suggested action should include an explicit written confirmation from Emily/Joyce that deal commercial terms do not feed referral payouts or redeposits.",
+  "WAGR-462 was created 2026-09-25 12:55 EDT, after the 10:30 discovery call, so the ticket text was stale at creation."
+ ],
+ "live_jira": [
+  {"key": "WAGR-462", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

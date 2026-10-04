@@ -1,0 +1,24 @@
+{
+ "var_id": "VAR-096",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "low",
+ "reason": "Quote is real and the deferral is real, and no Jira ticket records partner filtering of signups. But Kobi said 'We don't need a solution for it' and that it will likely live 'a different place'; the 30 Sep sync then revisited rep filtering in the redeposit design (V1 = standard predefined list views, region views, allocation-based rep queue), so the open item is now a minor list-view config detail, not a lost requirement.",
+ "q1": "Found. Re-fetched doc 14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk (HTML export, converted). Both quoted fragments match verbatim after whitespace normalization (fetched text lines 1201 and 1225, 01:21:05 and 01:23:10). The quote is a stitched excerpt of two utterances; each fragment is truncated mid-sentence but the wording is unchanged.",
+ "q2": "Supports the claim in context, with limits. Kobi raised that no view lets reps quickly filter signups by partner (e.g. GDC) for redeposits and suggested quick filters / user-made filters. Emily said filtering is fine and depends on the redeposit solutioning. Kobi: 'let's come back to it... build out the redeposits'. Emily: 'let's see where you land with that solutioning... I don't even hate that filtering view'. Kobi: 'We don't need a solution for it... if we need to we should prioritize' and 'I think it'll be a different place.' So this is a soft, conditional deferral of a nice-to-have, agreed by both sides; not a client commitment. Low severity is correct; impact is small.",
+ "q3": "Partly overtaken. 2026-09-30 weekly sync (doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo) reviewed the redeposit design: L3325 (Emily asks to filter redeposits by region; Kobi offers predefined standard list views, proposed), L3326 (V1 uses standard Salesforce list views/filters, custom LWC later; proposed, not confirmed), L3330 (preset views such as 'October Ontario'), L3455/L3346 (reps work from an assigned-allocation queue; selectable players filtered by eligibility dates on the allocation, decided). Partner filtering was not named explicitly, but the revisit Kobi promised effectively happened and the direction (predefined list views, allocation queue tied to a deal) makes a separate partner filter less needed. No decision reversed the deferral; none closed it either. Related same-meeting item L2984 (Lina: BAs filter own signups by deal) is also untracked.",
+ "q4": "Not covered. JQL 'partner filter' / 'list view' / 'filter signups', 'redeposit', and 'filter AND (partner OR operator OR GDC)' returned no ticket for partner filtering of signups. WAGR-464 (Redeposits workflow design, Requirements, Kobi, 0 comments) does not mention filtering or rep views. WAGR-503 (Done) and WAGR-501 (In Progress, 7 comments) cover filtering Sign-Ups by Brand Ambassador, not partner; Kobi's 2 Oct comment on WAGR-501 sets the pattern ($USER 'My ...' list views for reps; Ops filters via standard filters), which would also serve a partner view. WAGR-423 covers Sign-Up list view columns/sort only. WAGR-482 is a placeholder for Deal Rep Assignment list views. WAGR-510 is a Phase 2 custom list view for row actions.",
+ "corrections": [
+  "Quote fragments sit at lines 1201 and 1225 of the freshly fetched doc (01:21:05 and 01:23:10); the ledger's line_start 1191 / timestamp 01:19:54 point to the start of the topic, not the quote.",
+  "Better home for the follow-up: WAGR-464 'Open decisions' (rep views in the redeposit queue), or tie to the WAGR-501/WAGR-423 list-view pattern. Consider folding L2984 (BAs filter own signups by deal) into the same line.",
+  "Add later context: 2026-09-30 sync L3325/L3326/L3330/L3455 (rep list views and allocation queue proposed in redeposit design)."
+ ],
+ "live_jira": [
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-503", "status": "Done", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-501", "status": "In Progress", "assignee": "Taryn Reithofer", "comments_total": 7},
+  {"key": "WAGR-423", "status": "Requirements", "assignee": "Taryn Reithofer", "comments_total": 2},
+  {"key": "WAGR-482", "status": "Open", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-510", "status": "Open", "assignee": null, "comments_total": 0}
+ ]
+}

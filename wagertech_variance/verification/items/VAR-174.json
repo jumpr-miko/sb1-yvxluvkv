@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-174",
+ "verdict": "rejected",
+ "new_severity": "None",
+ "new_confidence": "high",
+ "reason": "Quote is real, but this is internal project admin, not a WAGR delivery gap. A later meeting shows the shared project folder exists: on 3 Sep 2026 (L2419) people already had access and Kobi was adding files to it. No ticket is needed. The variance's own suggested action ('confirm it exists and drop') is met.",
+ "q1": "Found verbatim. Re-fetched doc 1VLSpzYsg65ncEtNqzm0T5PuAXzpSCysaRlYfhVCnRAU (Wagertech Internal Kickoff, 2026-06-11). Line 689 at 00:51:37 reads: \"Kobi Kunasekaran: We'll do like a share drive together.\" The Gemini summary (line 50) also lists '[The group] Setup Shared Drive: Create a shared drive to facilitate collaboration and document management.'",
+ "q2": "Partly supports the claim. It is an informal internal action ('we'll do like a share drive together') in the middle of planning the client kickoff and discovery. Diarization put every speaker under Kobi, so the real speaker could be Kobi, Waleed or Miko. The topic is Jumpr's own project Drive folder (see also L0187 at 00:02:59, 'we need like a project folder drive', and L0196 'we do have like the client's folder'). It is not a client requirement or a build item. The feature area 'Storage / Proofs' is wrong; the ledger critic note says the same. It should be Project Mgmt.",
+ "q3": "Yes, later meetings change the conclusion. L0358 (2026-06-17, client Project Kickoff, 00:46:26): Kobi told the client 'we'll also set up a shared Google Drive to dump like meeting recordings'. L2419 (2026-09-03, Wagertech Internal Sync, 00:11:31): Kobi uploads a PDF to Google Drive and talks about access to 'this folder'. Cedrick says 'if I have access to the folder'. Kobi says 'even if people have access, you might not have everything there'. So the shared folder exists and people have access. The remaining gap is that the folder is not fully populated. That is a housekeeping issue, not a missing ticket.",
+ "q4": "Jira does not cover it, and it does not need to. JQL project = WAGR AND text ~ \"shared drive\" returned WAGR-384, WAGR-113 and WAGR-32, all about client proof storage or relationships. text ~ \"project folder\" returned only WAGR-113, which is the WagerTech (client) Drive prerequisites tracker for proof storage, not the project folder. text ~ \"transcripts\" returned more than 50 unrelated build tickets (noise). There is no project-drive ticket. That is expected: WAGR is the client delivery board and internal admin does not belong there.",
+ "corrections": [
+  "feature_area should be 'Project Mgmt / Scope / Phase / Timeline' (Jumpr internal project Drive), not 'Storage / Proofs'.",
+  "Speaker attribution is uncertain: diarization merged all speakers under Kobi Kunasekaran.",
+  "Add later evidence L0358 (2026-06-17) and L2419 (2026-09-03), which show the drive was committed to the client and later existed with access granted."
+ ],
+ "live_jira": [
+  {"key": "WAGR-113", "status": "Requirements", "assignee": null, "comments_total": null, "note": "Nearest considered; not cited. Client proof Drive prerequisites, not the project drive. Comments not read because the issue is not cited."}
+ ]
+}

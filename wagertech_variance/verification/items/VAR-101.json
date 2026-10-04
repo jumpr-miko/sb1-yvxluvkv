@@ -1,0 +1,18 @@
+{
+ "var_id": "VAR-101",
+ "verdict": "confirmed",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Quote is verbatim in the re-fetched 30 Sep 2026 Weekly Sync doc; context and the meeting's own Gemini notes show the personal redeposit eligibility window was deferred pending Emily's check with Owen; no later meeting exists in the ledger; no WAGR ticket captures the window or the 6-month cap (WAGR-464 only lists personal redeposit linking). Low is right because the system design (start/end eligible-signup dates on the allocation, deal default) was decided later in the same meeting, so only the business cap is open.",
+ "q1": "Found verbatim (whitespace-normalized) in the Drive doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo ('Wagertech <> Jumpr: Weekly Sync - 2026/09/30 11:30 EDT - Notes by Gemini'). Both lines of the primary quote and both lines of the L3341 quote were found exactly.",
+ "q2": "Supports the claim. Read raw transcript lines ~2150-2420. At 02:46-02:47 Emily says personal redeposits 'have a longer shelf life' and 'I can confirm with Owen'; Joyce asks 'Can we just make it so like personal redeposits are like maxed at 6 months always' (a proposal, framed as a question, business side). Kobi says personal eligibility was never discussed (line ~2214). Emily at 02:51 says windows are 'not global at a deal level'; Joyce repeats she wants 'a max' but adds 'I could be wrong'. No agreement on the cap. The doc's Gemini summary (lines 125, 177, 226) records an action item for Emily: 'Confirm look back rules: Determine if personal redeposits allow a 6 month look back period by checking with Owen' and says alignment was 'deferred pending confirmation with Owen'. The claim correctly labels it open/proposed, not decided. Speakers and timestamp 02:47:53 are correct.",
+ "q3": "No later meeting. The 30 Sep 2026 Weekly Sync is the latest date in ledger_compact.tsv and raw/transcripts. Later in the same meeting, L3346 (03:02:50, decided) puts start/end eligible-signup dates on the redeposit allocation with a default on the deal, and L3455 (01:56, decided) has ops configure the date range. These settle the system mechanism (which already supports variable windows) but do not answer the personal redeposit cap or Owen's confirmation. They lower build impact and support Low severity; they do not reverse the variance.",
+ "q4": "Not covered. JQL 'project = WAGR AND text ~ \"personal redeposit\"' -> WAGR-464 (Redeposits workflow design, Requirements, Kobi), WAGR-141 (Last Activity Date engine, unrelated). JQL for eligibility / look back / lookback / eligible signup -> 30+ hits, the only redeposit one is WAGR-464 (others are CMS, Deal lifecycle, Player status, Referral payouts WAGR-465). JQL for \"6 months\" / \"six months\" / \"redeposit eligibility\" / Owen redeposit -> only WAGR-74 (Referrer inactive status automation, unrelated). WAGR-464 full view: description lists 'personal redeposit linking (Emily, Slack Sep 17)' under Ops exceptions and 8 open decisions, none about an eligibility/look-back window or a 6-month cap; 0 comments; last updated 2026-09-28 (before the 30 Sep meeting).",
+ "corrections": [
+  "None material. Nearest ticket WAGR-464 is the right target for the suggested open decision. Optional context: L3346/L3455 (same meeting, decided) give the mechanism (eligibility dates on the allocation, deal default, ops-configured), so the open item is only the business rule for personal redeposits.",
+  "Suggested action should stay draft-only; verifier made no Jira changes."
+ ],
+ "live_jira": [
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

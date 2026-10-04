@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-041",
+ "verdict": "confirmed",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "WAGR-13 (live: Requirements, Kobi, active Sprint 2) still keys Deal uniqueness on Partner+Operator+Market+Vertical+Version and offers 'flag Review Required'. Transcripts and current Jira (WAGR-448, WAGR-492, WAGR-463) agree: no Version field, Review Required removed, makeup = operator/partner/market country/market state/vertical/source with a hard block. The supersession note exists only in WAGR-99, not on WAGR-13 itself. Low is the right severity.",
+ "q1": "Found verbatim. All three docs were re-fetched from Drive (text/html) and converted. L3244 (9/29 doc 12vbA9gL..., line 302) matches exactly after whitespace normalization. L3408 (9/30 doc 1pc9pSc8...) fragments 'No, just no. That's not in it.' and 'No, not at all. It just creates extra work.' found. L1670 (8/11 doc 1Qw_rUiB...) is an ellipsis-joined set of fragments, and each fragment is found verbatim.",
+ "q2": "Supports the claim in context. 9/29: Kobi lists the makeup fields as 'what makes a deal unique', and Version is not among them. Later in the same call (lines ~413-496) he floats versioning only as a fallback and concludes 'I think we only introduce versions if they need multiple deals with the same makeup active at the same time.' 9/30 (00:52:03): Kobi asks whether the Review Required status from the original mockups is still needed, and Joyce (client) answers 'No, just no ... It just creates extra work.' That is a clear removal decision, not a question read as a decision. 8/11 (00:53:28): the context shows the topic is 'deal version'. Joyce says 'We can definitely scrap it' and Kobi says 'we can remove the whole version entirely.' Caveat: the cited L1670 quote leaves out the words 'deal version', so it reads as being about field history tracking. The surrounding lines confirm it is about Deal Version.",
+ "q3": "No later meeting reverses it. The ledger has no rows after 2026-09-30. Within 9/30, versioning came up again (L3396 parent-container versions proposed, L3397 Emily to set up a call with the CMS side, L3413 versioning decision needed ASAP, L3414 single living deal without versions), so Version was not fully settled in the meetings. But WAGR-448 (updated 2026-10-02) states 'Do not add a user-entered Deal Version field' and 'No parent/version Deal hierarchy is added for V1'. The latest record therefore still excludes Version. Review Required removal is confirmed by WAGR-492 (Cancelled - status removed) and the WAGR-463 'Resolved elsewhere' list.",
+ "q4": "WAGR-13 does not cover it. Its description still has the Version-based Deal bullet, the Deal AC, and the open block-vs-flag question. It has 1 comment (2026-07-28, about the block-vs-flag question) and no issue links. WAGR-99's description says 'Supersedes the Deal portion of BUILD-08', and its pinned comment says to close BUILD-08 once the Operator/Partner rules are verified. That note lives only on the Done ticket WAGR-99 and was never applied to WAGR-13. WAGR-448 (Jumpr Review, Cedrick) now owns the makeup-key reservation. JQL for 'BUILD-08' / 'WAGR-13' / 'Review Required' found no ticket that cleans up WAGR-13.",
+ "corrections": [
+  "WAGR-448 now uses 'Archived' (not 'Retired') as the status that releases the makeup key. Final statuses per WAGR-506/WAGR-463: Draft, Active, Paused, Inactive, Closed, Archived.",
+  "Add WAGR-492 (Cancelled, Review Required status removed) and WAGR-463 as Jira evidence for the Review Required removal.",
+  "For the Version removal, a stronger citation is WAGR-448 ('Do not add a user-entered Deal Version field'; 'No parent/version Deal hierarchy is added for V1') plus L3267 (9/29). The L1670 quote should keep the 'For the deal version' lead-in for context.",
+  "WAGR-99's description already states it 'Supersedes the Deal portion of BUILD-08'. That is partial traceability, but it is not on WAGR-13.",
+  "The suggested action can also close WAGR-13's block-vs-flag Open Question: WAGR-99/WAGR-448 chose a hard block via the unique Deal_Makeup_Key__c."
+ ],
+ "live_jira": [
+  {"key": "WAGR-13", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 1},
+  {"key": "WAGR-99", "status": "Done", "assignee": "Cedrick Infantado", "comments_total": 6},
+  {"key": "WAGR-448", "status": "Jumpr Review", "assignee": "Cedrick Infantado", "comments_total": 1}
+ ]
+}

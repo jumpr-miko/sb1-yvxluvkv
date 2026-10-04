@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-157",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "The 21 Sep quote exists verbatim (lines 649-662). It is a real client decision: Lina says BAs must not change assigned redeposits and Ops makes changes, and Ali agrees. No later meeting reverses it; the 30 Sep 'request reallocation' change fits the rule. WAGR-464 (0 comments) and WAGR-495 do not record it.",
+ "q1": "Found. I fetched doc 1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM ('Wagertech <> Jumpr: Redeposits Discovery Part 2 - 2026/09/21') again. Each part of the quote matches verbatim after whitespace normalization, at lines 649-662 (00:47:31) and 00:48:20 ('I mean with Salesforce like we can do hard lots right'). The ' / ' separators in the claim leave out two short interjections (Ali: 'Yeah,'; Kobi: 'Yeah, that's a one to know.') and an Ali sentence before the 'hard lots' line. This does not change the meaning.",
+ "q2": "Supports the claim. Before the quote, Kobi asks if BAs change redeposit amounts and if that is allowed. Ali says 'they shouldn't touch it themselves' and that off-range amounts need approved additional budget. Lina (WagerTech decision maker) then says 'let's not allow BAS to change the assigned'. Ali agrees: 'we don't want that happening and it shouldn't happen'. At 00:50:23 Lina says it again: 'with ops being able to go in and manually adjust... an ops member will go in'. No one walks it back. The ledger also has L2809 (BAs use notes only and cannot type into name/book fields).",
+ "q3": "No reversal. Later Redeposits rows (25 Sep, 30 Sep) refine the rep workflow. L3459: reps cannot return an allocation to Ops but can release it for another player. L3461 (change-to-earlier-decision): the return option is renamed 'request reallocation', Ops reviews it, and notes are mandatory. L3456: completed redeposits are locked. These match the 'request through Ops' rule and do not change it. L3129 (25 Sep) says reps create bet-credit redeposit records. That concerns creating rows (the open question in WAGR-464), not editing assigned ones.",
+ "q4": "Not covered. Live WAGR-464: status Requirements, assignee Kobi Kunasekaran, 0 comments (listJiraIssueComments total 0). The description lists 'Can BAs create their own redeposit rows, or only Ops?' as an open decision. It does not state the decided edit lock on assigned amount and slot fields. JQL (text ~ redeposit / redep*, updated >= 2026-09-21) found no Redeposit build stories yet. WAGR-495 (persona access matrix, Open, unassigned, 0 comments) does not mention redeposits.",
+ "corrections": [
+  "The cited WAGR-464 quote is about BA create rights, not edit rights. It is next to the gap, but it is not a partial record of the gap.",
+  "Suggested action: also record the 30 Sep refinement (L3459/L3461). Reps can release an allocation or use 'try a different player'. Reps send changes to the assignment through 'request reallocation' with mandatory notes, and Ops reviews them. Amount and slot fields stay Ops-edit only.",
+  "Medium confidence is kept. Kobi's local internal design draft (cited on WAGR-464) may already hold the rule. The gap is in Jira, which is what this variance claims."
+ ],
+ "live_jira": [
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-495", "status": "Open", "assignee": null, "comments_total": 0}
+ ]
+}
