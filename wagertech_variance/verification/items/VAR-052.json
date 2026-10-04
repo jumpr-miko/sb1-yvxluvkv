@@ -1,0 +1,22 @@
+{
+ "var_id": "VAR-052",
+ "verdict": "confirmed",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "WAGR-47 is still Ready (Kobi) with an unactioned 2026-08-17 comment saying it will be closed and replaced; the record-type prompt removal it asks for was tested on 2026-09-25 and built in sandbox under WAGR-427 (Jumpr Review); no later meeting reverses this. Jira hygiene gap is real, Low severity is right.",
+ "q1": "Found. The 2026-09-25 Wagertech Internal Sync quote (Cedrick, 00:19:50, line 400 of the re-fetched text) exists verbatim. Both Jira quotes are verbatim: WAGR-47 comment 10416 (2026-08-17, no author field returned) and WAGR-427 comment 11353 (Taryn, 2026-09-25).",
+ "q2": "Supports the claim. Cedrick says that once the other record types are removed from the profile, New Account goes straight to the Referrer record type. In the following lines he notes the permission-set override and says he reverted the test change; Kobi makes it conditional on Emily confirming reps only create Referrers. Emily confirmed this the same day (WAGR-427 comment 11353). Kobi then asked Taryn to find the existing ticket for hiding record-type selection; the work was linked to WAGR-427, not WAGR-47. Caveats: WAGR-427 is sandbox-validated and in Jumpr Review, not Done. WAGR-47 also lists items WAGR-427 does not cover (hide Default_* fields on create layout, Default Status = Active, Name/Phone/E-Transfer Email required via validation rule). The 2026-08-17 comment gives a different reason for closing (split into per-type create tickets), not WAGR-427.",
+ "q3": "No later reversal. Ledger rows after 2026-09-25 about referrers or record types (L3192, L3198, L3219, L3220, L3305, L3448, and others) do not reopen the record-type default. L3305 (2026-09-29) defers validations until UI build, which affects WAGR-47's validation-rule item but does not change the hygiene finding. L3116 (2026-09-25) says no e-transfer email field is needed on payouts; that is a different object.",
+ "q4": "Jira does not resolve it. WAGR-47: status Ready, assignee Kobi Kunasekaran, Phase 1, 2 comments, no issue links to WAGR-427. Changelog shows Taryn added it to WAG Sprint 2 on 2026-09-30 and removed it a minute later, so it was looked at but not closed. WAGR-427: Jumpr Review, Cedrick Infantado, 3 comments, including the 2026-09-28 changes table (profile keeps only Referrer; record-type access removed from the permission sets) and 'Validated in sandbox'. WAGR-92 (Jumpr Review, Taryn) covers only the PersonEmail required rule, not Name/Phone.",
+ "corrections": [
+  "WAGR-427 has not 'delivered' to production. It is sandbox-validated and in Jumpr Review.",
+  "WAGR-92 covers only the PersonEmail requirement. WAGR-47's Name/Phone required-field items and its 'hide Default_* fields' item have no confirmed replacement ticket.",
+  "WAGR-47 comment 10416's stated plan was to split it into per-record-type create tickets, not to supersede it with WAGR-427.",
+  "Taryn edited WAGR-47's sprint on 2026-09-30 (added to WAG Sprint 2, then removed) without closing it."
+ ],
+ "live_jira": [
+  {"key": "WAGR-47", "status": "Ready", "assignee": "Kobi Kunasekaran", "comments_total": 2},
+  {"key": "WAGR-427", "status": "Jumpr Review", "assignee": "Cedrick Infantado", "comments_total": 3},
+  {"key": "WAGR-92", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": null}
+ ]
+}

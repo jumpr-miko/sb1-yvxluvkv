@@ -20,7 +20,7 @@ AREA_ORDER=["Sign-Up","Deal","Deal Rep Assignment","Referrer / Brand Ambassador"
 final=[]; rejected=[]
 for v in M["variances"]:
     r=ver.get(v["var_id"])
-    v["verification"]="not verified (Low, not in 20% sample)" if not r else r["verdict"]
+    v["verification"]=("not in verification sample (Low)" if v.get("severity")=="Low" else "verification pending") if not r else r["verdict"]
     if r:
         v["verification_reason"]=r.get("reason","")
         if r["verdict"]=="downgraded":
@@ -113,7 +113,7 @@ for k,areas in amap.items():
 mc_by={m.get("area"):m for m in M.get("module_coverage",[])}
 L.append("| Feature area | Decided items (tier 1) | All ledger items | Jira tickets (approx. bucket) | Epics named by finder | Uncovered capabilities named by finder |\n|---|---|---|---|---|---|")
 for a in AREA_ORDER:
-    if allit.get(a,0)==0 and jc.get(a,0)==0: continue
+    if allit.get(a,0)==0: continue
     m=mc_by.get(a) or next((x for x in M.get("module_coverage",[]) if (x.get("area") or "").lower().startswith(a.lower()[:8])),{})
     unc="; ".join(esc(u.get("capability","")) for u in (m.get("uncovered_capabilities") or [])) if m else ""
     flag=" **⚠ thin coverage**" if dec.get(a,0)>=15 and jc.get(a,0)<=10 else ""
