@@ -1,0 +1,1022 @@
+{
+ "batch": "batch_04",
+ "range": "WAGR-133..WAGR-175",
+ "issues": [
+  {
+   "key": "WAGR-133",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2263",
+    "L1364",
+    "L1365",
+    "L1367"
+   ],
+   "search_terms": [
+    "link record",
+    "affiliate link",
+    "link object"
+   ],
+   "note": "Affiliate Link record exists at deal level (L1364-L1367); L2263 lists 'deal context fields' among the affiliate link tickets. Its Priority Tier list (Primary, Secondary) mirrors WAGR-175 and inherits variance B04-02 (no 'Blacklisted')."
+  },
+  {
+   "key": "WAGR-134",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2156",
+    "L2556"
+   ],
+   "search_terms": [
+    "associated partner",
+    "associated source",
+    "header stats",
+    "DLRS"
+   ],
+   "note": "Header stats from Deals via DLRS (L2156, tier2) and help text follow-up (L2556 -> WAGR-389). Counting method is being rebuilt from relationship records in WAGR-388."
+  },
+  {
+   "key": "WAGR-135",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2545",
+    "L2544"
+   ],
+   "search_terms": [
+    "test checkbox",
+    "test__c",
+    "test field"
+   ],
+   "note": "L2545: Cedrick already added the Test checkbox on Sign-Up and SLC."
+  },
+  {
+   "key": "WAGR-136",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2545",
+    "L2544"
+   ],
+   "search_terms": [
+    "test checkbox",
+    "test__c",
+    "test field"
+   ],
+   "note": "L2545: Cedrick already added the Test checkbox on Sign-Up and SLC."
+  },
+  {
+   "key": "WAGR-137",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1979",
+    "L2457",
+    "L2476"
+   ],
+   "search_terms": [
+    "90 day",
+    "inactive",
+    "player status"
+   ],
+   "note": "90-day inactivity, no per-player override (L1979). L2476 (Sep 11): threshold may still be set to 2 days for testing; ticket comment confirms a 2-day test activation. Confirm the threshold is back to 90 before release."
+  },
+  {
+   "key": "WAGR-138",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2156",
+    "L3216",
+    "L3218"
+   ],
+   "search_terms": [
+    "associated operator",
+    "active operators",
+    "header stats",
+    "rollup"
+   ],
+   "note": "Supported. The ticket's open question (all Deals vs Active only) was answered on Sep 28 (L3216/L3218: count active only, retitle 'Active Operators'). That later change is already tracked in WAGR-364 and WAGR-388, so it is not a variance here; WAGR-138 text is now superseded."
+  },
+  {
+   "key": "WAGR-139",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2480",
+    "L2298",
+    "L2102"
+   ],
+   "search_terms": [
+    "source code",
+    "external deal id",
+    "shortcode"
+   ],
+   "note": "Source in External Deal ID is in place (L2480). Note: L3250 (Sep 29) decides that External ID/Name/makeup key recompute on makeup edits until activation, which supersedes this ticket's 'null-only entry filter must remain' AC; that later rule is tracked in WAGR-453/WAGR-448, so no variance raised here."
+  },
+  {
+   "key": "WAGR-140",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1978",
+    "L2338",
+    "L2440",
+    "L2450",
+    "L2452",
+    "L2472"
+   ],
+   "search_terms": [
+    "player status",
+    "pending to active",
+    "completed sign-up",
+    "first completed"
+   ],
+   "note": "Pending->Active on first completed sign-up (L1978); build sequence 251->252->253 (L2440); no historical backdating handling (L2452). See B04-05 for the Player layout date fields (L3011)."
+  },
+  {
+   "key": "WAGR-141",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2440",
+    "L2213"
+   ],
+   "search_terms": [
+    "last activity date",
+    "subflow",
+    "252"
+   ],
+   "note": "Subflow 252 sequenced before 253 (L2440); L2213 (tier2) frames 'last activity = completed sign-ups for now'."
+  },
+  {
+   "key": "WAGR-142",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "mandatory",
+    "required",
+    "logo",
+    "partner portal",
+    "primary contact",
+    "new partner"
+   ],
+   "note": "Source is Emily's Operator & Partner feedback doc (Sep 2), not a meeting. Ledger has the fields themselves (L1753 logo, L1754 portal link, L1832 primary contact lookup) but nothing on making them mandatory at creation. L1852 (tier2, proposed) preferred validation rules over layout-required; ticket uses Dynamic Forms required - not a variance (proposed only)."
+  },
+  {
+   "key": "WAGR-143",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "name input",
+    "new partner",
+    "partner name",
+    "creating new"
+   ],
+   "note": "From Emily's feedback doc only; no meeting item on a Name input at Partner creation."
+  },
+  {
+   "key": "WAGR-144",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "name input",
+    "new operator",
+    "operator name",
+    "quick global action"
+   ],
+   "note": "From Emily's feedback doc only. Nearest ledger: L2586/L2757 (new-operator quick global action, deprioritized) - a different feature."
+  },
+  {
+   "key": "WAGR-145",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2100"
+   ],
+   "search_terms": [
+    "source column",
+    "deal list",
+    "rollup table"
+   ],
+   "note": "L2100 (Aug 25): Source must be visible as a column in the deal list/table because deals have multiple sources."
+  },
+  {
+   "key": "WAGR-146",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1745",
+    "L1748",
+    "L1743"
+   ],
+   "search_terms": [
+    "partner type",
+    "direct",
+    "strategic"
+   ],
+   "note": "Partner Type values not final (L1745); 'Direct' value parked (L1748). Removal is from Emily's feedback doc; consistent with ledger. 'Strategic' not discussed in meetings."
+  },
+  {
+   "key": "WAGR-147",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2102",
+    "L2103",
+    "L2298",
+    "L2480"
+   ],
+   "search_terms": [
+    "deal name",
+    "source code",
+    "suffix",
+    "direct"
+   ],
+   "note": "Source suffix on all deal names (L2102), keep 'Direct' spelled out (L2103). Minor: L2102 says 'one-letter code'; ticket maps WagerTech to 'WT' (two letters) - hygiene only, not raised."
+  },
+  {
+   "key": "WAGR-148",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L2431",
+    "L2432",
+    "L3011"
+   ],
+   "search_terms": [
+    "status set date",
+    "last updated by",
+    "audit stamp",
+    "251"
+   ],
+   "note": "Stamp automation supported (L2431/L2432). Candidate B04-05: L3011 (Sep 24) hid the status-set-date style fields from the Player page; ticket still records them added to Player_Account_Page1."
+  },
+  {
+   "key": "WAGR-149",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2430",
+    "L2212"
+   ],
+   "search_terms": [
+    "completion date",
+    "sign-up completion",
+    "stamp"
+   ],
+   "note": "Completion date ticket reported done (L2430). L3048 (discussed): field on sign-up layout for audit; Kobi suggested moving it under More Info - not settled."
+  },
+  {
+   "key": "WAGR-150",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2100"
+   ],
+   "search_terms": [
+    "source column",
+    "deal list",
+    "rollup table"
+   ],
+   "note": "L2100 (Aug 25): Source visible as a column in the deal list/table."
+  },
+  {
+   "key": "WAGR-151",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2157"
+   ],
+   "search_terms": [
+    "sign-ups related list",
+    "operator page",
+    "signups table"
+   ],
+   "note": "L2157 (tier2): Signups are not part of the client's operator page. Supersedes L1844 (tier2, Aug 17) operator Signups related list config."
+  },
+  {
+   "key": "WAGR-152",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1816"
+   ],
+   "search_terms": [
+    "brand family",
+    "additional information"
+   ],
+   "note": "L1816 (Aug 13): Joyce said to ignore the operator Additional Information section."
+  },
+  {
+   "key": "WAGR-153",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1816"
+   ],
+   "search_terms": [
+    "currency",
+    "operator",
+    "deal currency"
+   ],
+   "note": "Supported by L1816 (ignore operator Deal Currency section). Note: L2740 (Sep 21) shows the standard Currency ISO field on BOTH Operator and Partner for WAGR-411, and WAGR-385 adds Invoicing Currency back to Operator for direct billing. The later direction is tracked in WAGR-385/411, but WAGR-153 ('currency lives at Partner level, not Operator') now reads stale - tidy before client review."
+  },
+  {
+   "key": "WAGR-154",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1980",
+    "L2092",
+    "L2257"
+   ],
+   "search_terms": [
+    "ban reason",
+    "ban button",
+    "player ban",
+    "unban",
+    "reactivate"
+   ],
+   "note": "Ban button + unban supported (L1980, L2346, L2477). Candidate B04-01: ticket comment says player ban reason was 'explicitly cut'; Aug 25 client meeting accepted player ban reasons from the mockup (L2092)."
+  },
+  {
+   "key": "WAGR-155",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2188",
+    "L2205",
+    "L2278",
+    "L2360",
+    "L2407"
+   ],
+   "search_terms": [
+    "log sign up",
+    "in progress",
+    "field change"
+   ],
+   "note": "L2407 (Sep 3): unchanged New sign-up stays New with a message; any field change moves to In Progress."
+  },
+  {
+   "key": "WAGR-156",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1980",
+    "L2092",
+    "L2255",
+    "L2256",
+    "L2257"
+   ],
+   "search_terms": [
+    "ban automation",
+    "ban reason",
+    "player ban",
+    "hold"
+   ],
+   "note": "No automated holds (L1980) is consistent with the comment. Candidate B04-01 on player ban reason capture."
+  },
+  {
+   "key": "WAGR-157",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2094",
+    "L2389",
+    "L2390",
+    "L2478"
+   ],
+   "search_terms": [
+    "referrer ban",
+    "ban reason",
+    "banned network",
+    "player flag"
+   ],
+   "note": "Referrer ban reasons incl. 'associated with banned network' (L2094); related-player flag removed (L2390, matches Sep 3 comment). Description still lists unpaid payouts -> Hold; comment says payout-hold is blocked on the Payout object and 'not yet ticketed'. Payout hold is prototype-only (no decided meeting item), so no variance; WAGR-465 holds payout design."
+  },
+  {
+   "key": "WAGR-158",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2396",
+    "L2478",
+    "L2347",
+    "L2350",
+    "L2353"
+   ],
+   "search_terms": [
+    "reactivate",
+    "unban",
+    "unpause",
+    "field history"
+   ],
+   "note": "Reactivate button clears ban/pause, sets Active (L2347/L2396); field history incl. status/financial/email (L2350); long-text Ban Notes not tracked (L2353)."
+  },
+  {
+   "key": "WAGR-159",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2095",
+    "L2389"
+   ],
+   "search_terms": [
+    "pause reason",
+    "pause button",
+    "referrer pause"
+   ],
+   "note": "Pause reasons from mockup kept (L2095); pause automation built (L2389)."
+  },
+  {
+   "key": "WAGR-160",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1978"
+   ],
+   "search_terms": [
+    "player status",
+    "core details",
+    "profile status"
+   ],
+   "note": "Statuses Pending/Active/Inactive/Banned (L1978). Profile Status removal is from client call per comment."
+  },
+  {
+   "key": "WAGR-161",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1989",
+    "L2336",
+    "L2339",
+    "L2341"
+   ],
+   "search_terms": [
+    "primary referrals",
+    "related list",
+    "columns",
+    "deal name",
+    "payment sent"
+   ],
+   "note": "Two lists primary/secondary (L1989, L2339) supported. Candidate B04-03: Sep 2 column changes (Operator->Deal Name, keep Payment Sent, show Status) not on ticket."
+  },
+  {
+   "key": "WAGR-162",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2206",
+    "L2207",
+    "L2359",
+    "L2275"
+   ],
+   "search_terms": [
+    "referral information",
+    "no referrer",
+    "secondary referrer",
+    "rearrange"
+   ],
+   "note": "244 complete (L2359); referral notes added to Log Sign Up (L2275) matches comment."
+  },
+  {
+   "key": "WAGR-163",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2238",
+    "L2309",
+    "L2310",
+    "L2911"
+   ],
+   "search_terms": [
+    "e-transfer email",
+    "email field",
+    "personemail"
+   ],
+   "note": "Sign-up shows standard Email (L2309), label stays 'Email' (L2310), confirmed populated (L2911)."
+  },
+  {
+   "key": "WAGR-164",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2203",
+    "L2267",
+    "L2270"
+   ],
+   "search_terms": [
+    "first wager date",
+    "log sign up popup"
+   ],
+   "note": "242 done (L2267). Comment's auto-complete when filled matches L2270."
+  },
+  {
+   "key": "WAGR-165",
+   "status": "Done",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2305",
+    "L2306",
+    "L2307",
+    "L2308",
+    "L3040"
+   ],
+   "search_terms": [
+    "fraud flag",
+    "new status",
+    "write-off",
+    "archived"
+   ],
+   "note": "Done is consistent with L3040 (Sep 24). The Sep 1 new scope (Write-off checkbox; confirmed fraud + no payment -> Archived, L2308) is captured in the ticket comment; write-off design continues in WAGR-466. Verify the archive/write-off logic was built, since L3040 says the flag was implemented under another ticket."
+  },
+  {
+   "key": "WAGR-166",
+   "status": "Cancelled",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2858",
+    "L2859",
+    "L3037",
+    "L3192"
+   ],
+   "search_terms": [
+    "brand ambassador",
+    "players related list",
+    "166"
+   ],
+   "note": "Cancelled is consistent with L2859/L3192 (close out; client finds it not useful)."
+  },
+  {
+   "key": "WAGR-167",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L2102",
+    "L2298",
+    "L2480"
+   ],
+   "search_terms": [
+    "source code",
+    "shortcode",
+    "source"
+   ],
+   "note": "Source shortcode drives name and external ID (L2102, L2480)."
+  },
+  {
+   "key": "WAGR-168",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L2185",
+    "L2168",
+    "L2335",
+    "L2167"
+   ],
+   "search_terms": [
+    "primary referrals",
+    "secondary referrals",
+    "rollup",
+    "DLRS",
+    "completed"
+   ],
+   "note": "DLRS approach supported (L2168 tier2; comment Aug 31). Candidate B04-04: completed-only counting rule (L2335) not stated on ticket."
+  },
+  {
+   "key": "WAGR-169",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1942",
+    "L1943"
+   ],
+   "search_terms": [
+    "assignment cap",
+    "link code",
+    "link object"
+   ],
+   "note": "Assignment Cap rename, 0/blank = unlimited, Link Code non-unique (L1942/L1943)."
+  },
+  {
+   "key": "WAGR-170",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1945",
+    "L3004"
+   ],
+   "search_terms": [
+    "links related list",
+    "inline toggle",
+    "edit links"
+   ],
+   "note": "L1945 (proposed): table view, mass edit, inline toggle may fall back to edit button; L3004: no delete confirmation in link editor."
+  },
+  {
+   "key": "WAGR-171",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "no_transcript_support",
+   "support_ledger_ids": [],
+   "search_terms": [
+    "inactive banner",
+    "referrer inactive",
+    "banner"
+   ],
+   "note": "Ticket created from Taryn's request. Ledger has the Inactive referrer status (L1981, L2250) and a decided PAUSED banner (L2392) but nothing on an Inactive banner. See gaps_noticed for the Paused banner."
+  },
+  {
+   "key": "WAGR-172",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L0884",
+    "L1660"
+   ],
+   "search_terms": [
+    "effective start date",
+    "effective end date",
+    "deal notes"
+   ],
+   "note": "Ticket says 'not confirmed in transcript' but L1660 (Aug 11) keeps Effective End Date on the record, filled on close. Lifecycle dates now tracked in WAGR-486."
+  },
+  {
+   "key": "WAGR-173",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1940",
+    "L1663",
+    "L1664",
+    "L1665",
+    "L1785"
+   ],
+   "search_terms": [
+    "pitch link",
+    "payout model",
+    "rev share",
+    "monthly cap",
+    "qualifying action"
+   ],
+   "note": "One pitch link per deal (L1940); hybrid -> rev share % (L1663, answers the Aug 27 Rev Share comment question); monthly cap 0=unlimited (L1664). Later commercial-terms versioning (L2502, L3415+) tracked elsewhere."
+  },
+  {
+   "key": "WAGR-174",
+   "status": "Jumpr Review",
+   "phase": "1",
+   "classification": "supported",
+   "support_ledger_ids": [
+    "L1668"
+   ],
+   "search_terms": [
+    "deal rep assignment",
+    "related list",
+    "read-only",
+    "CMS sync"
+   ],
+   "note": "Read-only, CMS-synced placeholder (L1668). Lead only: L2708 (Sep 18, client-asked-not-agreed) - Kobi said the assigned link cannot be shown on the rep assignment list because link assignment lives in the CMS, yet the ticket's column list includes Link ID/Link Code/Tracking URL. Confirm which columns were actually built."
+  },
+  {
+   "key": "WAGR-175",
+   "status": "Done",
+   "phase": "1",
+   "classification": "candidate_variance",
+   "support_ledger_ids": [
+    "L1662",
+    "L1940"
+   ],
+   "search_terms": [
+    "priority tier",
+    "blacklisted",
+    "primary",
+    "secondary"
+   ],
+   "note": "Candidate B04-02: client listed Primary, Secondary, Blacklisted (L1662); ticket and build have Primary, Secondary only."
+  }
+ ],
+ "variances": [
+  {
+   "temp_id": "B04-01",
+   "category": "V3",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Player",
+   "title": "Player ban: Jira says ban reason was cut, but the Aug 25 client meeting accepted player ban reasons",
+   "jira": [
+    {
+     "key": "WAGR-156",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-176 — Player: Ban Automation",
+     "quote": "No Ban Reason/Notes modal for Player — explicitly cut (\"we don't need those restriction detail fields,\" reasoning inferred from flagged Sign Ups instead, just a banner).",
+     "quote_source": "comment (author not recorded) 2026-09-03"
+    },
+    {
+     "key": "WAGR-154",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+     "quote": "No Ban Reason/Notes modal for Player — explicitly cut (\"we don't need those restriction detail fields,\" reasoning inferred from flagged Sign Ups instead, just a banner).",
+     "quote_source": "comment (author not recorded) 2026-09-03"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2092",
+     "date": "2026-08-25",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+     "speakers": "Kobi Kunasekaran; Lina Ceniccola; Emily Vandenberg",
+     "timestamp": "00:17:10",
+     "line_start": 308,
+     "quote": "Lina Ceniccola: I think it looks fine. / Kobi Kunasekaran: Okay. So if these are good like we can start with these again like we can always change them up later too. / Emily Vandenberg: Perfect."
+    },
+    {
+     "ledger_id": "L2257",
+     "date": "2026-09-01",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:10:11",
+     "line_start": 200,
+     "quote": "Kobi Kunasekaran: Um, and this is honestly I think it's going to be almost the same logic as what whatever it is that you're building for refer. So we might just be able to uh copy the same thing. / Taryn Reithofer: Yes. / Kobi Kunasekaran: Maybe the reasons might be different for player versus referer ... / Kobi Kunasekaran: let's just use their mockup values as a starting point and build that out. / Taryn Reithofer: Okay."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L1980",
+     "date": "2026-08-18",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+     "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+     "timestamp": "01:26:54",
+     "line_start": 1468,
+     "quote": "Kobi Kunasekaran: ...So, the band status on the player is going to be manually done by somebody. / Kobi Kunasekaran: ...Like we don't necessarily need to automate or restrict creation of the signup or anything based off of the player status at least at this point. / Emily Vandenberg: Yeah, I don't think so. And it would be it would almost be / Kobi Kunasekaran: So those fields uh are we saying like we don't need those like restriction detail fields for / Joyce Kiddell: correct. it. / Joyce Kiddell: We should have some sort of like banner at the top though."
+    },
+    {
+     "ledger_id": "L2588",
+     "date": "2026-09-15",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1c7jrcIZi-m-zYNVeSrkzols_CABo5p5IBp_0r1kBfUg/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:06:46",
+     "line_start": 168,
+     "quote": "Taryn Reithofer: Some of it's very easy like just removing a field or whatever and some of it needs more of a discussion like she had mentioned on the um player record page under ban and reactivate reactivate button automation. She she asked you to refresh your memory. Did we land on no reason code for the button B which is / Kobi Kunasekaran: I don't remember. People have to check on the calls. / Taryn Reithofer: from from my notes it was it was we landed on no reason and I have that in in the writing too. / Kobi Kunasekaran: way I like I think either either direction is fine with me. I just I just don't remember."
+    },
+    {
+     "ledger_id": "L2669",
+     "date": "2026-09-17",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:22:19",
+     "line_start": 445,
+     "quote": "Kobi Kunasekaran: if I'm not mistaken, like we decided on the ban and one of the banned reasons was fraud. / Taryn Reithofer: So I think for for refer we kept the uh ban reasons / Taryn Reithofer: and that one's confirmed fraud there. But for player we decided to keep it simple and not have the reasons and it was just a simple ban. / Kobi Kunasekaran: you can check let's check this like outside like let me know loop back around on this."
+    },
+    {
+     "ledger_id": "L2687",
+     "date": "2026-09-17",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+     "speakers": "Kobi Kunasekaran",
+     "timestamp": "00:24:07",
+     "line_start": 465,
+     "quote": "Kobi Kunasekaran: I wouldn't rely on it being the checkbox. If it if they're gonna ban players, 99% they're gonna need to know like why the player was banned. So, either we would have like a screen flow to drive that behavior and capture the reason or it was supposed to be tied to the uh the ban button along with the reason that comes with the ban. Um, and we just need to confirm either or."
+    }
+   ],
+   "what_differs": "The Sep 3 comments on WAGR-156/154 base 'no player ban reason' on the Aug 18 cut of restriction detail fields. On Aug 25 WagerTech accepted the player ban reasons from the mockup as a starting list, and on Sep 1 Kobi told Taryn to build them from the mockup values.",
+   "suggested_action": "Suggestion: confirm with Emily (she asked on Sep 15) whether the Player Ban button captures a reason code. Then either add the reason picklist to the Player ban flow, or record the client's explicit decision on WAGR-156/154 with a transcript link.",
+   "checked_later_meetings": true,
+   "reasoning": "L1980 cut persistent restriction detail fields, not necessarily the ban reason on the button. L2092 (client, tier1, decided) is later and accepts player ban reasons; L2093 also refers to a 'duplicate account' ban reason. Sep 15-17 items (L2588, L2669, L2687) show the team still unsure, with no later resolution in the ledger. Medium confidence because the team's own recollection differs."
+  },
+  {
+   "temp_id": "B04-02",
+   "category": "V2",
+   "severity": "Medium",
+   "confidence": "medium",
+   "feature_area": "Deal",
+   "title": "Deal Priority Tier lacks the 'Blacklisted' value the client specified",
+   "jira": [
+    {
+     "key": "WAGR-175",
+     "status": "Done",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-212 — Deal: Object + Core Details",
+     "quote": "Priority Tier (picklist): Primary, Secondary",
+     "quote_source": "description"
+    },
+    {
+     "key": "WAGR-175",
+     "status": "Done",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-212 — Deal: Object + Core Details",
+     "quote": "Priority Tier → Deactivated: Tier 1, Tier 2, Tier 3. Added: Primary, Secondary",
+     "quote_source": "comment (author not recorded) 2026-08-27"
+    },
+    {
+     "key": "WAGR-133",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-221 — Affiliate Link: Deal Context Fields",
+     "quote": "Priority Tier (picklist, read-only): Primary, Secondary",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L1662",
+     "date": "2026-08-11",
+     "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+     "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+     "speakers": "Joyce Kiddell",
+     "timestamp": "00:48:05",
+     "line_start": 641,
+     "quote": "Joyce Kiddell: ... under priority tier, I had three options. there was like in the documentation I sent you, you should have it too, but it's I think primary, secondary, and then blacklisted. ..."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Joyce listed three Priority Tier options (Primary, Secondary, Blacklisted). WAGR-175 (Done) and WAGR-133 define and build only Primary and Secondary; no Jira issue mentions 'Blacklisted'.",
+   "suggested_action": "Suggestion: confirm with Joyce whether 'Blacklisted' is still wanted. If yes, add the value to Deal Priority Tier (a small change) under a new ticket, since WAGR-175 is Done and must not be reopened.",
+   "checked_later_meetings": true,
+   "reasoning": "Searched the full ledger for 'blacklist' and 'priority tier': only L1662; no later item drops the value. Joyce hedged ('I think') and referenced her documentation, so confidence is medium."
+  },
+  {
+   "temp_id": "B04-03",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "Referrer referral related-list columns: Sep 2 changes not on ticket",
+   "jira": [
+    {
+     "key": "WAGR-161",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-198 — Referrer: Primary Referrals Related List",
+     "quote": "Keep the confirmed columns only: Sign Up, Player, Operator, Proof Status, Payout Type.",
+     "quote_source": "comment (author not recorded) 2026-08-24"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2341",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+     "timestamp": "00:16:37",
+     "line_start": 441,
+     "quote": "Kobi Kunasekaran: ... So instead of operator this could be the deal name because that has the entire string. Uh proof status is fine. Uh this is payment sent. Payment sent is probably fine too. Uh we can always swap it out later. Uh we could add payout type. We don't have payout code, so we can leave that one out. Um there's no roll, so we can leave that one out because we just have two separate lists to show the uh show the role. / Taryn Reithofer: Okay. So, pretty much just operator deal / Kobi Kunasekaran: Yeah. Yeah, I just swap this out with for deal. / Kobi Kunasekaran: I guess that's the only one that and add payout type. Yeah. And then you already added the status."
+    },
+    {
+     "ledger_id": "L2336",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:11:59",
+     "line_start": 375,
+     "quote": "Taryn Reithofer: up record is complete. Um, so I at just a glance I I thought it might be confusing for users if they saw for example two primary referrals in the related list but then only one count in the rollup. So I was thinking perhaps we can put in the field column completion and I added that this morning so that it can surface. / Kobi Kunasekaran: the uh signup status that that serves the same purpose right / Kobi Kunasekaran: So I think status will cover both."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "Ticket's latest column set keeps Operator and has no Payment Sent or Status. On Sep 2 Kobi decided to replace Operator with Deal Name, keep Payment Sent and show the sign-up Status column. WAGR-77 (secondary list, same column set) has the same gap.",
+   "suggested_action": "Suggestion: check the built related lists on the Referrer page; update WAGR-161 and WAGR-77 to the Sep 2 column set (Sign Up, Player, Deal Name, Proof Status, Payment Sent, Payout Type, Status).",
+   "checked_later_meetings": true,
+   "reasoning": "No later ledger item on referral related-list columns. The build may already match (Jumpr Review), so Low severity; the ticket text is stale for review/testing."
+  },
+  {
+   "temp_id": "B04-04",
+   "category": "V5",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Referrer / Brand Ambassador",
+   "title": "Primary/Secondary referral roll-ups: 'completed sign-ups only' rule missing from ticket",
+   "jira": [
+    {
+     "key": "WAGR-168",
+     "status": "Jumpr Review",
+     "assignee": "Taryn Reithofer",
+     "summary": "BUILD-238 — Referrer: Primary/Secondary Referrals Roll-Up Automation",
+     "quote": "recalculate the affected Referrer's count by querying and counting matching Sign Up records fresh each time, rather than incrementing/decrementing, to avoid drift under bulk operations",
+     "quote_source": "description"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L2335",
+     "date": "2026-09-02",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:10:51",
+     "line_start": 366,
+     "quote": "Taryn Reithofer: thing that I thought of this morning because I was grabbing screenshots of the um examples for um primary and secondary referrals rolling up to the highlights um in the referral page. / Taryn Reithofer: And obviously we know it only counts it's set up to only count when the sign / Kobi Kunasekaran: Yeah. Wait, are we doing the So this roll up, is it based on players or based on / Taryn Reithofer: Sign / Kobi Kunasekaran: signups? / Taryn Reithofer: up."
+    }
+   ],
+   "later_or_conflicting_evidence": [
+    {
+     "ledger_id": "L2167",
+     "date": "2026-08-28",
+     "meeting_title": "Kobi <> Taryn: Daily Sync - 2026/08/28 09:30 EDT - Notes by Gemini",
+     "doc_link": "https://docs.google.com/document/d/1Xp2Njwm03ch9PKlNI9i5lcy2GGiF48shPotdATJ2zWg/edit",
+     "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+     "timestamp": "00:27:18",
+     "line_start": 273,
+     "quote": "Taryn Reithofer: This one is for some uh the rollup automation to count the numbers at the top um for um primary and secondary referrals. / Kobi Kunasekaran: Okay. Uh because so I understand correctly. So the what they're asking for is just the number of signups that where this person was a primary refer and then the number of signups where this person is a secondary referral. And I'm assuming we're only counting the completed signups, / Taryn Reithofer: Correct."
+    }
+   ],
+   "what_differs": "The meeting states the roll-ups count a sign-up only when it is complete. WAGR-168 description and comments (later switched to DLRS) never state a Status = Completed criterion.",
+   "suggested_action": "Suggestion: add the DLRS relationship criteria (Status = Completed) to WAGR-168 as acceptance criteria so review and UAT test it.",
+   "checked_later_meetings": true,
+   "reasoning": "Taryn says it is set up this way (L2335), so the risk is test coverage, not a wrong build. L2167 (tier2) shows the same rule on Aug 28."
+  },
+  {
+   "temp_id": "B04-05",
+   "category": "V3",
+   "severity": "Low",
+   "confidence": "medium",
+   "feature_area": "Player",
+   "title": "Player status date fields hidden from Player page on Sep 24; ticket still records them added",
+   "jira": [
+    {
+     "key": "WAGR-148",
+     "status": "Jumpr Review",
+     "assignee": "Cedrick Infantado",
+     "summary": "BUILD-251 — Player Status: Centralized Status Audit Stamp",
+     "quote": "Player_Account_Page1 | Flexipage | Update Component | Add Account.Player_Status_Last_Updated_By\\__c, Account.Player_Status_Set_Date_\\_c |",
+     "quote_source": "comment (author not recorded) 2026-09-03"
+    }
+   ],
+   "transcript_evidence": [
+    {
+     "ledger_id": "L3011",
+     "date": "2026-09-24",
+     "meeting_title": "Wagertech Internal Sync",
+     "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+     "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+     "timestamp": "00:19:22",
+     "line_start": 387,
+     "quote": "Kobi Kunasekaran: I let's remove those and we'll add it back because the other fields they they were actually part of their / Kobi Kunasekaran: So like the status set date and all those things let's hide it for now. / Cedrick Infantado: I removed them."
+    }
+   ],
+   "later_or_conflicting_evidence": [],
+   "what_differs": "WAGR-148 records adding Status Set Date (and Last Updated By) to the Player page. On Sep 24 Kobi had Cedrick hide the date-tracking fields (e.g. status set date) from the Player system tab until WagerTech asks. WAGR-140's First/Last Completed Sign-Up Date fields may be in the same set.",
+   "suggested_action": "Suggestion: add a comment on WAGR-148 (and WAGR-140 if affected) recording which fields were hidden on Sep 24, so client review does not expect them on the page.",
+   "checked_later_meetings": true,
+   "reasoning": "Hygiene: the change was made live in the call; Jira was not updated. Exact field list hidden is not enumerated in the transcript."
+  }
+ ],
+ "gaps_noticed": [
+  {
+   "ledger_id": "L2392",
+   "topic": "Referrer Paused status banner (yellow)",
+   "note": "Decided Sep 3 (internal): Paused gets a banner like Banned, in yellow. WAGR-171 dropped Paused from scope and says the Paused banner is 'held' in BUILD-235 (WAGR-178), whose Aug 27 comment only asks whether a banner is needed. No ticket records the decision. Searched: 'paused banner', 'yellow', 'banner' + 'paus'."
+  }
+ ],
+ "notes": "All 43 keys in range exist. Later decisions already tracked in other tickets (not raised as variances): Active Operators active-only + rename (WAGR-364/388 vs WAGR-138); pre-activation identity recompute (WAGR-453/448 vs WAGR-139 null-only AC); Currency on Operator (WAGR-385/411 vs WAGR-153). Leads: WAGR-174 link columns vs L2708; WAGR-165 write-off/archive logic built?; WAGR-157 payout-hold not ticketed (prototype-only); WAGR-137 threshold reset from 2 days to 90."
+}
