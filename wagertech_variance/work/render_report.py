@@ -30,8 +30,21 @@ for v in M["variances"]:
         for c in r.get("live_jira",[]) or []:
             for j in v.get("jira",[]):
                 if j.get("key")==c.get("key") and c.get("status"): j["live_status"]=c["status"]
+    if v.get("severity")=="Info": v["severity"]="Low"
     if r and r["verdict"]=="rejected": rejected.append(v)
     else: final.append(v)
+DUPS={k:d for k,d in json.load(open(f"{B}/work/duplicates.json")).items() if not k.startswith("_")} if os.path.exists(f"{B}/work/duplicates.json") else {}
+byid={v["var_id"]:v for v in final+rejected}
+folded=[]
+for sec,d in DUPS.items():
+    sv=byid.get(sec); pv=byid.get(d["primary"])
+    if not sv or not pv: continue
+    pv.setdefault("also_reported_as",[]).append(f"{sec} ({sv['category']}, {sv['verification']})")
+    sv["folded_into"]=d["primary"]; sv["verification"]=f"duplicate: folded into {d['primary']}"
+    folded.append(sv)
+    if sv in final: final.remove(sv)
+    if sv in rejected: rejected.remove(sv)
+json.dump({"final":final,"rejected":rejected,"folded":folded},open(f"{B}/work/final_variances.json","w"),indent=1)
 final.sort(key=lambda v:(AREA_ORDER.index(v["feature_area"]) if v.get("feature_area") in AREA_ORDER else 99,SEV_ORDER.get(v["severity"],3),v["var_id"]))
 def jl(k): return f"[{k}](https://jumpr.atlassian.net/browse/{k})"
 def esc(s): return (s or "").replace("|","\\|").replace("\n"," ")
@@ -51,7 +64,7 @@ if summ.get("patterns"):
     for p in summ["patterns"]: L.append(f"- {p}")
 if summ.get("headline"): L.append(f"\n{summ['headline']}\n")
 # method & coverage
-vs=Counter(v.get("verification") for v in M["variances"]); 
+vs=Counter(v.get("verification") for v in final+rejected); 
 L.append("\n## 2. Method and coverage\n")
 read=[r for r in index if r["status"]=="read"]; empty=[r for r in index if r["status"].startswith("empty")]; dups=[r for r in index if r["status"].startswith("duplicate")]
 excl=[r for r in index if r["status"].startswith("excluded")]
@@ -63,7 +76,10 @@ L.append(f"- **Duplicates/mirrors noted and removed:** {len(dups)} doc copies (s
 L.append(f"- **Docs excluded:** {len(excl)} non-transcript WagerTech docs (PRD, SOW, design plans, build walkthrough docs, specs, checklists) and 9 Jumpr-internal meetings with no separable WagerTech delivery content (see Appendix B).")
 L.append("- **Meetings with no transcript at all (Calendar cross-check, Kobi's and Miko's calendars):** 20 Jul 2026 'Wagertech <> Jumpr: Deal Rep Assignment' (5 attendees, no notes doc); 16 Sep 2026 Redeposits Discovery (placeholder only); 16 Jun 'Wagertech prep' and 1 Oct 'Waleed <> Kobi' (internal, no doc). 15 other calendar entries are single-attendee focus blocks. 40 of 58 calendar-attached Gemini originals are not shared with miko@; folder copies were used instead.")
 L.append(f"- **Jira:** all 505 WAGR issues pulled in full (fields, custom fields, links, all 493 comments) on 2026-10-03; 326 not Done. Key gaps WAGR-126/128/129/394/442 do not exist.")
-L.append(f"- **Verification:** every High and Medium variance and a 20% sample of Low were re-checked by an independent verifier that re-fetched the Google Doc and the live Jira issue. Results: "+", ".join(f"{k}: {n}" for k,n in vs.items())+".")
+vc=Counter(d["verdict"] for d in ver.values())
+orig={v["var_id"]:(v.get("severity_original") or v["severity"]) for v in M["variances"]}
+dg=Counter((orig[k],d.get("new_severity") or orig[k]) for k,d in ver.items() if d["verdict"]=="downgraded")
+L.append(f"- **Verification:** every High and Medium variance ({len([k for k in ver if orig[k]!='Low'])}) and a 20% sample of Low ({len([k for k in ver if orig[k]=='Low'])}, every 5th) were re-checked by an independent verifier that re-fetched the Google Doc and the live Jira issue: {len(ver)} claims checked — confirmed {vc.get('confirmed',0)}, downgraded {vc.get('downgraded',0)} (High→Medium {dg.get(('High','Medium'),0)}, Medium→Low {dg.get(('Medium','Low'),0)}, same severity with lower confidence or narrower claim {sum(n for (a,b),n in dg.items() if a==b)}), rejected {vc.get('rejected',0)}. {len(folded)} duplicate reports (same finding from both matching lenses) were folded into their primary. {len([v for v in final if v['verification'].startswith('not in')])} Low variances were outside the sample and carry the finder's evidence only. Severity and confidence shown everywhere in this report are the post-verification values.")
 if summ.get("limits"):
     L.append("- **Known limits:** "+" ".join(summ["limits"]))
 # register
@@ -88,7 +104,7 @@ for v in final:
         L.append(f"- **Later / conflicting evidence:** {e.get('meeting_title')} — {e.get('date')} — [doc]({e.get('doc_link')}) ({e.get('ledger_id','')})  \n  > {esc(e.get('quote'))}")
     L.append(f"- **What differs:** {v.get('what_differs')}")
     L.append(f"- **Suggested action:** {v.get('suggested_action')}")
-    L.append(f"- **Confidence:** {v.get('confidence')}"+(f" · **Verifier note:** {v.get('verification_reason')}" if v.get('verification_reason') else "")+"\n")
+    L.append(f"- **Confidence:** {v.get('confidence')}"+(f" · **Verifier note:** {v.get('verification_reason')}" if v.get('verification_reason') else "")+(f"\n- **Also reported as:** {'; '.join(v['also_reported_as'])} (same finding reported a second time; folded here)" if v.get('also_reported_as') else "")+"\n")
 # Gaps section (project lead request): every ask/module with no Jira ticket
 L.append("\n## 3b. Gaps: decided asks and modules with no Jira ticket\n")
 v1=[v for v in final if v["category"]=="V1"]
@@ -146,6 +162,8 @@ for date,title,link,d in dis:
 # Appendix A rejected
 L.append("\n## Appendix A. Rejected variances (with verifier reason)\n")
 for v in rejected: L.append(f"- **{v['var_id']}** ({v['category']}, {v['feature_area']}): {v['title']} — **rejected:** {v.get('verification_reason')}")
+L.append("\n**Duplicates folded (same finding reported by both matching lenses):**\n")
+for v in folded: L.append(f"- **{v['var_id']}** ({v['category']}, {v['feature_area']}) folded into **{v['folded_into']}** — {DUPS[v['var_id']]['why']}")
 L.append("\n## Appendix A2. Unverified leads (did not meet the citation standard)\n")
 for l in M.get("unverified_leads",[]): L.append(f"- ({l.get('feature_area')}) {l.get('title')} — {l.get('why_unverified')} — ledger {', '.join(l.get('ledger_ids',[]) or [])}; Jira {', '.join(l.get('jira_keys',[]) or [])}")
 # Appendix B index
@@ -161,8 +179,8 @@ open(out,"w").write("\n".join(L))
 cols=["var_id","category","severity","confidence","verification","verification_reason","feature_area","title","jira_keys","jira_status","jira_assignee","jira_quote","transcript_meeting","transcript_date","transcript_speaker","transcript_timestamp","doc_link","transcript_quote","later_evidence","what_differs","suggested_action"]
 with open(f"{B}/output/WagerTech_Variance_Register_{RUN_DATE}.csv","w",newline="") as fh:
     w=csv.writer(fh); w.writerow(cols)
-    for v in final+rejected:
+    for v in final+rejected+folded:
         e=(v.get("transcript_evidence") or [{}])[0]; j=(v.get("jira") or [{}])[0]
         later=" || ".join(f"{x.get('date')} {x.get('meeting_title')}: {x.get('quote')}" for x in v.get("later_or_conflicting_evidence",[]) or [])
         w.writerow([v["var_id"],v["category"],v["severity"],v.get("confidence"),v.get("verification"),v.get("verification_reason",""),v.get("feature_area"),v.get("title"),"; ".join(x.get("key","") for x in v.get("jira",[])),"; ".join(x.get("status","") for x in v.get("jira",[])),"; ".join(x.get("assignee","") or "" for x in v.get("jira",[])),j.get("quote",""),e.get("meeting_title"),e.get("date"),e.get("speakers"),e.get("timestamp"),e.get("doc_link"),e.get("quote"),later,v.get("what_differs"),v.get("suggested_action")])
-print("wrote",out,"variances",len(final),"rejected",len(rejected))
+print("wrote",out,"variances",len(final),"rejected",len(rejected),"folded",len(folded))

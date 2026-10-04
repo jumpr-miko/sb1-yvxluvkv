@@ -11,17 +11,17 @@
 | Severity | Count |
 |---|---|
 | High | 2 |
-| Medium | 52 |
-| Low | 136 |
+| Medium | 34 |
+| Low | 148 |
 
 
 | Category | Meaning | Count |
 |---|---|---|
-| V1 | Missing ticket | 67 |
-| V2 | Contradiction | 23 |
-| V3 | Stale ticket | 41 |
-| V4 | Status mismatch | 9 |
-| V5 | Detail gap | 29 |
+| V1 | Missing ticket | 66 |
+| V2 | Contradiction | 22 |
+| V3 | Stale ticket | 40 |
+| V4 | Status mismatch | 8 |
+| V5 | Detail gap | 26 |
 | V6 | Scope / phase mismatch | 3 |
 | V7 | Owner mismatch | 0 |
 | V8 | Unresolved open question | 19 |
@@ -41,7 +41,7 @@
 - **Docs excluded:** 31 non-transcript WagerTech docs (PRD, SOW, design plans, build walkthrough docs, specs, checklists) and 9 Jumpr-internal meetings with no separable WagerTech delivery content (see Appendix B).
 - **Meetings with no transcript at all (Calendar cross-check, Kobi's and Miko's calendars):** 20 Jul 2026 'Wagertech <> Jumpr: Deal Rep Assignment' (5 attendees, no notes doc); 16 Sep 2026 Redeposits Discovery (placeholder only); 16 Jun 'Wagertech prep' and 1 Oct 'Waleed <> Kobi' (internal, no doc). 15 other calendar entries are single-attendee focus blocks. 40 of 58 calendar-attached Gemini originals are not shared with miko@; folder copies were used instead.
 - **Jira:** all 505 WAGR issues pulled in full (fields, custom fields, links, all 493 comments) on 2026-10-03; 326 not Done. Key gaps WAGR-126/128/129/394/442 do not exist.
-- **Verification:** every High and Medium variance and a 20% sample of Low were re-checked by an independent verifier that re-fetched the Google Doc and the live Jira issue. Results: downgraded: 49, rejected: 5, confirmed: 23, verification pending (verifier agent failed): 39, not in verification sample (Low): 80.
+- **Verification:** every High and Medium variance (95) and a 20% sample of Low (21, every 5th) were re-checked by an independent verifier that re-fetched the Google Doc and the live Jira issue: 116 claims checked — confirmed 38, downgraded 72 (High→Medium 4, Medium→Low 55, same severity with lower confidence or narrower claim 12), rejected 6. 6 duplicate reports (same finding from both matching lenses) were folded into their primary. 78 Low variances were outside the sample and carry the finder's evidence only. Severity and confidence shown everywhere in this report are the post-verification values.
 
 ## 3. Variance register
 
@@ -159,7 +159,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Update WAGR-435 or WAGR-432 with the 9/30 decision (create link in flow, auto VIP tag, attach to deal) and size it.
 - **Confidence:** medium · **Verifier note:** The variance is real. WAGR-435 still says the VIP link-to-sign-up association is deferred to a future discovery session, and no Jira ticket records the 9/30 design. But the claim overstates 'users create the VIP link inside the flow' as the decision. Later in the same discussion (01:45:56), the direction changed: one default VIP link per deal (Owen adds it at deal creation), the flow finds it and ties it automatically, and creating the link in the flow is only the fallback when the deal has no VIP link. Kobi said this depends on there being 'only one VIP link'. Emily proposed it and Joyce did not explicitly confirm it.
 
-#### VAR-010 · V5 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-010 · V5 · Medium · verification: confirmed
 
 **WAGR-432 (VIP manual entry flow) lacks the VIP rules decided on 2026-09-23/30: BA default, deal lookup filter, duplicate block, complete-in-one-pass**
 
@@ -187,7 +187,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: And if I think same question, if we add a refer to a signup that isn't already tagged as a VIP, who you want to set the refer to be VIP? / Emily Vandenberg: I think it's fine to do it.
 - **What differs:** Meetings decided: the BA on a VIP sign-up defaults to the running user (changeable); the deal lookup lists only Active and Paused deals; a duplicate is the same player and same deal regardless of rep and the flow blocks it; users can fill all fields and complete in the same pass. WAGR-432 (created 09-23, no comments) states none of these rules, and the client has not yet confirmed whether VIP completion validation is the same as standard (L2958).
 - **Suggested action:** Add these rules as acceptance criteria on WAGR-432, and track the open VIP completion-validation confirmation (L2958) on the ticket.
-- **Confidence:** high
+- **Confidence:** high · **Verifier note:** All four 30 Sep VIP rules are said in the transcript. BA defaults to the running user, the deal lookup shows Active and Paused, and duplicates (same player + same deal) are blocked: Kobi agreed to each. WAGR-432 (Open, unassigned, 0 comments, last updated 23 Sep) has none of them. No later meeting reverses them. The 'complete in one pass' item (23 Sep) is weaker but consistent.
 
 #### VAR-003 · V1 · Low · verification: downgraded
 
@@ -249,7 +249,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Update WAGR-473 with the 9/30 rule and record Kobi's check of the SLC flow (L3445). If the flow keys on DRA, add a story to match on Player + Deal and flag a different-rep click for review.
 - **Confidence:** medium · **Verifier note:** Quotes are verbatim, but the 9/30 rule was decided inside the VIP manual sign-up discussion (Kobi: 'VIP all of that is manual. There is no SLC's coming in'). For the SLC flow, Kobi only took an action to check the SLC logic (L3445). So the claimed SLC/WAGR-473 conflict is not confirmed. WAGR-8 is a retired POC demo flow (replaced by WAGR-5), and its own AC says 'same Player + Deal'. The confirmed gap is narrower: the 9/30 VIP duplicate rule (same player + same deal regardless of rep, block and route to the existing sign-up; different rep = fraud signal) is not on WAGR-432/WAGR-420, and WAGR-473 has no comments recording the 9/30 input.
 
-#### VAR-011 · V2 · Low · verification: verification pending (verifier agent failed)
+#### VAR-011 · V2 · Low · verification: confirmed
 
 **WAGR-474 treats 'banned player can still complete a sign-up' as a build gap; 8/18 decided Salesforce does not block sign-ups by player status**
 
@@ -263,7 +263,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: … and then the ban automation, like if you ban somebody, uh, the signups will still flow through. / Kobi Kunasekaran: Uh, it none of that is going to get blocked, but it won't it won't necessarily move the player to an active status. So they'll still remain banned until they're manually unbanned.
 - **What differs:** WAGR-474 implies Salesforce should stop a banned player's sign-up from completing. The 8/18 decision was not to restrict sign-ups by player status in Salesforce (reps see the status and flag); Emily's 'no' referred to the CMS not letting banned players complete. 9/11 confirmed sign-ups still flow for banned players.
 - **Suggested action:** Close this sub-question on WAGR-474 with a reference to the 8/18 decision, or get an explicit new client ask if a Salesforce block is now wanted.
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** The 8/18 transcript (re-fetched) shows Kobi proposing no Salesforce restriction of sign-ups by player status and Emily agreeing. The meeting's own AI summary says banned is 'a signal for internal review rather than a hard block on signups'. Kobi told the client the same on 9/11. No later meeting reverses it. WAGR-474 (0 comments) cites Emily's 8/18 'no' as if Salesforce should block, so it could create a story that contradicts the decision. Severity stays Low because the ticket is a 'confirm with Emily' Decision item, not a committed build.
 
 #### VAR-012 · V2 · Low · verification: not in verification sample (Low)
 
@@ -278,6 +278,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** The ticket scopes only reversing a flag and defers the approach. In the 9/23 sync Kobi agreed to set up the action 'for both process ... confirmation or dismiss'; only the dropdown design was tentative. The ticket is also unassigned and parented to the closed epic WAGR-304.
 - **Suggested action:** Rescope WAGR-429 to an Ops fraud-review action for confirm and dismiss, move it under an active epic and set its phase.
 - **Confidence:** medium
+- **Also reported as:** VAR-020 (V5, not in verification sample (Low)) (same finding reported a second time; folded here)
 
 #### VAR-013 · V3 · Low · verification: not in verification sample (Low)
 
@@ -349,7 +350,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Add a 'superseded by WAGR-155 / WAGR-164' note on WAGR-350 and WAGR-243 so test scripts and training do not use the old rules.
 - **Confidence:** high
 
-#### VAR-016 · V3 · Low · verification: verification pending (verifier agent failed)
+#### VAR-016 · V3 · Low · verification: confirmed
 
 **WAGR-348 (Done) still says no rep-facing surface shows Partner; 09-23 decided reps see partner short code in header and full name on hover**
 
@@ -363,7 +364,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Lina Ceniccola: I think we said to start we can keep all info. / Emily Vandenberg: Okay, you're good with that. / Lina Ceniccola: Yeah.
 - **What differs:** WAGR-348 sets an absolute rule that no rep-facing surface exposes Partner. On 09-23 the client decided reps see the partner short code in the sign-up header and keep the full partner name on deal hover (built as WAGR-422).
 - **Suggested action:** Add a comment on WAGR-348 that the 09-23 decision partly supersedes its AC, and link it to WAGR-422 so UAT scripts do not test the old rule.
-- **Confidence:** high
+- **Confidence:** high · **Verifier note:** Quotes exist verbatim in the 09-23 Weekly Sync doc and, in context, show Lina asking for Partner in the sign-up header, Kobi agreeing to show the short code, and Lina keeping full partner name on deal hover. No later meeting reverses it. WAGR-348 (Done, 0 comments, no links) still states 'No Rep-facing surface exposes Partner'. WAGR-422 holds the new rule but is in Requirements, not built, and is not linked to WAGR-348. Low severity is right: this is a stale-AC / UAT hygiene gap.
 
 #### VAR-017 · V4 · Low · verification: not in verification sample (Low)
 
@@ -407,19 +408,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Change WAGR-4 to Cancelled or move it to the Phase 2 / payouts epic so Phase 1 reporting does not count it as delivered.
 - **Confidence:** high
 
-#### VAR-020 · V5 · Low · verification: not in verification sample (Low)
-
-**WAGR-429 says no decision was made and covers un-flag only; 2026-09-23 Kobi agreed an Ops fraud-review action for both confirm and dismiss**
-
-- **Jira:** [WAGR-429](https://jumpr.atlassian.net/browse/WAGR-429) — Sign-Up: Add fraud un-flag control to Ops view — status Open, assignee unassigned  
-  > Confirm approach before building — no final decision was made on the call. *(description (Constraints / Dependencies))*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-23 — Emily Vandenberg; Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran @ 00:41:43 — [doc](https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit) (line 693, L2933)  
-  > Emily Vandenberg: versus just having a button that would be like the ability to kind of undo the the flag. / Joyce Kiddell: Yep. / Kobi Kunasekaran: Okay. I I guess it could be like uh we'll set it up for both process, right? Like even for confirmation or dismiss. / Kobi Kunasekaran: So like maybe like fraud review and then you can choose from the drop down what you want to go into. Um and then depending on that we can automate the rest.
-- **What differs:** The ticket scopes only reversing a fraud flag and says no approach was decided. In the meeting Kobi agreed to set up the Ops action for both confirm and dismiss, as a 'fraud review' choice that drives the automation.
-- **Suggested action:** Suggestion: add 'confirm' as well as 'dismiss/un-flag' to WAGR-429 scope and record the agreed 'fraud review' dropdown direction (still confirm build detail with Kobi).
-- **Confidence:** medium
-
-#### VAR-021 · V6 · Low · verification: verification pending (verifier agent failed)
+#### VAR-021 · V6 · Low · verification: confirmed
 
 **WAGR-48 SLC layout cleanup is Ready / Phase 1 although the 9/1 sync deferred SLC page cleanup as low priority**
 
@@ -429,7 +418,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Taryn Reithofer: ... Is this page in use at all? / Kobi Kunasekaran: the SLC it is, / Kobi Kunasekaran: but it's more of an admin page right now. So, uh we don't like we do need to clean this up at some point, but uh let let's not worry about this for now. / ... Kobi Kunasekaran: ... because reps aren't looking at this ... we we'll clean it up later when we need to. Um, it's like much much much lower priority.
 - **What differs:** Jira holds the SLC page cleanup as Phase 1, Ready. The team deferred it on 9/1 because reps do not use the SLC page.
 - **Suggested action:** Move the layout part to Phase 2 or the backlog; keep the security item (remove SLC from the rep permission set group) in Phase 1 if still needed.
-- **Confidence:** high
+- **Confidence:** high · **Verifier note:** Quote exists verbatim in the 9/1 Internal Sync transcript (00:03:19) and the Gemini 'Aligned' decisions list says 'SLC page cleanup deprioritized'; no later meeting reverses it; WAGR-48 is still Ready / Phase 1 with only a renumbering comment. The 9/14 move to Ready was part of a bulk workflow migration (63 tickets left 'Phase 1 Build' that day), not a deliberate re-prioritization.
 
 #### VAR-022 · V8 · Low · verification: not in verification sample (Low)
 
@@ -446,7 +435,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 
 ### Deal
 
-#### VAR-023 · V2 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-023 · V2 · Medium · verification: confirmed
 
 **WAGR-412 reframes Emily's 'assigned link' ask as a record hyperlink; the meeting said the assigned affiliate link cannot be shown yet**
 
@@ -460,27 +449,8 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > I believe she had asked you a question um on the deal rep assignment related list if it would be easy lowift to surface the assigned link in this table. Um, / Kobi Kunasekaran: uh at the moment. No, I don't think it's going to be possible. I can follow up. Is is that uh in the document? / So at this point it's not possible but if they want to expand the integration to include that information we may be able to do it in the future.
 - **What differs:** The meeting treated Emily's question as a request to show the assigned affiliate link on the Deal Rep Assignment list and said this is not possible until the CMS integration returns link-assignment data; Kobi was to reply with the reason. WAGR-412 instead describes a clickable link to the underlying record and plans to build it if low lift.
 - **Suggested action:** Rewrite WAGR-412 to the real ask (show the CMS-assigned affiliate link on the DRA list), record that it is blocked on the Phase 2 CMS->SF DRA integration (WAGR-444), and send Emily the reply Kobi committed to. Do not build a record hyperlink as the answer.
-- **Confidence:** high
-
-#### VAR-024 · V2 · Medium · verification: verification pending (verifier agent failed)
-
-**WAGR-462 says Deal CPA feeds referral payouts and backdated terms re-price unpaid Sign-Ups; client confirmed commercial terms are reporting only**
-
-- **Jira:** [WAGR-462](https://jumpr.atlassian.net/browse/WAGR-462) — Commercial Terms — design and user stories — status Requirements, assignee Kobi Kunasekaran  
-  > * Show clearly how the Deal CPA feeds the payouts. This is a dependency for referral payouts and redeposits. *(description)*
-- **Jira:** [WAGR-462](https://jumpr.atlassian.net/browse/WAGR-462) — Commercial Terms — design and user stories — status Requirements, assignee Kobi Kunasekaran  
-  > * A backdated terms change updates unpaid Sign-Ups. It flags paid Sign-Ups for Ops and does not change them. *(description)*
-- **Transcript:** Wagertech <> Jumpr: Referral and Payouts Discovery — 2026-09-25 — Kobi Kunasekaran; Joyce Kiddell @ 01:26:00 — [doc](https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit) (line 1241, L3159)  
-  > Kobi Kunasekaran: Like we talked about like the uh commercial terms on the deal and stuff. Those are all at the like ops level reporting. Like this has no implication on any like referral payouts or anything like that, right? / Joyce Kiddell: No,
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Kobi Kunasekaran @ 01:03:47 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 1042, L3415)  
-  > Kobi Kunasekaran: Um and from our conversation, we said that this information um one it needs to get stamped on the signup. So when you report on a sign up, you can see what the commercial terms was at the time the sign up first bet was completed.
-- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-25 — [doc](https://docs.google.com/document/d/1MRQrsyv_XCgKEIoXR2_t4hTUfH3t5f-lGztLxIfTWZg/edit) (L3085)  
-  > Kobi Kunasekaran: ...one of the outstanding things is like is the payout dependency like how they plan on using the information from the deal in terms of CPA and how that ties to payouts. So I think once we resolve that, this will be build ready....
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (L2501)  
-  > Joyce Kiddell: no, I'm just tying it back to like each each signup h is represents um a CPA for us, right? Like a conversion where we get paid and that conversion amount can only tie back to the terms set out at the deal level. / Kobi Kunasekaran: but only like the the commercial terms that were set on the deal at the time the signup was like completed / Joyce Kiddell: Correct.
-- **What differs:** WAGR-462 treats Deal commercial terms as a payout dependency (re-pricing unpaid Sign-Ups, flagging paid ones). On 2026-09-25 Joyce confirmed the deal commercial terms are ops-level reporting only with no impact on referral payouts; on 2026-09-30 the terms were described as a reporting stamp on the Sign-Up.
-- **Suggested action:** Update WAGR-462: state that commercial terms are reporting-only for BA referral payouts, remove or reword the payout-dependency and 'paid Sign-Ups' rules, and keep only the stamping/reporting behaviour. Confirm with Emily that the operator-CPA revenue view (L2501) is the only use.
-- **Confidence:** medium
+- **Confidence:** high · **Verifier note:** The quote exists in the 18 Sep 2026 Internal Sync. In context, Kobi says the assigned affiliate link cannot be shown on the DRA list because the CMS does the link assignment and the scoped integration does not return it. He also says he will reply to Emily with that reason. WAGR-412 (Open, 0 comments, not updated since 18 Sep) describes a link to the underlying record and says to build it if low lift. No later meeting reverses this: on 29 Sep, inbound DRA data was put in Phase 2 (WAGR-444, Requirements), which supports the 'blocked' framing.
+- **Also reported as:** VAR-046 (V5, confirmed) (same finding reported a second time; folded here)
 
 #### VAR-026 · V2 · Medium · verification: confirmed
 
@@ -495,6 +465,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** The ticket (created 09-25) says nobody answered the naming proposal and the multi-state rule is not settled. On 09-23 Emily and Lina agreed to region-specific naming (province/state, CA/US countrywide) and to keep 'multi' only where no regional breakout exists; on 09-24 Kobi said multi-state is going away and stated the market code convention.
 - **Suggested action:** Update WAGR-471 with the 09-23 decision (L2965) and the 09-24 code convention (L3029). Keep open only the unresolved parts: whether any 'multi' value survives (L2965 vs L3029 differ slightly) and picklist values with no CMS equivalent. Then unblock WAGR-97 / WAGR-419.
 - **Confidence:** medium · **Verifier note:** Quote found in the 09-23 client sync (lines 1143-1162). Kobi proposed the VID-style region naming instead of 'multistate'. Emily said 'Yeah. Yeah.', asked for the Ontario vs Alberta regional breakout, and said 'multi' stays only where no breakout exists. Lina said 'I agree'. On 09-24 Kobi said internally that multi-state 'is going away' because of that call. No later meeting reverses this. WAGR-471 was created 09-25, has 0 comments, and still says the rule is not settled. The ticket's sub-questions on matching and on picklist values with no CMS equivalent are still open, so 'medium' confidence is correct.
+- **Also reported as:** VAR-032 (V5, downgraded) (same finding reported a second time; folded here)
 
 #### VAR-027 · V3 · Medium · verification: downgraded
 
@@ -580,7 +551,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Record the 2026-09-23 decision on WAGR-471 and close or narrow it to the leftover picklist-mapping question; update WAGR-223/WAGR-224 so country-wide deals show the country code, not 'Multi-state'; unblock WAGR-97.
 - **Confidence:** medium · **Verifier note:** The variance is real. The 2026-09-23 client call settled region-specific Deal naming, and the 2026-09-24 internal call confirmed that 'multi-state' is going away. But WAGR-471 is still Open with its 'not settled' text, and WAGR-223/WAGR-225 still output 'Multi-state'. Jira already covers part of it: Kobi's 2026-09-29 comment on WAGR-101 (Done) records that WagerTech confirmed one market per Deal, with country-wide = US/CA via Region_Code__c and non-countrywide multi-state US = one Deal per state. WAGR-471 also keeps an open sub-question that the call did not answer: picklist values with no CMS equivalent.
 
-#### VAR-033 · V5 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-033 · V5 · Medium · verification: confirmed
 
 **WAGR-462 (Commercial Terms) lacks the rules decided on 2026-09-30 and no build stories exist**
 
@@ -606,9 +577,9 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: Um and from our conversation, we said that this information um one it needs to get stamped on the signup. So when you report on a sign up, you can see what the commercial terms was at the time the sign up first bet was completed.
 - **What differs:** The 2026-09-30 client sync decided: a custom object under the Deal, only one active term per period with an error on overlap, a 'manage commercial term' path to correct a term or create a new one, CPA and payout model changes create a new term, sign-ups from a new term's start date tie to it, and per-field tracking (for example deposit range) is deferred. WAGR-462 (last written 2026-09-25) states none of these rules, and no Commercial Terms build stories exist in Jira.
 - **Suggested action:** Add the 2026-09-30 rules to WAGR-462 as acceptance criteria and create the build stories (Kobi drafted them per L2728). Record that per-field tracking is deferred.
-- **Confidence:** high
+- **Confidence:** high · **Verifier note:** All six 2026-09-30 quotes are in the re-fetched doc and, read in context, are agreed decisions (Kobi: 'the separate object is warranted'; Joyce agreed to one active term; correct-vs-new path agreed). No later meeting is in the ledger (latest is 2026-09-30). Live WAGR-462 (Requirements, Kobi, 0 comments, last updated 2026-09-30 00:20, before the 11:30 sync) does not have the no-overlap rule, the correct-vs-new path, CPA/payout-model as the new-term trigger, or the per-field tracking deferral. No Commercial Terms build story exists in Jira; WAGR-507 (2 Oct) only adds a placeholder handoff to a 'separate Commercial Terms flow'. One small overstatement: WAGR-462 already has dated history and 'Sign-Up keeps terms in effect on First Wager Date', so it does not omit every rule.
 
-#### VAR-034 · V5 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-034 · V5 · Medium · verification: confirmed
 
 **Priority Tier in Jira has Primary and Secondary only; the client asked for Primary, Secondary and Blacklisted**
 
@@ -620,43 +591,9 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Joyce Kiddell: ... under priority tier, I had three options. there was like in the documentation I sent you, you should have it too, but it's I think primary, secondary, and then blacklisted. ...
 - **What differs:** On 2026-08-11 Joyce gave three Priority Tier values (primary, secondary, blacklisted) and Kobi said he would update the fields. WAGR-175 (Done) and the 2026-08-27 comment add only Primary and Secondary; no issue mentions Blacklisted.
 - **Suggested action:** Confirm with WagerTech whether 'Blacklisted' is still needed; if yes, add it to Priority_Tier__c and to WAGR-133 (read-only mirror on Affiliate Link).
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** The quote is in the 2026-08-11 transcript (line 641), with filler words dropped. In context, Joyce goes through the Deal mockup and lists Priority Tier values primary, secondary and blacklisted. Kobi then says 'I'll update the fields.' No later meeting mentions Priority Tier values or Blacklisted. In live Jira, WAGR-175 (Done) and its 2026-08-27 comment have only Primary and Secondary, and WAGR-133 has the same values. A JQL search for blacklist/blacklisted returns 0 issues. Confidence stays medium because Joyce hedged ('I think') and pointed to her own documentation. That doc (1IIfaPIol2HmX8v09gw0SKQyCuoHTiwrJxdDNc7qtvB8, the source cited on WAGR-175) returned 'not found', so I could not check it.
 
-#### VAR-035 · V5 · Medium · verification: verification pending (verifier agent failed)
-
-**Deal currency meaning was defined by the client on 2026-08-27, but Jira still lists 'final currency semantics' as open and defaults Canada deals to CAD**
-
-- **Jira:** [WAGR-39](https://jumpr.atlassian.net/browse/WAGR-39) — SF → CMS Integration: Deals & Affiliate Links (v2 webhook) — status Requirements, assignee unassigned  
-  > * Final Deal currency semantics. *(description)*
-- **Jira:** [WAGR-39](https://jumpr.atlassian.net/browse/WAGR-39) — SF → CMS Integration: Deals & Affiliate Links (v2 webhook) — status Requirements, assignee unassigned  
-  > * Working V1 currency mapping: CMS `currency` ← Deal `CurrencyIsoCode`; retain as explicit WagerTech confirmation. *(description)*
-- **Jira:** [WAGR-507](https://jumpr.atlassian.net/browse/WAGR-507) — Deal — Guided New Deal creation flow (Draft + optional Commercial Terms handoff) — status Open, assignee Cedrick Infantado  
-  > * Canada → CAD; *(description)*
-- **Transcript:** Emily / Kobi (client working session) — 2026-08-27 — Emily Vandenberg @ 00:00:49 — [doc](https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit) (line 71, L2123)  
-  > Emily Vandenberg: So the commercial terms of the deal which would be labeled in the currency field don't always match what we would pay have the currency we would pay out to the sign up. So that's just telling you how they're going to pay like what funds they're going to pay us in. And typically they pay us in USDU and it's our affiliates. So that can't be assumed. Currency to currency can't be assumed.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (L2503)  
-  > Emily Vandenberg: I pinged her. Yeah, I think like for now it would be fine, but / Joyce Kiddell: Yeah, maybe it's something that we don't deal with until we have to deal with it. / Kobi Kunasekaran: … If you want the same deal, like if you want the ability for the same deal to change the currency, that's when we'll have to have a chat. But uh we're okay with creating a new deal.
-- **What differs:** Emily stated that the deal currency is the currency the operator pays WagerTech in (typically USD) and must not be assumed to be the currency WagerTech pays out on the sign-up. WAGR-39 keeps currency semantics as an open question, sends Deal currency to the CMS as 'currency', and WAGR-507 defaults Canada deals to CAD.
-- **Suggested action:** Write the 2026-08-27 definition into WAGR-39/WAGR-454/WAGR-507. Confirm with WagerTech what the CMS uses the 'currency' value for, and whether the Canada→CAD default is correct given operators usually pay in USD.
-- **Confidence:** medium
-
-#### VAR-036 · V5 · Medium · verification: verification pending (verifier agent failed)
-
-**Client asked for options and effort to merge or correct an erroneously created deal; Jira only parks sign-up remediation and lists sign-up movement as out of scope**
-
-- **Jira:** [WAGR-463](https://jumpr.atlassian.net/browse/WAGR-463) — Deal lifecycle/CMS — close remaining design and contract follow-ups — status Requirements, assignee Kobi Kunasekaran  
-  > 7. Keep late-click / incorrect-Deal Signup remediation as a separate operational/business-process decision where still relevant. *(description)*
-- **Jira:** [WAGR-447](https://jumpr.atlassian.net/browse/WAGR-447) — Deal — Archive & Replace: Archived status, makeup release and successor relationship — status Requirements, assignee unassigned  
-  > * Moving Sign-Ups, DRAs or Affiliate Links to a successor. *(description)*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — Kobi Kunasekaran @ 00:39:57 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (line 469, L2516)  
-  > Kobi Kunasekaran: … So, um yeah, I I'll think it through. I'll provide the option and we can go from there. / Kobi Kunasekaran: I think we're good. Yeah, and I'll get back to you on options on how we're going to design like the deal with the commercial terms changing and what that could look like, but I think I don't think that's going to block the CMS integration
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — Emily Vandenberg; Kobi Kunasekaran @ 00:36:21 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (line 443, L2514)  
-  > Kobi Kunasekaran: Hey, saying like the signups that have come in in the direct version uh sorry in the old version should be reallocated to the new version so that when you report on it everything looks like it came from the new deal / Kobi Kunasekaran: … I think we talked about like a superseded field. So, if you mark that this deal takes over for another deal, um, you just relate it back. / Emily Vandenberg: Yeah, for me like what I was saying is like a quick functionality to merge. Like if it was an error, like you know what I mean? You can like merge. But maybe like think it through and just like kind of let us know what option and like effort looks like and we can take it from there.
-- **What differs:** On 2026-09-11 Emily asked for a quick way to merge a deal created in error so historical sign-ups report against the corrected deal, and asked for options and effort; Kobi committed to provide options. WAGR-447 and WAGR-39 list moving sign-ups to a successor as out of scope, and WAGR-463 only keeps 'incorrect-Deal Signup remediation' as a separate decision. No ticket tracks giving the client the options/effort.
-- **Suggested action:** Add an explicit follow-up (owner, date) to WAGR-463 or a Holding Pen ticket for 'erroneous deal correction/merge: options and effort for WagerTech', and tell the client that V1 Archive & Replace does not move sign-ups.
-- **Confidence:** medium
-
-#### VAR-037 · V8 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-037 · V8 · Medium · verification: confirmed
 
 **Open question: do VIP sign-ups need a Deal Rep Assignment, or should DRAs be bypassed/auto-created for VIP users?**
 
@@ -666,7 +603,27 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: Do we just create a deal assignment when they're creating VIP signups if one doesn't exist? / Kobi Kunasekaran: I just need to talk through that. I don't know if that's a requirement or we just need to bypass it for VIP. But for now, let's assume that DR is required
 - **What differs:** On 2026-09-30 the team left open whether VIP sign-ups bypass the DRA requirement or get auto-created DRAs on every deal, assuming a DRA is required for now. No later meeting answers it, and the VIP tickets (WAGR-420, WAGR-432) do not mention DRAs.
 - **Suggested action:** Add the question to WAGR-432 (VIP manual entry) or WAGR-420 and get a WagerTech answer before the VIP flow is built, because DRAs come from the CMS only in Phase 2 (WAGR-444).
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** Quote is verbatim in the 30 Sep 2026 Weekly Sync; the DRA requirement for VIP sign-ups was left open (assume required for now) with no owner or action item; no later meeting is in the ledger; no WAGR ticket (WAGR-420/431/432/435/405/444/122) addresses VIP DRA handling.
+
+#### VAR-024 · V2 · Low · verification: downgraded
+
+**WAGR-462 says Deal CPA feeds referral payouts and backdated terms re-price unpaid Sign-Ups; client confirmed commercial terms are reporting only**
+
+- **Jira:** [WAGR-462](https://jumpr.atlassian.net/browse/WAGR-462) — Commercial Terms — design and user stories — status Requirements, assignee Kobi Kunasekaran  
+  > * Show clearly how the Deal CPA feeds the payouts. This is a dependency for referral payouts and redeposits. *(description)*
+- **Jira:** [WAGR-462](https://jumpr.atlassian.net/browse/WAGR-462) — Commercial Terms — design and user stories — status Requirements, assignee Kobi Kunasekaran  
+  > * A backdated terms change updates unpaid Sign-Ups. It flags paid Sign-Ups for Ops and does not change them. *(description)*
+- **Transcript:** Wagertech <> Jumpr: Referral and Payouts Discovery — 2026-09-25 — Kobi Kunasekaran; Joyce Kiddell @ 01:26:00 — [doc](https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit) (line 1241, L3159)  
+  > Kobi Kunasekaran: Like we talked about like the uh commercial terms on the deal and stuff. Those are all at the like ops level reporting. Like this has no implication on any like referral payouts or anything like that, right? / Joyce Kiddell: No,
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Kobi Kunasekaran @ 01:03:47 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 1042, L3415)  
+  > Kobi Kunasekaran: Um and from our conversation, we said that this information um one it needs to get stamped on the signup. So when you report on a sign up, you can see what the commercial terms was at the time the sign up first bet was completed.
+- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-25 — [doc](https://docs.google.com/document/d/1MRQrsyv_XCgKEIoXR2_t4hTUfH3t5f-lGztLxIfTWZg/edit) (L3085)  
+  > Kobi Kunasekaran: ...one of the outstanding things is like is the payout dependency like how they plan on using the information from the deal in terms of CPA and how that ties to payouts. So I think once we resolve that, this will be build ready....
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (L2501)  
+  > Joyce Kiddell: no, I'm just tying it back to like each each signup h is represents um a CPA for us, right? Like a conversion where we get paid and that conversion amount can only tie back to the terms set out at the deal level. / Kobi Kunasekaran: but only like the the commercial terms that were set on the deal at the time the signup was like completed / Joyce Kiddell: Correct.
+- **What differs:** WAGR-462 treats Deal commercial terms as a payout dependency (re-pricing unpaid Sign-Ups, flagging paid ones). On 2026-09-25 Joyce confirmed the deal commercial terms are ops-level reporting only with no impact on referral payouts; on 2026-09-30 the terms were described as a reporting stamp on the Sign-Up.
+- **Suggested action:** Update WAGR-462: state that commercial terms are reporting-only for BA referral payouts, remove or reword the payout-dependency and 'paid Sign-Ups' rules, and keep only the stamping/reporting behaviour. Confirm with Emily that the operator-CPA revenue view (L2501) is the only use.
+- **Confidence:** medium · **Verifier note:** Real but narrower than claimed: the payout-dependency line in WAGR-462 conflicts with the 2026-09-25 discovery (Kobi: commercial terms are ops-level reporting, no implication on referral payouts; Joyce: 'No,') and the 2026-09-30 reporting-stamp design, but Joyce's reply is terse and cut off, and the backdated/'paid Sign-Ups' rule is not clearly contradicted ('paid' may mean operator CPA revenue per L2501; 9/30 design itself recalculates Sign-Up term links when dates change). The card is a requirements-only design item, so the risk is stale text, not a wrong build.
 
 #### VAR-025 · V2 · Low · verification: downgraded
 
@@ -736,19 +693,39 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Record the decision on WAGR-98 (dated child object; reactivation keeps the same deal) and close it, as WAGR-462 already plans, so nobody builds Option 1.
 - **Confidence:** high · **Verifier note:** Real but narrower: WAGR-98's description still leans to Option 1 (edit in place + Field History) and asks Q1/Q2 that the 2026-09-11 and 2026-09-30 syncs answered for commercial terms (dated child object warranted). But WAGR-462 (Requirements, Sprint 2) already records 'keep a dated history of each Deal's terms' and its Done-when says WAGR-98 is updated to the approved design and closed, so Jira partly covers it. The 'reactivation always keeps the same deal' part is weaker than claimed: Emily hedged on 09-11, and on 09-30 deal/makeup versioning was left open pending a CMS call.
 
-#### VAR-032 · V5 · Low · verification: downgraded
+#### VAR-035 · V5 · Low · verification: downgraded
 
-**WAGR-471 says the multi-state Deal Name rule is not settled; WagerTech agreed the rule in the 2026-09-23 weekly sync**
+**Deal currency meaning was defined by the client on 2026-08-27, but Jira still lists 'final currency semantics' as open and defaults Canada deals to CAD**
 
-- **Jira:** [WAGR-471](https://jumpr.atlassian.net/browse/WAGR-471) — Deal Name convention for multi-state and multi-region Deals — decision — status Open, assignee Kobi Kunasekaran  
-  > The multi-state naming rule is not settled, and nobody answered Kobi's Sep 9 naming proposal. *(description)*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-23 — Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola @ 01:15:02 — [doc](https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit) (line 1143, L2965)  
-  > Kobi Kunasekaran: do we want to keep it as multistate like that or um do we want to use like what we have uh in the V ID naming convention / Emily Vandenberg: so see the like region like the Canada, Ontario versus Alberta breakout and then US there's / Emily Vandenberg: going to be some but if not then you can kind we'll keep it as um multi. / Lina Ceniccola: I agree.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-23 — [doc](https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit) (L2966)  
-  > Kobi Kunasekaran: So, need to review the spreadsheet and make sure this is still accurate. But yeah, / Kobi Kunasekaran: I'll clean that up.
-- **What differs:** On 2026-09-23 Emily and Lina agreed to region-specific naming (province/state, or CA/US for countrywide) and to keep 'multi' only where there is no regional breakout. WAGR-471 (created 2026-09-25) still states nobody answered and the rule is open, and it blocks WAGR-97 (regenerate Deal Names before the first production send).
-- **Suggested action:** Record the 2026-09-23 decision on WAGR-471, close it, and update WAGR-97/WAGR-419 so the Deal Name regeneration can proceed. Confirm the market data clean-up Kobi took (Ontario changed to Alberta).
-- **Confidence:** high · **Verifier note:** The 2026-09-23 decision is real and is not in WAGR-471 (0 comments; description still says the rule is not settled). But that decision covers only the region/prefix part of the Deal Name. WAGR-471 also asks how multi-state Deals are matched and what to do with picklist values that have no CMS equivalent, and the meeting did not settle those. So the ticket is partly stale, not wrong to be open, and 'close it' goes too far. The fix is to record the decision and narrow the ticket scope.
+- **Jira:** [WAGR-39](https://jumpr.atlassian.net/browse/WAGR-39) — SF → CMS Integration: Deals & Affiliate Links (v2 webhook) — status Requirements, assignee unassigned  
+  > * Final Deal currency semantics. *(description)*
+- **Jira:** [WAGR-39](https://jumpr.atlassian.net/browse/WAGR-39) — SF → CMS Integration: Deals & Affiliate Links (v2 webhook) — status Requirements, assignee unassigned  
+  > * Working V1 currency mapping: CMS `currency` ← Deal `CurrencyIsoCode`; retain as explicit WagerTech confirmation. *(description)*
+- **Jira:** [WAGR-507](https://jumpr.atlassian.net/browse/WAGR-507) — Deal — Guided New Deal creation flow (Draft + optional Commercial Terms handoff) — status Open, assignee Cedrick Infantado  
+  > * Canada → CAD; *(description)*
+- **Transcript:** Emily / Kobi (client working session) — 2026-08-27 — Emily Vandenberg @ 00:00:49 — [doc](https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit) (line 71, L2123)  
+  > Emily Vandenberg: So the commercial terms of the deal which would be labeled in the currency field don't always match what we would pay have the currency we would pay out to the sign up. So that's just telling you how they're going to pay like what funds they're going to pay us in. And typically they pay us in USDU and it's our affiliates. So that can't be assumed. Currency to currency can't be assumed.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (L2503)  
+  > Emily Vandenberg: I pinged her. Yeah, I think like for now it would be fine, but / Joyce Kiddell: Yeah, maybe it's something that we don't deal with until we have to deal with it. / Kobi Kunasekaran: … If you want the same deal, like if you want the ability for the same deal to change the currency, that's when we'll have to have a chat. But uh we're okay with creating a new deal.
+- **What differs:** Emily stated that the deal currency is the currency the operator pays WagerTech in (typically USD) and must not be assumed to be the currency WagerTech pays out on the sign-up. WAGR-39 keeps currency semantics as an open question, sends Deal currency to the CMS as 'currency', and WAGR-507 defaults Canada deals to CAD.
+- **Suggested action:** Write the 2026-08-27 definition into WAGR-39/WAGR-454/WAGR-507. Confirm with WagerTech what the CMS uses the 'currency' value for, and whether the Canada→CAD default is correct given operators usually pay in USD.
+- **Confidence:** low · **Verifier note:** Quote is verbatim, but it defines the Commercial Terms currency field (operator pays WagerTech, typically USD), not the Deal record currency. The same 2026-08-27 call decided that the Deal market country sets the sign-up currency (Canada to CAD, US to USD). WAGR-507's Canada to CAD default matches that decision, so it is not a conflict. WAGR-39 already marks currency semantics and the CMS 'currency' mapping as pending WagerTech confirmation. WAGR-462 also lists currency as an open question. The only gap left is documentation: no ticket records the two-currency distinction from 2026-08-27.
+
+#### VAR-036 · V5 · Low · verification: downgraded
+
+**Client asked for options and effort to merge or correct an erroneously created deal; Jira only parks sign-up remediation and lists sign-up movement as out of scope**
+
+- **Jira:** [WAGR-463](https://jumpr.atlassian.net/browse/WAGR-463) — Deal lifecycle/CMS — close remaining design and contract follow-ups — status Requirements, assignee Kobi Kunasekaran  
+  > 7. Keep late-click / incorrect-Deal Signup remediation as a separate operational/business-process decision where still relevant. *(description)*
+- **Jira:** [WAGR-447](https://jumpr.atlassian.net/browse/WAGR-447) — Deal — Archive & Replace: Archived status, makeup release and successor relationship — status Requirements, assignee unassigned  
+  > * Moving Sign-Ups, DRAs or Affiliate Links to a successor. *(description)*
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — Kobi Kunasekaran @ 00:39:57 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (line 469, L2516)  
+  > Kobi Kunasekaran: … So, um yeah, I I'll think it through. I'll provide the option and we can go from there. / Kobi Kunasekaran: I think we're good. Yeah, and I'll get back to you on options on how we're going to design like the deal with the commercial terms changing and what that could look like, but I think I don't think that's going to block the CMS integration
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-11 — Emily Vandenberg; Kobi Kunasekaran @ 00:36:21 — [doc](https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit) (line 443, L2514)  
+  > Kobi Kunasekaran: Hey, saying like the signups that have come in in the direct version uh sorry in the old version should be reallocated to the new version so that when you report on it everything looks like it came from the new deal / Kobi Kunasekaran: … I think we talked about like a superseded field. So, if you mark that this deal takes over for another deal, um, you just relate it back. / Emily Vandenberg: Yeah, for me like what I was saying is like a quick functionality to merge. Like if it was an error, like you know what I mean? You can like merge. But maybe like think it through and just like kind of let us know what option and like effort looks like and we can take it from there.
+- **What differs:** On 2026-09-11 Emily asked for a quick way to merge a deal created in error so historical sign-ups report against the corrected deal, and asked for options and effort; Kobi committed to provide options. WAGR-447 and WAGR-39 list moving sign-ups to a successor as out of scope, and WAGR-463 only keeps 'incorrect-Deal Signup remediation' as a separate decision. No ticket tracks giving the client the options/effort.
+- **Suggested action:** Add an explicit follow-up (owner, date) to WAGR-463 or a Holding Pen ticket for 'erroneous deal correction/merge: options and effort for WagerTech', and tell the client that V1 Archive & Replace does not move sign-ups.
+- **Confidence:** medium · **Verifier note:** Quotes exist and the 11 Sep merge/options ask is real, and Jira (WAGR-447, WAGR-39) puts sign-up movement out of scope with no options/effort follow-up. But on 30 Sep Kobi showed the client Archive + 'replaces' lookup as the way to trace sign-ups and history after an error deal, and called clone/replace V2. Emily accepted this for the 'if we messed up' CTM case and did not ask for merge again. WAGR-463 item 7 also parks incorrect-Deal sign-up remediation. Emily said the case is rare. What is left is a gap in client communication: no one told the client that sign-ups will not move and no merge effort was given. It is not a Medium scope gap.
 
 #### VAR-038 · V1 · Low · verification: not in verification sample (Low)
 
@@ -792,7 +769,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Confirm the label with WagerTech (users see it; CMS never receives it) and make WAGR-39, WAGR-458, WAGR-498 and WAGR-506 use one name.
 - **Confidence:** medium
 
-#### VAR-041 · V3 · Low · verification: verification pending (verifier agent failed)
+#### VAR-041 · V3 · Low · verification: confirmed
 
 **WAGR-13 still defines the Deal duplicate key with Version and a Review Required flag**
 
@@ -808,7 +785,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Joyce Kiddell: No, just no. That's not in it. / Joyce Kiddell: No, not at all. It just creates extra work.
 - **What differs:** WAGR-13 (Requirements, assigned Kobi) keys Deal uniqueness on Version and offers 'flag Review Required'. The agreed makeup is operator, partner, market country, market state, vertical and source; Deal Version and the Review Required status were both removed. WAGR-99/WAGR-448 now own Deal dedupe.
 - **Suggested action:** Remove the Deal bullet and Deal AC from WAGR-13 (point to WAGR-448) and keep it for Operator/Partner duplicate rules only.
-- **Confidence:** high
+- **Confidence:** high · **Verifier note:** WAGR-13 (live: Requirements, Kobi, active Sprint 2) still keys Deal uniqueness on Partner+Operator+Market+Vertical+Version and offers 'flag Review Required'. Transcripts and current Jira (WAGR-448, WAGR-492, WAGR-463) agree: no Version field, Review Required removed, makeup = operator/partner/market country/market state/vertical/source with a hard block. The supersession note exists only in WAGR-99, not on WAGR-13 itself. Low is the right severity.
 
 #### VAR-042 · V3 · Low · verification: not in verification sample (Low)
 
@@ -876,20 +853,6 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: there I'm thinking about an additional section for commercial terms uh which is a another design that I'm working on um that I will I still need to finish and add in um but we decided that on deals right now there's this there's a bunch of fields called commercial terms that uh is going to be its own section uh in that screen flow for the user to either choose to add it during dual creation or they can skip it and add it later on through a screen
 - **What differs:** WAGR-240 (Done, 08-10) keeps the standard New list-view button on Deal. On 2026-09-29 Kobi decided deal creation moves away from the standard New button to a screen flow; WAGR-507 builds that flow but does not say to remove or override the standard New action, so users could still bypass the guided Draft-only creation.
 - **Suggested action:** Suggestion only: add an acceptance criterion to WAGR-507 to override or remove the standard New action on Deal (list views and related lists), or record why it stays for admins.
-- **Confidence:** medium
-
-#### VAR-046 · V5 · Low · verification: verification pending (verifier agent failed)
-
-**WAGR-412 reads the client's 'assigned link' ask as a record hyperlink and plans to build it; Kobi said the assigned affiliate link cannot be shown with the current integration scope**
-
-- **Jira:** [WAGR-412](https://jumpr.atlassian.net/browse/WAGR-412) — Brand Ambassador: Surface Link in Related List Table View — status Open, assignee Kobi Kunasekaran  
-  > Emily asked whether it would be easy / very low lift to surface a link (to the underlying record) directly in one of the related list table views on the Brand Ambassador record page. *(description)*
-- **Transcript:** Wagertech Internal Sync — 2026-09-18 — Taryn Reithofer; Kobi Kunasekaran @ 00:32:43 — [doc](https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit) (line 533, L2709)  
-  > Taryn Reithofer: I think I delete that. / Kobi Kunasekaran: Oh yeah, if you want to do that and assign it to me like you can put it in to-do under my name in the sprint. I will respond to our comment and just follow up in the pick it too.
-- **Transcript:** Wagertech Internal Sync — 2026-09-18 — Taryn Reithofer; Kobi Kunasekaran @ 00:31:14 — [doc](https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit) (line 521, L2708)  
-  > I believe she had asked you a question um on the deal rep assignment related list if it would be easy lowift to surface the assigned link in this table. Um, / Kobi Kunasekaran: uh at the moment. No, I don't think it's going to be possible. I can follow up. Is is that uh in the document? / So at this point it's not possible but if they want to expand the integration to include that information we may be able to do it in the future.
-- **What differs:** In the 2026-09-18 internal sync Kobi said the 'assigned link' Emily asked about is the affiliate link assigned in the CMS, and that it is not possible now because the scoped integration sends only deal-assignment data. Taryn was to create a ticket and Kobi was to reply with the reason. WAGR-412 (created that morning) interprets the ask as a hyperlink to the underlying record and says to implement it if low lift; it does not record Kobi's answer.
-- **Suggested action:** Correct WAGR-412: state that the ask is the CMS-assigned affiliate link, record Kobi's 'not possible with current integration scope' answer, and link it to WAGR-444 (Phase 2 DRA) as the place where it could be revisited. Confirm Kobi replied to Emily's doc comment.
 - **Confidence:** medium
 
 #### VAR-047 · V6 · Low · verification: not in verification sample (Low)
@@ -1080,38 +1043,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** The Sep 3 comments on WAGR-156/154 base 'no player ban reason' on the Aug 18 cut of restriction detail fields. On Aug 25 WagerTech accepted the player ban reasons from the mockup as a starting list, and on Sep 1 Kobi told Taryn to build them from the mockup values.
 - **Suggested action:** Suggestion: confirm with Emily (she asked on Sep 15) whether the Player Ban button captures a reason code. Then either add the reason picklist to the Player ban flow, or record the client's explicit decision on WAGR-156/154 with a transcript link.
 - **Confidence:** medium · **Verifier note:** Aug 25 client sync (after the Aug 18 cut) explicitly accepted the mockup ban reasons 'for player' as a starting list; Sep 1 Kobi told Taryn to build from mockup values; no later meeting reverses it (Sep 15/17 are internal open questions, Sep 23 banner drop does not address reasons); WAGR-156/154 Sep 3 comments still say no player ban reason, and WAGR-154's own description contradicts the comment.
-
-#### VAR-057 · V2 · Low · verification: downgraded
-
-**Player ban reason: 08-25 client call accepted the mockup ban reasons; Jira says player ban reasons were cut, and WAGR-154 AC still requires a reason**
-
-- **Jira:** [WAGR-154](https://jumpr.atlassian.net/browse/WAGR-154) — BUILD-255 — Player Status: Ban Button + Unban Restriction — status Jumpr Review, assignee Taryn Reithofer  
-  > Ops bans a Player through a button that requires a reason and sets Status to Banned. *(description)*
-- **Jira:** [WAGR-154](https://jumpr.atlassian.net/browse/WAGR-154) — BUILD-255 — Player Status: Ban Button + Unban Restriction — status Jumpr Review, assignee Taryn Reithofer  
-  > 1. Ban action requires a reason, sets Banned, audit fields stamped (via BUILD-251). *(description)*
-- **Jira:** [WAGR-154](https://jumpr.atlassian.net/browse/WAGR-154) — BUILD-255 — Player Status: Ban Button + Unban Restriction — status Jumpr Review, assignee Taryn Reithofer  
-  > No Ban Reason/Notes modal for Player — explicitly cut ("we don't need those restriction detail fields," reasoning inferred from flagged Sign Ups instead, just a banner). *(comment (author not recorded) 2026-09-03)*
-- **Jira:** [WAGR-156](https://jumpr.atlassian.net/browse/WAGR-156) — BUILD-176 — Player: Ban Automation — status Jumpr Review, assignee Taryn Reithofer  
-  > No Ban Reason/Notes modal for Player — explicitly cut ("we don't need those restriction detail fields," reasoning inferred from flagged Sign Ups instead, just a banner). *(comment (author not recorded) 2026-09-03)*
-- **Jira:** [WAGR-403](https://jumpr.atlassian.net/browse/WAGR-403) — Player: Surface Fraud Flag and Blank Primary Email Banner — status Cancelled, assignee Taryn Reithofer  
-  > Fraud Flag banner: not building as a separate banner. Emily confirmed the existing Banned Banner (BUILD-175 / WAGR-196) is sufficient for the banned-for-fraud case — no need to bring back Ban Reason or add fraud-specific banner logic. *(comment by Taryn Reithofer 2026-09-22)*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-25 — Kobi Kunasekaran; Lina Ceniccola; Emily Vandenberg @ 00:17:10 — [doc](https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit) (line 308, L2092)  
-  > Lina Ceniccola: I think it looks fine. / Kobi Kunasekaran: Okay. So if these are good like we can start with these again like we can always change them up later too. / Emily Vandenberg: Perfect.
-- **Transcript:** Wagertech Internal Sync — 2026-09-01 — Kobi Kunasekaran; Taryn Reithofer @ 00:10:11 — [doc](https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit) (line 200, L2257)  
-  > Kobi Kunasekaran: Um, and this is honestly I think it's going to be almost the same logic as what whatever it is that you're building for refer. So we might just be able to uh copy the same thing. / Taryn Reithofer: Yes. / Kobi Kunasekaran: Maybe the reasons might be different for player versus referer ... / Kobi Kunasekaran: let's just use their mockup values as a starting point and build that out. / Taryn Reithofer: Okay.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (L1980)  
-  > Kobi Kunasekaran: ...So, the band status on the player is going to be manually done by somebody. / Kobi Kunasekaran: ...Like we don't necessarily need to automate or restrict creation of the signup or anything based off of the player status at least at this point. / Emily Vandenberg: Yeah, I don't think so. And it would be it would almost be / Kobi Kunasekaran: So those fields uh are we saying like we don't need those like restriction detail fields for / Joyce Kiddell: correct. it. / Joyce Kiddell: We should have some sort of like banner at the top though.
-- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-15 — [doc](https://docs.google.com/document/d/1c7jrcIZi-m-zYNVeSrkzols_CABo5p5IBp_0r1kBfUg/edit) (L2588)  
-  > Taryn Reithofer: Some of it's very easy like just removing a field or whatever and some of it needs more of a discussion like she had mentioned on the um player record page under ban and reactivate reactivate button automation. She she asked you to refresh your memory. Did we land on no reason code for the button B which is / Kobi Kunasekaran: I don't remember. People have to check on the calls. / Taryn Reithofer: from from my notes it was it was we landed on no reason and I have that in in the writing too. / Kobi Kunasekaran: way I like I think either either direction is fine with me. I just I just don't remember.
-- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-17 — [doc](https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit) (L2669)  
-  > Kobi Kunasekaran: if I'm not mistaken, like we decided on the ban and one of the banned reasons was fraud. / Taryn Reithofer: So I think for for refer we kept the uh ban reasons / Taryn Reithofer: and that one's confirmed fraud there. But for player we decided to keep it simple and not have the reasons and it was just a simple ban. / Kobi Kunasekaran: you can check let's check this like outside like let me know loop back around on this.
-- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-17 — [doc](https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit) (L2687)  
-  > Kobi Kunasekaran: I wouldn't rely on it being the checkbox. If it if they're gonna ban players, 99% they're gonna need to know like why the player was banned. So, either we would have like a screen flow to drive that behavior and capture the reason or it was supposed to be tied to the uh the ban button along with the reason that comes with the ban. Um, and we just need to confirm either or.
-- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-23 — [doc](https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit) (L2856)  
-  > Taryn Reithofer: she kind of reverted on everything just saying, "Okay, like we don't need this." / Kobi Kunasekaran: Like so she said like we don't need the banner for fraud and she's good with not having one for the email because it's it should be a nonexistent case, right? / Taryn Reithofer: Yeah, non-issue.
-- **What differs:** On 08-25 the client accepted the mockup ban-reason list for the player, and on 09-01 Jumpr decided to build the player ban from those mockup values. On 09-03 Jira (WAGR-154/156 comments) recorded that player ban reasons were cut, based on the earlier 08-18 call about restriction-detail fields. The WAGR-154 description and AC1 still require a reason. The only later 'no reason' confirmation is second-hand, in a Jira comment about the fraud banner.
-- **Suggested action:** Get one explicit written client answer: does the player Ban button capture a reason (picklist) or not? Then make the WAGR-154 description and acceptance criteria match the answer, and record the answer on WAGR-156.
-- **Confidence:** medium · **Verifier note:** The 08-25 acceptance of player ban reasons is real and the 09-03 Jira 'cut' rationale cites only 08-18. But Emily's 22 Sep written reply (WAGR-403 comment) says there is 'no need to bring back Ban Reason', so the client appears to accept no reason. What is left is housekeeping: the WAGR-154 description and AC1 still require a reason, and the client acceptance is second-hand.
+- **Also reported as:** VAR-057 (V2, downgraded) (same finding reported a second time; folded here)
 
 #### VAR-059 · V3 · Low · verification: downgraded
 
@@ -1282,18 +1214,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 
 ### Operator & Partner
 
-#### VAR-068 · V1 · Medium · verification: verification pending (verifier agent failed)
-
-**No ticket for telling the client the Operator-Partner relationship build is an enhancement to the original design, and for confirming nothing else is open**
-
-- **Jira:** no ticket (searched: enhancement, original design, change request, partner relationship, close off; nearest considered: [WAGR-382](https://jumpr.atlassian.net/browse/WAGR-382), [WAGR-363](https://jumpr.atlassian.net/browse/WAGR-363), [WAGR-384](https://jumpr.atlassian.net/browse/WAGR-384))
-- **Transcript:** Wagertech Internal Sync — 2026-09-21 — Kobi Kunasekaran @ 00:20:18 — [doc](https://docs.google.com/document/d/1_l8MYortzD4pYnKzsoFaq7WBdKkM7YnRj011wn2Uz_c/edit) (line 335, L2762)  
-  > Kobi Kunasekaran: this whole like partner relationship even that's like I think technically is an like an enhancement to what the original designs were, but um like I I'll let them know about that and we'll close it off. Um, but I don't like I want to make sure that there's nothing else that's still waiting for us from our initial design or feedback.
-- **What differs:** Kobi said the partner relationship work is technically an enhancement to the original design, that he will tell the client and close it off, and that he wants to confirm nothing else from the initial design or feedback is still open. No Jira item or comment records this, and WAGR-382 does not label the work as an enhancement.
-- **Suggested action:** Record the enhancement status on WAGR-382 and track the client message and the 'nothing else open' check as a task for Kobi.
-- **Confidence:** medium
-
-#### VAR-069 · V2 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-069 · V2 · Medium · verification: confirmed
 
 **Supported Markets on Operator: WAGR-408 closed as a manual multi-select picklist, but the client decided it is a roll-up from Deals**
 
@@ -1313,41 +1234,19 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > I don't think they'll specifically train to go and like you know look for that information right there.
 - **What differs:** WAGR-408 says Supported Markets is a manually set multi-select picklist, 'not a rollup', and it was closed Done on 2026-09-29. On 2026-09-28 Emily confirmed that Supported Markets is a roll-up from Deals, not set at operator creation; Taryn agreed to take it to the team and to ask Joyce about Phase 1 if it is complex. No Jira ticket holds the roll-up build or the Phase 1 decision.
 - **Suggested action:** Reopen WAGR-408 or create a follow-up story for a deal-driven Supported Markets roll-up (string roll-up needs a Flow, not DLRS, per L2399). Record Joyce's answer on whether it is needed for Phase 1. WAGR-408 also sits under the Phase 2 epic WAGR-478 while marked Done in Sprint 1; make the phase explicit.
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** Quotes are verbatim. On 28 Sep Emily directed that Supported Markets is a roll-up from Deals and is not set at operator creation. Taryn agreed to take it back to the team. On 29 Sep WAGR-408 closed Done with only 'Done!', and its AC still say 'picklist, not a rollup'. No later meeting and no Jira ticket records the roll-up or the Phase 1 question for Joyce. One wording change: 'decided' is too strong. Gemini lists it as 'Needs Further Discussion', pending a feasibility check and a possible Phase 1 deferral.
+- **Also reported as:** VAR-070 (V3, downgraded) (same finding reported a second time; folded here)
 
-#### VAR-070 · V3 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-068 · V1 · Low · verification: downgraded
 
-**Supported Markets closed Done as a manual multi-select picklist; the 09-28 client meeting decided it is a roll-up from Deals**
+**No ticket for telling the client the Operator-Partner relationship build is an enhancement to the original design, and for confirming nothing else is open**
 
-- **Jira:** [WAGR-408](https://jumpr.atlassian.net/browse/WAGR-408) — Operator: Add Supported Markets picklist field — status Done, assignee Taryn Reithofer  
-  > Kobi corrected that on Sep 11: Markets (and Verticals) aren't rollups, they're multi-select picklist fields, and the field belongs on the Operator Details tab, not the header or Highlights Panel. *(description)*
-- **Jira:** [WAGR-408](https://jumpr.atlassian.net/browse/WAGR-408) — Operator: Add Supported Markets picklist field — status Done, assignee Taryn Reithofer  
-  > Field is a picklist, not a rollup, and does not appear in the header or Highlights Panel. *(description (Acceptance criteria 2))*
-- **Jira:** [WAGR-408](https://jumpr.atlassian.net/browse/WAGR-408) — Operator: Add Supported Markets picklist field — status Done, assignee Taryn Reithofer  
-  > Done! *(comment by Taryn Reithofer 2026-09-29)*
-- **Transcript:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — Emily Vandenberg; Taryn Reithofer @ 00:12:18 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (line 184, L3212)  
-  > Emily Vandenberg: Supported markets as like a rollup, but then um there wasn't any place here, right, where she was like doing a selection. Yeah. / Emily Vandenberg: but it would still just be a roll up. / Taryn Reithofer: Yes. / Emily Vandenberg: Okay. So, yeah, there's nothing in here that shows like at the operator creation that you would be setting the market / Taryn Reithofer: Okay. Roll it from the deals. Okay, cool. I think that makes sense. I'll take that back to the team.
-- **Transcript:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — Emily Vandenberg @ 00:04:52 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (line 131, L3208)  
-  > Emily Vandenberg: This would be have to have the ability to be created at onset and then evolve with through deal creation. / Emily Vandenberg: Right? So, you know, the example of like we bring Bet MGM on through ... but you wouldn't be necessarily going and updating it directly here like it'd be pulled in from your deal creation
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-07-07 — Kobi Kunasekaran; Joyce Kiddell @ 00:16:14 — [doc](https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit) (line 248, L0807)  
-  > Joyce Kiddell: Can we just have it broken down by deals? / Joyce Kiddell: So like whatever is like what I'm picturing, I don't know if this is possible, but it'd be like all the deals have markets associated with it. So like at a operator level, / Joyce Kiddell: it all just kind of rolls up where you can see based off deals where they service. / Kobi Kunasekaran: technically like you'll be able to see like the list of all the deals that are related to BMGm um as the operator and then we could from the deal we have the the market, the vertical, all those things and we can bring those fields in so you can see it all from one place.
-- **Later / conflicting evidence:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (L3215)  
-  > Taryn Reithofer: Okay. Roll it from the deals. Okay, cool. I think that makes sense. I'll take that back to the team. / Emily Vandenberg: and if this becomes complicated just like please just raise and then we can ask Joyce the question around if it's needed for phase one
-- **Later / conflicting evidence:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (L3213)  
-  > Emily Vandenberg: I don't we I don't think we scoped this as original um for the operator but if this is coming out of the like rollup I'm I'm like wondering if this is if the question is do we even need that roll up for phase Fun. / if if we want to take the time to make it more user friendly and have more substance, then I assume it would we could push it to the to the later phase. / if that's like a big lift then we probably should talk about if we need it for phase one.
-- **Later / conflicting evidence:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (L3232)  
-  > I don't think they'll specifically train to go and like you know look for that information right there.
-- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-24 — [doc](https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit) (L3052)  
-  > Taryn Reithofer: Why wouldn't this field autopop populate from the CMS information / Kobi Kunasekaran: there. This is an operator record page. This is not coming from the CLS. / Kobi Kunasekaran: Yeah. And it's going to be manual if the intention is for them to on the on the operator define what markets are supported for the operator.
-- **Later / conflicting evidence:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (L3213)  
-  > Emily Vandenberg: I don't we I don't think we scoped this as original um for the operator but if this is coming out of the like rollup I'm I'm like wondering if this is if the question is do we even need that roll up for phase Fun. / if if we want to take the time to make it more user friendly and have more substance, then I assume it would we could push it to the to the later phase. / if that's like a big lift then we probably should talk about if we need it for phase one.
-- **Later / conflicting evidence:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (L3208)  
-  > Emily Vandenberg: This would be have to have the ability to be created at onset and then evolve with through deal creation. / Emily Vandenberg: Right? So, you know, the example of like we bring Bet MGM on through ... but you wouldn't be necessarily going and updating it directly here like it'd be pulled in from your deal creation
-- **Later / conflicting evidence:** Emily / Taryn - Operator: Supported Markets — 2026-09-28 — [doc](https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit) (L3213)  
-  > Emily Vandenberg: I don't we I don't think we scoped this as original um for the operator but if this is coming out of the like rollup I'm I'm like wondering if this is if the question is do we even need that roll up for phase Fun. / if if we want to take the time to make it more user friendly and have more substance, then I assume it would we could push it to the to the later phase. / if that's like a big lift then we probably should talk about if we need it for phase one.
-- **What differs:** Jira WAGR-408 specifies and closes a manually maintained multi-select picklist ('not a rollup'). On 09-28 Emily confirmed Supported Markets is a roll-up from Deals and is not set at operator creation (this matches the 07-07 decision); Taryn took the roll-up back to the team, and no Jira ticket holds the roll-up or the open Phase 1 question for Joyce.
-- **Suggested action:** Reopen WAGR-408 or create a follow-up story for a Deal-driven Supported Markets roll-up (string/distinct roll-up, not DLRS count). If the build is complex, ask Joyce whether it is needed for Phase 1 (per L3215) and record the answer and Phase on the ticket. Also confirm why WAGR-408 sits under the Phase 2 epic WAGR-478 while it is Done in Sprint 1/3. Check whether Supported Verticals (WAGR-64 comment 2026-09-11: manual multi-picklist) has the same issue.
-- **Confidence:** high
+- **Jira:** no ticket (searched: enhancement, original design, change request, partner relationship, close off; nearest considered: [WAGR-382](https://jumpr.atlassian.net/browse/WAGR-382), [WAGR-363](https://jumpr.atlassian.net/browse/WAGR-363), [WAGR-384](https://jumpr.atlassian.net/browse/WAGR-384))
+- **Transcript:** Wagertech Internal Sync — 2026-09-21 — Kobi Kunasekaran @ 00:20:18 — [doc](https://docs.google.com/document/d/1_l8MYortzD4pYnKzsoFaq7WBdKkM7YnRj011wn2Uz_c/edit) (line 335, L2762)  
+  > Kobi Kunasekaran: this whole like partner relationship even that's like I think technically is an like an enhancement to what the original designs were, but um like I I'll let them know about that and we'll close it off. Um, but I don't like I want to make sure that there's nothing else that's still waiting for us from our initial design or feedback.
+- **What differs:** Kobi said the partner relationship work is technically an enhancement to the original design, that he will tell the client and close it off, and that he wants to confirm nothing else from the initial design or feedback is still open. No Jira item or comment records this, and WAGR-382 does not label the work as an enhancement.
+- **Suggested action:** Record the enhancement status on WAGR-382 and track the client message and the 'nothing else open' check as a task for Kobi.
+- **Confidence:** medium · **Verifier note:** Quote is verbatim and correctly attributed, but it is a hedged internal intent, not a decision. The 'confirm nothing else from the initial design is open' half is already tracked by WAGR-414 (Phase 1 Epic & review-queue cleanup, created by Kobi the same afternoon, In Progress, Taryn), and on 2026-09-23 Kobi asked the client to flag any missing major Phase 1 functionality and committed to an hours breakdown that splits original scope from enhancements. WAGR-475 (internal) tracks 'what we tell WagerTech' about scope. Only the explicit labelling of the WAGR-382 relationship work as an enhancement remains unrecorded.
 
 #### VAR-071 · V1 · Low · verification: not in verification sample (Low)
 
@@ -1362,7 +1261,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Add the question and the client's answer to WAGR-411 or WAGR-385 (or a small task), and remove or hide the field that is not used.
 - **Confidence:** high
 
-#### VAR-072 · V1 · Low · verification: verification pending (verifier agent failed)
+#### VAR-072 · V1 · Low · verification: downgraded
 
 **No ticket for the release notes / client communication of the Operator-Partner relationship work**
 
@@ -1373,7 +1272,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: this whole like partner relationship even that's like I think technically is an like an enhancement to what the original designs were, but um like I I'll let them know about that and we'll close it off. Um, but I don't like I want to make sure that there's nothing else that's still waiting for us from our initial design or feedback.
 - **What differs:** On 2026-09-21 Kobi decided that, after Taryn's partner-side items close, Taryn tells WagerTech what changed in the partner/operator relationship work (reviewed with Kobi first). No Jira item tracks this communication and no comment on the epic WAGR-382 records it.
 - **Suggested action:** Add a task (or a checklist item on WAGR-382) for the release note to WagerTech, owner Taryn, reviewer Kobi.
-- **Confidence:** high
+- **Confidence:** medium · **Verifier note:** Gap is real (no WAGR ticket or comment tracks the release note / client message about the partner-operator relationship work), but it is a conditional internal comms action that is not yet due (the partner-side items WAGR-364 and WAGR-388 are still in Jumpr Review), and the 2026-09-24 decision L3042 moved client comms for done features to a per-ticket Loom on Slack, so a separate Jira item is not clearly expected. Keep Low; lower confidence to medium.
 
 #### VAR-073 · V1 · Low · verification: not in verification sample (Low)
 
@@ -1430,7 +1329,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Update WAGR-153 (or WAGR-411/WAGR-385) to record that CurrencyIsoCode stays on the Operator in Direct Billing Details, and tell Emily, because WAGR-153 came from her feedback.
 - **Confidence:** medium
 
-#### VAR-077 · V3 · Low · verification: verification pending (verifier agent failed)
+#### VAR-077 · V3 · Low · verification: downgraded
 
 **Header count tickets still define 'Associated Operators/Partners' as all-time distinct counts with help text; 09-28 decided active-only count retitled 'Active Operators'**
 
@@ -1448,7 +1347,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Um, and I and I checked we aren't able to um add help test text to um any highlight panel fields here
 - **What differs:** WAGR-389 (Solution Review) and WAGR-138/WAGR-134 (Jumpr Review) still describe 'Associated' counts of every distinct operator/partner across all Deals, and help text that says so. On 09-28 the client decided the count includes only operators with active deals and the field is retitled Active Operators; help text is not visible in the highlights panel.
 - **Suggested action:** Update or close WAGR-389 (rewrite the description/help text for the active-only definition, or cancel because help text does not render in the highlights panel). Link WAGR-134 and WAGR-138 to WAGR-388/WAGR-364 as superseded so client UAT does not review the old definition.
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** Quotes are real and the 09-28 decision stands, but WAGR-388 (Jumpr Review, created 09-14) already redefines the counts as active-only (DLRS Count on the relationship junction with Status__c = 'Active') and says it supersedes the old header rollups, and the WAGR-389 comment already records that help text does not show in the highlights panel. The only uncaptured items are the retitle to 'Active Operators' and the missing supersede links on WAGR-138/WAGR-389.
 
 #### VAR-078 · V4 · Low · verification: not in verification sample (Low)
 
@@ -1726,7 +1625,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Suggestion: record the rule on WAGR-464 and confirm whether Salesforce enforces it (ops-created additional allocation) or it stays a manual process.
 - **Confidence:** medium
 
-#### VAR-096 · V1 · Low · verification: verification pending (verifier agent failed)
+#### VAR-096 · V1 · Low · verification: downgraded
 
 **Deferred item not tracked: rep filtering of signups by partner, to revisit after redeposit design**
 
@@ -1735,7 +1634,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: Okay. Uh Okay. Let's let let's come back to it. Uh maybe like we we'll build out the redeposits and then depending on what the workflows look like / Kobi Kunasekaran: But I think I think you're right like let's let's get the solutioning for redeposits and then uh make sure that we have a way to optimize from that from those workflows.
 - **What differs:** Kobi and Emily agreed to revisit a partner filter for reps' redeposit work once the redeposit workflows are designed. No ticket or WAGR-464 line records this follow-up, so it can be lost.
 - **Suggested action:** Suggestion: add a follow-up line to WAGR-464 (or a backlog story) to revisit partner filtering after the redeposit design.
-- **Confidence:** medium
+- **Confidence:** low · **Verifier note:** Quote is real and the deferral is real, and no Jira ticket records partner filtering of signups. But Kobi said 'We don't need a solution for it' and that it will likely live 'a different place'; the 30 Sep sync then revisited rep filtering in the redeposit design (V1 = standard predefined list views, region views, allocation-based rep queue), so the open item is now a minor list-view config detail, not a lost requirement.
 
 #### VAR-097 · V1 · Low · verification: not in verification sample (Low)
 
@@ -1796,7 +1695,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Suggestion: add the overlap question to WAGR-462 or WAGR-464 and decide it in the requirement-terms design.
 - **Confidence:** high
 
-#### VAR-101 · V8 · Low · verification: verification pending (verifier agent failed)
+#### VAR-101 · V8 · Low · verification: confirmed
 
 **Open: eligibility window for personal redeposits (Emily to confirm with Owen; Joyce suggested a 6-month maximum)**
 
@@ -1807,7 +1706,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Emily Vandenberg: in midmon if Jess opens up more budget, he might be like, you can go and you can there's an extended window. Maybe it's like 3 months, maybe it's four. / Emily Vandenberg: It's not global at a deal level.
 - **What differs:** Personal redeposits may allow a longer look-back; Emily will confirm with Owen and Joyce suggested a universal 6-month maximum. Not answered later and not in any ticket.
 - **Suggested action:** Suggestion: add as an open decision on WAGR-464 with Emily as the owner.
-- **Confidence:** high
+- **Confidence:** high · **Verifier note:** Quote is verbatim in the re-fetched 30 Sep 2026 Weekly Sync doc; context and the meeting's own Gemini notes show the personal redeposit eligibility window was deferred pending Emily's check with Owen; no later meeting exists in the ledger; no WAGR ticket captures the window or the 6-month cap (WAGR-464 only lists personal redeposit linking). Low is right because the system design (start/end eligible-signup dates on the allocation, deal default) was decided later in the same meeting, so only the business cap is open.
 
 #### VAR-102 · V8 · Low · verification: not in verification sample (Low)
 
@@ -1824,65 +1723,6 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 
 
 ### Referral and Payouts
-
-#### VAR-103 · V1 · Medium · verification: verification pending (verifier agent failed)
-
-**No ticket for the agreed Ops override of the matrix payout amount ('payout amount differs' / new payout amount) on the Sign-Up**
-
-- **Jira:** no ticket (searched: payout amount differs, override, new payout amount, manual amount, Payout Amount, read-only, read only; nearest considered: [WAGR-465](https://jumpr.atlassian.net/browse/WAGR-465), [WAGR-266](https://jumpr.atlassian.net/browse/WAGR-266), [WAGR-289](https://jumpr.atlassian.net/browse/WAGR-289), [WAGR-342](https://jumpr.atlassian.net/browse/WAGR-342), [WAGR-254](https://jumpr.atlassian.net/browse/WAGR-254), [WAGR-428](https://jumpr.atlassian.net/browse/WAGR-428), [WAGR-162](https://jumpr.atlassian.net/browse/WAGR-162))
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-01 — Lina Ceniccola; Emily Vandenberg; Kobi Kunasekaran @ 00:37:17 — [doc](https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit) (line 510, L2315)  
-  > Lina Ceniccola: Um I'm just thinking we if we could have it as ops first. / Lina Ceniccola: payout amount differs, new payout amount, / Kobi Kunasekaran: Yeah. Okay. Yeah, we can do
-- **Transcript:** Wagertech Internal Sync — 2026-09-01 — Cedrick Infantado; Kobi Kunasekaran @ 00:24:08 — [doc](https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit) (line 429, L2277)  
-  > Kobi Kunasekaran: So I think it actually I think it is read only but because I'm logged in as an admin uh I believe it's showing up as editable ... / ... Kobi Kunasekaran: but like a lot of these fields are supposed to be read only on the layout. / Kobi Kunasekaran: Um, and it is for reps, but for non-reps it, uh, they are editable. / Cedrick Infantado: Sure. I just check that one.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-01 — [doc](https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit) (L2314)  
-  > Kobi Kunasekaran: Uh the payout amount is getting auto set based on like the referral that's chosen and the referral type that's chosen, right? / Kobi Kunasekaran: It's it comes from that matrix.
-- **What differs:** On Sep 1 Lina asked for, and Kobi agreed to, an Ops-first override of the matrix payout amount using a 'payout amount differs' / new payout amount pattern (like Deposit Amount Differs, WAGR-266). No build ticket exists; WAGR-465 lists it only as an open question ('Can Ops override a Sign-Up's payout amount? (Lina, Sep 1)'). The related internal check that Payout Amount is read-only for reps (L2277) is also not tracked.
-- **Suggested action:** Create a Sign-Up story for the Ops payout amount override (checkbox + override amount, Ops-only FLS, payout batch uses the override) and include the rep read-only check; or confirm with Lina whether the Sep 25 payout design replaces it.
-- **Confidence:** high
-
-#### VAR-104 · V2 · Medium · verification: verification pending (verifier agent failed)
-
-**WAGR-159 Pause Automation says a paused referrer 'blocks new attribution' and uses the unconfirmed prototype reason list; meetings decided no restriction and a different reason list**
-
-- **Jira:** [WAGR-159](https://jumpr.atlassian.net/browse/WAGR-159) — BUILD-197 — Referrer: Pause Automation — status Jumpr Review, assignee Taryn Reithofer  
-  > Reversible; blocks new attribution only *(description (AUTOMATION))*
-- **Jira:** [WAGR-159](https://jumpr.atlassian.net/browse/WAGR-159) — BUILD-197 — Referrer: Pause Automation — status Jumpr Review, assignee Taryn Reithofer  
-  > Reason — Picklist: Awaiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review, Referrer Request, Other *(description (AUTOMATION))*
-- **Jira:** [WAGR-159](https://jumpr.atlassian.net/browse/WAGR-159) — BUILD-197 — Referrer: Pause Automation — status Jumpr Review, assignee Taryn Reithofer  
-  > Pause automation is complete and tested! Referrer - Pause Button V2 *(comment 2026-09-02 (author not shown))*
-- **Jira:** [WAGR-178](https://jumpr.atlassian.net/browse/WAGR-178) — BUILD-235 — Referrer: Pause Button — Confirm Reason Capture — status Jumpr Review, assignee Taryn Reithofer  
-  > Pause Reason — Picklist (single-select), required. Values: Waiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review / Possible Duplicate Referral Record. *(description (FIELDS))*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — Kobi Kunasekaran; Lina Ceniccola @ 01:34:45 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (line 1587, L1982)  
-  > Kobi Kunasekaran: ...So, are we saying that for paused and banned, we're not going to restrict signups from being uh or reps from being uh adding referers or signups, even if they're banned or paused. / Lina Ceniccola: Yeah, that works.
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-25 — Kobi Kunasekaran; Lina Ceniccola; Joyce Kiddell @ 00:22:52 — [doc](https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit) (line 349, L2095)  
-  > Lina Ceniccola: Yeah. Waiting ops proof quality under review. Sure. Payout details missing or invalid. Sure. Duplicate under review. Possible duplicate referral record. Sure. / Kobi Kunasekaran: Yeah. Yeah. Okay. We'll keep these again.
-- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-24 — [doc](https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit) (L3039)  
-  > Kobi Kunasekaran: the followup is potentially creating a report or a way for them to see a list of um, signups with banned referers. Um, I would dep prioritize this / Taryn Reithofer: deep part 75. / Kobi Kunasekaran: really we just need to surface a way for them to see signups against uh bad referers / Kobi Kunasekaran: let's rework the ticket so that it doesn't seem like we have to do anything in the signup flow for now. / Kobi Kunasekaran: No, Let's just put it in the back hog for now. We we'll categorize it later.
-- **What differs:** On Aug 18 the client agreed that paused or banned referrers do not restrict signups (reconfirmed internally Sep 24, and WAGR-75 was rescoped to a report). WAGR-159, created Aug 20 from the prototype and marked built and tested, still says Pause 'blocks new attribution' and lists six prototype reasons, while WAGR-178 holds the four reasons the client confirmed on Aug 25.
-- **Suggested action:** Check the built Pause flow in the sandbox: confirm it does not block attribution and uses the WAGR-178 reason values; then correct the WAGR-159 description (or close it as superseded by WAGR-178/WAGR-75).
-- **Confidence:** medium
-
-#### VAR-105 · V3 · Medium · verification: verification pending (verifier agent failed)
-
-**Referrer Default Payout Type values are 'Cash, Redeposit' while the Sign-Up type and the decided term are 'Bet Credit'**
-
-- **Jira:** [WAGR-191](https://jumpr.atlassian.net/browse/WAGR-191) — BUILD-187 — Referrer: Referral Defaults — status Jumpr Review, assignee Taryn Reithofer  
-  > Default Payout Type — Picklist: Cash, Redeposit; overridable at the Sign Up level *(description (FIELDS))*
-- **Jira:** [WAGR-428](https://jumpr.atlassian.net/browse/WAGR-428) — Referrer: Fix auto-population when selecting an existing referrer — status Open, assignee Unassigned  
-  > Verify/fix: selecting a referrer should auto-default the Referral Type field based on the referrer's typical/set referral type; user should still be able to override it manually. *(description (Requirements))*
-- **Jira:** [WAGR-465](https://jumpr.atlassian.net/browse/WAGR-465) — Referral payouts — design and user stories — status Requirements, assignee Kobi Kunasekaran  
-  > Naming: "Bet Credit" or "Redeposit"? The matrix has no Redeposit type. *(description (Open questions))*
-- **Transcript:** Wagertech <> Jumpr: Referral and Payouts Discovery — 2026-09-25 — Joyce Kiddell; Lina Ceniccola @ 00:18:49 — [doc](https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit) (line 365, L3107)  
-  > Joyce Kiddell: like are are we still clinging at credit because it's like technically a redeposit. / Lina Ceniccola: We do internally. We call it bad credit for referral payments. / Joyce Kiddell: Just keep it like that. / Lina Ceniccola: Yeah, I say keep it consistent.
-- **Transcript:** Wagertech <> Jumpr: Referral and Payouts Discovery — 2026-09-25 — Joyce Kiddell; Kobi Kunasekaran @ 00:16:52 — [doc](https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit) (line 337, L3106)  
-  > Joyce Kiddell: Yeah, but we would want the BA to have the ability to change it if for like that sign up for whatever reason. / Kobi Kunasekaran: when they Sorry, / Kobi Kunasekaran: I just wanted to like read that back. So when uh when a PA goes in to log a signup um and they select a referral or create a referral um the payout type or the signup should pull from the default payout type that's on the referral. Um and but they should be able to change that um to like bet credit or cash um if if they don't want to go with the default. / Joyce Kiddell: Yes, if they're an existing refer obviously, / Joyce Kiddell: but if they're not then you have to fight at that time.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (L1984)  
-  > Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (L1984)  
-  > Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom.
-- **What differs:** WAGR-191 built the referrer Default Payout Type with the Aug 18 wording (Cash, Redeposit). On Sep 25 WagerTech decided to keep the term 'bet credit', and the signup payout type must default from the referrer default. The Sign-Up Referral Type and payout matrix use Cash/Bet Credit (WAGR-289), so the default cannot map cleanly; WAGR-465 still lists the naming as open.
-- **Suggested action:** Rename the WAGR-191 picklist value Redeposit to Bet Credit (or add an explicit mapping) as part of WAGR-428, and close the naming question on WAGR-465.
-- **Confidence:** medium
 
 #### VAR-107 · V5 · Medium · verification: confirmed
 
@@ -1920,6 +1760,65 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** Joyce wants the system to check that the referrer is signed up with the book before a bet-credit split is logged; Emily said referrers sometimes play through other books and was unsure how strict this must be for launch. No later meeting answers it, and WAGR-465/WAGR-464 do not mention book eligibility.
 - **Suggested action:** Add this as an open question on WAGR-465 with Emily as owner, and decide before the bet-credit allocation story is written (hard block, warning, or no check).
 - **Confidence:** high · **Verifier note:** Both quotes exist verbatim in the re-fetched Gemini docs. In context, Kobi restated the default (only books where the referrer's player record has completed signups), Emily said she sometimes plays through other people's books, was unsure how strict launch must be, and said 'let me get back to you on that'. No ledger rows exist after 2026-09-30. WAGR-465 and WAGR-464 (0 comments each) do not mention book eligibility or the strictness of the check.
+
+#### VAR-103 · V1 · Low · verification: downgraded
+
+**No ticket for the agreed Ops override of the matrix payout amount ('payout amount differs' / new payout amount) on the Sign-Up**
+
+- **Jira:** no ticket (searched: payout amount differs, override, new payout amount, manual amount, Payout Amount, read-only, read only; nearest considered: [WAGR-465](https://jumpr.atlassian.net/browse/WAGR-465), [WAGR-266](https://jumpr.atlassian.net/browse/WAGR-266), [WAGR-289](https://jumpr.atlassian.net/browse/WAGR-289), [WAGR-342](https://jumpr.atlassian.net/browse/WAGR-342), [WAGR-254](https://jumpr.atlassian.net/browse/WAGR-254), [WAGR-428](https://jumpr.atlassian.net/browse/WAGR-428), [WAGR-162](https://jumpr.atlassian.net/browse/WAGR-162))
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-01 — Lina Ceniccola; Emily Vandenberg; Kobi Kunasekaran @ 00:37:17 — [doc](https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit) (line 510, L2315)  
+  > Lina Ceniccola: Um I'm just thinking we if we could have it as ops first. / Lina Ceniccola: payout amount differs, new payout amount, / Kobi Kunasekaran: Yeah. Okay. Yeah, we can do
+- **Transcript:** Wagertech Internal Sync — 2026-09-01 — Cedrick Infantado; Kobi Kunasekaran @ 00:24:08 — [doc](https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit) (line 429, L2277)  
+  > Kobi Kunasekaran: So I think it actually I think it is read only but because I'm logged in as an admin uh I believe it's showing up as editable ... / ... Kobi Kunasekaran: but like a lot of these fields are supposed to be read only on the layout. / Kobi Kunasekaran: Um, and it is for reps, but for non-reps it, uh, they are editable. / Cedrick Infantado: Sure. I just check that one.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-01 — [doc](https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit) (L2314)  
+  > Kobi Kunasekaran: Uh the payout amount is getting auto set based on like the referral that's chosen and the referral type that's chosen, right? / Kobi Kunasekaran: It's it comes from that matrix.
+- **What differs:** On Sep 1 Lina asked for, and Kobi agreed to, an Ops-first override of the matrix payout amount using a 'payout amount differs' / new payout amount pattern (like Deposit Amount Differs, WAGR-266). No build ticket exists; WAGR-465 lists it only as an open question ('Can Ops override a Sign-Up's payout amount? (Lina, Sep 1)'). The related internal check that Payout Amount is read-only for reps (L2277) is also not tracked.
+- **Suggested action:** Create a Sign-Up story for the Ops payout amount override (checkbox + override amount, Ops-only FLS, payout batch uses the override) and include the rep read-only check; or confirm with Lina whether the Sep 25 payout design replaces it.
+- **Confidence:** high · **Verifier note:** The Sep 1 agreement is real and no build story exists. But the item is already tracked in Jira: WAGR-465 (High, Requirements, Kobi, Sprint 2) lists it as an open question and cites the Sep 1 sync as a source. WAGR-465 is not done until the build stories exist. So this is partial coverage, and the real gap is smaller: a firm agreement was logged as an open question. The L2277 read-only check is a small internal action that happened before the client ask.
+
+#### VAR-104 · V2 · Low · verification: downgraded
+
+**WAGR-159 Pause Automation says a paused referrer 'blocks new attribution' and uses the unconfirmed prototype reason list; meetings decided no restriction and a different reason list**
+
+- **Jira:** [WAGR-159](https://jumpr.atlassian.net/browse/WAGR-159) — BUILD-197 — Referrer: Pause Automation — status Jumpr Review, assignee Taryn Reithofer  
+  > Reversible; blocks new attribution only *(description (AUTOMATION))*
+- **Jira:** [WAGR-159](https://jumpr.atlassian.net/browse/WAGR-159) — BUILD-197 — Referrer: Pause Automation — status Jumpr Review, assignee Taryn Reithofer  
+  > Reason — Picklist: Awaiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review, Referrer Request, Other *(description (AUTOMATION))*
+- **Jira:** [WAGR-159](https://jumpr.atlassian.net/browse/WAGR-159) — BUILD-197 — Referrer: Pause Automation — status Jumpr Review, assignee Taryn Reithofer  
+  > Pause automation is complete and tested! Referrer - Pause Button V2 *(comment 2026-09-02 (author not shown))*
+- **Jira:** [WAGR-178](https://jumpr.atlassian.net/browse/WAGR-178) — BUILD-235 — Referrer: Pause Button — Confirm Reason Capture — status Jumpr Review, assignee Taryn Reithofer  
+  > Pause Reason — Picklist (single-select), required. Values: Waiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review / Possible Duplicate Referral Record. *(description (FIELDS))*
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — Kobi Kunasekaran; Lina Ceniccola @ 01:34:45 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (line 1587, L1982)  
+  > Kobi Kunasekaran: ...So, are we saying that for paused and banned, we're not going to restrict signups from being uh or reps from being uh adding referers or signups, even if they're banned or paused. / Lina Ceniccola: Yeah, that works.
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-25 — Kobi Kunasekaran; Lina Ceniccola; Joyce Kiddell @ 00:22:52 — [doc](https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit) (line 349, L2095)  
+  > Lina Ceniccola: Yeah. Waiting ops proof quality under review. Sure. Payout details missing or invalid. Sure. Duplicate under review. Possible duplicate referral record. Sure. / Kobi Kunasekaran: Yeah. Yeah. Okay. We'll keep these again.
+- **Later / conflicting evidence:** Wagertech Internal Sync — 2026-09-24 — [doc](https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit) (L3039)  
+  > Kobi Kunasekaran: the followup is potentially creating a report or a way for them to see a list of um, signups with banned referers. Um, I would dep prioritize this / Taryn Reithofer: deep part 75. / Kobi Kunasekaran: really we just need to surface a way for them to see signups against uh bad referers / Kobi Kunasekaran: let's rework the ticket so that it doesn't seem like we have to do anything in the signup flow for now. / Kobi Kunasekaran: No, Let's just put it in the back hog for now. We we'll categorize it later.
+- **What differs:** On Aug 18 the client agreed that paused or banned referrers do not restrict signups (reconfirmed internally Sep 24, and WAGR-75 was rescoped to a report). WAGR-159, created Aug 20 from the prototype and marked built and tested, still says Pause 'blocks new attribution' and lists six prototype reasons, while WAGR-178 holds the four reasons the client confirmed on Aug 25.
+- **Suggested action:** Check the built Pause flow in the sandbox: confirm it does not block attribution and uses the WAGR-178 reason values; then correct the WAGR-159 description (or close it as superseded by WAGR-178/WAGR-75).
+- **Confidence:** high · **Verifier note:** The WAGR-159 text does conflict with the Aug 18 'no restriction' decision. But later meetings show the build does not block: on Sep 11 Kobi told the client that referrer ban/pause logic does not stop signups, and on Sep 24 he said a banned referrer can already be selected at signup. So this is a stale ticket description, not a build defect. The reason-list gap is also smaller than claimed. WAGR-178 already holds the reasons the client confirmed on Aug 25. Only 'Referrer Request' is unconfirmed. 'Other' looks wanted (Lina: 'as long as we have the reasons and when we have other').
+
+#### VAR-105 · V3 · Low · verification: downgraded
+
+**Referrer Default Payout Type values are 'Cash, Redeposit' while the Sign-Up type and the decided term are 'Bet Credit'**
+
+- **Jira:** [WAGR-191](https://jumpr.atlassian.net/browse/WAGR-191) — BUILD-187 — Referrer: Referral Defaults — status Jumpr Review, assignee Taryn Reithofer  
+  > Default Payout Type — Picklist: Cash, Redeposit; overridable at the Sign Up level *(description (FIELDS))*
+- **Jira:** [WAGR-428](https://jumpr.atlassian.net/browse/WAGR-428) — Referrer: Fix auto-population when selecting an existing referrer — status Open, assignee Unassigned  
+  > Verify/fix: selecting a referrer should auto-default the Referral Type field based on the referrer's typical/set referral type; user should still be able to override it manually. *(description (Requirements))*
+- **Jira:** [WAGR-465](https://jumpr.atlassian.net/browse/WAGR-465) — Referral payouts — design and user stories — status Requirements, assignee Kobi Kunasekaran  
+  > Naming: "Bet Credit" or "Redeposit"? The matrix has no Redeposit type. *(description (Open questions))*
+- **Transcript:** Wagertech <> Jumpr: Referral and Payouts Discovery — 2026-09-25 — Joyce Kiddell; Lina Ceniccola @ 00:18:49 — [doc](https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit) (line 365, L3107)  
+  > Joyce Kiddell: like are are we still clinging at credit because it's like technically a redeposit. / Lina Ceniccola: We do internally. We call it bad credit for referral payments. / Joyce Kiddell: Just keep it like that. / Lina Ceniccola: Yeah, I say keep it consistent.
+- **Transcript:** Wagertech <> Jumpr: Referral and Payouts Discovery — 2026-09-25 — Joyce Kiddell; Kobi Kunasekaran @ 00:16:52 — [doc](https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit) (line 337, L3106)  
+  > Joyce Kiddell: Yeah, but we would want the BA to have the ability to change it if for like that sign up for whatever reason. / Kobi Kunasekaran: when they Sorry, / Kobi Kunasekaran: I just wanted to like read that back. So when uh when a PA goes in to log a signup um and they select a referral or create a referral um the payout type or the signup should pull from the default payout type that's on the referral. Um and but they should be able to change that um to like bet credit or cash um if if they don't want to go with the default. / Joyce Kiddell: Yes, if they're an existing refer obviously, / Joyce Kiddell: but if they're not then you have to fight at that time.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (L1984)  
+  > Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (L1984)  
+  > Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom.
+- **What differs:** WAGR-191 built the referrer Default Payout Type with the Aug 18 wording (Cash, Redeposit). On Sep 25 WagerTech decided to keep the term 'bet credit', and the signup payout type must default from the referrer default. The Sign-Up Referral Type and payout matrix use Cash/Bet Credit (WAGR-289), so the default cannot map cleanly; WAGR-465 still lists the naming as open.
+- **Suggested action:** Rename the WAGR-191 picklist value Redeposit to Bet Credit (or add an explicit mapping) as part of WAGR-428, and close the naming question on WAGR-465.
+- **Confidence:** medium · **Verifier note:** Real naming mismatch (WAGR-191 Default Payout Type built as Cash/Redeposit; Sep 25 WagerTech decided to keep 'bet credit'; Sign-Up/matrix use bet credit), with no later reversal. But WAGR-465 already lists this exact naming question as open, so Jira partially covers it, and the fix is a small picklist rename/mapping before WAGR-428 defaulting is built. Lower to Low.
 
 #### VAR-106 · V5 · Low · verification: downgraded
 
@@ -1988,6 +1887,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** Joyce said 'we would take out referral ro[le] ... because like they're only secondary referrers on specific signups', i.e. role is set per sign-up, not as a referrer default. The ticket recorded this as 'unresolved which field' but the field was built.
 - **Suggested action:** Suggest confirming with Joyce that 'referral ro' meant Default Referrer Role; if yes, hide or remove the field from the Referrer layout and update WAGR-191.
 - **Confidence:** medium
+- **Also reported as:** Referral_and_Payouts unverified lead ('Take out referral ro') (same finding reported a second time; folded here)
 
 #### VAR-112 · V3 · Low · verification: confirmed
 
@@ -2041,42 +1941,6 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** The 2026-09-29 walkthrough left the Flow vs Apex choice to Cedrick (Apex only if payload size or batching is a problem), and on 2026-09-28 Cedrick took an action to prove a Flow-based callout with retries. Jira (updated 2026-10-02) states Queueable Apex is the single sender and lists it as resolved, with no meeting record of that decision or of the Flow POC result.
 - **Suggested action:** Suggestion only: confirm with Cedrick and Kobi that the Flow POC (L3179) concluded in favour of Queueable Apex, and record the rationale in WAGR-454 or WAGR-463 so the build follows one agreed approach before the October 9 target.
 - **Confidence:** medium · **Verifier note:** Quotes verified in both transcripts and both Jira descriptions. On 2026-09-29 Kobi told Cedrick the Flow vs Apex choice was his (Apex only if payload size or batching is a problem). On 2026-09-28 Cedrick took a Flow POC action. The WAGR-454 changelog shows that on the evening of 2026-09-29 Kobi removed the earlier note 'This differs from Cedrick's Sep 11 flow-callout plan. Decide it with Cedrick' and renamed the ticket 'Queueable Apex Deal sync service'. On 2026-09-30 he added 'Queueable Apex is the single outbound sender'. On 2026-10-02 WAGR-463 listed it under 'Resolved elsewhere'. No later meeting (the ledger ends 2026-09-30) records a POC result or a Cedrick decision. No Jira comments exist. Mitigating point: Kobi's own criterion (batching of 200 Deals) and the old Jira rationale both point to Apex, so the outcome can be correct, but the decision record is missing.
-
-#### VAR-120 · V5 · Medium · verification: verification pending (verifier agent failed)
-
-**Client-agreed 'archive links only' rule (2026-09-30) is not in Jira; WAGR-509/463 still frame Link Archived as undecided and WAGR-491 allows deletes**
-
-- **Jira:** [WAGR-509](https://jumpr.atlassian.net/browse/WAGR-509) — Affiliate Link — Evaluate and design Archived status / historical payload treatment — status Open, assignee Unassigned  
-  > Capture the explicit follow-up for tomorrow's WagerTech review: decide whether Affiliate Links need their own terminal **Archived** state rather than relying only on Active/Inactive + Exclude from CMS. *(description)*
-- **Jira:** [WAGR-491](https://jumpr.atlassian.net/browse/WAGR-491) — Affiliate Link — Exclude from CMS, publication markers and safe deletion — status Requirements, assignee Unassigned  
-  > Never-published Link may be deleted through the guided confirmation path. *(description)*
-- **Jira:** [WAGR-463](https://jumpr.atlassian.net/browse/WAGR-463) — Deal lifecycle/CMS — close remaining design and contract follow-ups — status Requirements, assignee Kobi Kunasekaran  
-  > Decide with WagerTech whether Affiliate Links gain an explicit Archived status. *(description)*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Joyce Kiddell; Kobi Kunasekaran @ 00:41:45 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 824, L3400)  
-  > Joyce Kiddell: Uh why don't we just only give the user the ability to archive links and then we would always have some sort of trail of what the links are within Salesforce and then we don't need any sort of log or history of links in the CMS, right? / Kobi Kunasekaran: that I think that's fine with me. That works.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3384)  
-  > Kobi Kunasekaran: But once I save this and it's in in the database, we um we won't be able to delete it once the deal is activated and it's synced to C uh CMS. / Kobi Kunasekaran: Um but basically uh what what we're doing is once once the deal is synced we can't delete uh the link but you can deactivate it.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3401)  
-  > Kobi Kunasekaran: The I think the one thing that I wanted to just make sure and like confirm with straw is that if we send a payload without a link that it's not going to assume that it's automatically deleted. / Kobi Kunasekaran: But if we remove from the payload as the API endpoint set up today, it'll remove that link from the CMS.
-- **What differs:** On 2026-09-30 Joyce proposed that users only get the ability to archive links, so Salesforce keeps the trail and the CMS needs no link history, and Kobi agreed. Jira (WAGR-509 created 2026-10-02, WAGR-463) still lists this as a question for WagerTech, and WAGR-491 keeps a delete path for never-published links.
-- **Suggested action:** Suggestion only: record the 2026-09-30 agreement on WAGR-509 (and the Confluence decision log), then confirm in the planned WagerTech review whether 'archive only' also removes the never-published delete path in WAGR-491. The CMS omission question (L3401) stays open as tracked.
-- **Confidence:** medium
-
-#### VAR-121 · V5 · Medium · verification: verification pending (verifier agent failed)
-
-**CMS keeps a fixed Deal Status validation until Jumpr sends final values (2026-09-23); no ticket carries this hand-off**
-
-- **Jira:** [WAGR-506](https://jumpr.atlassian.net/browse/WAGR-506) — Deal — Final Deal Status value set (Draft, Active, Paused, Inactive, Closed, Archived) — status Jumpr Review, assignee Cedrick Infantado  
-  > This story defines values only; behavior belongs to lifecycle action stories. *(description)*
-- **Jira:** [WAGR-454](https://jumpr.atlassian.net/browse/WAGR-454) — CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses — status Requirements, assignee Unassigned  
-  > Published Deal Status values are Active, Paused, Inactive, Closed and Archived. Review Required/Retired are obsolete. *(description)*
-- **Jira:** [WAGR-463](https://jumpr.atlassian.net/browse/WAGR-463) — Deal lifecycle/CMS — close remaining design and contract follow-ups — status Requirements, assignee Kobi Kunasekaran  
-  > Confirm CMS final acceptance/display/terminal behavior for Deal Status = Archived. *(description)*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-23 — Strahinja Vladetic; Kobi Kunasekaran @ 00:12:13 — [doc](https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit) (line 360, L2901)  
-  > Strahinja Vladetic: but uh I can open it up just so that it's free form for the for the most part just until we agree on whatever the the pick lists are / Kobi Kunasekaran: Okay. I mean, leave it as it is. I I'll get back to you. I'll confirm once we finalize and then if changes are needed,
-- **What differs:** Strahinja offered to make the CMS deal-status validation free form; Kobi asked him to keep it and said he would confirm the final values. Jira changed the value set (Draft and Archived added, Review Required and Retired obsolete) but no ticket records sending the final list to Strahinja or checking that the CMS validation accepts it; WAGR-463 covers only Archived behaviour.
-- **Suggested action:** Suggestion only: add an AC to WAGR-454 or WAGR-458 (staging verification) that the CMS deal-status validation is updated to Active/Paused/Inactive/Closed/Archived after Jumpr sends the final list, so staging sends do not fail with 4xx on status.
-- **Confidence:** medium
 
 #### VAR-114 · V1 · Low · verification: downgraded
 
@@ -2164,6 +2028,42 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Suggestion only: update the WAGR-39 outbound-scope and identity-rule sections to the v0.13.1 status set, and replace Retired/Review Required/New in WAGR-498 (rule list and AC 8), WAGR-489 and WAGR-458 with Archived/Draft. Also confirm with WagerTech the 'Draft' label: the last meeting record (L3302, 2026-09-29) says 'New', and no meeting records the rename to Draft.
 - **Confidence:** high · **Verifier note:** The 2026-09-30 decisions (rename Retire to Archive, remove Review Required) are real and WAGR-39, WAGR-498 and WAGR-489 still use the old names. But WAGR-458 is already covered: on 2026-10-02 it got a 'v0.13.1 staging amendment' that says Archive replaces Retire, uses Draft, and drops Review Required. The final status set is also recorded in WAGR-506 (deployed with Draft/Archived, in Jumpr Review) and WAGR-463 ('Review Required removed'), and WAGR-492 is Cancelled. What is left is text drift in 3 tickets, and the intended behavior does not change. Low severity.
 
+#### VAR-120 · V5 · Low · verification: downgraded
+
+**Client-agreed 'archive links only' rule (2026-09-30) is not in Jira; WAGR-509/463 still frame Link Archived as undecided and WAGR-491 allows deletes**
+
+- **Jira:** [WAGR-509](https://jumpr.atlassian.net/browse/WAGR-509) — Affiliate Link — Evaluate and design Archived status / historical payload treatment — status Open, assignee Unassigned  
+  > Capture the explicit follow-up for tomorrow's WagerTech review: decide whether Affiliate Links need their own terminal **Archived** state rather than relying only on Active/Inactive + Exclude from CMS. *(description)*
+- **Jira:** [WAGR-491](https://jumpr.atlassian.net/browse/WAGR-491) — Affiliate Link — Exclude from CMS, publication markers and safe deletion — status Requirements, assignee Unassigned  
+  > Never-published Link may be deleted through the guided confirmation path. *(description)*
+- **Jira:** [WAGR-463](https://jumpr.atlassian.net/browse/WAGR-463) — Deal lifecycle/CMS — close remaining design and contract follow-ups — status Requirements, assignee Kobi Kunasekaran  
+  > Decide with WagerTech whether Affiliate Links gain an explicit Archived status. *(description)*
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Joyce Kiddell; Kobi Kunasekaran @ 00:41:45 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 824, L3400)  
+  > Joyce Kiddell: Uh why don't we just only give the user the ability to archive links and then we would always have some sort of trail of what the links are within Salesforce and then we don't need any sort of log or history of links in the CMS, right? / Kobi Kunasekaran: that I think that's fine with me. That works.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3384)  
+  > Kobi Kunasekaran: But once I save this and it's in in the database, we um we won't be able to delete it once the deal is activated and it's synced to C uh CMS. / Kobi Kunasekaran: Um but basically uh what what we're doing is once once the deal is synced we can't delete uh the link but you can deactivate it.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3401)  
+  > Kobi Kunasekaran: The I think the one thing that I wanted to just make sure and like confirm with straw is that if we send a payload without a link that it's not going to assume that it's automatically deleted. / Kobi Kunasekaran: But if we remove from the payload as the API endpoint set up today, it'll remove that link from the CMS.
+- **What differs:** On 2026-09-30 Joyce proposed that users only get the ability to archive links, so Salesforce keeps the trail and the CMS needs no link history, and Kobi agreed. Jira (WAGR-509 created 2026-10-02, WAGR-463) still lists this as a question for WagerTech, and WAGR-491 keeps a delete path for never-published links.
+- **Suggested action:** Suggestion only: record the 2026-09-30 agreement on WAGR-509 (and the Confluence decision log), then confirm in the planned WagerTech review whether 'archive only' also removes the never-published delete path in WAGR-491. The CMS omission question (L3401) stays open as tracked.
+- **Confidence:** medium · **Verifier note:** The quote is real and the Gemini summary records 'participants agreed to allow users to archive links'. No later meeting changes it. But the variance is weaker than claimed: (a) the agreement was in principle, with Joyce hedging ('I don't know if that list will get too unruly') and Kobi saying the payload/CMS nuances still need work with Stra; (b) WAGR-509 (created 2 Oct by Kobi, who was in the meeting) and WAGR-463 #3/#4 already track the Link Archived decision and ask follow-up questions (terminal? restore? payload treatment?) that the 30 Sep exchange did not answer; (c) the WAGR-491 'never-published delete' conflict is inferred. In the same meeting Kobi demoed pre-sync link deletion without objection, and Joyce's proposal was about keeping history instead of a CMS log. Net: this is a documentation gap (the 30 Sep agreement in principle is not recorded on WAGR-509/463). The scope is not missing or contradicted.
+
+#### VAR-121 · V5 · Low · verification: downgraded
+
+**CMS keeps a fixed Deal Status validation until Jumpr sends final values (2026-09-23); no ticket carries this hand-off**
+
+- **Jira:** [WAGR-506](https://jumpr.atlassian.net/browse/WAGR-506) — Deal — Final Deal Status value set (Draft, Active, Paused, Inactive, Closed, Archived) — status Jumpr Review, assignee Cedrick Infantado  
+  > This story defines values only; behavior belongs to lifecycle action stories. *(description)*
+- **Jira:** [WAGR-454](https://jumpr.atlassian.net/browse/WAGR-454) — CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses — status Requirements, assignee Unassigned  
+  > Published Deal Status values are Active, Paused, Inactive, Closed and Archived. Review Required/Retired are obsolete. *(description)*
+- **Jira:** [WAGR-463](https://jumpr.atlassian.net/browse/WAGR-463) — Deal lifecycle/CMS — close remaining design and contract follow-ups — status Requirements, assignee Kobi Kunasekaran  
+  > Confirm CMS final acceptance/display/terminal behavior for Deal Status = Archived. *(description)*
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-23 — Strahinja Vladetic; Kobi Kunasekaran @ 00:12:13 — [doc](https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit) (line 360, L2901)  
+  > Strahinja Vladetic: but uh I can open it up just so that it's free form for the for the most part just until we agree on whatever the the pick lists are / Kobi Kunasekaran: Okay. I mean, leave it as it is. I I'll get back to you. I'll confirm once we finalize and then if changes are needed,
+- **What differs:** Strahinja offered to make the CMS deal-status validation free form; Kobi asked him to keep it and said he would confirm the final values. Jira changed the value set (Draft and Archived added, Review Required and Retired obsolete) but no ticket records sending the final list to Strahinja or checking that the CMS validation accepts it; WAGR-463 covers only Archived behaviour.
+- **Suggested action:** Suggestion only: add an AC to WAGR-454 or WAGR-458 (staging verification) that the CMS deal-status validation is updated to Active/Paused/Inactive/Closed/Archived after Jumpr sends the final list, so staging sends do not fail with 4xx on status.
+- **Confidence:** medium · **Verifier note:** Quote and context hold and no later meeting reverses it, but Jira partly covers the gap: Archived is the only new value CMS would receive (Draft is never sent; Review Required/Replaced are only dropped), WAGR-463 item 1 already tracks confirming CMS acceptance of Archived, and WAGR-458 requires staging lifecycle tests including Archived, forwarding unexplained 4xx to Strah, and Strah/WagerTech sign-off. Only the explicit 'send final list to Strahinja' hand-off is untracked.
+
 #### VAR-122 · V1 · Low · verification: not in verification sample (Low)
 
 **Player email-address change via CMS API: client-agreed deferral (2026-08-18) not parked in any ticket**
@@ -2199,13 +2099,13 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Suggestion only: create the future-enhancement card in Phase 2 (WAGR-478) and link it to WAGR-509 so the payload-growth reason is not lost.
 - **Confidence:** medium
 
-#### VAR-125 · V4 · Low · verification: verification pending (verifier agent failed)
+#### VAR-125 · V4 · Low · verification: downgraded
 
 **WAGR-46 survey-completion inbound event sits in Requirements although the callout was built and tested in August**
 
-- **Jira:** [WAGR-46](https://jumpr.atlassian.net/browse/WAGR-46) — BUILD-69 — Survey completion inbound API event → Player — status Requirements, assignee Unassigned  
+- **Jira:** [WAGR-46](https://jumpr.atlassian.net/browse/WAGR-46) — BUILD-69 — Survey completion inbound API event → Player — status Requirements [live: Requirements (custom Status field: Awaiting Client Feedback)], assignee Unassigned  
   > Objective: replace click-inference with an explicit CMS→SF survey-completion event. *(description)*
-- **Jira:** [WAGR-46](https://jumpr.atlassian.net/browse/WAGR-46) — BUILD-69 — Survey completion inbound API event → Player — status Requirements, assignee Unassigned  
+- **Jira:** [WAGR-46](https://jumpr.atlassian.net/browse/WAGR-46) — BUILD-69 — Survey completion inbound API event → Player — status Requirements [live: Requirements (custom Status field: Awaiting Client Feedback)], assignee Unassigned  
   > Provided updated fields to Emily/Strah and sits with Wagertech to test and confirm this works. *(comment by (no author name) 2026-08-10)*
 - **Jira:** [WAGR-441](https://jumpr.atlassian.net/browse/WAGR-441) — Player: Capture Survey 2 completion from CMS alongside Survey 1 — status In Progress, assignee Kobi Kunasekaran  
   > WAGR-46: the inbound survey-completion event to the Player. It is in Requirements, and the CMS side is owned by WagerTech. This story extends its contract to two surveys. *(description (Dependencies))*
@@ -2217,7 +2117,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: So then yeah the existing field we'll just re label them like survey one um and like I'll send over like the updated API names for those um and then we'll create same fields for survey 2 / Emily Vandenberg: Perfect. Can we do that this week? / Kobi Kunasekaran: Yeah, we can get the fields up and running like today.
 - **What differs:** On 2026-08-11 Kobi confirmed the CMS survey-completion test populated the checkbox and dates through the integration user; on 2026-09-23 he said it was tested on a couple of records and not since. WAGR-46 is still in Requirements (not started) with no assignee, and its single-survey field contract was replaced by the Survey 1/Survey 2 design now tracked in WAGR-441.
 - **Suggested action:** Suggestion only: move WAGR-46 to a status that reflects 'built, awaiting retest' (or close it as superseded and link it to WAGR-441, whose AC 4 already owns the end-to-end retest), so the board does not show survey completion as unstarted.
-- **Confidence:** medium
+- **Confidence:** low · **Verifier note:** The quotes are real and the workflow status of WAGR-46 is stale (Requirements, no assignee). But Jira already records most of this. WAGR-46 has its secondary 'Status' custom field set to 'Awaiting Client Feedback', and its 2026-08-10 comment says the item sits with WagerTech to test. WAGR-441 (In Progress, Kobi) names WAGR-46 as a dependency, and its AC 4 owns the end-to-end retest ('last test was on a few records, before the SLC and API changes'). The remaining gap is board hygiene on one workflow status field only.
 
 #### VAR-126 · V5 · Low · verification: not in verification sample (Low)
 
@@ -2248,36 +2148,6 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 
 ### Ops list views / Console UX
 
-#### VAR-128 · V1 · Medium · verification: verification pending (verifier agent failed)
-
-**No ticket for the standard (non-console) app Kobi committed to build so WagerTech can compare console and non-console**
-
-- **Jira:** no ticket (searched: standard app, non-console, console vs, console and non, separate app, app per role, Lightning app, tab view, navigation, second app; nearest considered: [WAGR-307](https://jumpr.atlassian.net/browse/WAGR-307), [WAGR-310](https://jumpr.atlassian.net/browse/WAGR-310), [WAGR-244](https://jumpr.atlassian.net/browse/WAGR-244), [WAGR-510](https://jumpr.atlassian.net/browse/WAGR-510))
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Emily Vandenberg; Kobi Kunasekaran; Joyce Kiddell @ 02:14:47 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 1819, L3333)  
-  > Emily Vandenberg: So I if you give me a couple if you can share me with like just to kind of play around with that a bit / Kobi Kunasekaran: we can what we can do is like uh we can create a like a widget widget uh standard app with the same uh same objects that we have here. So you can kind of see what the console versus non-console looks like. / Joyce Kiddell: Excellent.
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg @ 02:14:47 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 1812, L3332)  
-  > Kobi Kunasekaran: we could have we could have multiple apps. So it is very common uh to have one app that's configured for / Kobi Kunasekaran: like reps um that have a specific working style and then another one that's more admins or managers um which is like more tab / Joyce Kiddell: We should do that.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-08-11 — [doc](https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit) (L1645)  
-  > Kobi Kunasekaran: ... you were looking at the uh the sales view, we removed that so that there's no more like confusion. People don't accidentally land there. So the main app that everybody uh would have access to is Wagertech console. ...
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3331)  
-  > Kobi Kunasekaran: Um the trade-off is I believe the split view I don't think it works there and because our like for the entire like signup experience we set it up so that split view is how they operate.
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3332)  
-  > Kobi Kunasekaran: we could have we could have multiple apps. So it is very common uh to have one app that's configured for / Kobi Kunasekaran: like reps um that have a specific working style and then another one that's more admins or managers um which is like more tab / Joyce Kiddell: We should do that.
-- **What differs:** On 2026-09-30 Kobi told Emily and Joyce he would create a standard app with the same objects so they can compare console and non-console, and Joyce endorsed separate apps per role. No Jira issue records the comparison app, the role-based app option, or the known risk that the tab view may lose split view.
-- **Suggested action:** Create a Jira story (WAGR-305 epic) for the comparison app with scope (objects, profiles, who reviews), note the split-view risk (L3331), and record the outcome of the per-role app decision. Suggestion only.
-- **Confidence:** high
-
-#### VAR-129 · V1 · Medium · verification: verification pending (verifier agent failed)
-
-**No ticket to keep Inactive/old Deals out of the default Deal working list views**
-
-- **Jira:** no ticket (searched: inactive + list view, Active Deals, default view, clutter, pinned, pin list, active list view, Deal list view; nearest considered: [WAGR-61](https://jumpr.atlassian.net/browse/WAGR-61), [WAGR-480](https://jumpr.atlassian.net/browse/WAGR-480), [WAGR-506](https://jumpr.atlassian.net/browse/WAGR-506), [WAGR-487](https://jumpr.atlassian.net/browse/WAGR-487), [WAGR-307](https://jumpr.atlassian.net/browse/WAGR-307))
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-11 — Kobi Kunasekaran; Joyce Kiddell @ 00:12:35 — [doc](https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit) (line 273, L1628)  
-  > Kobi Kunasekaran: ... We could add another status that'll like help hide it away if if that'll be helpful. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah. Like we can create something that's like circle or something. / Joyce Kiddell: Or in inactive. Inactive is fine. ... / Joyce Kiddell: or we make the pin list the active ones like whatever you think is the best in terms of / Joyce Kiddell: like engineering the structure. I just don't want it to clutter kind of the default / Kobi Kunasekaran: Yeah. Yeah, that's there. We can do
-- **What differs:** Joyce asked that inactive/old deals not clutter the default view and left the mechanism (status or a pinned active list view) to Jumpr; Kobi said "We can do". WAGR-61 sets Deal list columns only, WAGR-480 keeps the All list as is, and WAGR-487/WAGR-506 create the Inactive status but no ticket filters Inactive deals out of the default working list.
-- **Suggested action:** Add an acceptance criterion to WAGR-61 or a new story: an "Active Deals" (or All Active) Deal list view as the working default, with Inactive/Closed/Archived excluded, and onboarding guidance to pin it. Suggestion only.
-- **Confidence:** medium
-
 #### VAR-131 · V2 · Medium · verification: confirmed
 
 **WAGR-424 records a 'final' table-view column order that the meeting did not agree; the column layout was left to Emily**
@@ -2301,6 +2171,36 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** In the 09-23 transcript the column list 'operator, partner, market, country, state, vertical, and status' is Kobi's recap of the sign-up header discussion, not the table view. For the table view, Emily said she would work with Joyce and Lina on 'exactly how I want it laid out'. The actual table-view work is under WAGR-423 (Taryn) and uses Emily's spreadsheet with a different first-four set. WAGR-424 is still Open and unassigned, although the 09-30 meeting says Taryn is already working on the table view.
 - **Suggested action:** Remove the 'final column order' line from WAGR-424 (or mark it as the header recap) and point it to Emily's column template. Then merge WAGR-424 into WAGR-423, or assign WAGR-424 to Taryn and limit it to the freeze/inline-edit/CSV investigations, so that the table view has one ticket and one owner.
 - **Confidence:** high · **Verifier note:** All four transcript quotes exist verbatim in the 09-23 doc. In context, Kobi's 51:08 list 'operator, partner, market, country, state, vertical, and status' comes after Lina asked to 'go back to the signup screen' and discussed the record header (partner short code, source, deal name, mobile order). For the table view, Emily said at 45:44 that she would work with Joyce and Lina on the exact layout. Later meetings (09-30 L3318/L3319) show the table view is being built from Emily's spreadsheet under Taryn and is not complete. WAGR-424 (live: Open, unassigned, 0 comments) still says 'Final column order agreed on the call', and WAGR-423 comments do not correct it.
+
+#### VAR-128 · V1 · Low · verification: downgraded
+
+**No ticket for the standard (non-console) app Kobi committed to build so WagerTech can compare console and non-console**
+
+- **Jira:** no ticket (searched: standard app, non-console, console vs, console and non, separate app, app per role, Lightning app, tab view, navigation, second app; nearest considered: [WAGR-307](https://jumpr.atlassian.net/browse/WAGR-307), [WAGR-310](https://jumpr.atlassian.net/browse/WAGR-310), [WAGR-244](https://jumpr.atlassian.net/browse/WAGR-244), [WAGR-510](https://jumpr.atlassian.net/browse/WAGR-510))
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Emily Vandenberg; Kobi Kunasekaran; Joyce Kiddell @ 02:14:47 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 1819, L3333)  
+  > Emily Vandenberg: So I if you give me a couple if you can share me with like just to kind of play around with that a bit / Kobi Kunasekaran: we can what we can do is like uh we can create a like a widget widget uh standard app with the same uh same objects that we have here. So you can kind of see what the console versus non-console looks like. / Joyce Kiddell: Excellent.
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg @ 02:14:47 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (line 1812, L3332)  
+  > Kobi Kunasekaran: we could have we could have multiple apps. So it is very common uh to have one app that's configured for / Kobi Kunasekaran: like reps um that have a specific working style and then another one that's more admins or managers um which is like more tab / Joyce Kiddell: We should do that.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-08-11 — [doc](https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit) (L1645)  
+  > Kobi Kunasekaran: ... you were looking at the uh the sales view, we removed that so that there's no more like confusion. People don't accidentally land there. So the main app that everybody uh would have access to is Wagertech console. ...
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3331)  
+  > Kobi Kunasekaran: Um the trade-off is I believe the split view I don't think it works there and because our like for the entire like signup experience we set it up so that split view is how they operate.
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-09-30 — [doc](https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit) (L3332)  
+  > Kobi Kunasekaran: we could have we could have multiple apps. So it is very common uh to have one app that's configured for / Kobi Kunasekaran: like reps um that have a specific working style and then another one that's more admins or managers um which is like more tab / Joyce Kiddell: We should do that.
+- **What differs:** On 2026-09-30 Kobi told Emily and Joyce he would create a standard app with the same objects so they can compare console and non-console, and Joyce endorsed separate apps per role. No Jira issue records the comparison app, the role-based app option, or the known risk that the tab view may lose split view.
+- **Suggested action:** Create a Jira story (WAGR-305 epic) for the comparison app with scope (objects, profiles, who reviews), note the split-view risk (L3331), and record the outcome of the per-role app decision. Suggestion only.
+- **Confidence:** medium · **Verifier note:** The gap is real: no WAGR ticket records the standard (non-console) comparison app, and no later meeting changes it. But it is a soft offer ('what we can do is...') for a small config demo. The Gemini next-steps list does not include it. Kobi framed per-role apps as a post-launch UX layer, and Emily wants reps to choose. So Medium is too high.
+
+#### VAR-129 · V1 · Low · verification: downgraded
+
+**No ticket to keep Inactive/old Deals out of the default Deal working list views**
+
+- **Jira:** no ticket (searched: inactive + list view, Active Deals, default view, clutter, pinned, pin list, active list view, Deal list view; nearest considered: [WAGR-61](https://jumpr.atlassian.net/browse/WAGR-61), [WAGR-480](https://jumpr.atlassian.net/browse/WAGR-480), [WAGR-506](https://jumpr.atlassian.net/browse/WAGR-506), [WAGR-487](https://jumpr.atlassian.net/browse/WAGR-487), [WAGR-307](https://jumpr.atlassian.net/browse/WAGR-307))
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-11 — Kobi Kunasekaran; Joyce Kiddell @ 00:12:35 — [doc](https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit) (line 273, L1628)  
+  > Kobi Kunasekaran: ... We could add another status that'll like help hide it away if if that'll be helpful. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah. Like we can create something that's like circle or something. / Joyce Kiddell: Or in inactive. Inactive is fine. ... / Joyce Kiddell: or we make the pin list the active ones like whatever you think is the best in terms of / Joyce Kiddell: like engineering the structure. I just don't want it to clutter kind of the default / Kobi Kunasekaran: Yeah. Yeah, that's there. We can do
+- **What differs:** Joyce asked that inactive/old deals not clutter the default view and left the mechanism (status or a pinned active list view) to Jumpr; Kobi said "We can do". WAGR-61 sets Deal list columns only, WAGR-480 keeps the All list as is, and WAGR-487/WAGR-506 create the Inactive status but no ticket filters Inactive deals out of the default working list.
+- **Suggested action:** Add an acceptance criterion to WAGR-61 or a new story: an "Active Deals" (or All Active) Deal list view as the working default, with Inactive/Closed/Archived excluded, and onboarding guidance to pin it. Suggestion only.
+- **Confidence:** medium · **Verifier note:** Quote is real and Jumpr accepted the ask (Kobi: 'We can do that'). No WAGR ticket gives Deals an 'Active' default or pinned working list view. But the claim is weaker than stated: (1) WAGR-307 (Done) already built an 'Active Deals by Partner' list view in the POC; (2) Inactive later became an automated, informational, self-reactivating status (WAGR-506, WAGR-487, L3406, L3310), so 'exclude Inactive' is no longer obviously right; 'old' deals now map to Closed/Archived; (3) the import of legacy inactive deals that caused the ask was parked (L1627); (4) Salesforce cannot set a default list for all users (L2916), so the fix is one list view plus a pin step at onboarding (L2918). This is a small config gap (XXS), not Medium.
 
 #### VAR-130 · V2 · Low · verification: downgraded
 
@@ -2401,6 +2301,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** The meeting on 07-28 decided the country flag goes next to the player name ('it will just be either the Canadian flag or the US flag'), and Kobi agreed to move the red fraud flag to the right of the name. WAGR-227 (BUILD-124) and WAGR-226 (BUILD-125), both in Jumpr Review, built this. WAGR-355 still calls it a 'parked idea', and the 'NOW' part of WAGR-356 is done, but both tickets stay in 'Requirements'.
 - **Suggested action:** Close WAGR-355 as a duplicate of WAGR-227. Cut WAGR-356 down to the still-gated items only (proof-status circles, combined format, dropping the status text) or close it, and link both tickets to WAGR-226/WAGR-227.
 - **Confidence:** high
+- **Also reported as:** VAR-138 (V4, not in verification sample (Low)) (same finding reported a second time; folded here)
 
 #### VAR-137 · V3 · Low · verification: not in verification sample (Low)
 
@@ -2422,26 +2323,6 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: Uh yeah, I think the best we could do is like update the recently viewed so at least it shows the same columns so it doesn't look as off.
 - **What differs:** The 09-23 meetings asked for Recently Viewed to show the same columns as the other lists, and this is now in WAGR-423 (Sign-Up), WAGR-480 (Deal), WAGR-481 (DRA) and WAGR-483 (Account). The older WAGR-52 and its sub-tasks (Ready/Open, unassigned) cover the same search layouts with a different rule set (profile-specific sets that exclude Partner). Only the SLC sub-task (WAGR-57) has no newer equivalent.
 - **Suggested action:** Close WAGR-52 and sub-tasks WAGR-53/54/55/56/58 as superseded by WAGR-423/480/481/483, and keep WAGR-57 (SLC) as the only open item, or move it under WAGR-305.
-- **Confidence:** medium
-
-#### VAR-138 · V4 · Low · verification: not in verification sample (Low)
-
-**WAGR-355 and WAGR-356 stay On Hold in Requirements although the country flag and fraud flag next to the player name are built in WAGR-227**
-
-- **Jira:** [WAGR-355](https://jumpr.atlassian.net/browse/WAGR-355) — BUILD-60 — Country flag next to player name in signup list view — status Requirements, assignee Unassigned  
-  > ON HOLD (Kobi, 2026-07-29): parked as an idea *(description)*
-- **Jira:** [WAGR-356](https://jumpr.atlassian.net/browse/WAGR-356) — BUILD-62 — List view emoji cleanup: fraud flag position (+ pending client format decision) — status Requirements, assignee Unassigned  
-  > NOW: reorder Status_Combined__c so *(description)*
-- **Jira:** [WAGR-227](https://jumpr.atlassian.net/browse/WAGR-227) — BUILD-124 — Sign Up List View Updates: Player Display with Market Country and Fraud/Overdue icons — status Jumpr Review, assignee Kobi Kunasekaran  
-  > Created new Player_Display__c field to display market country and Flag/overdue status for List Views. *(description)*
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-07-28 — Waleed Alasadi; Emily Vandenberg; Lina Ceniccola; Kobi Kunasekaran @ 00:18:57 — [doc](https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit) (line 320, L1334)  
-  > Waleed Alasadi: but can we add the flag next to the name like E2E tester like Canada? / Emily Vandenberg: Yeah. / Kobi Kunasekaran: that's something we can do. Like next to like Jake Morrison, it will just be either the Canadian flag or the US flag.
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-07-28 — Joyce Kiddell; Kobi Kunasekaran @ 00:22:14 — [doc](https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit) (line 371, L1336)  
-  > Joyce Kiddell: So, what if is it possible to at least move the red flag to the right, like the more immediate right of the person's name? / Kobi Kunasekaran: Yeah. Yeah, we can do that. We can rearrange like some of these if it'll be helpful.
-- **Later / conflicting evidence:** Wagertech (Kobi/Waleed internal, before client sync) - Transcript — 2026-08-11 — [doc](https://docs.google.com/document/d/1Zd2YCtUmJkkT6LOpWVI_AipSlYx4yo_PMzU684wtkrI/edit) (L1607)  
-  > Kobi Kunasekaran: And I think in terms of feedbacks too, last week we said my understanding was that they were going to take away the signup UI and come back with okay, this is the final set of changes we want. And then after I shared the running list of all of the open items and everything, Emily basically asked are the updates ready? I'm like what updates? you're supposed to get back to me with the changes. So I preemptively made some of the things that we discussed didn't finalize… / Kobi Kunasekaran: what we discussed about moving around the icons and stuff. But I think today maybe we just need to be clear from here it's up to you. You tell us what it is because the back and… / Waleed Alasadi: That's on the list view. / Kobi Kunasekaran: Remember last time we talked about the icons were being cluttered and everything. We talked about a few options and I thought we came out of it with playing around with it, trying a few things out and then getting back to us with yeah,… / Kobi Kunasekaran: but I think that was not clear. So I went out and made some changes and I shared the video for it. But I think today I want to say there's nothing else on our plate. If you want more changes, we need a list.
-- **What differs:** The 07-28 meeting agreed the country flag next to the player name and moving the fraud flag right of the name; on 08-11 Kobi said he made the icon changes and shared a video. WAGR-227 (Jumpr Review) holds the built Player_Display__c formula with the country flag and fraud flag, but WAGR-355 and WAGR-356 still say On Hold / Requirements.
-- **Suggested action:** Close WAGR-355 and the "NOW" part of WAGR-356 as delivered by WAGR-227; keep only the gated client-format items (proof circles, status text) open, or move them to a single follow-up. Suggestion only.
 - **Confidence:** medium
 
 #### VAR-140 · V5 · Low · verification: not in verification sample (Low)
@@ -2588,6 +2469,17 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Suggest adding the rule as acceptance criteria on a future rep-performance report story (WAGR-24), and checking it against the repeat-click rule in WAGR-473.
 - **Confidence:** low
 
+#### VAR-149 · V1 · Low · verification: downgraded
+
+**No ticket for scoping the reporting feed into Google Sheets**
+
+- **Jira:** no ticket (searched: google sheet, sheets, feed, export, add-on, spreadsheet; nearest considered: [WAGR-470](https://jumpr.atlassian.net/browse/WAGR-470), [WAGR-477](https://jumpr.atlassian.net/browse/WAGR-477), [WAGR-468](https://jumpr.atlassian.net/browse/WAGR-468))
+- **Transcript:** Wagertech <> Jumpr - Weekly Sync — 2026-07-15 — Kobi Kunasekaran @ 00:09:16 — [doc](https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit) (line 276, L0970)  
+  > Kobi Kunasekaran: So we did talk about like uh a reporting feed into Google Sheets. / Kobi Kunasekaran: Um so I'll I'll scope this out. This probably not going to be for this week. Maybe next week. Um I'll I'll work on this. I think right now we're trying to finalize the actual build itself.
+- **What differs:** Kobi said he would scope a reporting feed into Google Sheets. WAGR-470 asks only whether legacy sheets keep getting data during the switch-over (a decision), and no ticket holds the feed scoping. No later meeting reports the outcome.
+- **Suggested action:** Suggest confirming whether the feed is still needed; if yes, add it to WAGR-470's decision or open a scoping task under WAGR-24.
+- **Confidence:** low · **Verifier note:** Quote is verbatim, but the 'reporting feed into Google Sheets' is the July 8 plan to keep unmigrated sheets fed during coexistence (worst case a Sheets add-on export, L0903; same meeting line 474 'signups added into the existing Google sheets'). WAGR-470 and WAGR-477 already list this as an open decision: 'whether the legacy Google Sheets keep getting data during the switch-over'. The only gap left is that no ticket names the feed mechanism or a scoping task, and that scoping depends on the WAGR-470 decision. The variance's reading that WAGR-470 'asks only' a different question is wrong.
+
 #### VAR-150 · V1 · Low · verification: not in verification sample (Low)
 
 **Client action not tracked: Joyce to email the ideal-state executive reporting mockups**
@@ -2630,21 +2522,10 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Suggest editing WAGR-384 to replace Automation 4 with the report (and a report subscription if wanted), citing the Sep 17 internal sync.
 - **Confidence:** high
 
-#### VAR-149 · V1 · Info · verification: downgraded
-
-**No ticket for scoping the reporting feed into Google Sheets**
-
-- **Jira:** no ticket (searched: google sheet, sheets, feed, export, add-on, spreadsheet; nearest considered: [WAGR-470](https://jumpr.atlassian.net/browse/WAGR-470), [WAGR-477](https://jumpr.atlassian.net/browse/WAGR-477), [WAGR-468](https://jumpr.atlassian.net/browse/WAGR-468))
-- **Transcript:** Wagertech <> Jumpr - Weekly Sync — 2026-07-15 — Kobi Kunasekaran @ 00:09:16 — [doc](https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit) (line 276, L0970)  
-  > Kobi Kunasekaran: So we did talk about like uh a reporting feed into Google Sheets. / Kobi Kunasekaran: Um so I'll I'll scope this out. This probably not going to be for this week. Maybe next week. Um I'll I'll work on this. I think right now we're trying to finalize the actual build itself.
-- **What differs:** Kobi said he would scope a reporting feed into Google Sheets. WAGR-470 asks only whether legacy sheets keep getting data during the switch-over (a decision), and no ticket holds the feed scoping. No later meeting reports the outcome.
-- **Suggested action:** Suggest confirming whether the feed is still needed; if yes, add it to WAGR-470's decision or open a scoping task under WAGR-24.
-- **Confidence:** low · **Verifier note:** Quote is verbatim, but the 'reporting feed into Google Sheets' is the July 8 plan to keep unmigrated sheets fed during coexistence (worst case a Sheets add-on export, L0903; same meeting line 474 'signups added into the existing Google sheets'). WAGR-470 and WAGR-477 already list this as an open decision: 'whether the legacy Google Sheets keep getting data during the switch-over'. The only gap left is that no ticket names the feed mechanism or a scoping task, and that scoping depends on the WAGR-470 decision. The variance's reading that WAGR-470 'asks only' a different question is wrong.
-
 
 ### Access & Permissions / Org Setup
 
-#### VAR-153 · V2 · High · verification: verification pending (verifier agent failed)
+#### VAR-153 · V2 · High · verification: confirmed
 
 **WAGR-271 (Done) lets Reps reactivate archived Sign-Ups, but the client decided that only Ops can unarchive**
 
@@ -2658,9 +2539,38 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: And then for archive records we added the reactivate button. So, um, if I click on reactivate, um, it'll bring it back to in progress. ... Um, and for archive and fraud, we have the, uh, the new reasons that you provided in the open questions lock. / Kobi Kunasekaran: Um, and if they choose other, they'll need to provide the additional information.
 - **What differs:** On 2026-07-22 Lina asked that reps cannot unarchive a sign-up and Kobi agreed that only Ops can unarchive. WAGR-271, created 2026-07-28 and closed as Done, states the objective as letting Reps reactivate archived Sign-Ups and has no Ops-only restriction in its description or comments.
 - **Suggested action:** Check in PartialSB, logged in as a Rep (WT Rep PSG), whether the Reactivate button on an Archived Sign-Up is visible. If it is, restrict the button/flow to Ops (for example with a custom permission or a permission set, the same pattern as the Referrer Reactivate in WAGR-158) and add the rule to WAGR-271 or to the access matrix in WAGR-495.
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** The 2026-07-22 transcript has Lina saying reps must not unarchive, because they could reactivate customers who are now ineligible, and Kobi agreeing that only Ops can unarchive. The 07-28 demo repeats that archived records must be unlocked by the Ops team. WAGR-271 (Done) says 'Let Reps pull an archived Sign-Up back' and has no Ops-only restriction. No later meeting or Jira ticket reverses this or covers it. Confidence stays medium because no one has checked whether the built button is visible to Reps.
 
-#### VAR-154 · V3 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-157 · V5 · Medium · verification: confirmed
+
+**Redeposits design card WAGR-464 does not record the decided rule that BAs cannot change assigned redeposits (Ops makes changes)**
+
+- **Jira:** [WAGR-464](https://jumpr.atlassian.net/browse/WAGR-464) — Redeposits workflow — design and user stories — status Requirements, assignee Kobi Kunasekaran  
+  > Can BAs create their own redeposit rows, or only Ops? *(description)*
+- **Transcript:** Wagertech <> Jumpr: Redeposits Discovery Part 2 — 2026-09-21 — Ali Nawaz; Lina Ceniccola; Kobi Kunasekaran @ 00:47:31 — [doc](https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit) (line 649, L2805)  
+  > Ali Nawaz: So right now the assigned readab should not be touched uh other than how it's already already assigned to them or added to the sheets. / Kobi Kunasekaran: Okay. / Lina Ceniccola: I think if we if ops is able to go in and change it, / Kobi Kunasekaran: Yeah. / Lina Ceniccola: that's fine. If they want to request a change, / Kobi Kunasekaran: Yeah. / Ali Nawaz: Yeah, exactly. / Lina Ceniccola: they can just request it through ops and we'll change it. But let's let's not allow BAS to change the assigned / Kobi Kunasekaran: Perfect. / Kobi Kunasekaran: I mean with Salesforce like we can do hard lots right
+- **What differs:** On 2026-09-21 the client decided that BAs must not change assigned redeposit amounts or slots; changes are requested through Ops and Ops makes them, and Kobi noted Salesforce can hard-lock this. WAGR-464 lists BA create rights as an open decision but does not state the edit lock rule.
+- **Suggested action:** Add the access rule to WAGR-464 (and later to the Redeposit build stories and the WAGR-495 matrix): Rep/BA read-only on assigned redeposit amount and slot fields; Ops edit.
+- **Confidence:** medium · **Verifier note:** The 21 Sep quote exists verbatim (lines 649-662). It is a real client decision: Lina says BAs must not change assigned redeposits and Ops makes changes, and Ali agrees. No later meeting reverses it; the 30 Sep 'request reallocation' change fits the rule. WAGR-464 (0 comments) and WAGR-495 do not record it.
+
+#### VAR-158 · V8 · Medium · verification: confirmed
+
+**BA sales-assistant (and hybrid BA/Ops) login and audit model is unresolved and not in Jira**
+
+- **Jira:** no ticket (searched: assistant, shared login, sales assistant, hybrid, persona, license count; nearest considered: [WAGR-37](https://jumpr.atlassian.net/browse/WAGR-37), [WAGR-495](https://jumpr.atlassian.net/browse/WAGR-495), [WAGR-186](https://jumpr.atlassian.net/browse/WAGR-186), [WAGR-393](https://jumpr.atlassian.net/browse/WAGR-393))
+- **Transcript:** WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows — 2026-06-17 — Lina Ceniccola @ 00:14:30 — [doc](https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit) (line 277, L0393)  
+  > Lina Ceniccola: would be I mean I can go top down. So like you have operations team then you have the sales / Lina Ceniccola: manager then the brand ambassador that falls under the sales manager and then their sales assistant if they have one. So it's also like if they have a manager and if they have a sales assistant but if they are a brand ambassador they would be using Salesforce regardless.
+- **Transcript:** WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows — 2026-06-17 — Joyce Kiddell; Emily Vandenberg; Kobi Kunasekaran; Lina Ceniccola @ 00:19:03 — [doc](https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit) (line 370, L0399)  
+  > Joyce Kiddell: I'm wondering if it's useful to have their own role. um if we can keep it under the cap of our total licenses. / Lina Ceniccola: We can think about it. / Kobi Kunasekaran: Yeah, we don't need to make a decision on the call right now, but it's good to know like if we do need to build any um anything to indicate, you know, signups log by assistance versus brand ambassadors
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-07-07 — Emily Vandenberg; Joyce Kiddell @ 00:53:09 — [doc](https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit) (line 636, L0845)  
+  > Emily Vandenberg: for BA assistants in a world where that there's people that are assisting the reps, do we want them to just use shared login or are you hoping to have unique but a relationship? / Joyce Kiddell: Uh, I mean unique would be great, but um I think it comes down to cost, right? Like I don't we need to scope out exactly how many users we're going to need internally, like excluding them and then understand if there's any left over like based off of our current agreement. Like I don't think we're going to have / Joyce Kiddell: like the ideal state is that they have their own login even if it's like a lower permission level just from like an audit perspective so we can see like what they've done in the system but um I don't think that's possible so like let's you mean Lena talk about like the agreement details Listen.
+- **Transcript:** WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows — 2026-06-17 — Jay; Lina Ceniccola @ 00:03:23 — [doc](https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit) (line 139, L0452)  
+  > Jay: ... I think I'm more of a hybrid. Like I I can be both a BA and um operations. / Lina Ceniccola: Yeah, Jay will actually log the signups for one of our BAS. So, that's an important thing to note as
+- **What differs:** Discovery named the BA's sales assistant as a Salesforce user group and Jay as an Ops/BA hybrid who logs sign-ups for a BA. Whether assistants get unique lower-permission logins (for audit) or share the BA login was left open on 2026-06-17 and again on 2026-07-07, pending license counts. No later meeting answers it, and no Jira ticket mentions assistants; WAGR-495 covers only Rep, Manager, Ops and Admin.
+- **Suggested action:** Add the question to WAGR-495 as an open persona decision (assistant: unique login vs shared; hybrid BA/Ops users: PSG combination) and ask WagerTech to decide before go-live user activation, since it affects license count and the audit trail.
+- **Confidence:** high · **Verifier note:** All four quotes exist verbatim in the re-fetched Google Docs; context shows the assistant login model (shared BA login vs unique lower-permission login for audit) was left open on 2026-06-17 (Kobi: no decision needed on the call) and again on 2026-07-07 (Joyce: unique is ideal but depends on license count); no later meeting decides it, and no WAGR ticket mentions assistants (JQL 'assistant' returns 0).
+
+#### VAR-154 · V3 · Low · verification: downgraded
 
 **WAGR-37 still specifies 'No profile-based access', but later decisions put record-type access on the Rep profile and plan a profile-per-role cleanup at go-live**
 
@@ -2676,9 +2586,9 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Cedrick Infantado: ...So what I'm thinking here is that we can remove those permission um the permission to record types on the permission set and move the that to the profile like I've originally stated yesterday. / Cedrick Infantado: ...they cannot create any um accounts with that record type. / Kobi Kunasekaran: ...if they can they're they can confirm that reps only create referers and not players, operators or partners, then uh we can disable the create access and that would eliminate that middle screen and just default them to create refer when they click on any of the new button. / Cedrick Infantado: So once we confirm that then we can do that.
 - **What differs:** WAGR-37 (In Progress, Sprint 2) says all access goes through permission sets and permission set groups with no profile-based access. On 2026-09-24/25 the team decided that record-type access is controlled on the profile (now built per WAGR-427) and that the go-live permissions review will set up a profile per role; the new epic WAGR-449 and tasks WAGR-495/496 also plan a separate consolidation pass.
 - **Suggested action:** Update WAGR-37 to the current model (PSG-based object/field access plus profile-level record-type assignment, profile per role at cleanup), or close it into WAGR-495/WAGR-496 so that two tickets do not describe the permission model differently.
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** Real wording conflict: WAGR-37 still says 'No profile-based access', but WAGR-427 (comment 2026-09-28) moved record-type assignment onto the WagerTech Sales Rep profile and WAGR-505 records that model. But the reconciliation is already planned in Jira: epic WAGR-449 says the Profile/PS/PSG design 'will be reconciled from the full requirement set', and WAGR-495 lists WAGR-37 as an input and says to flag conflicts with older proposals. Also, 'profile per role at go-live' was a tentative idea ('I think the best way...'), and in the same meeting Kobi said to keep using permission sets for now. What is left is a stale ticket text in the active sprint.
 
-#### VAR-155 · V5 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-155 · V5 · Low · verification: downgraded
 
 **WAGR-391 treats the Brand Manager object as undecided; the 2026-08-18 meeting decided to use the standard User Manager field and role hierarchy**
 
@@ -2702,9 +2612,9 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: their uh I want to say either ops or brand managers, one or the other. / Kobi Kunasekaran: Yeah, they manage your BAS. Yeah, but they can also be deferred in it. They can also be BAS. So, it's kind of a all all inclusive role. / Kobi Kunasekaran: Yeah. Yeah. It gets confusing and that's why like you know when we do the player referral uh objects like there is like a section to track players who are also referers because they can also send
 - **What differs:** The meeting decided that the BA-to-Brand-Manager link is the out-of-the-box Salesforce Manager field (one manager per BA) and that manager visibility follows the hierarchy. WAGR-391 (Requirements, Sprint 2) does not record this decision; it still lists User or Contact as options and says the Brand Manager lookup points at an undefined object.
 - **Suggested action:** Add the 2026-08-18 decision (User.Manager plus role hierarchy, one manager per BA) to WAGR-391 as the baseline, and scope the ticket down to Brand Manager user setup and baseline sharing. This prevents a Contact-based or custom Brand Manager design that would break the manager-hierarchy visibility that WAGR-392 and WAGR-37 depend on.
-- **Confidence:** medium
+- **Confidence:** high · **Verifier note:** Gap is real: the 2026-08-18 client sync agreed to use the out-of-the-box User Manager field (one manager per BA, manager-hierarchy visibility), and WAGR-391 still says the Brand Manager lookup points at an undefined object and lists User or Contact as options. But practical risk is low: the WAGR-391 assignee (Kobi) made the 08-18 recommendation, WAGR-176's 2026-08-25 build comment shows 'BA Manager -> Manager' already applied, and the 2026-09-24 internal sync moved Brand Manager permissions/sharing to a later permissions-and-access epic. So this is a stale-description fix, not a design risk.
 
-#### VAR-156 · V5 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-156 · V5 · Low · verification: downgraded
 
 **Access matrix tickets (WAGR-449/495) have no WagerTech review step and do not use the persona-by-field markup requested from the client**
 
@@ -2718,36 +2628,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Kobi Kunasekaran: just take a screenshot of this and then for each of these fields, you can put like a a color or like a description to say repon, manager, uh, ops, admin, uh, and then read, write. And we can take that and set up the different page views for each of those permissions accordingly. / Lina Ceniccola: So I think for us when we go in here the first step would be / Lina Ceniccola: determine what the rep should see from all of these details.
 - **What differs:** In discovery Jumpr said it would put together a roles and access proposal for WagerTech to decide on before go-live, and on 2026-07-15 asked WagerTech to mark each field by persona (rep, manager, ops, admin) and read/write. The Jira plan has only Kobi/Taryn approving the matrix, builds it from Jira and metadata only, and no ticket tracks the client's field markup.
 - **Suggested action:** Add a WagerTech review/sign-off step (Emily, Lina, Joyce) to WAGR-495 before WAGR-496 deploys, and record whether the client's persona field markup from 2026-07-15 was ever received; if not, use the matrix itself as the client review artifact.
-- **Confidence:** medium
-
-#### VAR-157 · V5 · Medium · verification: verification pending (verifier agent failed)
-
-**Redeposits design card WAGR-464 does not record the decided rule that BAs cannot change assigned redeposits (Ops makes changes)**
-
-- **Jira:** [WAGR-464](https://jumpr.atlassian.net/browse/WAGR-464) — Redeposits workflow — design and user stories — status Requirements, assignee Kobi Kunasekaran  
-  > Can BAs create their own redeposit rows, or only Ops? *(description)*
-- **Transcript:** Wagertech <> Jumpr: Redeposits Discovery Part 2 — 2026-09-21 — Ali Nawaz; Lina Ceniccola; Kobi Kunasekaran @ 00:47:31 — [doc](https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit) (line 649, L2805)  
-  > Ali Nawaz: So right now the assigned readab should not be touched uh other than how it's already already assigned to them or added to the sheets. / Kobi Kunasekaran: Okay. / Lina Ceniccola: I think if we if ops is able to go in and change it, / Kobi Kunasekaran: Yeah. / Lina Ceniccola: that's fine. If they want to request a change, / Kobi Kunasekaran: Yeah. / Ali Nawaz: Yeah, exactly. / Lina Ceniccola: they can just request it through ops and we'll change it. But let's let's not allow BAS to change the assigned / Kobi Kunasekaran: Perfect. / Kobi Kunasekaran: I mean with Salesforce like we can do hard lots right
-- **What differs:** On 2026-09-21 the client decided that BAs must not change assigned redeposit amounts or slots; changes are requested through Ops and Ops makes them, and Kobi noted Salesforce can hard-lock this. WAGR-464 lists BA create rights as an open decision but does not state the edit lock rule.
-- **Suggested action:** Add the access rule to WAGR-464 (and later to the Redeposit build stories and the WAGR-495 matrix): Rep/BA read-only on assigned redeposit amount and slot fields; Ops edit.
-- **Confidence:** medium
-
-#### VAR-158 · V8 · Medium · verification: confirmed
-
-**BA sales-assistant (and hybrid BA/Ops) login and audit model is unresolved and not in Jira**
-
-- **Jira:** no ticket (searched: assistant, shared login, sales assistant, hybrid, persona, license count; nearest considered: [WAGR-37](https://jumpr.atlassian.net/browse/WAGR-37), [WAGR-495](https://jumpr.atlassian.net/browse/WAGR-495), [WAGR-186](https://jumpr.atlassian.net/browse/WAGR-186), [WAGR-393](https://jumpr.atlassian.net/browse/WAGR-393))
-- **Transcript:** WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows — 2026-06-17 — Lina Ceniccola @ 00:14:30 — [doc](https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit) (line 277, L0393)  
-  > Lina Ceniccola: would be I mean I can go top down. So like you have operations team then you have the sales / Lina Ceniccola: manager then the brand ambassador that falls under the sales manager and then their sales assistant if they have one. So it's also like if they have a manager and if they have a sales assistant but if they are a brand ambassador they would be using Salesforce regardless.
-- **Transcript:** WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows — 2026-06-17 — Joyce Kiddell; Emily Vandenberg; Kobi Kunasekaran; Lina Ceniccola @ 00:19:03 — [doc](https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit) (line 370, L0399)  
-  > Joyce Kiddell: I'm wondering if it's useful to have their own role. um if we can keep it under the cap of our total licenses. / Lina Ceniccola: We can think about it. / Kobi Kunasekaran: Yeah, we don't need to make a decision on the call right now, but it's good to know like if we do need to build any um anything to indicate, you know, signups log by assistance versus brand ambassadors
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-07-07 — Emily Vandenberg; Joyce Kiddell @ 00:53:09 — [doc](https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit) (line 636, L0845)  
-  > Emily Vandenberg: for BA assistants in a world where that there's people that are assisting the reps, do we want them to just use shared login or are you hoping to have unique but a relationship? / Joyce Kiddell: Uh, I mean unique would be great, but um I think it comes down to cost, right? Like I don't we need to scope out exactly how many users we're going to need internally, like excluding them and then understand if there's any left over like based off of our current agreement. Like I don't think we're going to have / Joyce Kiddell: like the ideal state is that they have their own login even if it's like a lower permission level just from like an audit perspective so we can see like what they've done in the system but um I don't think that's possible so like let's you mean Lena talk about like the agreement details Listen.
-- **Transcript:** WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows — 2026-06-17 — Jay; Lina Ceniccola @ 00:03:23 — [doc](https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit) (line 139, L0452)  
-  > Jay: ... I think I'm more of a hybrid. Like I I can be both a BA and um operations. / Lina Ceniccola: Yeah, Jay will actually log the signups for one of our BAS. So, that's an important thing to note as
-- **What differs:** Discovery named the BA's sales assistant as a Salesforce user group and Jay as an Ops/BA hybrid who logs sign-ups for a BA. Whether assistants get unique lower-permission logins (for audit) or share the BA login was left open on 2026-06-17 and again on 2026-07-07, pending license counts. No later meeting answers it, and no Jira ticket mentions assistants; WAGR-495 covers only Rep, Manager, Ops and Admin.
-- **Suggested action:** Add the question to WAGR-495 as an open persona decision (assistant: unique login vs shared; hybrid BA/Ops users: PSG combination) and ask WagerTech to decide before go-live user activation, since it affects license count and the audit trail.
-- **Confidence:** high · **Verifier note:** All four quotes exist verbatim in the re-fetched Google Docs; context shows the assistant login model (shared BA login vs unique lower-permission login for audit) was left open on 2026-06-17 (Kobi: no decision needed on the call) and again on 2026-07-07 (Joyce: unique is ideal but depends on license count); no later meeting decides it, and no WAGR ticket mentions assistants (JQL 'assistant' returns 0).
+- **Confidence:** medium · **Verifier note:** The quotes exist and the core gap is real: WAGR-449 step 3 and the WAGR-495 gate name only Kobi/Taryn as matrix reviewers, and WAGR-496 says 'approved' without naming WagerTech. But the second half of the claim is weak. The 2026-07-15 screenshot markup request was replaced on 2026-07-22 (L1232) by WagerTech flagging rep-visible fields in the feedback document. That feedback reached Jira (WAGR-278 'Rep-facing field cleanup', source 'Wagertech Additional User Stories, July 2026 item 28', Done; WAGR-348; WAGR-392 from client feedback). WAGR-495 uses Jira as its requirement source, so it does take in the client's field input. What is left is a process gap: no client sign-off step on the matrix.
 
 #### VAR-159 · V1 · Low · verification: not in verification sample (Low)
 
@@ -2946,26 +2827,6 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Add a dated comment on WAGR-112, WAGR-113, WAGR-114 and WAGR-31 that storage is on hold pending WagerTech's alternate-solution decision (2026-08-18 / 2026-08-25 syncs), and that the interim is pasted proof URLs.
 - **Confidence:** high · **Verifier note:** Both quotes exist verbatim in the re-fetched 2026-08-18 and 2026-08-25 syncs; in context Joyce paused proof storage for a possible alternate solution and Jumpr moved to deal/CMS work, and on 08-25 Joyce confirmed the hold and the interim URL fields. No later meeting lifts the hold. No WAGR ticket or comment records the pause; the only WAGR-112 comment still says 'APPROVED TO PROCEED' and that storage is ahead of CMS work.
 
-#### VAR-170 · V8 · Medium · verification: verification pending (verifier agent failed)
-
-**WagerTech's alternate proof solution and whether Salesforce must accept proof data by API are unresolved and not tracked in Jira**
-
-- **Jira:** [WAGR-32](https://jumpr.atlassian.net/browse/WAGR-32) — BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service — status Done, assignee Unassigned  
-  > Storage platform confirmation (GCP selected pending client's technical sign-off) — do not start the storage service until confirmed. *(description (Open Questions))*
-- **Transcript:** Wagertech <> Jumpr - Weekly Sync — 2026-07-15 — Emily Vandenberg @ 00:15:33 — [doc](https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit) (line 344, L0977)  
-  > Emily Vandenberg: I think like if we were to build this tool, we would then just like send you uh we'd send Salesforce kind of like confirmation of the completion statuses for each versus you doing the Salesforce doing the heavy lifting on storage and um upload. / Emily Vandenberg: leaning towards sending them information through the API versus them having to build for it.
-- **Transcript:** Wagertech <> Jumpr - Weekly Sync — 2026-07-15 — Kobi Kunasekaran; Emily Vandenberg @ 00:16:46 — [doc](https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit) (line 349, L0978)  
-  > Kobi Kunasekaran: what we already have is are these check boxes on the signups, right? So whether these checkboxes are checked manually by the reps or through the API / Kobi Kunasekaran: by extension, I'm also assuming we're not like required to have the list of those like proof files within Salesforce either at this time. / Emily Vandenberg: at this time. / Emily Vandenberg: No, at this time we we just like want to kind of just like pause on solutioning for what we want to do / Emily Vandenberg: with this other than being able to accept information.
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — Joyce Kiddell; Kobi Kunasekaran @ 00:30:12 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (line 562, L1931)  
-  > Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead
-- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-25 — Kobi Kunasekaran; Joyce Kiddell @ 00:39:33 — [doc](https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit) (line 617, L2113)  
-  > Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that
-- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-07-07 — [doc](https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit) (L0846)  
-  > Emily Vandenberg: So question we had or straw had was like is the option of like doing the upload outside of Salesforce and then pushing like reference um like a reference data point back to Salesforce something we could do relatively easily. / Kobi Kunasekaran: we could also have URL fields like three URL fields and um you could update those fields through the API from external system to fill that in and we could have it so that when that's filled the respective checkbox is checked that will drive the proof completion that will then drive the signup completion. So yes absolutely we can do that. / Kobi Kunasekaran: But if you're doing all of that uh externally and you're you have the signup ID, like the exact signup that you're sending the proofs for and you're sending it directly there, then I don't think there's like anything else besides just adding the fields for you to fill / Kobi Kunasekaran: out.
-- **What differs:** Meetings left open whether WagerTech's own tool will hold proofs and send proof URLs or completion status to Salesforce by API. Jira's only open question still frames the decision as GCP sign-off and no ticket covers an inbound proof API.
-- **Suggested action:** Add an open-question or decision ticket under WAGR-31 for the WagerTech alternate-solution decision, with owner and date, and note the inbound-API option (sign-up ID + proof URLs to the URL fields) so it can be sized if chosen. Raise it at the next weekly sync.
-- **Confidence:** medium
-
 #### VAR-169 · V4 · Low · verification: downgraded
 
 **WAGR-32 (Proof Files object, upload component, storage service) is Done, but the storage build was never delivered and is on hold**
@@ -2987,6 +2848,26 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **What differs:** Jira marks the storage build story Done. The meetings say the upload interfaces are not built, storage was paused on 2026-08-18 and is still on hold on 2026-08-25, and reps only paste proof links into URL fields.
 - **Suggested action:** Reopen WAGR-32 or set it to an On Hold/Cancelled state with a comment, or split it: close the delivered bridge (URL fields, proof status) and move the remaining Proof Files object, upload component and storage service into an open ticket under WAGR-31. Today no open ticket holds the post-POC storage build.
 - **Confidence:** high · **Verifier note:** Real but weaker than claimed: WAGR-32 is Done (resolved 2026-09-14 in the sandbox-phase bulk move) although the Proof Files object, upload component and storage service were never built and storage was put on hold by the client on 2026-08-18 / 2026-08-25. But the claim that no open ticket holds the remaining storage work is wrong: WAGR-112 (Drive storage POC, Requirements / Awaiting Client Feedback, refers to the ~56h build to be authorised after the POC), WAGR-113 (client Drive prerequisites, Requirements), WAGR-114 (Cloud_File__c container, Open, On Hold), WAGR-360 and WAGR-362 are open under the same Sign-Up Proofs & Storage epic (WAGR-31, Open). The gap is Jira hygiene on WAGR-32 (misleading Done, no record of the 2026-08-18 client hold), not an untracked scope item.
+
+#### VAR-170 · V8 · Low · verification: downgraded
+
+**WagerTech's alternate proof solution and whether Salesforce must accept proof data by API are unresolved and not tracked in Jira**
+
+- **Jira:** [WAGR-32](https://jumpr.atlassian.net/browse/WAGR-32) — BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service — status Done, assignee Unassigned  
+  > Storage platform confirmation (GCP selected pending client's technical sign-off) — do not start the storage service until confirmed. *(description (Open Questions))*
+- **Transcript:** Wagertech <> Jumpr - Weekly Sync — 2026-07-15 — Emily Vandenberg @ 00:15:33 — [doc](https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit) (line 344, L0977)  
+  > Emily Vandenberg: I think like if we were to build this tool, we would then just like send you uh we'd send Salesforce kind of like confirmation of the completion statuses for each versus you doing the Salesforce doing the heavy lifting on storage and um upload. / Emily Vandenberg: leaning towards sending them information through the API versus them having to build for it.
+- **Transcript:** Wagertech <> Jumpr - Weekly Sync — 2026-07-15 — Kobi Kunasekaran; Emily Vandenberg @ 00:16:46 — [doc](https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit) (line 349, L0978)  
+  > Kobi Kunasekaran: what we already have is are these check boxes on the signups, right? So whether these checkboxes are checked manually by the reps or through the API / Kobi Kunasekaran: by extension, I'm also assuming we're not like required to have the list of those like proof files within Salesforce either at this time. / Emily Vandenberg: at this time. / Emily Vandenberg: No, at this time we we just like want to kind of just like pause on solutioning for what we want to do / Emily Vandenberg: with this other than being able to accept information.
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-18 — Joyce Kiddell; Kobi Kunasekaran @ 00:30:12 — [doc](https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit) (line 562, L1931)  
+  > Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead
+- **Transcript:** Wagertech <> Jumpr: Weekly Sync — 2026-08-25 — Kobi Kunasekaran; Joyce Kiddell @ 00:39:33 — [doc](https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit) (line 617, L2113)  
+  > Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that
+- **Later / conflicting evidence:** Wagertech <> Jumpr: Weekly Sync — 2026-07-07 — [doc](https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit) (L0846)  
+  > Emily Vandenberg: So question we had or straw had was like is the option of like doing the upload outside of Salesforce and then pushing like reference um like a reference data point back to Salesforce something we could do relatively easily. / Kobi Kunasekaran: we could also have URL fields like three URL fields and um you could update those fields through the API from external system to fill that in and we could have it so that when that's filled the respective checkbox is checked that will drive the proof completion that will then drive the signup completion. So yes absolutely we can do that. / Kobi Kunasekaran: But if you're doing all of that uh externally and you're you have the signup ID, like the exact signup that you're sending the proofs for and you're sending it directly there, then I don't think there's like anything else besides just adding the fields for you to fill / Kobi Kunasekaran: out.
+- **What differs:** Meetings left open whether WagerTech's own tool will hold proofs and send proof URLs or completion status to Salesforce by API. Jira's only open question still frames the decision as GCP sign-off and no ticket covers an inbound proof API.
+- **Suggested action:** Add an open-question or decision ticket under WAGR-31 for the WagerTech alternate-solution decision, with owner and date, and note the inbound-API option (sign-up ID + proof URLs to the URL fields) so it can be sized if chosen. Raise it at the next weekly sync.
+- **Confidence:** medium · **Verifier note:** The proof-storage hold (18 and 25 Aug 2026) waiting on a WagerTech alternate solution is real and no Jira ticket records it. But the claim's Jira framing is out of date: WAGR-32 is Done and its 29 Jul comment says the client confirmed GCP on 20 Jul. WAGR-112 (Drive POC) and WAGR-113 (client prerequisites) already track the storage work as 'Awaiting Client Feedback'. The 15 Jul inbound-API idea was overtaken by the GCP/Drive go-ahead (20 Jul to 4 Aug). The URL-field bridge works today, so the gap is mostly a tracking problem.
 
 #### VAR-171 · V1 · Low · verification: not in verification sample (Low)
 
@@ -3029,21 +2910,10 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **Suggested action:** Close the loop with a one-line answer to Joyce (likely: not recommended; Drive direction chosen) or log it as a closed spike note on WAGR-321.
 - **Confidence:** medium
 
-#### VAR-174 · V1 · Low · verification: verification pending (verifier agent failed)
-
-**Project shared drive set-up (internal kickoff action) has no ticket**
-
-- **Jira:** no ticket (searched: shared drive, share drive, project folder, Google Drive folder, transcripts; nearest considered: [WAGR-113](https://jumpr.atlassian.net/browse/WAGR-113))
-- **Transcript:** Wagertech Internal Kickoff — 2026-06-11 — Kobi Kunasekaran @ 00:51:37 — [doc](https://docs.google.com/document/d/1VLSpzYsg65ncEtNqzm0T5PuAXzpSCysaRlYfhVCnRAU/edit) (line 689, L0261)  
-  > Kobi Kunasekaran: We'll do like a share drive together.
-- **What differs:** Kobi said the team would set up a shared drive together. No Jira item tracks it; WAGR-113's shared drive is the client's proof Shared Drive, not the project drive.
-- **Suggested action:** Probably no ticket needed (internal project admin). Confirm it exists and drop this item, or track it in the PM board.
-- **Confidence:** low
-
 
 ### Testing, UAT & Go-Live
 
-#### VAR-175 · V1 · High · verification: verification pending (verifier agent failed)
+#### VAR-175 · V1 · High · verification: confirmed
 
 **No ticket for the production deployment of sandbox-built work, and no go-live deployment checklist (epic WAGR-18 is empty)**
 
@@ -3062,9 +2932,9 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Cedrick Infantado: Okay. Sure. And before we deploy, we will be having an internal testing as well, right? Or maybe I'm not sure. / Kobi Kunasekaran: before we deploy the prod. / Cedrick Infantado: Yeah. Yeah. / Kobi Kunasekaran: Yeah. Yeah. Absolutely. like we we're uh we're still a few weeks aways from prod deployment. So we'll do a full internal UAT as as user as uh as ops as managers
 - **What differs:** On 2026-09-14 Kobi decided to move completed sandbox work to Done and to push everything to production later, during UAT. Jira has no ticket, epic child or checklist for that production deployment. Epic WAGR-18 "Deployment & Go Live Prep" has no child issues. WAGR-127 and WAGR-125 refer to a deployment checklist and a cutover checklist that do not exist. Only the CMS sync cutover (WAGR-460) is planned.
 - **Suggested action:** Suggestion only: create a deployment ticket (or a set of tickets) under WAGR-18. Include the deployment scope (all Done and Jumpr Review metadata since the sandbox-only phase), the deployment order and method, and a go-live checklist. Add the gates already named in Jira (WAGR-127 rep-only list views, WAGR-125 operator logos, WAGR-37 access model, WAGR-460 CMS cutover). Link it to the November 1 go-live milestone.
-- **Confidence:** high
+- **Confidence:** high · **Verifier note:** Quote verified in the re-fetched 2026-09-14 doc (line 424); in context Kobi defers all production deployment and skips release statuses to Done; no later meeting (ledger to 2026-09-30) creates a deployment plan, and live Jira shows WAGR-18 with no children, WAGR-479 holding only WAGR-438/WAGR-393, and no deployment/go-live checklist ticket although WAGR-127 and WAGR-125 point to one.
 
-#### VAR-176 · V1 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-176 · V1 · Low · verification: downgraded
 
 **The decided milestone of rep user testing on sign-up logging (1-2 reps, including mobile) has no ticket for tester users, test data or feedback intake**
 
@@ -3087,12 +2957,12 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Emily Vandenberg: cuz I want to get the deals Like I think we just need to get stuff uploaded so that I can actually test and not be / Emily Vandenberg: like erroring, you know what I mean? And like not showing information.
 - **What differs:** Meetings set a milestone: one or two real reps test the sign-up logging process before go-live, and on 2026-09-30 Emily said she will start user testing with two reps. Jira has no ticket for this round. Nothing covers which reps, their Salesforce users and access (WAGR-393 leaves user activation until go-live), the deal data they need, mobile checks, or how their feedback is captured. WAGR-505 and WAGR-502 only support Emily testing as other users.
 - **Suggested action:** Suggestion only: create a ticket under WAGR-16 or WAGR-479 for the rep user-testing round. Include the named reps, early user activation for them (ahead of the go-live activation in WAGR-393), the deal data upload they need (L3366), mobile checks (L2107), and the path for their feedback into Jira. Confirm the names and dates with WagerTech before adding them.
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** Rep user testing is a real, client-led plan (Emily, 30 Sep, no later meeting), but the 'tester users' part is mostly covered: Rep users already exist and are configured in PartialSB (WAGR-505 Done audited Flow User and record types for all Rep users, with Jared Ali as the named test user; WAGR-288 Done gave rep demo access). The remaining gap is small and mostly the client's: no ticket for the deal data upload reps need, mobile checks, or how rep feedback gets into Jira.
 
 
 ### Training & Enablement
 
-#### VAR-177 · V1 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-177 · V1 · Medium · verification: downgraded
 
 **End-user training delivery (super-user train-the-trainer, recorded, end of Phase 1) has no Jira tickets; epic WAGR-22 is empty**
 
@@ -3107,7 +2977,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Taryn Reithofer: Um so so we'll just have to highlight it in / Kobi Kunasekaran: that's fine. / Taryn Reithofer: um whoseever training um on how to use uh you know how to read and how to use the record pages that is just highlighted in some documentation on what those specific fields are actually for.
 - **What differs:** The client meetings decided a super-user (train-the-trainer) model with recorded sessions, delivered near the end of Phase 1 before users leave the spreadsheets. Jira has the Phase 1 epic WAGR-22 'Training, Enablement & Admin Handoff' with no description, no comments and zero child tickets, so no training session, super-user selection, recording or schedule work is tracked.
 - **Suggested action:** Suggestion only: groom WAGR-22 with child tickets for super-user selection, training session prep and delivery, session recording, and training-readiness as a go-live gate on WAGR-23.
-- **Confidence:** high
+- **Confidence:** medium · **Verifier note:** Gap is real: WAGR-22 (Training, Enablement & Admin Handoff) is live Open, unassigned, no description, 0 comments, 0 child issues, and JQL finds no other training ticket. But the claim overstates firmness: the super-user/train-the-trainer model was reaffirmed in direction on 2026-07-08, yet the training/go-live plan was left to be drafted and reviewed later (L0919). Jumpr only offered to run end-user sessions and office hours. Recorded videos were deferred on 2026-08-06 (L1583), and go-live has no date (WAGR-23 comment, 2026-08-10).
 
 #### VAR-182 · V8 · Medium · verification: confirmed
 
@@ -3405,7 +3275,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 
 ### Other
 
-#### VAR-196 · V1 · Medium · verification: verification pending (verifier agent failed)
+#### VAR-196 · V1 · Low · verification: downgraded
 
 **No Jira item tracks the agreed hand-off of the final Salesforce data model and ERD deviations to WagerTech's data engineer (Strahinja)**
 
@@ -3422,12 +3292,12 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
   > Emily Vandenberg: need him, we can pull him in if there's anything you need. But after kind of getting the table information yesterday, he was good.
 - **What differs:** On 2026-06-23 Kobi said Jumpr would share the final data model, and Strahinja (with Joyce's support) asked to be told about deviations from his ERD as work proceeds. No Jira task, story or acceptance criterion tracks this hand-off, and WAGR-255 now calls the ERD 'out of date'.
 - **Suggested action:** Suggestion only: add one internal task (for example under WAGR-19 or the go-live checklist) to send Strahinja the final Salesforce object/field model and a short list of deviations from his ERD before go-live, as input for his Postgres operator-data joins (L0553). First confirm with Kobi whether the 2026-08-31 'table information' (L2330) already covers this.
-- **Confidence:** medium
+- **Confidence:** medium · **Verifier note:** Quotes are verbatim and no Jira item tracks a final data model or ERD-deviation hand-off to Strahinja. But the 2026-06-23 commitment was soft (Kobi named user stories with API names as the sharing method and told Strahinja he can read the Salesforce object definitions himself; Emily planned an informal regroup). Later meetings show the model reaching Strahinja through the integration work: the API requirements doc (L0994, 07-15), the operator/partner ID sheet (L1902), the 'table information' (L2330, 08-31) and staging DB access. The gap is a missing tracking/close-out item, not a delivery risk. Low severity.
 
 
 ## 3b. Gaps: decided asks and modules with no Jira ticket
 
-67 decided asks/changes/actions have no ticket (every V1 above, listed here in one place; severity in brackets). Client asks Jumpr did not agree to are listed separately below.
+66 decided asks/changes/actions have no ticket (every V1 above, listed here in one place; severity in brackets). Client asks Jumpr did not agree to are listed separately below.
 
 | ID | Area | Sev | Ask with no ticket | First decided (meeting, date) | Verification |
 |---|---|---|---|---|---|
@@ -3440,9 +3310,9 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 | VAR-050 | Referrer / Brand Ambassador | Low | No backlog ticket for the 'link existing player as referrer' screen flow (decided for V1 on Jul 15, later called a down-the-line request) | Wagertech <> Jumpr - Weekly Sync, 2026-07-15 | not in verification sample (Low) |
 | VAR-056 | Player | Medium | No ticket tracks WagerTech's planned swap from player ID to a person-level ID, or its effect on Player External ID upserts | Wagertech <> Jumpr: Weekly Sync, 2026-08-18 | confirmed |
 | VAR-063 | Player | Low | No ticket for the field history tracking on Player (status, money, email, ban reason fields) or the Person Account History related list set up live on 09-02 | Wagertech Internal Sync, 2026-09-02 | not in verification sample (Low) |
-| VAR-068 | Operator & Partner | Medium | No ticket for telling the client the Operator-Partner relationship build is an enhancement to the original design, and for confirming nothing else is open | Wagertech Internal Sync, 2026-09-21 | verification pending (verifier agent failed) |
+| VAR-068 | Operator & Partner | Low | No ticket for telling the client the Operator-Partner relationship build is an enhancement to the original design, and for confirming nothing else is open | Wagertech Internal Sync, 2026-09-21 | downgraded |
 | VAR-071 | Operator & Partner | Low | No ticket for the open duplicate Tax/VAT field question (tax GST V ID vs tax VAT ID) or for Taryn's action to confirm with the client | Wagertech Internal Sync, 2026-09-21 | not in verification sample (Low) |
-| VAR-072 | Operator & Partner | Low | No ticket for the release notes / client communication of the Operator-Partner relationship work | Wagertech Internal Sync, 2026-09-21 | verification pending (verifier agent failed) |
+| VAR-072 | Operator & Partner | Low | No ticket for the release notes / client communication of the Operator-Partner relationship work | Wagertech Internal Sync, 2026-09-21 | downgraded |
 | VAR-073 | Operator & Partner | Low | No ticket tracks Joyce's owed list of Partner Type picklist values | Wagertech <> Jumpr - 60 Min (Joyce Kiddell), 2026-08-13 | not in verification sample (Low) |
 | VAR-074 | Operator & Partner | Low | Deferred capability with no backlog ticket: Operator record as a sales pipeline for new contracts | Wagertech <> Jumpr: Weekly Sync, 2026-07-07 | not in verification sample (Low) |
 | VAR-075 | Operator & Partner | Low | No ticket for Kobi's action to name the low-cost Salesforce-to-Postgres loader tool | Wagertech <> Jumpr: Weekly Sync, 2026-06-23 | not in verification sample (Low) |
@@ -3459,9 +3329,9 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 | VAR-093 | Redeposits | Low | No ticket states that a redeposit uses the deal's currency | Emily / Kobi (client working session), 2026-08-27 | not in verification sample (Low) |
 | VAR-094 | Redeposits | Low | No ticket states that VIP players must stay searchable in redeposit eligibility lists | Wagertech <> Jumpr: Weekly Sync, 2026-09-23 | not in verification sample (Low) |
 | VAR-095 | Redeposits | Low | No ticket for the rule that any off-slot amount is additional budget and needs approval first | Wagertech <> Jumpr: Redeposits Discovery Part 2, 2026-09-21 | not in verification sample (Low) |
-| VAR-096 | Redeposits | Low | Deferred item not tracked: rep filtering of signups by partner, to revisit after redeposit design | Wagertech <> Jumpr: Weekly Sync, 2026-09-23 | verification pending (verifier agent failed) |
+| VAR-096 | Redeposits | Low | Deferred item not tracked: rep filtering of signups by partner, to revisit after redeposit design | Wagertech <> Jumpr: Weekly Sync, 2026-09-23 | downgraded |
 | VAR-097 | Redeposits | Low | WagerTech-owned redeposit action items not tracked (tool inputs/outputs, September export, tool rename, wager-winner type, product redeposit flow) | Wagertech <> Jumpr: Redeposits Discovery Part 2, 2026-09-21 | not in verification sample (Low) |
-| VAR-103 | Referral and Payouts | Medium | No ticket for the agreed Ops override of the matrix payout amount ('payout amount differs' / new payout amount) on the Sign-Up | Wagertech <> Jumpr: Weekly Sync, 2026-09-01 | verification pending (verifier agent failed) |
+| VAR-103 | Referral and Payouts | Low | No ticket for the agreed Ops override of the matrix payout amount ('payout amount differs' / new payout amount) on the Sign-Up | Wagertech <> Jumpr: Weekly Sync, 2026-09-01 | downgraded |
 | VAR-109 | Referral and Payouts | Low | No ticket for Kobi's Sep 25 action to diagram the referral payout currency flow for Emily | Wagertech <> Jumpr: Referral and Payouts Discovery, 2026-09-25 | not in verification sample (Low) |
 | VAR-110 | Referral and Payouts | Low | No ticket for the agreed recorded demo of WagerTech's current reconciliation process (client action, Jun 17) | WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows, 2026-06-17 | not in verification sample (Low) |
 | VAR-114 | CMS Integration | Low | Postback events stored against the Sign-Up: decided on 2026-07-08, no Jira ticket anywhere (incl. Holding Pen / Phase 2) | Wagertech <> Jumpr: Onsite, 2026-07-08 | downgraded |
@@ -3469,24 +3339,23 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 | VAR-122 | CMS Integration | Low | Player email-address change via CMS API: client-agreed deferral (2026-08-18) not parked in any ticket | Wagertech <> Jumpr: Weekly Sync, 2026-08-18 | not in verification sample (Low) |
 | VAR-123 | CMS Integration | Low | Action to find the maximum Affiliate Links per Deal from Airtable data (payload sizing) has no ticket | Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough, 2026-09-29 | not in verification sample (Low) |
 | VAR-124 | CMS Integration | Low | Promised future-enhancement card (stop re-sending Affiliate Links already synced as Closed) was not created | Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough, 2026-09-29 | not in verification sample (Low) |
-| VAR-128 | Ops list views / Console UX | Medium | No ticket for the standard (non-console) app Kobi committed to build so WagerTech can compare console and non-console | Wagertech <> Jumpr: Weekly Sync, 2026-09-30 | verification pending (verifier agent failed) |
-| VAR-129 | Ops list views / Console UX | Medium | No ticket to keep Inactive/old Deals out of the default Deal working list views | Wagertech <> Jumpr: Weekly Sync, 2026-08-11 | verification pending (verifier agent failed) |
+| VAR-128 | Ops list views / Console UX | Low | No ticket for the standard (non-console) app Kobi committed to build so WagerTech can compare console and non-console | Wagertech <> Jumpr: Weekly Sync, 2026-09-30 | downgraded |
+| VAR-129 | Ops list views / Console UX | Low | No ticket to keep Inactive/old Deals out of the default Deal working list views | Wagertech <> Jumpr: Weekly Sync, 2026-08-11 | downgraded |
 | VAR-132 | Ops list views / Console UX | Low | No ticket for the Brand Ambassador navigation tab Kobi asked to log as low priority | Wagertech Internal Sync, 2026-09-23 | not in verification sample (Low) |
 | VAR-133 | Ops list views / Console UX | Low | No ticket for the hidden admin-only tab to hold helper fields not called out in tickets | Wagertech Internal Sync, 2026-09-24 | not in verification sample (Low) |
 | VAR-143 | Reporting & Dashboards | Low | No ticket for the committed reports on fraud-flagged, waiting-for-review and duplicate sign-ups; client asked again on Sep 25 | Wagertech <> Jumpr: Weekly Sync, 2026-07-07 | downgraded |
 | VAR-144 | Reporting & Dashboards | Low | No ticket for brand-manager team rollup reporting | WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows, 2026-06-17 | downgraded |
 | VAR-148 | Reporting & Dashboards | Low | No ticket records the rule that rep reporting must not count a later conversion as not converted | Wagertech <> Jumpr: Weekly Sync, 2026-06-23 | not in verification sample (Low) |
+| VAR-149 | Reporting & Dashboards | Low | No ticket for scoping the reporting feed into Google Sheets | Wagertech <> Jumpr - Weekly Sync, 2026-07-15 | downgraded |
 | VAR-150 | Reporting & Dashboards | Low | Client action not tracked: Joyce to email the ideal-state executive reporting mockups | WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows, 2026-06-17 | not in verification sample (Low) |
 | VAR-151 | Reporting & Dashboards | Low | Client action not tracked: Joyce to check the DataBox agreement (possible end reporting tool) | Wagertech <> Jumpr: Weekly Sync, 2026-06-23 | not in verification sample (Low) |
-| VAR-149 | Reporting & Dashboards | Info | No ticket for scoping the reporting feed into Google Sheets | Wagertech <> Jumpr - Weekly Sync, 2026-07-15 | downgraded |
 | VAR-159 | Access & Permissions / Org Setup | Low | No ticket for the open Salesforce licensing check (Emily to forward the Salesforce 'Lightning' product email; Kobi to confirm if extra licensing is needed) | Wagertech <> Jumpr: Weekly Sync, 2026-09-30 | not in verification sample (Low) |
 | VAR-171 | Storage / Proofs | Low | Client walkthrough of the proof upload interface (agreed with Joyce) has no ticket or acceptance step | Wagertech <> Jumpr: Weekly Sync, 2026-08-04 | not in verification sample (Low) |
 | VAR-172 | Storage / Proofs | Low | Proof retention rule (retrievable possibly indefinitely for fraud) and Jumpr's archiving-option research have no ticket | Wagertech <> Jumpr: Weekly Sync, 2026-07-02 | not in verification sample (Low) |
 | VAR-173 | Storage / Proofs | Low | Miko's follow-up on whether Snowflake can store proof images/videos has no ticket and no recorded answer | Jumpr <> WagerTech: Salesforce PRD Review, 2026-05-27 | not in verification sample (Low) |
-| VAR-174 | Storage / Proofs | Low | Project shared drive set-up (internal kickoff action) has no ticket | Wagertech Internal Kickoff, 2026-06-11 | verification pending (verifier agent failed) |
-| VAR-175 | Testing, UAT & Go-Live | High | No ticket for the production deployment of sandbox-built work, and no go-live deployment checklist (epic WAGR-18 is empty) | Wagertech Internal Sync, 2026-09-14 | verification pending (verifier agent failed) |
-| VAR-176 | Testing, UAT & Go-Live | Medium | The decided milestone of rep user testing on sign-up logging (1-2 reps, including mobile) has no ticket for tester users, test data or feedback intake | Wagertech <> Jumpr: Weekly Sync, 2026-08-18 | verification pending (verifier agent failed) |
-| VAR-177 | Training & Enablement | Medium | End-user training delivery (super-user train-the-trainer, recorded, end of Phase 1) has no Jira tickets; epic WAGR-22 is empty | Wagertech <> Jumpr: Onsite, 2026-07-08 | verification pending (verifier agent failed) |
+| VAR-175 | Testing, UAT & Go-Live | High | No ticket for the production deployment of sandbox-built work, and no go-live deployment checklist (epic WAGR-18 is empty) | Wagertech Internal Sync, 2026-09-14 | confirmed |
+| VAR-176 | Testing, UAT & Go-Live | Low | The decided milestone of rep user testing on sign-up logging (1-2 reps, including mobile) has no ticket for tester users, test data or feedback intake | Wagertech <> Jumpr: Weekly Sync, 2026-08-18 | downgraded |
+| VAR-177 | Training & Enablement | Medium | End-user training delivery (super-user train-the-trainer, recorded, end of Phase 1) has no Jira tickets; epic WAGR-22 is empty | Wagertech <> Jumpr: Onsite, 2026-07-08 | downgraded |
 | VAR-178 | Training & Enablement | Low | Training / go-live plan that Jumpr agreed to draft and review with WagerTech has no ticket and no later evidence of delivery | Wagertech <> Jumpr: Onsite, 2026-07-08 | downgraded |
 | VAR-179 | Training & Enablement | Low | Bi-weekly release notes promised to WagerTech after the initial build have no ticket or tracked cadence | Wagertech <> Jumpr: Onsite, 2026-07-08 | downgraded |
 | VAR-180 | Training & Enablement | Low | User training manual / record-page documentation (now the agreed home for field explanations) has no ticket | Wagertech Internal Sync, 2026-09-15 | downgraded |
@@ -3497,7 +3366,7 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 | VAR-189 | Project Mgmt / Scope / Phase / Timeline | Low | No ticket for go-live user license allocation / user setup that Kobi said the plan must include | WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows, 2026-06-17 | not in verification sample (Low) |
 | VAR-190 | Project Mgmt / Scope / Phase / Timeline | Low | No ticket or owner for the shared Google Drive for recordings and documents promised at kickoff | Jumpr <> Wagertech: Project Kickoff, 2026-06-17 | downgraded |
 | VAR-191 | Project Mgmt / Scope / Phase / Timeline | Low | No ticket or owner for the AI/MCP workflow session the client asked to book | Wagertech <> Jumpr: Weekly Sync, 2026-09-30 | not in verification sample (Low) |
-| VAR-196 | Other | Medium | No Jira item tracks the agreed hand-off of the final Salesforce data model and ERD deviations to WagerTech's data engineer (Strahinja) | Wagertech <> Jumpr: Weekly Sync, 2026-06-23 | verification pending (verifier agent failed) |
+| VAR-196 | Other | Low | No Jira item tracks the agreed hand-off of the final Salesforce data model and ERD deviations to WagerTech's data engineer (Strahinja) | Wagertech <> Jumpr: Weekly Sync, 2026-06-23 | downgraded |
 
 **Client asks that Jumpr did not agree to and that have no ticket (visibility only):**
 
@@ -4105,6 +3974,16 @@ Grouped by feature area, then severity. Jira status shown is the 3 Oct 2026 snap
 - **VAR-117** (V2, CMS Integration): Rep/BA identity: 2026-08-18 decision has CMS push rep ID on rep creation; WAGR-390 says no automated CMS intake, manual on both sides — **rejected:** A later client decision resolves this. WagerTech's written notes in the BA Build Walkthrough doc (dated 08/31, reviewed Sep 2026) say: 'BA Creation - Manual on both sides to start (refer to CMS to pull in the BA External Id)'. This replaces the 2026-08-18 CMS-sets-external-ID approach for now, and WAGR-390 already records it, citing that source. Also, Joyce's 'CMS create pushes rep to Salesforce' idea (L1934) was walked back in the same meeting. Only stale wording in the WAGR-183 description is left.
 - **VAR-139** (V4, Ops list views / Console UX): Operator / Partner record-page tickets stay in 'Jumpr Review' after the pages were handed over to the client on 09-01 — **rejected:** Jira already covers it. WAGR-414 'Phase 1 Epic & review-queue cleanup' (In Progress, Taryn, Sprint 2) is a ticket to triage every Jumpr Review ticket. It says the Jumpr Review status is a migration artifact on many tickets and names the record-page tickets as quick closes. The 09-28 sync (Kobi) and the 09-23 sync (L2888) confirm the same planned cleanup.
 - **VAR-166** (V1, Data Migration / Import): Agreed alignment sessions with WagerTech's new data architect (data mapping aligned to the Salesforce structure) have no ticket — **rejected:** The ask was met and is ticketed. WAGR-319 'Discovery: ERD and Data Requirements' (a Meeting item, Done, Kobi) records the ERD walkthrough with WagerTech's data engineer. Later meetings (6/3, 6/17, 6/23) held the alignment sessions with Strahinja and agreed how the Salesforce model relates to his ERD (L0553, L0554, L0556, L0557).
+- **VAR-174** (V1, Storage / Proofs): Project shared drive set-up (internal kickoff action) has no ticket — **rejected:** Quote is real, but this is internal project admin, not a WAGR delivery gap. A later meeting shows the shared project folder exists: on 3 Sep 2026 (L2419) people already had access and Kobi was adding files to it. No ticket is needed. The variance's own suggested action ('confirm it exists and drop') is met.
+
+**Duplicates folded (same finding reported by both matching lenses):**
+
+- **VAR-020** (V5, Sign-Up) folded into **VAR-012** — same WAGR-429 un-flag finding, same evidence L2933
+- **VAR-046** (V5, Deal) folded into **VAR-023** — same WAGR-412 'assigned link' finding, same evidence L2708/L2709; both independently confirmed
+- **VAR-032** (V5, Deal) folded into **VAR-026** — same WAGR-471 multi-state Deal Name finding, same evidence L2965
+- **VAR-057** (V2, Player) folded into **VAR-061** — same player ban-reason finding (WAGR-154/156/403), same evidence L2092/L2257
+- **VAR-070** (V3, Operator & Partner) folded into **VAR-069** — same WAGR-408 Supported Markets roll-up finding, same evidence L3208/L3212
+- **VAR-138** (V4, Ops list views / Console UX) folded into **VAR-136** — same WAGR-355/356 On-Hold finding, same evidence L1334/L1336
 
 ## Appendix A2. Unverified leads (did not meet the citation standard)
 
