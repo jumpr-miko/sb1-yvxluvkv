@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-021",
+ "verdict": "confirmed",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Quote exists verbatim in the 9/1 Internal Sync transcript (00:03:19) and the Gemini 'Aligned' decisions list says 'SLC page cleanup deprioritized'; no later meeting reverses it; WAGR-48 is still Ready / Phase 1 with only a renumbering comment. The 9/14 move to Ready was part of a bulk workflow migration (63 tickets left 'Phase 1 Build' that day), not a deliberate re-prioritization.",
+ "q1": "Found, with minor filler differences only (ellipses mark omitted speaker turns 'Um,' / 'okay. This is also where I updated it' etc.). Transcript lines 106-115 of the fetched doc, timestamp 00:03:19, speakers Taryn Reithofer and Kobi Kunasekaran. The doc's Decisions section (line 24) also lists 'SLC page cleanup deprioritized ... currently a low-priority task' under Aligned, and the details section (line 55) repeats it.",
+ "q2": "Supports the claim. Taryn asks if the SLC record page is in use; Kobi (Jumpr lead, the WAGR-48 assignee) says it is an admin page, reps do not look at it, cleanup is needed 'at some point' but 'let's not worry about this for now' and it is 'much much much lower priority'. Taryn agrees ('Okay'). No walk-back in the following 40+ lines (conversation moves to build 243, affiliate links, record page handovers). Caveat: the deferral covers page layout cleanup only; the WAGR-48 security bullet (remove StudyLinkClick from WT_Rep_PSG) was not discussed, which the suggested_action already handles. It is an internal Jumpr decision, and the ticket's source is client feedback rows (Emily G4/G5/G6), so client optics of deferring should be considered.",
+ "q3": "No later reversal. Ledger rows after 2026-09-01 mentioning SLC concern the processing flow, integration, currency, duplicate logic, and list views. L2380/L2382 (2026-09-03, proposed) are about the SLC 'All' list view and Recently Viewed config, not the record page layout, and Kobi said to prioritize the signup one first. L2597 (2026-09-15) is a follow-up on a feedback-doc data-source item, not page layout. Nothing re-prioritizes SLC record page cleanup.",
+ "q4": "WAGR-48 (live): status Ready (statusCategory To Do), assignee Kobi Kunasekaran, Phase 1, MoSCoW Should Have, Size XS, Epic 'SLC & Sign-Up Intake'. Description still scopes the SLC page as Ops-only surface with API Data tab, ERD relabel, hide Referral_Code__c, and PSG removal; note says 'much of this may already be done - verify current state first'. 1 comment total (2026-07-30 renumbering BUILD-79 -> BUILD-88, no scope change). Changelog: 2026-09-14 03:05 Phase 1 Build -> To Do, 03:09 To Do -> Ready, 03:30 assignee set to Kobi; JQL shows 63 WAGR issues changed from 'Phase 1 Build' on 2026-09-14, so this was a bulk workflow migration. JQL for 'SLC layout' / 'SLC record page' / 'StudyLinkClick' found no other ticket recording the deferral (hits: WAGR-498, 490, 458, 441, 425, 384, 135, 140, 163, 240, 52, 48, 47, 268, 39). Jira does not cover the deferral.",
+ "corrections": [
+  "Ledger L2239 and doc decisions confirm date 2026-09-01, meeting 'Wagertech Internal Sync', speakers Taryn Reithofer / Kobi Kunasekaran - no correction needed.",
+  "Add context: WAGR-48 moved to Ready on 2026-09-14 via bulk workflow migration (not a deliberate re-prioritization after 9/1).",
+  "Ticket description notes much of the scope may already be done; verify org state before moving or closing."
+ ],
+ "live_jira": [
+  {"key": "WAGR-48", "status": "Ready", "assignee": "Kobi Kunasekaran", "comments_total": 1}
+ ]
+}

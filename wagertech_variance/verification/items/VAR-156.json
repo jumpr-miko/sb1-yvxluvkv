@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-156",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "The quotes exist and the core gap is real: WAGR-449 step 3 and the WAGR-495 gate name only Kobi/Taryn as matrix reviewers, and WAGR-496 says 'approved' without naming WagerTech. But the second half of the claim is weak. The 2026-07-15 screenshot markup request was replaced on 2026-07-22 (L1232) by WagerTech flagging rep-visible fields in the feedback document. That feedback reached Jira (WAGR-278 'Rep-facing field cleanup', source 'Wagertech Additional User Stories, July 2026 item 28', Done; WAGR-348; WAGR-392 from client feedback). WAGR-495 uses Jira as its requirement source, so it does take in the client's field input. What is left is a process gap: no client sign-off step on the matrix.",
+ "q1": "Found. Both quotes match verbatim with whitespace normalized. 17 Jun 2026 Discovery Session 1 (doc 1lK3Fxz..., line 485, Kobi). 15 Jul 2026 Weekly Sync (doc 1Grl2_T..., line 798, Kobi; Lina follows after a short interjection, about lines 810-812).",
+ "q2": "Mostly supported. 17 Jun: the context is the access tiers (BA, brand manager, ops, exec view-only). Kobi says 'we'll put together the proposal that we can decide on', which implies a joint decision, but it is early and vague. 15 Jul: Kobi asks WagerTech to mark each field by persona and read/write. Emily replies 'we'll prioritize like doing that review and feedback'. This is a real ask that the client accepted. It is not a decision about how the matrix gets approved.",
+ "q3": "Later meetings change part of the claim. L1117 (2026-07-17): first nail the signup at the rep permission level. L1232 (2026-07-22): WagerTech will identify rep-visible fields in the feedback document; this replaced the screenshot markup method. L1347 (2026-07-28): ops keep edit access on signup for now (Lina's call), so client access decisions are made in meetings. L2319 (2026-09-01): commission field visibility by role decided with the client. L3016 (2026-09-24, internal): full permissions review before go-live. L3314 (2026-09-30): permission-related signup feedback items will be done in one pass. No later meeting records a client sign-off step on the matrix.",
+ "q4": "Partly covered. WAGR-449 (Epic, Open, unassigned, 0 comments): the plan's approval step is 'Kobi / Taryn review and approve the matrix'; there is no WagerTech step. WAGR-495 (Open, unassigned, 0 comments): 'Use Jira as the source of business requirements'; conflicts are flagged for Kobi/Taryn review; the gate needs review and approval but does not say by whom. WAGR-496 (Open, 0 comments): 'approved access matrix' with no approver named. The client field feedback is tracked in other tickets: WAGR-278 (Done, source: WagerTech Additional User Stories July 2026 item 28), WAGR-348 (Hide Partner from rep views, Done), WAGR-392 (brand manager visibility, from client feedback, Ready), WAGR-494, WAGR-508. JQL searches run: parent = WAGR-449 / 'access matrix' / 'persona'; 'rep visible fields' / 'feedback document' / 'field visibility' / 'sign-off permissions' / 'UAT access'.",
+ "corrections": [
+  "Remove or narrow the claim that no ticket tracks the client's field markup. The markup method changed on 2026-07-22 (L1232) to the feedback document, and those items reached Jira (for example WAGR-278, WAGR-348, WAGR-392).",
+  "Add WAGR-496 as the ticket where the approver should be named. Its acceptance criteria say 'approved access matrix' but do not say who approves it.",
+  "Suggested action is still valid in narrower form: add a WagerTech review/sign-off step (Emily/Lina/Joyce) to WAGR-495 or WAGR-496 before deploy."
+ ],
+ "live_jira": [
+  {"key": "WAGR-449", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-495", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-496", "status": "Open", "assignee": "Unassigned", "comments_total": 0}
+ ]
+}

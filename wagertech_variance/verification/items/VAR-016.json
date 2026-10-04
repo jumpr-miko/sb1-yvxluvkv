@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-016",
+ "verdict": "confirmed",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Quotes exist verbatim in the 09-23 Weekly Sync doc and, in context, show Lina asking for Partner in the sign-up header, Kobi agreeing to show the short code, and Lina keeping full partner name on deal hover. No later meeting reverses it. WAGR-348 (Done, 0 comments, no links) still states 'No Rep-facing surface exposes Partner'. WAGR-422 holds the new rule but is in Requirements, not built, and is not linked to WAGR-348. Low severity is right: this is a stale-AC / UAT hygiene gap.",
+ "q1": "Found. Re-fetched doc 14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk as HTML and converted it. All quote fragments match with normalized whitespace (L2921 quote around text line 753-772, 00:46:49; L2920 quote at text line 524, 00:27:49). No wording changes.",
+ "q2": "Supports the claim. 00:46:49-00:49:10: Lina asks 'can we just at least add the partner' to the header. Kobi says 'we can add the partner field here'. Emily asks short code or full name. Lina says 'just like that short code'. Kobi says 'we could display the partner short code instead of the full one'. Lina says 'However that is, that's good'. Kobi notes 'we have that partner field here. We just hid it away because ... last time like we said we want to remove some here', which shows the change from the earlier hide-Partner rule (WAGR-348). At 00:27:49-00:29:06 Emily asks if reps can see the full partner name (Cipher, GDC) when they hover over the deal. Lina says 'I think we said to start we can keep all info', 'They already have it ... Let's not change that on them', and 'I mean, we do now, so whatever'. This is a client decision that Jumpr accepted (Kobi agreed; WAGR-422 created the same day). One small issue: at 00:51:08 Kobi's recap says 'we'll add source', but Lina had just dropped Source in favor of Partner. WAGR-422 records this correctly ('Do NOT add a generic Source field'). This does not affect the variance.",
+ "q3": "No later reversal. Ledger after 2026-09-23 for partner/header/short code/highlight: L3193/L3195 (09-28 internal: Taryn to do the sign-up header reorganization and show Emily). L3221/L3222/L3225 (09-28 Emily/Taryn session: Deals removed from the header panel, and market/state may be combined so the header fits on one line). I read the raw transcript 1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs lines 215-270. Nobody removes Partner from the header or goes back to hiding Partner from reps. The other partner items (L3025, L3075, L3034 etc.) are about record-create access and related lists, not rep visibility of Partner.",
+ "q4": "Not covered on WAGR-348. Live WAGR-348: Done (resolved 2026-09-14), unassigned, 0 comments, no issue links. Its description/AC still say 'Remove Partner from every Rep-facing Sign-Up view' and 'No Rep-facing surface exposes Partner'. WAGR-422 (Story, epic WAGR-305, Requirements, Taryn Reithofer, 1 comment about a design doc) records the 09-23 decision: Partner short code in the header, and the full partner name on deal hover 'is fine to keep as-is'. It links only to WAGR-421, not to WAGR-348. So Jira has the new requirement, but the old ticket's AC is not updated or linked. That is the V3 gap the variance describes.",
+ "corrections": [
+  "what_differs says the decision was 'built as WAGR-422'. WAGR-422 is in Requirements status (WAG Sprint 2), not built. Change it to 'captured in WAGR-422 (Requirements)'.",
+  "L2920 quote starts at text line 524 of the fetched doc (claim says 523). This is trivial.",
+  "Extra context that makes the variance stronger: on 09-23 Lina said reps already see partner names on deal hover and in the table view ('I mean, we do now'). So WAGR-348's absolute AC may not have been met before 09-23 either. UAT should test against WAGR-422, not WAGR-348.",
+  "Suggested action stays valid: add a link from WAGR-348 to WAGR-422 and a note that the 09-23 decision partly supersedes the WAGR-348 AC. Verifier made no Jira changes."
+ ],
+ "live_jira": [
+  {"key": "WAGR-348", "status": "Done", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-422", "status": "Requirements", "assignee": "Taryn Reithofer", "comments_total": 1}
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-176",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Rep user testing is a real, client-led plan (Emily, 30 Sep, no later meeting), but the 'tester users' part is mostly covered: Rep users already exist and are configured in PartialSB (WAGR-505 Done audited Flow User and record types for all Rep users, with Jared Ali as the named test user; WAGR-288 Done gave rep demo access). The remaining gap is small and mostly the client's: no ticket for the deal data upload reps need, mobile checks, or how rep feedback gets into Jira.",
+ "q1": "Found. L1930 (18 Aug, doc 1SOoE..., line 552-558 in the fetched text): Kobi '...actually a good idea to get like one or two reps to come in and actually work through that signup blogging experience as well' / 'Um so that could be the next milestone.' / Emily 'Yes.' The quote matches with an ellipsis and filler only. L3315 (30 Sep, doc 1pc9pSc8..., line 366): 'let me go through and then I will add in notes where anything isn't yet complete' and 'start kind of like user testing with two reps' are both in one long Emily line. The quote is two fragments of that line joined with '/'. The wording is not changed.",
+ "q2": "Mostly supports the claim, but the strength is overstated. On 18 Aug the main topic was the next integration milestone (CMS deal endpoint or proof storage). Kobi raised rep testing as an aside ('could be the next milestone'), and Emily's 'Yes.' is a weak agreement. Joyce then said to focus on the deal work. On 30 Sep it is Emily's own plan, and it is conditional: 'If it's all there ... then I want to bring like start ... user testing with two reps' (signups plus table view comparison). Kobi answered at once that not all sign-up UX items are complete. So this is a client-owned action that depends on Jumpr finishing the sign-up feedback items. It is not a Jumpr deliverable that needs its own ticket. The same day (L3321) Emily said she will unlock the API flow for 'Ally' (probably Jared Ali, the existing rep test user) as a key testing use case. That means the testers and their users already exist.",
+ "q3": "No later meeting. The ledger's last date is 2026-09-30, and no row after that changes this. L3201 (28 Sep, internal) and L3315/L3366/L3321 (30 Sep) are the latest, and they agree the plan is still open.",
+ "q4": "Partially covered. JQL searches: (1) text ~ 'user testing' OR 'UAT' OR summary ~ testing returned WAGR-16 (Testing & UAT epic, Open, empty description, 0 comments), WAGR-17/15 (UAT milestones), WAGR-37 (4-tier permission model, In Progress; comment notes Jared has interim rep demo access), WAGR-288 (rep demo profile and PSG, Done), WAGR-247 (UAT test-script refresh, Done), WAGR-476 (CMS Deal Sync test payload, In Progress), and Test-checkbox tickets. (2) text ~ 'rep access'/'test as'/pilot/'two reps'/Ally/mobile returned WAGR-297 (Taryn rep user in PartialSB, Done), WAGR-494, WAGR-424 (table view columns to match the legacy spreadsheet, Open), and others. None of these is a rep user-testing round or a mobile test. (3) Issues created since 28 Sep include WAGR-505 (Done, 30 Sep after the meeting): 'Review every active Rep user in the sandbox and confirm Flow User is ticked ... Jared Ali, via the WT Rep PSG, is the test user'. It also says 'Why now: Emily can now log in as other users to test.' WAGR-502 (Done) covers Emily viewing as BA Andy. WAGR-477 (data import templates, Open) is related to the deal and sign-up data load but does not name rep testing. Not covered: a ticket for the rep testing round itself, deal data for testers, mobile checks, and the feedback intake path.",
+ "corrections": [
+  "The 'no ticket for tester users' part is overstated. WAGR-505 (Done) and WAGR-288 (Done) already configure and audit sandbox Rep users. Jared Ali is the existing rep test user and is probably the 'Ally' in L3321.",
+  "This is a client-owned action (Emily's), and it depends on the open sign-up feedback items. Treat it as a coordination or checklist item under WAGR-16, not a Medium build gap.",
+  "L3315 quote: two fragments of one long transcript line (line 366 in the fetched text) joined with '/'. They are not two separate utterances.",
+  "WAGR-393 (BA email/login provisioning) is about go-live activation, not rep sandbox testing. It does not affect this variance."
+ ],
+ "live_jira": [
+  {"key": "WAGR-505", "status": "Done", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-502", "status": "Done", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-16", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-37", "status": "In Progress", "assignee": null, "comments_total": 1}
+ ]
+}

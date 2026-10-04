@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-077",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quotes are real and the 09-28 decision stands, but WAGR-388 (Jumpr Review, created 09-14) already redefines the counts as active-only (DLRS Count on the relationship junction with Status__c = 'Active') and says it supersedes the old header rollups, and the WAGR-389 comment already records that help text does not show in the highlights panel. The only uncaptured items are the retitle to 'Active Operators' and the missing supersede links on WAGR-138/WAGR-389.",
+ "q1": "Found. All three transcript quotes are verbatim in the re-fetched doc (lines 197-206); the first quote only drops the leading 'Taryn Reithofer:' label. The Jira quotes for WAGR-389 (description and 2026-09-14 comment) and WAGR-138 (description) are verbatim in the live issues.",
+ "q2": "Supports the claim with limits. Taryn asks 'operators with active deals ... or all operators that have ever had a deal'; Emily answers 'I would just do active but then like put active operators'; Taryn agrees and says 'So, change the title'. Gemini summary (lines 17, 30, 86) confirms. Context: Taryn says the current field already 'is a rollup to the operator and partner relationship junction ... counting these two because the status is active', so the build is already active-only; the real change decided is the field title. The discussion covers only Associated Operators on Partner; the claim's extension to Associated Partners on Operator (WAGR-134) is inference, though WAGR-388 covers both sides.",
+ "q3": "No later reversal. Ledger rows after 2026-09-28 (to 2026-09-30, last ledger date) have nothing on associated/active operator counts, highlight panel help text, or the rename. L3216/L3217/L3218 are the latest items on this topic.",
+ "q4": "Partially covered. WAGR-388 'Rebuild the associated partner and operator counts from relationship records' (Jumpr Review, Taryn) specifies DLRS Count rules with criteria Status__c = 'Active', acceptance criterion 'An Operator whose relationships are all Inactive shows zero', and 'Supersedes the associated-partner and associated-operator header rollups as originally built; link the earlier header-rollup tickets to this one.' WAGR-389 comment (Taryn, 2026-09-14) already says help text does not show on fields in the dynamic highlights panel. WAGR-389 and WAGR-138 also list Active-vs-all as an open question rather than defining all-time counts (WAGR-389 calls its wording 'deliberately scope-agnostic'), so 'still define as all-time' is overstated. Not covered anywhere: the rename to 'Active Operators' (JQL text ~ 'Active Operators' returned no ticket with that decision), and WAGR-138/WAGR-389 have no issue links to WAGR-388.",
+ "corrections": [
+  "Primary covering ticket is WAGR-388 (active-only count from junction, already specified); the residual action is to add the 'Active Operators' title decision from 2026-09-28 to WAGR-388 and link/close WAGR-138, WAGR-134, WAGR-389 as superseded.",
+  "WAGR-138 and WAGR-389 do not assert all-time scope; they carry Active-vs-all as an open question.",
+  "The 09-28 decision explicitly concerns only the Partner-side Associated Operators field; applying it to Operator-side Associated Partners is an assumption."
+ ],
+ "live_jira": [
+  {"key": "WAGR-389", "status": "Solution Review", "assignee": "Taryn Reithofer", "comments_total": 1},
+  {"key": "WAGR-138", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 2},
+  {"key": "WAGR-388", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 2}
+ ]
+}

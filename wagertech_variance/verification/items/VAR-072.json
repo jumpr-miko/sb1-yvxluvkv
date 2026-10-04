@@ -1,0 +1,25 @@
+{
+ "var_id": "VAR-072",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Gap is real (no WAGR ticket or comment tracks the release note / client message about the partner-operator relationship work), but it is a conditional internal comms action that is not yet due (the partner-side items WAGR-364 and WAGR-388 are still in Jumpr Review), and the 2026-09-24 decision L3042 moved client comms for done features to a per-ticket Loom on Slack, so a separate Jira item is not clearly expected. Keep Low; lower confidence to medium.",
+ "q1": "Found. Fetched doc 1_l8MYortzD4pYnKzsoFaq7WBdKkM7YnRj011wn2Uz_c ('Wagertech Internal Sync - 2026/09/21 10:01 EDT'). Quote 1 is at line 222-226 of the fetched text, all Kobi. The claim quote adds a '/ Kobi Kunasekaran:' turn marker and leaves out one sentence between the parts: 'Um so to like do the same thing on the partner side.' (after the 00:09:52 timestamp). That sentence sets the condition (Taryn's partner-side items), so it is an elision of content, not only filler; the meaning the claim gives is still correct. Quote 2 is at line 335, verbatim. The transcript says 'Taran' (= Taryn Reithofer).",
+ "q2": "Supports the claim in context. Kobi first proposes that he and Taryn sync this week on release notes for Cedrick's partner/operator relationship work, then changes it: wait until Taryn finishes her partner-side items, then Taryn communicates the changes to WagerTech after a messaging review with Kobi. Taryn does not reply with acceptance (her lines are 'Hello.' and 'this.'), but it is a direct assignment by the lead and the Gemini summary lists '[The group] Draft release notes'. Quote 2 is a separate Kobi action: he will tell the client the partner relationship work is an enhancement and close it off (scope/phase framing), which is related but owned by Kobi, not Taryn. Lines 560-562 show Kobi also wants release notes as an internal context habit (ledger L2784, proposed). The action is internal Jumpr delivery communication, not a client requirement.",
+ "q3": "No later reversal found. Ledger after 2026-09-21: L3034 (09-24) Taryn adds operator relationship list on partner; L3057 (09-25) partner relationship list created, ticket open until rollups fixed; L3190/L3194 (09-28) DLRS rollup rework in progress/stuck; L3216/L3218 (09-28) rename Associated Operators to Active Operators. So the trigger condition ('once those are done') had not happened by the last ledger entries. L3042 (09-24, decided): for completed testable features, share a short Loom walkthrough on Slack and close the ticket; walkthrough docs for larger pieces. This changes the expected comms mechanism and weakens the case for a separate Jira task. L3087 (09-25): Waleed/Kobi to communicate the remaining-work plan to WagerTech (different topic). No ledger item records the release note being sent.",
+ "q4": "Not covered. WAGR-382 (epic, Open, unassigned, 1 comment from Kobi 2026-09-17 about one set of direct billing terms per Operator) has no comms/release-note item. JQL project = WAGR AND text ~ 'release note(s)' returned WAGR-453, 430, 366, 220, 198, 157, 39 (none about client release notes). text ~ 'partner relationship' returned the epic children (WAGR-384, 385, 388, 411, 364, etc.), none with a comms task. text ~ 'communicate'/'changelog'/'announce' returned WAGR-414, 412, 402, 72; WAGR-414 (Phase 1 epic and review-queue cleanup, Taryn, In Progress) says client communication is not sufficient evidence to close a ticket, and does not track a release note to WagerTech. Comments on WAGR-364 (4), WAGR-384 (4), WAGR-388 (2), WAGR-411 (4) are build notes only.",
+ "corrections": [
+  "Quote 1 omits Kobi's sentence 'Um so to like do the same thing on the partner side.' between the two parts; it is one continuous Kobi turn across the 00:09:52 timestamp, not a new turn.",
+  "L2762 (quote 2) is Kobi's own action to tell WagerTech the relationship work is an enhancement and close it off; it is related context, not the same Taryn release-note action.",
+  "Trigger condition not yet met: partner-side items WAGR-364 and WAGR-388 (Taryn) still in Jumpr Review on 2026-10-04, so the communication is not overdue.",
+  "Consider L3042 (2026-09-24) Loom-on-Slack convention: the suggested action could be a checklist note on WAGR-382 or WAGR-364 rather than a new task."
+ ],
+ "live_jira": [
+  {"key": "WAGR-382", "status": "Open", "assignee": null, "comments_total": 1},
+  {"key": "WAGR-364", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 4},
+  {"key": "WAGR-384", "status": "Jumpr Review", "assignee": "Cedrick Infantado", "comments_total": 4},
+  {"key": "WAGR-388", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 2},
+  {"key": "WAGR-411", "status": "Jumpr Review", "assignee": "Cedrick Infantado", "comments_total": 4},
+  {"key": "WAGR-414", "status": "In Progress", "assignee": "Taryn Reithofer", "comments_total": 0}
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-121",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quote and context hold and no later meeting reverses it, but Jira partly covers the gap: Archived is the only new value CMS would receive (Draft is never sent; Review Required/Replaced are only dropped), WAGR-463 item 1 already tracks confirming CMS acceptance of Archived, and WAGR-458 requires staging lifecycle tests including Archived, forwarding unexplained 4xx to Strah, and Strah/WagerTech sign-off. Only the explicit 'send final list to Strahinja' hand-off is untracked.",
+ "q1": "Found. Transcript line 362 (00:12:13) matches verbatim; the claim's quote is cut short (Strahinja's sentence continues '...and then maybe I don't even need to add the validation on my side if you guys are already doing it anyways'). Kobi's reply at line 363 matches verbatim. No wording changes.",
+ "q2": "Supports the claim. Kobi asked whether CMS must change if Deal Status values change (lines 352-358; current CMS values he read: active, inactive, pause, close, review required, replace). Strahinja said there is some validation and offered to make it free form. Kobi said 'leave it as it is', he will confirm once values are final, and they will collaborate on changes (line 365). This is a real decision plus a Kobi action item, not a question or a proposal. Speakers correct. Note: the omitted tail shows Strahinja might drop CMS-side validation completely if Salesforce validates, which is an option that was not chosen.",
+ "q3": "No reversal. Ledger rows after 2026-09-23 (through 2026-09-30) change the value set (L3245 New default, L3302 add New/Retired, L3262 Retired, L3408 remove Review Required, L3409 archive) and raise CMS-side status handling as open (L3274 'what the CMS does with each synced status needs to be coordinated with the client', L3407 Inactive). No later row records Kobi sending the final value list to Strahinja or the CMS validation being updated or opened. L2902 (same meeting) records Kobi's action item to confirm.",
+ "q4": "Partially covered. WAGR-506 (Jumpr Review, Cedrick, 1 comment: Draft and Archived added, Draft default) defines values only and puts the CMS contract out of scope. WAGR-454 (Requirements, unassigned, 0 comments) lists published values Active/Paused/Inactive/Closed/Archived and says 'Validate before callout... required/allowed values' but has no step to align CMS-side validation. WAGR-463 (Requirements, Kobi, 0 comments) item 1 'Confirm CMS final acceptance/display/terminal behavior for Deal Status = Archived'; since Draft is never sent and the other published values already exist on CMS, Archived is effectively the only new value, so this covers most of the risk. WAGR-458 (Requirements, unassigned, 0 comments) staging matrix includes 'Archive ... queues Archived to CMS', 'Send unexplained 4xx bodies to WagerTech/Strah', and 'Done when ... Strah/WagerTech confirms staging Deal behavior'. JQL searches: text~'Strahinja' -> WAGR-441, WAGR-23 (unrelated); text~'\"Deal Status\" CMS validation' -> WAGR-454, WAGR-198, WAGR-131 (none hold the hand-off); (staging OR 'allowed values') AND CMS -> 19 issues incl. WAGR-458/459/456/463/509; none explicitly records sending the final list to Strahinja.",
+ "corrections": [
+  "Severity Medium -> Low: Archived is the only new published value and WAGR-463 item 1 plus WAGR-458 staging tests already cover CMS acceptance of it.",
+  "The 'what_differs' statement 'WAGR-463 covers only Archived behaviour' understates coverage, because Archived is the only value CMS does not already have (Draft is never sent).",
+  "Spelling risk is unverified: Kobi spoke CMS values as 'pause'/'close'; whether CMS validates exact API values 'Paused'/'Closed' is unknown from the transcript.",
+  "WAGR-458 is the better place for the suggested AC (staging verification with Strah sign-off); WAGR-458 body still has stale 'Retire'/'-R-' wording in its older section, separate from this variance."
+ ],
+ "live_jira": [
+  {"key": "WAGR-506", "status": "Jumpr Review", "assignee": "Cedrick Infantado", "comments_total": 1},
+  {"key": "WAGR-454", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-463", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-458", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0}
+ ]
+}

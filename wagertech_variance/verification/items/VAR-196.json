@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-196",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quotes are verbatim and no Jira item tracks a final data model or ERD-deviation hand-off to Strahinja. But the 2026-06-23 commitment was soft (Kobi named user stories with API names as the sharing method and told Strahinja he can read the Salesforce object definitions himself; Emily planned an informal regroup). Later meetings show the model reaching Strahinja through the integration work: the API requirements doc (L0994, 07-15), the operator/partner ID sheet (L1902), the 'table information' (L2330, 08-31) and staging DB access. The gap is a missing tracking/close-out item, not a delivery risk. Low severity.",
+ "q1": "Found. Re-fetched doc 1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY ('Wagertech <> Jumpr: Weekly Sync - 2026/06/23'). All quote fragments for L0553, L0554 and L0595 match verbatim after whitespace normalization (lines 485, 491-496, 514). Minor stitching: Strahinja's 'uh yeah, that should be okay. Ideally,' (line 491, 00:27:49) replies to Kobi's later line 'as long as like we don't have to stick with the exact model here...', not to the 00:26:54 line quoted before it.",
+ "q2": "Supports the claim, with caveats. Kobi: 'we'll share what what the final data model looks like from there and then maybe we can connect again'. Strahinja asked to be told about deviations; Joyce agreed ('ideally we don't deviate too much') and stressed consistent naming. Context weakens it: Strahinja said 'you guys can just point me to the diagram and I can make the updates'. Kobi said his user stories (field names, API names, labels) would be the sharing method and that Strahinja 'can always go to Salesforce in the object definition'. Emily closed with 'pause we pull in straw we kind of run through... We will kind of adjust to the deviation... and regroup'. Gemini summary: 'Strahinja Vladetic requested to be notified of any deviations'. So it is a soft request plus an informal regroup plan, not a formal deliverable.",
+ "q3": "No later meeting cancels the request. Several later items partly satisfy it informally: L0994 (2026-07-15) a single API requirements doc shared with Straw; L1270 (07-24) WagerTech maps its data to the Salesforce data model; L1800/L1902 (08-13/08-18) operator/partner ID export and sheet given to Strahinja; L1926 (08-18) endpoint spec aligned with the database; L2330 (09-01) 'after kind of getting the table information yesterday, he was good' (the transcript does not say what the table information was); L2897 (09-23) DB access shared. L0716 (07-02) Kobi offered a call to split data-team vs Jumpr work once the data model is agreed (proposed). No item records a full final-model or deviation list delivered.",
+ "q4": "Not covered. JQL 'data model' -> WAGR-509, 463, 439, 403, 319, 260, 247 (none is a hand-off). 'ERD' -> WAGR-322, 319, 294, 255, 248, 48 (WAGR-255 closed 2026-08-10: 'ERD is out of date'; WAGR-319 is the June discovery only). 'Strahinja' -> WAGR-441 (survey 2 capture) and WAGR-23 (Phase 1 Go-Live milestone; comments list blockers, no data-model hand-off). A combined data dictionary/schema/deviation/object model/field list search returned only feature build items, none for a hand-off. This matches the claim's no-ticket finding.",
+ "corrections": [
+  "L0553 quote joins two Kobi turns: Strahinja's 'that should be okay' (00:27:49, line 491) answers Kobi's 'as long as like we don't have to stick with the exact model here and we have the option to transform it later' line, not the 00:26:54 line.",
+  "Add to context: Kobi named his user stories (field/API/display names) as the sharing method, and said Strahinja can read the Salesforce object definitions directly (00:29:34-00:30:39).",
+  "Add later partial fulfilment evidence: L0994 (2026-07-15), L1902, L1926, L2897, in addition to L2330."
+ ],
+ "live_jira": [
+  {"key": "WAGR-255", "status": "Done", "assignee": null, "comments_total": 2},
+  {"key": "WAGR-23", "status": "Open", "assignee": null, "comments_total": 2},
+  {"key": "WAGR-319", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": null}
+ ]
+}

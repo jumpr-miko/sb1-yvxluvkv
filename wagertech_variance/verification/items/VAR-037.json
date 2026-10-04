@@ -1,0 +1,22 @@
+{
+ "var_id": "VAR-037",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "Quote is verbatim in the 30 Sep 2026 Weekly Sync; the DRA requirement for VIP sign-ups was left open (assume required for now) with no owner or action item; no later meeting is in the ledger; no WAGR ticket (WAGR-420/431/432/435/405/444/122) addresses VIP DRA handling.",
+ "q1": "Found. Re-fetched doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo (HTML export, base64-decoded, converted). Both sentences are verbatim at fetched lines 1108 and 1122 (timestamps 01:33:04 and 01:35:58). The claim joins two non-adjacent Kobi lines with '/'; the second sentence is truncated at 'DR is required' (original continues 'um as because that's the current case for signups'). No wording changes.",
+ "q2": "Supports the claim. Context (lines ~1090-1170): Kobi explains signup linking needs a DRA on the deal and asks whether to create one for VIP signups. Emily and Joyce asked if VIP users could be preconfigured/assigned to all deals by default. Kobi gave two options: (1) bypass the DRA requirement for VIP signups, or (2) auto-add VIP-allowed users as a DRA on every deal, noting the CMS-sync risk (manual DRAs not in sync with CMS, duplicates with CMS-sourced DRAs). He closed with 'I just need to talk through that... for now, let's assume that DR is required'. Not a decision. The Gemini summary (line 276) and action-item lists (lines 113-119, 203-209) record no decision or owner for this point, while other VIP items (BA default, paused deals, VIP defaults, link creation) do get decisions/actions. Nuance: the client leaned toward the preconfigure/auto-assign option, and the same meeting (ledger L3411, fetched line 806) says 'the CMS drives a DRA anyway. So, we're not creating the assignments in Salesforce', which conflicts with the auto-create option and makes the question more pressing.",
+ "q3": "No later meeting. ledger_compact.tsv latest date is 2026-09-30 and raw/transcripts latest file is the cited 2026-09-30 Weekly Sync. Only ledger row on this topic is L3442 (discussed/open-question). Caveat: L3361 records a CMS/deal/DRA meeting planned for the next afternoon (~1 Oct 2026) that is not in the ledger; it may have addressed this, but there is no evidence either way.",
+ "q4": "Not covered. WAGR-432 (Open, unassigned, 0 comments): requires sign-up relatable to an existing Deal; no DRA mention. WAGR-420 epic (Open, unassigned, 0 comments): no DRA mention. Also checked WAGR-431 (button/permset, no DRA), WAGR-435 (VIP link flag + CMS exclusion; 1 comment pointing to WAGR-491; no DRA), WAGR-405 (VIP manual player creation spike, Kobi; no DRA), WAGR-444 (CMS->SF DRA inbound, later phase, Requirements, Jumpr Internal; open questions list has nothing on VIP/manual DRAs), WAGR-122 (one active DRA per rep/deal; bypass only for migration loads; On Hold comment), WAGR-456 and WAGR-412 (matched VIP+assignment text but unrelated). JQL run: text~'VIP' (13 hits), text~'\"rep assignment\"' OR text~'DRA' (50+ hits, page 1 reviewed), text~'VIP' AND (assignment OR DRA) (WAGR-456, WAGR-412), text~'bypass' (none VIP-related).",
+ "corrections": [
+  "The two quoted sentences are not adjacent (lines 1108 and 1122, 01:33:04 vs 01:35:58); Emily/Joyce's suggestion to preconfigure VIP users on all deals sits between them and should be noted as the client's lean.",
+  "Same-meeting statement L3411 ('Salesforce does not create DRAs because the CMS drives them') should be cited as conflicting with the auto-create option.",
+  "Possible unlogged 1 Oct 2026 CMS/deal/DRA meeting (L3361) should be checked before raising this with the client.",
+  "Suggested action could also link WAGR-122 (DRA uniqueness validation, migration-only bypass) since a VIP bypass would need a similar exemption path."
+ ],
+ "live_jira": [
+  {"key": "WAGR-432", "status": "Open", "assignee": "", "comments_total": 0},
+  {"key": "WAGR-420", "status": "Open", "assignee": "", "comments_total": 0},
+  {"key": "WAGR-444", "status": "Requirements", "assignee": "", "comments_total": 0}
+ ]
+}
