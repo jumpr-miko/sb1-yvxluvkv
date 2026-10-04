@@ -1,0 +1,130 @@
+{
+ "var_id": "VAR-059",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Player",
+ "title": "WAGR-109 Player Payouts related list assumes a player-level Payout object with batches; on 09-25 the team decided player payouts have no separate workflow",
+ "jira": [
+  {
+   "key": "WAGR-109",
+   "status": "Open",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-183 — Player: Payouts Related List",
+   "quote": "Columns: Payout ID, Recipient, Type, Status, Amount, Period, Batch",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-109",
+   "status": "Open",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-183 — Player: Payouts Related List",
+   "quote": "Depends on the Payout object existing — no Asana ticket for it yet.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3142",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:01:33",
+   "line_start": 917,
+   "quote": "Kobi Kunasekaran: Okay. But so for the player payouts, we don't need to track this separately, right? Uh outside of just on the signup records themselves. Okay. / Kobi Kunasekaran: okay just one to one okay / Joyce Kiddell: Yeah. No, no separate workflow required. It's more like just um pulling from the correct fields when we go to surface this in terms of reports",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3146",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell; Emily Vandenberg",
+   "timestamp": "01:03:47",
+   "line_start": 954,
+   "quote": "Kobi Kunasekaran: Okay. Okay, that seems straightforward. Okay, so payouts really is just for referrals uh or referers uh based on the / Joyce Kiddell: Yeah, / Kobi Kunasekaran: signups that they're bringing in. / Joyce Kiddell: for sure. Hence why we combine the two flows. / Emily Vandenberg: You're just talking about referral payment payout. / Kobi Kunasekaran: Yes. Yes. That's that's all we're tracking with the payouts here, right?",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3092",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "00:02:58",
+   "line_start": 200,
+   "quote": "Joyce Kiddell: we need a way of um ensuring that like refer referers um can get uh paid across multiple signups and it's kind of up to the BA to um collect signups together and then convert that into what I would assume is a separate record type of um payout.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3114",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:23:41",
+   "line_start": 440,
+   "quote": "Joyce Kiddell: like what if they put in ID or something just so you can quickly refer to Beimo for auditing purposes. / Lina Ceniccola: Yeah, we can add that field for sure. / Lina Ceniccola: I just want to avoid another screenshot. / Lina Ceniccola: The I the ID is good. / Kobi Kunasekaran: can leave it off show. Just have the field there and then if it makes sense, you can add it later.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3134",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:50:55",
+   "line_start": 793,
+   "quote": "Joyce Kiddell: um, then you get some sort of bonus. Uh, it's 200 bucks in redeposit or 100 bucks um in cash and it's a onetime thing. So to be clear, that means Lena and Emily that like after the first 10 signups, they're not getting like another bonus at 20 signups and then 30 and 40. Or are they? / Lina Ceniccola: Yes. No. No. 10. They're done. / Kobi Kunasekaran: quies. Okay, this sounds good. Um, so just send for the secondary refer after that's sent out. We're not doing anything else. / Joyce Kiddell: Uh-uh.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3139",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Emily Vandenberg; Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:54:28",
+   "line_start": 829,
+   "quote": "Lina Ceniccola: um you could I don't know like um what I'm trying to say is like it doesn't necessarily need to be paid out. It's more if they want to / Emily Vandenberg: I was thinking like a flag at the referer account like just that eligible to and then it would come off like once it's paid out. / Kobi Kunasekaran: Yeah, I think we can do that. So, we could have a flag on the refer and then that flag could prevent the auto creation of the payout record once the 10 eligible ones are created. Um, but if they do want to go back and like pay the refer then they would do it manually like they just / Kobi Kunasekaran: pick use 10 similar to the primary uh and then pay it out. Yeah, I think we can do that. That could work.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3148",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "01:07:06",
+   "line_start": 990,
+   "quote": "Joyce Kiddell: Um you should be able to take signups out of that batch, / Joyce Kiddell: Kobe. Um, and you should be able to cancel um, obviously or delete that same payout.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3140",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:56:51",
+   "line_start": 860,
+   "quote": "Emily Vandenberg: just um more just like thinking through as a whole. So like when you're thinking of building out redeposits, you're going to be like bolting them on to the like if you look up player like at a player or like whatever refer you can kind of see all the redeposits and the different statuses that are sitting there for that player. So, / Kobi Kunasekaran: Yeah, like uh as long as there's like a lookup field or like we're relating something to another object, generally speaking, yeah, we can create that related list on either or, right?"
+  },
+  {
+   "ledger_id": "L3100",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Emily Vandenberg",
+   "timestamp": "00:11:35",
+   "line_start": 284,
+   "quote": "Joyce Kiddell: directly but okay so for the purpose of what we need to build as part of this release um do we want to just focus on the refer payout batching process Emily? / Emily Vandenberg: I think so. And then yeah, just like the reporting to support like the yeah"
+  }
+ ],
+ "what_differs": "WAGR-109 (Open, Phase 1, Should Have) plans a Payouts related list on the Player with Payout ID, Period and Batch columns. That design came from the prototype. On 09-25 the team decided that player payouts need no separate workflow or batching: the signup and redeposit records track them. The payout build covers referrer payments only.",
+ "suggested_action": "Re-scope or cancel WAGR-109. If the client still wants to see player payout data on the Player, define it from signup and redeposit fields (for example in a report or the existing Sign-Ups related list), not from a Payout object."
+}

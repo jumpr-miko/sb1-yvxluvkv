@@ -1,0 +1,83 @@
+{
+ "var_id": "VAR-088",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Redeposits",
+ "title": "WAGR-213 (built) and WAGR-107 model one deal-level redeposit requirement; 2026-09-30 decided requirements need their own lifecycle and multiple thresholds",
+ "jira": [
+  {
+   "key": "WAGR-213",
+   "status": "Jumpr Review",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BUILD-159 — Deal: Redeposit settings + conditional redeposit range",
+   "quote": "Capture whether a redeposit is required, which type(s), and — only when Immediate applies — the redeposit range.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-107",
+   "status": "Ready",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-214 — Deal: Redeposit Details",
+   "quote": "Capture redeposit-specific terms for deals that require a redeposit before a referral qualifies.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-462",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Commercial Terms — design and user stories",
+   "quote": "A Deal's terms (CPA, Rev Share, deposit range, redeposit required) change over time.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3436",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:26:10",
+   "line_start": 1292,
+   "quote": "Kobi Kunasekaran: but veposit requirement, is this something that could also change similar to commercial terms that we might have to keep track of over time? / Emily Vandenberg: Yeah, we should. / Kobi Kunasekaran: Okay. So, it does sound like we need to keep track of this separately as well and like they kind of have their own life cycles and effective dates.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3437",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "01:27:40",
+   "line_start": 1305,
+   "quote": "Emily Vandenberg: um and they have different thresholds that they need to meet. So like first is 80% or 90%, second is 50% of their players. So you're going to have to be able to report on that",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1690",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:51:28",
+   "line_start": 680,
+   "quote": "Joyce Kiddell: ... if there is a redeposit required like some books will have that as part of like our deal with them um then you have to say yes. / Joyce Kiddell: And then this would be like a pick list ideally that you can choose like do I need just sorry it shouldn't be standard it should be assigned do we need an assigned redeposit and an immediate redeposit um and if so then like if immediate redeposit selected at all then this uh range similar to deposit should appear and we can specify min and max values ... / Kobi Kunasekaran: I'll update the fields. I think those are pretty straightforward."
+  },
+  {
+   "ledger_id": "L1650",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:30:25",
+   "line_start": 457,
+   "quote": "Joyce Kiddell: ... we need to specify at a deal level if um we require both I think we call them like immediate and uh what was the other word Emily assigned um redeposits / Emily Vandenberg: Yes. / Joyce Kiddell: ... if we do require an immediate, then that's when redeposits require a range. But if there is no immediate, then you don't actually need to attach a range to redeposit"
+  }
+ ],
+ "what_differs": "WAGR-213 (Jumpr Review) and WAGR-107 (Ready) hold single deal fields: Redeposit Required, Redeposit Type and one Immediate range. On 2026-09-30 the client decided redeposit requirements change over a deal's life with their own effective dates, and a deal can have first and secondary immediate requirements with different thresholds (80%/90% and 50%) that must be reportable. WAGR-462 covers dated history of 'redeposit required' but no ticket covers multiple requirements or thresholds.",
+ "suggested_action": "Suggestion: hold WAGR-213 and WAGR-107 before release; fold redeposit requirements into the WAGR-462 dated-terms design (or a child object) with threshold fields, then repurpose or close WAGR-107/213 as WAGR-464's 'Done when' requires."
+}

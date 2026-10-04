@@ -1,0 +1,75 @@
+{
+ "var_id": "VAR-058",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Player",
+ "title": "Player currency: client said currency must not default to CAD; Jira calls the CAD fallback for a blank country 'working as designed'",
+ "jira": [
+  {
+   "key": "WAGR-415",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Player Country/State missing on majority of SLC entries — driving unwanted CAD currency fallback",
+   "quote": "Our Player currency logic is working as designed: it correctly uses Country when provided, and only falls back to CAD when Country is absent. This was validated in the Sep 22 sync.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-415",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Player Country/State missing on majority of SLC entries — driving unwanted CAD currency fallback",
+   "quote": "Track resolution status with the client; no fix required on our side beyond confirming the mapping.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2144",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:15:01",
+   "line_start": 221,
+   "quote": "Kobi Kunasekaran: So it's just it's just like a currency field for now. I just want to make sure there's there's some value and that it's not all default to / Emily Vandenberg: Yeah. Yeah. Okay. Yeah. / Kobi Kunasekaran: Canadian. / Emily Vandenberg: I think um we definitely shouldn't default to Canadian. So, you can assume based on the country that they sent up, I'll get that sorted.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2145",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:16:16",
+   "line_start": 242,
+   "quote": "Kobi Kunasekaran: I think let's let's use the player country for now um and set the currency. It can always be changed and then if we need to add any other logic later on when we start doing those types of rollups, we can deal with it at that / Emily Vandenberg: Okay, / Kobi Kunasekaran: point.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2749",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1_l8MYortzD4pYnKzsoFaq7WBdKkM7YnRj011wn2Uz_c/edit",
+   "speakers": "Taryn Reithofer",
+   "timestamp": "00:11:21",
+   "line_start": 237,
+   "quote": "Taryn Reithofer: wager 404 and 413. Um, it was that message that I sent to you about the player record page and I was investigating if all players or why all players are defaulting to um CAD with the um signup currency, whether that was um something that I did wrong or if that was just like just the nature of the data that we had in Salesforce already."
+  },
+  {
+   "ledger_id": "L2753",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1_l8MYortzD4pYnKzsoFaq7WBdKkM7YnRj011wn2Uz_c/edit",
+   "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+   "timestamp": "00:15:43",
+   "line_start": 272,
+   "quote": "Kobi Kunasekaran: So that one is blocking the um it's just blocking some of the feedback clarifications from the player page, right? / Taryn Reithofer: Mhm."
+  }
+ ],
+ "what_differs": "On 08-27 the client said player currency 'definitely shouldn't default to Canadian'. Jira (WAGR-415) calls the CAD fallback for a blank country correct by design and says Jumpr needs no fix. WAGR-415 also reports that about 96.5% of SLCs have no country, so most players get CAD.",
+ "suggested_action": "Decide the blank-country behaviour with the client: leave the currency blank and flag the player for review, or accept CAD until the CMS sends a country. Record the decision on WAGR-415 and WAGR-404, and keep the CMS country fix tracked."
+}

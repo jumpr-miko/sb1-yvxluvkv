@@ -1,0 +1,85 @@
+{
+ "var_id": "VAR-006",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Sign-Up",
+ "title": "SLC without a player external ID: meeting said flag for Ops review; WAGR-5 build note falls back to email matching",
+ "jira": [
+  {
+   "key": "WAGR-5",
+   "status": "Jumpr Review",
+   "assignee": "Marc Cabantog",
+   "summary": "BUILD-04 — Build production Study Link Click resolution flow (all branches)",
+   "quote": "* If no match, fall back to **email & secondary email (current logic)**",
+   "quote_source": "comment by (author not recorded) 2026-08-10"
+  },
+  {
+   "key": "WAGR-40",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BUILD-230 — Player: Manage Duplicate Player",
+   "quote": "The agency/CMS handles deduplication at player creation, so a duplicate should only arise if a player is created manually and bypasses that check, or an email address changes afterward.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1487",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: API Flow Testing",
+   "doc_link": "https://docs.google.com/document/d/1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:19:00",
+   "line_start": 325,
+   "quote": "Kobi Kunasekaran: Okay. Yeah. Worst case, like if something comes in like if we get a SLC without a player ID, / Kobi Kunasekaran: I would just flag that for review by ops anyways. So, that's what we'll do. And then we can see if when we hook up actual like uh player data and then actual clicks coming in from your agency sites u for the one that we're going to test with. Uh we can see if if we get if we run into that scenario at all, but we'll make sure that there's some sort of uh way to capture those errors on our end. / Emily Vandenberg: Okay, that makes sense. Okay, so although polarity is coming through, we need to like also be sending it within the um survey payload completion and you're saving that off into the account record. Um,",
+   "doc_id": "1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8"
+  },
+  {
+   "ledger_id": "L1486",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: API Flow Testing",
+   "doc_link": "https://docs.google.com/document/d/1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:18:02",
+   "line_start": 316,
+   "quote": "Kobi Kunasekaran: remove like in our flow right now we are looking up the email address to map the SLC to a player. So we'll remove that and base it off of the external ID. Um, and then that way we just rely on whatever comes from CMS. Um, so it should be ideally one to one. So we don't need to there's not going to be any overlap because the last thing I want is for us to look up the email and then your ID ends up being different than what we might have actually captured before and then we have to do some updates and that could get that could cause like data integrity issues. So I'm fine relying on whatever comes from CMS for the players. / Emily Vandenberg: Yeah. Okay. You can just like we'll just like note that in the agenda as like to Joyce today as well, but like we had already Yeah. / Emily Vandenberg: agreed on like kind of taking this offline and getting back to you with the player ID and how we need to clean up the ddups. Um, so",
+   "doc_id": "1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1485",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: API Flow Testing",
+   "doc_link": "https://docs.google.com/document/d/1j76J441kWyMC_5v1YGSyB293e2Ock2poqC_K-mZrab8/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran; Strahinja Vladetic",
+   "timestamp": "00:16:59",
+   "line_start": 302,
+   "quote": "Emily Vandenberg: But is that the right like shouldn't we always have a player ID? Like isn't like that where we need to be? So, you should never receive something without a player / Kobi Kunasekaran: because we now have a player external ID coming in from the system, maybe we don't necessarily need to do any of the email lookups to resolve it ourselves because it it would would be safe to assume that you're sending it. But that comes back to the whole dduplication. Does this mean that you're going to handle the dduplication on your end to make sure that like one email address or a player always maps to uh the same email and player information? / Emily Vandenberg: straw maybe we have to get back to you. I would like to say yes, but I don't know feasibility. / Strahinja Vladetic: It's something that we could do. So, we have access to the player base, right? / Strahinja Vladetic: Um, so yeah, we could do Yeah, it's something we could talk about."
+  },
+  {
+   "ledger_id": "L1504",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:02:46",
+   "line_start": 120,
+   "quote": "Emily Vandenberg: We need to resolve it on our end, but what we kind of lean towards is like we own player ID um and dduping and cleaning and making sure we're always passing one through from the CMS. Excuse me."
+  },
+  {
+   "ledger_id": "L2208",
+   "date": "2026-08-31",
+   "meeting_title": "Kobi <> Cedrick: Weekly Planning - 2026/08/31 11:30 EDT - Notes by Gemini",
+   "doc_link": "https://docs.google.com/document/d/1-X6uxr5Z56gf9rzah9xViDAoUALdR8BZwJ9ygEIYj-Q/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:24:04",
+   "line_start": 279,
+   "quote": "Kobi Kunasekaran: ... Our SLC processing automation is going to either find a player that exists for that click based on email address or external ID. Um, if that player doesn't exist, then it's going to create a player record. And when it creates a player record, the status on the player record is set to pending um automatically."
+  }
+ ],
+ "what_differs": "On 2026-08-04 Kobi proposed dropping the email lookup and relying on the CMS external ID, and said an SLC without a player ID is flagged for Ops review (Emily agreed). The WAGR-5 comment of 2026-08-10 keeps email/secondary-email fallback when the external ID does not match, and WAGR-40 assumes the CMS owns de-duplication, which WagerTech said it still had to resolve.",
+ "suggested_action": "Confirm with WagerTech who owns player ID and de-duplication, then record the final matching rule (external ID only vs email fallback, and handling of a blank player ID) on WAGR-5 and WAGR-40."
+}

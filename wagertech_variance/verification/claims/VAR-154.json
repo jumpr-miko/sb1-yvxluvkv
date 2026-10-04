@@ -1,0 +1,65 @@
+{
+ "var_id": "VAR-154",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Access & Permissions / Org Setup",
+ "title": "WAGR-37 still specifies 'No profile-based access', but later decisions put record-type access on the Rep profile and plan a profile-per-role cleanup at go-live",
+ "jira": [
+  {
+   "key": "WAGR-37",
+   "status": "In Progress",
+   "assignee": "Unassigned",
+   "summary": "BUILD-01 — Configure users, roles, sharing, and the 4-tier permission model",
+   "quote": "Deliver all access through Permission Sets and Permission Set Groups across four tiers: Rep, Manager, Ops, Admin. No profile-based access.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-427",
+   "status": "Jumpr Review",
+   "assignee": "Cedrick Infantado",
+   "summary": "Referrer: Streamline new referrer creation flow",
+   "quote": "Record type assignment will be handled through profiles moving forward.",
+   "quote_source": "comment by Cedrick Infantado 2026-09-28"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3016",
+   "date": "2026-09-24",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+   "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+   "timestamp": "00:24:29",
+   "line_start": 463,
+   "quote": "Taryn Reithofer: I was just doing if the profile profile name does not equal Wagertechsales / Kobi Kunasekaran: So for visibility perspective like leave it as it is for now. / Kobi Kunasekaran: we just have to remember that when we start preparing for go live like we're going to go through all these permission do do a full review.",
+   "doc_id": "1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ"
+  },
+  {
+   "ledger_id": "L3025",
+   "date": "2026-09-24",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+   "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+   "timestamp": "00:38:13",
+   "line_start": 669,
+   "quote": "Kobi Kunasekaran: reps would be the ones creating referrals if we remove access for them to create operator, partner or player. Do you think the screen will disappear? / Kobi Kunasekaran: Can you can you test that out as part of the ticket or like break it off into a separate ticket if possible? / Cedrick Infantado: Yeah, I think I can do it in the same ticket. I'll just uh test that out. / Cedrick Infantado: But I'm around 90% sure that it would work.",
+   "doc_id": "1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ"
+  },
+  {
+   "ledger_id": "L3074",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1MRQrsyv_XCgKEIoXR2_t4hTUfH3t5f-lGztLxIfTWZg/edit",
+   "speakers": "Cedrick Infantado; Kobi Kunasekaran",
+   "timestamp": "00:19:50",
+   "line_start": 404,
+   "quote": "Cedrick Infantado: ...So what I'm thinking here is that we can remove those permission um the permission to record types on the permission set and move the that to the profile like I've originally stated yesterday. / Cedrick Infantado: ...they cannot create any um accounts with that record type. / Kobi Kunasekaran: ...if they can they're they can confirm that reps only create referers and not players, operators or partners, then uh we can disable the create access and that would eliminate that middle screen and just default them to create refer when they click on any of the new button. / Cedrick Infantado: So once we confirm that then we can do that.",
+   "doc_id": "1MRQrsyv_XCgKEIoXR2_t4hTUfH3t5f-lGztLxIfTWZg"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "WAGR-37 (In Progress, Sprint 2) says all access goes through permission sets and permission set groups with no profile-based access. On 2026-09-24/25 the team decided that record-type access is controlled on the profile (now built per WAGR-427) and that the go-live permissions review will set up a profile per role; the new epic WAGR-449 and tasks WAGR-495/496 also plan a separate consolidation pass.",
+ "suggested_action": "Update WAGR-37 to the current model (PSG-based object/field access plus profile-level record-type assignment, profile per role at cleanup), or close it into WAGR-495/WAGR-496 so that two tickets do not describe the permission model differently."
+}

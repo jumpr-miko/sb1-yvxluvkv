@@ -1,0 +1,44 @@
+{
+ "var_id": "VAR-005",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Sign-Up",
+ "title": "Decision to create a VIP-tagged affiliate link inside the VIP sign-up flow has no ticket; WAGR-435 says link association was deferred",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "VIP",
+   "VIP link",
+   "affiliate link",
+   "create link",
+   "link inside flow",
+   "tagged VIP",
+   "Exclude from CMS"
+  ],
+  "nearest_considered": [
+   "WAGR-432",
+   "WAGR-435",
+   "WAGR-431",
+   "WAGR-433",
+   "WAGR-491",
+   "WAGR-456"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3449",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:43:51",
+   "line_start": 1463,
+   "quote": "Kobi Kunasekaran: maybe we give them the ability to create it in this workflow as opposed to going to deals, finding the deal, adding the link, / Joyce Kiddell: If you could make it automatically tagged as VIP as they're creating it. / Kobi Kunasekaran: yes. / Joyce Kiddell: Yeah, that makes sense.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "On 2026-09-30 Joyce and Kobi agreed users can create the affiliate link inside the VIP sign-up flow and that it is tagged VIP automatically. WAGR-432 (VIP entry flow) does not mention link creation, and WAGR-435 states: \"How VIP links get formally linked to specific sign-ups/players is still open and was explicitly deferred to a future discovery session\".",
+ "suggested_action": "Add the in-flow link creation (attached to the selected deal, VIP flag set, excluded from CMS via the WAGR-491 mechanism) to WAGR-432 or a new VIP story, and update the deferral note on WAGR-435."
+}

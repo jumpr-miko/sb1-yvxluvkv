@@ -1,0 +1,73 @@
+{
+ "var_id": "VAR-087",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Redeposits",
+ "title": "No ticket for incomplete-redeposit outcomes at the redeposit level (cancel, write-off/erosion, funds returned)",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "cancel",
+   "write off",
+   "write-off",
+   "erosion",
+   "incomplete",
+   "funds returned",
+   "redeposit status"
+  ],
+  "nearest_considered": [
+   "WAGR-464",
+   "WAGR-466",
+   "WAGR-465"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3155",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:17:22",
+   "line_start": 1118,
+   "quote": "Joyce Kiddell: But if um a redeposit does not end the way that we want it to and we get the money back, then we need a status on a payout level / Lina Ceniccola: I would just say have the ability to cancel or like either write it off or if they get the funds back then they can just cancel it. / Kobi Kunasekaran: should we track this at the red deposit level then and then maybe roll up any amounts that was like not completed uh to the payout as opposed to changing the payout status? / Joyce Kiddell: Yes. / Joyce Kiddell: I think it doesn't have to go back to the pool cuz if in the scenario of them going to jail, you're just like not going to continue to pay them. / Kobi Kunasekaran: maybe we'll we'll start with that and then if we do need to add additional layers and complexities around like how to handle the payout with incomplete redeposits, maybe you can come back around to that later.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3156",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "01:18:45",
+   "line_start": 1139,
+   "quote": "Emily Vandenberg: cuz like at the redeposit level it's like it can in be incomplete and there's two things and I know we're not there but like it's going to end up being erosion and a write off because we've lost that money because they didn't send it back but we knew it no it didn't complete. / Emily Vandenberg: So you kind of have to track both or it cannot complete and we get the money back. So there's like a a record that will come back into us, but to be able down the line, right, to pull that, you know, more of the payment flow in, it's just like two separate statuses of incomplete.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3457",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:58:37",
+   "line_start": 1610,
+   "quote": "Kobi Kunasekaran: Um we did talk about like fraud flags and stuff or write offs. I haven't uh that's not incorporated in yet. So, um I will let you know once that's added."
+  },
+  {
+   "ledger_id": "L3458",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:59:31",
+   "line_start": 1618,
+   "quote": "Kobi Kunasekaran: Um they will have a way to say that can't be completed. Um reasons are TBD."
+  }
+ ],
+ "what_differs": "On 2026-09-25 the team decided that a redeposit that cannot complete is marked on the redeposit record (cancel or write off; cancel if funds come back), amounts roll up to the payout, and money does not return to the pool; Emily asked for two separate incomplete statuses. WAGR-464 still lists 'Cancelled or Archived?' as open, and WAGR-466 covers write-offs only for paid Sign-Ups.",
+ "suggested_action": "Suggestion: add the incomplete outcomes (status values, no return to pool, roll-up to payout) to WAGR-464 and WAGR-465, and close the 'Cancelled or Archived?' open decision."
+}

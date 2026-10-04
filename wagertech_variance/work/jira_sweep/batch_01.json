@@ -851,7 +851,8 @@
    "what_differs": "Jira says the SLC flow prefers Deal External ID and falls back to state/country and partner/operator (deal makeup). On 2026-09-01 Kobi said he removed all deal-makeup matching; the flow relies only on Deal External ID. Clicks with no ID are fixed by editing the SLC.",
    "suggested_action": "Add a comment or update the WAGR-5 requirements to record Deal-External-ID-only matching, the hard lock against duplicate players (L2286), and the reprocess limits (L2300). Then the Jumpr Review / UAT tests the current behaviour, not the fallback.",
    "checked_later_meetings": true,
-   "reasoning": "L2285 is tier1, decided and later than the last WAGR-5 comment (2026-08-17). Later items (L2459, L2492 on 2026-09-09/11) confirm that SF drives the Deal External ID; none brings back makeup matching. No other ticket records the change (searched 'makeup', 'Deal External ID only'; WAGR-472/88/419 do not)."
+   "reasoning": "L2285 is tier1, decided and later than the last WAGR-5 comment (2026-08-17). Later items (L2459, L2492 on 2026-09-09/11) confirm that SF drives the Deal External ID; none brings back makeup matching. No other ticket records the change (searched 'makeup', 'Deal External ID only'; WAGR-472/88/419 do not).",
+   "auto_checks": []
   },
   {
    "temp_id": "B01-02",
@@ -933,7 +934,8 @@
    "what_differs": "Jira milestones still carry July/August due dates and a 'Phase 1 Go-Live' name, with 'No replacement date set'. Meetings from 2026-09-01 on set a November go-live with several phases included and a UAT stage before it. The target was restated as November 1 on 2026-09-23/24.",
    "suggested_action": "Suggest re-baselining WAGR-15, WAGR-17 and WAGR-23 (dates and the 'Phase 1' name) to the November 1 multi-phase plan, with a UAT window, after Kobi confirms the plan with WagerTech. Record that Kobi rated the date 'highly unrealistic' internally only. Keep that remark out of client-facing text.",
    "checked_later_meetings": true,
-   "reasoning": "L2328 is tier1, decided, client meeting, and later than the last milestone comments (2026-07-28 and 2026-08-10). L2973 restates the date with the client. No Jira issue mentions November (grep of all issues)."
+   "reasoning": "L2328 is tier1, decided, client meeting, and later than the last milestone comments (2026-07-28 and 2026-08-10). L2973 restates the date with the client. No Jira issue mentions November (grep of all issues).",
+   "auto_checks": []
   },
   {
    "temp_id": "B01-03",
@@ -1007,7 +1009,8 @@
    "what_differs": "Jira (Phase 1, Must Have) plans Salesforce matching/duplicate rules that block a second Player with the same email, as a dependency of the SLC flow. On 2026-08-18 the team decided Salesforce adds no player dedup and matches what the CMS sends. On 2026-08-25 the team decided that only the manual-create path gets a rule that flags a same-email player. Referrer email blocking now sits in WAGR-73.",
    "suggested_action": "Rescope or split WAGR-28: drop SF-side dedup on the CMS/SLC path, keep a flag-on-manual-create rule (tie to WAGR-405/WAGR-40), point the referrer part to WAGR-73, and check whether cross-linking is still needed (WAGR-43 'Related Referrer Record'). Make sure no duplicate rule blocks integration-user inserts.",
    "checked_later_meetings": true,
-   "reasoning": "L1900/L1965/L2093 are tier1, decided and later than the last WAGR-28 update (2026-07-28 comment). WAGR-40 has the new position but WAGR-28 was not updated. Confidence is medium because the manual-path rule partly overlaps with the ticket's block rule."
+   "reasoning": "L1900/L1965/L2093 are tier1, decided and later than the last WAGR-28 update (2026-07-28 comment). WAGR-40 has the new position but WAGR-28 was not updated. Confidence is medium because the manual-path rule partly overlaps with the ticket's block rule.",
+   "auto_checks": []
   },
   {
    "temp_id": "B01-04",
@@ -1091,7 +1094,8 @@
    "what_differs": "Jira still asks whether a fraud-flagged Sign-Up should auto-set a 'Flagged for Fraud' Player status and says it is awaiting client feedback. On 2026-08-18 the client agreed Player statuses are pending/active/inactive/banned, with Banned set by hand from fraud investigations and sign-ups not blocked. On 2026-09-23 the fraud banner was dropped because the ban banner covers it.",
    "suggested_action": "Record the outcome on WAGR-1 (no automatic fraud-driven Player status; manual Ban via WAGR-154/156/196) and close it or link it to DECISION-02 (WAGR-295). Also fix the wrong DECISION-02 key (WAGR-101) in its description.",
    "checked_later_meetings": true,
-   "reasoning": "L1978/L1980 are tier1 client decisions later than the ticket's last comment. L2670 (2026-09-17, internal, discussed) briefly reopened 'when is a player marked fraud' for the banner only. L2856 (2026-09-23, decided, relayed second-hand by Taryn) closed it. Low severity because the ban build tickets already reflect the outcome; this is mainly hygiene."
+   "reasoning": "L1978/L1980 are tier1 client decisions later than the ticket's last comment. L2670 (2026-09-17, internal, discussed) briefly reopened 'when is a player marked fraud' for the banner only. L2856 (2026-09-23, decided, relayed second-hand by Taryn) closed it. Low severity because the ban build tickets already reflect the outcome; this is mainly hygiene.",
+   "auto_checks": []
   },
   {
    "temp_id": "B01-05",
@@ -1155,7 +1159,8 @@
    "what_differs": "Jira shows the full proofs/storage story as Done. Client meetings on 2026-08-18 and 2026-08-25 paused the storage work, pending a possible WagerTech alternative, and kept Salesforce URL fields as the interim. The Proof Files object, upload component and storage service were not reported as built.",
    "suggested_action": "Reopen WAGR-32 or add a comment that says only the URL-field bridge was delivered, and the storage build is on hold under WAGR-112/WAGR-113 (Phase 2) pending WagerTech.",
    "checked_later_meetings": true,
-   "reasoning": "L1931/L2113 are tier1, decided and later than the last WAGR-32 comment. No later meeting restarts storage (L2957 on 2026-09-23 only confirms the same proof flow for VIP). L2547 explains bulk moves to Done for completed sandbox work, which does not fit unbuilt scope. Low severity because the remaining work is tracked in WAGR-112."
+   "reasoning": "L1931/L2113 are tier1, decided and later than the last WAGR-32 comment. No later meeting restarts storage (L2957 on 2026-09-23 only confirms the same proof flow for VIP). L2547 explains bulk moves to Done for completed sandbox work, which does not fit unbuilt scope. Low severity because the remaining work is tracked in WAGR-112.",
+   "auto_checks": []
   }
  ],
  "gaps_noticed": [

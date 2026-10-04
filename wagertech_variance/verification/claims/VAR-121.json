@@ -1,0 +1,51 @@
+{
+ "var_id": "VAR-121",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "CMS Integration",
+ "title": "CMS keeps a fixed Deal Status validation until Jumpr sends final values (2026-09-23); no ticket carries this hand-off",
+ "jira": [
+  {
+   "key": "WAGR-506",
+   "status": "Jumpr Review",
+   "assignee": "Cedrick Infantado",
+   "summary": "Deal — Final Deal Status value set (Draft, Active, Paused, Inactive, Closed, Archived)",
+   "quote": "This story defines values only; behavior belongs to lifecycle action stories.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-454",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses",
+   "quote": "Published Deal Status values are Active, Paused, Inactive, Closed and Archived. Review Required/Retired are obsolete.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-463",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Deal lifecycle/CMS — close remaining design and contract follow-ups",
+   "quote": "Confirm CMS final acceptance/display/terminal behavior for Deal Status = Archived.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2901",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Strahinja Vladetic; Kobi Kunasekaran",
+   "timestamp": "00:12:13",
+   "line_start": 360,
+   "quote": "Strahinja Vladetic: but uh I can open it up just so that it's free form for the for the most part just until we agree on whatever the the pick lists are / Kobi Kunasekaran: Okay. I mean, leave it as it is. I I'll get back to you. I'll confirm once we finalize and then if changes are needed,",
+   "doc_id": "14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "Strahinja offered to make the CMS deal-status validation free form; Kobi asked him to keep it and said he would confirm the final values. Jira changed the value set (Draft and Archived added, Review Required and Retired obsolete) but no ticket records sending the final list to Strahinja or checking that the CMS validation accepts it; WAGR-463 covers only Archived behaviour.",
+ "suggested_action": "Suggestion only: add an AC to WAGR-454 or WAGR-458 (staging verification) that the CMS deal-status validation is updated to Active/Paused/Inactive/Closed/Archived after Jumpr sends the final list, so staging sends do not fail with 4xx on status."
+}

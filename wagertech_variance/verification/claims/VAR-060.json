@@ -1,0 +1,114 @@
+{
+ "var_id": "VAR-060",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Player",
+ "title": "WAGR-28 (BUILD-03) still plans Salesforce matching and duplicate rules across Primary/E-Transfer/Secondary email; later calls moved dedup to the CMS and retired E-Transfer Email",
+ "jira": [
+  {
+   "key": "WAGR-28",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "BUILD-03 — Build Player/Referrer matching, duplicate prevention, and cross-linking",
+   "quote": "Matching and duplicate rules scoped per record type across Primary/E-Transfer/Secondary email",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-28",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "BUILD-03 — Build Player/Referrer matching, duplicate prevention, and cross-linking",
+   "quote": "After-save flow maintaining Related_Referrer_Profile\\__c / Related_Player_Profile_\\_c cross-links",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-163",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-241 — Sign-Up & Player: Use Email as the single email field (retire E-Transfer Email display)",
+   "quote": "Remove E-Transfer Email from any remaining layouts, popups, and SLC field mappings.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1965",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:08:40",
+   "line_start": 1181,
+   "quote": "Kobi Kunasekaran: But like the primary and secondary email like uh based on what we just chatted like it's all going to be sent from the CMS, right? / Joyce Kiddell: Yes. / Kobi Kunasekaran: Like we're not trying to do any dduplication or managing players on the send. / Joyce Kiddell: No, no, no, no. Yeah.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L2093",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:19:07",
+   "line_start": 314,
+   "quote": "Kobi Kunasekaran: there should only be like one player uh one player record per / Emily Vandenberg: Yes. / Kobi Kunasekaran: email and then when we do the manual player creation path um we we'll set up dloop rules so that if if somebody's trying to create another player record with the same email address, it'll flag that before they can create it.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  },
+  {
+   "ledger_id": "L1900",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:07:25",
+   "line_start": 247,
+   "quote": "Kobi Kunasekaran: ...I think we just need to make sure that we don't add any dduplication logic on our side. / Kobi Kunasekaran: ...Initially we were going to handle the dduplication, but this is better. / Kobi Kunasekaran: So we're just going to match whatever you're sending to the API.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2286",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:04:34",
+   "line_start": 152,
+   "quote": "So we put in like a hard lock um where uh there is a unique ID being created at the database level. / Kobi Kunasekaran: So it should prevent um any duplicate player from being created even if uh even if they get processed at the same time."
+  },
+  {
+   "ledger_id": "L1908",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "01:22:11",
+   "line_start": 1383,
+   "quote": "Joyce Kiddell: and then this is like what you had before where it's like if they are a refer as well, then you would click this. / Kobi Kunasekaran: Right."
+  },
+  {
+   "ledger_id": "L1965",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:08:40",
+   "line_start": 1181,
+   "quote": "Kobi Kunasekaran: But like the primary and secondary email like uh based on what we just chatted like it's all going to be sent from the CMS, right? / Joyce Kiddell: Yes. / Kobi Kunasekaran: Like we're not trying to do any dduplication or managing players on the send. / Joyce Kiddell: No, no, no, no. Yeah."
+  },
+  {
+   "ledger_id": "L1992",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:41:17",
+   "line_start": 1688,
+   "quote": "Kobi Kunasekaran: Okay. Yeah, we we can start with like uh dduplication based on email. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: So if it if it somebody tries to create a refer uh or with the same email address as one that already exists, then they'll just be blocked from doing that."
+  }
+ ],
+ "what_differs": "WAGR-28 (Requirements, Phase 1, Must Have, unassigned, a stated dependency of WAGR-5) plans Salesforce matching and duplicate rules across three emails, including E-Transfer, plus automatic cross-linking. On 08-18 the team agreed that the CMS sends the primary and secondary emails and that Salesforce does no deduplication. On 08-25 the team agreed on one player per email, with a duplicate rule only on the manual-create path. The per-record-type unique email key is already built under other work (WAGR-92 context), and WAGR-163 retired E-Transfer Email.",
+ "suggested_action": "Re-scope WAGR-28 to what is still needed (the duplicate check on manual player creation, and whether cross-links are automatic or manual), or close it and link WAGR-92, WAGR-405 and WAGR-40. Remove E-Transfer Email from its scope."
+}

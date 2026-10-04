@@ -1,0 +1,67 @@
+{
+ "var_id": "VAR-056",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Player",
+ "title": "No ticket tracks WagerTech's planned swap from player ID to a person-level ID, or its effect on Player External ID upserts",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "swap",
+   "person ID",
+   "person-level",
+   "Player External",
+   "Player_External_Id",
+   "resend",
+   "legacy ID",
+   "old ID"
+  ],
+  "nearest_considered": [
+   "WAGR-29",
+   "WAGR-5",
+   "WAGR-46",
+   "WAGR-441",
+   "WAGR-40",
+   "WAGR-470",
+   "WAGR-477"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1896",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:02:41",
+   "line_start": 166,
+   "quote": "Emily Vandenberg: ...I know we were kind of saying player, but like we went through our data / Emily Vandenberg: ...we're going to layer up the logic for a person for a person um account and that's what we need to send you. We have not built that, / Emily Vandenberg: ...we can assume that the the ID we're sending you will work and then once we're ready, we'll swap it out.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1965",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:08:40",
+   "line_start": 1181,
+   "quote": "Kobi Kunasekaran: But like the primary and secondary email like uh based on what we just chatted like it's all going to be sent from the CMS, right? / Joyce Kiddell: Yes. / Kobi Kunasekaran: Like we're not trying to do any dduplication or managing players on the send. / Joyce Kiddell: No, no, no, no. Yeah."
+  },
+  {
+   "ledger_id": "L2093",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:19:07",
+   "line_start": 314,
+   "quote": "Kobi Kunasekaran: there should only be like one player uh one player record per / Emily Vandenberg: Yes. / Kobi Kunasekaran: email and then when we do the manual player creation path um we we'll set up dloop rules so that if if somebody's trying to create another player record with the same email address, it'll flag that before they can create it."
+  }
+ ],
+ "what_differs": "On 08-18 WagerTech said it will roll duplicate player accounts into a person account and send that person ID, which is not built yet. Testing uses the current ID, and WagerTech will swap and resend later. Player_External_Id__c is the upsert key for survey completion (WAGR-46/441). No ticket tracks the swap, the re-key of existing players, or a re-test.",
+ "suggested_action": "Create a dependency ticket (owner: WagerTech, with Jumpr re-test). Confirm the swap date. Decide how existing Player records get the new external ID (re-key, or match by email and update). Re-test the SLC and survey upserts after the swap."
+}

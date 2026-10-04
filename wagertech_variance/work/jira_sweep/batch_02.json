@@ -832,7 +832,8 @@
    "what_differs": "The ticket (sourced from the 2026-07-28 sync) removes Deal access from reps and excludes partner from all rep-facing fields. On 2026-08-11 the client agreed the single global deal name keeps the partner code in rep-facing views, and on 2026-08-25 confirmed reps see the deal name on the signup; the same 08-11 meeting described reps opening a deal with partner hidden.",
    "suggested_action": "Update WAGR-45 to state the exception: partner NAME and partner field hidden from reps, but the global deal name (with partner code) stays visible to reps. Confirm whether reps keep read access to Deal (WAGR-94 assumes read-only Deal pages for reps) before removing Deal from WT_Rep_PSG.",
    "checked_later_meetings": true,
-   "reasoning": "L1654 and L2103 are tier1 transcript decisions dated after the ticket source and creation; no later item reverses them (L2870 on 2026-09-23 says users can already see their DRAs). Medium confidence because the ticket may intend \"partner field\" only, but its \"all rep-facing fields\" and \"never see Deal records\" wording conflicts as written."
+   "reasoning": "L1654 and L2103 are tier1 transcript decisions dated after the ticket source and creation; no later item reverses them (L2870 on 2026-09-23 says users can already see their DRAs). Medium confidence because the ticket may intend \"partner field\" only, but its \"all rep-facing fields\" and \"never see Deal records\" wording conflicts as written.",
+   "auto_checks": []
   },
   {
    "temp_id": "B02-02",
@@ -898,7 +899,8 @@
    "what_differs": "The ticket title and body make SLC automation the only way to create a Sign-Up. On 2026-08-18 and 2026-09-23 the client and Jumpr agreed ops create VIP signups manually through a restored New Signup button, limited by a dedicated permission set.",
    "suggested_action": "Reword WAGR-51 to \"Reps cannot create Sign-Ups; only SLC automation and the VIP ops permission set (WAGR-431) can\". Make sure its build/test steps do not remove the New Signup button or Create for the VIP ops permission set, and link it to WAGR-420/WAGR-431.",
    "checked_later_meetings": true,
-   "reasoning": "The rep restriction itself is still correct (Andy and Ally get no button, L2943); only the \"only create path\" rule is stale. VIP tickets exist, so no V1. Low severity: hygiene, but it could cause a regression on the VIP path if built literally."
+   "reasoning": "The rep restriction itself is still correct (Andy and Ally get no button, L2943); only the \"only create path\" rule is stale. VIP tickets exist, so no V1. Low severity: hygiene, but it could cause a regression on the VIP path if built literally.",
+   "auto_checks": []
   },
   {
    "temp_id": "B02-03",
@@ -979,7 +981,8 @@
    "what_differs": "WAGR-62 (Must Have, Ready) still places Owner in the highlights panel and Section 1, keeps Deal Version, labels the redeposit type \"Standard Redeposit\", and has no Traffic Source field. Tier1 meetings on 2026-08-11/13 removed Deal Version, moved Owner lower, renamed Standard to Assigned and made Traffic Source a mandatory field in Deal Information.",
    "suggested_action": "Update the WAGR-62 layout spec (or close it in favour of the current tickets): remove Deal Version (WAGR-214), move Owner to Additional Details, change Standard to Assigned (WAGR-213 already flags this card), and add Source/Traffic Source in Deal Information (WAGR-93). Also re-check the Commercial Terms section against the pending commercial terms redesign.",
    "checked_later_meetings": true,
-   "reasoning": "All four items are tier1 decided and later than the 2026-08-10 source; no later item restores Deal Version (versioning reopened 2026-09-30 only as a proposal, L3396) or moves Owner back up. Sibling tickets carry the fixes, which limits risk, but a builder working from this Ready card would rebuild stale elements."
+   "reasoning": "All four items are tier1 decided and later than the 2026-08-10 source; no later item restores Deal Version (versioning reopened 2026-09-30 only as a proposal, L3396) or moves Owner back up. Sibling tickets carry the fixes, which limits risk, but a builder working from this Ready card would rebuild stale elements.",
+   "auto_checks": []
   }
  ],
  "gaps_noticed": [

@@ -1,0 +1,105 @@
+{
+ "var_id": "VAR-002",
+ "category": "V4",
+ "severity": "High",
+ "confidence": "medium",
+ "feature_area": "Sign-Up",
+ "title": "Write-off checkbox and confirm-fraud auto-archive (decided 2026-09-01) live only as 'new scope' in a comment on Done WAGR-165; no open build ticket",
+ "jira": [
+  {
+   "key": "WAGR-165",
+   "status": "Done",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-245 — Sign-Up: Enable fraud flagging at New status",
+   "quote": "* Fraud confirmed, payment sent → do not change status. Set a new \"Write-off\" checkbox instead.",
+   "quote_source": "comment by (author not recorded) 2026-09-03"
+  },
+  {
+   "key": "WAGR-466",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Write-offs and clawbacks for paid Sign-Ups — design",
+   "quote": "Today there is no way to write off that Sign-Up or to show which payment it was part of.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2308",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola; Emily Vandenberg",
+   "timestamp": "00:27:33",
+   "line_start": 388,
+   "quote": "Kobi Kunasekaran: Um but if the prod review status is uh marked as confirmed, then we can check if the payment status is uh checked. And if this is checked, we'll check the write- off check box. And then that's what you'll use on the reporting side to make sure that it's included in the write-offs regardless of the status. Um, and then if payment sent is unchecked, then we will move new to archived once the fraud is confirmed. Okay, / Lina Ceniccola: Yeah.",
+   "doc_id": "1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo"
+  },
+  {
+   "ledger_id": "L2307",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Lina Ceniccola; Emily Vandenberg",
+   "timestamp": "00:23:39",
+   "line_start": 343,
+   "quote": "Lina Ceniccola: in progress and basically if like the client received funds then it has to go it has to be a write off and we have to consider it as part of erosion. / Emily Vandenberg: to write it off like click for kind of like a write off because really at any / Emily Vandenberg: status um you know this could happen",
+   "doc_id": "1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3040",
+   "date": "2026-09-24",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+   "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+   "timestamp": "01:06:27",
+   "line_start": 1003,
+   "quote": "Kobi Kunasekaran: Enable fraud flagging at new status. This should be closed off. I think we uh Cedric already updated this uh in a different ticket. / Kobi Kunasekaran: I do have the ability to flag the fraud, / Taryn Reithofer: I offer 165. I will um append it somehow to that equals off to just so they're together. / Kobi Kunasekaran: just close the loop like let her know in there that it's it's already been uh sorted"
+  },
+  {
+   "ledger_id": "L3357",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "03:18:21",
+   "line_start": 2581,
+   "quote": "Kobi Kunasekaran: but we'll uh stamp the sign up as having been paid so that it doesn't show up again when they try to go through to create another payout for that same referral. / Kobi Kunasekaran: And I need to like think through like how that applies or how that kind of rolls back into the redeposits, the payouts, and things like that. So, I'll get back to you on that"
+  },
+  {
+   "ledger_id": "L3040",
+   "date": "2026-09-24",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+   "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+   "timestamp": "01:06:27",
+   "line_start": 1003,
+   "quote": "Kobi Kunasekaran: Enable fraud flagging at new status. This should be closed off. I think we uh Cedric already updated this uh in a different ticket. / Kobi Kunasekaran: I do have the ability to flag the fraud, / Taryn Reithofer: I offer 165. I will um append it somehow to that equals off to just so they're together. / Kobi Kunasekaran: just close the loop like let her know in there that it's it's already been uh sorted"
+  },
+  {
+   "ledger_id": "L3374",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "03:18:21",
+   "line_start": 2581,
+   "quote": "Kobi Kunasekaran: And I need to like think through like how that applies or how that kind of rolls back into the redeposits, the payouts, and things like that. So, I'll get back to you on that"
+  },
+  {
+   "ledger_id": "L3457",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:58:37",
+   "line_start": 1610,
+   "quote": "Kobi Kunasekaran: Um we did talk about like fraud flags and stuff or write offs. I haven't uh that's not incorporated in yet. So, um I will let you know once that's added."
+  }
+ ],
+ "what_differs": "The client agreed that on confirmed fraud a Write-off checkbox is set when Payment Sent is checked, and a New record moves to Archived when it is not. Jira records this only as 'New scope added' in a comment on WAGR-165, which is Done, and WAGR-466 (2026-09-25) says no write-off capability exists today.",
+ "suggested_action": "Open a build ticket (or reopen WAGR-165) for the Write-off checkbox and the confirm-fraud automation, and link it to WAGR-220 and WAGR-466. Confirm in the sandbox whether any of it was built."
+}

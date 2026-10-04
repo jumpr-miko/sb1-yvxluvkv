@@ -1,0 +1,65 @@
+{
+ "var_id": "VAR-041",
+ "category": "V3",
+ "severity": "Low",
+ "confidence": "high",
+ "feature_area": "Deal",
+ "title": "WAGR-13 still defines the Deal duplicate key with Version and a Review Required flag",
+ "jira": [
+  {
+   "key": "WAGR-13",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BUILD-08 — Build duplicate prevention rules: Operator, Partner, Deal",
+   "quote": "* Deal: enforce uniqueness on the Partner + Operator + Market + Vertical + Version combination",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-99",
+   "status": "Done",
+   "assignee": "Cedrick Infantado",
+   "summary": "BUILD-272 — Deal: Makeup dedupe key and duplicate block",
+   "quote": "Closing the reviewed implementation as Done for traceability.",
+   "quote_source": "comment by Kobi Kunasekaran 2026-09-29"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3244",
+   "date": "2026-09-29",
+   "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+   "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:15:37",
+   "line_start": 302,
+   "quote": "Kobi Kunasekaran: Operator, partner, market country, market state, vertical, and source. I guess it's not five fields, it's more than five, but those are the deal makeup fields for a deal. That's what makes a deal unique.",
+   "doc_id": "12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ"
+  },
+  {
+   "ledger_id": "L1670",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "00:53:28",
+   "line_start": 720,
+   "quote": "Kobi Kunasekaran: ... we can enable something called field history tracking that'll track like uh whatever fields that we enable. ... / Joyce Kiddell: ... So, I do not care about that. We can definitely scrap it. / Kobi Kunasekaran: Okay. Okay. We can we can remove it. ... / Joyce Kiddell: Like as long as we have like the edit log for like who makes updates and",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  },
+  {
+   "ledger_id": "L3408",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "00:52:03",
+   "line_start": 926,
+   "quote": "Joyce Kiddell: No, just no. That's not in it. / Joyce Kiddell: No, not at all. It just creates extra work.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "WAGR-13 (Requirements, assigned Kobi) keys Deal uniqueness on Version and offers 'flag Review Required'. The agreed makeup is operator, partner, market country, market state, vertical and source; Deal Version and the Review Required status were both removed. WAGR-99/WAGR-448 now own Deal dedupe.",
+ "suggested_action": "Remove the Deal bullet and Deal AC from WAGR-13 (point to WAGR-448) and keep it for Operator/Partner duplicate rules only."
+}

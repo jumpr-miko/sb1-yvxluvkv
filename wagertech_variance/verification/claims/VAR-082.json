@@ -1,0 +1,74 @@
+{
+ "var_id": "VAR-082",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Redeposits",
+ "title": "No ticket for manual and bulk allocation entry (rep + amount + volume, multiple batches per month)",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "manual allocation",
+   "bulk",
+   "volume",
+   "batch",
+   "upload",
+   "Data Loader",
+   "redeposit"
+  ],
+  "nearest_considered": [
+   "WAGR-464",
+   "WAGR-477",
+   "WAGR-470"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2796",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:29:54",
+   "line_start": 464,
+   "quote": "Lina Ceniccola: so, as long as we have the ability to also create manual redeposit records, that's really important. / Kobi Kunasekaran: Yeah. I mean that that's what Salesforce is going to give you, right? like you do have the ability to um like the interface that we talked about last week um where you can add additional uh additional allocations for redeposits in bulk to deals to people.",
+   "doc_id": "1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM"
+  },
+  {
+   "ledger_id": "L2798",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Lina Ceniccola; Ali Nawaz; Kobi Kunasekaran",
+   "timestamp": "00:41:21",
+   "line_start": 587,
+   "quote": "Lina Ceniccola: We just need a world where like we can have the assign redeposits in multiple batches but also the ability to manually add / Kobi Kunasekaran: Mhm. / Lina Ceniccola: any of these edge case redeposits and Aliwill he'll manage um manually to some extent because again it's art not a science whole thing but I think like there's a lot of things here that can be reduced at least so he can focus more on the strategy part of it than actually in copy and pasting into the different spreadsheets and whatnot and um potentially like the volume of the books too / Kobi Kunasekaran: Um, the adding the manual allocations and everything, I think that's all fine. I'm not concerned.",
+   "doc_id": "1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM"
+  },
+  {
+   "ledger_id": "L3454",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:51:16",
+   "line_start": 1535,
+   "quote": "Emily Vandenberg: You would want you would want to have a volume right field / Kobi Kunasekaran: Um, but what you're asking for is like one more layer up where they could create these in bulk for when the amount and when the amount and the rep is the same and then we just create the individual breakdown behind the scenes. Uh, which we can do. / Emily Vandenberg: Okay. Yeah, it would be more to many,",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3338",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "02:41:54",
+   "line_start": 2133,
+   "quote": "Kobi Kunasekaran: So then I I would even like say like let's not spend time on the upload CSV because this is going to take time. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah, we we can like so like we always need a manual way so that we're going to have to build anyways and this is going to establish the guard rails, the rules, the fields that we we need and everything. / Kobi Kunasekaran: And then we can bolt on the CSV option afterwards."
+  }
+ ],
+ "what_differs": "WagerTech needs to create manual redeposit allocations in several batches per month, entered as rep + amount + volume with automation creating the individual records, and on 2026-09-30 the manual path was set to be built before the CSV upload. WAGR-464 describes only 'Ops uploads the monthly allocation from Jay's tool' and 'Ops handles exceptions'; no ticket states the manual/bulk entry or its build order.",
+ "suggested_action": "Suggestion: add the manual bulk-allocation requirement (rep, amount, volume; repeatable batches) and the manual-first build order to WAGR-464, then create a build story."
+}

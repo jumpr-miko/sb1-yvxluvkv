@@ -1,0 +1,89 @@
+{
+ "var_id": "VAR-196",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Other",
+ "title": "No Jira item tracks the agreed hand-off of the final Salesforce data model and ERD deviations to WagerTech's data engineer (Strahinja)",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "data model",
+   "final data model",
+   "data dictionary",
+   "ERD",
+   "deviation",
+   "schema",
+   "diagram",
+   "entity relationship",
+   "Strahinja",
+   "share ... data model"
+  ],
+  "nearest_considered": [
+   "WAGR-255",
+   "WAGR-319",
+   "WAGR-298",
+   "WAGR-48",
+   "WAGR-414"
+  ],
+  "nearest_notes": "WAGR-255 'BUILD-90 — ERD naming alignment audit + label renames' (Done) was closed without the audit: 'Closing this as the naming conventions will be based on the latest feedback since ERD is out of date.' (comment, 2026-08-10). WAGR-319 'Discovery: ERD and Data Requirements' (Done) covers the June ERD walkthrough only. Epic WAGR-298 'Solution Design & Data Architecture' (Done) has no child issues. WAGR-414 mentions internal Confluence/Miro documentation, not a client hand-off. Full-text search of all 505 issue descriptions and comments found no item for sharing the data model or a deviation list with WagerTech."
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0553",
+   "date": "2026-06-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+   "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+   "timestamp": "00:26:54",
+   "line_start": 485,
+   "quote": "Kobi Kunasekaran: I think I'm okay like given that like this is like we don't need to necessarily follow the model that's here. I'm good with proceeding with the build on the Salforce side. Um, and we'll share what what the final data model looks like from there / Strahinja Vladetic: uh yeah, that should be okay. Ideally,",
+   "doc_id": "1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY"
+  },
+  {
+   "ledger_id": "L0554",
+   "date": "2026-06-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+   "speakers": "Strahinja Vladetic; Joyce Kiddell",
+   "timestamp": "00:27:49",
+   "line_start": 493,
+   "quote": "Strahinja Vladetic: if you guys could let me know as you're working what deviations from all of this just so I know what's coming down the pipe. / Joyce Kiddell: Yeah, ideally we don't deviate too much.",
+   "doc_id": "1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L0595",
+   "date": "2026-06-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+   "speakers": "Strahinja Vladetic; Kobi Kunasekaran",
+   "timestamp": "00:29:34",
+   "line_start": 514,
+   "quote": "Strahinja Vladetic: So if anything if you guys know that there's a change coming um you guys can just point me to the diagram and I can make the updates. / Kobi Kunasekaran: Okay. Like next steps for for my end is to write up the user stories for like the objects that we need to create or update."
+  },
+  {
+   "ledger_id": "L0592",
+   "date": "2026-06-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1idkBBrSaHwABogsxRl8pwwhqW6ZUBqZAKSG1x9ZqKnY/edit",
+   "speakers": "Emily Vandenberg; Strahinja Vladetic",
+   "timestamp": "00:03:38",
+   "line_start": 144,
+   "quote": "Emily Vandenberg: I think you know Kobe you said like the ERD we don't need to go super deep on / Strahinja Vladetic: Uh yeah. Yeah, I don't think we need to go too deep into the er. We'll probably do that as as the as we get more stuff into Salesforce."
+  },
+  {
+   "ledger_id": "L2330",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:01:31",
+   "line_start": 136,
+   "quote": "Emily Vandenberg: need him, we can pull him in if there's anything you need. But after kind of getting the table information yesterday, he was good."
+  }
+ ],
+ "what_differs": "On 2026-06-23 Kobi said Jumpr would share the final data model, and Strahinja (with Joyce's support) asked to be told about deviations from his ERD as work proceeds. No Jira task, story or acceptance criterion tracks this hand-off, and WAGR-255 now calls the ERD 'out of date'.",
+ "suggested_action": "Suggestion only: add one internal task (for example under WAGR-19 or the go-live checklist) to send Strahinja the final Salesforce object/field model and a short list of deviations from his ERD before go-live, as input for his Postgres operator-data joins (L0553). First confirm with Kobi whether the 2026-08-31 'table information' (L2330) already covers this."
+}

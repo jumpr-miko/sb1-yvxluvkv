@@ -1,0 +1,82 @@
+{
+ "var_id": "VAR-143",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Reporting & Dashboards",
+ "title": "No ticket for the committed reports on fraud-flagged, waiting-for-review and duplicate sign-ups; client asked again on Sep 25",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "fraud report",
+   "fraud + report",
+   "duplicate + report",
+   "review queue",
+   "waiting for review",
+   "flagged",
+   "Fraud Review Status",
+   "list view"
+  ],
+  "nearest_considered": [
+   "WAGR-285",
+   "WAGR-270",
+   "WAGR-304",
+   "WAGR-484",
+   "WAGR-429",
+   "WAGR-75"
+  ],
+  "nearest_ticket_quotes": [
+   {
+    "key": "WAGR-304",
+    "status": "Done",
+    "assignee": "Unassigned",
+    "summary": "Fraud Flags & Exception Handling",
+    "quote": "Closing as merged — fraud scope delivered via Epic E and BUILD-33/34/35/53 per 2026-07-04 note. No fraud-specific tooling separately scoped for Phase 1.",
+    "quote_source": "comment by (no author) 2026-07-29"
+   },
+   {
+    "key": "WAGR-270",
+    "status": "Done",
+    "assignee": "Kobi Kunasekaran",
+    "summary": "BUILD-48 — Update Console list views for the new status model",
+    "quote": "Updated the Fraudulent Sign Ups list to show records where Fraud = True",
+    "quote_source": "comment by (no author) 2026-08-10"
+   },
+   {
+    "key": "WAGR-285",
+    "status": "Done",
+    "assignee": "Unassigned",
+    "summary": "BUILD-36 — Sign-Up status dashboard and reports with rep filter",
+    "quote": "Reports covering each Sign-Up status",
+    "quote_source": "description"
+   }
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0834",
+   "date": "2026-07-07",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:43:57",
+   "line_start": 542,
+   "quote": "Kobi Kunasekaran: and we'll also create some like reports so you can see like anything that's been flagged for fraud. Um anything that's waiting for review for whatever reason. Maybe there's a duplicate. Um, all of those things. U, we'll create those reports as well and kind of show you what that looks like in Salesforce.",
+   "doc_id": "1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3151",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:09:38",
+   "line_start": 1023,
+   "quote": "Emily Vandenberg: definitely want like a report where ops is kind of like managing that to like confirm them. / Kobi Kunasekaran: Yeah, that'll be separate."
+  }
+ ],
+ "what_differs": "Jumpr said it would create reports for sign-ups flagged for fraud, sign-ups waiting for review and duplicates. Jira has a fraud list view (WAGR-270) and a status dashboard (WAGR-285, which covers the four core statuses, not fraud or duplicates), and the fraud epic was closed with no fraud-specific reporting scoped.",
+ "suggested_action": "Suggest a story under WAGR-24 for ops reports (fraud flagged / Fraud Review Status, review queue, duplicates), and link the Sep 25 ask from Emily. Confirm with ops whether the existing list view is enough."
+}

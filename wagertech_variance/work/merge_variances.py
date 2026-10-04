@@ -22,10 +22,23 @@ for f in sorted(glob.glob(f"{B}/work/jira_sweep/*.json")):
         if i.get("classification")=="no_transcript_support": v9[i["key"]].add("sweep")
     for g in d.get("gaps_noticed",[]) or []: g["_source"]=os.path.basename(f); gaps_noticed.append(g)
 def keyset(v): return tuple(sorted({j.get("key") for j in (v.get("jira") or []) if j.get("key")}))
+def canon_area(a):
+    a=(a or "").strip()
+    for name in AREA_ORDER:
+        if a.lower().startswith(name.lower()[:10]): return name
+    return "Other"
+def dedupe_jira(v):
+    seen=set(); out=[]
+    for j in v.get("jira") or []:
+        k=(j.get("key"),(j.get("quote") or "")[:80])
+        if j.get("key") and k in seen: continue
+        seen.add(k); out.append(j)
+    v["jira"]=out
 def words(s): return set(re.findall(r"[a-z0-9]{4,}",(s or "").lower()))
 # dedup: same category + overlapping jira keys (or both V1 with same ledger evidence) + title word overlap >= 0.5
 merged=[]
 for v in allv:
+    v["feature_area_raw"]=v.get("feature_area"); v["feature_area"]=canon_area(v.get("feature_area")); dedupe_jira(v)
     ks=set(keyset(v)); lids={e.get("ledger_id") for e in v.get("transcript_evidence",[]) if e.get("ledger_id")}
     dup=None
     for m in merged:

@@ -1,0 +1,74 @@
+{
+ "var_id": "VAR-118",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "CMS Integration",
+ "title": "Client decided archive-only for Affiliate Links (Sep 30); WAGR-491 keeps a delete path and WAGR-509 still treats Link Archived as undecided",
+ "jira": [
+  {
+   "key": "WAGR-491",
+   "status": "Requirements",
+   "assignee": null,
+   "summary": "Affiliate Link — Exclude from CMS, publication markers and safe deletion",
+   "quote": "Never-published Link may be deleted through the guided confirmation path. ... Whether Affiliate Links themselves gain an explicit **Archived** status is intentionally **out of scope here** and tracked in the separate Link Archive follow-up.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-509",
+   "status": "Open",
+   "assignee": null,
+   "summary": "Affiliate Link — Evaluate and design Archived status / historical payload treatment",
+   "quote": "Capture the explicit follow-up for tomorrow's WagerTech review: decide whether Affiliate Links need their own terminal **Archived** state rather than relying only on Active/Inactive + Exclude from CMS.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3400",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:41:45",
+   "line_start": 824,
+   "quote": "Joyce Kiddell: Uh why don't we just only give the user the ability to archive links and then we would always have some sort of trail of what the links are within Salesforce and then we don't need any sort of log or history of links in the CMS, right? / Kobi Kunasekaran: that I think that's fine with me. That works.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3399",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:40:43",
+   "line_start": 812,
+   "quote": "Kobi Kunasekaran: Okay. Um, okay. For for the links, let me know if we need more than just active uh inactive though. / Emily Vandenberg: I think that that yeah, I think that would be sufficient because it's just like you're saying it's within the list or like you're kind of adding and removing and it can be dynamic."
+  },
+  {
+   "ledger_id": "L3401",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:41:45",
+   "line_start": 829,
+   "quote": "Kobi Kunasekaran: The I think the one thing that I wanted to just make sure and like confirm with straw is that if we send a payload without a link that it's not going to assume that it's automatically deleted. / Kobi Kunasekaran: But if we remove from the payload as the API endpoint set up today, it'll remove that link from the CMS."
+  },
+  {
+   "ledger_id": "L3409",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+   "timestamp": "00:53:17",
+   "line_start": 937,
+   "quote": "Kobi Kunasekaran: So when you close a deal or um retire or archive a deal, um do we need to set any statuses on the links and DRAs associated to the deal? / Emily Vandenberg: They would just need to be pushed to inactive, right? Or archived, / Kobi Kunasekaran: That's what I would think. Yes."
+  }
+ ],
+ "what_differs": "On Sep 30 Joyce asked that users only be able to archive links (so Salesforce keeps a trail) and Kobi agreed. WAGR-491 (updated Oct 2) still lets users delete never-published Links, and WAGR-509 frames Link Archived as an open question without recording the client decision.",
+ "suggested_action": "Suggestion only: record the Sep 30 archive-only decision in WAGR-509 as the baseline, and confirm with WagerTech whether deleting never-published Links is still allowed before WAGR-491 is built. Keep the CMS omission question (Stra) open as WAGR-509 already does."
+}

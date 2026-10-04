@@ -1,0 +1,86 @@
+{
+ "var_id": "VAR-028",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Deal",
+ "title": "WAGR-225 removes Partner from the Deal label; the client decided the deal name keeps the partner code",
+ "jira": [
+  {
+   "key": "WAGR-225",
+   "status": "Jumpr Review",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BUILD-125 — Deal Name + Deal hyperlink: drop Partner, use market short codes (REVISES BUILD-117)",
+   "quote": "* Partner removed from the Deal label. Deliberate.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-225",
+   "status": "Jumpr Review",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BUILD-125 — Deal Name + Deal hyperlink: drop Partner, use market short codes (REVISES BUILD-117)",
+   "quote": "Rebuild the two Deal label formulas to read Operator - Market - Vertical using the new market short-code fields",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1654",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Emily Vandenberg; Lina Ceniccola",
+   "timestamp": "00:39:43",
+   "line_start": 537,
+   "quote": "Emily Vandenberg: ... are we okay to um put into like the rep facing views the like kind of partner code CTM CGD on the kind of like global deal name. ... / Lina Ceniccola: No, we can we can keep it. / Emily Vandenberg: it. / Lina Ceniccola: That's easier. Let's just do that.",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  },
+  {
+   "ledger_id": "L1655",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+   "timestamp": "00:41:03",
+   "line_start": 550,
+   "quote": "Kobi Kunasekaran: ... Do we want the vertical added in here or is this fine like with the state and if it's multi-state the country and then the operator and the partner code? / Lina Ceniccola: We Yeah, keep the vertical / Kobi Kunasekaran: Okay, we can add the vertical uh after that one so it shows up closer to what we have here. ... / Kobi Kunasekaran: ... Yeah, we'll we'll make that default ...",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  },
+  {
+   "ledger_id": "L2102",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Lina Ceniccola; Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:31:22",
+   "line_start": 475,
+   "quote": "Lina Ceniccola: yeah, I like at the end having the identifier as - / Lina Ceniccola: well there will always be a source. / Lina Ceniccola: Adding one more letter okay makes it more clear. / Kobi Kunasekaran: Okay. Okay. So, I'll just use the onelet code at the end. / Kobi Kunasekaran: Um, show it for all of it. Um, and then let's see what that looks like in a",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2102",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Lina Ceniccola; Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:31:22",
+   "line_start": 475,
+   "quote": "Lina Ceniccola: yeah, I like at the end having the identifier as - / Lina Ceniccola: well there will always be a source. / Lina Ceniccola: Adding one more letter okay makes it more clear. / Kobi Kunasekaran: Okay. Okay. So, I'll just use the onelet code at the end. / Kobi Kunasekaran: Um, show it for all of it. Um, and then let's see what that looks like in a"
+  },
+  {
+   "ledger_id": "L2965",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+   "timestamp": "01:15:02",
+   "line_start": 1143,
+   "quote": "Kobi Kunasekaran: do we want to keep it as multistate like that or um do we want to use like what we have uh in the V ID naming convention / Emily Vandenberg: so see the like region like the Canada, Ontario versus Alberta breakout and then US there's / Emily Vandenberg: going to be some but if not then you can kind we'll keep it as um multi. / Lina Ceniccola: I agree."
+  }
+ ],
+ "what_differs": "WAGR-225 (Jumpr Review) builds Deal_Name__c / Deal__c labels as Operator - Market - Vertical with no partner. The 2026-08-11 client sync decided the global deal name includes the partner code (state/country, operator, partner code, vertical), and 2026-08-25 added the source suffix. The Name flow (WAGR-147) follows the decision; the WAGR-225 formula fields do not.",
+ "suggested_action": "Do not pass WAGR-225 review as written. Either retire the Deal_Name__c / Deal__c formula fields (Name is now flow-generated) or update them to the agreed format with partner code and source."
+}

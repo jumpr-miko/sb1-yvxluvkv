@@ -1,0 +1,83 @@
+{
+ "var_id": "VAR-105",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Referral and Payouts",
+ "title": "Referrer Default Payout Type values are 'Cash, Redeposit' while the Sign-Up type and the decided term are 'Bet Credit'",
+ "jira": [
+  {
+   "key": "WAGR-191",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-187 — Referrer: Referral Defaults",
+   "quote": "Default Payout Type — Picklist: Cash, Redeposit; overridable at the Sign Up level",
+   "quote_source": "description (FIELDS)"
+  },
+  {
+   "key": "WAGR-428",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Referrer: Fix auto-population when selecting an existing referrer",
+   "quote": "Verify/fix: selecting a referrer should auto-default the Referral Type field based on the referrer's typical/set referral type; user should still be able to override it manually.",
+   "quote_source": "description (Requirements)"
+  },
+  {
+   "key": "WAGR-465",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Referral payouts — design and user stories",
+   "quote": "Naming: \"Bet Credit\" or \"Redeposit\"? The matrix has no Redeposit type.",
+   "quote_source": "description (Open questions)"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3107",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola",
+   "timestamp": "00:18:49",
+   "line_start": 365,
+   "quote": "Joyce Kiddell: like are are we still clinging at credit because it's like technically a redeposit. / Lina Ceniccola: We do internally. We call it bad credit for referral payments. / Joyce Kiddell: Just keep it like that. / Lina Ceniccola: Yeah, I say keep it consistent.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3106",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:16:52",
+   "line_start": 337,
+   "quote": "Joyce Kiddell: Yeah, but we would want the BA to have the ability to change it if for like that sign up for whatever reason. / Kobi Kunasekaran: when they Sorry, / Kobi Kunasekaran: I just wanted to like read that back. So when uh when a PA goes in to log a signup um and they select a referral or create a referral um the payout type or the signup should pull from the default payout type that's on the referral. Um and but they should be able to change that um to like bet credit or cash um if if they don't want to go with the default. / Joyce Kiddell: Yes, if they're an existing refer obviously, / Joyce Kiddell: but if they're not then you have to fight at that time.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1984",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "01:36:29",
+   "line_start": 1595,
+   "quote": "Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom."
+  },
+  {
+   "ledger_id": "L1984",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "01:36:29",
+   "line_start": 1595,
+   "quote": "Joyce Kiddell: Um the default payout type, remember it's like cash or redeposit. / Joyce Kiddell: Make that a note. move at the bottom."
+  }
+ ],
+ "what_differs": "WAGR-191 built the referrer Default Payout Type with the Aug 18 wording (Cash, Redeposit). On Sep 25 WagerTech decided to keep the term 'bet credit', and the signup payout type must default from the referrer default. The Sign-Up Referral Type and payout matrix use Cash/Bet Credit (WAGR-289), so the default cannot map cleanly; WAGR-465 still lists the naming as open.",
+ "suggested_action": "Rename the WAGR-191 picklist value Redeposit to Bet Credit (or add an explicit mapping) as part of WAGR-428, and close the naming question on WAGR-465."
+}

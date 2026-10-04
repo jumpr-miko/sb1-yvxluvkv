@@ -1,0 +1,65 @@
+{
+ "var_id": "VAR-165",
+ "category": "V8",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Data Migration / Import",
+ "title": "Go-live cutover for in-flight spreadsheet sign-ups is unresolved and has no ticket; WAGR-51 removes the only manual create path",
+ "jira": [
+  {
+   "key": "WAGR-51",
+   "status": "Ready",
+   "assignee": "Unassigned",
+   "summary": "BUILD-114 — Reps cannot create Sign-Up records (SLC automation is the only create path)",
+   "quote": "records must originate ONLY from the Study Link Click automation (BUILD-04 / SLC async flow).",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-125",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BUILD-77 — Operator logo load plan (~60-70 operators at go-live)",
+   "quote": "Fold into migration cutover checklist",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0998",
+   "date": "2026-07-15",
+   "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:41:27",
+   "line_start": 611,
+   "quote": "Emily Vandenberg: when we cut over there's going to be instances where like things might have been started within the spreadsheet right and then it would be seen as like net new because there'd be no record of it uh in some cases within Salesforce / Emily Vandenberg: and so I think that's more of the cut over we need to plan",
+   "doc_id": "1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ"
+  },
+  {
+   "ledger_id": "L0999",
+   "date": "2026-07-15",
+   "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:44:04",
+   "line_start": 623,
+   "quote": "Kobi Kunasekaran: but for the ones that are kind of halfway through you know they might have started the signup already um but they haven't finished it those things we might just have to have like a manual path for the rep to like create the signup manually because it's not going to be triggered through play can anymore. / Kobi Kunasekaran: For deals and deal assignments, that's another one. So deals, the historical data for the signups that we import for players, we we we want those to be related to the deals. / Kobi Kunasekaran: So I I think we should try to import as much as as far back as possible uh as you have data that's relevant for your reporting.",
+   "doc_id": "1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1676",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:59:20",
+   "line_start": 775,
+   "quote": "Kobi Kunasekaran: ... So, are we saying like we're going to hold off on this like fully going live until all those pieces that are in like including like the later / Emily Vandenberg: Yeah. / Kobi Kunasekaran: phases / Emily Vandenberg: ... the gap and running two parallel systems um we just don't feel like we could get it over the line with your rep reps from an adoption perspective ..."
+  }
+ ],
+ "what_differs": "On 7/15 Emily said that sign-ups started in the spreadsheet will appear net new in Salesforce at cutover, and that this cutover needs planning. Kobi suggested a manual rep path. No later meeting answered it. No ticket holds a cutover plan (WAGR-125 refers to a 'migration cutover checklist' that does not exist as a ticket). WAGR-51 (Ready) removes rep Create on Sign-Up.",
+ "suggested_action": "Create a cutover-plan ticket under WAGR-19. It should cover how in-flight spreadsheet sign-ups enter Salesforce (Ops/admin create path or a final delta import, since WAGR-51 blocks reps), the spreadsheet freeze date, and the logo and checklist items WAGR-125 refers to. Confirm the approach with Emily."
+}

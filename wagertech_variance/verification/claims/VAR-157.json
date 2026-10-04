@@ -1,0 +1,35 @@
+{
+ "var_id": "VAR-157",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Access & Permissions / Org Setup",
+ "title": "Redeposits design card WAGR-464 does not record the decided rule that BAs cannot change assigned redeposits (Ops makes changes)",
+ "jira": [
+  {
+   "key": "WAGR-464",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Redeposits workflow — design and user stories",
+   "quote": "Can BAs create their own redeposit rows, or only Ops?",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2805",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Ali Nawaz; Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:47:31",
+   "line_start": 649,
+   "quote": "Ali Nawaz: So right now the assigned readab should not be touched uh other than how it's already already assigned to them or added to the sheets. / Kobi Kunasekaran: Okay. / Lina Ceniccola: I think if we if ops is able to go in and change it, / Kobi Kunasekaran: Yeah. / Lina Ceniccola: that's fine. If they want to request a change, / Kobi Kunasekaran: Yeah. / Ali Nawaz: Yeah, exactly. / Lina Ceniccola: they can just request it through ops and we'll change it. But let's let's not allow BAS to change the assigned / Kobi Kunasekaran: Perfect. / Kobi Kunasekaran: I mean with Salesforce like we can do hard lots right",
+   "doc_id": "1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "On 2026-09-21 the client decided that BAs must not change assigned redeposit amounts or slots; changes are requested through Ops and Ops makes them, and Kobi noted Salesforce can hard-lock this. WAGR-464 lists BA create rights as an open decision but does not state the edit lock rule.",
+ "suggested_action": "Add the access rule to WAGR-464 (and later to the Redeposit build stories and the WAGR-495 matrix): Rep/BA read-only on assigned redeposit amount and slot fields; Ops edit."
+}

@@ -1,0 +1,54 @@
+{
+ "var_id": "VAR-112",
+ "category": "V3",
+ "severity": "Low",
+ "confidence": "medium",
+ "feature_area": "Referral and Payouts",
+ "title": "Referrer primary/secondary related-list columns in WAGR-161/WAGR-77 do not reflect the Sep 2 column decision",
+ "jira": [
+  {
+   "key": "WAGR-161",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-198 — Referrer: Primary Referrals Related List",
+   "quote": "Keep the confirmed columns only: Sign Up, Player, Operator, Proof Status, Payout Type.",
+   "quote_source": "comment 2026-08-24 (author not shown)"
+  },
+  {
+   "key": "WAGR-77",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-199 — Referrer: Secondary Referrals Related List",
+   "quote": "Confirmed columns for this related list: Sign Up, Player, Operator, Proof Status, Payout Type.",
+   "quote_source": "comment 2026-08-24 (author not shown)"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2341",
+   "date": "2026-09-02",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+   "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+   "timestamp": "00:16:37",
+   "line_start": 441,
+   "quote": "Kobi Kunasekaran: ... So instead of operator this could be the deal name because that has the entire string. Uh proof status is fine. Uh this is payment sent. Payment sent is probably fine too. Uh we can always swap it out later. Uh we could add payout type. We don't have payout code, so we can leave that one out. Um there's no roll, so we can leave that one out because we just have two separate lists to show the uh show the role. / Taryn Reithofer: Okay. So, pretty much just operator deal / Kobi Kunasekaran: Yeah. Yeah, I just swap this out with for deal. / Kobi Kunasekaran: I guess that's the only one that and add payout type. Yeah. And then you already added the status.",
+   "doc_id": "1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM"
+  },
+  {
+   "ledger_id": "L2336",
+   "date": "2026-09-02",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM/edit",
+   "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+   "timestamp": "00:11:59",
+   "line_start": 375,
+   "quote": "Taryn Reithofer: up record is complete. Um, so I at just a glance I I thought it might be confusing for users if they saw for example two primary referrals in the related list but then only one count in the rollup. So I was thinking perhaps we can put in the field column completion and I added that this morning so that it can surface. / Kobi Kunasekaran: the uh signup status that that serves the same purpose right / Kobi Kunasekaran: So I think status will cover both.",
+   "doc_id": "1ud_G-gt2IDycO7KSx0bjhIM7CQwzRVuZ0a9NB80buiM"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "On Sep 2 Kobi and Taryn decided to replace Operator with Deal Name, keep Payment Sent, add Payout Type, and show signup Status (instead of a completion column). Both tickets still record the Aug 24 set with Operator and without Payment Sent or Status.",
+ "suggested_action": "Update WAGR-161 and WAGR-77 with the Sep 2 column set (or confirm the build already matches and note it), before Emily's referral page review closes."
+}

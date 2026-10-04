@@ -1,0 +1,44 @@
+{
+ "var_id": "VAR-129",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Ops list views / Console UX",
+ "title": "No ticket to keep Inactive/old Deals out of the default Deal working list views",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "inactive + list view",
+   "Active Deals",
+   "default view",
+   "clutter",
+   "pinned",
+   "pin list",
+   "active list view",
+   "Deal list view"
+  ],
+  "nearest_considered": [
+   "WAGR-61",
+   "WAGR-480",
+   "WAGR-506",
+   "WAGR-487",
+   "WAGR-307"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1628",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "00:12:35",
+   "line_start": 273,
+   "quote": "Kobi Kunasekaran: ... We could add another status that'll like help hide it away if if that'll be helpful. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah. Like we can create something that's like circle or something. / Joyce Kiddell: Or in inactive. Inactive is fine. ... / Joyce Kiddell: or we make the pin list the active ones like whatever you think is the best in terms of / Joyce Kiddell: like engineering the structure. I just don't want it to clutter kind of the default / Kobi Kunasekaran: Yeah. Yeah, that's there. We can do",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "Joyce asked that inactive/old deals not clutter the default view and left the mechanism (status or a pinned active list view) to Jumpr; Kobi said \"We can do\". WAGR-61 sets Deal list columns only, WAGR-480 keeps the All list as is, and WAGR-487/WAGR-506 create the Inactive status but no ticket filters Inactive deals out of the default working list.",
+ "suggested_action": "Add an acceptance criterion to WAGR-61 or a new story: an \"Active Deals\" (or All Active) Deal list view as the working default, with Inactive/Closed/Archived excluded, and onboarding guidance to pin it. Suggestion only."
+}

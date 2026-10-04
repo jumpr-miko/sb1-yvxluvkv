@@ -1,0 +1,108 @@
+{
+ "var_id": "VAR-062",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Player",
+ "title": "VIP manual-entry tickets do not include the 09-30 rule that players created in the VIP flow default to VIP, or that converting an existing player is allowed",
+ "jira": [
+  {
+   "key": "WAGR-432",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+   "quote": "All standard sign-up fields should be available, same as regular (non-VIP) intake, plus the VIP flag (see separate VIP flag/indicator ticket).",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-433",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Player & Sign-Up: VIP flag + visual indicator (VIP)",
+   "quote": "Player: confirm the existing VIP toggle/field on the Player record (Joyce referenced one already existing) and add a visual indicator — a small crown or star icon next to the Player's name — in list views and on the record itself.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3447",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "01:40:46",
+   "line_start": 1434,
+   "quote": "Joyce Kiddell: That's what I understand it to be as well. Um, but I mean if there is the the odd edge case where they have to search for an existing player and then convert them to VIP, like I don't think it's a big deal if they are allowed to do that. / Kobi Kunasekaran: Okay. So, we're saying like any player that's created as part of this process though defaults to being a VIP player, right? / Joyce Kiddell: Craft field / Kobi Kunasekaran: Okay. And that we'll put that in.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3440",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "01:30:55",
+   "line_start": 1338,
+   "quote": "Joyce Kiddell: Uh, yeah, we wouldn't have to link it. Could we just have it reflect whoever signed in? / Kobi Kunasekaran: yeah. Yeah, we can default to the current running user / Emily Vandenberg: I guess just default it to their name then and then if we're going to keep it. / Kobi Kunasekaran: Yeah, I can do that.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3441",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:37:15",
+   "line_start": 1397,
+   "quote": "Emily Vandenberg: The only thing I would say with the act of the list of deals, you should put anything that's paused in there as well because these guys will log late / Kobi Kunasekaran: Okay. Yeah, I can do that. So, pause and active and then everything else we exclude from the list.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3443",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:35:58",
+   "line_start": 1385,
+   "quote": "Emily Vandenberg: The duplicate should exist outside of like the rep because like if it's the same player, same book, that's a duplicate. / Kobi Kunasekaran: I think it's same player, same book. / Kobi Kunasekaran: Yeah, we can enforce the same one here. So if we detect that there the the same player is associated to a signup record for the same deal then it will flag that as a duplicate",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3449",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:43:51",
+   "line_start": 1463,
+   "quote": "Kobi Kunasekaran: maybe we give them the ability to create it in this workflow as opposed to going to deals, finding the deal, adding the link, / Joyce Kiddell: If you could make it automatically tagged as VIP as they're creating it. / Kobi Kunasekaran: yes. / Joyce Kiddell: Yeah, that makes sense.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2941",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:54:29",
+   "line_start": 863,
+   "quote": "Joyce Kiddell: So um we basically need to bring these signups in manually. / Joyce Kiddell: Yeah. It's not going to come in through the agency website automation."
+  },
+  {
+   "ledger_id": "L3446",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:39:35",
+   "line_start": 1420,
+   "quote": "Emily Vandenberg: You would want Yeah. Like you would want a VIP tag at a player level. / Kobi Kunasekaran: yeah I think This VIP flag should already be there. I I think I don't think it like does any icons or anything right now. So, that's still like part of this build when you build this out."
+  }
+ ],
+ "what_differs": "On 09-30 the client confirmed that any player created in the VIP flow defaults to VIP, and that ops may convert an existing player to VIP in edge cases. Kobi said 'we'll put that in'. WAGR-432 and WAGR-433 (both Open, no comments) do not state the default or the conversion path.",
+ "suggested_action": "Add an acceptance criterion to WAGR-432 or WAGR-433: the Player VIP flag is set to true by default when the VIP flow creates the player, and ops can set VIP on an existing player."
+}

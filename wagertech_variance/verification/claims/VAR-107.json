@@ -1,0 +1,94 @@
+{
+ "var_id": "VAR-107",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Referral and Payouts",
+ "title": "Sep 30 bet-credit decisions (separate referral queue, no deal-level budget entries, allocation to referrer inside payout flow) are not in WAGR-465 or WAGR-464",
+ "jira": [
+  {
+   "key": "WAGR-465",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Referral payouts — design and user stories",
+   "quote": "**Bet credit:** the rep splits the total into smaller redeposit records for the referrer. These follow the redeposit proof process. The Payout status follows the status of its redeposits.",
+   "quote_source": "description (Requirements captured)"
+  },
+  {
+   "key": "WAGR-464",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Redeposits workflow — design and user stories",
+   "quote": "Where does the budget live, and in what unit?",
+   "quote_source": "description (Open decisions)"
+  },
+  {
+   "key": "WAGR-464",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Redeposits workflow — design and user stories",
+   "quote": "Bet-credit referral payouts create redeposit records for the referrer (see the \"Referral payouts — design and user stories\" ticket).",
+   "quote_source": "description (Requirements captured)"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3358",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "03:19:31",
+   "line_start": 2590,
+   "quote": "Emily Vandenberg: Can you can we create a separate although it still would be a redeposit like I agree it follows it but like a separate um drop down for it so it doesn't go right into redeposit it goes into referral payments / Kobi Kunasekaran: Um but for the redeposit records um instead of going through the same flow that we had for the regular redeposits like this queue um we just want a separate queue that's maybe like streamlined / Kobi Kunasekaran: Yeah. Yeah, we can do that. Yeah.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3342",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "02:57:54",
+   "line_start": 2304,
+   "quote": "Joyce Kiddell: against the same one. So, you can't do like budget entries at a deal level because it's all going to be / Kobi Kunasekaran: Okay, then we don't necessarily need to do budget entries for those types of allocation. We we can just related to uh like a DLM month and then they can distribute it however they want.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3350",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "03:08:49",
+   "line_start": 2475,
+   "quote": "Kobi Kunasekaran: That bet credit then needs to be assigned slallocated to a refer and then that doesn't / Kobi Kunasekaran: then get assigned to a player or anything like that. It's just it's just a refer is the one that gets paid that amount. Okay. / Emily Vandenberg: Yeah.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3373",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "03:07:19",
+   "line_start": 2460,
+   "quote": "Kobi Kunasekaran: Uh when it comes for payouts, um instead of the payout creating like a like a budget entry, um I will think through the best way to relate these redeposit allocations to the bet credit payout."
+  },
+  {
+   "ledger_id": "L3451",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:48:24",
+   "line_start": 1514,
+   "quote": "Kobi Kunasekaran: I didn't add the payout that becomes a redeposit uh, here yet, so that's still uh, TBD."
+  }
+ ],
+ "what_differs": "On Sep 30 the team decided that referral bet-credit redeposits get their own streamlined queue/tab (no player selection), are not tracked as deal-level budget entries, and are allocated to the referrer inside the payout flow. WAGR-464 and WAGR-465 were last updated Sep 28 and do not contain these decisions; WAGR-464 still lists budget location as open.",
+ "suggested_action": "Add the Sep 30 decisions to WAGR-465 (referral side) and WAGR-464 (redeposit side) and record the open follow-up L3373 (how allocations relate to the bet credit payout) on one of them."
+}

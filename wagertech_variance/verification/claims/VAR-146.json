@@ -1,0 +1,43 @@
+{
+ "var_id": "VAR-146",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Reporting & Dashboards",
+ "title": "Redeposits design card (WAGR-464) has only the inbound allocation upload; it lacks the decided Salesforce reports that feed sign-up and player inputs to the payment tool",
+ "jira": [
+  {
+   "key": "WAGR-464",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Redeposits workflow — design and user stories",
+   "quote": "Each month, Ops receives an allocation from Jay's tool.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-464",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Redeposits workflow — design and user stories",
+   "quote": "Ops uploads the monthly allocation from Jay's tool.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2817",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+   "timestamp": "00:59:17",
+   "line_start": 819,
+   "quote": "Kobi Kunasekaran: like I'm imagining like we'll we'll have equivalent reports built in Salesforce to feed the input data like the signups, the player information and everything. And then the actual logic of the allocation will still remain with this payment tool for now. And then it would spin out either the CSV or be able to talk directly in Salesforce to create the uh the allocation records. / Lina Ceniccola: Yep.",
+   "doc_id": "1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "The Sep 21 discovery decided that Salesforce will have equivalent reports to feed input data (sign-ups, player information) to the allocation tool, and Lina agreed. WAGR-464 (description; no comments) lists only the upload of the tool's allocation into Salesforce, not the outbound input reports.",
+ "suggested_action": "Suggest adding the outbound input reports (fields, grain, cadence) to WAGR-464's requirements, or a child story under WAGR-24, and align with the CSV mapping work decided on Sep 30 (L3338/L3339)."
+}

@@ -1,0 +1,75 @@
+{
+ "var_id": "VAR-048",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Referrer / Brand Ambassador",
+ "title": "BA Status picklist in Jira keeps 'Inactive'; Aug 18 sync decided only Active, Paused, Terminated",
+ "jira": [
+  {
+   "key": "WAGR-176",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-202 — Brand Ambassador: Object + Core Status",
+   "quote": "BA Status — Picklist: Active, Paused, Inactive, Terminated. Trimmed from an initial five-value list that included a Review status.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-91",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BUILD-236 — Brand Ambassador: Status Automation (via User Active Checkbox)",
+   "quote": "BA Status (BUILD-202 / BA-1) has four values — Active, Paused, Inactive, Terminated — but the User object's Active checkbox is only a two-value boolean",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1946",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola",
+   "timestamp": "00:47:53",
+   "line_start": 814,
+   "quote": "Joyce Kiddell: ...Kobi live, we're going to remove review. / Lina Ceniccola: if it's I think it's really only active, paused, or terminated cuz like they don't / Joyce Kiddell: Okay. Um so active uh paused and terminated are the / Joyce Kiddell: three statuses. Um brand manager cannot be easily added as like a",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L1947",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola",
+   "timestamp": "00:50:24",
+   "line_start": 845,
+   "quote": "Kobi Kunasekaran: We terminating like are we talking about like deactivating the user from Salesforce as well? / Joyce Kiddell: Yes. / Lina Ceniccola: Yeah.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1947",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola",
+   "timestamp": "00:50:24",
+   "line_start": 845,
+   "quote": "Kobi Kunasekaran: We terminating like are we talking about like deactivating the user from Salesforce as well? / Joyce Kiddell: Yes. / Lina Ceniccola: Yeah."
+  },
+  {
+   "ledger_id": "L1947",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola",
+   "timestamp": "00:50:24",
+   "line_start": 845,
+   "quote": "Kobi Kunasekaran: We terminating like are we talking about like deactivating the user from Salesforce as well? / Joyce Kiddell: Yes. / Lina Ceniccola: Yeah."
+  }
+ ],
+ "what_differs": "The client removed both 'Under Review' and 'Inactive' (Lina: 'it's really only active, paused, or terminated'); Joyce confirmed three statuses. WAGR-176 removed only Review and specifies four values including Inactive, and WAGR-91 designs the User-Active mapping around those four values.",
+ "suggested_action": "Remove 'Inactive' from the BA Status value set in WAGR-176 (and the built picklist, if present). Update WAGR-91 so the mapping covers Active / Paused / Terminated only (Terminated = user deactivated, per WAGR-79)."
+}

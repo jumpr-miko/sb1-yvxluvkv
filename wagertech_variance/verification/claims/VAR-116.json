@@ -1,0 +1,62 @@
+{
+ "var_id": "VAR-116",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "CMS Integration",
+ "title": "Jira locks Queueable Apex as the outbound sender; latest meeting left Flow vs Apex to Cedrick",
+ "jira": [
+  {
+   "key": "WAGR-454",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses",
+   "quote": "* **Queueable Apex is the single outbound sender.**",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-454",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "CMS Sync — Queueable Apex Deal sync service: v2 payload, batching and responses",
+   "quote": "* Flow/record automation may request sync; it does not maintain a second JSON/callout implementation.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-463",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Deal lifecycle/CMS — close remaining design and contract follow-ups",
+   "quote": "* Queueable Apex is the common outbound sender.",
+   "quote_source": "description (under 'Resolved elsewhere')"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3301",
+   "date": "2026-09-29",
+   "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+   "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:10:01",
+   "line_start": 662,
+   "quote": "Kobi Kunasekaran: And then flow versus Apex. I'm going to leave this up to you. … if that's going to be a problem then it might make sense to work uh go with Apex.",
+   "doc_id": "12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ"
+  },
+  {
+   "ledger_id": "L3179",
+   "date": "2026-09-28",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1i1AH0eRraoA3czYyZC9nWRiFTeGcGYyAMfvxTpAes3Y/edit",
+   "speakers": "Cedrick Infantado",
+   "timestamp": "00:18:02",
+   "line_start": 369,
+   "quote": "Cedrick Infantado: I'll check / Cedrick Infantado: I'll do a quick check on that and uh I'll and let you know if that's possible on flow. I'll do a quick P on triggering of uh on the deals and then see if we can do retries and after that save it on on a log if if maybe that's possible",
+   "doc_id": "1i1AH0eRraoA3czYyZC9nWRiFTeGcGYyAMfvxTpAes3Y"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "The 2026-09-29 walkthrough left the Flow vs Apex choice to Cedrick (Apex only if payload size or batching is a problem), and on 2026-09-28 Cedrick took an action to prove a Flow-based callout with retries. Jira (updated 2026-10-02) states Queueable Apex is the single sender and lists it as resolved, with no meeting record of that decision or of the Flow POC result.",
+ "suggested_action": "Suggestion only: confirm with Cedrick and Kobi that the Flow POC (L3179) concluded in favour of Queueable Apex, and record the rationale in WAGR-454 or WAGR-463 so the build follows one agreed approach before the October 9 target."
+}

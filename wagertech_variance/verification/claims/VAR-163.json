@@ -1,0 +1,83 @@
+{
+ "var_id": "VAR-163",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Data Migration / Import",
+ "title": "No ticket step to validate the final operator/partner list and IDs in both the CMS and Salesforce before production (current list comes from Airtable, is not validated, and may hold inactive records)",
+ "jira": [
+  {
+   "key": "WAGR-460",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "CMS Sync — Production cutover",
+   "quote": "build/confirm Salesforce External Deal ID ↔ CMS row map;",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-460",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "CMS Sync — Production cutover",
+   "quote": "WagerTech completes any manual Operator/Partner CMS mappings;",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-100",
+   "status": "Jumpr Review",
+   "assignee": "Cedrick Infantado",
+   "summary": "BUILD-274 — Account: Auto-generate Operator and Partner External IDs",
+   "quote": "The current 63 values were typed into a spreadsheet during the initial import",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1808",
+   "date": "2026-08-13",
+   "meeting_title": "Wagertech <> Jumpr - 60 Min (Joyce Kiddell)",
+   "doc_link": "https://docs.google.com/document/d/1jcr9oC55uUZqovDGyI_odU0PSFQdavpADjF3c_R443s/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:06:40",
+   "line_start": 1223,
+   "quote": "Emily Vandenberg: Okay, perfect because we haven't really validated that list / Kobi Kunasekaran: Correct. Yeah, we can always change it. Like not none of this is set in stone, right? / ... / Kobi Kunasekaran: Like we're still working in parts of sandbox. So if we need to change those IDs before we go into production, we just have to make sure we change it on both systems like CMS and Salesforce. / ... / Kobi Kunasekaran: too, because we these two lists are from whatever was in Air Table. So, yeah, I imagine some of them are probably not active",
+   "doc_id": "1jcr9oC55uUZqovDGyI_odU0PSFQdavpADjF3c_R443s"
+  },
+  {
+   "ledger_id": "L1271",
+   "date": "2026-07-24",
+   "meeting_title": "Wagertech <> Jumpr: API Testing for SLC Creation in SF",
+   "doc_link": "https://docs.google.com/document/d/1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY/edit",
+   "speakers": "Kobi Kunasekaran; Jay",
+   "timestamp": "00:26:11",
+   "line_start": 393,
+   "quote": "Kobi Kunasekaran: uh we can we can set that up in Salesforce and we can use the Salesforce ID as the mapping um or that universal ID and we can share that table of operator name, operator ID, partner name, partner ID uh to you guys and you can send those ids uh through uh through the API when when you're submitting those SLC's. / Jay: Yeah, that'd be Good.",
+   "doc_id": "1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1904",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:10:27",
+   "line_start": 290,
+   "quote": "Kobi Kunasekaran: Yeah. This is all sandbox data. So again, all of this can be changed. Um it doesn't necessarily need to be like the final uh data set that we move forward with. / Kobi Kunasekaran: So I'm sure as we set up the rest of the integration, things might change. You might send different information. So um we figured like at least we have a starting point to work off"
+  },
+  {
+   "ledger_id": "L1688",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:11:26",
+   "line_start": 259,
+   "quote": "Emily Vandenberg: Yeah, we might have to like almost the list might almost have to come from the historical um data to know what the full list of like operators really I think is the biggest one."
+  }
+ ],
+ "what_differs": "The meetings agreed that the operator/partner IDs loaded so far are a sandbox starting point from Airtable, are not validated, and must be changed in both the CMS and Salesforce before production. WAGR-460 maps only Deal IDs before cutover and leaves Operator/Partner CMS mappings to hypercare. WAGR-20 does not cover operators/partners.",
+ "suggested_action": "Add a pre-production step (to WAGR-460 or WAGR-20): WagerTech confirms the authoritative active and inactive operator/partner list, Jumpr loads it, and both sides reconcile Operator/Partner External IDs in the CMS and Salesforce before the first production SLC."
+}

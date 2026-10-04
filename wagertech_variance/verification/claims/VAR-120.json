@@ -1,0 +1,72 @@
+{
+ "var_id": "VAR-120",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "CMS Integration",
+ "title": "Client-agreed 'archive links only' rule (2026-09-30) is not in Jira; WAGR-509/463 still frame Link Archived as undecided and WAGR-491 allows deletes",
+ "jira": [
+  {
+   "key": "WAGR-509",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Affiliate Link — Evaluate and design Archived status / historical payload treatment",
+   "quote": "Capture the explicit follow-up for tomorrow's WagerTech review: decide whether Affiliate Links need their own terminal **Archived** state rather than relying only on Active/Inactive + Exclude from CMS.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-491",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "Affiliate Link — Exclude from CMS, publication markers and safe deletion",
+   "quote": "Never-published Link may be deleted through the guided confirmation path.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-463",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Deal lifecycle/CMS — close remaining design and contract follow-ups",
+   "quote": "Decide with WagerTech whether Affiliate Links gain an explicit Archived status.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3400",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:41:45",
+   "line_start": 824,
+   "quote": "Joyce Kiddell: Uh why don't we just only give the user the ability to archive links and then we would always have some sort of trail of what the links are within Salesforce and then we don't need any sort of log or history of links in the CMS, right? / Kobi Kunasekaran: that I think that's fine with me. That works.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3384",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:19:01",
+   "line_start": 607,
+   "quote": "Kobi Kunasekaran: But once I save this and it's in in the database, we um we won't be able to delete it once the deal is activated and it's synced to C uh CMS. / Kobi Kunasekaran: Um but basically uh what what we're doing is once once the deal is synced we can't delete uh the link but you can deactivate it."
+  },
+  {
+   "ledger_id": "L3401",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:41:45",
+   "line_start": 829,
+   "quote": "Kobi Kunasekaran: The I think the one thing that I wanted to just make sure and like confirm with straw is that if we send a payload without a link that it's not going to assume that it's automatically deleted. / Kobi Kunasekaran: But if we remove from the payload as the API endpoint set up today, it'll remove that link from the CMS."
+  }
+ ],
+ "what_differs": "On 2026-09-30 Joyce proposed that users only get the ability to archive links, so Salesforce keeps the trail and the CMS needs no link history, and Kobi agreed. Jira (WAGR-509 created 2026-10-02, WAGR-463) still lists this as a question for WagerTech, and WAGR-491 keeps a delete path for never-published links.",
+ "suggested_action": "Suggestion only: record the 2026-09-30 agreement on WAGR-509 (and the Confluence decision log), then confirm in the planned WagerTech review whether 'archive only' also removes the never-published delete path in WAGR-491. The CMS omission question (L3401) stays open as tracked."
+}

@@ -1,0 +1,84 @@
+{
+ "var_id": "VAR-117",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "CMS Integration",
+ "title": "Rep/BA identity: 2026-08-18 decision has CMS push rep ID on rep creation; WAGR-390 says no automated CMS intake, manual on both sides",
+ "jira": [
+  {
+   "key": "WAGR-390",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BA: Define Manual BA Creation Process (CMS External ID Reference)",
+   "quote": "No automated intake or sync from the CMS into Salesforce for BA creation has been built or scoped — BAs are created manually today.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-183",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-205 — Brand Ambassador: CMS Identity Fields",
+   "quote": "* BAs are created upstream via the CMS, same as Player.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-183",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-205 — Brand Ambassador: CMS Identity Fields",
+   "quote": "No I believe this was going to be set manually, all user fields are generally going to be set manually during user provisioning.",
+   "quote_source": "comment by (no author name) 2026-08-25"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1934",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell; Strahinja Vladetic",
+   "timestamp": "00:32:24",
+   "line_start": 592,
+   "quote": "Joyce Kiddell: ...and just use that as the event that then pushes the rep information to Salesforce. / Strahinja Vladetic: Yeah, that makes sense. Whenever it's created on our side, we just push it to them.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L1936",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+   "timestamp": "00:35:47",
+   "line_start": 632,
+   "quote": "Kobi Kunasekaran: ...It's going to flag it in Salesforce anyways to say like there's no rep found, fix the rep, / Kobi Kunasekaran: and then uh reprocess the SLC. Um, but yeah, like I think the process is like create the rep record or the user record in Salesforce and then / Kobi Kunasekaran: if as long as the email match, we could have the CMS set the external ID once that's created in CMS. / Strahinja Vladetic: That seems good.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L1961",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell; Lina Ceniccola; Emily Vandenberg",
+   "timestamp": "01:04:26",
+   "line_start": 1094,
+   "quote": "Kobi Kunasekaran: I think the external ID for sure we're going to need, right? / Joyce Kiddell: Should we have their slug and landing page here, Emily and Lena? / Lina Ceniccola: Yeah, / Emily Vandenberg: I think so. / Lina Ceniccola: Can we change it from landing page to agency page, / Lina Ceniccola: agency site? / Joyce Kiddell: Yep.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1935",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+   "timestamp": "00:33:24",
+   "line_start": 604,
+   "quote": "Kobi Kunasekaran: ...so for reps like they need to be Salesforce users. So generally you would set like that would be part of like an admin task on Salesforce / Kobi Kunasekaran: ...it's so infrequent that it's probably best to leave it for an event to / Strahinja Vladetic: That makes sense."
+  }
+ ],
+ "what_differs": "In the 2026-08-18 client sync, Joyce and Strahinja agreed that creating a rep in the CMS is the event that pushes rep information to Salesforce, and that the CMS sets the external ID by email match after the Salesforce user exists. WAGR-390 (Open, Kobi) says no CMS-to-Salesforce BA intake is built or scoped and the external ID is entered manually on both sides; WAGR-183 says the opposite (created upstream via CMS). No ticket exists for the agreed CMS push.",
+ "suggested_action": "Suggestion only: confirm with WagerTech (Emily/Strahinja) whether the 2026-08-18 rep-creation push was replaced by the manual process in Emily's September written feedback. If the push stands, add a ticket for the Salesforce-side handling (match by email, set Rep/BA External ID, flag when no match); if not, record the reversal in WAGR-390 and correct WAGR-183."
+}

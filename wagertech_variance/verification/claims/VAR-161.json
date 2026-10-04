@@ -1,0 +1,103 @@
+{
+ "var_id": "VAR-161",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Data Migration / Import",
+ "title": "WAGR-20 production migration plan still reflects the July POC (Jumpr transforms the Agency-side rates/links file); later meetings moved to Jumpr import templates that WagerTech populates, for more objects",
+ "jira": [
+  {
+   "key": "WAGR-20",
+   "status": "Ready",
+   "assignee": "Unassigned",
+   "summary": "BUILD-07 — Produce production data migration plan and transform rules",
+   "quote": "Turn the sample-load transform into a documented, repeatable production migration for the Agency-side data.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-20",
+   "status": "Ready",
+   "assignee": "Unassigned",
+   "summary": "BUILD-07 — Produce production data migration plan and transform rules",
+   "quote": "Codify transforms: multi-vertical row splits, vertical value mapping, market value mapping, brand-to-Operator derivation with alias entries, error-row cleansing, monthly-rate-to-Deal-Version strategy",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-20",
+   "status": "Ready",
+   "assignee": "Unassigned",
+   "summary": "BUILD-07 — Produce production data migration plan and transform rules",
+   "quote": "ESCALATION NEEDED: the Agency-side rates/links file has been outstanding from Wagertech since 2026-07-04",
+   "quote_source": "comment (author not recorded in export) 2026-07-28"
+  },
+  {
+   "key": "WAGR-477",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Build data import templates — Sign Up, Referral, Secondary Referral, Player",
+   "quote": "Build import templates for the four objects above so WagerTech can populate and send back clean data for ingestion.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0346",
+   "date": "2026-06-17",
+   "meeting_title": "Jumpr <> Wagertech: Project Kickoff",
+   "doc_link": "https://docs.google.com/document/d/1A44vvYCwMm62m9KF7XbI4p33qpxIbN9T_r5AHCKH4RQ/edit",
+   "speakers": "Joyce Kiddell; Waleed Alasadi",
+   "timestamp": "00:35:46",
+   "line_start": 485,
+   "quote": "Joyce Kiddell: we can actually handle the data transformation on our end. Um, and then you guys would just have to worry about like doing the import and making sure like everything lands within the structure you set / Waleed Alasadi: Yeah. No, for sure.",
+   "doc_id": "1A44vvYCwMm62m9KF7XbI4p33qpxIbN9T_r5AHCKH4RQ"
+  },
+  {
+   "ledger_id": "L1299",
+   "date": "2026-07-24",
+   "meeting_title": "Wagertech <> Jumpr: API Testing for SLC Creation in SF",
+   "doc_link": "https://docs.google.com/document/d/1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:53:03",
+   "line_start": 775,
+   "quote": "Kobi Kunasekaran: Uh we can do another spreadsheet to figure out how these deals map to the data and fields we have in Salesforce. We can do an upload and then we can we can try to test with actual uh examples of like people clicking through uh a specific rep uh link and make sure that it actually maps it to the right deal. / Emily Vandenberg: Okay. Yeah, cuz like it we could pass. Yeah. Okay. Okay. Yeah, I think we should, right? Because we have to have to prepare for that. / Kobi Kunasekaran: I can work through those spreadsheets uh probably today. I'll send it over uh by the end of the day and then next week we can work on like populating them um and importing the",
+   "doc_id": "1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY"
+  },
+  {
+   "ledger_id": "L1678",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:00:27",
+   "line_start": 788,
+   "quote": "Kobi Kunasekaran: ... let's test out the signup logging flow, the agency website and everything. Um so, uh Joyce, like maybe you and I can work together on that deal uh import sheet that we need to get into Salesforce. Um if we can get that tested next week, ...",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  },
+  {
+   "ledger_id": "L2104",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:33:16",
+   "line_start": 544,
+   "quote": "Kobi Kunasekaran: I might have to give you new deal names if we're going to update it. / Kobi Kunasekaran: we can load updated data when we start when we go to prod right like this is not production data. / Emily Vandenberg: This isn't production / Emily Vandenberg: data.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  },
+  {
+   "ledger_id": "L2299",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:15:00",
+   "line_start": 266,
+   "quote": "but yeah, moving forward like every deal is going to require uh the source code and or sorry the source and uh you have the option for like widget tech or anything else. All the old deals if you make any updates to them it'll ask you to select a source. / when we go into production when we do the clean import we'll make sure it's all there.",
+   "doc_id": "1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "WAGR-20 (Ready, unassigned) plans a Jumpr-side transform of one Agency-side rates/links file into Deals and waits for that file. The meetings decided that WagerTech does the transformation into Jumpr sheets (6/17), that deals load through a deal mapping/import sheet built with Joyce (7/24, 8/11), and that the clean production import includes Source (9/1). WAGR-477 now adds Player, Sign Up and Referral templates.",
+ "suggested_action": "Rewrite WAGR-20 as the production migration plan for all go-live objects (operators, partners, deals with Source, DRAs if in scope, players, sign-ups, referrals). Use the template approach and load order, remove the dependency on the rates/links file or confirm it is still needed, and assign an owner."
+}

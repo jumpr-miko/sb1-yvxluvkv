@@ -1,0 +1,65 @@
+{
+ "var_id": "VAR-164",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Data Migration / Import",
+ "title": "WAGR-464 redeposit design card lacks the 9/30 decisions: manual allocation first, CSV upload added later, and CSV mapping scoping that may need extra fields in WagerTech's tool",
+ "jira": [
+  {
+   "key": "WAGR-464",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Redeposits workflow — design and user stories",
+   "quote": "Ops uploads the monthly allocation from Jay's tool.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-464",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Redeposits workflow — design and user stories",
+   "quote": "Custom upload screen, or Data Loader?",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3338",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "02:41:54",
+   "line_start": 2133,
+   "quote": "Kobi Kunasekaran: So then I I would even like say like let's not spend time on the upload CSV because this is going to take time. / Joyce Kiddell: Yeah. / Kobi Kunasekaran: Yeah, we we can like so like we always need a manual way so that we're going to have to build anyways and this is going to establish the guard rails, the rules, the fields that we we need and everything. / Kobi Kunasekaran: And then we can bolt on the CSV option afterwards.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3339",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+   "timestamp": "02:40:56",
+   "line_start": 2117,
+   "quote": "Kobi Kunasekaran: So, we may need to update your tool to add additional uh, things that we might need for Salesforce to be able to map it to the right person, the right deal, and things like that potentially. / Emily Vandenberg: Oh, and we'll definitely do it. / Emily Vandenberg: We'll we'll make it happen.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3453",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:49:48",
+   "line_start": 1524,
+   "quote": "Kobi Kunasekaran: Um and then from here um we need to create the actual allocation or distribute the uh number of redeposits to the different uh reps. Um so two ways one is CSC upload um which the intention is / Kobi Kunasekaran: uh you know we have a way to parse what comes out of your tool and then you can just simply update uh but we always need a manual way"
+  }
+ ],
+ "what_differs": "WAGR-464 (created 9/25) lists the monthly allocation upload as the first requirement and keeps the upload method open. On 9/30 the team decided to build manual allocation first and add the CSV upload afterwards, and that the CSV mapping needs scoping. WagerTech's tool may need extra fields so Salesforce can map rows to the right person and deal, and Emily agreed to add them.",
+ "suggested_action": "Add the 9/30 outcome to WAGR-464: build order (manual allocation path first, CSV later) and a CSV-mapping scoping item with the WagerTech dependency (tool output must carry person and deal identifiers). Track the CSV import as its own story when the redeposit build stories are created."
+}

@@ -1,0 +1,46 @@
+{
+ "var_id": "VAR-026",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Deal",
+ "title": "WAGR-471 says the multi-state Deal Name rule is unsettled; 09-23 client sync decided region-specific naming",
+ "jira": [
+  {
+   "key": "WAGR-471",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Deal Name convention for multi-state and multi-region Deals — decision",
+   "quote": "An SLC for PROLINE-DIRECT-ON matched the MULTI-STATE Deal (Emily, Sep 22). The multi-state naming rule is not settled, and nobody answered Kobi's Sep 9 naming proposal. WAGR-97 must regenerate the Deal Names before the first production send, so this decision blocks it.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2965",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+   "timestamp": "01:15:02",
+   "line_start": 1143,
+   "quote": "Kobi Kunasekaran: do we want to keep it as multistate like that or um do we want to use like what we have uh in the V ID naming convention / Emily Vandenberg: so see the like region like the Canada, Ontario versus Alberta breakout and then US there's / Emily Vandenberg: going to be some but if not then you can kind we'll keep it as um multi. / Lina Ceniccola: I agree.",
+   "doc_id": "14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3029",
+   "date": "2026-09-24",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:47:24",
+   "line_start": 799,
+   "quote": "Kobi Kunasekaran: the multi- saying is going away. Yeah, like the multisail is actually part of their initial thing, but this we we talked about yesterday. Uh we're going to get rid of that. / Kobi Kunasekaran: Technically, this should say US-CA-BMGm. / Kobi Kunasekaran: but if it's the Canadian province, we're just using a Canadian province like two-letter code. / Kobi Kunasekaran: We're not doing CA dash."
+  }
+ ],
+ "what_differs": "The ticket (created 09-25) says nobody answered the naming proposal and the multi-state rule is not settled. On 09-23 Emily and Lina agreed to region-specific naming (province/state, CA/US countrywide) and to keep 'multi' only where no regional breakout exists; on 09-24 Kobi said multi-state is going away and stated the market code convention.",
+ "suggested_action": "Update WAGR-471 with the 09-23 decision (L2965) and the 09-24 code convention (L3029). Keep open only the unresolved parts: whether any 'multi' value survives (L2965 vs L3029 differ slightly) and picklist values with no CMS equivalent. Then unblock WAGR-97 / WAGR-419."
+}

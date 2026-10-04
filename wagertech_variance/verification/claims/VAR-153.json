@@ -1,0 +1,54 @@
+{
+ "var_id": "VAR-153",
+ "category": "V2",
+ "severity": "High",
+ "confidence": "medium",
+ "feature_area": "Access & Permissions / Org Setup",
+ "title": "WAGR-271 (Done) lets Reps reactivate archived Sign-Ups, but the client decided that only Ops can unarchive",
+ "jira": [
+  {
+   "key": "WAGR-271",
+   "status": "Done",
+   "assignee": "Unassigned",
+   "summary": "BUILD-50 — Reactivate Archived Sign-Up button",
+   "quote": "Let Reps pull an archived Sign-Up back into the working queue.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-271",
+   "status": "Done",
+   "assignee": "Unassigned",
+   "summary": "BUILD-50 — Reactivate Archived Sign-Up button",
+   "quote": "Closing — ♻️ Reactivate button + dedicated flow (Screen_Sign_Up_Reactivate v1) live: clears Archive Reason/Other Reason, re-enables editing.",
+   "quote_source": "comment by unknown author (Asana import) 2026-07-29"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1224",
+   "date": "2026-07-22",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1BRZjXegzlnfZl33fIRA1KbnDiGYIpBts2oh3IO0U45k/edit",
+   "speakers": "Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:56:15",
+   "line_start": 993,
+   "quote": "Lina Ceniccola: I just want to make sure that once they archive it they can't unarchchive / Kobi Kunasekaran: Yeah, like we can restrict that. So only like ops can unarchive something. / Kobi Kunasekaran: you can still go in and you can move the status to in progress",
+   "doc_id": "1BRZjXegzlnfZl33fIRA1KbnDiGYIpBts2oh3IO0U45k"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1345",
+   "date": "2026-07-28",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1IRZzgP5B3QjwnTr22i8LH2sceGC_oIm41z0cpTw9YDk/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:30:38",
+   "line_start": 482,
+   "quote": "Kobi Kunasekaran: And then for archive records we added the reactivate button. So, um, if I click on reactivate, um, it'll bring it back to in progress. ... Um, and for archive and fraud, we have the, uh, the new reasons that you provided in the open questions lock. / Kobi Kunasekaran: Um, and if they choose other, they'll need to provide the additional information."
+  }
+ ],
+ "what_differs": "On 2026-07-22 Lina asked that reps cannot unarchive a sign-up and Kobi agreed that only Ops can unarchive. WAGR-271, created 2026-07-28 and closed as Done, states the objective as letting Reps reactivate archived Sign-Ups and has no Ops-only restriction in its description or comments.",
+ "suggested_action": "Check in PartialSB, logged in as a Rep (WT Rep PSG), whether the Reactivate button on an Archived Sign-Up is visible. If it is, restrict the button/flow to Ops (for example with a custom permission or a permission set, the same pattern as the Referrer Reactivate in WAGR-158) and add the rule to WAGR-271 or to the access matrix in WAGR-495."
+}

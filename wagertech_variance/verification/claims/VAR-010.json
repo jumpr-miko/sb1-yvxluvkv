@@ -1,0 +1,127 @@
+{
+ "var_id": "VAR-010",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Sign-Up",
+ "title": "WAGR-432 (VIP manual entry flow) lacks the VIP rules decided on 2026-09-23/30: BA default, deal lookup filter, duplicate block, complete-in-one-pass",
+ "jira": [
+  {
+   "key": "WAGR-432",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+   "quote": "* Status: on manual creation, default directly to \"In Progress\" — no \"New\"/pending state, since this isn't coming from automated intake. Move to \"Completed\" or \"Archived\" from there using the existing status values; no new status values needed.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-432",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Sign-Up: VIP manual entry flow, field set, status, and Deal relation (VIP)",
+   "quote": "* Sign-up must be relatable to an existing Deal (the deal will already exist by the time ops logs the sign-up) — confirm the related-list/relationship UX once the New button and flow are in place.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3440",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "01:30:55",
+   "line_start": 1338,
+   "quote": "Joyce Kiddell: Uh, yeah, we wouldn't have to link it. Could we just have it reflect whoever signed in? / Kobi Kunasekaran: yeah. Yeah, we can default to the current running user / Emily Vandenberg: I guess just default it to their name then and then if we're going to keep it. / Kobi Kunasekaran: Yeah, I can do that.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3441",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:37:15",
+   "line_start": 1397,
+   "quote": "Emily Vandenberg: The only thing I would say with the act of the list of deals, you should put anything that's paused in there as well because these guys will log late / Kobi Kunasekaran: Okay. Yeah, I can do that. So, pause and active and then everything else we exclude from the list.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3443",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:35:58",
+   "line_start": 1385,
+   "quote": "Emily Vandenberg: The duplicate should exist outside of like the rep because like if it's the same player, same book, that's a duplicate. / Kobi Kunasekaran: I think it's same player, same book. / Kobi Kunasekaran: Yeah, we can enforce the same one here. So if we detect that there the the same player is associated to a signup record for the same deal then it will flag that as a duplicate",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L2986",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:09:32",
+   "line_start": 1096,
+   "quote": "Kobi Kunasekaran: Like, do we do we want them to be able to like mark it as completed right away during the like as they fill this out? Yeah. Okay. / Kobi Kunasekaran: during the process like they'll fill out all the fields, mark it as complete. / Emily Vandenberg: I think if you get into it, like feel free to ask questions, but I think we're good.",
+   "doc_id": "14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2958",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:09:32",
+   "line_start": 1098,
+   "quote": "Kobi Kunasekaran: so I just want to confirm that it's the same logic um so we can make sure that validation is there / Emily Vandenberg: Yeah, / Kobi Kunasekaran: okay / Emily Vandenberg: we'll we'll confirm that is a little"
+  },
+  {
+   "ledger_id": "L3370",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:30:00",
+   "line_start": 1328,
+   "quote": "Kobi Kunasekaran: but as I understand it once the signup record is created it's more or less the same process. the logging, the completion, the fraud, all of that is more or less the same. / Kobi Kunasekaran: but I believe in terms of everything else it was supposed to be the same like there's no other linkages needed uh the tracking is the same"
+  },
+  {
+   "ledger_id": "L3442",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+   "timestamp": "01:33:04",
+   "line_start": 1364,
+   "quote": "Kobi Kunasekaran: Do we just create a deal assignment when they're creating VIP signups if one doesn't exist? / Kobi Kunasekaran: I just need to talk through that. I don't know if that's a requirement or we just need to bypass it for VIP. But for now, let's assume that DR is required"
+  },
+  {
+   "ledger_id": "L3447",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "01:40:46",
+   "line_start": 1434,
+   "quote": "Joyce Kiddell: That's what I understand it to be as well. Um, but I mean if there is the the odd edge case where they have to search for an existing player and then convert them to VIP, like I don't think it's a big deal if they are allowed to do that. / Kobi Kunasekaran: Okay. So, we're saying like any player that's created as part of this process though defaults to being a VIP player, right? / Joyce Kiddell: Craft field / Kobi Kunasekaran: Okay. And that we'll put that in."
+  },
+  {
+   "ledger_id": "L3448",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:42:05",
+   "line_start": 1445,
+   "quote": "Kobi Kunasekaran: And if I think same question, if we add a refer to a signup that isn't already tagged as a VIP, who you want to set the refer to be VIP? / Emily Vandenberg: I think it's fine to do it."
+  }
+ ],
+ "what_differs": "Meetings decided: the BA on a VIP sign-up defaults to the running user (changeable); the deal lookup lists only Active and Paused deals; a duplicate is the same player and same deal regardless of rep and the flow blocks it; users can fill all fields and complete in the same pass. WAGR-432 (created 09-23, no comments) states none of these rules, and the client has not yet confirmed whether VIP completion validation is the same as standard (L2958).",
+ "suggested_action": "Add these rules as acceptance criteria on WAGR-432, and track the open VIP completion-validation confirmation (L2958) on the ticket."
+}

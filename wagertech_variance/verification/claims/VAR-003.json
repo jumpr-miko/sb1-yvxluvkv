@@ -1,0 +1,81 @@
+{
+ "var_id": "VAR-003",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Sign-Up",
+ "title": "Welcome-email fraud tool API integration agreed as fast follow has no Jira ticket (not in Holding Pen or Phase 2)",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "fraud tool",
+   "welcome email",
+   "welcome-email",
+   "A3S",
+   "fraud detection",
+   "fraud vendor",
+   "fraud check",
+   "fraud results",
+   "postback",
+   "endpoint",
+   "fast follow"
+  ],
+  "nearest_considered": [
+   "WAGR-474",
+   "WAGR-220",
+   "WAGR-1",
+   "WAGR-195",
+   "WAGR-410",
+   "WAGR-443 (Holding Pen children WAGR-368..381)",
+   "WAGR-478 (Phase 2 children WAGR-408, WAGR-430)"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1560",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:00:27",
+   "line_start": 737,
+   "quote": "Kobi Kunasekaran: but I guess a big question is like are do we intend to have this go live as part of phase one or fast follow. / Joyce Kiddell: follow let's just treat everything as it comes in right like that's where I'm like hey sign flow done",
+   "doc_id": "1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4"
+  },
+  {
+   "ledger_id": "L1555",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "00:57:04",
+   "line_start": 703,
+   "quote": "Joyce Kiddell: ... So, we have another vendor who's building a um a fraud tool for us specific to the welcome email stage. ... / Joyce Kiddell: ... Once we have the results, it's going to um write that to a Google sheet plus also send a notification to the rep ...",
+   "doc_id": "1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1556",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "00:58:05",
+   "line_start": 708,
+   "quote": "Joyce Kiddell: ... Phase two will be actually um pulling out the results from the Google Sheets obviously and storing that against the individual player records. / Joyce Kiddell: So I'm assuming at that point we'll do it via API. Um and they're building it for us. / Joyce Kiddell: So we're going to own all the code like it's being pulled into our GitHub um or uh so we'll just have to build you probably an endpoint for that one as well."
+  },
+  {
+   "ledger_id": "L1559",
+   "date": "2026-08-04",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "01:00:27",
+   "line_start": 734,
+   "quote": "Joyce Kiddell: We are heading into testing with it hopefully like later this week. Um, so it's not like super far off like it's mostly built. / Joyce Kiddell: Uh, so just wanted to give you visibility on the timeline. Um, but once we have confidence in it actually like working properly. Um, which is where like that could take you know a few weeks. I don't know how long um then yeah that's when we will um have a solutioning discussion around uh the API connection"
+  }
+ ],
+ "what_differs": "The client set the welcome-email fraud tool API integration (fraud results written back to Salesforce) as a fast follow on 2026-08-04. No Jira issue, epic, Holding Pen or Phase 2 item records it; WAGR-474 only asks whether moving a Sign-Up to In Progress sends a welcome email.",
+ "suggested_action": "Create a Phase 2 / fast-follow story under WAGR-478 or WAGR-304 for the fraud-tool integration (record matching key, which object receives results, endpoint direction), and link the open question from 2026-07-15 on how tool results identify the sign-up."
+}

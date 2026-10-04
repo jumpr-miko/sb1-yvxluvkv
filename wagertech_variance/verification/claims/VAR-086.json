@@ -1,0 +1,49 @@
+{
+ "var_id": "VAR-086",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Redeposits",
+ "title": "No ticket for the BA edit restriction on assigned redeposits (notes only; ops makes changes)",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "BA",
+   "edit",
+   "lock",
+   "permission",
+   "notes",
+   "assigned redeposit"
+  ],
+  "nearest_considered": [
+   "WAGR-464"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2809",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Ali Nawaz",
+   "timestamp": "00:52:37",
+   "line_start": 726,
+   "quote": "Ali Nawaz: So I think that's kind of the one main part that we need to make sure they they use the notes section and that they're not able to add any other like touches to it themselves because the tech takes part we they manually were typing it in in the past it but they were typing it in into whether the name section or into the book section instead of the notes and so I guess as long as the note makes it clear we're good. / Ali Nawaz: I don't think there's anything else extra that they need to that they have access to to touch or tweak when it comes to the assigned readups. And uh I think that's all from that side.",
+   "doc_id": "1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2805",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Ali Nawaz; Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:47:31",
+   "line_start": 649,
+   "quote": "Ali Nawaz: So right now the assigned readab should not be touched uh other than how it's already already assigned to them or added to the sheets. / Kobi Kunasekaran: Okay. / Lina Ceniccola: I think if we if ops is able to go in and change it, / Kobi Kunasekaran: Yeah. / Lina Ceniccola: that's fine. If they want to request a change, / Kobi Kunasekaran: Yeah. / Ali Nawaz: Yeah, exactly. / Lina Ceniccola: they can just request it through ops and we'll change it. But let's let's not allow BAS to change the assigned / Kobi Kunasekaran: Perfect. / Kobi Kunasekaran: I mean with Salesforce like we can do hard lots right"
+  }
+ ],
+ "what_differs": "WagerTech decided that BAs may only use the notes field on assigned redeposits and must not edit name, book, amount or slot fields; changes go through ops. No ticket states this permission rule; WAGR-464 still lists 'Can BAs create their own redeposit rows, or only Ops?' as open.",
+ "suggested_action": "Suggestion: record the BA edit restriction on WAGR-464 and include field-level security or locking in the redeposit build stories."
+}

@@ -1,0 +1,72 @@
+{
+ "var_id": "VAR-145",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Reporting & Dashboards",
+ "title": "WAGR-44 (TAC / Commission Cost auto-calc, Phase 1) still waits on Lina's formulas and plans in-Salesforce commission cost; Sep 1 gave the TAC formula and Sep 25 moved commission calculation outside Salesforce",
+ "jira": [
+  {
+   "key": "WAGR-44",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "BUILD-72 — Ops cost auto-calc fields (Deposit/Commission/Total Acquisition Cost)",
+   "quote": "Deposit Cost, Commission Cost, Total Acquisition Cost (incl. redeposit concept)",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-44",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "BUILD-72 — Ops cost auto-calc fields (Deposit/Commission/Total Acquisition Cost)",
+   "quote": "BLOCKED: exact formulas owed by Lina (feedback sheet). Keep scope to fields/formulas — redeposit workflow itself is out of Phase 1 scope.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-467",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "BA commission data export for WagerTech's commission tool — requirements",
+   "quote": "At the Sep 25 call, we agreed that BA commissions stay outside Salesforce at launch. Salesforce supplies the data, and Jay's tool calculates the commissions.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2317",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:43:23",
+   "line_start": 564,
+   "quote": "Lina Ceniccola: But I think like basically if we start doing the signup flow and we want to download the data, it's important the total acquisition cost is the deposit amount plus the commission amount plus the equals the total acquisition. / Kobi Kunasekaran: Yeah, that's 100% doable.",
+   "doc_id": "1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3095",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+   "timestamp": "00:08:39",
+   "line_start": 248,
+   "quote": "Kobi Kunasekaran: Is the intention that like all of these are calculated within Salesforce or Salesforce provides the the data to calculate these outside of Salesforce? / Emily Vandenberg: So Lena, the way I would kind of see that is like an integration with um Jay's tool where now just like the data would be coming from like kind of Salesforce and then his tool still kind of doing the the magic in like the first phase. / Lina Ceniccola: Yeah, let's set it up that way because we do have a lot of nuances there. / Lina Ceniccola: So I would rather spend less time configuring everything / Lina Ceniccola: on that because it's we have a system for it internally anyway. So that can be a later thing."
+  },
+  {
+   "ledger_id": "L3141",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:58:10",
+   "line_start": 876,
+   "quote": "Joyce Kiddell: Um, so I mean we talked about the other streams not really being needed as like a separate workflow in Salesforce. So for player payouts, um I think all we'll need is to be able to see how much uh they have gotten in terms of like signups and then do we want to include any sort of like the payment matrix uh within Salesforce or just like handle that outside of the system for this phase? / Emily Vandenberg: Yeah, my gut is sorry. I'm like feeling like for this phase it's handled after. But what are you thinking? / Joyce Kiddell: Sorry. I was thinking commission already. I was jumping straight to the bottom. Um yeah, I have a baby so I'm very tired. Um but the uh so what I said apply that to VAcommission. / Kobi Kunasekaran: we're not doing commissions right now. What's that?"
+  }
+ ],
+ "what_differs": "WAGR-44 (Open, Phase 1, last updated Sep 14) plans in-Salesforce Commission Cost and TAC fields and is blocked on formulas. On Sep 1 the client defined TAC as deposit plus commission for P&L reporting, and on Sep 25 the team decided that BA commission calculation stays outside Salesforce at launch, so the commission part of TAC has no Salesforce source yet.",
+ "suggested_action": "Suggest re-grooming WAGR-44: record the Sep 1 TAC definition, decide whether TAC is computed in Salesforce (with commission data coming back from Jay's tool) or in the BI layer, and link WAGR-467/WAGR-468. Also remove the 'redeposit workflow out of Phase 1' line if redeposits are now in scope (see WAGR-464)."
+}

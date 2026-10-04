@@ -1,0 +1,67 @@
+{
+ "var_id": "VAR-103",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Referral and Payouts",
+ "title": "No ticket for the agreed Ops override of the matrix payout amount ('payout amount differs' / new payout amount) on the Sign-Up",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "payout amount differs",
+   "override",
+   "new payout amount",
+   "manual amount",
+   "Payout Amount",
+   "read-only",
+   "read only"
+  ],
+  "nearest_considered": [
+   "WAGR-465",
+   "WAGR-266",
+   "WAGR-289",
+   "WAGR-342",
+   "WAGR-254",
+   "WAGR-428",
+   "WAGR-162"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2315",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Lina Ceniccola; Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:37:17",
+   "line_start": 510,
+   "quote": "Lina Ceniccola: Um I'm just thinking we if we could have it as ops first. / Lina Ceniccola: payout amount differs, new payout amount, / Kobi Kunasekaran: Yeah. Okay. Yeah, we can do",
+   "doc_id": "1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo"
+  },
+  {
+   "ledger_id": "L2277",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit",
+   "speakers": "Cedrick Infantado; Kobi Kunasekaran",
+   "timestamp": "00:24:08",
+   "line_start": 429,
+   "quote": "Kobi Kunasekaran: So I think it actually I think it is read only but because I'm logged in as an admin uh I believe it's showing up as editable ... / ... Kobi Kunasekaran: but like a lot of these fields are supposed to be read only on the layout. / Kobi Kunasekaran: Um, and it is for reps, but for non-reps it, uh, they are editable. / Cedrick Infantado: Sure. I just check that one.",
+   "doc_id": "1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2314",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Lina Ceniccola",
+   "timestamp": "00:36:07",
+   "line_start": 490,
+   "quote": "Kobi Kunasekaran: Uh the payout amount is getting auto set based on like the referral that's chosen and the referral type that's chosen, right? / Kobi Kunasekaran: It's it comes from that matrix."
+  }
+ ],
+ "what_differs": "On Sep 1 Lina asked for, and Kobi agreed to, an Ops-first override of the matrix payout amount using a 'payout amount differs' / new payout amount pattern (like Deposit Amount Differs, WAGR-266). No build ticket exists; WAGR-465 lists it only as an open question ('Can Ops override a Sign-Up's payout amount? (Lina, Sep 1)'). The related internal check that Payout Amount is read-only for reps (L2277) is also not tracked.",
+ "suggested_action": "Create a Sign-Up story for the Ops payout amount override (checkbox + override amount, Ops-only FLS, payout batch uses the override) and include the rep read-only check; or confirm with Lina whether the Sep 25 payout design replaces it."
+}

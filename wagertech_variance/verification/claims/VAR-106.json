@@ -1,0 +1,131 @@
+{
+ "var_id": "VAR-106",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Referral and Payouts",
+ "title": "WAGR-465 (referral payout design) is missing several payout rules decided on Sep 25 and still lists the decided secondary bonus amount as open",
+ "jira": [
+  {
+   "key": "WAGR-465",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Referral payouts — design and user stories",
+   "quote": "A batch holds one currency only.",
+   "quote_source": "description (Requirements captured, Sep 25 call)"
+  },
+  {
+   "key": "WAGR-465",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Referral payouts — design and user stories",
+   "quote": "Secondary bonus amount: $100 cash / $200 bet credit, or $250 bet credit (Joyce, Jul 17)? _(Lina)_",
+   "quote_source": "description (Open questions)"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3111",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola",
+   "timestamp": "00:21:29",
+   "line_start": 404,
+   "quote": "Joyce Kiddell: but I I wouldn't like within a single payout record if we are creating a separate record type or object type whatever it's called. Um I would not combine cash and redeposit into one, right? / Lina Ceniccola: You would have to then create like two different payout records. / Lina Ceniccola: you can only batch one of the same kind of touch.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3115",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:24:56",
+   "line_start": 456,
+   "quote": "Emily Vandenberg: Um, sorry. In terms of batching, did we say this? Like you can only batch like your primary, you can't cross like secondary and primary referral. / Kobi Kunasekaran: is that one one payout per payout type per uh I guess referral type like primary versus secondary. Okay. / Kobi Kunasekaran: So, it might be better to keep it separate at least for the initial layers and then if we do need a additional combination, maybe we can layer that in afterwards.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3158",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:26:00",
+   "line_start": 1239,
+   "quote": "Kobi Kunasekaran: we're marking the sign up as paid, but paid for like I think we'll separate like uh primary referral payment or and secondary referral payments just so we can keep track of uh both. But yeah, ultimately the signup record will be marked as paid for the referral commission or referral payout. / Emily Vandenberg: Yeah. Okay.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3110",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+   "timestamp": "00:20:11",
+   "line_start": 388,
+   "quote": "Kobi Kunasekaran: Is it possible for a player to have one sign up as cash and one as bad credit? / Lina Ceniccola: Yes. / Lina Ceniccola: allocates half of them as cash half of them as bet credit. It's probably like 1% of people, but leave it open.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3109",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Emily Vandenberg; Lina Ceniccola",
+   "timestamp": "00:20:11",
+   "line_start": 383,
+   "quote": "Emily Vandenberg: They can do onetoone, right, Lena? If it's like an odd, like it's not that they couldn't, but they typically batch / Lina Ceniccola: they strategically they prefer to badge. Work-wise, they prefer to badge. But if someone does one sign up and they're like, I want referral payment, they could do it.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3148",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "01:07:06",
+   "line_start": 990,
+   "quote": "Joyce Kiddell: Um you should be able to take signups out of that batch, / Joyce Kiddell: Kobe. Um, and you should be able to cancel um, obviously or delete that same payout.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3150",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:08:15",
+   "line_start": 1014,
+   "quote": "Joyce Kiddell: even if it is confirmed as fraud, my gut is leaning towards like keeping it in the queue, but just like not allowing them to add it at all and then have like a big like X or like some sort visual cue / Emily Vandenberg: It should though. It should clear out if it's confirmed, / Kobi Kunasekaran: they would see that on the player record as oppo uh sorry not player but the referral record as opposed to like the screen where they select the batches is what I'm thinking. / Joyce Kiddell: Okay. And that's fine as long as it's all visible in the same view. You know what I mean? / Kobi Kunasekaran: Yeah. / Emily Vandenberg: Yeah.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3153",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola",
+   "timestamp": "01:13:57",
+   "line_start": 1078,
+   "quote": "Joyce Kiddell: All right. Is there some sort of minimum thresholds for primary referers before they qualify for commission? / Lina Ceniccola: No.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3134",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Lina Ceniccola; Kobi Kunasekaran",
+   "timestamp": "00:50:55",
+   "line_start": 793,
+   "quote": "Joyce Kiddell: um, then you get some sort of bonus. Uh, it's 200 bucks in redeposit or 100 bucks um in cash and it's a onetime thing. So to be clear, that means Lena and Emily that like after the first 10 signups, they're not getting like another bonus at 20 signups and then 30 and 40. Or are they? / Lina Ceniccola: Yes. No. No. 10. They're done. / Kobi Kunasekaran: quies. Okay, this sounds good. Um, so just send for the secondary refer after that's sent out. We're not doing anything else. / Joyce Kiddell: Uh-uh.",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "The Sep 25 discovery decided that one payout cannot mix cash and bet credit, that primary and secondary signups go in separate payouts, that the signup paid flag is split primary/secondary, that one-to-one payment, mixed types per referrer and cancel/delete of an unpaid payout must be possible, that confirmed fraud shows on the referrer record, that primary referrers have no minimum threshold, and that the secondary bonus is a one-time 200 bet credit / 100 cash. WAGR-465 states only the single-currency rule for batches and lists the bonus amount as an open question; the other rules are not in its description, and it has no comments.",
+ "suggested_action": "Add these rules to WAGR-465 as acceptance criteria (or to the build stories when they are created), and move the secondary bonus amount from Open questions to Requirements after a quick confirmation with Lina."
+}

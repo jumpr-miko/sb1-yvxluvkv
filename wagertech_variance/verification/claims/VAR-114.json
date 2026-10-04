@@ -1,0 +1,87 @@
+{
+ "var_id": "VAR-114",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "CMS Integration",
+ "title": "Postback events stored against the Sign-Up: decided on 2026-07-08, no Jira ticket anywhere (incl. Holding Pen / Phase 2)",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "postback",
+   "post-back",
+   "server-to-server",
+   "s2s",
+   "click id",
+   "click_id",
+   "registration event",
+   "first-time deposit event",
+   "operator event"
+  ],
+  "nearest_considered": [
+   "WAGR-6",
+   "WAGR-3",
+   "WAGR-112",
+   "WAGR-373",
+   "WAGR-443",
+   "WAGR-478"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0868",
+   "date": "2026-07-08",
+   "meeting_title": "Wagertech <> Jumpr: Onsite",
+   "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:17:04",
+   "line_start": 331,
+   "quote": "Kobi Kunasekaran: we're also piloting these like uh postbacks server store postbacks. So we're going to get like uh URLs click IDs associated with it / Kobi Kunasekaran: So those events firing back to us we need to be able to store against the signup.",
+   "doc_id": "1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L0869",
+   "date": "2026-07-08",
+   "meeting_title": "Wagertech <> Jumpr: Onsite",
+   "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:18:34",
+   "line_start": 351,
+   "quote": "Kobi Kunasekaran: So I figured like it it makes more sense to go into play kind of like the back end first because you already have all that information there to map it, right? / Kobi Kunasekaran: But like I said, like if you do have all that information from the postback already to map it to sign up, then yeah, we can skip the middleman and do it directly. / Kobi Kunasekaran: But I don't know I don't know enough about it to say confident."
+  },
+  {
+   "ledger_id": "L0956",
+   "date": "2026-07-13",
+   "meeting_title": "Meeting started 2026/07/13 11:50 EDT - Notes by Gemini",
+   "doc_link": "https://docs.google.com/document/d/1VCJx1Yre2wngHTtL1aPUm4gzCun12MABzmoI9DDFGWY/edit",
+   "speakers": "Waleed Alasadi",
+   "timestamp": "02:38:37",
+   "line_start": 796,
+   "quote": "Waleed Alasadi: ... What about the API work? um the postback stuff that they were talking about that one like I don't think we're going to be able to scope that in or space. So it's probably going to be in post like what"
+  },
+  {
+   "ledger_id": "L0869",
+   "date": "2026-07-08",
+   "meeting_title": "Wagertech <> Jumpr: Onsite",
+   "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:18:34",
+   "line_start": 351,
+   "quote": "Kobi Kunasekaran: So I figured like it it makes more sense to go into play kind of like the back end first because you already have all that information there to map it, right? / Kobi Kunasekaran: But like I said, like if you do have all that information from the postback already to map it to sign up, then yeah, we can skip the middleman and do it directly. / Kobi Kunasekaran: But I don't know I don't know enough about it to say confident."
+  },
+  {
+   "ledger_id": "L0956",
+   "date": "2026-07-13",
+   "meeting_title": "Meeting started 2026/07/13 11:50 EDT - Notes by Gemini",
+   "doc_link": "https://docs.google.com/document/d/1VCJx1Yre2wngHTtL1aPUm4gzCun12MABzmoI9DDFGWY/edit",
+   "speakers": "Waleed Alasadi",
+   "timestamp": "02:38:37",
+   "line_start": 796,
+   "quote": "Waleed Alasadi: ... What about the API work? um the postback stuff that they were talking about that one like I don't think we're going to be able to scope that in or space. So it's probably going to be in post like what"
+  }
+ ],
+ "what_differs": "The 2026-07-08 onsite stated that postback events (URLs, click IDs) from WagerTech's server-to-server pilot must be stored against the Sign-Up. No WAGR issue mentions postbacks in summary, description or comments, and the routing question (backend first or direct to Salesforce) was never answered later.",
+ "suggested_action": "Suggestion only: create a parked ticket (Holding Pen WAGR-443 or Phase 2 WAGR-478) for postback ingestion that records the open routing question (L0869), and confirm the phase with WagerTech. Jumpr's internal 2026-07-13 view (L0956, tier2) was 'probably after go-live' but no client agreement is recorded."
+}

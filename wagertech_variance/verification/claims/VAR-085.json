@@ -1,0 +1,51 @@
+{
+ "var_id": "VAR-085",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Redeposits",
+ "title": "No ticket for redeposit completion: proof + actual amount, auto-populated player/book/date/region, locked completed queue",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "proof",
+   "complete",
+   "lock",
+   "actual amount",
+   "completed queue",
+   "redeposit"
+  ],
+  "nearest_considered": [
+   "WAGR-464",
+   "WAGR-108",
+   "WAGR-243"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3456",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "01:57:28",
+   "line_start": 1594,
+   "quote": "Kobi Kunasekaran: And I I need to go back on the call, but I I think the completion for redeposits, it's like we still want a proof um and the actual red deposit amount. And that's it, right? / Emily Vandenberg: Okay, so you have the player's name, you have the book, you have the redeposit amount, you have the redeposit date, you have the region, which it's automatically going to pull in from, and then just your proof. Yeah. / Kobi Kunasekaran: I can see the details but everything's locked away not editable once it's been completed.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L0086",
+   "date": "2026-05-28",
+   "meeting_title": "Jumpr: Discovery (WagerTech end-user process walkthrough)",
+   "doc_link": "https://docs.google.com/document/d/153GXa2Bxzi2tRciqHschinynA20rOR89xr4fkYer7_o/edit",
+   "speakers": "Jay",
+   "timestamp": "00:54:49",
+   "line_start": 696,
+   "quote": "The ones that are highlighted yellow are are done. There's a video attached and they've been moved to our master sheet. It basically means it's been approved. It's been checked and approved. / Jay: correct. And then when the proof comes in, I remove the scent. I take I take the link. Uh, I uploaded the Dropbox. I take the link. I put uh I put the date. And then what will happen is tomorrow um a very uh great man uh will come on the sheet. Um he's in charge of the redeposits. he will confirm this redeposit and then he'll be like, \"Okay, I'm going to change this.\" Uh, it gets moved. It gets moved to a master sheet. When it gets moved, it gets turned yellow like that. And now John knows he no longer needs to worry about this because it's yellow."
+  }
+ ],
+ "what_differs": "On 2026-09-30 the team decided that a rep completes a redeposit by entering proof and the actual amount, other details auto-populate, and completed records move to a locked, non-editable completed queue. WAGR-464 states only that a BA 'logs proof for each one'; the actual-amount field, auto-population and the lock are not in any ticket.",
+ "suggested_action": "Suggestion: add the completion field set and the post-completion lock to WAGR-464 and to the completion build story."
+}

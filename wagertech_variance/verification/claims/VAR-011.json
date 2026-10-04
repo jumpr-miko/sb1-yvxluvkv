@@ -1,0 +1,56 @@
+{
+ "var_id": "VAR-011",
+ "category": "V2",
+ "severity": "Low",
+ "confidence": "medium",
+ "feature_area": "Sign-Up",
+ "title": "WAGR-474 treats 'banned player can still complete a sign-up' as a build gap; 8/18 decided Salesforce does not block sign-ups by player status",
+ "jira": [
+  {
+   "key": "WAGR-474",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Sign-Up July loose ends: welcome email trigger and Complete gating — confirm",
+   "quote": "can a banned player's Sign-Up reach Complete? Emily said no on Aug 18, but the build does not block it.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1980",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+   "timestamp": "01:26:54",
+   "line_start": 1468,
+   "quote": "Kobi Kunasekaran: ...So, the band status on the player is going to be manually done by somebody. / Kobi Kunasekaran: ...Like we don't necessarily need to automate or restrict creation of the signup or anything based off of the player status at least at this point. / Emily Vandenberg: Yeah, I don't think so. And it would be it would almost be / Kobi Kunasekaran: So those fields uh are we saying like we don't need those like restriction detail fields for / Joyce Kiddell: correct. it. / Joyce Kiddell: We should have some sort of like banner at the top though.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1909",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "01:26:54",
+   "line_start": 1472,
+   "quote": "Emily Vandenberg: I mean, a band player could still receive like a um study link click, but they wouldn't be able to complete if they're banned at a banned player. / Emily Vandenberg: Like wouldn't be a we wouldn't allow that to um actually complete, / Emily Vandenberg: but they can click on the website. Like we not going to ban their / Emily Vandenberg: account."
+  },
+  {
+   "ledger_id": "L2477",
+   "date": "2026-09-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:03:12",
+   "line_start": 182,
+   "quote": "Kobi Kunasekaran: … and then the ban automation, like if you ban somebody, uh, the signups will still flow through. / Kobi Kunasekaran: Uh, it none of that is going to get blocked, but it won't it won't necessarily move the player to an active status. So they'll still remain banned until they're manually unbanned."
+  }
+ ],
+ "what_differs": "WAGR-474 implies Salesforce should stop a banned player's sign-up from completing. The 8/18 decision was not to restrict sign-ups by player status in Salesforce (reps see the status and flag); Emily's 'no' referred to the CMS not letting banned players complete. 9/11 confirmed sign-ups still flow for banned players.",
+ "suggested_action": "Close this sub-question on WAGR-474 with a reference to the 8/18 decision, or get an explicit new client ask if a Salesforce block is now wanted."
+}

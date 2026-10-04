@@ -1,0 +1,75 @@
+{
+ "var_id": "VAR-162",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Data Migration / Import",
+ "title": "Import templates and scope card do not state the decided rule that historical sign-ups need their Deal and Operator in Salesforce first (including deals that are not in the current Airtable snapshot)",
+ "jira": [
+  {
+   "key": "WAGR-477",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Build data import templates — Sign Up, Referral, Secondary Referral, Player",
+   "quote": "Build import templates for the four objects above so WagerTech can populate and send back clean data for ingestion.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-470",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Historical data migration scope — decision",
+   "quote": "**Decide:** historical Sign-Ups, yes or no; historical redeposit and payout data; US Deals and Deal Rep Assignments; the 26 Deals with no Source; whether the legacy Google Sheets keep getting data during the switch-over.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1625",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:10:39",
+   "line_start": 250,
+   "quote": "Joyce Kiddell: ... in order to import historical signups, we need like a version of that deal somewhere in the system. ... / Kobi Kunasekaran: Yeah, exactly. Yeah, like we need to be able to link it to the respective like operator uh deal information and all of that, / Joyce Kiddell: you're / Kobi Kunasekaran: right? Otherwise, it's just going to be uh like signups without any relationships.",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  },
+  {
+   "ledger_id": "L1687",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Joyce Kiddell",
+   "timestamp": "00:09:35",
+   "line_start": 232,
+   "quote": "Joyce Kiddell: we don't have historical level signups in Air Table. I thought it was more of just like a a snapshot of like where we're at today, like what the deals are and like what's active and what's not. / Joyce Kiddell: ... like the goal is to have some sort of migration between air table and our / Joyce Kiddell: um our like centralized database as well so we can look up the historical information. Um, but I think that's a separate conversation from like previous signups, right? Like I feel like that's a bit of something that we still need to solution.",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1688",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:11:26",
+   "line_start": 259,
+   "quote": "Emily Vandenberg: Yeah, we might have to like almost the list might almost have to come from the historical um data to know what the full list of like operators really I think is the biggest one."
+  },
+  {
+   "ledger_id": "L1627",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:11:26",
+   "line_start": 268,
+   "quote": "Joyce Kiddell: ... it makes sense to just bring in all of the inactive deals and operators and stuff too, but if we can in the UI just make sure that they're like either hidden or like in a separate tab ... / Kobi Kunasekaran: That makes sense. ..."
+  }
+ ],
+ "what_differs": "On 8/11 the team agreed that a historical sign-up import needs a version of the related deal (and operator) in Salesforce, otherwise the sign-ups have no relationships. Airtable holds only a current snapshot. WAGR-477 and WAGR-470 do not state this dependency, the Deal/Operator key on the Sign Up template, or the need to load historical or inactive deals first.",
+ "suggested_action": "Add acceptance criteria to WAGR-477: the Sign Up template carries the Deal key (External Deal ID) and the Operator/Partner keys, and the load order is operators/partners, deals (including historical or inactive deals that historical sign-ups reference), then players, then sign-ups and referrals. Add the inactive-deal question to WAGR-470."
+}

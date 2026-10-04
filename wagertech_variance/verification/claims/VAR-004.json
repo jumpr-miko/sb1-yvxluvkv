@@ -1,0 +1,112 @@
+{
+ "var_id": "VAR-004",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Sign-Up",
+ "title": "Client-confirmed rule 'Sign-Up currency defaults from the deal market country (CAD/USD), stamped and Ops-editable' has no ticket; Jira currency tickets use player country instead",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "market country",
+   "signup currency",
+   "sign-up currency",
+   "Signup_Currency",
+   "CurrencyIsoCode",
+   "currency from deal",
+   "CAD",
+   "USD",
+   "stamp currency"
+  ],
+  "nearest_considered": [
+   "WAGR-404",
+   "WAGR-413",
+   "WAGR-415",
+   "WAGR-160",
+   "WAGR-289",
+   "WAGR-5",
+   "WAGR-454"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2125",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:05:40",
+   "line_start": 134,
+   "quote": "Kobi Kunasekaran: So the market currency for The deal determines the payout currency for the sign / Emily Vandenberg: The market country. / Kobi Kunasekaran: up. / Emily Vandenberg: Yes. For the deal determines the payout / Kobi Kunasekaran: Okay. / Emily Vandenberg: currency.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2128",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:04:35",
+   "line_start": 110,
+   "quote": "Kobi Kunasekaran: Uh okay. So that means we shouldn't just uh automatically use formula fields based on player. We need to stamp it on the sign up. / Emily Vandenberg: That's the",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2130",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:05:40",
+   "line_start": 140,
+   "quote": "Kobi Kunasekaran: And then not necessarily the deal currency. So yeah. Okay. So I think what we'll do is like we'll do like a mapping, right? It's simple like if it's Canadian uh sorry if the market country is Canadian or Canada then uh currency is CAD and if market country is US currency is USD",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2138",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:11:53",
+   "line_start": 193,
+   "quote": "Kobi Kunasekaran: revisit payouts when we start like going through the discovery for it and we can come back and update that. So maybe what I can do for now in uh for the currency for the sign up is uh make it I mean we already have the field to set it and I will set it from the deal based on the market country um as a default and then uh it is surface for ops. / Emily Vandenberg: Yeah.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2139",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:16:16",
+   "line_start": 245,
+   "quote": "Emily Vandenberg: for sign up then you'll go with market country um from the deal and then I / Kobi Kunasekaran: Yeah. Yeah.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2285",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:04:34",
+   "line_start": 152,
+   "quote": "Kobi Kunasekaran: So hopefully this doesn't happen again. Um but since I made I made a lot of changes to that flow actually um I incorporated the uh source information um removed all of the matching by the deal makeup. So right now we're only relying on the delectional ID which seems to be working fine"
+  },
+  {
+   "ledger_id": "L2704",
+   "date": "2026-09-18",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit",
+   "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+   "timestamp": "00:29:57",
+   "line_start": 506,
+   "quote": "today I'm going to make that um sign up currency formula field to point to the out of the box um currency field so that it captures the players country of origin. / Kobi Kunasekaran: Okay."
+  }
+ ],
+ "what_differs": "On 2026-08-27 Emily confirmed the deal's market country sets the sign-up payout currency (Canada=CAD, US=USD), stamped on the Sign-Up (not a player formula) and editable by Ops. No ticket records this rule. The only currency tickets (WAGR-404, WAGR-413, WAGR-415) derive 'Signup Currency' from the player's country and treat CAD as the fallback when the SLC has no country.",
+ "suggested_action": "Add a ticket (or a comment on WAGR-5) that documents the deal-market-country rule, the CAD/USD mapping and Ops edit access, and confirm with WagerTech how the Player-level 'Signup Currency' (WAGR-404, from the client's Sep notes) relates to the Sign-Up record currency so the two rules do not conflict."
+}

@@ -1,0 +1,98 @@
+{
+ "var_id": "VAR-115",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "CMS Integration",
+ "title": "WagerTech-owned CMS-side commitments (manual push/reprocess, Slack error alerts, store SF record ID) are not tracked as dependencies in WAGR",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "manual push",
+   "CMS-side reprocess",
+   "resync button",
+   "resync to Salesforce",
+   "Slack connector",
+   "error channel",
+   "dead letter",
+   "Pub/Sub",
+   "store Salesforce ID"
+  ],
+  "nearest_considered": [
+   "WAGR-265",
+   "WAGR-472",
+   "WAGR-88",
+   "WAGR-457",
+   "WAGR-5"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2109",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:37:34",
+   "line_start": 597,
+   "quote": "Kobi Kunasekaran: So um it would be good to have something like that on the CMS side that you know an admin can do. So it doesn't need to be a developer. / Kobi Kunasekaran: But it's always good to have a way to manually push / Emily Vandenberg: Yeah, he hasn't built that yet. I was checking in yesterday, but we will add it to the backlog.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  },
+  {
+   "ledger_id": "L1921",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell; Strahinja Vladetic; Emily Vandenberg",
+   "timestamp": "00:18:45",
+   "line_start": 415,
+   "quote": "Joyce Kiddell: Um, is that a quick thing you could set up or if it isn't then don't worry about it. It would just be good for us to have like kind of real time / Strahinja Vladetic: Uh yeah, that's not a bad idea. / Strahinja Vladetic: It's it be good to get a Slack connector on there regardless. / Joyce Kiddell: I can add you to the existing one. / Joyce Kiddell: Are you doing that? / Emily Vandenberg: I do that.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L1305",
+   "date": "2026-07-24",
+   "meeting_title": "Wagertech <> Jumpr: API Testing for SLC Creation in SF",
+   "doc_link": "https://docs.google.com/document/d/1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY/edit",
+   "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+   "timestamp": "01:01:16",
+   "line_start": 873,
+   "quote": "Kobi Kunasekaran: Um, I would Yeah. And I would recommend storing that on the database. / Strahinja Vladetic: Yeah. / Kobi Kunasekaran: So then now you have a two-way lookup for troubleshooting. / Strahinja Vladetic: That makes / Strahinja Vladetic: sense.",
+   "doc_id": "1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2302",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:16:01",
+   "line_start": 275,
+   "quote": "Kobi Kunasekaran: Okay. Yeah. I think the pushing is something to have ready before we go into production so we have it tested / So the better option is uh from the CMS side have a have a button on the SLC level to reync to Salesforce. / Emily Vandenberg: Okay. Yeah, I just I just kind of backlogged it for the week, but we can pull it in before"
+  },
+  {
+   "ledger_id": "L2301",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:16:01",
+   "line_start": 272,
+   "quote": "Emily Vandenberg: Yeah, and I talked to Straw like we can he can re like write a script to repush anything that we need, but right now we don't have the functionality like reprocess from the CMS."
+  },
+  {
+   "ledger_id": "L2302",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:16:01",
+   "line_start": 275,
+   "quote": "Kobi Kunasekaran: Okay. Yeah. I think the pushing is something to have ready before we go into production so we have it tested / So the better option is uh from the CMS side have a have a button on the SLC level to reync to Salesforce. / Emily Vandenberg: Okay. Yeah, I just I just kind of backlogged it for the week, but we can pull it in before"
+  }
+ ],
+ "what_differs": "WagerTech agreed to add an admin-usable manual push/reprocess on the CMS side (backlog), a Slack connector for queue errors, and to store the Salesforce click record ID for two-way troubleshooting. On 2026-09-01 the CMS still had no reprocess function and Kobi wanted it tested before production. No WAGR ticket tracks these client-side dependencies; WAGR-265 is the Salesforce-side SLC reprocess button only.",
+ "suggested_action": "Suggestion only: add one client-dependency ticket (owner WagerTech) for CMS-side resend/reprocess and error alerting, with a pre-production test checkpoint, so the go-live readiness review can see it."
+}

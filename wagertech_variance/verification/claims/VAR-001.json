@@ -1,0 +1,132 @@
+{
+ "var_id": "VAR-001",
+ "category": "V2",
+ "severity": "High",
+ "confidence": "medium",
+ "feature_area": "Sign-Up",
+ "title": "Sign-Up payout currency: Jira derives it from Player country; 8/27 client decision says default from Deal market country, stamped on the Sign-Up and editable by Ops",
+ "jira": [
+  {
+   "key": "WAGR-404",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "Player: Default Signup Currency Automation by Player Country",
+   "quote": "Wagertech's notes confirm Signup Currency should default to the currency of the Player's country.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-404",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "Player: Default Signup Currency Automation by Player Country",
+   "quote": "Created a new formula field for Signup Currency pointing to CurrencyIsoCode",
+   "quote_source": "comment (author not recorded in export) on 2026-09-18"
+  },
+  {
+   "key": "WAGR-160",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-173 — Player: Core Details fields",
+   "quote": "Signup Currency defaults from the player's first Sign Up, inferred by country.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": {
+  "terms": [
+   "currency",
+   "market country",
+   "Signup Currency",
+   "CurrencyIsoCode",
+   "deal currency"
+  ],
+  "nearest_considered": [
+   "WAGR-404",
+   "WAGR-160",
+   "WAGR-413",
+   "WAGR-415",
+   "WAGR-7",
+   "WAGR-462",
+   "WAGR-465"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2125",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:05:40",
+   "line_start": 134,
+   "quote": "Kobi Kunasekaran: So the market currency for The deal determines the payout currency for the sign / Emily Vandenberg: The market country. / Kobi Kunasekaran: up. / Emily Vandenberg: Yes. For the deal determines the payout / Kobi Kunasekaran: Okay. / Emily Vandenberg: currency.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2128",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:04:35",
+   "line_start": 110,
+   "quote": "Kobi Kunasekaran: Uh okay. So that means we shouldn't just uh automatically use formula fields based on player. We need to stamp it on the sign up. / Emily Vandenberg: That's the",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2138",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:11:53",
+   "line_start": 193,
+   "quote": "Kobi Kunasekaran: revisit payouts when we start like going through the discovery for it and we can come back and update that. So maybe what I can do for now in uh for the currency for the sign up is uh make it I mean we already have the field to set it and I will set it from the deal based on the market country um as a default and then uh it is surface for ops. / Emily Vandenberg: Yeah.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  },
+  {
+   "ledger_id": "L2139",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:16:16",
+   "line_start": 245,
+   "quote": "Emily Vandenberg: for sign up then you'll go with market country um from the deal and then I / Kobi Kunasekaran: Yeah. Yeah.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2704",
+   "date": "2026-09-18",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/12MuEGyIBzlK4HDr4NdwCCWIxbT6ozK3EtWdlP_E2T4Q/edit",
+   "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+   "timestamp": "00:29:57",
+   "line_start": 506,
+   "quote": "today I'm going to make that um sign up currency formula field to point to the out of the box um currency field so that it captures the players country of origin. / Kobi Kunasekaran: Okay."
+  },
+  {
+   "ledger_id": "L2124",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:01:54",
+   "line_start": 79,
+   "quote": "Kobi Kunasekaran: Um, right now they're all coming in as CAD for all of those clicks. Um, and when we create the signup record from that lick that comes in, um, the currency for that signup, uh, shouldn't be the one from the deal."
+  },
+  {
+   "ledger_id": "L3163",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:33:10",
+   "line_start": 565,
+   "quote": "Joyce Kiddell: There's two concepts of currencies if I'm correct um with each signup where there's a currency for / Joyce Kiddell: how you pay the player and then there's a currency associated with the the refer / Emily Vandenberg: Okay. Yeah, it's blurry, but it's fine if you guys got it. / Joyce Kiddell: No, it's confusing because we were like talking in terms of currency per sign up, but like there's really two currencies and there's two amounts. / Kobi Kunasekaran: There's two currencies. Yeah."
+  }
+ ],
+ "what_differs": "Jira builds Signup Currency as a formula from the Player's country/CurrencyIsoCode. The 8/27 client session decided the sign-up payout currency defaults from the Deal's market country (Canada=CAD, US=USD), is stamped on the Sign-Up (not a player formula, because of relocation cases) and stays editable by Ops. No ticket implements the Deal-market-country default.",
+ "suggested_action": "Confirm with Emily which rule is current (8/27 deal-market-country stamp vs the 9/18 Slack-agreed player-country formula). If 8/27 stands, add a story for the Deal-market-country default on Sign-Up and update WAGR-404/WAGR-160. Note WAGR-415: most SLCs arrive without player country, so a player-country rule falls back to CAD."
+}

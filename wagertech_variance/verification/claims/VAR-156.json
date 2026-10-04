@@ -1,0 +1,54 @@
+{
+ "var_id": "VAR-156",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Access & Permissions / Org Setup",
+ "title": "Access matrix tickets (WAGR-449/495) have no WagerTech review step and do not use the persona-by-field markup requested from the client",
+ "jira": [
+  {
+   "key": "WAGR-449",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Access and Permissions",
+   "quote": "Kobi / Taryn review and approve the matrix.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-495",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "summary": "Consolidate WagerTech access requirements and produce persona access matrix",
+   "quote": "Use Jira as the source of business requirements and Salesforce metadata as the source of current configuration.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0411",
+   "date": "2026-06-17",
+   "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+   "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:28:55",
+   "line_start": 485,
+   "quote": "Kobi Kunasekaran: ... I have a good idea of like what the break off of break up of the roles and responsibilities are going to be. Um, obviously nothing final like we'll we'll put together the proposal that we can decide on uh what happens uh when we go live.",
+   "doc_id": "1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg"
+  },
+  {
+   "ledger_id": "L1010",
+   "date": "2026-07-15",
+   "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+   "timestamp": "00:57:48",
+   "line_start": 798,
+   "quote": "Kobi Kunasekaran: just take a screenshot of this and then for each of these fields, you can put like a a color or like a description to say repon, manager, uh, ops, admin, uh, and then read, write. And we can take that and set up the different page views for each of those permissions accordingly. / Lina Ceniccola: So I think for us when we go in here the first step would be / Lina Ceniccola: determine what the rep should see from all of these details.",
+   "doc_id": "1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "In discovery Jumpr said it would put together a roles and access proposal for WagerTech to decide on before go-live, and on 2026-07-15 asked WagerTech to mark each field by persona (rep, manager, ops, admin) and read/write. The Jira plan has only Kobi/Taryn approving the matrix, builds it from Jira and metadata only, and no ticket tracks the client's field markup.",
+ "suggested_action": "Add a WagerTech review/sign-off step (Emily, Lina, Joyce) to WAGR-495 before WAGR-496 deploys, and record whether the client's persona field markup from 2026-07-15 was ever received; if not, use the matrix itself as the client review artifact."
+}

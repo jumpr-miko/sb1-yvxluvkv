@@ -1,0 +1,86 @@
+{
+ "var_id": "VAR-169",
+ "category": "V4",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Storage / Proofs",
+ "title": "WAGR-32 (Proof Files object, upload component, storage service) is Done, but the storage build was never delivered and is on hold",
+ "jira": [
+  {
+   "key": "WAGR-32",
+   "status": "Done",
+   "assignee": "Unassigned",
+   "summary": "BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service",
+   "quote": "Governed proof storage: Proof Files object with category metadata, an upload component on Sign-Up, a storage service writing to the selected platform, and proof-completion logic.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-32",
+   "status": "Done",
+   "assignee": "Unassigned",
+   "summary": "BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service",
+   "quote": "Storage build gated on client GCP prerequisites (service account, DWD, shared drive, file types/max size).",
+   "quote_source": "comment by (no author name) 2026-07-29"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0865",
+   "date": "2026-07-08",
+   "meeting_title": "Wagertech <> Jumpr: Onsite",
+   "doc_link": "https://docs.google.com/document/d/1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:15:12",
+   "line_start": 306,
+   "quote": "Kobi Kunasekaran: what we've done is we've set up these check boxes um that reps will have to check manually right now. Um this will drive the proof completion status. / Kobi Kunasekaran: Sorry this is all manual because like we haven't built out all the interfaces",
+   "doc_id": "1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI"
+  },
+  {
+   "ledger_id": "L1931",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:30:12",
+   "line_start": 562,
+   "quote": "Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L2113",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "00:39:33",
+   "line_start": 617,
+   "quote": "Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1932",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "00:30:12",
+   "line_start": 565,
+   "quote": "Kobi Kunasekaran: ...are are we good with like for the time being like if we start pressing the like a setup workflow with reps that the expectation is you just base links for the different proofs in Salesforce. / Joyce Kiddell: Mhm. Mhm."
+  },
+  {
+   "ledger_id": "L2547",
+   "date": "2026-09-14",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1L-0V5h2VXU_6WRkO_IDZDjrMtsu15cuOk6AM0dHTUuk/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:27:54",
+   "line_start": 424,
+   "quote": "Kobi Kunasekaran: Um, right now we're kind of in this weird stage as well where we're not actually deploying anything to production or to an environment. We're just marking this complete and uh we're going to have to come back and uh push everything into production when we uh when we do our UAT and uh sandbox testing. So um I think I'm just going to move everything to done for now"
+  }
+ ],
+ "what_differs": "Jira marks the storage build story Done. The meetings say the upload interfaces are not built, storage was paused on 2026-08-18 and is still on hold on 2026-08-25, and reps only paste proof links into URL fields.",
+ "suggested_action": "Reopen WAGR-32 or set it to an On Hold/Cancelled state with a comment, or split it: close the delivered bridge (URL fields, proof status) and move the remaining Proof Files object, upload component and storage service into an open ticket under WAGR-31. Today no open ticket holds the post-POC storage build."
+}

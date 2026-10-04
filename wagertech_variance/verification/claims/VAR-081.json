@@ -1,0 +1,73 @@
+{
+ "var_id": "VAR-081",
+ "category": "V1",
+ "severity": "High",
+ "confidence": "high",
+ "feature_area": "Redeposits",
+ "title": "No ticket for the redeposit data model: monthly redeposit budget per deal (manual input) with allocations directly under it",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "redeposit",
+   "budget",
+   "allocation",
+   "monthly budget",
+   "budget entry",
+   "Redeposit object"
+  ],
+  "nearest_considered": [
+   "WAGR-464",
+   "WAGR-108",
+   "WAGR-107",
+   "WAGR-468"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2785",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:02:55",
+   "line_start": 187,
+   "quote": "Joyce Kiddell: I think the first piece, like you just said, is the budget. budget setting by deal and I don't think we're at a point to be able to automate that piece where it's like we where we understand exactly the correct amount to like start with and then splice out. / Kobi Kunasekaran: Mhm. / Joyce Kiddell: So if to start if we can just like solution for being like a field or like something that we can input ourselves um and then Alli's process will take over. / Kobi Kunasekaran: Yes. / Emily Vandenberg: Yep.",
+   "doc_id": "1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM"
+  },
+  {
+   "ledger_id": "L3343",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "02:58:50",
+   "line_start": 2326,
+   "quote": "Joyce Kiddell: But I think it's actually a lot more fluid and I I wouldn't put a ton of automation around making sure that like they can only hit that number and then we like stop them. / Kobi Kunasekaran: So if we don't need that I think we can skip we just do the monthly container because I think that you still want / Joyce Kiddell: Yep. / Kobi Kunasekaran: Okay, so I think then what I'm going to do is I'll remove this middle object. We're going to just have the monthly budget and the redeposit allocation.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3452",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:48:24",
+   "line_start": 1514,
+   "quote": "Kobi Kunasekaran: Um and the budget is essentially set up as a container for um the redeposit entries. / Kobi Kunasekaran: Um so every month there is a separate budget."
+  },
+  {
+   "ledger_id": "L3336",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "02:23:19",
+   "line_start": 1907,
+   "quote": "Kobi Kunasekaran: So the budget is per deal per month. So there's going to be like uh budget entries for each month for a deal. And then within the budget you have budget entries."
+  }
+ ],
+ "what_differs": "Meetings decided that WagerTech enters a monthly redeposit budget per deal manually, and on 2026-09-30 removed the budget-entry layer so allocations sit directly under the monthly budget. No Jira ticket defines these objects; WAGR-464 still lists 'Where does the budget live, and in what unit?' and 'Batch level' as open decisions, and WAGR-108 says the Redeposit object is not ticketed.",
+ "suggested_action": "Suggestion: record the 2026-09-30 data-model outcome on WAGR-464 (close the 'budget location' and 'batch level' open decisions) and create build stories for the Monthly Redeposit Budget and Redeposit Allocation objects, under a Redeposits epic."
+}

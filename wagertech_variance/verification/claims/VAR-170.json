@@ -1,0 +1,79 @@
+{
+ "var_id": "VAR-170",
+ "category": "V8",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Storage / Proofs",
+ "title": "WagerTech's alternate proof solution and whether Salesforce must accept proof data by API are unresolved and not tracked in Jira",
+ "jira": [
+  {
+   "key": "WAGR-32",
+   "status": "Done",
+   "assignee": "Unassigned",
+   "summary": "BUILD-06 — Build Sign-Up Proofs: Proof Files object, upload component, storage service",
+   "quote": "Storage platform confirmation (GCP selected pending client's technical sign-off) — do not start the storage service until confirmed.",
+   "quote_source": "description (Open Questions)"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0977",
+   "date": "2026-07-15",
+   "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:15:33",
+   "line_start": 344,
+   "quote": "Emily Vandenberg: I think like if we were to build this tool, we would then just like send you uh we'd send Salesforce kind of like confirmation of the completion statuses for each versus you doing the Salesforce doing the heavy lifting on storage and um upload. / Emily Vandenberg: leaning towards sending them information through the API versus them having to build for it.",
+   "doc_id": "1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ"
+  },
+  {
+   "ledger_id": "L0978",
+   "date": "2026-07-15",
+   "meeting_title": "Wagertech <> Jumpr - Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:16:46",
+   "line_start": 349,
+   "quote": "Kobi Kunasekaran: what we already have is are these check boxes on the signups, right? So whether these checkboxes are checked manually by the reps or through the API / Kobi Kunasekaran: by extension, I'm also assuming we're not like required to have the list of those like proof files within Salesforce either at this time. / Emily Vandenberg: at this time. / Emily Vandenberg: No, at this time we we just like want to kind of just like pause on solutioning for what we want to do / Emily Vandenberg: with this other than being able to accept information.",
+   "doc_id": "1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ"
+  },
+  {
+   "ledger_id": "L1931",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:30:12",
+   "line_start": 562,
+   "quote": "Joyce Kiddell: let's let's focus on this next. um the proof storage, we might have an alternate solution that we're working through um that might just be more efficient for us. So, uh TBD on that, / Kobi Kunasekaran: Okay. So, we we'll put a pin on the proofs then. / Kobi Kunasekaran: So we'll we'll put a pin on it from our end and shift focus to uh this work instead",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L2113",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "00:39:33",
+   "line_start": 617,
+   "quote": "Kobi Kunasekaran: Um and then storage we said like we put a hold on it from our end. / Kobi Kunasekaran: We said you're going to take that back and get back to us, right? So for now we're just relying on the URL uh fields in Salesforce. / Joyce Kiddell: Yeah, let's keep on that",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L0846",
+   "date": "2026-07-07",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "00:54:13",
+   "line_start": 650,
+   "quote": "Emily Vandenberg: So question we had or straw had was like is the option of like doing the upload outside of Salesforce and then pushing like reference um like a reference data point back to Salesforce something we could do relatively easily. / Kobi Kunasekaran: we could also have URL fields like three URL fields and um you could update those fields through the API from external system to fill that in and we could have it so that when that's filled the respective checkbox is checked that will drive the proof completion that will then drive the signup completion. So yes absolutely we can do that. / Kobi Kunasekaran: But if you're doing all of that uh externally and you're you have the signup ID, like the exact signup that you're sending the proofs for and you're sending it directly there, then I don't think there's like anything else besides just adding the fields for you to fill / Kobi Kunasekaran: out."
+  }
+ ],
+ "what_differs": "Meetings left open whether WagerTech's own tool will hold proofs and send proof URLs or completion status to Salesforce by API. Jira's only open question still frames the decision as GCP sign-off and no ticket covers an inbound proof API.",
+ "suggested_action": "Add an open-question or decision ticket under WAGR-31 for the WagerTech alternate-solution decision, with owner and date, and note the inbound-API option (sign-up ID + proof URLs to the URL fields) so it can be sized if chosen. Raise it at the next weekly sync."
+}

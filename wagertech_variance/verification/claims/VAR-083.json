@@ -1,0 +1,71 @@
+{
+ "var_id": "VAR-083",
+ "category": "V1",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Redeposits",
+ "title": "No ticket for the eligible-signup date range on each allocation (ops-set, with a deal default)",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "eligib",
+   "date range",
+   "signup window",
+   "start date",
+   "end date",
+   "redeposit"
+  ],
+  "nearest_considered": [
+   "WAGR-464",
+   "WAGR-107"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3346",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+   "timestamp": "03:02:50",
+   "line_start": 2384,
+   "quote": "Kobi Kunasekaran: Like start date, end date for eligible signups. And then that gets saved in the redeposit allocation record. So when they try to choose a player uh to allocate it to, it only displays anybody that had a sign up in those in those dates. / Kobi Kunasekaran: Maybe we can have like a default one on the deal that gets that pre-populates that field and then if / Joyce Kiddell: Yeah. Yes. Yeah. That's smart.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3455",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "01:56:23",
+   "line_start": 1583,
+   "quote": "Joyce Kiddell: Just confirming sorry the date range for selecting when those users signed up that'll be configured by us right like ops not the Happy. / Kobi Kunasekaran: Um yeah, I it would be I assume it's part of the budget configuration. / Kobi Kunasekaran: So like I'll add that in and I can show you once uh once it gets added.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3341",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "02:51:07",
+   "line_start": 2227,
+   "quote": "Emily Vandenberg: in midmon if Jess opens up more budget, he might be like, you can go and you can there's an extended window. Maybe it's like 3 months, maybe it's four. / Emily Vandenberg: It's not global at a deal level."
+  },
+  {
+   "ledger_id": "L2820",
+   "date": "2026-09-21",
+   "meeting_title": "Wagertech <> Jumpr: Redeposits Discovery Part 2",
+   "doc_link": "https://docs.google.com/document/d/1yKF9Ti2Flmefnkog3nBkherM0g5KkkEdIJzoR6j6RxM/edit",
+   "speakers": "Ali Nawaz; Lina Ceniccola; Emily Vandenberg",
+   "timestamp": "01:04:32",
+   "line_start": 898,
+   "quote": "Lina Ceniccola: But the problem with that is they are allowed to read up outside of that window. / Ali Nawaz: Yes. / Lina Ceniccola: I think this goes back to like those specific guard rails. we we're going to leave open-ended and / Emily Vandenberg: to start. / Lina Ceniccola: like we'll we'll determine what it is, / Emily Vandenberg: Yeah. / Lina Ceniccola: but you'll have to Still. monitor that uh process. / Lina Ceniccola: also given like our our timeline here for launch to set up these guard / Lina Ceniccola: rails but then actually have to go back and be like well actually we let people go against these all the time so doesn't really make sense to set it up. We just have to manage it internally."
+  }
+ ],
+ "what_differs": "On 2026-09-30 the team decided that each redeposit allocation stores start/end dates for eligible signups, set by ops and pre-populated from a default on the deal, and that reps can select only players with signups in that range. WAGR-464 says only 'A BA assigns slots to eligible players'; no ticket states the date-range rule or the deal default.",
+ "suggested_action": "Suggestion: add the eligibility date-range rule (allocation-level start/end, deal default, player picker filter) to WAGR-464 and to the allocation build story."
+}

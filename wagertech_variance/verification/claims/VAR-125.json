@@ -1,0 +1,73 @@
+{
+ "var_id": "VAR-125",
+ "category": "V4",
+ "severity": "Low",
+ "confidence": "medium",
+ "feature_area": "CMS Integration",
+ "title": "WAGR-46 survey-completion inbound event sits in Requirements although the callout was built and tested in August",
+ "jira": [
+  {
+   "key": "WAGR-46",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "BUILD-69 — Survey completion inbound API event → Player",
+   "quote": "Objective: replace click-inference with an explicit CMS→SF survey-completion event.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-46",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "BUILD-69 — Survey completion inbound API event → Player",
+   "quote": "Provided updated fields to Emily/Strah and sits with Wagertech to test and confirm this works.",
+   "quote_source": "comment by (no author name) 2026-08-10"
+  },
+  {
+   "key": "WAGR-441",
+   "status": "In Progress",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Player: Capture Survey 2 completion from CMS alongside Survey 1",
+   "quote": "WAGR-46: the inbound survey-completion event to the Player. It is in Requirements, and the CMS side is owned by WagerTech. This story extends its contract to two surveys.",
+   "quote_source": "description (Dependencies)"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1621",
+   "date": "2026-08-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:06:08",
+   "line_start": 209,
+   "quote": "Kobi Kunasekaran: ... I did take a look at the uh survey completion for the test integration that uh uh Strad did and it looks like it did come through. ... / Emily Vandenberg: Not after you like unblocked him this last whatnot. / Kobi Kunasekaran: ... the survey completion uh check box and the dates are filled in. So it looks like it's good. ...",
+   "doc_id": "1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8"
+  },
+  {
+   "ledger_id": "L2981",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:05:06",
+   "line_start": 280,
+   "quote": "Kobi Kunasekaran: But I believe uh as we work through and set up the actual integration um there is a separate call out from the CMS to set the survey completion on the player. We tested it only for like a couple of records way back. It's been a while and I don't think we've tested that since.",
+   "doc_id": "14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2908",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/14qj2c7XQWrT1KJJhEV34u7rF5KBJU6xMUIPWNfyNDVk/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:08:39",
+   "line_start": 323,
+   "quote": "Kobi Kunasekaran: So then yeah the existing field we'll just re label them like survey one um and like I'll send over like the updated API names for those um and then we'll create same fields for survey 2 / Emily Vandenberg: Perfect. Can we do that this week? / Kobi Kunasekaran: Yeah, we can get the fields up and running like today."
+  }
+ ],
+ "what_differs": "On 2026-08-11 Kobi confirmed the CMS survey-completion test populated the checkbox and dates through the integration user; on 2026-09-23 he said it was tested on a couple of records and not since. WAGR-46 is still in Requirements (not started) with no assignee, and its single-survey field contract was replaced by the Survey 1/Survey 2 design now tracked in WAGR-441.",
+ "suggested_action": "Suggestion only: move WAGR-46 to a status that reflects 'built, awaiting retest' (or close it as superseded and link it to WAGR-441, whose AC 4 already owns the end-to-end retest), so the board does not show survey completion as unstarted."
+}

@@ -1,0 +1,129 @@
+{
+ "var_id": "VAR-057",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Player",
+ "title": "Player ban reason: 08-25 client call accepted the mockup ban reasons; Jira says player ban reasons were cut, and WAGR-154 AC still requires a reason",
+ "jira": [
+  {
+   "key": "WAGR-154",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+   "quote": "Ops bans a Player through a button that requires a reason and sets Status to Banned.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-154",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+   "quote": "1. Ban action requires a reason, sets Banned, audit fields stamped (via BUILD-251).",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-154",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-255 — Player Status: Ban Button + Unban Restriction",
+   "quote": "No Ban Reason/Notes modal for Player — explicitly cut (\"we don't need those restriction detail fields,\" reasoning inferred from flagged Sign Ups instead, just a banner).",
+   "quote_source": "comment (author not recorded) 2026-09-03"
+  },
+  {
+   "key": "WAGR-156",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-176 — Player: Ban Automation",
+   "quote": "No Ban Reason/Notes modal for Player — explicitly cut (\"we don't need those restriction detail fields,\" reasoning inferred from flagged Sign Ups instead, just a banner).",
+   "quote_source": "comment (author not recorded) 2026-09-03"
+  },
+  {
+   "key": "WAGR-403",
+   "status": "Cancelled",
+   "assignee": "Taryn Reithofer",
+   "summary": "Player: Surface Fraud Flag and Blank Primary Email Banner",
+   "quote": "Fraud Flag banner: not building as a separate banner. Emily confirmed the existing Banned Banner (BUILD-175 / WAGR-196) is sufficient for the banned-for-fraud case — no need to bring back Ban Reason or add fraud-specific banner logic.",
+   "quote_source": "comment by Taryn Reithofer 2026-09-22"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2092",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola; Emily Vandenberg",
+   "timestamp": "00:17:10",
+   "line_start": 308,
+   "quote": "Lina Ceniccola: I think it looks fine. / Kobi Kunasekaran: Okay. So if these are good like we can start with these again like we can always change them up later too. / Emily Vandenberg: Perfect.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  },
+  {
+   "ledger_id": "L2257",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk/edit",
+   "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+   "timestamp": "00:10:11",
+   "line_start": 200,
+   "quote": "Kobi Kunasekaran: Um, and this is honestly I think it's going to be almost the same logic as what whatever it is that you're building for refer. So we might just be able to uh copy the same thing. / Taryn Reithofer: Yes. / Kobi Kunasekaran: Maybe the reasons might be different for player versus referer ... / Kobi Kunasekaran: let's just use their mockup values as a starting point and build that out. / Taryn Reithofer: Okay.",
+   "doc_id": "1ZR6vkGVxwjeKaOC5zQRB0uToAaIEZAfCHP59_eGYruk"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L1980",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg; Joyce Kiddell",
+   "timestamp": "01:26:54",
+   "line_start": 1468,
+   "quote": "Kobi Kunasekaran: ...So, the band status on the player is going to be manually done by somebody. / Kobi Kunasekaran: ...Like we don't necessarily need to automate or restrict creation of the signup or anything based off of the player status at least at this point. / Emily Vandenberg: Yeah, I don't think so. And it would be it would almost be / Kobi Kunasekaran: So those fields uh are we saying like we don't need those like restriction detail fields for / Joyce Kiddell: correct. it. / Joyce Kiddell: We should have some sort of like banner at the top though."
+  },
+  {
+   "ledger_id": "L2588",
+   "date": "2026-09-15",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1c7jrcIZi-m-zYNVeSrkzols_CABo5p5IBp_0r1kBfUg/edit",
+   "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+   "timestamp": "00:06:46",
+   "line_start": 168,
+   "quote": "Taryn Reithofer: Some of it's very easy like just removing a field or whatever and some of it needs more of a discussion like she had mentioned on the um player record page under ban and reactivate reactivate button automation. She she asked you to refresh your memory. Did we land on no reason code for the button B which is / Kobi Kunasekaran: I don't remember. People have to check on the calls. / Taryn Reithofer: from from my notes it was it was we landed on no reason and I have that in in the writing too. / Kobi Kunasekaran: way I like I think either either direction is fine with me. I just I just don't remember."
+  },
+  {
+   "ledger_id": "L2669",
+   "date": "2026-09-17",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+   "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+   "timestamp": "00:22:19",
+   "line_start": 445,
+   "quote": "Kobi Kunasekaran: if I'm not mistaken, like we decided on the ban and one of the banned reasons was fraud. / Taryn Reithofer: So I think for for refer we kept the uh ban reasons / Taryn Reithofer: and that one's confirmed fraud there. But for player we decided to keep it simple and not have the reasons and it was just a simple ban. / Kobi Kunasekaran: you can check let's check this like outside like let me know loop back around on this."
+  },
+  {
+   "ledger_id": "L2687",
+   "date": "2026-09-17",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1JzKAc6xwUbUl7jkoyv983-oBUwMPPrxYruTRkc0mRB4/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:24:07",
+   "line_start": 465,
+   "quote": "Kobi Kunasekaran: I wouldn't rely on it being the checkbox. If it if they're gonna ban players, 99% they're gonna need to know like why the player was banned. So, either we would have like a screen flow to drive that behavior and capture the reason or it was supposed to be tied to the uh the ban button along with the reason that comes with the ban. Um, and we just need to confirm either or."
+  },
+  {
+   "ledger_id": "L2856",
+   "date": "2026-09-23",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1JqbaHGeYiNWQ-O37-G7vWH8mfZ3r-I7d0pZ5ypAibNQ/edit",
+   "speakers": "Taryn Reithofer; Kobi Kunasekaran",
+   "timestamp": "00:19:18",
+   "line_start": 387,
+   "quote": "Taryn Reithofer: she kind of reverted on everything just saying, \"Okay, like we don't need this.\" / Kobi Kunasekaran: Like so she said like we don't need the banner for fraud and she's good with not having one for the email because it's it should be a nonexistent case, right? / Taryn Reithofer: Yeah, non-issue."
+  }
+ ],
+ "what_differs": "On 08-25 the client accepted the mockup ban-reason list for the player, and on 09-01 Jumpr decided to build the player ban from those mockup values. On 09-03 Jira (WAGR-154/156 comments) recorded that player ban reasons were cut, based on the earlier 08-18 call about restriction-detail fields. The WAGR-154 description and AC1 still require a reason. The only later 'no reason' confirmation is second-hand, in a Jira comment about the fraud banner.",
+ "suggested_action": "Get one explicit written client answer: does the player Ban button capture a reason (picklist) or not? Then make the WAGR-154 description and acceptance criteria match the answer, and record the answer on WAGR-156."
+}

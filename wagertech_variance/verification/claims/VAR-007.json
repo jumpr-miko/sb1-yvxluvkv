@@ -1,0 +1,75 @@
+{
+ "var_id": "VAR-007",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Sign-Up",
+ "title": "Repeat-click/duplicate rule: WAGR-473 and the SLC flow key on Player + Rep assignment; 9/30 decided a duplicate is the same player and same deal regardless of rep",
+ "jira": [
+  {
+   "key": "WAGR-473",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Repeat-click rule: when a new click joins an existing Sign-Up — confirm",
+   "quote": "when does a new click join an existing Sign-Up (same Player, Deal and Rep)?",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-8",
+   "status": "Done",
+   "assignee": "Unassigned",
+   "summary": "POC-12 — Build demo flow: Study Link Click to Player and Sign-Up (happy path)",
+   "quote": "Sign-Up resolution: link to an existing open Sign-Up (Status New/In Progress/Past Due/Flagged) for the same Player + Assignment, else create one with Status = New",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3443",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg; Kobi Kunasekaran",
+   "timestamp": "01:35:58",
+   "line_start": 1385,
+   "quote": "Emily Vandenberg: The duplicate should exist outside of like the rep because like if it's the same player, same book, that's a duplicate. / Kobi Kunasekaran: I think it's same player, same book. / Kobi Kunasekaran: Yeah, we can enforce the same one here. So if we detect that there the the same player is associated to a signup record for the same deal then it will flag that as a duplicate",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3445",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:37:15",
+   "line_start": 1396,
+   "quote": "Kobi Kunasekaran: Okay. So, same player, same deal. It's technically unique signup. Okay. I'll double check the SL logic and confirm if that's the case.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3444",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "01:37:15",
+   "line_start": 1395,
+   "quote": "Emily Vandenberg: That'd be more like fraud if there was if it was like the same player, same book, different rat. That combination would be more of an indicator of fraud."
+  },
+  {
+   "ledger_id": "L1304",
+   "date": "2026-07-24",
+   "meeting_title": "Wagertech <> Jumpr: API Testing for SLC Creation in SF",
+   "doc_link": "https://docs.google.com/document/d/1aheMbgqCGWjhQ9TEAUh_L1NcYaugqYrBgwZAoEJ8BjY/edit",
+   "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+   "timestamp": "01:00:06",
+   "line_start": 851,
+   "quote": "Kobi Kunasekaran: So this I I don't like the idea of like server side dduplication because then we could potentially misfle a real scenario / Kobi Kunasekaran: We want that second click in Salesforce to know that they clicked it multiple times. / Strahinja Vladetic: Okay. Okay. Even better. Okay. So, / Strahinja Vladetic: you guys are just going to track all the all the clicks and then surface is probably the most recent one or whichever one is relevant. / Kobi Kunasekaran: Yeah."
+  }
+ ],
+ "what_differs": "Jira frames the join rule as same Player, Deal and Rep, and the POC flow matches on Player + Deal Rep Assignment. On 9/30 Emily and Kobi agreed a duplicate is the same player and same deal regardless of rep, and that the same player/deal with a different rep is a fraud signal. With the current key, a second rep's click creates a new Sign-Up.",
+ "suggested_action": "Update WAGR-473 with the 9/30 rule and record Kobi's check of the SLC flow (L3445). If the flow keys on DRA, add a story to match on Player + Deal and flag a different-rep click for review."
+}

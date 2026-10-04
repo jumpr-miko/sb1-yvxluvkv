@@ -1,0 +1,73 @@
+{
+ "var_id": "VAR-077",
+ "category": "V3",
+ "severity": "Low",
+ "confidence": "medium",
+ "feature_area": "Operator & Partner",
+ "title": "Header count tickets still define 'Associated Operators/Partners' as all-time distinct counts with help text; 09-28 decided active-only count retitled 'Active Operators'",
+ "jira": [
+  {
+   "key": "WAGR-389",
+   "status": "Solution Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "Add help text to the Associated Partners and Associated Sources rollup fields",
+   "quote": "Associated_Operators__c (Partner) — Description: Count of distinct Operators across this Partner's related Deals. Maintained by DLRS — do not edit directly.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-138",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-265 — Partners: Header roll-ups — Associated Operators & Sources",
+   "quote": "On Partner: Associated Operators (distinct count of Operator across related Deals) / Associated Sources (distinct count of Source__c across related Deals)",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-389",
+   "status": "Solution Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "Add help text to the Associated Partners and Associated Sources rollup fields",
+   "quote": "Confirmed in sandbox that help text doesn’t show on fieldsthat are within the dynamic highlights panel, however I did go back into the fields and added descriptions and help text anyways",
+   "quote_source": "comment by Taryn Reithofer 2026-09-14"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3216",
+   "date": "2026-09-28",
+   "meeting_title": "Emily / Taryn - Operator: Supported Markets",
+   "doc_link": "https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit",
+   "speakers": "Taryn Reithofer; Emily Vandenberg",
+   "timestamp": "00:14:00",
+   "line_start": 197,
+   "quote": "Do you want it to be operators with active deals with the partner or all operators that have ever had a deal with the partner? / Emily Vandenberg: I would just do active but then like put active operators. / Taryn Reithofer: Yeah, I like changed the field title. / Emily Vandenberg: Mhm.",
+   "doc_id": "1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs"
+  },
+  {
+   "ledger_id": "L3218",
+   "date": "2026-09-28",
+   "meeting_title": "Emily / Taryn - Operator: Supported Markets",
+   "doc_link": "https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit",
+   "speakers": "Taryn Reithofer",
+   "timestamp": "00:15:24",
+   "line_start": 206,
+   "quote": "Taryn Reithofer: So, change the title",
+   "doc_id": "1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs"
+  },
+  {
+   "ledger_id": "L3217",
+   "date": "2026-09-28",
+   "meeting_title": "Emily / Taryn - Operator: Supported Markets",
+   "doc_link": "https://docs.google.com/document/d/1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs/edit",
+   "speakers": "Taryn Reithofer",
+   "timestamp": "00:14:00",
+   "line_start": 201,
+   "quote": "Um, and I and I checked we aren't able to um add help test text to um any highlight panel fields here",
+   "doc_id": "1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "WAGR-389 (Solution Review) and WAGR-138/WAGR-134 (Jumpr Review) still describe 'Associated' counts of every distinct operator/partner across all Deals, and help text that says so. On 09-28 the client decided the count includes only operators with active deals and the field is retitled Active Operators; help text is not visible in the highlights panel.",
+ "suggested_action": "Update or close WAGR-389 (rewrite the description/help text for the active-only definition, or cancel because help text does not render in the highlights panel). Link WAGR-134 and WAGR-138 to WAGR-388/WAGR-364 as superseded so client UAT does not review the old definition."
+}

@@ -1,0 +1,75 @@
+{
+ "var_id": "VAR-024",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Deal",
+ "title": "WAGR-462 says Deal CPA feeds referral payouts and backdated terms re-price unpaid Sign-Ups; client confirmed commercial terms are reporting only",
+ "jira": [
+  {
+   "key": "WAGR-462",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Commercial Terms — design and user stories",
+   "quote": "* Show clearly how the Deal CPA feeds the payouts. This is a dependency for referral payouts and redeposits.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-462",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "summary": "Commercial Terms — design and user stories",
+   "quote": "* A backdated terms change updates unpaid Sign-Ups. It flags paid Sign-Ups for Ops and does not change them.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3159",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech <> Jumpr: Referral and Payouts Discovery",
+   "doc_link": "https://docs.google.com/document/d/1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "01:26:00",
+   "line_start": 1241,
+   "quote": "Kobi Kunasekaran: Like we talked about like the uh commercial terms on the deal and stuff. Those are all at the like ops level reporting. Like this has no implication on any like referral payouts or anything like that, right? / Joyce Kiddell: No,",
+   "doc_id": "1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw"
+  },
+  {
+   "ledger_id": "L3415",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:03:47",
+   "line_start": 1042,
+   "quote": "Kobi Kunasekaran: Um and from our conversation, we said that this information um one it needs to get stamped on the signup. So when you report on a sign up, you can see what the commercial terms was at the time the sign up first bet was completed.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3085",
+   "date": "2026-09-25",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1MRQrsyv_XCgKEIoXR2_t4hTUfH3t5f-lGztLxIfTWZg/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:25:22",
+   "line_start": 460,
+   "quote": "Kobi Kunasekaran: ...one of the outstanding things is like is the payout dependency like how they plan on using the information from the deal in terms of CPA and how that ties to payouts. So I think once we resolve that, this will be build ready...."
+  },
+  {
+   "ledger_id": "L2501",
+   "date": "2026-09-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:19:27",
+   "line_start": 316,
+   "quote": "Joyce Kiddell: no, I'm just tying it back to like each each signup h is represents um a CPA for us, right? Like a conversion where we get paid and that conversion amount can only tie back to the terms set out at the deal level. / Kobi Kunasekaran: but only like the the commercial terms that were set on the deal at the time the signup was like completed / Joyce Kiddell: Correct."
+  }
+ ],
+ "what_differs": "WAGR-462 treats Deal commercial terms as a payout dependency (re-pricing unpaid Sign-Ups, flagging paid ones). On 2026-09-25 Joyce confirmed the deal commercial terms are ops-level reporting only with no impact on referral payouts; on 2026-09-30 the terms were described as a reporting stamp on the Sign-Up.",
+ "suggested_action": "Update WAGR-462: state that commercial terms are reporting-only for BA referral payouts, remove or reword the payout-dependency and 'paid Sign-Ups' rules, and keep only the stamping/reporting behaviour. Confirm with Emily that the operator-CPA revenue view (L2501) is the only use."
+}

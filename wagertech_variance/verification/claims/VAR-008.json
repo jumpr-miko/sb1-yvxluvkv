@@ -1,0 +1,130 @@
+{
+ "var_id": "VAR-008",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Sign-Up",
+ "title": "WAGR-5 still documents deal-makeup fallback matching that was removed on 2026-08-25/09-01 (Deal External ID only)",
+ "jira": [
+  {
+   "key": "WAGR-5",
+   "status": "Jumpr Review",
+   "assignee": "Marc Cabantog",
+   "summary": "BUILD-04 — Build production Study Link Click resolution flow (all branches)",
+   "quote": "* **Deal resolution**\n\n* Prefer **external deal ID**\n* If not found, fall back to the other deal fields we discussed:\n\n* state / country\n* partner / operator id/name\n\n* If there are duplicates, flag for review",
+   "quote_source": "comment by (author not recorded) 2026-08-10"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2073",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Emily Vandenberg",
+   "timestamp": "00:02:57",
+   "line_start": 146,
+   "quote": "Kobi Kunasekaran: I could just remove that logic entirely as well, which is what I'm thinking. And then we just rely on the deal ID to give us the mapping for it. / Emily Vandenberg: Yeah, that would make sense because we haven't handled the in the CMS the deal um like the kind of work on the deal setup and then the endpoint. / Kobi Kunasekaran: because we're moving away from having the raw data that makes up a deal to the deal ids I can just move all this logic from the flow. It'll make it a lot simpler too.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  },
+  {
+   "ledger_id": "L2285",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:04:34",
+   "line_start": 152,
+   "quote": "Kobi Kunasekaran: So hopefully this doesn't happen again. Um but since I made I made a lot of changes to that flow actually um I incorporated the uh source information um removed all of the matching by the deal makeup. So right now we're only relying on the delectional ID which seems to be working fine",
+   "doc_id": "1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo"
+  },
+  {
+   "ledger_id": "L2072",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:02:57",
+   "line_start": 146,
+   "quote": "Kobi Kunasekaran: So, I'm going to take a look at the flow and uh put in a graceful way to handle that uh that error. / Kobi Kunasekaran: first thing on my list is just to get the uh flow back up and running so it starts creating the signups.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  },
+  {
+   "ledger_id": "L2074",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:05:56",
+   "line_start": 164,
+   "quote": "Kobi Kunasekaran: operator um that are the same but the country and state would be different. So those are getting detected as duplicates in the system right now because we don't have the deal country and deal state coming in. / Kobi Kunasekaran: I have a feeling it's because of the the block because I think the it looks like most of these are Canadian. So the US ones had the multiple states and that's likely what's erroring out.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  },
+  {
+   "ledger_id": "L2283",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:02:35",
+   "line_start": 142,
+   "quote": "Kobi Kunasekaran: Um, but the main thing is the click pipeline is back up and running again.",
+   "doc_id": "1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2300",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:15:00",
+   "line_start": 266,
+   "quote": "and then I already talked about the reprocess button where if you do see an error and if we fix it, uh, like if it's like a missing assignment or something like that, then once that's fixed, you can just click on reprocess and it'll relink it. / Kobi Kunasekaran: The only ones that it won't like kind of work for is uh, the deal or the clicks where we received no delectional ID."
+  },
+  {
+   "ledger_id": "L2300",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:15:00",
+   "line_start": 266,
+   "quote": "and then I already talked about the reprocess button where if you do see an error and if we fix it, uh, like if it's like a missing assignment or something like that, then once that's fixed, you can just click on reprocess and it'll relink it. / Kobi Kunasekaran: The only ones that it won't like kind of work for is uh, the deal or the clicks where we received no delectional ID."
+  },
+  {
+   "ledger_id": "L2230",
+   "date": "2026-08-31",
+   "meeting_title": "Jumpr Management Meeting - 2026/08/31 16:00 EDT - Notes by Gemini",
+   "doc_link": "https://docs.google.com/document/d/17Bhd2N3ebUDGatBDjYScZCWXor7Izn7yCTu7NBGHJps/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:43:19",
+   "line_start": 543,
+   "quote": "Kobi Kunasekaran: came across uh some bugs last week. Um have a new updated flow up and running. So uh we're continuing to monitor to make sure everything's good there."
+  },
+  {
+   "ledger_id": "L2492",
+   "date": "2026-09-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+   "speakers": "Kobi Kunasekaran; Strahinja Vladetic",
+   "timestamp": "00:11:14",
+   "line_start": 258,
+   "quote": "Kobi Kunasekaran: … For the delectional ID, are we good with um Salesforce driving the ID? So, whatever we send is what we end up using to send back with the SLC clicks. / Strahinja Vladetic: Yeah, 100%. / Strahinja Vladetic: … But once you guys take um take control of that, we'll just trust whatever you send back as the ID and then that's what we'll yeah that's how we'll reference it going forward."
+  },
+  {
+   "ledger_id": "L2300",
+   "date": "2026-09-01",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "00:15:00",
+   "line_start": 266,
+   "quote": "and then I already talked about the reprocess button where if you do see an error and if we fix it, uh, like if it's like a missing assignment or something like that, then once that's fixed, you can just click on reprocess and it'll relink it. / Kobi Kunasekaran: The only ones that it won't like kind of work for is uh, the deal or the clicks where we received no delectional ID."
+  }
+ ],
+ "what_differs": "Meetings agreed to remove matching by deal makeup and rely only on the Deal External ID, and Kobi reported it done on 2026-09-01. WAGR-5 (Jumpr Review) still describes a fallback to state/country and partner/operator, with no later comment.",
+ "suggested_action": "Add a comment to WAGR-5 that records the Deal-External-ID-only rule and the reprocess limitation for clicks without a Deal External ID, so review and UAT test the current behaviour."
+}

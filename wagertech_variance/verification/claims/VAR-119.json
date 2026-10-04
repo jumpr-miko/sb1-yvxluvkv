@@ -1,0 +1,99 @@
+{
+ "var_id": "VAR-119",
+ "category": "V3",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "CMS Integration",
+ "title": "WAGR-39 epic and stories WAGR-498, WAGR-489, WAGR-458 still use superseded Deal statuses (Review Required, Retired, New)",
+ "jira": [
+  {
+   "key": "WAGR-39",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+   "quote": "* Retired, not Replaced, is terminal for normal users.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-39",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+   "quote": "    * Paused / Inactive / Closed / Review Required;",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-498",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "Sign-Up — Stamp First Click Date and reactivate Inactive Deal from qualifying activity",
+   "quote": "* New / Paused / Closed / Review Required / Retired → do not auto-activate/reactivate.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-489",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "Account — Protect Operator/Partner integration identity fields after Deal activation",
+   "quote": "Do not use current Deal Status = Active; Paused/Inactive/Closed/Retired Deals still count as having been activated.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-458",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "summary": "CMS Sync — Staging verification: Deals, lifecycle and integration engine",
+   "quote": "* Replacement activation remains blocked until predecessor's latest Retired/successor state is Synced.",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L3404",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:47:25",
+   "line_start": 883,
+   "quote": "Joyce Kiddell: Can we maybe rename it to archive and that way it's like / Kobi Kunasekaran: consistent. / Joyce Kiddell: yeah / Kobi Kunasekaran: Yeah. Yeah. We can do that.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  },
+  {
+   "ledger_id": "L3408",
+   "date": "2026-09-30",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo/edit",
+   "speakers": "Kobi Kunasekaran; Joyce Kiddell",
+   "timestamp": "00:52:03",
+   "line_start": 926,
+   "quote": "Joyce Kiddell: No, just no. That's not in it. / Joyce Kiddell: No, not at all. It just creates extra work.",
+   "doc_id": "1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3259",
+   "date": "2026-09-29",
+   "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+   "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+   "speakers": "Kobi Kunasekaran; Cedrick Infantado",
+   "timestamp": "00:25:39",
+   "line_start": 349,
+   "quote": "Kobi Kunasekaran: essentially only the fields that are part of the payload that we're sending to CMS should trigger another sync. … they could move it to paused, inactive, closed, review acquired, retired. All of these should trigger a CMS sync with the latest makeup of the deal information. / Kobi Kunasekaran: every status change gets synced to CMS."
+  },
+  {
+   "ledger_id": "L3302",
+   "date": "2026-09-29",
+   "meeting_title": "Kobi <> Cedrick - Wagertech Deal and CMS Integration Walkthrough",
+   "doc_link": "https://docs.google.com/document/d/12vbA9gL7ne04yz4gZ5SbVjVMHLY5uy-gO4k2gUV29qQ/edit",
+   "speakers": "Kobi Kunasekaran",
+   "timestamp": "01:10:01",
+   "line_start": 664,
+   "quote": "Kobi Kunasekaran: The only thing is the new and retired need to be added as new statuses. Um there should be us stories for that."
+  }
+ ],
+ "what_differs": "On 2026-09-30 WagerTech and Jumpr agreed to rename Retired to Archive and to remove Review Required. The WAGR-39 epic (baseline v0.12, last updated before that meeting) and the build stories WAGR-498, WAGR-489 and WAGR-458 still name Retired, Review Required and New in their rules and acceptance criteria, while WAGR-506/485/486/454 already use Draft/Archived.",
+ "suggested_action": "Suggestion only: update the WAGR-39 outbound-scope and identity-rule sections to the v0.13.1 status set, and replace Retired/Review Required/New in WAGR-498 (rule list and AC 8), WAGR-489 and WAGR-458 with Archived/Draft. Also confirm with WagerTech the 'Draft' label: the last meeting record (L3302, 2026-09-29) says 'New', and no meeting records the rename to Draft."
+}

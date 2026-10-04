@@ -1,0 +1,62 @@
+{
+ "var_id": "VAR-035",
+ "category": "V5",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Deal",
+ "title": "Deal currency meaning was defined by the client on 2026-08-27, but Jira still lists 'final currency semantics' as open and defaults Canada deals to CAD",
+ "jira": [
+  {
+   "key": "WAGR-39",
+   "status": "Requirements",
+   "assignee": "",
+   "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+   "quote": "* Final Deal currency semantics.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-39",
+   "status": "Requirements",
+   "assignee": "",
+   "summary": "SF → CMS Integration: Deals & Affiliate Links (v2 webhook)",
+   "quote": "* Working V1 currency mapping: CMS `currency` ← Deal `CurrencyIsoCode`; retain as explicit WagerTech confirmation.",
+   "quote_source": "description"
+  },
+  {
+   "key": "WAGR-507",
+   "status": "Open",
+   "assignee": "Cedrick Infantado",
+   "summary": "Deal — Guided New Deal creation flow (Draft + optional Commercial Terms handoff)",
+   "quote": "* Canada → CAD;",
+   "quote_source": "description"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L2123",
+   "date": "2026-08-27",
+   "meeting_title": "Emily / Kobi (client working session)",
+   "doc_link": "https://docs.google.com/document/d/1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0/edit",
+   "speakers": "Emily Vandenberg",
+   "timestamp": "00:00:49",
+   "line_start": 71,
+   "quote": "Emily Vandenberg: So the commercial terms of the deal which would be labeled in the currency field don't always match what we would pay have the currency we would pay out to the sign up. So that's just telling you how they're going to pay like what funds they're going to pay us in. And typically they pay us in USDU and it's our affiliates. So that can't be assumed. Currency to currency can't be assumed.",
+   "doc_id": "1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L2503",
+   "date": "2026-09-11",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1JrZTaJQB49Swpnz3SjTb-o-E28mRHEmGWaQCU-TMm5c/edit",
+   "speakers": "Emily Vandenberg; Joyce Kiddell; Kobi Kunasekaran",
+   "timestamp": "00:21:46",
+   "line_start": 341,
+   "quote": "Emily Vandenberg: I pinged her. Yeah, I think like for now it would be fine, but / Joyce Kiddell: Yeah, maybe it's something that we don't deal with until we have to deal with it. / Kobi Kunasekaran: … If you want the same deal, like if you want the ability for the same deal to change the currency, that's when we'll have to have a chat. But uh we're okay with creating a new deal."
+  }
+ ],
+ "what_differs": "Emily stated that the deal currency is the currency the operator pays WagerTech in (typically USD) and must not be assumed to be the currency WagerTech pays out on the sign-up. WAGR-39 keeps currency semantics as an open question, sends Deal currency to the CMS as 'currency', and WAGR-507 defaults Canada deals to CAD.",
+ "suggested_action": "Write the 2026-08-27 definition into WAGR-39/WAGR-454/WAGR-507. Confirm with WagerTech what the CMS uses the 'currency' value for, and whether the Canada→CAD default is correct given operators usually pay in USD."
+}

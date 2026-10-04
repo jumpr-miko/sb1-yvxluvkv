@@ -1,0 +1,74 @@
+{
+ "var_id": "VAR-158",
+ "category": "V8",
+ "severity": "Medium",
+ "confidence": "high",
+ "feature_area": "Access & Permissions / Org Setup",
+ "title": "BA sales-assistant (and hybrid BA/Ops) login and audit model is unresolved and not in Jira",
+ "jira": [],
+ "no_ticket_search": {
+  "terms": [
+   "assistant",
+   "shared login",
+   "sales assistant",
+   "hybrid",
+   "persona",
+   "license count"
+  ],
+  "nearest_considered": [
+   "WAGR-37",
+   "WAGR-495",
+   "WAGR-186",
+   "WAGR-393"
+  ]
+ },
+ "transcript_evidence": [
+  {
+   "ledger_id": "L0393",
+   "date": "2026-06-17",
+   "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+   "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+   "speakers": "Lina Ceniccola",
+   "timestamp": "00:14:30",
+   "line_start": 277,
+   "quote": "Lina Ceniccola: would be I mean I can go top down. So like you have operations team then you have the sales / Lina Ceniccola: manager then the brand ambassador that falls under the sales manager and then their sales assistant if they have one. So it's also like if they have a manager and if they have a sales assistant but if they are a brand ambassador they would be using Salesforce regardless.",
+   "doc_id": "1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg"
+  },
+  {
+   "ledger_id": "L0399",
+   "date": "2026-06-17",
+   "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+   "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+   "speakers": "Joyce Kiddell; Emily Vandenberg; Kobi Kunasekaran; Lina Ceniccola",
+   "timestamp": "00:19:03",
+   "line_start": 370,
+   "quote": "Joyce Kiddell: I'm wondering if it's useful to have their own role. um if we can keep it under the cap of our total licenses. / Lina Ceniccola: We can think about it. / Kobi Kunasekaran: Yeah, we don't need to make a decision on the call right now, but it's good to know like if we do need to build any um anything to indicate, you know, signups log by assistance versus brand ambassadors",
+   "doc_id": "1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg"
+  },
+  {
+   "ledger_id": "L0845",
+   "date": "2026-07-07",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk/edit",
+   "speakers": "Emily Vandenberg; Joyce Kiddell",
+   "timestamp": "00:53:09",
+   "line_start": 636,
+   "quote": "Emily Vandenberg: for BA assistants in a world where that there's people that are assisting the reps, do we want them to just use shared login or are you hoping to have unique but a relationship? / Joyce Kiddell: Uh, I mean unique would be great, but um I think it comes down to cost, right? Like I don't we need to scope out exactly how many users we're going to need internally, like excluding them and then understand if there's any left over like based off of our current agreement. Like I don't think we're going to have / Joyce Kiddell: like the ideal state is that they have their own login even if it's like a lower permission level just from like an audit perspective so we can see like what they've done in the system but um I don't think that's possible so like let's you mean Lena talk about like the agreement details Listen.",
+   "doc_id": "1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk"
+  },
+  {
+   "ledger_id": "L0452",
+   "date": "2026-06-17",
+   "meeting_title": "WAGR: Jumpr <> Wagertech — Discovery Session 1: End-User Workflows",
+   "doc_link": "https://docs.google.com/document/d/1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg/edit",
+   "speakers": "Jay; Lina Ceniccola",
+   "timestamp": "00:03:23",
+   "line_start": 139,
+   "quote": "Jay: ... I think I'm more of a hybrid. Like I I can be both a BA and um operations. / Lina Ceniccola: Yeah, Jay will actually log the signups for one of our BAS. So, that's an important thing to note as",
+   "doc_id": "1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg"
+  }
+ ],
+ "later_or_conflicting_evidence": [],
+ "what_differs": "Discovery named the BA's sales assistant as a Salesforce user group and Jay as an Ops/BA hybrid who logs sign-ups for a BA. Whether assistants get unique lower-permission logins (for audit) or share the BA login was left open on 2026-06-17 and again on 2026-07-07, pending license counts. No later meeting answers it, and no Jira ticket mentions assistants; WAGR-495 covers only Rep, Manager, Ops and Admin.",
+ "suggested_action": "Add the question to WAGR-495 as an open persona decision (assistant: unique login vs shared; hybrid BA/Ops users: PSG combination) and ask WagerTech to decide before go-live user activation, since it affects license count and the audit trail."
+}

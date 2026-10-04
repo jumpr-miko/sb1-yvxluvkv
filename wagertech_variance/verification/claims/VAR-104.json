@@ -1,0 +1,81 @@
+{
+ "var_id": "VAR-104",
+ "category": "V2",
+ "severity": "Medium",
+ "confidence": "medium",
+ "feature_area": "Referral and Payouts",
+ "title": "WAGR-159 Pause Automation says a paused referrer 'blocks new attribution' and uses the unconfirmed prototype reason list; meetings decided no restriction and a different reason list",
+ "jira": [
+  {
+   "key": "WAGR-159",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-197 — Referrer: Pause Automation",
+   "quote": "Reversible; blocks new attribution only",
+   "quote_source": "description (AUTOMATION)"
+  },
+  {
+   "key": "WAGR-159",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-197 — Referrer: Pause Automation",
+   "quote": "Reason — Picklist: Awaiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review, Referrer Request, Other",
+   "quote_source": "description (AUTOMATION)"
+  },
+  {
+   "key": "WAGR-159",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-197 — Referrer: Pause Automation",
+   "quote": "Pause automation is complete and tested! Referrer - Pause Button V2",
+   "quote_source": "comment 2026-09-02 (author not shown)"
+  },
+  {
+   "key": "WAGR-178",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "summary": "BUILD-235 — Referrer: Pause Button — Confirm Reason Capture",
+   "quote": "Pause Reason — Picklist (single-select), required. Values: Waiting Ops Verification, Proof Quality Under Review, Payout Details Missing or Invalid, Duplicate Under Review / Possible Duplicate Referral Record.",
+   "quote_source": "description (FIELDS)"
+  }
+ ],
+ "no_ticket_search": null,
+ "transcript_evidence": [
+  {
+   "ledger_id": "L1982",
+   "date": "2026-08-18",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola",
+   "timestamp": "01:34:45",
+   "line_start": 1587,
+   "quote": "Kobi Kunasekaran: ...So, are we saying that for paused and banned, we're not going to restrict signups from being uh or reps from being uh adding referers or signups, even if they're banned or paused. / Lina Ceniccola: Yeah, that works.",
+   "doc_id": "1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0"
+  },
+  {
+   "ledger_id": "L2095",
+   "date": "2026-08-25",
+   "meeting_title": "Wagertech <> Jumpr: Weekly Sync",
+   "doc_link": "https://docs.google.com/document/d/1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo/edit",
+   "speakers": "Kobi Kunasekaran; Lina Ceniccola; Joyce Kiddell",
+   "timestamp": "00:22:52",
+   "line_start": 349,
+   "quote": "Lina Ceniccola: Yeah. Waiting ops proof quality under review. Sure. Payout details missing or invalid. Sure. Duplicate under review. Possible duplicate referral record. Sure. / Kobi Kunasekaran: Yeah. Yeah. Okay. We'll keep these again.",
+   "doc_id": "1hV8dTZ4odPgdD1SD-Y9NBFAVepAHPv1FtJHd8T20igo"
+  }
+ ],
+ "later_or_conflicting_evidence": [
+  {
+   "ledger_id": "L3039",
+   "date": "2026-09-24",
+   "meeting_title": "Wagertech Internal Sync",
+   "doc_link": "https://docs.google.com/document/d/1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ/edit",
+   "speakers": "Kobi Kunasekaran; Taryn Reithofer",
+   "timestamp": "01:03:48",
+   "line_start": 982,
+   "quote": "Kobi Kunasekaran: the followup is potentially creating a report or a way for them to see a list of um, signups with banned referers. Um, I would dep prioritize this / Taryn Reithofer: deep part 75. / Kobi Kunasekaran: really we just need to surface a way for them to see signups against uh bad referers / Kobi Kunasekaran: let's rework the ticket so that it doesn't seem like we have to do anything in the signup flow for now. / Kobi Kunasekaran: No, Let's just put it in the back hog for now. We we'll categorize it later."
+  }
+ ],
+ "what_differs": "On Aug 18 the client agreed that paused or banned referrers do not restrict signups (reconfirmed internally Sep 24, and WAGR-75 was rescoped to a report). WAGR-159, created Aug 20 from the prototype and marked built and tested, still says Pause 'blocks new attribution' and lists six prototype reasons, while WAGR-178 holds the four reasons the client confirmed on Aug 25.",
+ "suggested_action": "Check the built Pause flow in the sandbox: confirm it does not block attribution and uses the WAGR-178 reason values; then correct the WAGR-159 description (or close it as superseded by WAGR-178/WAGR-75)."
+}
