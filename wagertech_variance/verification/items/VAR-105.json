@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-105",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Real naming mismatch (WAGR-191 Default Payout Type built as Cash/Redeposit; Sep 25 WagerTech decided to keep 'bet credit'; Sign-Up/matrix use bet credit), with no later reversal. But WAGR-465 already lists this exact naming question as open, so Jira partially covers it, and the fix is a small picklist rename/mapping before WAGR-428 defaulting is built. Lower to Low.",
+ "q1": "Found. Re-fetched doc 1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw (Referral and Payouts Discovery, 2026-09-25) as HTML, converted to text. All parts of both quotes match verbatim after whitespace normalization (text lines 337-370; the L3107 quote at lines 367-370, the L3106 quote at lines 345-353). Aug 18 quote also confirmed in raw transcript 1SOoE_... line ~1595 ('the default payout type, remember it's like cash or redeposit').",
+ "q2": "Supports the claim. At 00:18:49 Joyce asks 'we're still calling it bet credit, right?'; Lina: 'We call it bet credit for referral payments... keep it consistent... Even though yes, it's technically a redeposit. It has its own special name.' Joyce: 'Okay.' This is a client decision, not a proposal. At 00:17:54 Kobi reads back that the Sign-Up payout type pulls from the referrer default and can be changed to 'bet credit or cash'; Joyce confirms. Context caveats: Joyce herself uses 'bet credit or redeposit' interchangeably at 00:17:54, and the Aug 18 'cash or redeposit' was a loose reminder, not a deliberate naming decision; earlier decisions (L0075 May 28, L1085 Jul 17) already used 'bet credit vs cash'. So the Sep 25 call confirms rather than changes the term. Kobi's line 'Credit this will be hub in Salesforce' is garbled; meaning unclear.",
+ "q3": "No later reversal. Ledger ends 2026-09-30. Checked L3228 (Sep 28), Sep 29 items, and Sep 30 weekly sync items L3342-L3376 and raw transcript grep for 'payout type'/'cash or'/'redeposit or': Sep 30 continues to use 'bet credit' for referral payouts (L3342, L3350, L3351, L3353); L3352 notes changing payout type after creation is not built yet. Nothing renames the referrer picklist or revisits the naming.",
+ "q4": "Partially covered. WAGR-191 (Jumpr Review, Taryn Reithofer, 2 comments): description and Aug 24 'Built per spec' comment both state 'Default Payout Type (Picklist: Cash, Redeposit)'; no comment updates naming. WAGR-428 (Open, Unassigned, 0 comments): asks for referral type auto-default from referrer, and mentions 'when Referral Type = Bet Credit, Payout Amount should default consistently with a redeposit value' but does not address the picklist value mismatch. WAGR-465 (Requirements, Kobi Kunasekaran, 0 comments; created Sep 25 after the call): Open questions include 'Naming: \"Bet Credit\" or \"Redeposit\"? The matrix has no Redeposit type.' - the same issue, still marked open even though the Sep 25 call answered it. WAGR-289 (Done) matrix uses 'cash / bet credit' and triggers on 'Referral Type is Cash or Bet'. JQL search for 'Default Payout Type' / related terms returned WAGR-191, WAGR-464, WAGR-213 and unrelated builds; no ticket renames the value.",
+ "corrections": [
+  "The Aug 18 later_or_conflicting_evidence entry is duplicated in the claim; it is earlier, not later, evidence.",
+  "Sep 25 decision confirms the long-standing term 'bet credit' (L0075 May 28, L1085 Jul 17) rather than introducing a new term; the Aug 18 'redeposit' wording was Joyce's loose phrasing.",
+  "WAGR-465 already captures the naming question; suggested action should be to record the Sep 25 answer on WAGR-465 and fold the picklist rename into WAGR-428/WAGR-191, not raise a new variance.",
+  "WAGR-289 Sign-Up trigger text reads 'Cash or Bet'; exact Sign-Up picklist API value ('Bet Credit') was not verified in the org."
+ ],
+ "live_jira": [
+  {"key": "WAGR-191", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 2},
+  {"key": "WAGR-428", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-465", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-289", "status": "Done", "assignee": "Unassigned", "comments_total": 1}
+ ]
+}

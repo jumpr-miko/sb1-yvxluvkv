@@ -1,0 +1,25 @@
+{
+ "var_id": "VAR-175",
+ "verdict": "confirmed",
+ "new_severity": "High",
+ "new_confidence": "high",
+ "reason": "Quote verified in the re-fetched 2026-09-14 doc (line 424); in context Kobi defers all production deployment and skips release statuses to Done; no later meeting (ledger to 2026-09-30) creates a deployment plan, and live Jira shows WAGR-18 with no children, WAGR-479 holding only WAGR-438/WAGR-393, and no deployment/go-live checklist ticket although WAGR-127 and WAGR-125 point to one.",
+ "q1": "Found, with one minor difference. Re-fetched doc 1L-0V5h2VXU_6WRkO_IDZDjrMtsu15cuOk6AM0dHTUuk (HTML export, converted with gdoc_html2txt.py): the text is at line 424, timestamp 00:27:54, speaker Kobi Kunasekaran. Wording matches exactly. The quote puts 'Kobi Kunasekaran:' immediately before 'Um, right now'. In the source the label starts the line with an earlier sentence ('And once it's in ready for review, ready for release or done...'), so the quote starts mid-turn. Same speaker, so this is not material. Supporting quotes L2328 (2026-09-01) and L0339 (2026-06-17) were also found in the local raw transcripts (only the filler words differ).",
+ "q2": "Supports the claim. Lines 385-470: Kobi explains the Jira workflow to Taryn and Cedrick. He says nothing goes to production yet, he will move items straight to Done, and 'once we migrate out of this sandbox phase and we start going into production then we'll start doing the in between stages of putting it in like ready for release internal UAT ... deployed and then done status'. This is a firm internal decision by the PM, not a question or a hypothetical. Mitigating context: Kobi intends to track deployment through per-ticket workflow statuses, not through a dedicated ticket. But items already moved to Done skip those statuses, so the backlog of sandbox-only work has no deployment tracking. This makes the gap stronger, not weaker. The 2026-09-01 and 2026-06-17 quotes are context only (November go-live, end-to-end testing). They do not directly evidence the deployment gap.",
+ "q3": "No reversal. The ledger runs to 2026-09-30. Later related rows: L2621 (09-16, still sandbox only), L2893 (09-23, not fully in production), L2974 (09-23, Nov 2 go-live needs build complete by Oct 9), L2993 (09-24, Nov 1 still targeted), L3016 (09-24, full permissions review and cleanup when preparing for go-live), L3001 (09-24, rotate credentials before production), L3329 (09-30, proposed: 'first push things to production' and then give each developer a sandbox). All of these confirm that a production deployment is still pending. None of them creates or assigns a deployment plan or checklist. L2748/L2784 (release notes) cover communication, not deployment.",
+ "q4": "Not covered. Live Jira on 2026-10-04: WAGR-18 'Deployment & Go Live Prep' epic is Open, unassigned, 0 comments, with no child issues (parent/Epic Link JQL returned none for it). WAGR-479 'Go Live Tasks' (created 09-29, described as a bucket for non-build go-live items) holds only WAGR-438 and WAGR-393. WAGR-23 'Milestone: Phase 1 Go-Live' is Open; its 2 comments cover re-baselining and blockers, not a deployment plan. WAGR-127 says 'GO-LIVE GATE. Add to the deployment checklist' and WAGR-125 says 'Fold into migration cutover checklist', but neither checklist exists as an issue. WAGR-313 is a Done production clean-up (destructive deployment of legacy flows, July). It is not a deployment of the new build. WAGR-460 covers only the CMS sync cutover. WAGR-20 is a data migration plan, not a metadata deployment. Searches run: summary ~ deploy*/deployment/release/cutover/go live/runbook/checklist/production/change set; text ~ 'deployment checklist'/'cutover checklist'/'go-live checklist'/'deploy to production'/'release plan'/'change set' (results were noisy because of stemming, and no deployment plan ticket appeared).",
+ "corrections": [
+  "The quote's speaker label is placed mid-turn. The source turn starts at line 424 with 'And once it's in ready for review...'. Same speaker, so the quote is unaffected.",
+  "Suggested additional gates for the proposed deployment ticket: WAGR-20 (production data migration plan), WAGR-496 (implement access matrix), WAGR-445 (credential rotation, per L3001), and L3329 (the 09-30 proposal to push to production first, then per-developer sandboxes).",
+  "WAGR-313 is the only completed production deployment ticket. It covers the clean-up of legacy metadata, not the delivery of the build."
+ ],
+ "live_jira": [
+  {"key": "WAGR-18", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-479", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-23", "status": "Open", "assignee": null, "comments_total": 2},
+  {"key": "WAGR-127", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-125", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-313", "status": "Done", "assignee": null, "comments_total": 1},
+  {"key": "WAGR-460", "status": "Requirements", "assignee": null, "comments_total": null}
+ ]
+}

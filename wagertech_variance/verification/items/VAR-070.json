@@ -1,0 +1,43 @@
+{
+ "var_id": "VAR-070",
+ "verdict": "downgraded",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "The variance is real. The 09-28 quotes are verbatim, and Emily clearly asked for a Deal-driven roll-up that is not set at operator creation. WAGR-408 still specifies a manual picklist ('not a rollup'), and no follow-up ticket exists. Confidence drops to medium for two reasons. First, the Gemini notes label the roll-up 'Needs Further Discussion' (team feasibility is pending, and the Phase 1 need is still open with Joyce), so 'decided' overstates it. Second, Taryn closed WAGR-408 on 09-29, the day after the meeting, with only 'Done!' and no description change, so Jira does not show what was actually built. Check the org before reopening.",
+ "q1": {
+  "result": "found",
+  "detail": "I re-fetched doc 1LPqdzNsbAqi3fQ8FP5n5c9cfc7EyBHYuBc0TilXshGs (Emily / Taryn - Operator: Supported Markets, 2026-09-28). All quoted segments for L3212, L3208 and L3215 match verbatim after whitespace normalization (transcript lines 131-133 and 184-190). The ' / ' separators join consecutive turns, and the '...' in L3208 marks omitted text."
+ },
+ "q2": {
+  "result": "supports_with_caveat",
+  "detail": "In context (lines 115-192), Emily says Supported Markets is set at onset and then evolves through deal creation, and the office will not update it on the operator. She confirms against Joyce's prototype that it 'would still just be a roll up', and Taryn says 'Roll it from the deals... I'll take that back to the team.' This is a clear client requirement, and Jumpr accepted it in principle. Caveats: the Gemini Decisions section lists it under 'Needs Further Discussion \u2014 pending team confirmation of technical complexity'. Emily also questioned whether it is needed for Phase 1 if it is a big lift (L3213), and asked Taryn to raise complications so they can ask Joyce. So the requirement is firm, but the build approach and phase are still open. The speakers are attributed correctly."
+ },
+ "q3": {
+  "result": "no_later_reversal",
+  "detail": "I searched the ledger for dates after 2026-09-28 (74 rows on 09-29, 148 rows on 09-30) with the terms market, picklist, roll-up, 408 and operator detail. I found nothing on Operator Supported Markets. L3244 (09-29) is about Deal uniqueness fields only. I also grepped the raw transcripts for 09-29 (Kobi/Cedrick deal and CMS walkthrough) and 09-30 (weekly sync) for 'supported market', '408' and 'rollup'. The only hits are about redeposit budget roll-ups. No Joyce Phase 1 answer is recorded."
+ },
+ "q4": {
+  "result": "not_covered",
+  "detail": "WAGR-408 (Done, Taryn Reithofer, resolved 2026-09-29 15:42) still says 'multi-select picklist... not a rollup' (AC2). Its 4 comments are dated 09-17 (two options: picklist+formula vs related object+Flow, plus questions for the client) and 09-29 ('Done!'). Nothing records the 09-28 roll-up outcome or the Phase 1 question. WAGR-64 (Jumpr Review, Phase 1) has 6 comments; it says Markets was split to WAGR-408 and Verticals is a multi-picklist, and has no mention of a 09-28 roll-up. A JQL text search for 'supported markets', 'markets rollup' and 'market roll-up' returned 22 issues (for example WAGR-223, WAGR-101, WAGR-235, WAGR-138, WAGR-384, WAGR-364). None of them is a Deal-driven Supported Markets roll-up on Operator."
+ },
+ "corrections": [
+  "WAGR-408 has no Phase custom field. Its parent epic is WAGR-478 'Phase 2 Stories' (Open), while its Sprint field shows WAG Sprint 1 (closed) and WAG Sprint 3 (future). This matches the claim's suggested action.",
+  "Weaker wording than 'decided': Gemini lists the roll-up under 'Needs Further Discussion' (pending a technical-complexity check by the team), and the ledger records L3212 as decided with the build approach not confirmed.",
+  "The 'Done!' close on 2026-09-29 came after the 09-28 meeting. Jira does not show whether the delivered build is still the picklist or a roll-up. Verify in the org before reopening.",
+  "The 09-28 meeting is a 1:1 between Emily and Taryn. Joyce did not attend, so the Phase 1 question for Joyce is still open."
+ ],
+ "live_jira": [
+  {
+   "key": "WAGR-408",
+   "status": "Done",
+   "assignee": "Taryn Reithofer",
+   "comments_total": 4
+  },
+  {
+   "key": "WAGR-64",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "comments_total": 6
+  }
+ ]
+}

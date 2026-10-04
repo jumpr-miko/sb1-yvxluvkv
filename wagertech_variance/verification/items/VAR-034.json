@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-034",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "The quote is in the 2026-08-11 transcript (line 641), with filler words dropped. In context, Joyce goes through the Deal mockup and lists Priority Tier values primary, secondary and blacklisted. Kobi then says 'I'll update the fields.' No later meeting mentions Priority Tier values or Blacklisted. In live Jira, WAGR-175 (Done) and its 2026-08-27 comment have only Primary and Secondary, and WAGR-133 has the same values. A JQL search for blacklist/blacklisted returns 0 issues. Confidence stays medium because Joyce hedged ('I think') and pointed to her own documentation. That doc (1IIfaPIol2HmX8v09gw0SKQyCuoHTiwrJxdDNc7qtvB8, the source cited on WAGR-175) returned 'not found', so I could not check it.",
+ "q1": "Found, with minor filler differences. Re-fetched doc 1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8 ('Wagertech <> Jumpr: Weekly Sync - 2026/08/11'), line 641 at 00:48:05. The source text is: 'Um, and then under priority tier, I had three options. there was like in the documentation I sent you, you should have it too, but it's I think primary, secondary, and then blacklisted.' The claim's quote drops only 'Um'. The wording is otherwise the same.",
+ "q2": "Supports the claim. Speaker is Joyce Kiddell (client). She walks through her Deal record mockup (owner/deal version moved to additional details, then Priority Tier, payout model, CPA/monthly cap, deposit target/range, redeposit). This is a statement of the client's required values, not a question or a hypothetical. Nobody pushes back. At 00:51:28 Kobi says 'I'll update the fields. I think those are pretty straightforward.' That is a general commitment for the whole walkthrough, not one for Blacklisted only. Weak points: Joyce hedges ('I think') and refers to her documentation as the source. Nothing in lines 595-700 walks it back.",
+ "q3": "No later reversal found. In ledger_compact.tsv, only L1662 (2026-08-11) mentions Priority Tier values or blacklist. Later rows that match 'primary/secondary' are about referrals, contacts, emails and markets, not Deal Priority Tier. No later raw transcript contains 'blacklist' or 'priority tier'.",
+ "q4": "Not covered. WAGR-175 (live: Done, Taryn Reithofer, 3 comments) has 'Priority Tier (picklist): Primary, Secondary' in its description. Comment 10236 (2026-08-27, no author recorded) reads 'Deactivated: Tier 1, Tier 2, Tier 3. Added: Primary, Secondary'. Kobi's closing comment (2026-09-29) does not mention Priority Tier. Search project = WAGR AND (text ~ blacklisted OR blacklist OR 'black list') returned 0 issues. Search text ~ 'Priority Tier' returned WAGR-507, 210, 175, 133, 68, 62, 61 and 14. None of them lists Blacklisted. WAGR-133 (Jumpr Review) mirrors Primary and Secondary only. WAGR-14 (Done) had the old values Tier 1/2/3. WAGR-507 (Open, new Deal flow) lists Priority Tier as optional with no values.",
+ "corrections": [
+  "The live 2026-08-27 comment on WAGR-175 still has no author recorded. The comment ID is 10236.",
+  "WAGR-133 (BUILD-221, Affiliate Link Deal Context Fields; live status Jumpr Review, assignee Taryn Reithofer) also has only 'Primary, Secondary'. Add it as a related key, as the suggested action already notes.",
+  "WAGR-507 (Open, Cedrick Infantado), the guided New Deal flow, includes Priority Tier as optional. Any Blacklisted value or behaviour (for example, blocking activation) should be checked against it.",
+  "The client's 'Deal Record User Stories' doc (1IIfaPIol2HmX8v09gw0SKQyCuoHTiwrJxdDNc7qtvB8) cited on WAGR-175 returned 'Requested entity was not found', so I could not check whether it lists Blacklisted."
+ ],
+ "live_jira": [
+  {"key": "WAGR-175", "status": "Done", "assignee": "Taryn Reithofer", "comments_total": 3}
+ ]
+}

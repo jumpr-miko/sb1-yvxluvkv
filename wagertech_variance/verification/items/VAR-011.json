@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-011",
+ "verdict": "confirmed",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "The 8/18 transcript (re-fetched) shows Kobi proposing no Salesforce restriction of sign-ups by player status and Emily agreeing. The meeting's own AI summary says banned is 'a signal for internal review rather than a hard block on signups'. Kobi told the client the same on 9/11. No later meeting reverses it. WAGR-474 (0 comments) cites Emily's 8/18 'no' as if Salesforce should block, so it could create a story that contradicts the decision. Severity stays Low because the ticket is a 'confirm with Emily' Decision item, not a committed build.",
+ "q1": "Found. Every segment of the spliced primary quote (lines 1468, 1488, 1489, 1505, 1508, 1510 of the fetched text) and the L1909 Emily quote (lines 1472-1478) match verbatim after whitespace normalization. The primary quote joins non-adjacent lines with '...'; the omitted lines do not change the meaning.",
+ "q2": "Supports the claim. Context lines 1440-1515: Joyce says ban is manual, based on fraud investigations, with a banner and no separate section. Kobi asks 'but signups can still come in, right?'. Emily says a banned player can still click but 'we wouldn't allow that to actually complete... we're not going to ban their account'. That describes WagerTech's process and website, not a Salesforce validation. Kobi then says reps see the player status on the sign-up and flag it, and that Salesforce does not need to automate or restrict sign-up creation by player status. Emily: 'Yeah, I don't think so'. Joyce: 'we're good on this'. The doc's Gemini notes (lines 47 and 120) record the same thing: a banner instead of restriction fields, and banned is not a hard block on sign-ups. Caveat: Emily's word 'complete' is ambiguous. It could mean WagerTech will not let such a sign-up end as a valid, paid completion. Even so, nobody asked for a Salesforce block and the team agreed not to automate one. This keeps confidence at medium, not high.",
+ "q3": "No reversal. Later items support the claim. 9/11 L2477 (raw transcript 00:03:12-00:04:14, verified): Kobi told Emily that sign-ups still flow through for banned players and nothing gets blocked; the player just stays Banned. 8/31 L2209: the completion automation sets Active only if the player is not Banned, which assumes banned players' sign-ups can reach Completed. 9/23-24 L2866-L2868 and L3038-L3039 apply the same no-block approach to banned referrers. Nothing from 9/25 to 9/30 revisits blocking sign-ups for banned players.",
+ "q4": "WAGR-474 live: Open, assigned to Kobi Kunasekaran, Low priority, Work Type 'Decision', parent epic WAGR-305, created 2026-09-25, 0 comments. The description says: 'can a banned player's Sign-Up reach Complete? Emily said no on Aug 18, but the build does not block it.' Done when: 'Emily answers each item, and each yes becomes a story.' The ticket does not mention the 8/18 decision not to restrict, or the 9/11 status update. Jira does not already cover the variance. The ticket is phrased as a question, not as a committed build gap, so 'treats as a build gap' in the title overstates it a little.",
+ "corrections": [
+  "Title wording: WAGR-474 does not assert a build gap outright. It is a 'confirm with Emily' Decision item that frames the missing block as a possible gap (Work Type = Decision). Suggest: 'WAGR-474 frames the missing banned-player block as an open gap...'",
+  "Extra supporting evidence: the 8/18 doc's own meeting notes (fetched text lines 47 and 120) state that banned status is 'a signal for internal review rather than a hard block on signups'.",
+  "The primary quote joins non-adjacent lines 1468 and 1488 with ellipses. The words are verbatim, but the quote is not one continuous passage."
+ ],
+ "live_jira": [
+  {"key": "WAGR-474", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}
