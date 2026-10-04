@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-107",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "All three Sep 30 quotes exist verbatim in the re-fetched transcript. In context, Jumpr accepted each point: Kobi agreed to a separate streamlined referral-redeposit queue ('Yeah, we can do that'), conceded no deal-level budget entries for referral bet credit (later the whole budget-entry layer was removed), and confirmed bet credit goes to the referrer inside the payout flow. No later meeting exists (ledger and transcripts end Sep 30). WAGR-465 and WAGR-464 were last updated Sep 28, have 0 comments, and do not hold these decisions. WAGR-465 still says referral redeposits 'follow the redeposit proof process', and WAGR-464 still lists 'Where does the budget live' as open. No other WAGR ticket covers them.",
+ "q1": "Found. All quotes (L3358 at 03:19:31/03:21:38, L3342 at 02:57:54, L3350 at 03:08:49, and the conflicting-evidence lines L3373 at 03:07:19 and L3451 at 01:48:24) match verbatim after whitespace normalization, in doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo (Weekly Sync 2026-09-30, Gemini notes).",
+ "q2": "Supported. (a) Separate queue: Emily asked for it. Kobi restated it as a separate streamlined queue with no player selection and said 'Yeah, we can do that'. He then proposed a redeposit type filter and a slim tab for referral redeposits. This is a client ask that Jumpr accepted. (b) No deal-level budget entries: Joyce said referral bet credit spans books across deals. Kobi said 'we don't necessarily need to do budget entries for those types of allocation' and relate it to a deal-month. Later in the call he removed the middle budget-entry object for all redeposits and called that 'the biggest change' (L3343, L3359). Budget totals are tracked outside Salesforce. (c) Referrer allocation: Kobi confirmed the referrer gets paid. Emily said 'it kind of just happens in the payout'. Caveats that do not reverse the claim: L3373 (Kobi will think through how allocations relate to the bet credit payout) and L3354 (book eligibility strictness is open, Emily to get back) are still open. Emily called the flow 'clunky'. Kobi said he would update the prototype before writing stories, so these are design-stage decisions, not final build specs. Medium severity fits.",
+ "q3": "No later meeting. ledger_compact.tsv has no rows after 2026-09-30. The latest raw transcript is this same 2026-09-30 weekly sync. L3451 (01:48:24) is earlier in the same meeting, not later. Later rows in the same meeting (L3343, L3359, L3371, L3373, L3376) support the claim.",
+ "q4": "Not covered. WAGR-465 (Requirements, Kobi, updated 2026-09-28, 0 comments) has the cited bet-credit line, which says the redeposits 'follow the redeposit proof process'. That conflicts with the separate streamlined queue. It has nothing on budget entries or the referral queue. WAGR-464 (Requirements, Kobi, updated 2026-09-28, 0 comments) still lists 'Where does the budget live, and in what unit?' as an open decision, and has the cited cross-reference line. JQL 'bet credit' OR 'referral payout' OR 'budget entry' returned WAGR-47, 462, 477, 465, 464, the BUILD referrer and player tickets, WAGR-377 (Cancelled OOS), 475, 468 and 467. None covers this. JQL updated>=2026-09-30 for redeposit, referral or payout returned 14 tickets (WAGR-436, 510, 439, 189, 504, 75, 505, 47, 483, 98, 173, 106, 461, 462). None covers this.",
+ "corrections": [
+  "L3358 quote joins Emily's 03:19:31 line with Kobi's 03:21:38 lines. About 2 minutes of discussion sits between them. The lines are verbatim, but the claim joins them as one exchange.",
+  "Related decision L3343 (budget-entry layer removed for all redeposits) strengthens the WAGR-464 part. Cite it with L3342.",
+  "Also record the open item L3354 (book eligibility strictness, Emily to confirm) with L3373 when updating WAGR-465."
+ ],
+ "live_jira": [
+  {"key": "WAGR-465", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

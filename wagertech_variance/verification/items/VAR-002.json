@@ -1,0 +1,24 @@
+{
+ "var_id": "VAR-002",
+ "verdict": "downgraded",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "The 2026-09-01 decision is real and Done WAGR-165 was closed on 09-24 only for the flag-at-New ability. But the write-off half is now tracked in open design ticket WAGR-466. Later meetings (09-25, 09-30) also reopened the write-off design: Kobi will 'get back' on it, so the 09-01 checkbox spec is not final. The part with no ticket is the rule that confirmed fraud on a New record (with no payment sent) moves it to Archived. WAGR-220 covers only the Dismissed path.",
+ "q1": "Found verbatim (filler 'um/uh' differences only). Re-fetched doc 1wmGMiVLLsLjkMh9s3WRUNqJd5AxHlqXEO6Ll8rL1_uo (Weekly Sync 2026/09/01) as text/html and converted it. Both quotes are in it: Kobi at 00:27:33 (line 388) and Lina/Emily at 00:23:39-00:25:02 (lines 343, 361-363). Note: 'prod review status' in the transcript is ASR for 'fraud review status'.",
+ "q2": "Supports the claim in context (lines 300-430). Emily proposes a write-off marker at any status. Kobi restates it at 00:26:06. Lina refines it: payment sent -> write off, payment not sent -> archive. Kobi states the final rule at 00:27:33. Lina says 'Yeah', Kobi says 'that works', and Emily says 'I think this accomplishes it' and Kobi says 'Okay, done'. The client agreed and Jumpr accepted. No walk-back in the meeting. Emily also says payment management is not built yet, so the write-off flag is an interim measure.",
+ "q3": "Yes, partly. L3040 (09-24 internal) closed WAGR-165 because flagging at New works ('Cedric already updated this in a different ticket'). Nobody mentioned the write-off checkbox or the archive-on-confirm rule. That supports the gap. L3101/L3157 (09-25 discovery) moved write-offs into the payouts design: a paid payout is locked and fraud found later is a write-off. L3357/L3374 (09-30): 'confirmed fraud marks a signup written off', but how write-offs roll into redeposits/payouts is TBD and Kobi will get back. L3457 (09-30): write-offs are not built yet. So the write-off design is still open and may replace the simple 09-01 checkbox. The New->Archived on confirm rule was not changed later. L3150 (09-25) agrees that confirmed fraud should clear out of queues.",
+ "q4": "Partly covered. WAGR-165 (Done, Taryn): 2 comments. The 2026-09-03 comment (author not returned by the API) records the rules as 'New scope added'. The ticket has no issue links, and the Taryn link promised on 09-24 is missing. Its custom 'Status' field still says 'Awaiting Client Feedback'. WAGR-466 (Open, Kobi, 0 comments, created 09-25) is a design ticket for write-offs of paid Sign-Ups (log cost, Confirmed Fraud after Paid -> write-off). It covers the write-off intent but not the 09-01 checkbox spec or the New->Archived rule. WAGR-220 (Jumpr Review, Marc, 4 comments) covers the lock on Suspected/Confirmed and the Dismissed restore only. It has no Confirmed->Archived rule. WAGR-242 (Done) is the 'Payment Sent' checkbox, so that field exists. That answers the open 'confirm if Payment Sent exists' item. JQL text searches for write-off / 'write off' / 'Payment Sent' / 'confirmed fraud' / Fraud_Review_Status__c found no build ticket for the Write-off checkbox or the archive-on-confirm automation. Other related tickets: WAGR-465 (Requirements, payouts design), WAGR-1, WAGR-344, WAGR-10, WAGR-274.",
+ "corrections": [
+  "WAGR-165 comment date 2026-09-03 is correct. The author is not returned by the API either.",
+  "Add WAGR-220 (Jumpr Review, Marc Cabantog) as the right home for the Confirmed + no payment -> Archived automation. It already owns the Fraud Review Status automations (Dismissed path only).",
+  "WAGR-242 (Done) shows the 'Payment Sent' checkbox exists. The suggested action does not need to confirm it.",
+  "Reframe the write-off half as 'reconcile with WAGR-466 design' and not 'open a build ticket'. The 09-25 and 09-30 meetings left write-off handling TBD (L3374 owner Kobi).",
+  "The claim's later_or_conflicting_evidence lists L3040 twice."
+ ],
+ "live_jira": [
+  {"key": "WAGR-165", "status": "Done (resolved 2026-09-24; custom Status field 'Awaiting Client Feedback')", "assignee": "Taryn Reithofer", "comments_total": 2},
+  {"key": "WAGR-466", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-220", "status": "Jumpr Review", "assignee": "Marc Cabantog", "comments_total": 4},
+  {"key": "WAGR-465", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

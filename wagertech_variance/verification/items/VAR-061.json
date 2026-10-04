@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-061",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "Aug 25 client sync (after the Aug 18 cut) explicitly accepted the mockup ban reasons 'for player' as a starting list; Sep 1 Kobi told Taryn to build from mockup values; no later meeting reverses it (Sep 15/17 are internal open questions, Sep 23 banner drop does not address reasons); WAGR-156/154 Sep 3 comments still say no player ban reason, and WAGR-154's own description contradicts the comment.",
+ "q1": "Found. Aug 25 doc (1hV8dTZ4...) re-fetched as text/html and converted: 'Lina Ceniccola: I think it looks fine.' (line 312), 'Kobi Kunasekaran: Okay. So if these are good like we can start with these again like we can always change them up later too.' (328), 'Emily Vandenberg: Perfect.' (329). The quote stitches non-adjacent lines; between them is a short duplicate-account side discussion (lines 313-327), which does not change meaning. Sep 1 doc (1ZR6vkGV...) quote found verbatim at lines 199-207 (filler 'um/uh' present in source).",
+ "q2": "Supports the claim. At line 308 Kobi opens the mockup: 'so for band we had all of these reasons and like um this interface... do we want to keep these reasons or was there like a different list... This is for player'. Lina: 'I think it looks fine'; Kobi: 'we can start with these ones for Ben [ban]', then moves to referrer ban reasons and pause reasons separately. Gemini summary of the same doc: 'The proposed ban and pause reason lists are approved for use with the addition of the Associated with broad network category' and action item 'Kobi: Prepare the ban and pause reason interfaces for user testing.' This is a client acceptance, not a question. The Aug 18 cut (raw transcript ~lines 1454-1468) was about a separate 'restriction detail' section/input fields, with Joyce saying the reason would be inferred from flagged sign-ups; WAGR-156's own description distinguishes the Ban modal reason picklist from the cut persistent Restriction Detail fields. So the Jira comments conflate the two and ignore the later Aug 25 acceptance. Sep 1 internal: Kobi to Taryn 'let's just use their mockup values as a starting point and build that out.'",
+ "q3": "No later reversal found. Ledger after Aug 25: L2370 (Sep 2) ban reason picklist question unanswered; L2588/L2590 (Sep 15) Emily asked if a reason code is required, Taryn's notes say no reason, Kobi does not remember; L2669/L2686/L2687 (Sep 17) still open, Kobi: '99% they're gonna need to know like why the player was banned', Taryn to verify offline; L2856 (Sep 23) Emily dropped the fraud and primary-email banners only (raw transcript lines 387-397) and says nothing about ban reasons. No ledger row through Sep 29 records a client decision against player ban reasons.",
+ "q4": "Not covered. WAGR-156 (2 comments) and WAGR-154 (2 comments) both carry the Sep 3 comment 'No Ban Reason/Notes modal for Player - explicitly cut', citing only the Aug 18 sync. Neither ticket mentions the Aug 25 acceptance or the open Sep 15/17 question. WAGR-154 description still says 'Ops bans a Player through a button that requires a reason' and AC1 'Ban action requires a reason', which contradicts its own comment. WAGR-156 description lists the reason picklist as an open question to confirm with Kobi/Joyce.",
+ "corrections": [
+  "Aug 25 quote is assembled from lines 312, 328 and 329 of the fetched text (claim line_start 308 is Kobi's intro line 'This is for player'); cite line 308 as the key context line.",
+  "Comment author on WAGR-156/154 is not returned by the API; Kobi attached screenshots on both tickets one minute earlier, so the author is likely but not confirmed to be Kobi or Taryn.",
+  "Add to what_differs: WAGR-154 description and AC1 still require a ban reason, which conflicts with its Sep 3 comment, so the ticket is internally inconsistent.",
+  "Live status/assignee match the claim (Jumpr Review, Taryn Reithofer); both tickets updated 2026-09-28 (sprint rollover to WAG Sprint 2), Phase 1, Must Have."
+ ],
+ "live_jira": [
+  {"key": "WAGR-156", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 2},
+  {"key": "WAGR-154", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 2}
+ ]
+}

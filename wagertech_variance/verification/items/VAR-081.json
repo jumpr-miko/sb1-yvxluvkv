@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-081",
+ "verdict": "downgraded",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "The data-model outcome is real and is not in Jira. But it is not a true no-ticket gap: WAGR-464 (Redeposits workflow - design and user stories, Requirements, Kobi, active Sprint 2) owns this scope. It lists 'Where does the budget live' and 'Batch level' as open decisions, and its Done-when already requires the client design review outcome on the ticket plus linked build stories. The variance is that the 2026-09-30 decision (4 days old) is not yet recorded on WAGR-464 and no build stories exist yet. This is a V2-style stale-ticket gap, so Medium, not a High V1.",
+ "q1": "Found. All quote parts exist verbatim after normalizing whitespace and filler words. L2785: lines 186-190 of the 2026-09-21 doc (00:02:55). L3343: the parts are in the 2026-09-30 doc, but they are NOT contiguous. They come from lines ~1850 (02:58:50), ~1884 (03:01:46) and ~1960 (03:07:19), about 110 lines and 8 minutes apart, joined with ' / '. The meaning is kept. L3452 (line ~1221) and L3336 (line ~1521) also match.",
+ "q2": "Supported in context. On 09-21 Joyce asked for the per-deal budget to be a field that WagerTech enters manually. Kobi and Emily agreed ('Yes', 'Yep'), and Kobi clarified that Jumpr would automate only the split after the budget is set. On 09-30 Joyce said monthly numbers are a forecast, not a cap. Kobi then concluded that only the monthly container is needed, with no guardrails, and said 'I'll remove this middle object. We're going to just have the monthly budget and the redeposit allocation.' Nuances: (a) the 09-30 statement 'not tracking a total budget in Salesforce' is about the company-wide spend budget (L3349), not the per-deal monthly record. (b) The model is still changing: Kobi has open action items to relate allocations to bet credit payouts (L3373) and to handle write-offs (L3374), and Joyce asked to rename the record to 'monthly redeposit budget' (L3371).",
+ "q3": "No later meeting. The ledger has no rows after 2026-09-30. Later rows in the same 09-30 meeting agree with the claim: L3343 (change-to-earlier-decision, budget-entry layer removed), L3359 (biggest change is removing the middle budget entry), L3372 (one guided flow: pick the deal month, then add allocations), L3373. L3336 and L3452 come earlier in the same meeting (01:48 and 02:23) and are superseded by L3343 at 03:07, as the claim notes.",
+ "q4": "Partly covered. JQL 'text ~ redeposit' returned 36 issues. 'text ~ budget OR text ~ allocation' returned WAGR-468, 464, 358, 320, 42 and 14. No issue defines a Monthly Redeposit Budget or Redeposit Allocation object. WAGR-464 is the design and stories card for the redeposit workflow: status Requirements, assignee Kobi, 0 comments, last updated 2026-09-28 (before the 09-30 meeting). Its open decisions still include budget location and unit, and batch level. Its Done-when requires the design review outcome on the ticket and linked build stories. WAGR-108 (Open, Taryn, 0 comments) says the 'Redeposit object [is] not ticketed'. WAGR-107 (Ready, Taryn, 0 comments) and WAGR-213 (Jumpr Review, Kobi, 0 comments) cover only Deal-level redeposit fields. WAGR-358 (deal caps and forecasting, Phase 2, parked) is a different topic.",
+ "corrections": [
+  "Recategorize from V1 (no ticket) to V2 (decision not recorded on an existing ticket). The owning ticket is WAGR-464.",
+  "The L3343 quote is stitched from three places about 8 minutes apart (02:58:50, 03:01:46, 03:07:19 at lines ~1850/1884/1960), not one passage at line 2326. The key sentence 'I'll remove this middle object...' is at 03:07:19.",
+  "Monthly budget = forecast, no guardrails or enforcement. The company-wide total budget stays outside Salesforce (L3349). The build stories should say this so that no cap logic gets built."
+ ],
+ "live_jira": [
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-108", "status": "Open", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-107", "status": "Ready", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-213", "status": "Jumpr Review", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-468", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": null}
+ ]
+}

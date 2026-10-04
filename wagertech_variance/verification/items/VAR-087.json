@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-087",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "Quotes exist in the 2026-09-25 doc; in context the team agreed to mark incomplete redeposits at the redeposit level, roll amounts up to the payout, and not return funds to the pool. The 2026-09-30 sync restates this as not built yet ('can't complete' option, reasons TBD, write-offs not added), so nothing reverses it. No WAGR ticket captures the incomplete outcomes: WAGR-464 still lists 'Cancelled or Archived?' as open, WAGR-465 says Payout status follows its redeposits, and WAGR-466 covers paid Sign-Up write-offs only.",
+ "q1": "Found. All 8 speaker segments match after whitespace is normalized and um/uh removed (fetched doc lines 1118-1170). Note: the quote joins lines that are not next to each other and puts them in a different order. Kobi's 'should we track this at the redeposit level' (01:20:10) comes after Emily's two-status remarks (01:18:45-01:20:10). Lina's cancel/write-off line is at 01:18:45, not 01:17:22. The wording is unchanged.",
+ "q2": "Supports the claim, with one nuance. Joyce first asked for a status at the payout level (line 1118). The group then moved to tracking at the redeposit level: Kobi asked 'should we track this at the redeposit level ... roll up ... as opposed to changing the payout status?' and Joyce said 'Yes'. Kobi then asked 'can we just mark it on the redeposit level for now?' and Joyce said 'Yes'. Joyce also said the money does not go back to the pool. The cancel or write-off options are Lina's suggestion, and Joyce agreed ('Mhm'). Emily's two separate incomplete statuses (erosion/write-off vs funds returned) is a client requirement that was discussed, but Jumpr did not explicitly accept it. The claim words it as 'Emily asked for', which is accurate. Kobi framed the decision as a starting point to revisit later ('we'll start with that'). That is still a decision for design scope.",
+ "q3": "No reversal. The ledger has nothing after 2026-09-30. At the 2026-09-30 Weekly Sync, L3458 (raw line 1618) says reps will have a 'can't complete' option with reasons TBD, and L3457 (line 1610) says fraud flags and write-offs are not yet in the redeposit flow. L3357 and L3374 say write-off effects on redeposits and payouts are TBD, and Kobi will follow up. These items show the gap is still open. They do not resolve it.",
+ "q4": "Not covered. JQL searches: (1) text~'redeposit' gave 36 issues, with WAGR-464, WAGR-465 and WAGR-381 (Cancelled, OOS) the most relevant. (2) text~'write off' OR 'erosion' OR 'incomplete' gave WAGR-466, WAGR-465 and others not related. (3) text~'cancel' OR 'can't complete' OR 'funds back' gave WAGR-464 and others not related. WAGR-464 (Requirements, Kobi, 0 comments) has no incomplete outcome or status values, and lists 'Cancelled or Archived?' as an open decision. WAGR-465 (Requirements, Kobi, 0 comments) says 'The Payout status follows the status of its redeposits.' That differs from the 09-25 agreement to roll amounts up instead of changing the payout status. WAGR-466 (Open, Kobi, 0 comments) covers write-offs of paid Sign-Ups only.",
+ "corrections": [
+  "Quote segments are reordered and not contiguous. Kobi's roll-up question is at 01:20:10, after Emily's remarks. Lina's cancel/write-off line is at 01:18:45.",
+  "Add to the suggested action: WAGR-465 line 'The Payout status follows the status of its redeposits' should be changed to match the 09-25 agreement (roll up incomplete amounts, do not change payout status).",
+  "Emily's 'two separate incomplete statuses' is a client requirement that was discussed but not agreed. Treat it as an open status-value decision, not a decided item."
+ ],
+ "live_jira": [
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-465", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-466", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

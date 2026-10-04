@@ -1,0 +1,25 @@
+{
+ "var_id": "VAR-115",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quotes are verbatim and no later meeting reverses them, but the core item (CMS-side SLC reprocess/resync) is already named in Jira: WAGR-460 'CMS Sync - Production cutover' lists 'CMS-side SLC reprocess capability required for production support' under Dependencies, and its Hypercare step says 'agree who monitors Salesforce/CMS failure alerts'. What is still untracked is narrower: no owner/test checkpoint for the CMS button, and the Slack connector and stored-SF-ID items, which are WagerTech-internal engineering choices with soft commitment.",
+ "q1": "Found. All 14 quote fragments across the three cited docs (25 Aug 1hV8dTZ..., 18 Aug 1SOoE_..., 24 Jul 1aheMbg...) match the freshly fetched Drive text after whitespace normalization; only 'um/uh' filler differs.",
+ "q2": "Mostly supports. 25 Aug (00:37:34-00:38:32): Kobi recommends an admin-usable CMS-side manual push for API failures/Salesforce outages; Emily (WagerTech) says 'he hasn't built that yet ... we will add it to the backlog' - a soft backlog commitment, not a scheduled one. 18 Aug (00:18:45): Joyce asks for real-time error visibility in Slack; Strahinja agrees a Slack connector on the Pub/Sub queue is a good idea ('not a bad idea ... good to get a Slack connector on there regardless'). Correction: Emily's 'I do that' refers to adding Strahinja to the existing Slack channel, not to building the connector; the connector owner is Strahinja. 24 Jul (01:02:11): Kobi recommends that WagerTech store the Salesforce click record ID in their DB; Strahinja says 'That makes sense' - agreement with a recommendation, not a firm commitment. The 1 Sep follow-up (L2301/L2302) confirms the CMS still had no reprocess function and Kobi wanted it ready and tested before production; Emily 'backlogged it for the week, but we can pull it in before' (go-live).",
+ "q3": "No later reversal. Ledger rows after 1 Sep on resync/retry (L2445 4 Sep internal; L3178, L3259, L3275, L3288-L3291, L3297 on 28-29 Sep; L3384 30 Sep) are about the Salesforce-to-CMS Deal sync and its Salesforce-side retry checkbox, not the CMS-to-Salesforce click resend. A grep of the raw transcripts dated 2 Sep-Oct for repush/manual push/dead letter/Pub/Sub/Slack connector/error channel returned no hits. So there is no evidence that WagerTech built or dropped the CMS-side button, Slack connector or SF ID storage.",
+ "q4": "Partially covered. JQL text searches (resync/repush/re-push/manual push; Slack/dead letter/PubSub/Pub/Sub; reprocess/CMS side/client dependency; two-way lookup/failure alerts/CMS-side) returned WAGR-460, WAGR-457, WAGR-472, WAGR-265, WAGR-5, WAGR-324 and many unrelated Sign-Up/Player items. WAGR-460 (Requirements, unassigned, Jumpr Internal security, updated 2026-09-30, 0 comments) explicitly lists 'CMS-side SLC reprocess capability required for production support' as a dependency and 'agree who monitors Salesforce/CMS failure alerts' in Hypercare. The finder did not list WAGR-460 among its nearest_considered tickets. Other tickets do not cover it: WAGR-265 (Done) is the Salesforce-side SLC Reprocess quick action only. WAGR-457 (Requirements) is Salesforce-side Deal sync failure alerts. WAGR-472 (Open, Kobi) is a lost-click reconciliation spike with no CMS-side resend scope. WAGR-5 (Jumpr Review) is the Salesforce SLC resolution flow. WAGR-324 (Done) is the general Slack channel setup. No ticket tracks the CMS Slack connector or WagerTech storing the SF record ID.",
+ "corrections": [
+  "Add WAGR-460 as the nearest Jira coverage: its Dependencies section already names the CMS-side SLC reprocess capability as required for production support. It sits in epic WAGR-39 (SF->CMS Deals), has no owner and no test checkpoint, so the remaining gap is visibility/ownership, not a missing record.",
+  "L1921: 'Emily Vandenberg: I do that.' means Emily will add Strahinja to the existing Slack error channel. Strahinja (WagerTech) owns the Slack connector.",
+  "L1305 is a Kobi recommendation that Strahinja agreed with ('That makes sense'), not a scheduled WagerTech commitment. Treat it as low firmness.",
+  "Suggested action should be revised: make the existing WAGR-460 dependency visible (for example, a linked client-dependency item owned by WagerTech with a pre-production test checkpoint) instead of adding a duplicate ticket."
+ ],
+ "live_jira": [
+  {"key": "WAGR-460", "status": "Requirements", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-265", "status": "Done", "assignee": null, "comments_total": 1},
+  {"key": "WAGR-472", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-457", "status": "Requirements", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-5", "status": "Jumpr Review", "assignee": "Marc Cabantog", "comments_total": 12},
+  {"key": "WAGR-324", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

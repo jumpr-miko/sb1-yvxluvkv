@@ -1,0 +1,24 @@
+{
+  "var_id": "VAR-085",
+  "verdict": "downgraded",
+  "new_severity": "Low",
+  "new_confidence": "medium",
+  "reason": "The quotes exist and no later meeting reverses them. No WAGR ticket has the actual-amount field or the post-completion lock for redeposits. But WAGR-464, the open Redeposits design card in Requirements, already covers 'logs proof for each one', and its Done-when requires the build stories. The 'decision' was mainly Kobi showing his prototype: Emily confirmed the completion fields, but nobody answered the lock statement. 'Date auto-populates' is not supported by the transcript.",
+  "q1": "Found. All three segments match the re-fetched Doc (tmp text lines 1281, 1282 and 1294; timestamps 01:57:28 to 01:58:37). The quote is a composite of excerpts joined with '/'. It drops the surrounding text (for example 'Was there anything else that we need to capture...', Emily's 'Sorry, just give me one second... so you have the book, you have', and Kobi's 'so if I go into my uh completed queue um'), but it does not change any words. The ledger line_start 1594 refers to the raw transcript, not to this export.",
+  "q2": "Mostly supported, but stated too strongly. Context: Kobi (Jumpr) walks through a sandbox prototype of the rep redeposit queue. Kobi asks: 'we still want a proof and the actual redeposit amount. And that's it, right? Was there anything else...' Emily (client) checks her sheet and lists player name, book, redeposit amount, redeposit date and region ('automatically going to pull in from'), plus proof. Kobi then says the related deal information is auto-populated, and Emily says 'Yeah'. So the client did confirm the completion field set. The lock ('everything's locked away not editable once it's been completed. Similar to what we did for signups') is Kobi describing the prototype. Nobody discussed or confirmed it, and nobody objected. In the same passage Kobi says fraud flags and write-offs are not in yet, and that this is 'the happy path'. The transcript supports auto-population of region and deal/book. It does not clearly support auto-population of the redeposit date, and the player is chosen in the earlier assignment step.",
+  "q3": "No later meeting. The ledger ends on 2026-09-30, and the newest raw transcript is the cited 2026-09-30 weekly sync. The other 2026-09-30 redeposit items (L3457 fraud and write-offs not in yet, L3459 no return to ops, L3461 request reallocation, L3343 budget-entry layer removed) do not change the completion fields or the lock. The claim's 'later_or_conflicting_evidence' row L0086 (2026-05-28) is EARLIER, not later. It describes the current spreadsheet process, so it is not a reversal.",
+  "q4": "Partially covered. WAGR-464 (Redeposits workflow - design and user stories; Requirements; Kobi; 0 comments) says 'A BA assigns slots to eligible players and logs proof for each one'. It has no actual-amount field, no auto-populated fields and no lock on completion, and its Done-when requires the build stories that would hold these details. WAGR-108 (Player Redeposits related list, Open) lists the columns Amount and Proof only. WAGR-107 and WAGR-213 cover Deal redeposit settings. WAGR-243 (Done) is about locking a Sign-Up after completion, not a redeposit, but it is a precedent: reps cannot edit, Admins can. WAGR-381 is Cancelled (OOS). JQL text searches for 'redeposit', 'proof', 'locked/read-only/not editable/completed queue' and 're-deposit/redep*/allocation' returned no ticket for redeposit completion or lock. No WAGR redeposit ticket was created after 2026-09-30 (the newest hit is WAGR-510, Sign-Ups list view, 2026-10-02).",
+  "corrections": [
+    "The quote is a composite of three non-adjacent excerpts (lines 1281, 1282 and 1294 of the export), not one continuous passage.",
+    "The lock was a Jumpr prototype behavior described by Kobi ('similar to what we did for signups'). The client did not explicitly confirm it; record it as proposed/demonstrated, not decided.",
+    "Auto-population: the transcript supports region and deal/book information. It does not clearly support the redeposit date. The player comes from the assignment step.",
+    "The later_or_conflicting_evidence row L0086 is dated 2026-05-28 and is earlier than the cited meeting. It is not later evidence.",
+    "Better target: add these details to WAGR-464, which is the umbrella design card. The rep-lock precedent is WAGR-243 (Sign-Up)."
+  ],
+  "live_jira": [
+    {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+    {"key": "WAGR-108", "status": "Open", "assignee": "Taryn Reithofer", "comments_total": 0},
+    {"key": "WAGR-107", "status": "Ready", "assignee": "Taryn Reithofer", "comments_total": 0},
+    {"key": "WAGR-243", "status": "Done", "assignee": null, "comments_total": 1}
+  ]
+}

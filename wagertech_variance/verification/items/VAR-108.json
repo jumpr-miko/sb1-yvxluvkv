@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-108",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "Both quotes exist verbatim in the re-fetched Gemini docs. In context, Kobi restated the default (only books where the referrer's player record has completed signups), Emily said she sometimes plays through other people's books, was unsure how strict launch must be, and said 'let me get back to you on that'. No ledger rows exist after 2026-09-30. WAGR-465 and WAGR-464 (0 comments each) do not mention book eligibility or the strictness of the check.",
+ "q1": "Found. Weekly Sync 2026-09-30 (doc 1pc9pSc8...): Joyce line and Emily line both found verbatim after whitespace normalization (fetched text lines 2034 and 2039; raw transcript line 2554 matches the claim). The claim's Emily quote starts mid-sentence: it drops 'And like sometimes, yeah, that is t I'm just double checking something, but'. That does not change the meaning. Referral and Payouts Discovery 2026-09-25 (doc 1297TNkb...): Joyce quote found verbatim at line 681.",
+ "q2": "Supports the claim. At 03:15:49 Kobi says the book drop-down needs book plus month. Joyce says the drop-down must show only eligible books, and eligibility means 'if that specific referral has signed up for that book or not'. Emily then says 'sometimes I'll find other people's books to play through. So, I don't know how hard ... we need to be on this for launch ... let me get back to you on that'. Kobi closes with 'by default is anything where the player record for the referer had completed signups'. So a default exists, but the strictness question (hard block, warning, or override) is open and Emily owns the follow-up. Notes: (a) Emily's 'I'll find other people's books' is in the first person, so 'referrers sometimes play through other books' is a reasonable paraphrase but an interpretation. (b) On 2026-09-25 Joyce said the check was what the system should do 'ideally'. That is a proposal (ledger L3127 = proposed), not a decision.",
+ "q3": "No later meeting. ledger_compact.tsv has 0 rows dated after 2026-09-30. Related earlier/same-day rows are consistent and do not resolve strictness: L3125 (09-25, decided: split across operators the referrer has signed up with), L3127 (09-25, proposed: verify signup), L3353 (09-30, proposed: allocate by book+month), L3354 (09-30, discussed open-question: Emily to get back on strictness). L0097 (05-28) says Ops picks the priority books for referral payouts. That is a related constraint that the eventual rule should respect.",
+ "q4": "Not covered. JQL 'text ~ \"bet credit\"' returned WAGR-465, 464, 428, 289, 29, 7. 'text ~ referral AND text ~ book' returned WAGR-188, 161, 48, 43, 6 (none relevant). The 'eligible books' / 'signed up with' / 'referrer eligibility' OR search matched broadly on single words and returned many unrelated issues; none is about book eligibility. WAGR-465: the description covers bet-credit splitting into redeposits, but its Open questions do not include book eligibility; 0 comments. WAGR-464: it mentions only that bet-credit referral payouts create redeposit records; 0 comments.",
+ "corrections": [
+  "Treat ledger L3125 (2026-09-25, decided) as the baseline rule: split across the operators the referrer has signed up with. The open item is only how strictly to enforce it at launch.",
+  "Emily's remark is in the first person ('I'll find other people's books'). Present it as Emily's comment, not as confirmed referrer behaviour.",
+  "Suggested target WAGR-465 is right (Requirements, Kobi, High priority, Sprint 2)."
+ ],
+ "live_jira": [
+  {"key": "WAGR-465", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

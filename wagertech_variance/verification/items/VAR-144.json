@@ -1,0 +1,25 @@
+{
+ "var_id": "VAR-144",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quote is verbatim, but it is a client 'ideal state' wish, not a decided requirement. The later L0889 remark is about manager visibility and privacy (record ownership), not a reporting deliverable. Jira partly covers it: WAGR-468 (Open) is the open vehicle that captures reporting asks (commission per manager) and requires a story for each agreed report. WAGR-37 gives 'manager sees team' access. WAGR-391 and WAGR-176 already plan for BM roll-up reporting. The real gap is that WAGR-468 does not list team-performance rollups. Add the item to WAGR-468 instead of opening a new story.",
+ "q1": "Found verbatim. Re-fetched doc 1lK3FxzUuwQFuSN3sTU7vF4ooq8CbZK8Qt2Yp7gldCxg (text/html, gdoc_html2txt), line 316, 00:16:47. Emily: 'an ideal state would be that we're looking at brand manager rollups as well more easily.' Lina: 'Yeah, like a team view, how each team is doing, how that brand manager is managing their team and the numbers and ... whatnot.' Speakers and date (2026-06-17) are correct.",
+ "q2": "Partly supported. In context, Waleed asks whether BA numbers roll up to the brand manager. Lina answers about partial commissions. Emily says that today they view by BA and that easier BM rollups would be the 'ideal state'. Lina adds the team view. Then Joyce and Kobi talk about hierarchy roll-up design in general (L0396, proposed). This is a discovery-stage wish. Jumpr did not commit to it in this meeting. The claimed requirement is real as a client ask, but it is aspirational and has no scope.",
+ "q3": "No later meeting reverses it. L0889 (2026-07-08, line 556): Kobi says 'we will have reporting for the people within their teams', but the context is visibility and privacy (owner field, manager sees team, not full back-end access), and the data scope is TBD. L2317 (2026-09-01) asks for commission reports for reps and managers. L3160 (2026-09-25, decided deferral) moves financial reporting to a separate scoping session and says reports can be added later with no dependency. L1953 (2026-08-18) removed BA total-signups rollup in favour of reports. Nothing later decides or drops BM team-rollup reports. The later rows send reporting to a future scoping session (WAGR-468).",
+ "q4": "Partly covered. JQL 'brand manager' returned WAGR-7, 9, 12, 62, 95, 116, 140, 176, 186, 192, 391, 392, 393. JQL rollup/roll-up/team view/team report returned about 55 issues, mostly object DLRS rollups, plus WAGR-285 and WAGR-468. JQL 'manager report*'/'team performance'/'hierarchy'/epic WAGR-24 returned WAGR-25, 37, 285, 467, 468 and others. No ticket covers BM team-performance rollup reports by name. WAGR-468 (Open, Kobi, parent WAGR-24, 0 comments) lists 'Commission owed, per BA and per manager'. Its done-when is 'report list is agreed, and each native report has a story', and it keeps the BI-first rule (BI does the visuals). WAGR-37 (In Progress) acceptance criteria: 'manager sees team'. WAGR-391 description: 'a BA without a Brand Manager is excluded from roll-up reporting'. WAGR-24 epic is Open with no requirements. WAGR-285 (Done) is a sign-up dashboard with a rep filter only.",
+ "corrections": [
+  "L0889 is better read as manager visibility/privacy (WAGR-37/WAGR-392 territory) than as a reporting commitment.",
+  "Suggested action: add BM team-performance rollups to WAGR-468's captured asks (and the reporting scoping session) rather than a new standalone story. Dependency on WAGR-391 stands.",
+  "WAGR-468 is a parent-WAGR-24 task created 2026-09-25 by Kobi; its scope already includes per-manager commission."
+ ],
+ "live_jira": [
+  {"key": "WAGR-468", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-391", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 1},
+  {"key": "WAGR-392", "status": "Ready", "assignee": null, "comments_total": null},
+  {"key": "WAGR-37", "status": "In Progress", "assignee": null, "comments_total": 1},
+  {"key": "WAGR-24", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-285", "status": "Done", "assignee": null, "comments_total": 1},
+  {"key": "WAGR-25", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

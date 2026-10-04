@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-006",
+ "verdict": "rejected",
+ "new_severity": "None",
+ "new_confidence": "high",
+ "reason": "Superseded by a later client meeting: in the 2026-08-18 Weekly Sync (L1897/L1900/L1965) Kobi told WagerTech the SLC flow falls back to email matching when the ID is not available, Strahinja confirmed the CMS will de-duplicate into one person before sending, and Kobi agreed Salesforce adds no dedup logic. WAGR-5 (email fallback) and WAGR-40 (CMS owns dedup) match that later decision; the 2026-08-04 'flag for Ops' remark was a contingent worst-case idea, not a final rule.",
+ "q1": "Found. All cited 2026-08-04 quotes (L1485, L1486, L1487) exist verbatim in the re-fetched API Flow Testing doc (1j76J441...), lines ~302-330 of the converted text.",
+ "q2": "Partially supports. Kobi did propose removing the email lookup and relying on the CMS external ID, and said an SLC without a player ID would be flagged for Ops review. But this was conditional: Emily said WagerTech had to take player ID and de-duplication offline and come back ('straw maybe we have to get back to you ... I don't know feasibility'). Kobi framed the Ops flag as 'worst case' and said they would see in testing whether the scenario occurs. Emily's 'Okay, that makes sense' is an acknowledgement, not a firm decision on the final matching rule.",
+ "q3": "Yes, a later meeting changes the conclusion. 2026-08-18 Wagertech <> Jumpr Weekly Sync (doc 1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0, 00:05:30-00:08:10): Kobi: 'if that's not available, the flow that we have to process the clicks are set up to handle matching by email address as well'; Strahinja: CMS will de-duplicate into one person before data reaches Salesforce; Kobi: 'we don't add any dduplication logic on our side ... we're just going to match whatever you're sending to the API.' Also L1965 (same meeting, Joyce confirms emails and dedup come from CMS), L2093 (2026-08-25, CMS handles duplicates; Jumpr adds duplicate rules only for manual creation), L2208 (2026-08-31, Kobi: SLC processing finds player by email or external ID, else creates player), L2286 (2026-09-01, hard lock against duplicate players). The 2026-08-04 open item on who owns dedup was resolved: WagerTech owns it.",
+ "q4": "Jira already matches the later decision. WAGR-5 comment 2026-08-10 ('Updates based on our call this morning'): external ID first, then email & secondary email, multiple matches flagged for review; comment 2026-07-30 also records 'external id -> three-email search'. Kobi's 2026-08-12 comment says data should be mostly clean since IDs will be sent. WAGR-40 description states the agency/CMS handles dedup at player creation, consistent with 2026-08-18 and 2026-08-25 decisions. The claim's statement that WagerTech 'still had to resolve' dedup is out of date.",
+ "corrections": [
+  "The WAGR-5 quote is from comment id 10302 dated 2026-08-10 13:16 (author not shown in API output); it records an internal call on 2026-08-10, later than the cited 2026-08-04 meeting.",
+  "The later, controlling client decision is 2026-08-18 Weekly Sync (L1897, L1900, L1965), which the variance did not cite.",
+  "Minor residual (not a variance): Jira does not explicitly state the behaviour when an SLC arrives with neither a matching external ID nor a matching email (L2208 says a new Pending player is created). If wanted, a note on WAGR-5 could make this explicit."
+ ],
+ "live_jira": [
+  {"key": "WAGR-5", "status": "Jumpr Review", "assignee": "Marc Cabantog", "comments_total": 12},
+  {"key": "WAGR-40", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 2}
+ ]
+}

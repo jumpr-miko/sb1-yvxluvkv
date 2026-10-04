@@ -1,0 +1,25 @@
+{
+ "var_id": "VAR-119",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "The 2026-09-30 decisions (rename Retire to Archive, remove Review Required) are real and WAGR-39, WAGR-498 and WAGR-489 still use the old names. But WAGR-458 is already covered: on 2026-10-02 it got a 'v0.13.1 staging amendment' that says Archive replaces Retire, uses Draft, and drops Review Required. The final status set is also recorded in WAGR-506 (deployed with Draft/Archived, in Jumpr Review) and WAGR-463 ('Review Required removed'), and WAGR-492 is Cancelled. What is left is text drift in 3 tickets, and the intended behavior does not change. Low severity.",
+ "q1": "Found verbatim in the re-fetched Doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo (Weekly Sync 2026-09-30 11:30). The archive rename is at 00:47:25 and the Review Required removal at 00:52:03. The line numbers in my conversion are about 741 and 771-775 (the claim has 883/926), which is only a conversion offset. The Gemini summary also records both decisions ('Name change from retire to archive'; Review Required 'dismissed as unnecessary work').",
+ "q2": "The quotes support the claim. Kobi presented Retire, Joyce asked to rename it to Archive, and Kobi said 'Yeah. We can do that.' Kobi asked whether Review Required is still needed, Joyce said 'No, just no... It just creates extra work', and Kobi accepted (activation is already gated). Nothing walks either decision back. One related point: in the same meeting (01:02:31, ledger L3414 'proposed') Kobi agreed to drop deal versioning and keep single deal records. That affects the replacement/successor language, but it does not reverse the status rename.",
+ "q3": "No later meeting. The ledger has no rows after 2026-09-30, and no raw transcript is dated after that meeting. Later Jira work instead carries the decision forward: WAGR-506 was created 2026-10-01, and WAGR-458 and WAGR-463 were updated 2026-10-02.",
+ "q4": "Jira partly covers this. WAGR-458 (updated 2026-10-02, 0 comments) has a v0.13.1 amendment at the top: 'Archive replaces Retire', 'Draft -> Active', 'Review Required is not part of the test matrix'. Its old body still says Retire, but the amendment supersedes it, so WAGR-458 should be removed from this variance. WAGR-506 (Jumpr Review, Cedrick, 1 comment) sets the value list Draft/Active/Paused/Inactive/Closed/Archived, deactivates Review Required, and is deployed. WAGR-463 lists 'Review Required removed' as resolved. WAGR-492 is Cancelled ('status removed'). WAGR-447 is retitled 'Archive & Replace'. Still stale: WAGR-39 (updated 2026-09-30 01:23, before the 11:30 meeting; says baseline v0.12, 'Retired, not Replaced, is terminal', 'Paused / Inactive / Closed / Review Required', and lists 'Review Required setter/use case' as an open question). WAGR-498 (updated 2026-09-30 01:05; rule list and AC 8 name New/Review Required/Retired). WAGR-489 (updated 2026-09-30 01:05; names Retired only in its list of non-Active statuses). All three have 0 comments and no amendment.",
+ "corrections": [
+  "Remove WAGR-458 from the variance: its 2026-10-02 v0.13.1 amendment already uses Archive/Draft and drops Review Required.",
+  "Add WAGR-506 and WAGR-463 as the tickets that already record the final status set. The variance should be about stale text in WAGR-39 (epic description, including the open question 'Review Required setter/use case'), WAGR-498 (rule list and AC 8) and WAGR-489.",
+  "The transcript line numbers (883/926) do not match a fresh conversion (about 741/771), but the timestamps 00:47:25 and 00:52:03 are correct.",
+  "The 'Draft' label is defined and deployed in WAGR-506. The ledger has only a 'proposed' statement (L3367, 2026-09-30) that a pre-activation deal is 'like a draft'. It is still fair to suggest confirming the label with WagerTech."
+ ],
+ "live_jira": [
+  {"key": "WAGR-39", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-498", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-489", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-458", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-506", "status": "Jumpr Review", "assignee": "Cedrick Infantado", "comments_total": 1},
+  {"key": "WAGR-463", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

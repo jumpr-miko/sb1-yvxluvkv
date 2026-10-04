@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-168",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "Both quotes exist verbatim in the re-fetched 2026-08-18 and 2026-08-25 syncs; in context Joyce paused proof storage for a possible alternate solution and Jumpr moved to deal/CMS work, and on 08-25 Joyce confirmed the hold and the interim URL fields. No later meeting lifts the hold. No WAGR ticket or comment records the pause; the only WAGR-112 comment still says 'APPROVED TO PROCEED' and that storage is ahead of CMS work.",
+ "q1": "Found. All six quote fragments match verbatim after whitespace normalization: 1SOoE... (2026-08-18) lines 562-572 at 00:30:12-00:31:12; 1hV8d... (2026-08-25) line 617 at 00:39:33. The speakers are correct.",
+ "q2": "Supports the claim. 08-18: Kobi offered deal/CMS or storage proofs as the next milestone. Joyce: 'proof storage, we might have an alternate solution... TBD on that, but like I think until we have that kind of fully understood, let's just focus on the deal stuff.' Kobi: 'we'll put a pin on the proofs', and he confirmed reps paste proof links in Salesforce in the interim (Joyce: 'Mhm'). This is a client-led decision, not a proposal. 08-25: Kobi restated 'we put a hold on it from our end... you're going to take that back and get back to us... relying on the URL fields'. Joyce: 'Yeah, let's keep on that.' Nothing later in either meeting walks this back.",
+ "q3": "No later reversal. Later ledger rows: L2018/L2019 (2026-08-19, internal) record the pivot to CMS and storage proofs on hold pending the client. L2037 (2026-08-19, tier2) says the client gave a thumbs up on the storage-proof estimate doc, but the 08-25 sync (L2113) confirms the hold after that. Storage/proof rows from 08-27 to 09-30 (L2201, L2312, L2957, L3145, L3456) are about proof URL fields, proof dates and the proof flow. None of them restarts Drive storage or the POC.",
+ "q4": "Not covered. WAGR-112 (Requirements, Unassigned, Phase 2, legacy custom Status 'Awaiting Client Feedback') has 1 comment: the 2026-08-10 'APPROVED TO PROCEED — 2026-08-04. Client explicitly reprioritised this ahead of the CMS API work.' WAGR-31 (Open, Unassigned, 0 comments) has the description 'storage service (platform decision pending client)'. WAGR-114 (Open, custom Status On Hold) has 1 comment: 'On Hold until POC Completed' (2026-08-10, so the hold is for the POC, not the client pause). WAGR-113 (Requirements, 0 comments, custom Status Awaiting Client Feedback). WAGR-32 BUILD-06 is Done; its comments are from 07-28 and 07-29. JQL text searches ('storage', 'proof storage', 'Google Drive', 'on hold', 'alternate solution', 'proof URL') return 24 and 50+ issues. I checked WAGR-321, WAGR-115 (blank), WAGR-443 (out-of-scope epic, 0 comments) and WAGR-360/362. None records the 08-18 pause or the 08-25 hold.",
+ "corrections": [
+  "The title overstates WAGR-31. The epic does not say 'approved to proceed'. Its description says 'storage service (platform decision pending client)', which is out of date (GCP/Drive was confirmed 2026-07-20 per the WAGR-32 comment) and does not mention the hold. The 'approved to proceed' wording is only in WAGR-112.",
+  "The WAGR-112 and WAGR-114 comments are by Kobi Kunasekaran (the only author on these tickets); the claim says 'no author name'.",
+  "WAGR-112 and WAGR-113 carry the legacy custom field Status = 'Awaiting Client Feedback' and WAGR-114 carries 'On Hold'. These loosely agree with a client-side wait, but they give no date or reason and do not mention the alternate-solution pause.",
+  "The suggested action should also cover WAGR-113 (prerequisites tracker), which the claim names in suggested_action but does not cite."
+ ],
+ "live_jira": [
+  {"key": "WAGR-112", "status": "Requirements", "assignee": "Unassigned", "comments_total": 1},
+  {"key": "WAGR-31", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-114", "status": "Open", "assignee": "Unassigned", "comments_total": 1},
+  {"key": "WAGR-113", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0}
+ ]
+}

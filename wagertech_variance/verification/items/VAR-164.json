@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-164",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "Both 9/30 quotes exist verbatim in the re-fetched transcript; Kobi set manual allocation first with CSV bolted on later, and flagged that WagerTech's tool may need extra fields for mapping (Emily: 'we'll make it happen'). No later meeting in the ledger (latest date is 9/30). WAGR-464 (live: Requirements, Kobi, 0 comments, last updated 9/28) still lists the allocation upload as a requirement and 'Custom upload screen, or Data Loader?' as open, with no 9/30 outcome. No other WAGR ticket covers redeposit CSV import.",
+ "q1": "Found. The doc was re-fetched from Drive (text/html) and converted to 2140 lines. L3339 quote at line 1687 (02:40:56); Emily's 'Oh, and we'll definitely do it. / We'll we'll make it happen.' follows at 02:41:54. L3338 quote spans lines ~1700-1709 ('let's not spend time on the upload CSV...', 'we always need a manual way...', 'And then we can bolt on the CSV option afterwards.'). The quote is condensed: it leaves out intervening sentences ('Uh or we can leave this as an option and then quad can spit out the cleaned up CSV...' and Joyce's Claude-outage concern), but each quoted sentence is verbatim. The L3453 quote is at line 1229.",
+ "q2": "Supports the claim, with caveats. Emily asked for batch upload from their tool. Kobi said the CSV is still needed but needs scoping, and that the client tool may need person and deal identifiers. Joyce suggested an MCP or Claude skill for the mapping, and Emily agreed to do the client-side work. Kobi hedged once ('or we can leave this as an option'). Joyce wanted a CSV path kept in case Claude goes down. Kobi then closed with 'manual always needed... bolt on the CSV option afterwards', and nobody objected. So it is a Jumpr-led sequencing call that the client did not contest, not a formally confirmed client decision. The CSV path is deferred, not dropped. The upload-screen vs Data Loader question was not decided.",
+ "q3": "No later meeting. The ledger's latest date is 2026-09-30, and no rows are dated after it. Same-meeting rows L3343 (budget-entry layer removed) and L3454 (bulk allocation lines with volume) do not reverse the CSV/manual ordering.",
+ "q4": "Not covered. Live WAGR-464: status Requirements, assignee Kobi Kunasekaran, 0 comments, updated 2026-09-28T09:34. Both cited quotes are in the description. The 'Done when' item 'client design review held, and the outcome is on this ticket' is not met. JQL searches (redeposit updated>=9/29; 'allocation upload' OR CSV; 'Data Loader' OR \"Jay's tool\" OR 'redeposit allocation') returned no ticket for redeposit CSV import or the WagerTech tool-field dependency. Closest unrelated hits: WAGR-467 (BA commission export), WAGR-470 (historical migration scope).",
+ "corrections": [
+  "The L3338 quote is a condensed excerpt that leaves out Kobi's hedge ('or we can leave this as an option and then Claude can spit out the cleaned up CSV') and Joyce's wish to keep a CSV fallback. The CSV path is deferred, not dropped.",
+  "The 9/30 meeting did not resolve 'Custom upload screen, or Data Loader?'. It should stay open on the ticket.",
+  "WAGR-464 also lacks the other 9/30 redeposit outcomes (e.g. L3343 budget-entry removal). This variance covers only the import slice."
+ ],
+ "live_jira": [
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-027",
+ "verdict": "downgraded",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "The variance is real. WAGR-45 (Ready, Must Have, unchanged since 14 Sep) still says reps never see Deal records or partner info and says to remove Deal access. Later client decisions (11 Aug: partner code stays in the rep-facing global deal name; 23 Sep: partner short code in the Sign-Up header, full partner name on deal hover kept) and the WAGR-84 build (rep profile tested on Deal_Record_Page_v2, 24-25 Sep) contradict it. It is downgraded only because WAGR-422 already holds the 23 Sep Sign-Up decisions. Nothing links WAGR-422 back to WAGR-45, so WAGR-45 still needs a re-scope.",
+ "q1": "Found. I re-fetched both docs from Drive as text/html and converted them with gdoc_html2txt.py. All quote fragments for L1654 and L1646 (doc 1Qw_rUiB..., 11 Aug) and for L2920, L2921 and L2922 (doc 14qj2c7X..., 23 Sep) match after whitespace normalization. Only um/uh filler differs. I did not re-fetch the 22 Jul and 28 Jul docs because they are background, not the variance basis.",
+ "q2": "The quotes support the claim in context. 11 Aug 39:43-41:03: Emily asks Lina if the partner code can be in the rep-facing global deal name. Lina says 'No, we can keep it... That's easier. Let's just do that'. Emily confirms 'we should keep it' and the summary (line 90) records it as decided for rep-facing views. 11 Aug 28:19-30:25: Kobi says the partner is hidden for reps on the deal page and reps 'might not necessarily need to go to the deal page at all; if they do go to it... details page will be very lean'. This implies reps keep lean Deal access, not zero access. 23 Sep 27:49: Lina keeps the full partner name on deal hover ('keep all info'). 46:49-50:08: Lina asks for the partner short code in the Sign-Up header and Kobi agrees. Lina explicitly reverses her earlier 'not surfacing' position. Caveat: at 49:10 on 23 Sep, Kobi says reps 'won't have access to more info' beyond the Sign-Up page. So the 'reps keep deal views' part rests more on later internal and build evidence than on a client decision.",
+ "q3": "No later reversal. I checked the ledger rows after 23 Sep up to 30 Sep. L3014 (24 Sep internal, raw transcript lines 446-457): Kobi says reps 'should be able to see the related list... all of the information for the links under the deal'. L3072 (25 Sep): Cedrick tested the rep view. The WAGR-84 comment (24 Sep) shows a rep profile (Jared Ali) on Deal_Record_Page_v2 without the Edit Links button. All of this strengthens the variance: reps still access the Deal record. No later item restores 'partner hidden everywhere' or 'remove Deal access'.",
+ "q4": "Partly covered. WAGR-45 is live: Ready, Kobi, Phase 1, Must Have, 1 comment. The 10 Aug comment restates 'Reps lose access to the Deal object entirely' and 'Partner is hidden from reps', so it does not cover the change. WAGR-94 is live: Ready, unassigned, 0 comments. It treats the Deal page as read-only for reps, which conflicts with WAGR-45's removal of access. I ran JQL (partner short code / partner code / deal name / rep deal). It found WAGR-422 (Requirements, Taryn, created 23 Sep): partner short code in the Sign-Up header, a Deal Information section with Deal Name visible to reps, and the full partner name on hover kept. This covers the 23 Sep decisions, but WAGR-45 is not linked or updated. No ticket re-scopes WAGR-45 for the 11 Aug partner-code-in-deal-name decision or for rep Deal record access.",
+ "corrections": [
+  "Add WAGR-422 (Sign-Up header: partner short code, Deal Info section, hover keeps full partner name) as the ticket that already holds the 23 Sep decisions. Link it from WAGR-45 instead of opening new work.",
+  "Add WAGR-84 (Done) as build evidence that reps already open Deal_Record_Page_v2 (rep-profile test, 24 Sep comment).",
+  "Add L3014 (2026-09-24 internal sync, doc 1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ, ~00:23:34) as later evidence that reps see affiliate links under the deal.",
+  "The 11 Aug demo was mixed: Kobi said the partner was hidden on the deal page and that reps may not need the deal page at all. The claim 'rather than removing deal access' is only partly supported. The stronger support is 24-25 Sep."
+ ],
+ "live_jira": [
+  {"key": "WAGR-45", "status": "Ready", "assignee": "Kobi Kunasekaran", "comments_total": 1},
+  {"key": "WAGR-94", "status": "Ready", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-422", "status": "Requirements", "assignee": "Taryn Reithofer", "comments_total": 1},
+  {"key": "WAGR-84", "status": "Done", "assignee": "Cedrick Infantado", "comments_total": 3}
+ ]
+}

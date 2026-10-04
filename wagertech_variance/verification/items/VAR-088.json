@@ -1,0 +1,24 @@
+{
+ "var_id": "VAR-088",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "Both quotes exist in the 2026-09-30 transcript. In context, Emily (client) says redeposit requirements change over the deal's life and that a deal can have first and secondary immediate requirements with different thresholds (80%/90%, 50%) that must be reportable. No meeting after 2026-09-30 is in the ledger. No live Jira ticket records multiple requirements, thresholds or a per-requirement lifecycle. WAGR-213/107 still hold one set of deal-level fields. WAGR-462 covers only dated 'redeposit required'. WAGR-464 already plans to repurpose or close 107/213, which partly lowers the build risk.",
+ "q1": "Found. Quote 2 (L3437, line 1064) is verbatim but truncated. Quote 1 (L3436) is three real lines (1054, 1055, 1065) joined with ' / '. Kobi's line 'Okay. So, it does sound like we need to keep track of this separately...' does not come straight after Emily's 'Yeah, we should.' It comes after Emily's thresholds statement (line 1064). Also, 'Yeah, we should.' continues with 'there can be multiple um redeposit requirements... the immediate and secondary immediate sometimes falls off'. The wording is unchanged, so this is acceptable stitching.",
+ "q2": "Supports the claim, with one caveat. Kobi asks a direct question and the client answers it: Emily says yes, the requirements must be tracked over time and reported on, and gives the BetMGM example. Kobi then sums it up: own life cycles and effective dates. Nothing later walks it back. Caveat: the solution is not decided. At 01:28:45 Kobi proposes a framework like commercial terms and says he will come back to confirm overlap rules (L3438 is proposed/open). He also says the automated-redeposit part of his design is not done ('I think that's where we kind of covered this... I'll come back'). So 'decided' is right for the requirement, not for the design.",
+ "q3": "No later meetings. The ledger ends on 2026-09-30, the date of the cited meeting. Other 2026-09-30 redeposit items (L3337: automated requirements are independent of the monthly budget; L3343, L3346, L3347) are about budgets and allocations. None of them reverses or settles the requirement lifecycle or thresholds point. L3438 (overlap rule) is still open.",
+ "q4": "Not covered. WAGR-213 (Jumpr Review, Kobi, 0 comments, in active Sprint 2): one Redeposit Required field, a Type picklist (Assigned/Immediate) and one Immediate range. WAGR-107 (Ready, Taryn, 0 comments): Redeposit Required, Type and Immediate Range, sourced from the prototype only. WAGR-462 (Requirements, Kobi, 0 comments): dated history of Deal terms, including 'redeposit required'. It says nothing about multiple requirements or thresholds. WAGR-464 (Requirements, Kobi, 0 comments): the redeposits workflow umbrella. It says 'Automated redeposits are a placeholder only for now', has the open question 'two checkboxes replace the Deal's single redeposit-type picklist', and its 'Done when' says to repurpose or close WAGR-107/108/213/381. It does not mention multiple requirements, thresholds or effective dates. WAGR-106 (Jumpr Review, Taryn, 1 comment, which is about the custom-object decision) lists Redeposit Required as a field to validate for dated history. JQL searches 'redeposit requirement', 'threshold', 'secondary immediate' and 'immediate redeposit' found no ticket that captures the 2026-09-30 thresholds requirement.",
+ "corrections": [
+  "Quote 1 is stitched: Kobi's 'Okay. So, it does sound like...' line (01:27:40, line 1065) comes after Emily's thresholds line, not straight after 'Yeah, we should.' (01:26:10, line 1055).",
+  "Add WAGR-464 as related coverage. It already plans to repurpose or close WAGR-107/213 and has automated redeposits as a placeholder. The new requirement fits there, or in WAGR-462, as the suggested action says.",
+  "The requirement is decided. The data model is not: L3438 (no-overlap rule) is still open, and Kobi said he will come back.",
+  "Live status matches the claim: WAGR-213 is in Jumpr Review, WAGR-107 is Ready, WAGR-462 is in Requirements."
+ ],
+ "live_jira": [
+  {"key": "WAGR-213", "status": "Jumpr Review", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-107", "status": "Ready", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-462", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-106", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 1}
+ ]
+}

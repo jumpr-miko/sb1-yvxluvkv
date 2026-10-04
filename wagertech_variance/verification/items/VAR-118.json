@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-118",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quote is verbatim and the client did steer to archive-only links on Sep 30, but Jira already tracks Link Archived as an open WagerTech decision (WAGR-509, WAGR-463 item 3) and WAGR-491 says to revisit its delete rules if Link Archived is adopted. Kobi, who was in the meeting, wrote these on Oct 2. The only gap left is that the client's Sep 30 direction is not recorded as the baseline. Deletion of never-published links was not discussed directly.",
+ "q1": "Found verbatim. I fetched Drive doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo again as text/html and converted it to text. Both lines match after whitespace normalization (Joyce at line 697 of the fetched text, timestamp block 00:41:45; Kobi's 'that I think that's fine with me. That works.' follows). The claim's line_start 824 refers to a different line numbering, which does not matter.",
+ "q2": "Mostly supported. Joyce (WagerTech) proposed it as a question: 'why don't we just only give the user the ability to archive links ... right?' Kobi agreed ('That works'). Joyce then hedged: 'I don't know if that list will get too unruly ... Hold on.' Kobi replied 'I think that should be fine.' The Gemini summary in the same doc says Joyce and Kobi 'agreed that users should be given the ability to archive links in Salesforce rather than deleting them' and that archived links would be left out of later payloads. Context: Kobi had just proposed a separate field or status to track links 'if we allow deletion of links or archiving of links'. Earlier, Emily said active/inactive is enough for the dynamic list (L3399), but that was about the pause behaviour, not end-of-life. Nobody discussed never-published (pre-sync) link deletion directly, so the claim that WAGR-491's never-published delete path conflicts with the decision is an inference. It is supported by Joyce's 'only archive' and 'trail within Salesforce' rationale, but it is not explicit. Omission semantics with Stra stayed open (L3401).",
+ "q3": "No later meeting. The ledger and raw transcripts end at 2026-09-30, and this is the only meeting that day. No later reversal was found. WAGR-509 mentions a WagerTech review on about Oct 3 ('tomorrow's'), but there is no transcript for it in the ledger, so the outcome is unknown.",
+ "q4": "Partly covered. WAGR-491 (Requirements, unassigned, 0 comments, updated 2026-10-02) still has 'Never-published Link may be deleted' and AC1. It also says Link Archived is out of scope, tracked in the Link Archive follow-up, and that its delete/end-of-life rules must be revisited if Link Archived is adopted. WAGR-509 (Open, unassigned, 0 comments, created 2026-10-02) is that follow-up. It lists the reconciliation items, including WAGR-491 Exclude/Delete rules, and the questions for WagerTech/Strah. It does not mention the Sep 30 client direction. WAGR-463 (Requirements, assignee Kobi, 0 comments) item 3 is 'Decide with WagerTech whether Affiliate Links gain an explicit Archived status'. WAGR-459 also defers Link Archived. So the topic is tracked, but the Jira tickets frame it as undecided and do not record the client's stated preference.",
+ "corrections": [
+  "Add WAGR-463 (item 3) and WAGR-459 as related keys that also treat Link Archived as undecided.",
+  "In the fetched doc text, Joyce's quote is at about line 697 (timestamp 00:41:45), not line 824. 824 is probably the raw-transcript line numbering.",
+  "WAGR-509 was created on 2026-10-02, two days after the Sep 30 meeting, by Kobi, who was in that meeting. So the open framing looks deliberate. The variance is better described as 'client preference not recorded as baseline' than 'decision ignored'.",
+  "Deletion of never-published links was not addressed directly on Sep 30. Treat that part as needing confirmation, not as a contradiction."
+ ],
+ "live_jira": [
+  {"key": "WAGR-491", "status": "Requirements", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-509", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-463", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-459", "status": "Requirements", "assignee": null, "comments_total": 0}
+ ]
+}

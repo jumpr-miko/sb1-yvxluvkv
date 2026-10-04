@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-139",
+ "verdict": "rejected",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Jira already covers it. WAGR-414 'Phase 1 Epic & review-queue cleanup' (In Progress, Taryn, Sprint 2) is a ticket to triage every Jumpr Review ticket. It says the Jumpr Review status is a migration artifact on many tickets and names the record-page tickets as quick closes. The 09-28 sync (Kobi) and the 09-23 sync (L2888) confirm the same planned cleanup.",
+ "q1": "Found. The fetched 2026-09-01 Wagertech Internal Sync doc (1ZR6vkGV...) line 135 at 00:05:32 has: 'So in terms of record pages though, so we've handed over the uh operator, partner, and brand ambassador so far, right?' Taryn answers 'Yes.' on the next line. The filler words match.",
+ "q2": "Supports the claim in part. It is a genuine confirmation that the pages were handed over, and the doc summary says 'Team completed operator and partner record pages'. Context: L2417 (09-03) says the documents sent to the client were progress updates, with another walkthrough expected later. L2354 (09-02) says the client had not looked at them yet. So 'handed over' is not the same as formal client UAT. WAGR-203 (BUILD-143, Partner contact lookups) was on the outstanding list, and nothing confirms it was built. Moving WAGR-203 to Client Review could therefore be wrong, not just late.",
+ "q3": "Later meetings change the conclusion. On 09-14, L2538 defines Client Review as client UAT and Jumpr Review as internal UAT, so the status semantics are real. L2548/L2576 say Kobi owns the review items and moved all Jumpr Review tickets into Sprint 1 to clear them. L2888 (09-23): close tickets that were tested internally, and hold only the tickets waiting for client UAT. 09-28 sync (doc 1i1AH0eR..., about 00:11:08 to 00:12:03): Kobi gives Taryn the task to 'help clear through like things that are in review', at lowest priority, and plans to have Claude close old tickets already confirmed as shipped ('138 that's in ready for review'). This is a known cleanup item with an owner, not an unnoticed variance.",
+ "q4": "Covered. WAGR-414 (created 2026-09-21 by Kobi, assignee Taryn, In Progress, in active Sprint 2) has pass 2: 'triage the Jumpr Review queue' (134 tickets at that time). It says the migration put unfinished review items into Jumpr Review all at once. It also says 'many of the tickets in review are the record page ones that you may be able to quickly close off'. It sets an evidence standard and says client communication alone is NOT enough to close a ticket. That cuts against the variance's suggested action, which relies on the 09-01 handover remark. The cited tickets WAGR-235, WAGR-202 and WAGR-203 each have 1 comment (2026-08-24, migrated, no author) and no comment after that. All are in Jumpr Review with assignee Taryn. Live JQL: 0 WAGR issues are in Client Review and 137 are in Jumpr Review, which matches the claim. WAGR-205, WAGR-234 and WAGR-236 are also in Jumpr Review with assignee Taryn.",
+ "corrections": [
+  "Better Jira key: WAGR-414 (Phase 1 Epic & review-queue cleanup) already tracks the stale Jumpr Review statuses. The status gap is known.",
+  "The status semantics come from the 2026-09-14 sync (L2538), not the 09-01 sync. During the sandbox phase, Kobi moves completed items straight to Done (L2547), so 'Client Review' may never be the right target.",
+  "Do not move WAGR-203 to Client Review just because of the 09-01 remark. BUILD-143 was on the outstanding list, and nothing shows it was built. Under the WAGR-414 evidence standard it needs to be checked in the sandbox first.",
+  "The 09-28 'later evidence' quote is about wrapping up shipped pages. The more relevant part of that meeting is about 00:11:08 to 00:12:03, where Kobi assigns the in-review clean-up."
+ ],
+ "live_jira": [
+  {"key": "WAGR-235", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 1},
+  {"key": "WAGR-202", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 1},
+  {"key": "WAGR-203", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 1},
+  {"key": "WAGR-414", "status": "In Progress", "assignee": "Taryn Reithofer", "comments_total": 0}
+ ]
+}

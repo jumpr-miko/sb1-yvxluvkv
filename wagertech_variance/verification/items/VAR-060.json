@@ -1,0 +1,62 @@
+{
+ "var_id": "VAR-060",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "WAGR-28 is a stale umbrella ticket (E-Transfer Email retired via WAGR-163; unique email key already built per WAGR-92; referrer dedup split to WAGR-73, cross-link to WAGR-189, manual player dup to WAGR-40/WAGR-405), but the headline that dedup 'moved to the CMS' is overstated: 08-18 (L1992, 01:41) and 08-25 (L2093) both keep Salesforce duplicate blocking on manual Player/Referrer create, which matches WAGR-28's acceptance criteria. Ticket hygiene issue, not a scope conflict.",
+ "q1": "Found. All transcript quotes in 08-18 (1SOoE...) and 08-25 (1hV8d...) exist verbatim after whitespace normalization and um/uh removal (re-fetched via Drive text/html + gdoc_html2txt.py). WAGR-28 and WAGR-163 description quotes match live Jira.",
+ "q2": "Partly supports. 00:07 'no dduplication logic on our side' and 01:08 'not trying to do any dduplication or managing players on the send' refer to CMS/API-sent players only (Strahinja: CMS rolls duplicates into a person before sending). Later in the SAME 08-18 call (01:41) Kobi says 'we'll need to make sure we set up dduplication on the sal side' for referrers, Emily adds 'looking at both email inputs', and Kobi agrees to block by email (L1992). On 08-25 Kobi says one player per email and Salesforce dup rules on the manual creation path (L2093). So Salesforce dedup is narrowed (manual path), not removed. WAGR-28's AC (block second Player with same email; Referrer may share a Player email) still matches what was agreed. The variance's 'Salesforce does no deduplication' framing is too strong.",
+ "q3": "No later reversal of the narrowed position. Later items reinforce Salesforce-side guards: L2286 (09-01) Kobi added a database-level unique ID hard lock to stop duplicate Players from back-to-back SLCs; L2950 (09-23) 'Primary email is unique'. E-Transfer retirement confirmed by L2238/L2309/L2310 (09-01), L2911 (09-23), L3116 (09-25 no e-transfer on payout). Cross-link fields still in use (L2057, 08-21); L2390 (09-03) removed the related-player ban flag but not the cross-link. L1955 (08-18) keeps a separate e-transfer email on the BA (not Player/Referrer), so it does not change this.",
+ "q4": "WAGR-28 live: Requirements, unassigned, Phase 1, Must Have, 1 comment (07-28 reconciliation: 'scope unchanged and still required'; dependency of BUILD-04, prerequisite for BUILD-38). No comment reflects the 08-18/08-25 decisions or E-Transfer retirement, so the ticket itself does not cover the change. However its pieces are already covered elsewhere: WAGR-92 (Jumpr Review) documents Account.Email_Record_Type_Unique__c (RecordType + PersonEmail, unique index) as already built and lists BUILD-03 as related; WAGR-73 BUILD-194 Referrer Dedup-on-Create (Ready, Kobi); WAGR-189 BUILD-188 Referrer: Player Cross-Reference (Jumpr Review, Taryn); WAGR-40 BUILD-230 Manage Duplicate Player (Requirements, Phase 2; says CMS handles dedup, dup only via manual create); WAGR-405 Scope Manual Player Creation for VIP Flow (Open, Kobi; AC requires duplicate prevention). WAGR-163 live: Jumpr Review, Taryn, 2 comments (swap done on Sign-Up and SLC pages); it keeps the E-Transfer fields dormant (open question), and does not say Referrer e-transfer is retired.",
+ "corrections": [
+  "Severity Medium -> Low: WAGR-28 is superseded/split by WAGR-92, WAGR-73, WAGR-189, WAGR-40, WAGR-405; risk is stale backlog scope, not a wrong build in flight (unassigned, Requirements).",
+  "Title/what_differs overstate: Salesforce still blocks duplicates on manual Player create (L2093, 08-25) and Referrer create (L1992, 08-18 01:41); only CMS/API-sent player dedup moved to CMS.",
+  "WAGR-28 comment names BUILD-04 and BUILD-38 as dependents; the claim's 'dependency of WAGR-5' was not verified here.",
+  "Add WAGR-73 (Referrer dedup) and WAGR-189 (Player cross-reference) to the suggested close/link set; L1992 should be cited as conflicting evidence that supports keeping SF dedup.",
+  "E-Transfer retirement (WAGR-163) is Player/Sign-Up/SLC only and fields are kept dormant; Referrer e-transfer status not confirmed."
+ ],
+ "live_jira": [
+  {
+   "key": "WAGR-28",
+   "status": "Requirements",
+   "assignee": "Unassigned",
+   "comments_total": 1
+  },
+  {
+   "key": "WAGR-163",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "comments_total": 2
+  },
+  {
+   "key": "WAGR-92",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "comments_total": 1
+  },
+  {
+   "key": "WAGR-40",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": 2
+  },
+  {
+   "key": "WAGR-405",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": 1
+  },
+  {
+   "key": "WAGR-73",
+   "status": "Ready",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": null
+  },
+  {
+   "key": "WAGR-189",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "comments_total": null
+  }
+ ]
+}

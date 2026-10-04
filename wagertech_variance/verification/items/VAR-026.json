@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-026",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "Quote found in the 09-23 client sync (lines 1143-1162). Kobi proposed the VID-style region naming instead of 'multistate'. Emily said 'Yeah. Yeah.', asked for the Ontario vs Alberta regional breakout, and said 'multi' stays only where no breakout exists. Lina said 'I agree'. On 09-24 Kobi said internally that multi-state 'is going away' because of that call. No later meeting reverses this. WAGR-471 was created 09-25, has 0 comments, and still says the rule is not settled. The ticket's sub-questions on matching and on picklist values with no CMS equivalent are still open, so 'medium' confidence is correct.",
+ "q1": "Found, with minor differences. Each fragment is a verbatim substring of the re-fetched doc at lines 1143-1162 (timestamps 01:15:02-01:16:30). The quote leaves out lines that come between its fragments (Kobi's 'Okay.' lines and Emily's 'You agree Lena?'). It leaves out the second half of Kobi's proposal, which is the actual decision content: 'If it's a US state, it'll say US-ate ... if it's countrywide for US or Canada, it'll just be like CA or US rather than the multi-state.' It also does not show Emily's 'Yeah. Yeah.' None of the wording was changed.",
+ "q2": "Supports the claim. This was a client meeting. Kobi asked a direct question: keep 'multistate', or use the VID naming convention (Canadian province alone, US-state, CA/US for countrywide)? Emily said 'Yeah. Yeah.' and said the Canada naming 'struck me as really kind of like oh what?'. She wanted the regional breakout (Ontario vs Alberta), with 'multi' kept only where no breakout exists. Emily asked 'You agree Lena?' and Lina said 'I agree.' Kobi said 'I'll clean that up.' Emily's wording is garbled, so how far 'multi' survives for US deals is unclear. Kobi also noted that the market mapping had changed from Ontario to Alberta and that he must review the spreadsheet. Nothing later in the meeting walks the decision back.",
+ "q3": "No later reversal. In the 09-24 internal sync (L3029, raw lines ~799-812), Kobi said 'the multi- saying is going away ... we talked about yesterday' and gave the code convention (CA-/US-/US-CA-, two-letter province code with no CA- prefix). That discussion was about the Operator short code and Supported Markets, but it refers to the 09-23 decision. L3250 (09-29: deal name recomputes on pre-activation edits) does not change the naming rule. Ledger rows after 09-24 with region/multi/deal-name terms (L3210, L3267, L3325) do not reopen the naming rule.",
+ "q4": "Not covered. Live WAGR-471: status Open, assignee Kobi Kunasekaran, 0 comments, updated 2026-09-29. Its description still says 'The multi-state naming rule is not settled, and nobody answered Kobi's Sep 9 naming proposal'. Its only sources are the Sep 9 and Sep 22 Slack messages. It does not mention the 09-23 call. JQL 'multi-state OR multistate' returned 13 issues. None of them records the 09-23 decision. WAGR-225 (BUILD-125 Deal Name formula, Jumpr Review) still specifies a 'US · Multi-state' output and acceptance criterion 3, so it also predates the decision.",
+ "corrections": [
+  "The 09-24 evidence (L3029) is about the Operator/Partner short code and Supported Markets formula, not the Deal Name formula itself. It is still valid as corroboration because it refers to the 09-23 decision.",
+  "Related stale ticket: WAGR-225 (BUILD-125, Jumpr Review) still has 'Multi-state' in the Deal_Name__c formula and in acceptance criterion 3. Add it to the suggested action together with WAGR-97 and WAGR-419.",
+  "Part of WAGR-471 is still legitimately open: how multi-state Deals are matched (the SLC PROLINE-DIRECT-ON case), picklist values with no CMS equivalent, and whether any 'multi' value survives for US deals."
+ ],
+ "live_jira": [
+  {"key": "WAGR-471", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-225", "status": "Jumpr Review", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

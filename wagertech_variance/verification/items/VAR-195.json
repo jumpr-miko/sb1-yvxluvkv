@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-195",
+ "verdict": "confirmed",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quote exists (Sep 28 transcript lines 163-175); Emily asked if the Supported Markets roll-up is needed for Phase 1 if it is a big lift, and the meeting only set a conditional action (Taryn raises complexity, then ask Joyce). No later ledger item (through Sep 30) decides the phase. Jira does not record the phase question: WAGR-408 (Done Sep 29) is a picklist, and WAGR-64 still lists a Markets rollup in its stale description but its comments moved Markets to WAGR-408.",
+ "q1": "Found. All segments are verbatim in the re-fetched doc (whitespace-normalized match). The quote stitches three non-adjacent lines (163, 164, 175). Correction: the middle segment ('if if we want to take the time to make it more user friendly ... push it to the to the later phase') was said by Taryn Reithofer (line 164), not Emily.",
+ "q2": "Supports the claim. Context (lines 140-196): Taryn showed a 70-value multi-select picklist; Emily said the field was meant to be a roll-up from deals ('it would still just be a roll up' / Taryn: 'Roll it from the deals ... I'll take that back to the team'), then 'if this becomes complicated just like please just raise and then we can ask Joyce the question around if it's needed for phase one'. Gemini notes put the roll-up under 'Needs Further Discussion'. So it is a conditional open question, not a decision. Firmness 'proposed' and severity Low are correct.",
+ "q3": "No later reversal. Ledger runs to 2026-09-30. Grep for markets/roll-up/408/phase after Sep 28 finds only the same-meeting rows L3207-L3215, L3232 and unrelated deal/CMS rows. No row records Taryn raising complexity or Joyce answering the Phase 1 question. Related earlier context: L0807 (Jul 7, markets roll up from deals), L2398/L2399 (Sep 3, Kobi doubts a rollup is needed; no DLRS for strings), L3030/L3052 (Sep 24, intent unclear, manual maintenance).",
+ "q4": "Not covered. WAGR-408 (Done 2026-09-29, Taryn, parent epic WAGR-478 Phase 2 Stories, 4 comments): picklist on Details tab, 'Field is a picklist, not a rollup'; comments list build options and questions (Sep 17) and 'Done!' (Sep 29); nothing on the Sep 28 roll-up direction or Phase 1. WAGR-64 (Jumpr Review, Taryn, Phase 1, Must Have, 6 comments): description still lists 'Supported Markets (distinct Country/State)' as a DLRS rollup, but Sep 16 comment says 'Supported markets has its own ticket now'. WAGR-235 (Jumpr Review, Phase 1): Supported Markets highlight is a placeholder pending BUILD-148. JQL text searches ('supported markets'; 'markets rollup'/'markets roll-up'/'market rollup'; tickets created since Sep 28 on operator/markets) returned no ticket that holds the roll-up decision or the Phase 1 question.",
+ "corrections": [
+  "Speaker: middle quote segment (line 164) is Taryn Reithofer, not Emily Vandenberg.",
+  "what_differs says 'No ticket holds the roll-up': partly inaccurate. WAGR-64 (Phase 1, Must Have, Jumpr Review) description still lists a Supported Markets distinct rollup, though its comments moved Markets to WAGR-408. Add WAGR-64 as the related ticket where a roll-up (or its Phase 2 deferral) would be recorded; its stale description conflicts with WAGR-408.",
+  "WAGR-408 is under epic WAGR-478 (Phase 2 Stories) while WAGR-64 and WAGR-235 carry Phase = 1, so the Jira phase signal for Supported Markets is itself inconsistent."
+ ],
+ "live_jira": [
+  {"key": "WAGR-408", "status": "Done", "assignee": "Taryn Reithofer", "comments_total": 4},
+  {"key": "WAGR-64", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 6},
+  {"key": "WAGR-235", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 1}
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "var_id": "VAR-165",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quotes are verbatim and the 7/15 cutover concern is real. But the claim that WAGR-51 removes the only manual create path is out of date: on 9/1 and 9/23 the team agreed an Ops manual sign-up create path (VIP), and WAGR-431/WAGR-432 track it. Also, WAGR-470 already holds the open decision 'whether the legacy Google Sheets keep getting data during the switch-over', and WAGR-477 builds Sign Up/Player import templates. What is left is a narrow gap: no ticket names how in-flight spreadsheet sign-ups are handled at cutover. Add it to WAGR-470/WAGR-20; a new ticket is not needed.",
+ "q1": "Found. Re-fetched doc 1Grl2_TpsgmgP8a-4GCRLXkKYQukPwldrg22d_gmRiWQ (text/html, base64-decoded, gdoc_html2txt.py). All 5 quote segments match verbatim after whitespace normalization (Emily 00:41:27 line 611; Kobi 00:44:04 line 623; Kobi 00:45:11 'import as much as as far back as possible').",
+ "q2": "Supported, with nuance. Emily raises the concern in her own words ('that's more of the cut over we need to plan'), and Lina and Emily say player stealing is not the concern. Kobi's manual-rep-path idea is one of two options ('either manually or ... a list of players that we can just import'). Nobody decides anything. At 00:46:06 Kobi says import is not the next step, because fields must be finalized first. So this is an open question, not a decision. The third quote segment (import as far back as possible) is about historical depth, not in-flight sign-ups. It is extra context only.",
+ "q3": "Later meetings change part of the claim. (a) L1643 (2026-08-11): Kobi parks the remaining data migration questions until the CMS integration is settled. This is a deferral, not a resolution. (b) L1676 (2026-08-11): WagerTech decides against a dual-system parallel run, so it is a hard cutover. This makes in-flight handling more relevant. (c) L2327 (2026-09-01): Emily adds an Ops-side flow to create players and sign-ups manually to Phase 1. (d) L2941/L2942/L2955 (2026-09-23): VIP sign-ups are created manually by Ops; Kobi will restore the New Signup button and build a custom screen flow. This contradicts the claim that WAGR-51 leaves no manual create path (an Ops path is planned, limited by permission set). (e) L2853 (2026-09-23): Kobi says users will not create players manually at this point. No later meeting makes a plan for in-flight spreadsheet sign-ups.",
+ "q4": "Partly covered. WAGR-51 (Ready, Unassigned, 0 comments) removes Rep Create only. WAGR-431 (Open) adds an Ops-only New Sign-Up button via permission set (Joyce + 1). WAGR-432 (Open) covers the VIP manual entry flow. WAGR-470 (Open, Kobi, 0 comments) has the decision item 'whether the legacy Google Sheets keep getting data during the switch-over' (this is the cutover/freeze question) plus historical sign-ups yes/no. WAGR-477 (Open, Kobi, Sprint 2) builds Sign Up/Player import templates, which can carry a final delta load. WAGR-20 (Ready, 1 comment) is the production migration plan, but it covers Agency-side rates/links only. WAGR-460 (Requirements) is the CMS identity cutover, not sign-ups. WAGR-125 (Requirements, Kobi, 0 comments) says 'Fold into migration cutover checklist', and no checklist ticket exists. JQL for cutover/cut over returned WAGR-39, 124, 125, 446, 460, 475, 499. None of these names in-flight spreadsheet sign-ups.",
+ "corrections": [
+  "Remove or correct 'WAGR-51 removes the only manual create path': WAGR-431/WAGR-432 (from 2026-09-23) restore an Ops-only manual sign-up create path for VIP. That path can also serve in-flight cutover entries if Ops owns them.",
+  "Better anchor: WAGR-470 (Historical data migration scope — decision) already lists the legacy-Sheets switch-over question. Suggest adding in-flight sign-up handling and a sheet freeze date to WAGR-470's decision list, and to WAGR-20's plan, instead of a new ticket.",
+  "Add later context: L1676 (2026-08-11, no parallel run) and L1643 (2026-08-11, migration questions parked)."
+ ],
+ "live_jira": [
+  {"key": "WAGR-51", "status": "Ready", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-125", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-470", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-477", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-20", "status": "Ready", "assignee": "Unassigned", "comments_total": 1},
+  {"key": "WAGR-431", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-460", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0}
+ ]
+}

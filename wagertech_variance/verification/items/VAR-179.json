@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-179",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Commitment is real and no WAGR ticket tracks it, but it is conditional on the initial build being done and sprint-based delivery starting after Phase 1 go-live. The org is still in sandbox and go-live is postponed (target Nov 1), so no cadence is overdue. A decided 2026-09-24 practice (Loom walkthrough on Slack per completed feature, L3042) already partly covers release communication. This is a forward-looking tracking gap, not a current delivery variance.",
+ "q1": "Found verbatim (whitespace normalized) in a fresh Drive export of doc 1NwBfx21p4Y0Vd04q67s2NgssudX_-XnjuktiXh0JreI, at timestamps 00:45:55 and 00:46:17 (text lines 726-729). Both quote segments match exactly.",
+ "q2": "Supported, with caveats. (a) Diarization labels the whole block 'Kobi Kunasekaran', but the content shows a WagerTech ask ('Would you guys be able to...send us...') and a Jumpr reply ('Absolutely...We usually do like uh videos'). The client speaker is not identifiable from the transcript. (b) The ask applies 'once we get this initial like build done' and 'if you're operating in sprints'. The context (00:45:36) defines that as sprint-based delivery after Phase 1 go-live. (c) The next segment (00:46:39) links release notes and videos to the sprint hours budget, so the effort is budget-dependent. 'Absolutely' is a clear agreement. Nothing later in the meeting walks it back.",
+ "q3": "No later meeting reverses the commitment, but later meetings weaken the claim that it is currently a gap. L2621 (2026-09-16): all work is still in sandbox and the project has not launched. L2848 (2026-09-21): the client postponed go-live. L2893 (2026-09-23): not fully in production. L2993 (2026-09-24): Nov 1 go-live still targeted. The trigger condition has not occurred. L3042 (2026-09-24, decided): share a short Loom walkthrough on Slack for completed features, and use docs for larger pieces. This matches the 'videos' format Jumpr offered. L2784 (2026-09-21) is about internal release notes to keep team context, not client-facing notes, so it is weak evidence for the variance. L2748 is a one-off partner/operator change communication. Earlier context: L0348 (2026-06-17) said Asana would hold updates. Asana has since moved to Jira.",
+ "q4": "No coverage. JQL project = WAGR with text ~ 'release notes', 'bi-weekly'/'biweekly'/'changelog'/'release note', 'Loom'/summary ~ 'release'/'enablement', 'walkthrough', and parent in (WAGR-22, WAGR-26) returned no release-notes or cadence ticket. The 'release notes' hits (WAGR-453, 430, 366, 220, 198, 157, 39) are stemming matches on 'release'/'notes'. WAGR-22 'Training, Enablement & Admin Handoff' (Epic, Open, unassigned, Phase 1, no description, 0 comments) and WAGR-26 'Post Go Live Support' (Epic, Open, unassigned, Phase 1, no description, 0 comments) do not mention release notes. Either epic is a natural place to track the commitment.",
+ "corrections": [
+  "Speaker: the transcript attributes both lines to Kobi Kunasekaran because of diarization. The requester was a WagerTech attendee whose name the transcript does not give.",
+  "The trigger is 'once the initial build is done and sprint-based delivery starts' (after Phase 1 go-live). The project has not reached go-live (still sandbox as of late Sep 2026), so the cadence is not yet due.",
+  "L2784 is about internal release notes for team context, not client-facing notes.",
+  "Suggested home for a tracking item: WAGR-22 (Training, Enablement & Admin Handoff) or WAGR-26 (Post Go Live Support)."
+ ],
+ "live_jira": [
+  {"key": "WAGR-22", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-26", "status": "Open", "assignee": null, "comments_total": 0}
+ ]
+}

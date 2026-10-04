@@ -1,0 +1,27 @@
+{
+ "var_id": "VAR-143",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quote is real (Kobi, Jul 7 dry-run demo, line 542) and no ticket asks for fraud/review/duplicate REPORTS, but the 'see anything flagged for fraud / waiting for review' need is partly met by shipped list views (WAGR-338 BUILD-17 Queue/Overdue/Fraudulent Sign Ups; WAGR-270 BUILD-48 Fraud=True view) and the WAGR-285 status dashboard; the Sep 25 ops-report ask was only acknowledged ('that'll be separate'), not committed, and is not in WAGR-465. Real but smaller gap: a fraud-review (Suspected/Confirmed) and duplicate report for ops.",
+ "q1": "Found verbatim. Re-fetched doc 1Jvbrpe7dyAZDHPV8gh52rRuZr2INnHNwIrUxIvQ6Oxk (text/html, converted): line 542 (timestamp block 00:43:57), Kobi Kunasekaran. The quote is the tail of a longer paragraph and matches exactly, including the 'Um' and 'U,' fillers. Later quote also found verbatim in doc 1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw lines 1023-1024 (01:09:38).",
+ "q2": "Mostly supports. Context (lines 520-560): this is Kobi's internal-style 'dry run' of the next day's demo with Joyce, Emily and Miko, ending 'That's it for me in terms of dry run.' It is a Jumpr statement of intent ('we'll create those reports as well and kind of show you'), not a client-confirmed requirement, and it does not separate reports from list views. Same-day Gemini items L0781/L0782 put it as list views plus reports for Open, Flagged for Review and Flagged for Fraud (Marc). Sep 25 context (lines 1000-1035): Emily 'definitely want like a report where ops is ... managing that to like confirm them'; Kobi 'Yeah, that'll be separate' and moves on to payout selection. That is an acknowledgment that the ops report is out of the payout-selection scope, not an explicit commitment; ledger L3151 is marked 'discussed', not 'decided'.",
+ "q3": "No later reversal. Later rows: L1106 (Jul 17, decided) flagged records go to a separate view for ops review; L1177 (Jul 21, proposed) Kobi plans reports giving table view of sign-ups for review / in progress; L1221/L1222 (Jul 22) fraud tracked separately and excluded via report column; L2914 (Sep 23) default All Active list excludes fraud-flagged records; L3151 (Sep 25) the ops-report ask; L3326 (Sep 30, proposed) V1 uses standard list views and filters. None closes or drops the ops fraud/review report; the list-view decisions show the need is being met partly by list views rather than reports.",
+ "q4": "Partially covered. JQL project = WAGR AND text ~ 'fraud' (52 issues), text ~ 'report'/'list view'/'duplicate', and text ~ 'duplicate'/'review required'/'ops report' returned no ticket for an ops report on fraud-flagged / Fraud Review Status, review queue or duplicate sign-ups. Nearest: WAGR-338 BUILD-17 (Done, no comments) shipped Sign-Up list views All/Archived/New/Queue/Overdue/Flagged/Fraudulent Sign Ups; WAGR-270 BUILD-48 (Done, Kobi, 1 comment) deleted Flagged view and set Fraudulent Sign Ups to Fraud=True (open question Fraud Flag vs Fraud Review Status never recorded as answered); WAGR-285 BUILD-36 (Done, unassigned, 1 comment) reports per Sign-Up status + dashboard with rep filter (status only, not fraud/duplicates; comment 'TODO: Update filters to add all Reps'); WAGR-335 POC-21 (Done, closed as superseded by BUILD-17, 2 comments) list views Open/Flagged for Review/Flagged for Fraud; WAGR-304 fraud epic (Done, 2 comments) closed 'No fraud-specific tooling separately scoped for Phase 1' while its child WAGR-429 is still Open; WAGR-429 (Open, unassigned, 0 comments) un-flag control on Ops view; WAGR-484 (Open, Taryn, 0 comments) placeholder to clean up Account fraud list views; WAGR-465 (Requirements, Kobi, 0 comments) payouts design captures fraud visibility in the payout queue but not Emily's separate ops report.",
+ "corrections": [
+  "Add WAGR-338 (BUILD-17) to nearest tickets: it shipped the Queue and Fraudulent Sign Ups list views, which partly answer the Jul 7 'see anything flagged for fraud / waiting for review' statement.",
+  "The Jul 7 statement was made in a demo dry run; frame it as a Jumpr stated intent rather than a client-confirmed commitment. Same-day Gemini action L0782 assigns the reports to Marc.",
+  "Sep 25 Kobi reply 'that'll be separate' is an acknowledgment (ledger firmness 'discussed'), not a commitment.",
+  "Suggested story could sit under WAGR-304's open child area or link WAGR-465 / WAGR-429; WAGR-304 itself is Done while WAGR-429 remains Open under it."
+ ],
+ "live_jira": [
+  {"key": "WAGR-285", "status": "Done", "assignee": "Unassigned", "comments_total": 1},
+  {"key": "WAGR-270", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": 1},
+  {"key": "WAGR-338", "status": "Done", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-335", "status": "Done", "assignee": "Unassigned", "comments_total": 2},
+  {"key": "WAGR-304", "status": "Done", "assignee": "Unassigned", "comments_total": 2},
+  {"key": "WAGR-429", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-484", "status": "Open", "assignee": "Taryn Reithofer", "comments_total": 0},
+  {"key": "WAGR-465", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

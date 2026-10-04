@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-008",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "Quotes exist verbatim; Kobi removed deal-makeup matching on 2026-08-25/09-01 and later meetings (2026-09-11 L2492, L2485) reinforce Deal External ID only; live WAGR-5 (Jumpr Review, Marc Cabantog, 12 comments, last 2026-08-17) still records fallback to state/country and partner/operator, with no later comment.",
+ "q1": "Found. 2026-08-25 doc (1hV8...20igo): Kobi line 146 'I could just remove that logic entirely as well ... rely on the deal ID to give us the mapping for it.' and line 159 'because we're moving away from having the raw data that makes up a deal to the deal ids I can just move all this logic from the flow. It'll make it a lot simpler too.' match verbatim. Emily's line is at line 152 (00:03:48 block), not 00:02:57; the ledger quote joins lines 146-159. 2026-09-01 doc (1wmG...1_uo): line 152 'removed all of the matching by the deal makeup. So right now we're only relying on the delectional ID which seems to be working fine' and line 271 reprocess limitation match verbatim. WAGR-5 comment 10302 (2026-08-10) quote matches the live Jira text.",
+ "q2": "Supports the claim. 08-25 context: SLC flow failed on duplicate deals because deal country/state came in blank; Kobi proposed removing makeup logic and relying on deal ID; Emily agreed it made sense. 09-01 context: Kobi reports the change is done ('removed all that unnecessary logic'), says this is the direction going forward, and the reprocess button cannot fix clicks without a Deal External ID (fix by editing the SLC). This is a completed Jumpr build change, not a proposal or a question.",
+ "q3": "No later reversal. Later ledger rows reinforce it: L2492 (2026-09-11) Salesforce drives Deal External ID and CMS returns it on SLC clicks; L2485 (2026-09-11) SLC flow validated when deal and DRA exist; L2484 SLC errors come from deals not set up; L3263 (2026-09-29) CMS keys on deal external ID, not makeup. Makeup de-dup/retire discussions (L2496-L2499, L3244-L3264) are about deal creation uniqueness, not SLC matching fallback. L3445 (2026-09-30) Kobi to double-check SLC duplicate logic - not a reversal.",
+ "q4": "Not covered. Live WAGR-5: status Jumpr Review, assignee Marc Cabantog, Phase 1, Must Have, in active WAG Sprint 2, 12 comments, latest 2026-08-17. Description does not mention deal fallback (refers to design doc E-03). Comments still document makeup-based matching: 10299 (2026-07-29) short-term raw-value match operator+partner+market; 10302 (2026-08-10) fallback to state/country and partner/operator; 10310 (2026-08-17) happy-path test data uses Operator/Partner External Id + Deal Country/State and asks about deal found by Operator, Partner, Country, State. No comment records the Deal-External-ID-only change or the reprocess limitation.",
+ "corrections": [
+  "Stale makeup-matching text is in three WAGR-5 comments, not one: 10299 (2026-07-29), 10302 (2026-08-10, cited), 10310 (2026-08-17, test data relies on removed country/state matching). The suggested comment should also replace the 10310 happy-path test data.",
+  "Comment 10302 author is not shown by the API; the comment says 'Updates based on our call this morning'.",
+  "L2073 quote spans lines 146-159 of the 2026-08-25 transcript; Emily's line is at 00:03:48 (line 152) and Kobi's 'move all this logic' line at line 159."
+ ],
+ "live_jira": [
+  {"key": "WAGR-5", "status": "Jumpr Review", "assignee": "Marc Cabantog", "comments_total": 12}
+ ]
+}

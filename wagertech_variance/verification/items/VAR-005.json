@@ -1,0 +1,22 @@
+{
+ "var_id": "VAR-005",
+ "verdict": "downgraded",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "The quote is real and no WAGR ticket covers in-flow VIP link creation or auto-association (WAGR-435 still says the link association is deferred). But in the same discussion the design moved on: one VIP link per deal, set at deal creation, auto-tied when the user picks the deal, with in-flow creation only as a fallback when no link exists. That refinement is still a proposal, so confidence drops to medium.",
+ "q1": "Found, verbatim. Re-fetched doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo ('Wagertech <> Jumpr: Weekly Sync - 2026/09/30 11:30 EDT - Notes by Gemini'). Each ' / ' segment matches exactly after whitespace normalization, at ~01:43:51-01:44:56 (line 1183 in my conversion). The quote leaves out lines between segment 1 and segment 2: Joyce 'Yeah.', Kobi 'and then creating it here.', Joyce 'So, like if they create it here though, will it attach to the deal?', Kobi 'Oh, yeah. Yeah, we would we would set it up that way.' These omissions do not change the meaning. The last three segments are contiguous in the source.",
+ "q2": "Partly supported. Kobi offers in-flow link creation as a 'maybe'. Joyce asks for it to attach to the deal (Kobi confirms) and to be tagged VIP automatically. Kobi says 'yes' and Joyce says 'that makes sense'. Immediately after, Emily asks whether users must select the link every time and suggests Owen adds the VIP link at deal creation as the default. Kobi then refines the design: add a VIP tag on the link (not only Exclude from CMS), the user picks the deal, the flow finds that deal's VIP link and ties it automatically, and if no link exists it raises an error or lets the user create the link in this interface the first time. So 'create the link in the flow, tagged VIP' ends up as the first-time or exception path, not the main design. The ledger records this follow-on as L3450 (proposed). The claim's what_differs gives only the earlier half.",
+ "q3": "No later meeting. The ledger has no rows dated after 2026-09-30. Same-meeting row L3450 (proposed): set a default VIP link at deal creation and auto-tie it; if none exists, raise an error or create it in the flow. This refines L3449 but does not reverse it, and Jira does not cover it either.",
+ "q4": "Not covered. WAGR-435 (Open, unassigned, 1 comment) still says link-to-signup association 'was explicitly deferred to a future discovery session'. Kobi's 2026-09-29 comment only moves CMS exclusion to WAGR-491's generic Exclude from CMS. WAGR-432 (Open, unassigned, 0 comments) covers the VIP manual entry flow and Deal relation but says nothing about picking, creating or auto-associating a link. Epic WAGR-420 (Open, 0 comments) lists VIP flags on Affiliate Link only. JQL searches run: text~'VIP link' returned WAGR-456, 446, 435, 432, 420, 412. text~'VIP' AND text~'affiliate link' returned WAGR-456, 435, 420. updated>=2026-09-30 AND text~'VIP' returned WAGR-456 only. WAGR-456 (updated 2026-10-02) says 'do not hard-code VIP semantics' for CMS filtering and does not cover VIP link creation in the sign-up flow.",
+ "corrections": [
+  "Describe the decision as: the VIP sign-up flow auto-associates the deal's VIP-tagged link (one default VIP link per deal, ideally set at deal creation), and offers in-flow creation (attached to the deal, auto-tagged VIP) only when no link exists. Cite L3449 together with L3450.",
+  "The design implies a VIP tag on the Affiliate Link in addition to Exclude from CMS. That fits WAGR-435's VIP flag. Note that WAGR-456 forbids VIP semantics in the CMS filter only, not on the link itself.",
+  "The claim's line_start 1463 refers to the finder's own text conversion. In this verifier's conversion the quote is at line 1183. The timestamp block 01:43:51 is correct."
+ ],
+ "live_jira": [
+  {"key": "WAGR-435", "status": "Open", "assignee": null, "comments_total": 1},
+  {"key": "WAGR-432", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-420", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-456", "status": "Requirements", "assignee": null, "comments_total": 0}
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-059",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Variance is real: all quotes verified and the 09-25 meeting decided player payouts need no separate workflow or batching (referrer payouts only), so WAGR-109's Payout-object list on the Player conflicts. But WAGR-109's custom Status field is already 'On Hold', it is XXS (1-2h), and its description already says it is prototype-only and unconfirmed. Little build risk, so Medium is too high.",
+ "q1": "Found. Re-downloaded doc 1297TNkbv9TV2Gtwb8xsPXXRXjWqOHSzQdmnbXJgLrsw (text/html, converted, 1296 lines). Every segment of all 9 cited quotes (L3142, L3146, L3092, L3114, L3134, L3139, L3148, L3140, L3100) matches after whitespace/filler normalization. Both WAGR-109 description quotes match the live description verbatim.",
+ "q2": "Supports the claim. Context at 00:58-01:05: Joyce says 'the other streams not really being needed as like a separate workflow in Salesforce. So for player payouts ... all we'll need is to be able to see how much they have gotten in terms of like signups'; payment matrix handled outside Salesforce 'for this phase' (Emily and Joyce agree); 'there's no need to like batch'. Kobi: 'there's no batching ... just one to one'; Joyce: 'No, no separate workflow required ... pulling from the correct fields ... in terms of reports'. Kobi: 'payouts really is just for referrals ... referers' and Joyce: 'for sure'. The Gemini summary (line 30, 139) says the same. Nuances: the decision is scoped to 'this phase' (Joyce: 'It'd be great to have it in there eventually'); some cited quotes (L3114, L3134, L3139, L3148) are about referrer payouts and only indirectly support the claim. Emily's L3140 ask is about seeing redeposits from the player, not payout records, and does not revive player payouts.",
+ "q3": "No reversal. Later ledger rows (09-28, 09-30) all treat payouts as referrer-side: L3350 bet credit payout goes to the referrer, not a rep or player; L3358 separate referral payout queue; L3323 referral payouts still need design. Earlier rows L1031 (Player and Referrer are separate person-account record types) and L1989 (referrer record shows payouts later) mean referrer payouts belong on the Referrer record (WAGR-110), not the Player record. No later meeting brings back a player-level Payout object.",
+ "q4": "Not covered. WAGR-109 live: Jira status Open, assignee Taryn Reithofer, Phase 1, MoSCoW Should Have, Size XXS, custom 'Status' field = On Hold, 0 comments. The description still lists Payout ID/Recipient/Type/Status/Amount/Period/Batch columns and 'Depends on the Payout object existing'. Nothing records the 09-25 decision. JQL text ~ 'player payout' returned only WAGR-161 (Referrer primary referrals list). JQL text ~ 'Payouts Related List' returned WAGR-110 (Referrer Payouts Related List, Requirements, custom Status 'Needs More Info', 0 comments) and WAGR-111 (Referrer Payouts placeholder, Ready, 1 comment from Aug 24). Neither mentions the 09-25 player-payout decision.",
+ "corrections": [
+  "WAGR-109 custom Status field (customfield_10234) is 'On Hold' — the claim does not mention this. Jira workflow status is Open, as claimed.",
+  "The 09-25 decision is scoped to 'this phase'; Joyce said she would like player payment data in Salesforce 'eventually'. Suggested action should be re-scope/defer rather than a firm cancel.",
+  "Related referrer-side tickets WAGR-110 and WAGR-111 are the correct home for payout related lists; consider mentioning WAGR-110 when re-scoping."
+ ],
+ "live_jira": [
+  {"key": "WAGR-109", "status": "Open (custom Status: On Hold)", "assignee": "Taryn Reithofer", "comments_total": 0}
+ ]
+}

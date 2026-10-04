@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-025",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Real and still open: Joyce said verbatim on 2026-08-11 that Priority Tier has three values (primary, secondary, blacklisted). No later meeting drops Blacklisted, and no WAGR issue mentions it. WAGR-175 (Done) and WAGR-133 carry only Primary and Secondary. Severity goes down to Low: the fix is one picklist value on a field that WAGR-507 marks optional. Joyce also hedged ('I think') and pointed to her own documentation, which I could not open.",
+ "q1": "Found verbatim (only um/uh filler differs). Re-fetched doc 1Qw_rUiBDniWRNlPQ1St7C7VbJ5rCPriZCrMoUeCHGV8 as text/html (base64) and converted it. Line 641, timestamp 00:48:05, speaker Joyce Kiddell: 'Um, and then under priority tier, I had three options. there was like in the documentation I sent you, you should have it too, but it's I think primary, secondary, and then blacklisted.'",
+ "q2": "Supports the claim in context. Joyce shares her screen and walks Kobi through her Deal mockup, giving the values as a requirement, not as a question or hypothetical. Nobody pushes back. At 00:51:28 Kobi says 'I'll update the fields. I think those are pretty straightforward.' This is a general reply to the whole walkthrough, not to Priority Tier alone. Weak points: Joyce hedges ('I think') and points to her own documentation for the definitive list. Jumpr's own 'WagerTech - Salesforce Record Page User Stories (Aug 2026)' doc (1MsJXwt3..., owner taryn@jumpr.io, created 2026-08-12, after this meeting) lists DL-1 Priority Tier as Primary and Secondary only and never mentions blacklisted. So the value seems to have dropped out during Jumpr's own write-up, with no client decision behind it. I could not open the client's Deal Record User Stories doc cited in WAGR-175 (1IIfaPIol2HmX8v09gw0SKQyCuoHTiwrJxdDNc7qtvB8): Drive returned not found.",
+ "q3": "No later reversal. Ledger L1662 is the only row about priority tier or blacklist. The cited 2026-08-11 transcript is the only one that contains 'blacklist'. The 2026-05-28 discovery transcript mentions only Tactics package tiers, which is not related. The 2026-08-13 rows cover traffic source and bonus exclusion, not Priority Tier values.",
+ "q4": "Not covered. JQL 'project = WAGR AND (text ~ blacklisted OR blacklist OR \"black list\")' returned 0 issues. JQL for \"Priority Tier\" returned WAGR-507, 210, 175, 133, 68, 62, 61 and 14. I read WAGR-175, WAGR-133, WAGR-210 and WAGR-507 in full. WAGR-175 description: 'Priority Tier (picklist): Primary, Secondary'. Its 2026-08-27 comment: 'Deactivated: Tier 1, Tier 2, Tier 3. Added: Primary, Secondary'. Kobi closed it on 2026-09-29. WAGR-133 lists Primary and Secondary and has 0 comments. WAGR-210 gives no values (helper text only). WAGR-507 marks Priority Tier optional with no values. None of them mention Blacklisted.",
+ "corrections": [
+  "The claimed WAGR-175 quote is a comment with no author, created 2026-08-27 (matches the claim). Kobi closed the ticket Done on 2026-09-29 and said not to reopen it for later design changes, so the fix probably needs a new ticket or a change through WAGR-133 or WAGR-507.",
+  "Kobi's 'I'll update the fields' came at 00:51:28, about 3 minutes after the quote, and was a general reply to the whole mockup walkthrough.",
+  "The likely source of the omission is Jumpr's user stories doc 1MsJXwt3oY-DyQuAdMzNYlyPenKUQl7g8mHzMmeRaVHs (DL-1). The tickets were built from that doc, not from any client decision.",
+  "Related open ticket where the value could be added: WAGR-507 (Guided New Deal flow; Priority Tier optional; Open; Cedrick Infantado)."
+ ],
+ "live_jira": [
+  {"key": "WAGR-175", "status": "Done", "assignee": "Taryn Reithofer", "comments_total": 3},
+  {"key": "WAGR-133", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 0}
+ ]
+}

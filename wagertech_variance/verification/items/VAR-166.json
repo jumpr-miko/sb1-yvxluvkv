@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-166",
+ "verdict": "rejected",
+ "new_severity": "None",
+ "new_confidence": "high",
+ "reason": "The ask was met and is ticketed. WAGR-319 'Discovery: ERD and Data Requirements' (a Meeting item, Done, Kobi) records the ERD walkthrough with WagerTech's data engineer. Later meetings (6/3, 6/17, 6/23) held the alignment sessions with Strahinja and agreed how the Salesforce model relates to his ERD (L0553, L0554, L0556, L0557).",
+ "q1": "Found verbatim at line 934-939 of the fetched 2026-05-28 transcript (doc 153GXa2Bxzi2tRciqHschinynA20rOR89xr4fkYer7_o, about 01:20:43-01:21:49). The quote skips Joyce's continuation line ('he's very easygoing ... I just want to make sure it's aligned'), which comes before Waleed's 'Okay. Yeah, I know that makes sense.' The meaning does not change.",
+ "q2": "Partly supported. This was pre-contract discovery. Joyce asked Jumpr to include data-architect alignment steps in the proposal/next-steps plan that Waleed would bring back on Tuesday. Waleed's 'that makes sense' is a soft acknowledgement of a proposal input, not a delivery commitment. The Gemini notes (line 43, 78) list it as an action item.",
+ "q3": "Yes, later meetings change the conclusion. L0131/L0160 (2026-06-03): the data engineer's ERD is the source of truth, and Jumpr and the data engineer finalize the object design together. L0376 (2026-06-17): Strahinja asked for a chat about his data store; Kobi said to cover it in the ERD walkthrough. 2026-06-23 meeting with Strahinja: L0553 (Salesforce build need not strictly follow the ERD; Strahinja agreed), L0554 (call out deviations), L0556 (Kobi writes object user stories for Strahinja to review), L0557 (mid-build ERD review with Strahinja goes into the plan), L0538 (operator data stays out of Salesforce scope, in Postgres). Strahinja then worked with Jumpr directly on the CMS integration (7/24, 8/4, 8/18).",
+ "q4": "Covered. WAGR-319 (Item Type Meeting, Sprint Discovery (S0), Phase 1, Done, assignee Kobi) covers 'ERD walkthrough: reasoning behind the structure, decisions made, key focus areas, non-negotiables' and the deal model. WAGR-298 (Solution Design & Data Architecture epic, Done) is its parent area. WAGR-255 (ERD naming alignment audit, Done) shows ongoing ERD alignment work; a comment on 2026-08-10 says it was closed because the ERD is out of date and naming follows the latest feedback. JQL: project = WAGR AND (text ~ ERD OR Strahinja OR 'data architect' OR 'data model') returned 14 issues, including WAGR-319, WAGR-322, WAGR-255, WAGR-48, WAGR-247 and WAGR-439.",
+ "corrections": [
+  "Nearest Jira coverage is WAGR-319 (Discovery: ERD and Data Requirements, Meeting, Done). The variance did not list it.",
+  "The 'data architect / senior engineer' Joyce mentioned is in practice WagerTech's data engineer Strahinja. He owned the ERD and joined later sessions.",
+  "The quote leaves out an intervening Joyce line before Waleed's reply. This is minor."
+ ],
+ "live_jira": [
+  {"key": "WAGR-319", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-298", "status": "Done", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-255", "status": "Done", "assignee": null, "comments_total": 2}
+ ]
+}

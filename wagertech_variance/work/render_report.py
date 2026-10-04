@@ -14,13 +14,14 @@ summ=json.load(open(f"{B}/work/exec_summary.json")) if os.path.exists(f"{B}/work
 ledger_docs=json.load(open(f"{B}/work/ledger_docs.json"))
 index=list(csv.DictReader(open(f"{B}/sources/transcript_index.csv")))
 jira_index={r["key"]:r for r in csv.DictReader(open(f"{B}/sources/jira_index.csv"))}
+SELECTED=set(json.load(open(f"{B}/verification/claims/_selected.json"))) if os.path.exists(f"{B}/verification/claims/_selected.json") else set()
 SEV_ORDER={"High":0,"Medium":1,"Low":2}
 AREA_ORDER=["Sign-Up","Deal","Deal Rep Assignment","Referrer / Brand Ambassador","Player","Operator & Partner","Redeposits","Referral and Payouts","CMS Integration","Ops list views / Console UX","Global Search","Reporting & Dashboards","Access & Permissions / Org Setup","Data Migration / Import","Storage / Proofs","Testing, UAT & Go-Live","Training & Enablement","Project Mgmt / Scope / Phase / Timeline","Other"]
 # apply verification outcomes
 final=[]; rejected=[]
 for v in M["variances"]:
     r=ver.get(v["var_id"])
-    v["verification"]=("not in verification sample (Low)" if v.get("severity")=="Low" else "verification pending") if not r else r["verdict"]
+    v["verification"]=r["verdict"] if r else ("verification pending (verifier agent failed)" if v["var_id"] in SELECTED else "not in verification sample (Low)")
     if r:
         v["verification_reason"]=r.get("reason","")
         if r["verdict"]=="downgraded":
@@ -44,7 +45,7 @@ L.append("| Severity | Count |\n|---|---|\n"+"".join(f"| {s} | {sev.get(s,0)} |\
 L.append("\n| Category | Meaning | Count |\n|---|---|---|\n"+"".join(f"| {c} | {m} | {cat.get(c,0)} |\n" for c,m in [("V1","Missing ticket"),("V2","Contradiction"),("V3","Stale ticket"),("V4","Status mismatch"),("V5","Detail gap"),("V6","Scope / phase mismatch"),("V7","Owner mismatch"),("V8","Unresolved open question")]))
 highs=[v for v in final if v["severity"]=="High"][:10]
 L.append("\n**Top High variances**\n")
-for v in highs: L.append(f"- **{v['var_id']}** ({v['category']}, {v['feature_area']}): {v['title']} — Jira: {', '.join(j['key'] for j in v.get('jira',[])) or 'no ticket'}")
+for v in highs: L.append(f"- **{v['var_id']}** ({v['category']}, {v['feature_area']}): {v['title']} — Jira: {', '.join(dict.fromkeys(j['key'] for j in v.get('jira',[]))) or 'no ticket'}")
 if summ.get("patterns"):
     L.append("\n**Patterns**\n")
     for p in summ["patterns"]: L.append(f"- {p}")
@@ -61,7 +62,7 @@ L.append(f"- **Empty placeholders (1,180-byte docs; export is a byte-order mark 
 L.append(f"- **Duplicates/mirrors noted and removed:** {len(dups)} doc copies (shared-drive mirrors, Kobi-owned originals, 'Copy of' files). The 25 Aug Weekly Sync has 3 copies in the WagerTech subfolder; the largest was kept.")
 L.append(f"- **Docs excluded:** {len(excl)} non-transcript WagerTech docs (PRD, SOW, design plans, build walkthrough docs, specs, checklists) and 9 Jumpr-internal meetings with no separable WagerTech delivery content (see Appendix B).")
 L.append("- **Meetings with no transcript at all (Calendar cross-check, Kobi's and Miko's calendars):** 20 Jul 2026 'Wagertech <> Jumpr: Deal Rep Assignment' (5 attendees, no notes doc); 16 Sep 2026 Redeposits Discovery (placeholder only); 16 Jun 'Wagertech prep' and 1 Oct 'Waleed <> Kobi' (internal, no doc). 15 other calendar entries are single-attendee focus blocks. 40 of 58 calendar-attached Gemini originals are not shared with miko@; folder copies were used instead.")
-L.append(f"- **Jira:** all 505 WAGR issues pulled in full (fields, custom fields, links, all 493 comments) on {RUN_DATE}; 326 not Done. Key gaps WAGR-126/128/129/394/442 do not exist.")
+L.append(f"- **Jira:** all 505 WAGR issues pulled in full (fields, custom fields, links, all 493 comments) on 2026-10-03; 326 not Done. Key gaps WAGR-126/128/129/394/442 do not exist.")
 L.append(f"- **Verification:** every High and Medium variance and a 20% sample of Low were re-checked by an independent verifier that re-fetched the Google Doc and the live Jira issue. Results: "+", ".join(f"{k}: {n}" for k,n in vs.items())+".")
 if summ.get("limits"):
     L.append("- **Known limits:** "+" ".join(summ["limits"]))

@@ -1,0 +1,23 @@
+{
+ "var_id": "VAR-062",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Gap is real: 09-30 sync (01:40:46) agreed that players created in the VIP flow default to VIP and that converting an existing player is allowed; WAGR-432/433 (Open, unassigned, 0 comments) do not state either rule, and no later meeting changes it. Downgraded to Low because the impact is a field default and an edge-case path on a low-volume flow (~30 sign-ups); WAGR-432 already includes the VIP flag in the flow and an existing-player choice. Related: WAGR-160 still says 'VIP is manual-only ... hold before building: whether VIP should be auto-detected', which the 09-30 decision partly answers and which should also be updated.",
+ "q1": "Found verbatim (whitespace-normalized) in the re-fetched Google Doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo (text line ~1160, block 01:40:46): Joyce 'odd edge case ... convert them to VIP ... not a big deal if they are allowed to do that'; Kobi 'any player that's created as part of this process though defaults to being a VIP player, right?'; Joyce 'Craft field'; Kobi 'And that we'll put that in.' L3449 quote also found verbatim (01:44:56).",
+ "q2": "Supports the claim with caveats. Kobi asked whether logging a VIP sign-up for a non-VIP player should auto-set the player to VIP. Emily said VIP players come in net new and stay VIP; Joyce allowed the edge-case conversion. Kobi then confirmed the default-VIP rule for new players; Joyce's reply is transcribed as 'Craft field' (likely 'Correct'), so the affirmation rests on that garbled word plus Kobi's 'we'll put that in'. Not a hypothetical, not walked back in the following 40+ lines (talk moves to referrer VIP and VIP links). Caveat: whether conversion of an existing player is automatic on VIP sign-up or a manual ops action is not clear; the claim's wording 'ops may convert' is acceptable. The supporting L3449 citation is about a VIP affiliate LINK being auto-tagged when created in the flow, not the player, so it does not support this variance.",
+ "q3": "No later meeting. Ledger latest date is 2026-09-30; no rows after the cited meeting. Same-meeting rows L3446-L3450 are consistent (L3447 = this decision, firmness decided).",
+ "q4": "Not covered. WAGR-432 (Open, unassigned, 0 comments) has 'choose an existing player, or create one inline' and 'plus the VIP flag' but no default-true rule and no conversion rule. WAGR-433 (Open, unassigned, 0 comments) only confirms the existing Player VIP field and adds icons. JQL project = WAGR AND (parent = WAGR-420 OR text ~ 'VIP') returned WAGR-160, 197, 405, 412, 420, 431-435, 441, 446, 456; none states the default. WAGR-160 (Jumpr Review, Taryn) says VIP is manual-only set by Owen/Jay with an open hold on auto-detection, which now conflicts with the 09-30 decision. WAGR-405 (Open spike, Kobi) scopes manual Player creation for VIP but has no default rule.",
+ "corrections": [
+  "Drop L3449 as supporting evidence: it concerns auto-tagging a VIP affiliate link created inside the flow, not the player VIP flag.",
+  "Joyce's affirmation is transcribed as 'Craft field' (probably 'Correct'); note it as an inferred yes.",
+  "Add WAGR-160 as a related key: its 'VIP is manual-only ... hold before building: auto-detect' note should be updated to reflect the 09-30 default-VIP rule. WAGR-405 (VIP manual Player creation spike) is also related.",
+  "Best home for the acceptance criterion is WAGR-432 (flow behaviour); WAGR-433 is icon/flag display."
+ ],
+ "live_jira": [
+  {"key": "WAGR-432", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-433", "status": "Open", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-160", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": null},
+  {"key": "WAGR-405", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": null}
+ ]
+}

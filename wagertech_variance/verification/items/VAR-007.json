@@ -1,0 +1,42 @@
+{
+ "var_id": "VAR-007",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quotes are verbatim, but the 9/30 rule was decided inside the VIP manual sign-up discussion (Kobi: 'VIP all of that is manual. There is no SLC's coming in'). For the SLC flow, Kobi only took an action to check the SLC logic (L3445). So the claimed SLC/WAGR-473 conflict is not confirmed. WAGR-8 is a retired POC demo flow (replaced by WAGR-5), and its own AC says 'same Player + Deal'. The confirmed gap is narrower: the 9/30 VIP duplicate rule (same player + same deal regardless of rep, block and route to the existing sign-up; different rep = fraud signal) is not on WAGR-432/WAGR-420, and WAGR-473 has no comments recording the 9/30 input.",
+ "q1": "Found. All quoted lines exist verbatim in the re-fetched 9/30 Weekly Sync doc (fetched as text/html and converted). The lines are at 01:35:58-01:37:15, lines 1122-1131 of the converted text. The L3443 quote combines lines from both timestamps; the 'Yeah, we can enforce the same one here...' sentence is in the 01:37:15 block, after Emily's fraud remark, not at 01:35:58. Minor attribution of timestamp only.",
+ "q2": "Partly supports. Context (lines 1081-1135) is the new VIP sign-up screen flow. Kobi says VIP is manual with no SLCs. He describes the VIP flow's duplicate validation as 'player deal rep and I think BA... I believe we treat those as the same signup right now' (hedged). Emily: a duplicate is the same player + same book regardless of rep; same player/book/different rep is more a fraud indicator. Kobi: 'same player, same deal... I'll double check the SL logic and confirm if that's the case. Yeah, we can enforce the same one here.' 'Here' is the VIP flow. Gemini summary (line 276) and action items (lines 114/204) agree: VIP duplicate rule decided, SLC logic to be verified. Emily's statement is general in wording, so it likely applies to SLC as well, but Jumpr did not commit to change the SLC key. Kobi's 'It's technically unique signup' is ambiguous.",
+ "q3": "No later meetings. The 9/30 Weekly Sync is the latest transcript and the latest ledger date (no ledger rows after 2026-09-30). Earlier context agrees with a player+deal key: L0575 (6/23, Waleed: signup unique by player, operator and deal) and L1059 (7/17, repeat attempts on the same player/deal/market). L1304 (7/24, track all clicks, no server-side dedup) is consistent and does not conflict.",
+ "q4": "Not covered. WAGR-473 (Open, Kobi, 0 comments, last updated 2026-09-25) frames the rule as a question '(same Player, Deal and Rep)?' and asks to read the WAGR-5 behaviour and get Emily's confirmation. No 9/30 answer is recorded. WAGR-8 (Done, 1 comment, a flow link) is the POC demo flow. Its description matches Sign-Ups on 'Player + Assignment', but its AC says 'same Player + Deal' and it is marked as replaced by BUILD-04/WAGR-5. WAGR-5 (Jumpr Review, Marc Cabantog, 12 comments) has the production flow ('open Sign-Up collapse'). Its open question frames matching as 'Player + Deal'. Comments of 8/12 say the DRA external ID is dealID+Rep. No comment states the Sign-Up match key or the 9/30 rule. WAGR-432 (VIP manual entry flow, Open, unassigned, 0 comments) and epic WAGR-420 do not contain any duplicate rule. JQL searches (duplicate signup / repeat click / VIP sign / BUILD-04 / Study Link Click / existing open Sign-Up) returned no ticket that records the 9/30 rule.",
+ "corrections": [
+  "The decided rule belongs on WAGR-432 (VIP manual entry flow, epic WAGR-420). For SLC, cite WAGR-5 (production flow, Marc Cabantog) in addition to WAGR-473. WAGR-8 is a retired POC demo flow and is weak evidence of the current key.",
+  "L3443's quote combines 01:35:58 and 01:37:15 lines. The 'we can enforce the same one here' commitment is at 01:37:15 and applies to the VIP flow.",
+  "Change the title framing from '9/30 decided ... (for SLC)' to '9/30 decided for VIP; SLC key to be verified by Kobi (L3445)'. The claim that 'a second rep's click creates a new Sign-Up' is an inference that is not verified (it is plausible if WAGR-5 matches on Player + DRA)."
+ ],
+ "live_jira": [
+  {
+   "key": "WAGR-473",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": 0
+  },
+  {
+   "key": "WAGR-8",
+   "status": "Done",
+   "assignee": "Unassigned",
+   "comments_total": 1
+  },
+  {
+   "key": "WAGR-5",
+   "status": "Jumpr Review",
+   "assignee": "Marc Cabantog",
+   "comments_total": 12
+  },
+  {
+   "key": "WAGR-432",
+   "status": "Open",
+   "assignee": "Unassigned",
+   "comments_total": 0
+  }
+ ]
+}

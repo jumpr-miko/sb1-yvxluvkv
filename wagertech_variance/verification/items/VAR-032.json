@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-032",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "The 2026-09-23 decision is real and is not in WAGR-471 (0 comments; description still says the rule is not settled). But that decision covers only the region/prefix part of the Deal Name. WAGR-471 also asks how multi-state Deals are matched and what to do with picklist values that have no CMS equivalent, and the meeting did not settle those. So the ticket is partly stale, not wrong to be open, and 'close it' goes too far. The fix is to record the decision and narrow the ticket scope.",
+ "q1": "Found, with minor differences. Each fragment is verbatim in the re-fetched doc (lines 1143-1162, 01:15:02-01:16:30). The quote joins non-adjacent lines: Kobi's sentence is an excerpt of a longer line at 1143, and a Kobi 'Okay.' sits between Emily's two lines. The wording is not changed.",
+ "q2": "Supports the claim, with limits. Kobi asked whether to keep the 'multistate' prefix from the documentation/mockup or use the VID convention (province only for Canada, US-state for US, CA/US for countrywide). Emily said 'Yeah. Yeah', asked for the region breakout (Ontario vs Alberta) and 'multi' only where there is no breakout. Lina said 'I agree.' This is a real client decision on the prefix. Nothing in the next 40 lines walks it back. The meeting did not discuss Deal matching or picklist values with no CMS equivalent. The Gemini summary (lines 51, 140, 203) gives the same result.",
+ "q3": "No reversal. L3029 (2026-09-24 Wagertech Internal Sync, doc 1bG4sajKiIDV5-jUptnq_81XPUowAMM4w3755UsBRfQQ, 00:47:24) confirms it: Kobi says the multi-state value is going away 'we talked about yesterday', with market codes CA-/US-/US-CA-, and Canadian provinces use the two-letter code. Small difference: on 09-23 Emily kept 'multi' where there is no breakout, but on 09-24 Kobi said multi-state is removed. Kobi should confirm which one is right. L3244/L3250 (2026-09-29) cover deal makeup and recompute rules and do not change naming. No later meeting addresses matching or non-CMS picklist values.",
+ "q4": "Not covered. WAGR-471 is live Open, assigned to Kobi Kunasekaran, Work Type Decision, 0 comments. The only changelog entry (2026-09-29) adds a link to WAGR-39. The description still says 'The multi-state naming rule is not settled, and nobody answered Kobi's Sep 9 naming proposal.' WAGR-97 (Ready, 0 comments, last updated 2026-09-14) and WAGR-419 (Open, 0 comments) also do not record the 09-23 decision. Note: WAGR-471 was created 2026-09-25 by Kobi, who attended the 09-23 meeting, so the decision was missed when he wrote the ticket.",
+ "corrections": [
+  "The 09-23 decision settles only the region/prefix part of WAGR-471. Matching for multi-state Deals and picklist values with no CMS equivalent are still open. Do not close WAGR-471. Record the decision and narrow the remaining scope.",
+  "Add L3029 (2026-09-24 internal sync) as supporting evidence. Flag the difference: keep 'multi' where there is no breakout (09-23, client) vs remove multi-state entirely (09-24, Kobi internal).",
+  "WAGR-97 has Status Ready (not blocked in Jira); the blocking link is stated only in the WAGR-471 description."
+ ],
+ "live_jira": [
+  {"key": "WAGR-471", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-97", "status": "Ready", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-419", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

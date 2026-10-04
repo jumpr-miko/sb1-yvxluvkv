@@ -1,0 +1,24 @@
+{
+ "var_id": "VAR-003",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Real tracking gap: no WAGR issue records the welcome-email fraud tool API integration. But the claim overstates it. On 2026-08-04 the client gave this as a heads-up. The API connection was explicitly left for a later solutioning discussion after the client's own tool works ('could take a few weeks'), and Kobi said 'it doesn't change anything right now'. 'Fast follow' is a transcription fragment ('follow let's just treat everything as it comes in'), with no scope, estimate or endpoint direction agreed. No later meeting through 2026-09-30 brings it back. A placeholder (Holding Pen or Phase 2) is the right fix, so Low, not Medium.",
+ "q1": "Found. All cited quotes (L1560, L1555, L1556, L1559) appear verbatim in the re-fetched doc 1uimd4HPe40Rzv1almUeCtav79O7shBM-zrcISYEmml4, after whitespace normalization. The ellipses in L1555 only drop surrounding text.",
+ "q2": "Partly supports the claim. Context (00:57:04 to 01:01:24): Joyce brings it up as 'heads up as to what's coming'. Phase 1 of the client's vendor tool writes results to a Google Sheet and sends a WhatsApp notice to the rep. Its Phase 2 pulls results into player records 'via API', and 'we'll just have to build you probably an endpoint'. Once that is connected, receipt of the welcome email should set the sign-up to In Progress (an automated trigger). Kobi: 'it doesn't change anything right now... whether you send it from your end or we query it from our end, we can sort that out then.' Joyce: a solutioning discussion on the API connection comes once the tool is proven, which could take weeks. Kobi asked 'phase one or fast follow' and Joyce answered with a cut-off 'follow, let's just treat everything as it comes in', so this is a deferral rather than an agreed scoped item. Reading it as 'agreed as fast follow' is plausible but soft. The speakers are correct.",
+ "q3": "No later reversal or follow-up found. Ledger rows after 2026-08-04 that mention fraud, welcome, inbox, Google Sheet, WhatsApp, vendor or API do not mention the welcome-email fraud tool again. Related context: storage proofs were paused because WagerTech 'may have an alternate solution' (L1931 2026-08-18, L2113 2026-08-25), and on 2026-07-15 the client was scoping an internal fraud-detection tool (L0976, L0977, L0985). These may be the same initiative, but they do not resolve the variance.",
+ "q4": "Not covered. JQL project = WAGR with text ~ 'fraud tool' returns WAGR-464 (redeposits, an unrelated 'Jay's tool') and WAGR-304 (Fraud Flags epic, Done, closed as merged: 'No fraud-specific tooling separately scoped for Phase 1'). text ~ 'welcome' returns WAGR-474, WAGR-131 and WAGR-114. text ~ 'fraud detection'/'fraud vendor'/'fraud results'/'Google Sheet' returns WAGR-477, WAGR-470 and WAGR-46. text ~ 'fast follow'/'inbox'/'WhatsApp' or summary ~ 'fraud' returns 20 fraud-flag build tickets plus WAGR-375 (OOS WhatsApp integration, Cancelled, from the Jun 3 discussion, not this tool). text ~ 'external tool'/'internal tool'/'vendor'/'In Progress trigger' returns In Progress transition builds (WAGR-350, WAGR-155) with no welcome-email trigger. None covers the fraud-tool integration. WAGR-474 cites the 2026-08-04 sync, but it asks whether moving a Sign-Up to In Progress SENDS a welcome email. On 08-04 the client described the reverse: receiving the forwarded welcome email (through the fraud tool and API) should SET In Progress.",
+ "corrections": [
+  "Title wording: change 'agreed as fast follow' to 'client signalled as a later or fast-follow item pending its own tool testing and a future solutioning session'. No scope was agreed.",
+  "The variance should also capture the client-stated automated trigger: receipt of the welcome-email notification through the API moves the Sign-Up to In Progress (Joyce, 00:59:25 to 01:00:27, 2026-08-04).",
+  "WAGR-474's welcome-email bullet appears to reverse the 2026-08-04 direction (it asks about outbound email on In Progress, but the client described an inbound email setting In Progress). Reconcile it when creating the placeholder.",
+  "Possible link to the 2026-07-15 internal fraud-detection tool discussion (L0976, L0977, L0985) and the paused storage proofs (L1931, L2113). Confirm with the client whether this is the same tool.",
+  "WAGR-304 is Done and closed as merged. It is not a fitting parent for new work. Use the Holding Pen (WAGR-443) or Phase 2 (WAGR-478) instead."
+ ],
+ "live_jira": [
+  {"key": "WAGR-474", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-304", "status": "Done", "assignee": null, "comments_total": 2},
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-375", "status": "Cancelled", "assignee": null, "comments_total": 1}
+ ]
+}

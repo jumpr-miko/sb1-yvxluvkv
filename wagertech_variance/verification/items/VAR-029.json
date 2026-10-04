@@ -1,0 +1,24 @@
+{
+ "var_id": "VAR-029",
+ "verdict": "downgraded",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "The variance is real. The 2026-09-23 client call settled region-specific Deal naming, and the 2026-09-24 internal call confirmed that 'multi-state' is going away. But WAGR-471 is still Open with its 'not settled' text, and WAGR-223/WAGR-225 still output 'Multi-state'. Jira already covers part of it: Kobi's 2026-09-29 comment on WAGR-101 (Done) records that WagerTech confirmed one market per Deal, with country-wide = US/CA via Region_Code__c and non-countrywide multi-state US = one Deal per state. WAGR-471 also keeps an open sub-question that the call did not answer: picklist values with no CMS equivalent.",
+ "q1": "Found. Sep 23 doc 14qj2c7X..., text lines ~1143-1166 at 01:15:02-01:16:30. The claim quote is a composite of separate lines with Kobi's 'Okay.' interjections left out, but the wording of each line is verbatim. Sep 24 doc 1bG4saj..., text lines ~797-811 at 00:47:24: 'the multi- saying is going away ... we talked about yesterday. Uh we're going to get rid of that.' and 'Technically, this should say US-CA-BMGm.' Both are verbatim.",
+ "q2": "Supported in context. On Sep 23, Kobi asked whether to keep the 'multistate' prefix from the documentation or use the V ID convention: Canadian province code alone, US-<state> for US states, and CA or US when country-wide. Emily said 'Yeah. Yeah.', asked for the Ontario vs Alberta breakout, and said 'if not then ... we'll keep it as um multi'. Lina said 'I agree.' Kobi then committed to clean it up. One nuance: Emily's 'keep it as multi' for no-breakout cases is a little ambiguous next to Kobi's CA/US country-wide proposal. The Sep 24 internal call (Kobi: multi-state is going away; country-wide = CA-/US-) and the Sep 29 WAGR-101 comment settle it in favour of region codes and US/CA. The Sep 24 call is internal (Kobi and Taryn), not a client confirmation.",
+ "q3": "No later reversal found. Ledger rows after 2026-09-24 on deal naming, market codes, multi or region: L3250 (2026-09-29, pre-activation edits recompute deal name/external ID) and L3325 (region list-view filter) do not change the naming rule. Jira WAGR-101 comment of 2026-09-29 supports the decision: one market per Deal, no multi-state Region support.",
+ "q4": "Partly covered. WAGR-471 is live Open, assigned to Kobi, 0 comments, last updated 2026-09-29 17:52. Its description still says the rule 'is not settled' and nobody answered the Sep 9 proposal. That text is stale. WAGR-223 is Jumpr Review with 0 comments and still specs 'Multi-state' for a blank state. WAGR-225 (Deal Name formula) is Jumpr Review with 0 comments and still renders 'US · Multi-state' (AC3). WAGR-101 is Done, and its 2 comments include Kobi's 2026-09-29 note recording WagerTech's confirmation. Its Region_Code__c already outputs US-NJ / AB / US / CA. WAGR-97 is Ready with 0 comments and does not mention the decision. JQL 'multi-state'/'multistate' returned WAGR-471, 456, 408, 404, 395, 252, 225, 224, 223, 160, 101, 100 and 62. None of them closes WAGR-471.",
+ "corrections": [
+  "Add WAGR-225 (BUILD-125 Deal Name formula, still renders 'US · Multi-state') as the most direct build ticket to update. It is more relevant than WAGR-224.",
+  "Note the partial coverage: WAGR-101 comment by Kobi on 2026-09-29 already records WagerTech's one-market-per-Deal confirmation and the US/CA country-wide region codes.",
+  "The Sep 24 evidence comes from an internal Jumpr call (Kobi and Taryn), not a client confirmation.",
+  "WAGR-471 has a leftover open item (picklist values with no CMS equivalent; multi-state SLC matching) that the Sep 23 call did not resolve. Narrow the ticket. Do not close it."
+ ],
+ "live_jira": [
+  {"key": "WAGR-471", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-223", "status": "Jumpr Review", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-225", "status": "Jumpr Review", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-101", "status": "Done", "assignee": "Taryn Reithofer", "comments_total": 2},
+  {"key": "WAGR-97", "status": "Ready", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

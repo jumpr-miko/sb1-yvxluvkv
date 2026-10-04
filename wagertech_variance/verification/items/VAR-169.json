@@ -1,0 +1,24 @@
+{
+ "var_id": "VAR-169",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "high",
+ "reason": "Real but weaker than claimed: WAGR-32 is Done (resolved 2026-09-14 in the sandbox-phase bulk move) although the Proof Files object, upload component and storage service were never built and storage was put on hold by the client on 2026-08-18 / 2026-08-25. But the claim that no open ticket holds the remaining storage work is wrong: WAGR-112 (Drive storage POC, Requirements / Awaiting Client Feedback, refers to the ~56h build to be authorised after the POC), WAGR-113 (client Drive prerequisites, Requirements), WAGR-114 (Cloud_File__c container, Open, On Hold), WAGR-360 and WAGR-362 are open under the same Sign-Up Proofs & Storage epic (WAGR-31, Open). The gap is Jira hygiene on WAGR-32 (misleading Done, no record of the 2026-08-18 client hold), not an untracked scope item.",
+ "q1": "Found verbatim. All three transcript quotes re-fetched from Drive (text/html export + gdoc_html2txt.py): 2026-07-08 onsite line 306; 2026-08-18 weekly sync lines 562, 565, 572 (L1932 quote also at line 565); 2026-08-25 weekly sync lines 617, 620, 621. Both Jira quotes exist verbatim in WAGR-32 (description; comment 10409 dated 2026-07-29).",
+ "q2": "Supports the claim in context. 2026-08-18: Joyce (client) says WagerTech may have an alternate proof-storage solution, 'TBD on that ... let's just focus on the deal stuff'; Kobi puts a pin on proofs and confirms reps paste proof links in Salesforce; Joyce agrees ('Mhm'). 2026-08-25: Kobi restates storage is on hold pending the client, URL fields used for now; Joyce: 'Yeah, let's keep on that'. No walk-back. The 2026-07-08 quote only shows the interfaces were not built at that time (early evidence, weak by itself). Correct speakers.",
+ "q3": "No later reversal. Ledger rows after 2026-08-25 on Storage/Proofs (L2201, L2312, L2337, L2957 'keep the same flow' for VIP proofs 2026-09-23, L3223, L3376 proposed per-book proof upload 2026-09-30) all assume the current URL-field proof flow; none restarts the Drive/GCP storage build. Grep of September transcripts for storage/GCP/Drive/Dropbox shows no proof-storage restart. L2547 (2026-09-14 internal sync) explains why WAGR-32 went to Done: Kobi bulk-moved items to Done during the sandbox phase.",
+ "q4": "Partially covered. WAGR-32 itself: status Done, resolution 2026-09-14, unassigned, 2 comments. Comment 10408 (2026-07-28) lists the delivered bridge (proof URL fields, attached checkboxes, Proof Status) and says the remaining Proof Files object + upload component + storage service is ~36h; comment 10409 (2026-07-29) says the storage build is gated on client GCP prerequisites. Neither records the 2026-08-18 client hold, and the Done status reads as delivered. However, the remaining storage work is tracked in open tickets: WAGR-112 BUILD-93 Google Drive proof storage POC (Requirements, custom Status 'Awaiting Client Feedback', Phase 2, Must Have; says build authorised separately after POC findings), WAGR-113 BUILD-94 Drive prerequisites C1-C8 (Requirements, Awaiting Client Feedback), WAGR-114 BUILD-95 Cloud_File__c (Open, custom Status 'On Hold', comment 'On Hold until POC Completed'), WAGR-360 Drive Labels (Open), WAGR-362 Dropbox migration scoping (Open); parent epic WAGR-31 'Epic H - Sign-Up Proofs & Storage' is Open. JQL run: project = WAGR AND (text ~ storage OR text ~ GCP OR Epic Link/parent = WAGR-31); project = WAGR AND (text ~ proof OR text ~ upload) AND statusCategory != Done.",
+ "corrections": [
+  "suggested_action is wrong that 'no open ticket holds the post-POC storage build': WAGR-112, WAGR-113, WAGR-114, WAGR-360, WAGR-362 are open under the Sign-Up Proofs & Storage epic (WAGR-31). There is no separate ticket for the ~56h post-POC build itself; WAGR-112 says that build is authorised separately.",
+  "WAGR-32 resolution date is 2026-09-14 (bulk move to Done per L2547), so the Done status is a sandbox-phase bookkeeping choice, not a claim of delivery; better fix is to set WAGR-32 to Cancelled/On Hold or relabel it as the delivered URL-field bridge, and add the 2026-08-18 client hold to WAGR-112/WAGR-31.",
+  "Jira comment author for the 2026-07-29 comment is not returned by the API; WAGR-32 reporter/creator is Kobi Kunasekaran.",
+  "The 2026-07-08 onsite quote is weak evidence (it predates the storage design); the 2026-08-18 and 2026-08-25 quotes carry the claim."
+ ],
+ "live_jira": [
+  {"key": "WAGR-32", "status": "Done", "assignee": "Unassigned", "comments_total": 2},
+  {"key": "WAGR-112", "status": "Requirements", "assignee": "Unassigned", "comments_total": 1},
+  {"key": "WAGR-113", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-114", "status": "Open", "assignee": "Unassigned", "comments_total": 1},
+  {"key": "WAGR-31", "status": "Open", "assignee": "Unassigned", "comments_total": null}
+ ]
+}

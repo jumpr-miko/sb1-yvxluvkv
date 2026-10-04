@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-116",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "Quotes verified in both transcripts and both Jira descriptions. On 2026-09-29 Kobi told Cedrick the Flow vs Apex choice was his (Apex only if payload size or batching is a problem). On 2026-09-28 Cedrick took a Flow POC action. The WAGR-454 changelog shows that on the evening of 2026-09-29 Kobi removed the earlier note 'This differs from Cedrick's Sep 11 flow-callout plan. Decide it with Cedrick' and renamed the ticket 'Queueable Apex Deal sync service'. On 2026-09-30 he added 'Queueable Apex is the single outbound sender'. On 2026-10-02 WAGR-463 listed it under 'Resolved elsewhere'. No later meeting (the ledger ends 2026-09-30) records a POC result or a Cedrick decision. No Jira comments exist. Mitigating point: Kobi's own criterion (batching of 200 Deals) and the old Jira rationale both point to Apex, so the outcome can be correct, but the decision record is missing.",
+ "q1": "Found. L3301 is at line 662 of the re-fetched 2026-09-29 walkthrough. The ellipsis leaves out 'Um like we we talked about the main consideration which is like the payload size and'. That is an omission, not a change of wording. L3179 is at lines 369-371 of the 2026-09-28 internal sync, verbatim ('I'll check' / 'I'll do a quick check on that ...'). The Jira quotes are verbatim in the live WAGR-454 Architecture section and in the WAGR-463 'Resolved elsewhere' section.",
+ "q2": "Supports the claim. In the 2026-09-29 context (lines 601-615), Kobi says payload/character limits 'might change flow versus Apex', and Cedrick cites a Flow limit of about 13 nested arrays. At line 662 Kobi says 'I'm going to leave this up to you'. The text has a condition: go with Apex if payload size is a problem, Flow is fine if batching works. Nothing later in the meeting walks this back. In the 2026-09-28 context (lines 340-400, about 00:15-00:21), Cedrick proposes Flow plus a platform event, Kobi raises concerns about retries and waiting for a response, and Cedrick commits to a quick POC. Kobi says he is 'indifferent to both as long as the flow method is reliable' (L3184). So the 09-28 item is an action item, not a Flow decision. The claim states it correctly as a POC action.",
+ "q3": "No later reversal found. The ledger ends at 2026-09-30, and I found no Flow/Apex/Queueable/POC rows after L3301. In the raw 2026-09-30 weekly sync, the only Apex hit is line 1725 (Joyce asks whether Claude can write Apex), which is not related. L3387 (2026-09-30) repeats only the concern about payload size limits.",
+ "q4": "Not covered. WAGR-454 has 0 comments, and WAGR-463 has 0 comments. Both descriptions state Queueable Apex as settled and do not record the Cedrick POC outcome or the decision rationale. The WAGR-454 changelog (2026-09-29 17:47 ET) shows that the earlier 'Decide it with Cedrick' caveat was removed after the walkthrough, which strengthens the variance. The live status and assignee match the claim.",
+ "corrections": [
+  "The Apex lock in WAGR-454 was not first introduced on 2026-10-02. On 2026-09-29 17:47 ET, after the walkthrough, the summary was renamed to 'Queueable Apex Deal sync service' and the 'Decide it with Cedrick' / 'Why not Flow' recommendation became a fixed architecture. On 2026-09-30 01:06 ET, the bold 'Queueable Apex is the single outbound sender' line was added. The 2026-10-02 edit added only the v0.13.1 lifecycle amendment. WAGR-463 got its 'Resolved elsewhere' Apex line on 2026-10-02.",
+  "Before 2026-09-29, the WAGR-454 text recorded a different Cedrick plan from Sep 11 (a Flow callout). This is useful context for the follow-up with Cedrick."
+ ],
+ "live_jira": [
+  {"key": "WAGR-454", "status": "Requirements", "assignee": "Unassigned", "comments_total": 0},
+  {"key": "WAGR-463", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

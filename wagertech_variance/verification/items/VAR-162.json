@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-162",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Quotes exist and the deal/operator-before-sign-up dependency is real, but it is a conditional technical dependency, not a decided rule: whether historical sign-ups are imported is still undecided (WAGR-470 'Decide: historical Sign-Ups, yes or no'; ledger L2454 on 9/9 'No decision on whether a historical import will happen'), the 8/11 meeting summary records a phased active-first approach with historical deferred, and Kobi parked migration questions until the CMS integration is final. WAGR-477 is an open template-build task with no acceptance criteria yet, so adding keys and load order is a useful refinement, not a Medium gap.",
+ "q1": "Found verbatim in the re-fetched doc (lines 232, 236, 250, 255-257, 259, 268 of the converted text); the claim's ellipses only drop intervening sentences.",
+ "q2": "Partly supports. Kobi confirms (00:10:39-00:11:26) that historical sign-ups need related deal/operator records or they import 'without any relationships' - this is a technical statement, accepted by Joyce. But in the same exchange Kobi proposes a phased approach (start with active, record new sign-ups, work back on historical later; Joyce 'Sure'), Joyce first says not to import inactive deals then says bring in all inactive deals/operators if hidden in the UI (proposal; Kobi 'That makes sense'). The Gemini summary (line 24) states 'Migration strategy set to active records ... deferring historical data to later stages'. At 00:26 (line 415) Kobi says the data migration questions do not need solving now and will be revisited once the CMS integration is solid. So the dependency only applies if a historical sign-up import happens, which was not decided.",
+ "q3": "No later reversal of the dependency. Later items confirm the historical import is still undecided: L2452/L2454 (2026-09-09) - no decision on whether a historical import will happen; flow not built for backdated imports. L3226/L3227 (2026-09-28) - Emily asks for import templates; no commitment, Emily to send exact needs. L3260 (9/29) and L3395 (9/30) add Inactive deal status/closed-deal history kept as inactive, which supports keeping inactive deals in Salesforce but do not decide the historical sign-up import.",
+ "q4": "Partly covered. WAGR-470 (Open, Kobi, 0 comments) already holds the open decision on historical Sign-Ups and cites the 8/11 sync; it does not state the deal/operator dependency or the 8/11 inactive-deal proposal. WAGR-477 (Open, Kobi, 0 comments, WAG Sprint 2) lists the four templates and carries over the WAGR-470 open questions, but gives no key fields or load order; it notes Kobi will raise scope questions in an alignment doc for Emily. JQL text search (historical sign / inactive deals / import order / load order) returned many deal-lifecycle tickets (e.g. WAGR-506 Deal status value set incl. Inactive/Archived, WAGR-370 OOS historical migration - Cancelled) but no ticket that states the load-order dependency for sign-up imports.",
+ "corrections": [
+  "Title calls it a 'decided rule'; it is a conditional technical dependency that applies only if historical sign-ups are imported, which remains undecided (WAGR-470, L2454).",
+  "L1627 (bring in inactive deals/operators) is a proposal, not a decision; the 8/11 meeting summary records active-first with historical deferred, and migration scope was parked until CMS integration is final (transcript line 415).",
+  "Better framing: add to WAGR-470 that if historical sign-ups are in scope, related (incl. inactive/historical) deals, operators and partners must load first; add key fields and load order as acceptance criteria to WAGR-477."
+ ],
+ "live_jira": [
+  {"key": "WAGR-477", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-470", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

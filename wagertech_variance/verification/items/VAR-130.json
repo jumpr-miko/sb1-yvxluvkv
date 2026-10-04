@@ -1,0 +1,20 @@
+{
+ "var_id": "VAR-130",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "medium",
+ "reason": "Real variance: on 09-23 the client asked to hide Kanban for Phase 1, and the WAGR-430 comment of 09-29 now keeps it visible at go-live. But Jira records the change and the reason openly (no native hide setting). On 09-30 Taryn told the client she had sent 'the response about the Canva view' and Emily said 'Okay. Yeah.' The impact is cosmetic, so the open point is written client sign-off, not a hidden scope gap.",
+ "q1": "Found. The doc was re-fetched (text/html, base64-decoded, converted). The lines are at 824-845 (00:52:11-00:53:07). Each line is verbatim, but the claim's quote joins lines that are not next to each other: Emily L824, Lina L839 and L841, Kobi L845. Lines are left out between them (Emily: 'either keep it and like make it functional or we just hide it'). The wording is not changed.",
+ "q2": "Supported in context. Emily: 'I don't even think we can kill it for phase one like just don't have it as an option ... if it's going to be there as an option, then we need to like make it functional or we just hide it ... I don't want to give them like something that's not optimized.' Lina: 'let's save it not for launch ... version two'. Kobi: 'okay. Yeah, I like that.' The AI notes in the same doc (L33, L83, L134, L189) say Kanban is hidden for phase one. The claim says Kobi agreed; that is correct, but he agreed to Lina's 'save it, not for launch' framing. One point weakens the variance: the Jira line 'Emily confirmed: push Kanban to a future optimization phase, then optimize' repeats Emily's 09-23 written note ('Push to the future phase of optimization - then optimize'). That note gives no new client approval for a visible Kanban, so the claim's point that Jira overstates client acceptance is valid.",
+ "q3": "No later reversal in a meeting. In the ledger, L3318 (09-30) is the only later Kanban/'Canva' item. Raw transcript L409: Taryn says 'And then the response about the Canva view.' and Emily answers 'Okay. Yeah. The um Yeah. Okay.' This is a weak acknowledgment of a written response that is not in the transcript (it may be in the feedback document Kobi mentions). It is not an explicit acceptance that Kanban stays visible. A grep of all transcripts from 09-24 to 09-29 (internal syncs, Emily/Taryn markets call, Kobi/Cedrick walkthrough) found no mention of Kanban.",
+ "q4": "Partially covered. The live WAGR-430 description still says to hide Kanban for Phase 1. Comment 1 (09-29) says there is no native declarative setting to hide it. Comment 2 (09-29) says Kanban stays visible at go-live and gives the CSS workaround as not pursued. So Jira already states the deviation and the reason openly. Jira does not record client sign-off on a visible Kanban, and the description was not updated to match. Hygiene: the status is In Progress, the parent is the Phase 2 epic WAGR-478 (Open), and the sprints are WAG Sprint 1 (closed) and WAG Sprint 3 (future).",
+ "corrections": [
+  "The transcript quote joins lines that are not next to each other (L824, L839, L841, L845). Add an ellipsis or include Emily's 'make it functional or we just hide it' line.",
+  "later_or_conflicting_evidence lists L3318 three times. It is one item. Emily's reply to it was 'Okay. Yeah.' (an ambiguous acknowledgment).",
+  "The Jira line 'Emily confirmed: push Kanban to a future optimization phase' comes from Emily's 09-23 written notes, not from a new confirmation.",
+  "The WAGR-430 description still says 'Hide/disable the Kanban view' and conflicts with comment 2. The ticket also has WAG Sprint 3 (future) and a Phase 2 parent while its status is In Progress."
+ ],
+ "live_jira": [
+  {"key": "WAGR-430", "status": "In Progress", "assignee": "Taryn Reithofer", "comments_total": 2}
+ ]
+}

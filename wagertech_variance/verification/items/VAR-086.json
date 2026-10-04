@@ -1,0 +1,21 @@
+{
+ "var_id": "VAR-086",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "On 21 Sep, Lina (client) decided that BAs must not change assigned redeposits and that changes go through Ops; Kobi agreed. Meetings on 30 Sep refine this rule and do not reverse it. WAGR-464 (0 comments) does not state the rule; it lists only 'Can BAs create their own redeposit rows' as open. The WAGR-449 access epic says to record access rules on the feature ticket, and no ticket has this one yet.",
+ "q1": "Found. Both quote segments from L2809 are in the re-fetched doc (lines 726 and 734, at 00:52:37 and 00:53:33). The first segment is the end of a longer Ali utterance that has the 'Ali Nawaz:' label added to the front. That is an acceptable trim, and no words are changed. All segments of the conflicting-evidence quote L2805 (lines 649-665) are found verbatim.",
+ "q2": "Supports the claim. Context lines 600-790: Kobi asked whether BAs change the amounts and whether Jumpr should guard against it. Ali said BAs should not touch them. Lina said: 'if ops is able to go in and change it, that's fine... request it through ops and we'll change it. But let's not allow BAs to change the assigned'. Kobi said 'Perfect' and mentioned Salesforce hard locks. Lina (client lead) made the decision, and the cited L2809 Ali quote is supporting context. Lina also said notes are the channel for reps to ask for adjustments, and Emily proposed a flag checkbox (out of scope here). Small inaccuracy: what_differs says BAs must not edit the 'name' field. The BA fills the player name on the slot (line 662: 'the name is empty and that's where they decide who they give it to'). Ali's concern was BAs typing tech-takes annotations into the name or book fields instead of notes.",
+ "q3": "No reversal. Later decided items refine the rule and stay consistent with it. 30 Sep L3456: the rep enters proof and actual amount; player, book, date and region auto-populate; completed records move to a locked, non-editable queue. L3459: reps cannot return to ops but can release for another player. L3461: 'request reallocation' needs mandatory notes and Ops reviews it. L3455: the eligible signup date range is set by Ops. These make the permission rule more detailed and stronger. They do not resolve it in Jira.",
+ "q4": "Not covered. WAGR-464 (Requirements, Kobi, 0 comments, updated 2026-09-28) lists Ops upload, BA assign and proof, and Ops exceptions. Under open decisions it asks only 'Can BAs create their own redeposit rows, or only Ops?' and says nothing on BA edit restrictions on assigned rows. JQL text~'redeposit' returned 37 issues (WAGR-107/108/213 Deal or Player related-list builds, WAGR-381 Cancelled, WAGR-465 referral payouts, others). None of them has the rule. JQL for 'assigned redeposit' / 'reallocation' / 'field level security' / 'read only' / 'locked' returned access-epic items WAGR-449 and WAGR-496 and Deal/Sign-Up lock tickets (WAGR-453, 438, 494, 401). None covers redeposits. WAGR-449 says access asks must be recorded on the feature ticket, so this rule belongs on WAGR-464.",
+ "corrections": [
+  "Use L2805 (Lina Ceniccola, 00:47:31, line 649) as the primary decision evidence. L2809 (Ali) is supporting context.",
+  "what_differs: BAs DO set the player name on an assigned slot. The restriction applies to amount/book/slot changes and to adding slots, plus putting annotations in the name or book fields instead of notes.",
+  "Add the 2026-09-30 refinements (L3456 locked completed queue, L3459 release vs no return, L3461 request reallocation with mandatory notes) to the suggested WAGR-464 update. The access matrix WAGR-449/WAGR-496 should then pick it up."
+ ],
+ "live_jira": [
+  {"key": "WAGR-464", "status": "Requirements", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-449", "status": "Open", "assignee": null, "comments_total": 0},
+  {"key": "WAGR-496", "status": "Open", "assignee": null, "comments_total": 0}
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "var_id": "VAR-190",
+ "verdict": "downgraded",
+ "new_severity": "Low",
+ "new_confidence": "low",
+ "reason": "Quote exists (only 'Um' dropped) and is a clear Jumpr commitment at kickoff, and no WAGR ticket covers it. But the Sep 3 internal sync shows a shared Google Drive folder already exists and people have access ('even if people have access, you might not have everything there'; Kobi uploads the CMS PDF to Google Drive). So the Drive was most likely set up; the real gap is incomplete content and no tracking ticket for a housekeeping item. Severity stays Low; confidence drops to low.",
+ "q1": "Found, minor filler difference. Re-fetched doc 1A44vvYCwMm62m9KF7XbI4p33qpxIbN9T_r5AHCKH4RQ ('Jumpr <> Wagertech: Project Kickoff - 2026/06/17', text/html export). Line 617, 00:46:26, Kobi Kunasekaran: 'Um we'll also set up a shared Google Drive to dump like meeting recordings like this one. um any documents, deliverables or anything that you need to share with us um you can just drop it in there and everybody uh in the project can have access.' The quote matches after the leading 'Um' is dropped. Gemini summary line 67 also lists 'a shared Google Drive for documents and meeting recordings'.",
+ "q2": "Supports the claim in context. It is part of Kobi's 'how we're going to work together' slide (Asana tickets, Slack channel, shared Drive, weekly sync, weekly hours report). It is a firm Jumpr statement, not a question or hypothetical, and nobody walks it back in lines 590-660. Speaker and date are correct.",
+ "q3": "No later reversal. Later ledger rows: L2419 (2026-09-03, Wagertech Internal Sync, raw transcript lines ~228-236) shows a shared Google Drive folder EXISTS. Cedrick: 'if I have access to the folder, then I'll just check on that folder'; Kobi: 'I haven't been very good at putting everything in the form [folder], so even if people have access, you might not have everything there'; Kobi also uploads Strah's PDF to Google Drive. This makes it likely the setup was done (it is not clear if the folder is client-shared or internal-only). The gap is incomplete population, not a missing Drive. Other Drive rows (L0619-L1777, L1604-L1606) are about proof-storage integration, not the project document drive. L0187/L0196/L0261 (2026-06-11) are before kickoff.",
+ "q4": "Not covered by Jira. JQL project = WAGR AND text ~ 'drive' returned 31 issues, all build/proof-storage items (WAGR-112 Google Drive proof POC, WAGR-113 Drive prerequisites tracker, WAGR-360 Drive Labels, WAGR-362 Dropbox migration, WAGR-114 Cloud_File__c, etc.), none about a project document/recordings drive. text ~ 'recordings' matched 'records' stemming (50+ unrelated items). text ~ 'folder' returned WAGR-457, -120, -113, -112, -75, -39 (none relevant). Phrase search for 'shared drive'/'shared folder'/'project folder' plus kickoff/Slack/Asana summaries returned WAGR-327 Project Kickoff (Done, no description, 0 comments), WAGR-324 Slack Channel Configuration (Done), WAGR-323 Invite Team to Asana (Done), WAGR-113, WAGR-32. None covers the shared Drive. The claim's statement about the sibling setup tickets is accurate.",
+ "corrections": [
+  "L2419 is better read as evidence that the shared folder exists with access granted, not that it is missing. Re-frame the variance as 'shared Drive exists but is not kept up to date and has no tracking task', not 'no Drive'.",
+  "WAGR-327 (Project Kickoff, Done, Kobi) is a closer parent than WAGR-113 if a task is added; WAGR-113 is proof-storage Drive prerequisites, which is a different topic.",
+  "Whether the Sep 3 folder is client-shared or internal-only is unknown; confirm with Kobi."
+ ],
+ "live_jira": [
+  {"key": "WAGR-324", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-327", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": 0},
+  {"key": "WAGR-323", "status": "Done", "assignee": "Kobi Kunasekaran", "comments_total": null},
+  {"key": "WAGR-113", "status": "Requirements", "assignee": null, "comments_total": null}
+ ]
+}

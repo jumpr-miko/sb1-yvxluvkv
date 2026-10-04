@@ -1,0 +1,19 @@
+{
+ "var_id": "VAR-058",
+ "verdict": "rejected",
+ "new_severity": "None",
+ "new_confidence": "high",
+ "reason": "Quotes are real, but in context the 08-27 fix for 'shouldn't default to Canadian' was the client sending player country ('I'll get that sorted'). The client fixed this on 09-23 (L2895), chose not to backfill old records, and on 09-28 WAGR-415 was confirmed as the tracker for that CMS fix, to be closed after a check (L3187/L3189). Jira already covers it.",
+ "q1": "Found. Doc 1LL6tMq9tPMMnfKLg5AGRRz9ps6Tk6Yt6-3uqWMW3Cn0 was re-fetched as text/html and converted. Both transcript quotes are verbatim at 00:15:01 (Emily: 'I think um we definitely shouldn't default to Canadian. So, you can assume based on the country that they sent up, I'll get that sorted.') and 00:16:16 (Kobi: 'let's use the player country for now...'). Both WAGR-415 description quotes are verbatim in the live issue.",
+ "q2": "Partly supported, but the claim misreads the context. Kobi raised the CAD default himself ('I just want to make sure there's some value and that it's not all default to Canadian'). Emily agreed and said the fix was that the client would send the country ('I'll get that sorted'; action item 'Pass Country Data'). Emily also asked whether player-level currency is needed at all. Nobody discussed or decided what to do when the country is blank. So the 08-27 meeting does not ask for a blank-country rule. It sets the expectation that the client sends the country. WAGR-415 matches this: the logic uses the country, and the missing country is a client CMS/API problem to re-raise with them. The ticket title also calls the CAD fallback 'unwanted', so it is not a hidden disagreement.",
+ "q3": "Yes, later meetings resolve it. L2289 (09-01): Emily said Straw would update the API to send player country and state. L2895 (09-23 client weekly, raw transcript lines 245-249): Emily said the new CMS was not sending country/city/state, that it 'should be good going forward', and that she 'didn't have them backfill' because there was no point. That means the client accepted that old records keep their current values. L3187/L3189 (09-28 internal): Cedrick described WAGR-415 as the tracker for the CMS country/state bug that affects player currency. Kobi said it was 'good to go as of Friday' and that he will close it after checking that sign-ups since Friday have state and country.",
+ "q4": "Covered. WAGR-415 (Bug, Open, Kobi Kunasekaran, 0 comments, Sprint WAG Sprint 2 active) tracks the missing country that drives the unwanted CAD fallback. It has next steps to confirm the mapping and re-raise the issue with the client, and it links WAGR-413 (Jumpr Review). The suggested action ('decide blank-country behaviour with the client') is new scope. The 08-27 meeting did not ask for it, and the client's no-backfill choice on 09-23 already settles the historical blank records.",
+ "corrections": [
+  "The WAGR-415 phrase 'validated in the Sep 22 sync' refers to the internal sync that the ledger dates 2026-09-21 (Wagertech Internal Sync, doc 1_l8MYor...). The date is off by one in the ticket, which does not matter here.",
+  "The claim leaves out L2895 (09-23: client fixed the CMS country feed and chose not to backfill) and L3189 (09-28: WAGR-415 confirmed good to go, pending a verify-and-close by Kobi).",
+  "Possible residual (not a variance): WAGR-415 is still Open. On 09-28 Kobi said he would close it after checking sign-ups. This is a housekeeping item, not a requirement conflict."
+ ],
+ "live_jira": [
+  {"key": "WAGR-415", "status": "Open", "assignee": "Kobi Kunasekaran", "comments_total": 0}
+ ]
+}

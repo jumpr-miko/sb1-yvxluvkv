@@ -1,0 +1,37 @@
+{
+ "var_id": "VAR-149",
+ "verdict": "downgraded",
+ "new_severity": "Info",
+ "new_confidence": "low",
+ "reason": "Quote is verbatim, but the 'reporting feed into Google Sheets' is the July 8 plan to keep unmigrated sheets fed during coexistence (worst case a Sheets add-on export, L0903; same meeting line 474 'signups added into the existing Google sheets'). WAGR-470 and WAGR-477 already list this as an open decision: 'whether the legacy Google Sheets keep getting data during the switch-over'. The only gap left is that no ticket names the feed mechanism or a scoping task, and that scoping depends on the WAGR-470 decision. The variance's reading that WAGR-470 'asks only' a different question is wrong.",
+ "q1": "Found verbatim after whitespace normalization (both sentences match exactly). The doc text is Kobi's turn at 00:09:16, line 276, and it continues at 00:10:16, line 280. The timestamp shows the start of the first line.",
+ "q2": "Partly supported. It is a soft, self-assigned intent ('I'll scope this out... probably not this week, maybe next week... right now we're trying to finalize the actual build itself'). It is not a decision and no client asked for it in this meeting. The context shows the feed is the coexistence or switch-over need: L0903 (2026-07-08) says scoping starts on keeping Phase 1 connected to sheets not yet migrated, and the worst case is Salesforce reports exported to sheets by a Google Sheets add-on. Later in the same meeting (line 474), Kobi talks about 'having a way to have the signups added into the existing Google sheets' and asks for sheet access. No speaker or quote errors. The ledger tags it as decided/deferral, which overstates it.",
+ "q3": "No later meeting reports the outcome or a reversal. Related later items: L1701 (2026-08-11) says spreadsheets run in parallel until validated and are then deprecated. L2792 (2026-09-21) says Salesforce replaces the spreadsheets and feeds raw signup data to the allocation tool for V1. That item is about redeposits and the allocation tool, not a reporting feed to sheets. Neither item closes the question.",
+ "q4": "Partly covered. WAGR-470 (Open, Kobi, 0 comments, created 2026-09-25) lists under Decide: 'whether the legacy Google Sheets keep getting data during the switch-over.' WAGR-477 (Open, Kobi, 0 comments, Sprint 2) repeats this as an open question carried over from WAGR-470. The WAGR-24 Reporting & Dashboards epic (Open, unassigned, 0 comments) has no child for a sheets feed. JQL searches for 'reporting feed', 'google sheets feed', 'sheets add-on', 'legacy google sheets', 'switch-over' and 'cutover sheets' returned only WAGR-470 and WAGR-477. A wide search for 'google sheets'/'spreadsheet'/'add-on' returned 60+ unrelated tickets, and no ticket is a scoping task for the feed.",
+ "corrections": [
+  "The quote spans 00:09:16 and 00:10:16. It is not one timestamp.",
+  "WAGR-470 is not a different question. Its switch-over decision is the same need. WAGR-477 also carries it.",
+  "The suggested action should be to resolve the switch-over item in WAGR-470/WAGR-477 and, only if the answer is yes, open a scoping task (add-on export) under WAGR-24 or WAGR-19. It should not be to add the item to WAGR-470, because it is already there.",
+  "The ledger L0970 firmness 'decided' overstates the statement. It was a tentative intent."
+ ],
+ "live_jira": [
+  {
+   "key": "WAGR-470",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": 0
+  },
+  {
+   "key": "WAGR-477",
+   "status": "Open",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": 0
+  },
+  {
+   "key": "WAGR-24",
+   "status": "Open",
+   "assignee": null,
+   "comments_total": 0
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "var_id": "VAR-056",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "medium",
+ "reason": "Quote exists verbatim (08-18 lines 166-180); WagerTech will send a not-yet-built person-level ID and swap/resend later. No later meeting reports the swap done or withdrawn, and no WAGR ticket (searched person ID, player external, dedup, swap, resend, legacy ID) tracks the swap, the production re-key, or a re-test. The re-key of sandbox players is moot (sandbox data is throwaway), so the real gap is the client dependency plus production import and re-test.",
+ "q1": "Found verbatim. Re-fetched doc 1SOoE_HqRKzBFtDRxNkR4kLvamf4T_r3bS_uem79bYi0 (text/html, converted). All three quote segments match after whitespace normalization at lines 166, 172 and 178 (timestamps 00:02:41 and 00:03:36). Speaker Emily Vandenberg is correct.",
+ "q2": "Supports the claim. Emily says the current player ID is effectively an account ID, WagerTech will roll duplicates up to a person account and send that ID, it is not built, testing can proceed with the current ID, and 'when straw makes the change at that person level, then we'll resend' (line 178-180). Kobi accepts: sandbox data is throwaway (line 182), and Jumpr will add no dedup logic and will 'match whatever you're sending to the API' (lines 245-251). Strahinja confirms the plan: an initial historical migration to roll duplicates into a person, then agency-site logic to stop new duplicates (lines 224-232). Emily lists 'the person ID' as an agenda item (line 268). Not a hypothetical or a question. Caveat: because Kobi said the sandbox data will not be kept, the 're-key of existing players' concern applies to production import/go-live, not to sandbox records.",
+ "q3": "No later reversal found. Ledger and raw transcripts after 08-18 contain no other 'person ID' mention. Related later items: L2093 (08-25, one player per email, CMS handles duplicates) and L2286 (09-01, hard lock against duplicate players) are consistent, not a resolution of the swap. L2301 (09-01) is about CMS repush capability and not needing historical cleanup of current sandbox data. L2949/L2950 (09-23) cover VIP players with blank external ID. L3226/L3233 (09-28) show WagerTech back-end data cleanup was paused and is now urgent, and Emily asked for player import templates, which suggests the person-level rollup is still pending ahead of import.",
+ "q4": "Not covered. JQL project = WAGR with text ~ 'person ID'/'person level'/'person-level' returned WAGR-393, 384, 230, 131, 29 (none about the ID swap). text ~ 'player external'/'Player_External_Id__c'/'legacy ID'/'old ID' returned WAGR-441, 401, 384, 268, 185, 184, 100, 46, 29, 8, 6, 5, 2. text ~ dedup*/duplicate player/swap/resend returned 34 issues incl. WAGR-40, 28, 73, 76, 92, 163. Read in full: WAGR-46 (survey completion inbound API; contract uses player external id; owner WagerTech; 1 comment, nothing on person ID), WAGR-40 (Manage Duplicate Player; Phase 2; says agency/CMS handles dedup at creation; 2 comments, nothing on ID swap), WAGR-184 (Source System/Reference fields; removed), WAGR-185 (Player system/integration fields; 6 comments, nothing on swap), WAGR-131 (CMS deal sync config review; deal-side only). None tracks the person-ID swap, its timing, the production external-ID mapping, or a re-test.",
+ "corrections": [
+  "The 'what_differs' statement that existing Player records need re-keying should be scoped to production/go-live import: Kobi said sandbox test data will not be kept (line 182), and L1484 (08-04) already proposed loading current external IDs at go-live.",
+  "Related supporting evidence not cited: L1898 (08-18, Strahinja, historical rollup then go-forward prevention) and L1481-L1485/L1504-L1505 (08-04, old vs new player IDs; WagerTech to plan dedup; Emily to book a player ID session).",
+  "Player_External_Id__c is also the SLC-to-player match key (L1486 proposal on 08-04, L2208 on 08-31), not only the survey upsert key."
+ ],
+ "live_jira": [
+  {"key": "WAGR-46", "status": "Requirements (custom Status: Awaiting Client Feedback)", "assignee": null, "comments_total": 1},
+  {"key": "WAGR-40", "status": "Requirements (Needs More Info, Phase 2)", "assignee": "Kobi Kunasekaran", "comments_total": 2},
+  {"key": "WAGR-184", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 1},
+  {"key": "WAGR-185", "status": "Jumpr Review", "assignee": "Taryn Reithofer", "comments_total": 6},
+  {"key": "WAGR-131", "status": "Jumpr Review", "assignee": "Cedrick Infantado", "comments_total": 1},
+  {"key": "WAGR-441", "status": "In Progress", "assignee": "Kobi Kunasekaran", "comments_total": null}
+ ]
+}
