@@ -1,0 +1,43 @@
+{
+ "var_id": "VAR-033",
+ "verdict": "confirmed",
+ "new_severity": "Medium",
+ "new_confidence": "high",
+ "reason": "All six 2026-09-30 quotes are in the re-fetched doc and, read in context, are agreed decisions (Kobi: 'the separate object is warranted'; Joyce agreed to one active term; correct-vs-new path agreed). No later meeting is in the ledger (latest is 2026-09-30). Live WAGR-462 (Requirements, Kobi, 0 comments, last updated 2026-09-30 00:20, before the 11:30 sync) does not have the no-overlap rule, the correct-vs-new path, CPA/payout-model as the new-term trigger, or the per-field tracking deferral. No Commercial Terms build story exists in Jira; WAGR-507 (2 Oct) only adds a placeholder handoff to a 'separate Commercial Terms flow'. One small overstatement: WAGR-462 already has dated history and 'Sign-Up keeps terms in effect on First Wager Date', so it does not omit every rule.",
+ "q1": "Found. All 13 quote segments from L3415, L3416, L3420, L3422, L3423, L3424 and L3425 match the re-fetched Google Doc 1pc9pSc8tFg_8IuqTrOcRpNaRF9l8hiB6sjpqizzbqZo (whitespace normalized, um/uh dropped). In the fetched text, L3416's second line is at line 1049 (the claim says 1050), which is a trivial offset. L3269 is cited from a different doc (the 2026-09-29 Kobi/Cedrick walkthrough) and is only context, so it was not checked against this doc.",
+ "q2": "Supports. Lines 857-1074 of the fetched text: Kobi demos the custom object. Emily says the CPA amount and payout model drive new terms. Kobi asks about overlap and Joyce says 'there should only be one running at a given time', with Emily agreeing. Joyce agrees to the refshare tie-in ('makes logic sense'). Joyce asks for 'update vs create new', and Kobi describes the 'manage commercial term' correct-or-new path; Joyce says CPA changes 'for sure should be a separate commercial term'. Kobi defers per-field tracking to a spreadsheet tied to the Deal ID, and Emily agrees. Kobi closes at line 1049 with 'the separate object is warranted ... we don't necessarily need to track every single change within the commercial term field set ... we're good to go for now'. The Gemini summary records these as agreed (line 174, 'participants agreed to restrict...'). Caveat: Joyce added that, as a general rule, the build should be 'open to anything happening'. This is a soft hedge but does not reverse any rule. The 'notify when no commercial term' rule (L3427) is only proposed.",
+ "q3": "No later meeting. ledger_compact.tsv has no rows after 2026-09-30, and the newest raw transcript is this 2026-09-30 sync. The earlier 2026-09-29 Kobi/Cedrick walkthrough (L3269) agrees with the decisions: dated child object, no overlaps.",
+ "q4": "Not covered. Live WAGR-462: status Requirements, assignee Kobi Kunasekaran, 0 comments, updated 2026-09-30T00:20 (a sprint carry-over before the 11:30 meeting). Both cited description quotes are there word for word. The description has dated history and Sign-Up terms at First Wager Date. It does not have one-active/no-overlap with an error, the manage path (correct existing vs new term with a later start), CPA/payout model as the new-term trigger, the per-field tracking deferral, or the missing-terms notification. Its open question 'Are start and end dates part of the terms?' was effectively answered on 9/30 but not written back. JQL text~'commercial term(s)' returned 21 issues. None is a build story for the dated Commercial Terms object. WAGR-173 (BUILD-213, Jumpr Review, Taryn) covers only the flat Deal fields. WAGR-507 (Open, Cedrick, created 2026-10-02) has only an optional handoff to an 'independent Add/Edit Commercial Terms Screen Flow', which 'may be completed by the Commercial Terms epic'. WAGR-461 covers Tiered CPA only. A second JQL search (overlap / effective end date / summary~terms, created since 2026-09-20) found no commercial-terms build story.",
+ "corrections": [
+  "The 'what_differs' sentence 'WAGR-462 states none of these rules' overstates the gap. WAGR-462 already requires a dated history of terms and that a completed Sign-Up keeps the terms in effect on its First Wager Date (which matches L3415/L3419/L3424 in substance). The missing items are no-overlap, the correct-vs-new manage path, CPA/payout model as trigger, the per-field tracking deferral, and the missing-terms notification.",
+  "WAGR-98 (DECISION-07, Requirements, Kobi) is also stale. It still says 'Jumpr's lean: Option 1 now' (edit in place with Field History). The 9/30 sync chose Option 2 (child object with effective dates). The suggested action should also close or update WAGR-98, which WAGR-462's 'Done when' already requires.",
+  "WAGR-507 (created 2026-10-02) shows the Commercial Terms flow is planned as a separate screen flow/epic and that a Confluence page '03 User Stories Jira Disposition' is the stated source of truth. The stories may be drafted there but are not in Jira yet.",
+  "L3416 line_start is 1049 in the re-fetched text (claim: 1050)."
+ ],
+ "live_jira": [
+  {
+   "key": "WAGR-462",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": 0
+  },
+  {
+   "key": "WAGR-98",
+   "status": "Requirements",
+   "assignee": "Kobi Kunasekaran",
+   "comments_total": 1
+  },
+  {
+   "key": "WAGR-173",
+   "status": "Jumpr Review",
+   "assignee": "Taryn Reithofer",
+   "comments_total": 3
+  },
+  {
+   "key": "WAGR-507",
+   "status": "Open",
+   "assignee": "Cedrick Infantado",
+   "comments_total": 0
+  }
+ ]
+}
