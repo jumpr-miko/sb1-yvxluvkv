@@ -54,6 +54,7 @@ L.append(f"**Classification:** Internal / Client-Confidential. Not for client di
 # exec summary
 cat=Counter(v["category"] for v in final); sev=Counter(v["severity"] for v in final)
 L.append("## 1. Executive summary\n")
+if summ.get("headline"): L.append(f"{summ['headline']}\n")
 L.append("| Severity | Count |\n|---|---|\n"+"".join(f"| {s} | {sev.get(s,0)} |\n" for s in ["High","Medium","Low"]))
 L.append("\n| Category | Meaning | Count |\n|---|---|---|\n"+"".join(f"| {c} | {m} | {cat.get(c,0)} |\n" for c,m in [("V1","Missing ticket"),("V2","Contradiction"),("V3","Stale ticket"),("V4","Status mismatch"),("V5","Detail gap"),("V6","Scope / phase mismatch"),("V7","Owner mismatch"),("V8","Unresolved open question")]))
 highs=[v for v in final if v["severity"]=="High"][:10]
@@ -62,7 +63,6 @@ for v in highs: L.append(f"- **{v['var_id']}** ({v['category']}, {v['feature_are
 if summ.get("patterns"):
     L.append("\n**Patterns**\n")
     for p in summ["patterns"]: L.append(f"- {p}")
-if summ.get("headline"): L.append(f"\n{summ['headline']}\n")
 # method & coverage
 vs=Counter(v.get("verification") for v in final+rejected); 
 L.append("\n## 2. Method and coverage\n")

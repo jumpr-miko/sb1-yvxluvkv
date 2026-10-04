@@ -8,6 +8,8 @@
 
 ## 1. Executive summary
 
+After verification, 184 variances stay in the report: 2 High, 34 Medium and 148 Low (196 found, 6 rejected by verifiers, 6 folded as duplicates). Most are documentation drift, not build errors: 66 are decided items with no Jira ticket and 40 are tickets with stale text, and verifiers downgraded 69 of the 106 checked items that remain. The 2 High items are WAGR-271 (Done) letting Reps unarchive Sign-Ups when the client decided only Ops can (VAR-153), and no ticket or checklist for the production deployment at go-live (VAR-175).
+
 | Severity | Count |
 |---|---|
 | High | 2 |
@@ -32,6 +34,14 @@
 - **VAR-153** (V2, Access & Permissions / Org Setup): WAGR-271 (Done) lets Reps reactivate archived Sign-Ups, but the client decided that only Ops can unarchive — Jira: WAGR-271
 - **VAR-175** (V1, Testing, UAT & Go-Live): No ticket for the production deployment of sandbox-built work, and no go-live deployment checklist (epic WAGR-18 is empty) — Jira: no ticket
 
+**Patterns**
+
+- Project Mgmt / Timeline: the go-live date or plan was replaced in 8 different meetings between 27 May and 13 Aug before 1 Nov was confirmed on 25 Sep, but WAGR-15, WAGR-17 and WAGR-23 still carry July and August dates (VAR-187), and no ticket covers the production deployment for go-live (VAR-175).
+- Storage / Proofs: the storage direction changed in 7 meetings (13 superseded statements, 27 May to 4 Aug) and has been on hold since 25 Aug, yet WAGR-112 and WAGR-31 still say approved to proceed (VAR-168) and WAGR-32 is Done although the storage build was never delivered (VAR-169); this area has 6 variances.
+- Deal has the most variances of any area (23, of which 10 are stale tickets): commercial-terms history changed in 3 meetings (11, 17 and 21 Sep) before the 30 Sep design, and WAGR-462 lacks the 30 Sep rules (VAR-033), WAGR-98 still leans to edit-in-place (VAR-031) and WAGR-13 still keys duplicates on Version (VAR-041).
+- Gaps: Redeposits has the most decided items with no ticket, 15 of the 66 V1 gaps, including the redeposit data model, allocation date ranges, BA edit limits and incomplete-redeposit outcomes (VAR-081, VAR-083, VAR-086, VAR-087), ahead of Training & Enablement with 7 (VAR-177, VAR-180) and Operator & Partner and Reporting & Dashboards with 6 each.
+- Verifier outcomes: of the 83 first-pass Medium items still in the report, verifiers downgraded 53 to Low, and 36 of those 53 reasons say a newer or umbrella ticket already tracks or partly covers the item, such as WAGR-464 for Redeposits (VAR-082, VAR-084) and WAGR-465 for Referral and Payouts (VAR-103, VAR-106); so most of the risk is stale or incomplete ticket text, not a wrong build.
+
 ## 2. Method and coverage
 
 - **Transcripts read in full (Tier 1, client/project meetings):** 47 docs, 2749 extracted items. Each was read start to end by an extractor and re-read by an independent completeness critic.
@@ -42,6 +52,7 @@
 - **Meetings with no transcript at all (Calendar cross-check, Kobi's and Miko's calendars):** 20 Jul 2026 'Wagertech <> Jumpr: Deal Rep Assignment' (5 attendees, no notes doc); 16 Sep 2026 Redeposits Discovery (placeholder only); 16 Jun 'Wagertech prep' and 1 Oct 'Waleed <> Kobi' (internal, no doc). 15 other calendar entries are single-attendee focus blocks. 40 of 58 calendar-attached Gemini originals are not shared with miko@; folder copies were used instead.
 - **Jira:** all 505 WAGR issues pulled in full (fields, custom fields, links, all 493 comments) on 2026-10-03; 326 not Done. Key gaps WAGR-126/128/129/394/442 do not exist.
 - **Verification:** every High and Medium variance (95) and a 20% sample of Low (21, every 5th) were re-checked by an independent verifier that re-fetched the Google Doc and the live Jira issue: 116 claims checked — confirmed 38, downgraded 72 (High→Medium 4, Medium→Low 55, same severity with lower confidence or narrower claim 12), rejected 6. 6 duplicate reports (same finding from both matching lenses) were folded into their primary. 78 Low variances were outside the sample and carry the finder's evidence only. Severity and confidence shown everywhere in this report are the post-verification values.
+- **Known limits:** 40 of the 58 Gemini notes docs attached to calendar events returned not found for miko@ (originals not shared), so folder or shared-drive copies were used. The 20 Jul 2026 client meeting 'Wagertech <> Jumpr: Deal Rep Assignment' (5 attendees) has no notes doc or transcript, so its decisions are not in the ledger. 8 docs are empty placeholders (8, 10, 11, 22, 29 Sep and 2 Oct Internal Syncs, 16 Sep Redeposits Discovery, 2 Oct CMS Integration Sync), and the 30 Sep Internal Sync is a 51-second recording with no content. Tier 2 internal delivery-team notes (52 docs) are used as corroboration only; client decisions rest on the 47 Tier 1 meetings. 18 of the 99 ledger docs are Gemini notes only, with no verbatim transcript, so evidence from them is a summary rather than spoken words. Jira was pulled as a snapshot on 2026-10-03 (505 WAGR issues); verifiers re-read live Jira only for the 116 sampled claims, so later changes to other tickets are not reflected. Where no Jira key was spoken, transcript items were matched to tickets by meaning, so some matches are judgement calls. The ledger ends on 30 Sep 2026 because both 2 Oct docs are empty, so anything decided after 30 Sep is not covered. The verification sample was all 95 High and Medium claims plus every 5th Low (21 of 101), so 78 Low items in the final register were not independently verified.
 
 ## 3. Variance register
 
